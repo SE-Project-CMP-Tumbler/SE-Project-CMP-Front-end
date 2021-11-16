@@ -70,7 +70,9 @@ export default function FollowingList() {
   }, []);
   const followtags = useSelector(getAllfollowtags);
   // console.log(followtags);
-  const tags = ['tag1', 'tag2'];
+  const tags = [];
+  followtags.response.tags.map((tag) => (tags.push(tag.tag_description)));
+
   return (
     <Box sx={{ width: '100%', maxWidth: 360 }} style={{ backgroundColor: '#122943' }}>
       <nav aria-label="main mailbox folders">
