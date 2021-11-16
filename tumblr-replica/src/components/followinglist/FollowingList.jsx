@@ -12,8 +12,10 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import { useDispatch, useSelector } from 'react-redux';
 import FollowingTag from './FollowingTag';
 import EditPopup from './EditPopup';
+import { fetchAsyncfollowtags, getAllfollowtags } from '../../states/features/followtags/followtagsSlice';
 
 const BootstrapDialog = styled(Dialog)(({ theme }) => ({
   '& .MuiDialogContent-root': {
@@ -62,6 +64,12 @@ export default function FollowingList() {
   const handleClose = () => {
     setOpen(false);
   };
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(fetchAsyncfollowtags());
+  }, []);
+  const followtags = useSelector(getAllfollowtags);
+  // console.log(followtags);
   const tags = ['tag1', 'tag2'];
   return (
     <Box sx={{ width: '100%', maxWidth: 360 }} style={{ backgroundColor: '#122943' }}>
@@ -97,10 +105,18 @@ export default function FollowingList() {
             </div>
           </ListItem>
           <Divider />
-          <FollowingTag imagUrl="https://www.adazing.com/wp-content/uploads/2019/02/open-book-clipart-03.png" tag="raghad" />
-          <FollowingTag imagUrl="https://www.adazing.com/wp-content/uploads/2019/02/open-book-clipart-03.png" tag="raghad" />
-          <FollowingTag imagUrl="https://www.adazing.com/wp-content/uploads/2019/02/open-book-clipart-03.png" tag="raghad" />
-          <FollowingTag imagUrl="https://www.adazing.com/wp-content/uploads/2019/02/open-book-clipart-03.png" tag="raghad" />
+          {
+            followtags.meta.status === '200'
+              ? (followtags.response.tags
+                .map((tag) => (
+                  <FollowingTag
+                    key={tag}
+                    tag={tag.tag_description}
+                    imagUrl={tag.tag_image}
+                  />
+                )))
+              : (<h3>{ followtags.meta.msg }</h3>)
+          }
           <Divider />
           <ListItem disablePadding sx={{ justifyContent: 'center' }}>
             <Button variant="text" sx={{ textTransform: 'none', fontWeight: 'bold' }}>

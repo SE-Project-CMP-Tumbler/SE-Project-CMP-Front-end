@@ -1,0 +1,72 @@
+{ 
+   "follow_tag":
+    {    "meta": {
+            "status": "200",
+            "msg": "OK"
+        },
+        "response": {
+            "tags": [
+                {
+                  "tag_description": "Red",
+                  "tag_image": "http://dummyimage.com/219x105.png/dddddd/000000"
+                },
+                {
+                  "tag_description": "Khaki",
+                  "tag_image": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+                },
+                {
+                  "tag_description": "Khaki",
+                  "tag_image": "http://dummyimage.com/207x249.png/dddddd/000000"
+                },
+                {
+                  "tag_description": "Fuscia",
+                  "tag_image": "http://dummyimage.com/148x169.png/dddddd/000000"
+                },
+                {
+                  "tag_description": "Indigo",
+                  "tag_image": "http://dummyimage.com/166x102.png/5fa2dd/ffffff"
+                },
+                {
+                  "tag_description": "Aquamarine",
+                  "tag_image": "http://dummyimage.com/103x249.png/dddddd/000000"
+                },
+                {
+                  "tag_description": "Teal",
+                  "tag_image": "http://dummyimage.com/147x121.png/dddddd/000000"
+                },
+                {
+                  "tag_description": "Pink",
+                  "tag_image": "http://dummyimage.com/156x100.png/cc0000/ffffff"
+                },
+                {
+                  "tag_description": "Turquoise",
+                  "tag_image": "http://dummyimage.com/231x221.png/ff4444/ffffff"
+                },
+                {
+                  "tag_description": "Teal",
+                  "tag_image": "http://dummyimage.com/226x207.png/ff4444/ffffff"
+                },
+                {
+                  "tag_description": "Red",
+                  "tag_image": "http://dummyimage.com/150x167.png/ff4444/ffffff"
+                },
+                {
+                  "tag_description": "Red",
+                  "tag_image": "http://dummyimage.com/215x200.png/dddddd/000000"
+                },
+                {
+                  "tag_description": "Purple",
+                  "tag_image": "http://dummyimage.com/156x163.png/dddddd/000000"
+                },
+                {
+                  "tag_description": "Green",
+                  "tag_image": "http://dummyimage.com/211x152.png/5fa2dd/ffffff"
+                },
+                {
+                  "tag_description": "Turquoise",
+                  "tag_image": "http://dummyimage.com/125x154.png/cc0000/ffffff"
+                }
+              ]
+        }
+    }
+}

@@ -9,6 +9,8 @@ import PropTypes from 'prop-types';
 export default function FollowingTag({ imagUrl, tag }) {
   const border = {
     borderRadius: 4,
+    width: 80,
+    height: 60,
   };
   return (
     <ListItem disablePadding>
