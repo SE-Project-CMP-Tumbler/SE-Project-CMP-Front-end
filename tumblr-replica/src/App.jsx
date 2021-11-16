@@ -1,11 +1,27 @@
 import React from 'react';
-import { BrowserRouter as Router } from 'react-router-dom';
-
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Explore from './components/explore/Explore';
+import Trending from './components/trending/Trending';
+/* need to import more element when finished */
 function App() {
   return (
-    <Router>
-      <h1>Tumblr</h1>
-    </Router>
+    <div>
+      <Router>
+        <h1>Tumblr</h1>
+        <Routes>
+          <Route path="/explore/recommended-for-you" element={<Explore />} />
+          <Route path="/explore/trending" element={<Trending />} />
+          <Route path="/explore/staff-picks" />
+          <Route path="/explore/text" />
+          <Route path="/explore/photos" />
+          <Route path="/explore/quotes" />
+          <Route path="/explore/chats" />
+          <Route path="/explore/Audio" />
+          <Route path="/explore/Video" />
+          <Route path="/explore/Asks" />
+        </Routes>
+      </Router>
+    </div>
   );
 }
 
