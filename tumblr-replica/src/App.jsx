@@ -1,7 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Explore from './components/explore/Explore';
+import Tagged from './components/tagged/Tagged';
 import Trending from './components/trending/Trending';
+
 /* need to import more element when finished */
 function App() {
   return (
@@ -19,6 +21,7 @@ function App() {
           <Route path="/explore/Audio" />
           <Route path="/explore/Video" />
           <Route path="/explore/Asks" />
+          <Route path="/tagged/:tag" element={<Tagged />} />
         </Routes>
       </Router>
     </div>
