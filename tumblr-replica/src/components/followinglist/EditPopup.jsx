@@ -3,10 +3,12 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
-import PropTypes from 'prop-types';
+import { useSelector } from 'react-redux';
+import { getAllfollowtags } from '../../states/features/followtags/followtagsSlice';
 // import ListSubheader from '@mui/material/ListSubheader';
 
-export default function EditPopup({ alltags }) {
+export default function EditPopup() {
+  const followtags = useSelector(getAllfollowtags);
   return (
     <List
       sx={{
@@ -21,9 +23,9 @@ export default function EditPopup({ alltags }) {
       subheader={<li />}
     >
       <ul>
-        {alltags.map((item) => (
-          <ListItem key={`${item}`}>
-            <ListItemText primary={`#${item}`} />
+        { followtags.response.tags.map((item) => (
+          <ListItem key={`${item.tag_description}`}>
+            <ListItemText primary={`#${item.tag_description}`} />
             <Button variant="outlined" color="secondary" sx={{ textTransform: 'none' }}>Unfollow</Button>
           </ListItem>
         ))}
@@ -31,7 +33,3 @@ export default function EditPopup({ alltags }) {
     </List>
   );
 }
-
-EditPopup.propTypes = {
-  alltags: PropTypes.arrayOf(PropTypes.string).isRequired,
-};

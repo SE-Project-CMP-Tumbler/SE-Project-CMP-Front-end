@@ -70,8 +70,8 @@ export default function FollowingList() {
   }, []);
   const followtags = useSelector(getAllfollowtags);
   // console.log(followtags);
-  const tags = [];
-  followtags.response.tags.map((tag) => (tags.push(tag.tag_description)));
+  // const tags = [];
+  // followtags.response.tags.map((tag) => (tags.push(tag.tag_description)));
 
   return (
     <Box sx={{ width: '100%', maxWidth: 360 }} style={{ backgroundColor: '#122943' }}>
@@ -101,7 +101,7 @@ export default function FollowingList() {
                   Tags you follow
                 </BootstrapDialogTitle>
                 <DialogContent dividers>
-                  <EditPopup alltags={tags} />
+                  <EditPopup />
                 </DialogContent>
               </BootstrapDialog>
             </div>
