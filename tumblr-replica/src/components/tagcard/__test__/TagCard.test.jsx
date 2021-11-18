@@ -5,11 +5,11 @@ import { setupServer } from 'msw/node';
 // We're using our own custom render function and not RTL's render.
 // Our custom utils also re-export everything from RTL
 // so we can import fireEvent and screen here as well
-import { render, screen } from '../../../states/test-utils';
+import { render, screen } from '../../../states/test-utils/test-tagcard';
 import TagCard from '../TagCard';
 
 // We use msw to intercept the network request during the test,
-// and return the response 'John Smith' after 150ms
+// and return the response after 150ms
 // when receiving a get request to the `tag/data/:TagDescription` endpoint
 const handlers = [
   rest.get('tag/data/:TagDescription', (_req, res, ctx) => res(ctx.json({

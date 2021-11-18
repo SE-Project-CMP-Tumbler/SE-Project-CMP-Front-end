@@ -4,7 +4,7 @@ import { configureStore } from '@reduxjs/toolkit';
 import { Provider } from 'react-redux';
 // Import your own reducer
 // import PropTypes from 'prop-types';
-import tagReducer from './features/tag/tagSlice';
+import tagReducer from '../features/tag/tagSlice';
 
 function render(
   ui,
