@@ -28,6 +28,7 @@ export default function NavTabs({ tapnum, selsected }) {
       }}
       >
         <Tabs
+          data-testid="tabs"
           value={value}
           onChange={(event, newValue) => setValue(newValue)}
         >
