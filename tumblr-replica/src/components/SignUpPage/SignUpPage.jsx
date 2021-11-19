@@ -11,6 +11,8 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import SignUpButton from '../SignUpButton/SignUpButton';
 import ContinueWithGoogleButton from '../ContinueWithGoogleButton/ContinueWithGoogleButton';
 import HereIsWhatIsTrendingButton from '../HereIsWhatIsTrendingButton/HereIsWhatIsTrendingButton';
+import EmailInputTextField from '../EmailInputTextField/EmailInputTextField';
+import PasswordInputTextField from '../PasswordInputTextField/PasswordInputTextField';
 
 const theme = createTheme();
 
@@ -43,39 +45,47 @@ export default function LogOutHome() {
           </Link>
         </Box>
         <Box>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="blog-name"
-            label="Blog name"
-            type="text"
-            id="blog-name"
-          />
+          <EmailInputTextField />
+          <PasswordInputTextField />
+          <Box fullWidth sx={{ mb: 1 }}>
+            <TextField
+              id="blog-name"
+              type="text"
+              placeholder="Blog name"
+              variant="outlined"
+              fullWidth
+              autoComplete="off"
+              disableRipple
+              disableElevation
+              style={{
+                backgroundColor: '#E8F0FE',
+                borderRadius: 3,
+                fontSize: '1rem',
+                border: 'none',
+              }}
+              inputProps={{
+                style: {
+                  padding: '11px 13px',
+                  // TO DO: Later remove the hover and focus effects
+                },
+              }}
+            />
+          </Box>
           <SignUpButton />
           <Divider
             variant="fullWidth"
-            sx={{ spacing: 8, mt: 1 }}
+            sx={{
+              spacing: 8,
+              mt: 1,
+              '&.MuiDivider-root': {
+                '&::before': {
+                  borderTop: 'thin solid #FFFFFF',
+                },
+                '&::after': {
+                  borderTop: 'thin solid #FFFFFF',
+                },
+              },
+            }}
             style={{
               color: '#FFFFFF',
               textTransform: 'none',
