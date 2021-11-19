@@ -51,7 +51,18 @@ export default function LogOutHome() {
           <LogInButton />
           <Divider
             variant="fullWidth"
-            sx={{ spacing: 8, mt: 1 }}
+            sx={{
+              spacing: 8,
+              mt: 1,
+              '&.MuiDivider-root': {
+                '&::before': {
+                  borderTop: 'thin solid #FFFFFF',
+                },
+                '&::after': {
+                  borderTop: 'thin solid #FFFFFF',
+                },
+              },
+            }}
             style={{
               color: '#FFFFFF',
               textTransform: 'none',
