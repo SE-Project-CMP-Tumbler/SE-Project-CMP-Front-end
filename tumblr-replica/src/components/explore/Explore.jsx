@@ -1,6 +1,6 @@
 import React from 'react';
-import NavTabs from '../navtabs/Navtabs';
-import FollowingList from '../followinglist/FollowingList';
+import NavTabs from '../Navtabs/Navtabs';
+import FollowingList from '../FollowingList/FollowingList';
 
 function Explore() {
   return (

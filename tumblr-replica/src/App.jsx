@@ -1,8 +1,8 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Explore from './components/explore/Explore';
-import Tagged from './components/tagged/Tagged';
-import Trending from './components/trending/Trending';
+import Explore from './components/Explore/Explore';
+import Tagged from './components/Tagged/Tagged';
+import Trending from './components/Trending/Trending';
 
 /* need to import more element when finished */
 function App() {

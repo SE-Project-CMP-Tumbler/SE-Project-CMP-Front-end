@@ -1,5 +1,5 @@
 import React from 'react';
-import TagCard from '../tagcard/TagCard';
+import TagCard from '../TagCard/TagCard';
 
 function Tagged() {
   return (
