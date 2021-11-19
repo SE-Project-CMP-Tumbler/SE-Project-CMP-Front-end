@@ -6,10 +6,11 @@ import Box from '@mui/material/Box';
 import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
-import TextField from '@mui/material/TextField';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
 import LogInButton from '../LogInButton/LogInButton';
 import ContinueWithGoogleButton from '../ContinueWithGoogleButton/ContinueWithGoogleButton';
+import EmailInputTextField from '../EmailInputTextField/EmailInputTextField';
+import PasswordInputTextField from '../PasswordInputTextField/PasswordInputTextField';
 
 const theme = createTheme();
 
@@ -30,8 +31,6 @@ export default function LogOutHome() {
           }}
         />
         <Box
-          fullWidth
-          component="form"
           sx={{
             marginTop: 8,
             display: 'flex',
@@ -45,35 +44,38 @@ export default function LogOutHome() {
               {title}
             </Typography>
           </Link>
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            id="email"
-            label="Email Address"
-            name="email"
-            autoComplete="email"
-            autoFocus
-          />
-          <TextField
-            margin="normal"
-            required
-            fullWidth
-            name="password"
-            label="Password"
-            type="password"
-            id="password"
-            autoComplete="current-password"
-          />
+        </Box>
+        <Box component="form">
+          <EmailInputTextField />
+          <PasswordInputTextField />
           <LogInButton />
-          <Link to="/forgot_password" style={{ textDecoration: 'none' }}>
-            <Typography component="h4" color="white" fontSize="1rem" font='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;'>
-              {text1}
-            </Typography>
-          </Link>
+          <Box sx={{
+            marginTop: 0.5,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+          >
+            <Link to="/forgot_password" style={{ textDecoration: 'none', alignItems: 'center' }}>
+              <Typography component="h4" color="white" fontSize="1rem" font='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;'>
+                {text1}
+              </Typography>
+            </Link>
+          </Box>
           <Divider
             variant="fullWidth"
-            sx={{ spacing: 8, mt: 1 }}
+            sx={{
+              spacing: 8,
+              mt: 1,
+              '&.MuiDivider-root': {
+                '&::before': {
+                  borderTop: 'thin solid #FFFFFF',
+                },
+                '&::after': {
+                  borderTop: 'thin solid #FFFFFF',
+                },
+              },
+            }}
             style={{
               color: '#FFFFFF',
               textTransform: 'none',
@@ -83,12 +85,20 @@ export default function LogOutHome() {
             or
           </Divider>
           <ContinueWithGoogleButton />
-          <Typography component="h4" color="white" fontSize="1rem" font='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;'>
-            {text2}
-            <Link to="/register" style={{ textDecoration: 'none', color: 'white' }}>
-              {text3}
-            </Link>
-          </Typography>
+          <Box sx={{
+            marginTop: 0.5,
+            display: 'flex',
+            flexDirection: 'column',
+            alignItems: 'center',
+          }}
+          >
+            <Typography component="h4" color="white" fontSize="1rem" font='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;'>
+              {text2}
+              <Link to="/register" style={{ textDecoration: 'none', color: 'white' }}>
+                {text3}
+              </Link>
+            </Typography>
+          </Box>
         </Box>
       </Container>
     </ThemeProvider>
