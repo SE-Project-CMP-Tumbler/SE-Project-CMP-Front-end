@@ -16,7 +16,7 @@ import PasswordInputTextField from '../PasswordInputTextField/PasswordInputTextF
 
 const theme = createTheme();
 
-export default function LogOutHome() {
+const SignUpPage = () => {
   const title = 'tumblr';
   return (
     <ThemeProvider theme={theme}>
@@ -100,4 +100,6 @@ export default function LogOutHome() {
       </Container>
     </ThemeProvider>
   );
-}
+};
+
+export default SignUpPage;

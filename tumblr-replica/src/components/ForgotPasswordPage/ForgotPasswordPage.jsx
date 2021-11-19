@@ -11,7 +11,7 @@ import EmailInputTextField from '../EmailInputTextField/EmailInputTextField';
 
 const theme = createTheme();
 
-export default function LogOutHome() {
+const ForgotPasswordPage = () => {
   const title = 'tumblr';
   return (
     <ThemeProvider theme={theme}>
@@ -87,4 +87,6 @@ export default function LogOutHome() {
       </Container>
     </ThemeProvider>
   );
-}
+};
+
+export default ForgotPasswordPage;

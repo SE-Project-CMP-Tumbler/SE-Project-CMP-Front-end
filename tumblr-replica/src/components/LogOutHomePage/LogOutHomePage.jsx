@@ -14,7 +14,7 @@ import HereIsWhatIsTrendingButton from '../HereIsWhatIsTrendingButton/HereIsWhat
 
 const theme = createTheme();
 
-export default function LogOutHome() {
+const LogOutHomePage = () => {
   const title = 'tumblr';
   const subTitle = 'Make stuff, look at stuff, talk about stuff, find your people.';
   return (
@@ -77,4 +77,6 @@ export default function LogOutHome() {
       </Container>
     </ThemeProvider>
   );
-}
+};
+
+export default LogOutHomePage;
