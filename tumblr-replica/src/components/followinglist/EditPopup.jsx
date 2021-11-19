@@ -3,12 +3,13 @@ import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
-import { useSelector } from 'react-redux';
-import { getAllfollowtags } from '../../states/features/followtags/followtagsSlice';
+import { useSelector, useDispatch } from 'react-redux';
+import { getAllfollowtags, DeleteAsyncfollowtags } from '../../states/features/followtags/followtagsSlice';
 // import ListSubheader from '@mui/material/ListSubheader';
 
 export default function EditPopup() {
   const followtags = useSelector(getAllfollowtags);
+  const dispatch = useDispatch();
   return (
     <List
       sx={{
@@ -26,7 +27,7 @@ export default function EditPopup() {
         { followtags.response.tags.map((item) => (
           <ListItem key={`${item.tag_description}`}>
             <ListItemText primary={`#${item.tag_description}`} />
-            <Button variant="outlined" color="secondary" sx={{ textTransform: 'none' }}>Unfollow</Button>
+            <Button variant="outlined" color="secondary" sx={{ textTransform: 'none' }} onClick={() => dispatch(DeleteAsyncfollowtags(item.tag_description))}>Unfollow</Button>
           </ListItem>
         ))}
       </ul>
