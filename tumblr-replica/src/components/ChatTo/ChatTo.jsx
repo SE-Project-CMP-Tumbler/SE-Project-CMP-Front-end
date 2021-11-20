@@ -55,9 +55,6 @@ function ChatTo() {
         border: '1px solid #a9a9a9',
         padding: '0',
         borderRadius: '7px',
-        position: 'absolute',
-        right: '70px',
-        top: '56px',
       }}
       component="nav"
       aria-labelledby="nested-list-subheader"

@@ -28,7 +28,6 @@ function App() {
         <MediaQuery minWidth={1070}>
           <NavigationBar />
         </MediaQuery>
-        <HomePage />
       </div>
       <Routes>
         <Route exact path="/chat" element={<HomePage />} />

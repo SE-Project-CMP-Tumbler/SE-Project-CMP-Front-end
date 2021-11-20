@@ -230,7 +230,7 @@
     {
       "id": "2",
       "to": "ahmed",
-      "lastmessage": "bye",
+      "lastmessage": "hey",
       "img": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
       "chat_messages": [
         {
@@ -261,6 +261,12 @@
         {
           "from": "nadeen",
           "text": "bye",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "hey",
           "gif": "",
           "photo": ""
         }
