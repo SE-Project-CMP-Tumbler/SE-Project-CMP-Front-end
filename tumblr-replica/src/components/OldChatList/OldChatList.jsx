@@ -1,0 +1,105 @@
+import { React, useEffect } from 'react';
+import Card from '@mui/material/Card';
+import CardHeader from '@mui/material/CardHeader';
+import CardContent from '@mui/material/CardContent';
+import Typography from '@mui/material/Typography';
+import { Divider, Grid } from '@material-ui/core';
+import axios from 'axios';
+import { Avatar } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import { newMessagePress, setChats, setChatBoxesID } from '../../states/reducers/ChatReducer';
+
+/**
+ * This function is for the OldChatList component this component has all friends of the user ,
+ * this component should appear when the user have no chats with his friends
+ * by click on the avatar the chat will open
+ * @method
+ * @returns {*} ChatTo componenet
+ */
+function OldChatList() {
+  const apiBaseUrl = 'http://localhost:8000';
+  const dispatch = useDispatch();
+  const myFriends = useSelector((state) => state.Chat.chats);
+  useEffect(() => {
+    axios({
+      method: 'GET',
+      url: `${apiBaseUrl}/chatsforoneuser`,
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    })
+      .then((res) => {
+        dispatch(setChats(res.data));
+      })
+      .catch((err) => {
+        console.log(err.message); // TODO: set the msg which comes from backend
+      });
+  }, []);
+  return (
+    <Card sx={{ maxWidth: 260 }} style={{ position: 'absolute', right: '70px', top: '56px' }}>
+      <CardHeader
+        action={(
+          <Grid container spacing={4}>
+            <Grid item>
+              <Typography
+                variant="body2"
+                color="text.primary"
+                style={{ fontStyle: 'bold' }}
+              >
+                nadeen-dondon
+              </Typography>
+            </Grid>
+            <Grid item>
+              <button
+                type="button"
+                onClick={() => {
+                  dispatch(newMessagePress());
+                }}
+                style={{
+                  color: '#778899', backgroundColor: 'transparent', border: 'none', cursor: 'pointer', marginRight: '10px', zIndex: '100',
+                }}
+              >
+                New Message
+              </button>
+            </Grid>
+          </Grid>
+        )}
+      />
+      <Divider />
+      <CardContent align="center">
+        <svg
+          viewBox="0 0 49 49"
+          width="64"
+          height="64"
+          fill="rgba(var(--black), 0.65)"
+        >
+          <path d="M24.5 49c-3.832 0-7.64-.91-11.053-2.636l-9.185 1.412a1.607 1.607 0 0 1-1.831-1.85l1.366-8.324A24.382 24.382 0 0 1 0 24.5C0 10.99 10.99 0 24.5 0S49 10.99 49 24.5 38.01 49 24.5 49zm-10.777-5.915c.263 0 .523.065.758.19A21.32 21.32 0 0 0 24.5 45.784c11.735 0 21.283-9.548 21.283-21.283 0-11.736-9.548-21.283-21.283-21.283-11.735 0-21.283 9.547-21.283 21.283a21.18 21.18 0 0 0 3.604 11.85c.228.339.318.753.252 1.156L5.964 44.26l7.514-1.156c.082-.012.163-.019.245-.019z" />
+          <path d="M17 13c-2.757 0-5 2.4-5 5.352 0 .91.69 1.648 1.54 1.648.85 0 1.54-.738 1.54-1.648 0-1.134.861-2.056 1.92-2.056s1.92.922 1.92 2.056c0 .91.69 1.648 1.54 1.648.85 0 1.54-.738 1.54-1.648C22 15.4 19.757 13 17 13m-1.424 16a1.53 1.53 0 0 0-.5.084c-.826.285-1.27 1.205-.994 2.054C15.612 35.841 19.8 39 24.5 39s8.888-3.16 10.418-7.862c.276-.85-.168-1.769-.993-2.054a1.532 1.532 0 0 0-.501-.084 1.58 1.58 0 0 0-1.494 1.107c-1.099 3.379-4.085 5.648-7.43 5.648-3.345 0-6.331-2.27-7.43-5.648A1.582 1.582 0 0 0 15.576 29M32 13c-2.757 0-5 2.4-5 5.352 0 .91.69 1.648 1.54 1.648.85 0 1.54-.738 1.54-1.648 0-1.134.861-2.056 1.92-2.056s1.92.922 1.92 2.056c0 .91.69 1.648 1.54 1.648.85 0 1.54-.738 1.54-1.648C37 15.4 34.757 13 32 13" />
+        </svg>
+        <Typography
+          variant="h5"
+          color="text.secondary"
+          align="center"
+          gutterBottom="true"
+        >
+          Talk To a Tumblr
+        </Typography>
+        <Grid container spacing={2}>
+          {myFriends.map((elem) => (
+            <Grid item xs={3} key={elem.id}>
+              <button
+                type="button"
+                onClick={() => { dispatch(setChatBoxesID(elem.id)); }}
+                style={{ backgroundColor: 'transparent', border: 'none', cursor: 'pointer' }}
+              >
+                <Avatar src={elem.img} />
+              </button>
+            </Grid>
+          ))}
+        </Grid>
+      </CardContent>
+    </Card>
+  );
+}
+
+export default OldChatList;

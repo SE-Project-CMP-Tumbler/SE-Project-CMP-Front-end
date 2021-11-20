@@ -11,6 +11,8 @@ import ForgotPasswordPage from './components/ForgotPasswordPage/ForgotPasswordPa
 import Explore from './components/Explore/Explore';
 import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
+import Newsfeed from './components/NewsFeed/Newsfeed';
+import HomePage from './components/HomePage/HomePage';
 // import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
 // import { selectUser } from './states/user/UserSlice';
 
@@ -26,8 +28,11 @@ function App() {
         <MediaQuery minWidth={1070}>
           <NavigationBar />
         </MediaQuery>
+        <HomePage />
       </div>
       <Routes>
+        <Route exact path="/chat" element={<HomePage />} />
+        <Route exact path="/dashboard" element={<Newsfeed />} />
         <Route exact path="/login" element={<LogInPage />} />
         <Route path="/register" element={<SignUpPage />} />
         <Route path="/forgot_password" element={<ForgotPasswordPage />} />
