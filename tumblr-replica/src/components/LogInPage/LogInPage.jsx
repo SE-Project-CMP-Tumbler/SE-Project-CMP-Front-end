@@ -14,6 +14,20 @@ import PasswordInputTextField from '../PasswordInputTextField/PasswordInputTextF
 
 const theme = createTheme();
 
+/**
+ * Component that acts as the page containing the form that collects the User's login parameters.
+ * It contains the {@link LogInButton} & {@link ContinueWithGoogleButton} components.
+ * It also contains the {@link EmailInputTextField} & {@link PasswordInputTextField}
+ * TextField components.
+ * It has a link that routes to the {@link ForgotPasswordPage}.
+ * @component
+ * @name
+ * LogInPage
+ * @example
+ * return (
+ *   <LogInPage />
+ * )
+ */
 const LogInPage = () => {
   const title = 'tumblr';
   const text1 = 'Forgot your password?';

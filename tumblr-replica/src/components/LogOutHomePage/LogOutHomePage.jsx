@@ -15,6 +15,18 @@ import background from './placeholder.jpg';
 
 const theme = createTheme();
 
+/**
+ * Component that acts as the content of the HomePage when the User is logged out.
+ * It contains the {@link SignUpButton}, {@link LogInButton}, {@link ContinueWithGoogleButton} &
+ * {@link HereIsWhatIsTrendingButton} components.
+ * @component
+ * @name
+ * LogOutHomePage
+ * @example
+ * return (
+ *   <LogOutHomePage />
+ * )
+ */
 const LogOutHomePage = () => {
   const title = 'tumblr';
   const subTitle = 'Make stuff, look at stuff, talk about stuff, find your people.';

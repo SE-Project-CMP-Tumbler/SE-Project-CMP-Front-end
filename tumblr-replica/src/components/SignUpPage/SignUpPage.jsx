@@ -20,6 +20,19 @@ import { setBlogName } from '../../states/user/UserSlice';
 
 const theme = createTheme();
 
+/**
+ * Component that acts as the page containing the form that collects the User's data to register.
+ * It contains the {@link SignUpButton}, {@link ContinueWithGoogleButton} &
+ * {@link HereIsWhatIsTrendingButton} components. It also contains the {@link EmailInputTextField} &
+ * {@link PasswordInputTextField} TextField components.
+ * @component
+ * @name
+ * SignUpPage
+ * @example
+ * return (
+ *   <SignUpPage />
+ * )
+ */
 const SignUpPage = () => {
   const title = 'tumblr';
   const [blogName, setBlogNameh] = useState('');

@@ -5,6 +5,17 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { setEmail } from '../../states/user/UserSlice';
 
+/**
+ * Component to be used in the {@link LogInPage}, {@link SignUpPage} & {@link ForgotPasswordPage}.
+ * It takes the user's email as input to be used later on and stored in the User State.
+ * @component
+ * @name
+ * EmailInputTextField
+ * @example
+ * return (
+ *   <EmailInputTextField  />
+ * )
+ */
 const EmailInputTextField = () => {
   const [email, setEmailh] = useState('');
   // const { email } = useSelector((state) => state.user);
