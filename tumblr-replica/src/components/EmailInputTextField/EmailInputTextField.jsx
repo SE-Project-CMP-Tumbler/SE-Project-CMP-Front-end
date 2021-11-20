@@ -1,15 +1,26 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-// import { createSlice } from '@reduxjs/toolkit';
+import { setEmail } from '../../states/user/UserSlice';
 
-function EmailInputTextField() {
+const EmailInputTextField = () => {
+  const [email, setEmailh] = useState('');
+  // const { email } = useSelector((state) => state.user);
+  const dispatch = useDispatch();
   return (
     <Box fullWidth sx={{ mb: 1 }}>
       <TextField
         id="email"
         type="email"
         placeholder="Email"
+        value={email}
+        onChange={(e) => {
+          setEmailh(e.target.value);
+          // console.log('Inside the onChange Function!');
+          dispatch(setEmail(e.target.value));
+        }}
         variant="outlined"
         fullWidth
         autoComplete="email"
@@ -30,8 +41,7 @@ function EmailInputTextField() {
         }}
       />
     </Box>
-
   );
-}
+};
 
 export default EmailInputTextField;

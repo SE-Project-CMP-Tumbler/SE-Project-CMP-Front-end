@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import { GlobalStyles } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
@@ -13,11 +15,16 @@ import ContinueWithGoogleButton from '../ContinueWithGoogleButton/ContinueWithGo
 import HereIsWhatIsTrendingButton from '../HereIsWhatIsTrendingButton/HereIsWhatIsTrendingButton';
 import EmailInputTextField from '../EmailInputTextField/EmailInputTextField';
 import PasswordInputTextField from '../PasswordInputTextField/PasswordInputTextField';
+import { setBlogName } from '../../states/user/UserSlice';
+// import { selectUser } from '../../states/user/UserSlice';
 
 const theme = createTheme();
 
-export default function LogOutHome() {
+const SignUpPage = () => {
   const title = 'tumblr';
+  const [blogName, setBlogNameh] = useState('');
+  const dispatch = useDispatch();
+  // const user = useSelector(selectUser);
   return (
     <ThemeProvider theme={theme}>
       <Container
@@ -29,6 +36,7 @@ export default function LogOutHome() {
             body: { backgroundColor: '#001935', height: '100%' },
           }}
         />
+        {/* <h2>{user.email}</h2> */}
         <Box
           sx={{
             marginTop: 8,
@@ -52,6 +60,12 @@ export default function LogOutHome() {
               id="blog-name"
               type="text"
               placeholder="Blog name"
+              value={blogName}
+              onChange={(e) => {
+                setBlogNameh(e.target.value);
+                // console.log('Inside the onChange Function!');
+                dispatch(setBlogName(e.target.value));
+              }}
               variant="outlined"
               fullWidth
               autoComplete="off"
@@ -100,4 +114,6 @@ export default function LogOutHome() {
       </Container>
     </ThemeProvider>
   );
-}
+};
+
+export default SignUpPage;

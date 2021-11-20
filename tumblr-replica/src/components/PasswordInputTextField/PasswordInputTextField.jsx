@@ -1,17 +1,27 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-// import { createSlice } from '@reduxjs/toolkit';
+import { setPassword } from '../../states/user/UserSlice';
 
 // TO DO: Add the password difficulty feature
 // and pass whether it will be there or not through an argument
-function PasswordInputTextField() {
+
+const PasswordInputTextField = () => {
+  const [password, setPasswordh] = useState('');
+  const dispatch = useDispatch();
   return (
     <Box fullWidth sx={{ mb: 1 }}>
       <TextField
         id="password"
         type="password"
         placeholder="Password"
+        value={password}
+        onChange={(e) => {
+          setPasswordh(e.target.value);
+          // console.log('Inside the onChange Function!');
+          dispatch(setPassword(e.target.value));
+        }}
         variant="outlined"
         fullWidth
         autoComplete="current-password"
@@ -31,6 +41,5 @@ function PasswordInputTextField() {
       />
     </Box>
   );
-}
-
+};
 export default PasswordInputTextField;
