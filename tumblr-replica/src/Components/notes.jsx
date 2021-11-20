@@ -100,8 +100,8 @@ const Notes = function NotesPopover() {
               sx={{ pt: 0.5, pl: 1 }}
               variant="subtitle2"
               style={{
-                fontSize: '0.8525rem',
-                fontWeight: '400px',
+                fontSize: 15,
+                fontWeight: 'bold',
                 color: '#0b0e0e',
               }}
             >
