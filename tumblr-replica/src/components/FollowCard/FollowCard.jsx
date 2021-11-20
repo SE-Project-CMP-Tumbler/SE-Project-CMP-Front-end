@@ -5,6 +5,7 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 // import ImageListItemBar from '@mui/material/ImageListItemBar';
 
 export default function FollowCard({ image1, image2, tag }) {
@@ -19,6 +20,7 @@ export default function FollowCard({ image1, image2, tag }) {
     color: 'white',
     marginBottom: '5px',
   };
+  const linkst = { textDecoration: 'none' };
   return (
     <Box
       sx={{
@@ -31,33 +33,35 @@ export default function FollowCard({ image1, image2, tag }) {
       }}
     >
       <Paper style={{ backgroundColor: randomColor, margin: 'auto' }} elevation={3}>
-        <div style={white}>
-          #
-          {tag}
-        </div>
-        <ImageList
-          sx={{
-            width: 120,
-            height: 100,
-            borderRadius: 1,
-            overflowY: 'clip',
-          }}
-          gap={15}
-        >
-          <ImageListItem>
-            <img
-              src={image1}
-              alt={image1}
-            />
-          </ImageListItem>
-          <ImageListItem>
-            <img
-              src={image2}
-              alt={image2}
-            />
-          </ImageListItem>
-        </ImageList>
-        <Button style={button} variant="contained">Follow</Button>
+        <Link to={`/tagged/${tag}`} style={linkst}>
+          <div style={white}>
+            #
+            {tag}
+          </div>
+          <ImageList
+            sx={{
+              width: 120,
+              height: 100,
+              borderRadius: 1,
+              overflowY: 'clip',
+            }}
+            gap={15}
+          >
+            <ImageListItem>
+              <img
+                src={image1}
+                alt={image1}
+              />
+            </ImageListItem>
+            <ImageListItem>
+              <img
+                src={image2}
+                alt={image2}
+              />
+            </ImageListItem>
+          </ImageList>
+          <Button style={button} variant="contained">Follow</Button>
+        </Link>
       </Paper>
     </Box>
   );
