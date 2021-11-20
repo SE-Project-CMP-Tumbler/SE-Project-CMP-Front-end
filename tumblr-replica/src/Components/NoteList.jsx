@@ -13,69 +13,94 @@ const NoteList = function AllNotesList() {
   const { likes, reblogs } = useSelector((state) => state.PostNotes);
   return (
     <Grid container direction="coloumn">
-      {
-        likes.map((e) => (
-          <Grid direction="row" container>
-            (
-            <Grid item sx={{ pl: 0.5, pt: 0.5 }}>
-              <Badge
-                key={e.id}
-                overlap="circular"
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                badgeContent={(
-                  <RepeatIcon
-                    sx={{
-                      width: 12,
-                      height: 12,
-                      bgcolor: '#00cc33',
-                      fill: 'white',
-                      borderRadius: '50%',
-                    }}
-                  />
-                )}
-              >
-                <Avatar src={e.blog_avatar} sx={{ width: 20, height: 20 }} alt="Travis Howard" />
-              </Badge>
-              <Grid item>
-                <Typography sx={{ pl: 2, pt: 1 }}>hello</Typography>
-              </Grid>
-            </Grid>
-            )
+      {likes.map((e) => (
+        <Grid direction="row" container spacing={1} sx={{ mt: 0.5 }}>
+          <Grid item>
+            <Badge
+              sx={{ pl: 1 }}
+              key={e.id}
+              overlap="circular"
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+              badgeContent={(
+                <RepeatIcon
+                  sx={{
+                    width: 14,
+                    height: 14,
+                    bgcolor: '#00cc33',
+                    fill: 'white',
+                    borderRadius: '50%',
+                  }}
+                />
+              )}
+            >
+              <Avatar
+                src={e.blog_avatar}
+                sx={{ width: 22, height: 22 }}
+                alt="Travis Howard"
+              />
+            </Badge>
           </Grid>
-        ))
-    }
-      {
-        reblogs.map((e) => (
-          <Grid direction="row" container>
-            <Grid item sx={{ pl: 0.5, pt: 0.5 }}>
-              <Badge
-                key={e.id}
-                overlap="circular"
-                anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
-                badgeContent={
-                  (
-                    <FavoriteIcon
-                      sx={{
-                        width: 12,
-                        height: 12,
-                        bgcolor: '#ff3333',
-                        fill: 'white',
-                        borderRadius: '50%',
-                      }}
-                    />
-                  )
-                }
-                cursor="pointer"
-              >
-                <Avatar cursor="pointer" src={e.blog_avatar} sx={{ width: 24, height: 24 }} alt="Travis Howard" />
-              </Badge>
-              <Grid item>
-                <Typography sx={{ pl: 2, pt: 1 }}> hello</Typography>
-              </Grid>
-            </Grid>
+          <Grid item>
+            <Typography
+              sx={{
+                pt: 0.5,
+                fontWeight: 'bold',
+                fontSize: 13,
+                fontFamily: 'Monospace',
+              }}
+              gutterBottom
+              display="block"
+              variant="caption"
+            >
+              bla bla liked this post
+            </Typography>
           </Grid>
-        ))
-      }
+        </Grid>
+      ))}
+      {reblogs.map((e) => (
+        <Grid direction="row" container spacing={1} sx={{ mt: 0.5 }}>
+          <Grid item>
+            <Badge
+              sx={{ pl: 1 }}
+              key={e.id}
+              overlap="circular"
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+              badgeContent={(
+                <FavoriteIcon
+                  sx={{
+                    width: 14,
+                    height: 14,
+                    bgcolor: '#ff3333',
+                    fill: 'white',
+                    borderRadius: '50%',
+                  }}
+                />
+              )}
+            >
+              <Avatar
+                src={e.blog_avatar}
+                sx={{ width: 22, height: 22 }}
+                alt="Travis Howard"
+              />
+            </Badge>
+          </Grid>
+          <Grid item>
+            <Typography
+              sx={{
+                pt: 0.5,
+                fontWeight: 'bold',
+                fontSize: 13,
+                fontFamily: 'Monospace',
+              }}
+              gutterBottom
+              display="block"
+              variant="caption"
+            >
+              bla bla liked this post
+            </Typography>
+          </Grid>
+        </Grid>
+      ))}
     </Grid>
   );
 };
