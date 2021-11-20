@@ -19,6 +19,8 @@ const LogInPage = () => {
   const text1 = 'Forgot your password?';
   const text2 = 'New to Tumblr? ';
   const text3 = 'Sign up!';
+  // const [email, setEmail] = useState('');
+  // const [password, setPassword] = useState('');
   return (
     <ThemeProvider theme={theme}>
       <Container
