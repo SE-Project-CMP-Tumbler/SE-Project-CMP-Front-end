@@ -1,9 +1,103 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
 
+
 $hover-color: rgb(231, 231, 231)
 $text-grey-color: rgba(0, 0, 0, 0.65)
 $sky-blue: rgb(0, 184, 255)
 $tumblr-blue: rgb(6, 24, 51)
+
+a
+   text-decoration: none
+   color: $text-grey-color
+button
+   border: none
+   background: none
+
+*
+   padding: 0
+   margin: 0
+   box-sizing: border-box
+.nav-styles
+   display: flex
+   align-items: center
+   justify-content: space-between
+   background-color: $tumblr-blue
+   padding: 0.125rem 0.063rem
+   margin-right: 0
+   border-bottom: 0.05rem solid rgba(255, 255, 255, 0.25) 
+
+   .nav-resp
+      display: flex
+      justify-content: space-between
+      align-items: center
+      width: auto
+      padding: 0 1rem
+
+      .tumblr-logo-cont
+         display: flex
+         align-items: center
+         margin-right: 0.25rem
+         flex-shrink: 0
+         i
+            color: #ffffff
+
+      .search-bar
+         position: relative
+         display: block
+         margin-left: 1rem
+         .search-icon
+            color: rgba(255, 255, 255, 0.65)
+            position: absolute
+            left: 6px
+            top: 6.5px
+            
+
+         .search-bar-input
+            background-color: rgba(255, 255, 255, 0.25)
+            color: white
+            height: 2rem
+            border-radius: 0.25rem
+            padding-left: 1.8rem
+            outline: none
+            border: none
+            &:focus
+               font-weight: 600
+               outline: none
+               background: white
+               color: $text-grey-color
+               
+               &::placeholder
+                  color: white
+            &::placeholder
+               color: $hover-color
+               font-family: poppins
+
+   .icons-container
+      display: flex
+      justify-content: flex-end
+      margin-right: 0.25rem
+      margin-left: 0.063rem
+      flex-grow: 1
+      align-items: center
+      .icon-style
+         display: inline-block
+         padding: 1rem 1.1rem 
+         border-radius: 0.25rem
+         margin-right: 0.1rem
+         transform: scale(110%)
+         cursor: pointer
+         .blue-pen
+            color: $sky-blue
+            transform: scale(120%)
+         i
+            color: #ffffff
+      button
+         border: none
+         background: none
+      
+
+
+
 
 
 
@@ -41,6 +135,8 @@ $tumblr-blue: rgb(6, 24, 51)
             align-items: center
             cursor: pointer
             position: relative
+            .chevron
+               padding-left: 2px
             p 
                font-weight: 600
                font-size: 0.75rem
@@ -281,7 +377,7 @@ $tumblr-blue: rgb(6, 24, 51)
    .notifications-drop-content 
       display: none
       width: 24rem
-      transform: translate(-62%, 2%)
+      transform: translate(-62%, 0%)
 
       .notifications-drop-header 
          border-bottom: 1px solid rgba(0, 0, 0, 0.13)
@@ -295,6 +391,8 @@ $tumblr-blue: rgb(6, 24, 51)
             text-decoration: underline
          
          .profile 
+            i
+               padding-left: 2px
             display: flex
             align-items: center
             cursor: pointer
@@ -367,7 +465,8 @@ $tumblr-blue: rgb(6, 24, 51)
             flex-basis: 100%
             color: $text-grey-color
             border-bottom: 0px solid $sky-blue
-            font-weight: 500
+            font-family: 'poppins'
+            font-weight: 600
             padding-top: 0.5rem
             padding-bottom: 0.5rem
          .all

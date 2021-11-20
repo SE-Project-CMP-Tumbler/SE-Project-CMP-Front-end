@@ -3,9 +3,6 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './css/dist/NavigationBar.css';
 import Box from '@mui/material/Box';
-import {
-  navStyles, navResp, tubmlrLogoCont, searchBar, searchBarInput, iconsContainer, iconStyle,
-} from './css/Raw';
 import ChatDropDown from './subcomponents/ChatDropDown';
 import ProfileDropDown from './subcomponents/ProfileDropDown';
 import NotificationsDropDown from './subcomponents/NotificationsDropDown';
@@ -40,20 +37,20 @@ function NavigationBar() {
   const allRefs = [chatRef, notificationsRef, profileRef];
   const user = useSelector(selectUser);
   return (
-    <nav className={navStyles}>
-      <div className={navResp}>
-        <div className={tubmlrLogoCont}>
+    <nav className="nav-styles">
+      <div className="nav-resp">
+        <div className="tumblr-logo-cont">
           <Link to="/dashboard">
-            <i className="fab fa-tumblr fa-2x text-white md:fa-lg " />
+            <i className="fab fa-tumblr fa-2x  md:fa-lg " />
           </Link>
         </div>
-        <div className={searchBar}>
-          <i className="fas fa-search text-gray-400 absolute left-2 top-2" />
+        <div className="search-bar">
+          <i className="fas fa-search search-icon" />
           <input
-            className={searchBarInput}
+            className="search-bar-input"
             type="search"
             name="search"
-            size="47"
+            size="65"
             placeholder="Search Tumblr"
           />
         </div>
@@ -62,36 +59,36 @@ function NavigationBar() {
       <div>
         {user.loggedin
           ? (
-            <div className={iconsContainer}>
-              <Link to="/dashboard" className={iconStyle}>
-                <abbr title="Dashboard"><i className="fas fa-home text-white fa-lg" /></abbr>
+            <div className="icons-container">
+              <Link to="/dashboard" className="icon-style">
+                <abbr title="Dashboard"><i className="fas fa-home  fa-lg" /></abbr>
               </Link>
-              <Link to="/explore/recommended-for-you" className={iconStyle}>
-                <abbr title="Explore"><i className="far fa-compass text-white fa-lg" /></abbr>
+              <Link to="/explore/recommended-for-you" className="icon-style">
+                <abbr title="Explore"><i className="far fa-compass  fa-lg" /></abbr>
               </Link>
-              <Link to="/inbox" className={iconStyle}>
-                <abbr title="Inbox"><i className="fas fa-envelope text-white fa-lg" /></abbr>
+              <Link to="/inbox" className="icon-style">
+                <abbr title="Inbox"><i className="fas fa-envelope  fa-lg" /></abbr>
               </Link>
               <div className="drop chat-drop" ref={chatRef}>
-                <button type="button" className={iconStyle} onClick={() => { toggleDropDown(chatRef, allRefs); }}>
-                  <abbr title="Chat"><i className="far fa-comment-alt text-white fa-lg" /></abbr>
+                <button type="button" className="icon-style" onClick={() => { toggleDropDown(chatRef, allRefs); }}>
+                  <abbr title="Chat"><i className="far fa-comment-alt  fa-lg" /></abbr>
                 </button>
                 <ChatDropDown style={{ display: 'none' }} />
               </div>
               <div className="drop notifications-drop" ref={notificationsRef}>
-                <button type="button" className={iconStyle} onClick={() => { toggleDropDown(notificationsRef, allRefs); }}>
-                  <abbr title="Notifications"><i className="fas fa-bolt text-white fa-lg" /></abbr>
+                <button type="button" className="icon-style" onClick={() => { toggleDropDown(notificationsRef, allRefs); }}>
+                  <abbr title="Notifications"><i className="fas fa-bolt  fa-lg" /></abbr>
                 </button>
                 <NotificationsDropDown style={{ display: 'none' }} />
               </div>
               <div className="drop user-drop" ref={profileRef}>
-                <button type="button" to="/" className={iconStyle} onClick={() => { toggleDropDown(profileRef, allRefs); }}>
-                  <abbr title="My Tumblrs"><i className="fas fa-user text-white fa-lg" /></abbr>
+                <button type="button" to="/" className="icon-style" onClick={() => { toggleDropDown(profileRef, allRefs); }}>
+                  <abbr title="My Tumblrs"><i className="fas fa-user  fa-lg" /></abbr>
                 </button>
                 <ProfileDropDown style={{ display: 'none' }} />
               </div>
-              <Link to="/new" className={iconStyle}>
-                <abbr title="New Post"><i className="fas fa-pen-square text-post-blue fa-lg transform scale-150" /></abbr>
+              <Link to="/new" className="icon-style">
+                <abbr title="New Post"><i className="fas fa-pen-square blue-pen fa-lg" /></abbr>
               </Link>
             </div>
           ) : (

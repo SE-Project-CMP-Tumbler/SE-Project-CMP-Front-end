@@ -5,7 +5,7 @@ const userSlice = createSlice({
   name: 'user',
   initialState: {
     user: {
-      loggedin: true, // false
+      loggedin: false, // false
       email: '',
       password: '',
       blogName: '',

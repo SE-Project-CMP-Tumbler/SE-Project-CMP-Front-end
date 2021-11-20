@@ -1,4 +1,106 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.65);
+}
+
+button {
+  border: none;
+  background: none;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.nav-styles {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #061833;
+  padding: 0.125rem 0.063rem;
+  margin-right: 0;
+  border-bottom: 0.05rem solid rgba(255, 255, 255, 0.25);
+}
+.nav-styles .nav-resp {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: auto;
+  padding: 0 1rem;
+}
+.nav-styles .nav-resp .tumblr-logo-cont {
+  display: flex;
+  align-items: center;
+  margin-right: 0.25rem;
+  flex-shrink: 0;
+}
+.nav-styles .nav-resp .tumblr-logo-cont i {
+  color: #ffffff;
+}
+.nav-styles .nav-resp .search-bar {
+  position: relative;
+  display: block;
+  margin-left: 1rem;
+}
+.nav-styles .nav-resp .search-bar .search-icon {
+  color: rgba(255, 255, 255, 0.65);
+  position: absolute;
+  left: 6px;
+  top: 6.5px;
+}
+.nav-styles .nav-resp .search-bar .search-bar-input {
+  background-color: rgba(255, 255, 255, 0.25);
+  color: white;
+  height: 2rem;
+  border-radius: 0.25rem;
+  padding-left: 1.8rem;
+  outline: none;
+  border: none;
+}
+.nav-styles .nav-resp .search-bar .search-bar-input:focus {
+  font-weight: 600;
+  outline: none;
+  background: white;
+  color: rgba(0, 0, 0, 0.65);
+}
+.nav-styles .nav-resp .search-bar .search-bar-input:focus::placeholder {
+  color: white;
+}
+.nav-styles .nav-resp .search-bar .search-bar-input::placeholder {
+  color: #e7e7e7;
+  font-family: poppins;
+}
+.nav-styles .icons-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 0.25rem;
+  margin-left: 0.063rem;
+  flex-grow: 1;
+  align-items: center;
+}
+.nav-styles .icons-container .icon-style {
+  display: inline-block;
+  padding: 1rem 1.1rem;
+  border-radius: 0.25rem;
+  margin-right: 0.1rem;
+  transform: scale(110%);
+  cursor: pointer;
+}
+.nav-styles .icons-container .icon-style .blue-pen {
+  color: #00b8ff;
+  transform: scale(120%);
+}
+.nav-styles .icons-container .icon-style i {
+  color: #ffffff;
+}
+.nav-styles .icons-container button {
+  border: none;
+  background: none;
+}
+
 .drop {
   overflow: hidden;
   font-family: "Poppins", sans-serif;
@@ -35,6 +137,9 @@
   align-items: center;
   cursor: pointer;
   position: relative;
+}
+.chat-drop .chat-drop-content .chat-drop-header .profile .chevron {
+  padding-left: 2px;
 }
 .chat-drop .chat-drop-content .chat-drop-header .profile p {
   font-weight: 600;
@@ -281,7 +386,7 @@
 .notifications-drop .notifications-drop-content {
   display: none;
   width: 24rem;
-  transform: translate(-62%, 2%);
+  transform: translate(-62%, 0%);
 }
 .notifications-drop .notifications-drop-content .notifications-drop-header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.13);
@@ -299,6 +404,9 @@
   align-items: center;
   cursor: pointer;
   position: relative;
+}
+.notifications-drop .notifications-drop-content .notifications-drop-header .profile i {
+  padding-left: 2px;
 }
 .notifications-drop .notifications-drop-content .notifications-drop-header .profile p {
   font-weight: 600;
@@ -362,7 +470,8 @@
   flex-basis: 100%;
   color: rgba(0, 0, 0, 0.65);
   border-bottom: 0px solid #00b8ff;
-  font-weight: 500;
+  font-family: "poppins";
+  font-weight: 600;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
 }

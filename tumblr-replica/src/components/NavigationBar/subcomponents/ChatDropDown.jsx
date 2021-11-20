@@ -37,7 +37,7 @@ function ChatDropDown() {
             <img src="/profile.png" alt="profile icon" />
           </div>
           <p>essamwisam</p>
-          <i className="fas fa-chevron-down text-black fa-sm pl-1" />
+          <i className="fas fa-chevron-down text-black fa-sm chevron" />
           <div className="tumblr-list">
             <TumblrItem tumblrName="Jaximus" tumblrTitle="Grandmaster" tumblrIcon="/profile2.png" />
             <TumblrItem tumblrName="Malzahar" tumblrTitle="Landlord" tumblrIcon="/profile3.png" />
