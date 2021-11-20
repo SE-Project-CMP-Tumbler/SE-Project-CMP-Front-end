@@ -17,6 +17,7 @@
     "axios": "^0.24.0",
     "better-docs": "^2.3.2",
     "history": "^5.1.0",
+    "jest-html-reporter": "^3.4.1",
     "jsdoc": "^3.6.7",
     "msw": "^0.35.0",
     "postcss": "^7.0.39",
