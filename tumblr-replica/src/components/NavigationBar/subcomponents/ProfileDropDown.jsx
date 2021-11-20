@@ -15,7 +15,7 @@ function ProfileDropDown() {
     <div className="drop-content user-drop-content">
       <div className="drop-header user-drop-header">
         <p>Account</p>
-        <Link to="#s">Log out</Link>
+        <Link to="/logout">Log out</Link>
       </div>
       <UserItems feedValues={feedValues} />
       <div className="drop-header user-drop-header">
