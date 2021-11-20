@@ -5,6 +5,17 @@ import Box from '@mui/material/Box';
 import SvgIcon from '@material-ui/core/SvgIcon';
 import { ReactComponent as Logo } from './7123025_logo_google_g_icon.svg';
 
+/**
+ * Component to be used in the {@link LogOutHomePage}, {@link LogInPage} & {@link SignUpPage}.
+ * It gives the user the option to login/signup using Google.
+ * @component
+ * @name
+ * ContinueWithGoogleButton
+ * @example
+ * return (
+ *   <ContinueWithGoogleButton  />
+ * )
+ */
 const ContinueWithGoogleButton = () => (
   <Box
     sx={{ spacing: 8, mt: 1.5 }}

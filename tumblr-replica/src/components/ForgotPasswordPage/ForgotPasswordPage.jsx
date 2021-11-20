@@ -11,6 +11,19 @@ import EmailInputTextField from '../EmailInputTextField/EmailInputTextField';
 
 const theme = createTheme();
 
+/**
+ * Component that acts as the page containing the mini form that collects the User's email.
+ * It is accessed via the {@link LogInPage} in case the User forgot their password..
+ * It contains the {@link EmailInputTextField} components.
+ * It has a cancel button that routes back to the {@link LogInPage}.
+ * @component
+ * @name
+ * ForgotPasswordPage
+ * @example
+ * return (
+ *   <ForgotPasswordPage />
+ * )
+ */
 const ForgotPasswordPage = () => {
   const title = 'tumblr';
   return (

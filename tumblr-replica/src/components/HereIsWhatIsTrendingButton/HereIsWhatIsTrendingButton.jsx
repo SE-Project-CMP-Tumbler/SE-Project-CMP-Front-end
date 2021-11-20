@@ -4,6 +4,17 @@ import Button from '@material-ui/core/Button';
 import Box from '@mui/material/Box';
 import ExploreIconOutlined from '@mui/icons-material/ExploreOutlined';
 
+/**
+ * Component to be used in the {@link LogOutHomePage} & {@link SignUpPage}
+ * It routes the User to the /explore/trending.
+ * @component
+ * @name
+ * HereIsWhatIsTrendingButton
+ * @example
+ * return (
+ *   <HereIsWhatIsTrendingButton  />
+ * )
+ */
 const HereIsWhatIsTrendingButton = () => (
   <Box
     sx={{ spacing: 8, mt: 1.5 }}

@@ -7,6 +7,17 @@ import { setPassword } from '../../states/user/UserSlice';
 // TO DO: Add the password difficulty feature
 // and pass whether it will be there or not through an argument
 
+/**
+ * Component to be used in the {@link LogInPage} & {@link SignUpPage}
+ * It takes the user's password as input to be used later on and stored in the User State.
+ * @component
+ * @name
+ * PasswordInputTextField
+ * @example
+ * return (
+ *   <PasswordInputTextField  />
+ * )
+ */
 const PasswordInputTextField = () => {
   const [password, setPasswordh] = useState('');
   const dispatch = useDispatch();
