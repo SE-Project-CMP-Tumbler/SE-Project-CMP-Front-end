@@ -8,47 +8,19 @@
             "tags": [
                 {
                   "tag_description": "Red",
-                  "tag_image": "http://dummyimage.com/219x105.png/dddddd/000000"
+                  "tag_image": "https://picsum.photos/id/237/200/300"
                 },
                 {
                   "tag_description": "Khaki",
-                  "tag_image": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+                  "tag_image": "https://picsum.photos/seed/picsum/200/300"
                 },
                 {
                   "tag_description": "Khakii",
-                  "tag_image": "http://dummyimage.com/207x249.png/dddddd/000000"
+                  "tag_image": "https://picsum.photos/200/300"
                 },
                 {
                   "tag_description": "Fuscia",
-                  "tag_image": "http://dummyimage.com/148x169.png/dddddd/000000"
-                },
-                {
-                  "tag_description": "Indigo",
-                  "tag_image": "http://dummyimage.com/166x102.png/5fa2dd/ffffff"
-                },
-                {
-                  "tag_description": "Aquamarine",
-                  "tag_image": "http://dummyimage.com/103x249.png/dddddd/000000"
-                },
-                {
-                  "tag_description": "Redi",
-                  "tag_image": "http://dummyimage.com/150x167.png/ff4444/ffffff"
-                },
-                {
-                  "tag_description": "Redt",
-                  "tag_image": "http://dummyimage.com/215x200.png/dddddd/000000"
-                },
-                {
-                  "tag_description": "Purple",
-                  "tag_image": "http://dummyimage.com/156x163.png/dddddd/000000"
-                },
-                {
-                  "tag_description": "Green",
-                  "tag_image": "http://dummyimage.com/211x152.png/5fa2dd/ffffff"
-                },
-                {
-                  "tag_description": "Turquoiset",
-                  "tag_image": "http://dummyimage.com/125x154.png/cc0000/ffffff"
+                  "tag_image": "https://picsum.photos/id/12/200/300"
                 }
               ]
         }
@@ -74,35 +46,35 @@
         "tags": [
             {
               "tag_description": "Red",
-              "tag_image": "http://dummyimage.com/219x105.png/dddddd/000000"
+              "tag_image": "https://picsum.photos/id/1/200/300"
             },
             {
               "tag_description": "Khaki",
-              "tag_image": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+              "tag_image": "https://picsum.photos/id/4/210/320"
             },
             {
               "tag_description": "Khakii",
-              "tag_image": "http://dummyimage.com/207x249.png/dddddd/000000"
+              "tag_image": "https://picsum.photos/id/5/200/300"
             },
             {
               "tag_description": "Fuscia",
-              "tag_image": "http://dummyimage.com/148x169.png/dddddd/000000"
+              "tag_image": "https://picsum.photos/id/10/200/300"
             },
             {
               "tag_description": "Indigo",
-              "tag_image": "http://dummyimage.com/166x102.png/5fa2dd/ffffff"
+              "tag_image": "https://picsum.photos/id/6/200/300"
             },
             {
               "tag_description": "Aquamarine",
-              "tag_image": "http://dummyimage.com/103x249.png/dddddd/000000"
+              "tag_image": "https://picsum.photos/id/9/200/300"
             },
             {
               "tag_description": "Teal",
-              "tag_image": "http://dummyimage.com/147x121.png/dddddd/000000"
+              "tag_image": "https://picsum.photos/id/11/200/300"
             },
             {
               "tag_description": "Turquoiset",
-              "tag_image": "http://dummyimage.com/125x154.png/cc0000/ffffff"
+              "tag_image": "https://picsum.photos/id/7/200/300"
             }
           ] 
      }  
@@ -116,43 +88,43 @@
         "tags": [
             {
               "tag_description": "Red",
-              "tag_image1": "http://dummyimage.com/219x105.png/dddddd/000000",
-              "tag_image2": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+              "tag_image1": "https://picsum.photos/id/1/200/300",
+              "tag_image2": "https://picsum.photos/id/2/200/300"
             },
             {
               "tag_description": "Khaki",
-              "tag_image1": "http://dummyimage.com/219x232.png/5fa2dd/ffffff",
-              "tag_image2": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+              "tag_image1": "https://picsum.photos/id/3/200/300",
+              "tag_image2": "https://picsum.photos/id/4/200/300"
             },
             {
               "tag_description": "Khakii",
-              "tag_image1": "http://dummyimage.com/207x249.png/dddddd/000000",
-              "tag_image2": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+              "tag_image1": "https://picsum.photos/id/5/200/300",
+              "tag_image2": "https://picsum.photos/id/6/200/300"
             },
             {
               "tag_description": "Fuscia",
-              "tag_image1": "http://dummyimage.com/148x169.png/dddddd/000000",
-              "tag_image2": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+              "tag_image1": "https://picsum.photos/id/7/200/300",
+              "tag_image2": "https://picsum.photos/id/8/200/300"
             },
             {
               "tag_description": "Indigo",
-              "tag_image1": "http://dummyimage.com/166x102.png/5fa2dd/ffffff",
-              "tag_image2": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+              "tag_image1": "https://picsum.photos/id/9/200/300",
+              "tag_image2": "https://picsum.photos/id/10/200/300"
             },
             {
               "tag_description": "Aquamarine",
-              "tag_image1": "http://dummyimage.com/103x249.png/dddddd/000000",
-              "tag_image2": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+              "tag_image1": "https://picsum.photos/id/12/200/300",
+              "tag_image2": "https://picsum.photos/id/13/200/300"
             },
             {
               "tag_description": "Teal",
-              "tag_image1": "http://dummyimage.com/147x121.png/dddddd/000000",
-              "tag_image2": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+              "tag_image1": "https://picsum.photos/id/14/200/300",
+              "tag_image2": "https://picsum.photos/id/15/200/300"
             },
             {
               "tag_description": "Turquoiset",
-              "tag_image1": "http://dummyimage.com/125x154.png/cc0000/ffffff",
-              "tag_image2": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+              "tag_image1": "https://picsum.photos/id/16/200/300",
+              "tag_image2": "https://picsum.photos/id/17/200/300"
             }
           ] 
      }  

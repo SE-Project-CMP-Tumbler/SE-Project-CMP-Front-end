@@ -32,14 +32,14 @@ export default function TrendCard({
     fontSize: 'medium',
     opacity: 0.7,
   };
-  const linkst = { width: '100%', textDecoration: 'none' };
+  const linkst = { width: '90%', textDecoration: 'none' };
   return (
     <Box
       sx={{
         '& > :not(style)': {
-          m: 1,
-          width: '90%',
+          width: '85%',
           height: 80,
+          marginTop: '15px',
           p: 1,
         },
       }}
@@ -66,13 +66,14 @@ export default function TrendCard({
             </Grid>
             <Grid item xs={4}>
               <ImageList sx={{
-                width: 210, height: 70, borderRadius: 1, mt: 0.5, overflowY: 'clip',
+                borderRadius: 1, mt: 0.5, overflowY: 'clip',
               }}
               >
                 <ImageListItem>
                   <img
                     src={image1}
                     alt="Cardimage"
+                    style={{ width: '120px', height: '70px' }}
                   />
                 </ImageListItem>
               </ImageList>

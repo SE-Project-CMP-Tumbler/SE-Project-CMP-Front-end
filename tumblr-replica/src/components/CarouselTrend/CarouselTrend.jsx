@@ -44,7 +44,7 @@ export default function CarouselTrend() {
   const trendTags = useSelector(getTrendtags);
   return (
     window.innerWidth > 970 ? (
-      <Box sx={{ width: 700 }}>
+      <Box sx={{ width: 650 }}>
         { trendTags.meta.status === '200'
           ? (
             <Carousel responsive={responsive}>

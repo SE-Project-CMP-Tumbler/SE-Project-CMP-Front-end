@@ -40,10 +40,14 @@ export default function FollowingTag({ imagUrl, tag }) {
           </ListItemIcon>
           <ListItemText
             primary={`#${tag}`}
+            secondary="10 recent posts"
             primaryTypographyProps={{
               fontSize: 15,
               letterSpacing: 0,
               color: 'rgb(255,255,255)',
+            }}
+            secondaryTypographyProps={{
+              color: 'rgba(255,255,255,.5)',
             }}
           />
         </ListItemButton>
