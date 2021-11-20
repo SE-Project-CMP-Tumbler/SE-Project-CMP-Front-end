@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: NewsFeed/subcomponents/PostCard/subcomponents/Notes/subcomponents/NoteList.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: NewsFeed/subcomponents/PostCard/subcomponents/Notes/subcomponents/NoteList.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import React from 'react';
+import Typography from '@mui/material/Typography';
+import '../css/Notes.css';
+import Grid from '@mui/material/Grid';
+import Badge from '@mui/material/Badge';
+import Avatar from '@mui/material/Avatar';
+import RepeatIcon from '@mui/icons-material/Repeat';
+import FavoriteIcon from '@mui/icons-material/Favorite';
+import { useSelector } from 'react-redux';
+/**
+ * this function is responsible for displaying list of people who like/rebloged/replied
+ * on a post
+ * @returns the list of people
+ */
+const NoteList = function AllNotesList() {
+  const { likes, reblogs } = useSelector((state) => state.PostNotes);
+  return (
+    &lt;Grid container direction="coloumn">
+      {likes.map((e) => (
+        &lt;Grid direction="row" container spacing={1} sx={{ mt: 0.5 }}>
+          &lt;Grid item>
+            &lt;Badge
+              sx={{ pl: 1 }}
+              key={e.id}
+              overlap="circular"
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+              badgeContent={(
+                &lt;RepeatIcon
+                  sx={{
+                    width: 14,
+                    height: 14,
+                    bgcolor: '#00cc33',
+                    fill: 'white',
+                    borderRadius: '50%',
+                  }}
+                />
+              )}
+            >
+              &lt;Avatar
+                src={e.blog_avatar}
+                sx={{ width: 22, height: 22 }}
+                alt="Travis Howard"
+              />
+            &lt;/Badge>
+          &lt;/Grid>
+          &lt;Grid item>
+            &lt;Typography
+              sx={{
+                pt: 0.5,
+                fontWeight: 'bold',
+                fontSize: 13,
+                fontFamily: 'Monospace',
+              }}
+              gutterBottom
+              display="block"
+              variant="caption"
+            >
+              bla bla liked this post
+            &lt;/Typography>
+          &lt;/Grid>
+        &lt;/Grid>
+      ))}
+      {reblogs.map((e) => (
+        &lt;Grid direction="row" container spacing={1} sx={{ mt: 0.5 }}>
+          &lt;Grid item>
+            &lt;Badge
+              sx={{ pl: 1 }}
+              key={e.id}
+              overlap="circular"
+              anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+              badgeContent={(
+                &lt;FavoriteIcon
+                  sx={{
+                    width: 14,
+                    height: 14,
+                    bgcolor: '#ff3333',
+                    fill: 'white',
+                    borderRadius: '50%',
+                  }}
+                />
+              )}
+            >
+              &lt;Avatar
+                src={e.blog_avatar}
+                sx={{ width: 22, height: 22 }}
+                alt="Travis Howard"
+              />
+            &lt;/Badge>
+          &lt;/Grid>
+          &lt;Grid item>
+            &lt;Typography
+              sx={{
+                pt: 0.5,
+                fontWeight: 'bold',
+                fontSize: 13,
+                fontFamily: 'Monospace',
+              }}
+              gutterBottom
+              display="block"
+              variant="caption"
+            >
+              bla bla liked this post
+            &lt;/Typography>
+          &lt;/Grid>
+        &lt;/Grid>
+      ))}
+    &lt;/Grid>
+  );
+};
+
+export default NoteList;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#CheckOut">CheckOut</a></li><li><a href="global.html#MoreMenu">MoreMenu</a></li><li><a href="global.html#Newsfeed">Newsfeed</a></li><li><a href="global.html#NoteBox">NoteBox</a></li><li><a href="global.html#NoteHeader">NoteHeader</a></li><li><a href="global.html#NoteList">NoteList</a></li><li><a href="global.html#Notes">Notes</a></li><li><a href="global.html#PostCard">PostCard</a></li><li><a href="global.html#PostContent">PostContent</a></li><li><a href="global.html#PostFooter">PostFooter</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sat Nov 20 2021 20:35:21 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

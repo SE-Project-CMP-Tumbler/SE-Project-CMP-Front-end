@@ -1,4 +1,32 @@
-import { React, useState } from 'react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: NewsFeed/subcomponents/PostCard/subcomponents/Notes/subcomponents/NoteBox.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: NewsFeed/subcomponents/PostCard/subcomponents/Notes/subcomponents/NoteBox.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { React, useState } from 'react';
 import Typography from '@mui/material/Typography';
 import '../css/Notes.css';
 import Button from '@mui/material/Button';
@@ -65,8 +93,8 @@ const NoteBox = function NoteBox() {
       });
   };
   return (
-    <>
-      <Grid
+    &lt;>
+      &lt;Grid
         container
         direction="row"
         maxWidth="100%"
@@ -74,12 +102,12 @@ const NoteBox = function NoteBox() {
         spacing={2}
         sx={{ mt: 0.5 }}
       >
-        <Grid item sx={{ ml: 0.9 }}>
-          <Badge
+        &lt;Grid item sx={{ ml: 0.9 }}>
+          &lt;Badge
             overlap="circular"
             anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
             badgeContent={(
-              <RepeatIcon
+              &lt;RepeatIcon
                 sx={{
                   width: 16,
                   height: 16,
@@ -90,16 +118,16 @@ const NoteBox = function NoteBox() {
               />
             )}
           >
-            <Avatar
+            &lt;Avatar
               src="../img/heart.png"
               sx={{ width: 25, height: 25 }}
               alt="Travis Howard"
             />
-          </Badge>
-        </Grid>
-        <Grid item style={{ height: 'inherit' }} xs={8}>
-          <Card>
-            <CardHeader
+          &lt;/Badge>
+        &lt;/Grid>
+        &lt;Grid item style={{ height: 'inherit' }} xs={8}>
+          &lt;Card>
+            &lt;CardHeader
               sx={{
                 pr: 0,
                 pl: 1,
@@ -107,15 +135,15 @@ const NoteBox = function NoteBox() {
                 pb: 0,
               }}
               action={(
-                <Button
+                &lt;Button
                   id="basic-button"
                   aria-controls="basic-menu"
                   aria-haspopup="true"
                   aria-expanded={open ? 'true' : undefined}
                   onClick={(e) => handleClick(e)}
                 >
-                  <IconButton aria-label="More">
-                    <MoreHorizIcon
+                  &lt;IconButton aria-label="More">
+                    &lt;MoreHorizIcon
                       sx={{
                         pr: 0,
                         pl: 0,
@@ -123,17 +151,17 @@ const NoteBox = function NoteBox() {
                         pb: 0,
                       }}
                     />
-                  </IconButton>
-                </Button>
+                  &lt;/IconButton>
+                &lt;/Button>
               )}
               title={(
-                <Typography gutterBottom display="block" variant="caption">
+                &lt;Typography gutterBottom display="block" variant="caption">
                   {' '}
                   Note owner name
-                </Typography>
+                &lt;/Typography>
               )}
             />
-            <Menu
+            &lt;Menu
               id="basic-menu"
               anchorEl={anchorEl}
               open={open}
@@ -142,27 +170,27 @@ const NoteBox = function NoteBox() {
                 'aria-labelledby': 'basic-button',
               }}
             >
-              <MenuItem>props.post_date</MenuItem>
-              <Divider />
-              {LoggedIn.blog_id === 2 && (
-                <MenuItem
+              &lt;MenuItem>props.post_date&lt;/MenuItem>
+              &lt;Divider />
+              {LoggedIn.blog_id === 2 &amp;&amp; (
+                &lt;MenuItem
                   onClick={() => handleDelete()}
                   style={{ color: 'red' }}
                 >
                   Delete reply
-                </MenuItem>
+                &lt;/MenuItem>
               )}
-              {LoggedIn.blog_id !== 2 && (
-                <MenuItem
+              {LoggedIn.blog_id !== 2 &amp;&amp; (
+                &lt;MenuItem
                   onClick={() => handleBlock()}
                   style={{ color: 'red' }}
                 >
                   Block
-                </MenuItem>
+                &lt;/MenuItem>
               )}
-              <MenuItem onClick={() => handleClose()}>Close</MenuItem>
-            </Menu>
-            <CardContent
+              &lt;MenuItem onClick={() => handleClose()}>Close&lt;/MenuItem>
+            &lt;/Menu>
+            &lt;CardContent
               sx={{
                 pr: 0,
                 pl: 1,
@@ -170,15 +198,38 @@ const NoteBox = function NoteBox() {
                 pb: 0,
               }}
             >
-              <Typography variant="body2" color="text.secondary">
-                <Box sx={{ fontWeight: 500 }}>Medium</Box>
-              </Typography>
-            </CardContent>
-          </Card>
-        </Grid>
-      </Grid>
-    </>
+              &lt;Typography variant="body2" color="text.secondary">
+                &lt;Box sx={{ fontWeight: 500 }}>Medium&lt;/Box>
+              &lt;/Typography>
+            &lt;/CardContent>
+          &lt;/Card>
+        &lt;/Grid>
+      &lt;/Grid>
+    &lt;/>
   );
 };
 
 export default NoteBox;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#CheckOut">CheckOut</a></li><li><a href="global.html#MoreMenu">MoreMenu</a></li><li><a href="global.html#Newsfeed">Newsfeed</a></li><li><a href="global.html#NoteBox">NoteBox</a></li><li><a href="global.html#NoteHeader">NoteHeader</a></li><li><a href="global.html#NoteList">NoteList</a></li><li><a href="global.html#Notes">Notes</a></li><li><a href="global.html#PostCard">PostCard</a></li><li><a href="global.html#PostContent">PostContent</a></li><li><a href="global.html#PostFooter">PostFooter</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sat Nov 20 2021 20:35:21 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

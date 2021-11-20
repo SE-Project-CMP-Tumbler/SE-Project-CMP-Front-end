@@ -1,4 +1,32 @@
-import { React, useState } from 'react';
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>JSDoc: Source: NewsFeed/subcomponents/PostCard/subcomponents/Notes/Notes.jsx</title>
+
+    <script src="scripts/prettify/prettify.js"> </script>
+    <script src="scripts/prettify/lang-css.js"> </script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify-tomorrow.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc-default.css">
+</head>
+
+<body>
+
+<div id="main">
+
+    <h1 class="page-title">Source: NewsFeed/subcomponents/PostCard/subcomponents/Notes/Notes.jsx</h1>
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>import { React, useState } from 'react';
 import Popover from '@mui/material/Popover';
 import Typography from '@mui/material/Typography';
 import './css/Notes.css';
@@ -16,7 +44,7 @@ import { Display, Hide } from '../../../../../../state/displayNotesList';
 import { DisplayNote, HideNote } from '../../../../../../state/NotesWindow';
 
 /**
- * This function displays notes of a post and can switch between Re-blogs & replies content
+ * This function displays notes of a post and can switch between Re-blogs &amp; replies content
  * and the list of people who have interacted with that post
  * @returns the popover that contains note info
  */
@@ -30,7 +58,7 @@ const Notes = function NotesPopover() {
   // variables
   const apiBaseUrl = 'http://localhost:8008';
 
-  // reducers & states
+  // reducers &amp; states
   const { likes, reblogs } = useSelector((state) => state.PostNotes);
   const { showen } = useSelector((state) => state.NoteWindow);
   const dispatch = useDispatch();
@@ -68,8 +96,8 @@ const Notes = function NotesPopover() {
   const open = Boolean(showen);
   const id = open ? 'simple-popover' : undefined;
   return (
-    <>
-      <button
+    &lt;>
+      &lt;button
         type="button"
         aria-describedby={id}
         variant="contained"
@@ -77,9 +105,9 @@ const Notes = function NotesPopover() {
         className="notebutton"
       >
         notes number
-      </button>
-      <Grid container direction="coloumn">
-        <Popover
+      &lt;/button>
+      &lt;Grid container direction="coloumn">
+        &lt;Popover
           id={id}
           open={open}
           anchorEl={showen}
@@ -93,15 +121,15 @@ const Notes = function NotesPopover() {
             style: { width: '22%' },
           }}
         >
-          <NoteHeader />
-          <button
+          &lt;NoteHeader />
+          &lt;button
             type="button"
             style={{ border: 'none', cursor: 'pointer', background: '#ffffff' }}
             onClick={() => {
               dispatch(Display());
             }}
           >
-            <Typography
+            &lt;Typography
               sx={{ pt: 0.5, pl: 1 }}
               variant="subtitle2"
               style={{
@@ -120,19 +148,19 @@ const Notes = function NotesPopover() {
               {reblogs.length}
               {' '}
               {reblogs.length > 1 ? 'reblogs' : 'reblog'}
-            </Typography>
-          </button>
-          <Divider />
-          <Paper
+            &lt;/Typography>
+          &lt;/button>
+          &lt;Divider />
+          &lt;Paper
             style={{ height: 300, background: '#f0f0f0', overflowY: 'scroll' }}
           >
-            {!showNoteList && <NoteBox />}
-            {showNoteList && <NoteList />}
-          </Paper>
-          {!showNoteList && (
-            <Grid container direction="row" fullWidth>
-              <Grid item>
-                <TextField
+            {!showNoteList &amp;&amp; &lt;NoteBox />}
+            {showNoteList &amp;&amp; &lt;NoteList />}
+          &lt;/Paper>
+          {!showNoteList &amp;&amp; (
+            &lt;Grid container direction="row" fullWidth>
+              &lt;Grid item>
+                &lt;TextField
                   id="standard-basic"
                   variant="standard"
                   fullWidth
@@ -141,18 +169,41 @@ const Notes = function NotesPopover() {
                   onChange={(e) => setReply(e.currentTarget.value)}
                   autoComplete="false"
                 />
-              </Grid>
-              <Grid item>
-                <Button color="primary" onClick={() => handleReply()}>
+              &lt;/Grid>
+              &lt;Grid item>
+                &lt;Button color="primary" onClick={() => handleReply()}>
                   Reply
-                </Button>
-              </Grid>
-            </Grid>
+                &lt;/Button>
+              &lt;/Grid>
+            &lt;/Grid>
           )}
-        </Popover>
-      </Grid>
-    </>
+        &lt;/Popover>
+      &lt;/Grid>
+    &lt;/>
   );
 };
 
 export default Notes;
+</code></pre>
+        </article>
+    </section>
+
+
+
+
+</div>
+
+<nav>
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#CheckOut">CheckOut</a></li><li><a href="global.html#MoreMenu">MoreMenu</a></li><li><a href="global.html#Newsfeed">Newsfeed</a></li><li><a href="global.html#NoteBox">NoteBox</a></li><li><a href="global.html#NoteHeader">NoteHeader</a></li><li><a href="global.html#NoteList">NoteList</a></li><li><a href="global.html#Notes">Notes</a></li><li><a href="global.html#PostCard">PostCard</a></li><li><a href="global.html#PostContent">PostContent</a></li><li><a href="global.html#PostFooter">PostFooter</a></li></ul>
+</nav>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc/jsdoc">JSDoc 3.6.7</a> on Sat Nov 20 2021 20:35:21 GMT+0200 (Eastern European Standard Time)
+</footer>
+
+<script> prettyPrint(); </script>
+<script src="scripts/linenumber.js"> </script>
+</body>
+</html>

@@ -5,7 +5,11 @@ import Grid from '@mui/material/Grid';
 import Avatar from '@mui/material/Avatar';
 import PostCard from './subcomponents/PostCard/PostCard';
 import CheckOut from './subcomponents/CheckOut/CheckOut';
-
+/**
+ *
+ * @returns The Newfeed of dashboard which contains posts of following blogs and check out
+ * these blogs.
+ */
 const Newsfeed = function NewsfeedPosts() {
   const [Posts, setPosts] = useState(null);
   const [isPending, setisPending] = useState(true);

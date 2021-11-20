@@ -7,7 +7,11 @@ import Avatar from '@mui/material/Avatar';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useSelector } from 'react-redux';
-
+/**
+ * this function is responsible for displaying list of people who like/rebloged/replied
+ * on a post
+ * @returns the list of people
+ */
 const NoteList = function AllNotesList() {
   const { likes, reblogs } = useSelector((state) => state.PostNotes);
   return (

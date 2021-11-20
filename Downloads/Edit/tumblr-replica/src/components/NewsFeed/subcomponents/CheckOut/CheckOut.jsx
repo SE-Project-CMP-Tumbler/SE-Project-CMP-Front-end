@@ -7,6 +7,10 @@ import './css/CheckOut.css';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
 
+/**
+ *
+ * @returns component that includes some recommended blogs to follow.
+ */
 const CheckOut = function CheckOutTheseBlogs() {
   return (
     <div style={{ minWidth: 350, maxWidth: 350 }}>

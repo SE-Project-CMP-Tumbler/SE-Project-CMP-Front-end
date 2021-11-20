@@ -9,6 +9,12 @@ import PostContent from './subcomponents/PostContent';
 import './css/PostCard.css';
 import MoreMenu from '../../../MoreMenu/MoreMenu';
 
+/**
+ *
+ * @param {Object} props props of the post are all info about this post (by whom it was posted -
+ * when - who interacted on it and the content of the post)
+ * @returns the component that shows everything about the post
+ */
 function PostCard(props) {
   const {
     postId, blogId, postTime, blogUsername, postBody,
