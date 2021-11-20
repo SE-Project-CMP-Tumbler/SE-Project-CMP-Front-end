@@ -1,7 +1,7 @@
 import { configureStore } from '@reduxjs/toolkit';
 import Chatreduser from './reducers/ChatReducer';
 
-export const store = configureStore({
+const store = configureStore({
   reducer: {
     Chat: Chatreduser,
   },
