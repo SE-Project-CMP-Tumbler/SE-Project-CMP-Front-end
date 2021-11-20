@@ -27,7 +27,7 @@ export default function TrendCard({
         '& > :not(style)': {
           m: 1,
           width: '90%',
-          height: 90,
+          height: 80,
           p: 1,
         },
       }}
@@ -53,7 +53,7 @@ export default function TrendCard({
           </Grid>
           <Grid item xs={4}>
             <ImageList sx={{
-              width: 220, height: 80, borderRadius: 1, mt: 0.5,
+              width: 210, height: 70, borderRadius: 1, mt: 0.5, overflowY: 'clip',
             }}
             >
               <ImageListItem>
