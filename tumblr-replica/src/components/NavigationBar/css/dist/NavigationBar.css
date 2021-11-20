@@ -1,0 +1,443 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+.drop {
+  overflow: hidden;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+}
+.drop .drop-content {
+  position: absolute;
+  background-color: #ffffff;
+  z-index: 999;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 5px;
+  color: black;
+}
+.drop .drop-content .drop-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.6rem;
+  font-size: 0.8rem;
+}
+
+.chat-drop .chat-drop-content {
+  display: none;
+  width: 17.5rem;
+  transform: translateX(-40%);
+}
+.chat-drop .chat-drop-content .chat-drop-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+}
+.chat-drop .chat-drop-content .chat-drop-header button {
+  color: #00b8ff;
+}
+.chat-drop .chat-drop-content .chat-drop-header .profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+.chat-drop .chat-drop-content .chat-drop-header .profile p {
+  font-weight: 600;
+  font-size: 0.75rem;
+  color: rgba(0, 0, 0, 0.65);
+}
+.chat-drop .chat-drop-content .chat-drop-header .profile .icon-box {
+  width: 1.5rem;
+  margin-right: 0.5rem;
+}
+.chat-drop .chat-drop-content .chat-drop-header .profile .icon-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+.chat-drop .chat-drop-content .chat-drop-header .profile .tumblr-list {
+  display: flex;
+  flex-direction: column;
+  display: none;
+  position: absolute;
+  top: 2rem;
+  right: -2.2rem;
+  z-index: 999;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 3px;
+}
+.chat-drop .chat-drop-content .chat-drop-header .profile .tumblr-list .blog-details {
+  display: flex;
+  align-items: center;
+  padding-right: 6.5rem;
+}
+.chat-drop .chat-drop-content .chat-drop-header .profile .tumblr-list .blog-details:hover {
+  background-color: #e7e7e7;
+}
+.chat-drop .chat-drop-content .chat-drop-header .profile .tumblr-list .blog-details .blog-icon-box {
+  width: 2.3rem;
+  margin: 0.5rem;
+}
+.chat-drop .chat-drop-content .chat-drop-header .profile .tumblr-list .blog-details .blog-icon-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+.chat-drop .chat-drop-content .chat-drop-header .profile .tumblr-list .blog-details .blog-name-title {
+  font-size: 0.8rem;
+  align-items: center;
+}
+.chat-drop .chat-drop-content .chat-drop-header .profile .tumblr-list .blog-details .blog-name-title .tumblr-name {
+  font-weight: 600;
+}
+.chat-drop .chat-drop-content .chat-drop-header .profile .tumblr-list .blog-details .blog-name-title .tumblr-title {
+  font-weight: 300;
+}
+.chat-drop .chat-items {
+  display: block;
+}
+.chat-drop .chat-items .chat-item {
+  padding: 0.7rem 1rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+  cursor: pointer;
+}
+.chat-drop .chat-items .chat-item:hover {
+  background-color: #e7e7e7;
+}
+.chat-drop .chat-items .chat-item .chat-box {
+  font-size: 0.8rem;
+}
+.chat-drop .chat-items .chat-item .chat-box .sender-name {
+  font-weight: 600;
+}
+.chat-drop .chat-items .chat-item .chat-box .chat-content {
+  color: rgba(0, 0, 0, 0.65);
+}
+.chat-drop .chat-items .chat-item .chat-box .chat-content .sender-name-colon {
+  font-weight: 600;
+}
+.chat-drop .chat-items .chat-item .chat-icon-box {
+  width: 2rem;
+  margin-right: 0.5rem;
+  position: relative;
+}
+.chat-drop .chat-items .chat-item .chat-icon-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 50%;
+}
+.chat-drop .chat-items .chat-item .chat-icon-box .floating-icon {
+  filter: saturate(200%);
+  position: absolute;
+  max-width: 36%;
+  height: auto;
+  top: 0rem;
+  left: 1.4rem;
+}
+.chat-drop .tumblr-list {
+  display: none;
+  flex-direction: column;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 3px;
+}
+.chat-drop .tumblr-list .blog-details {
+  display: flex;
+  align-items: center;
+  padding-right: 6.5rem;
+}
+.chat-drop .tumblr-list .blog-details:hover {
+  background-color: #e7e7e7;
+}
+.chat-drop .tumblr-list .blog-details .blog-icon-box {
+  width: 2.3rem;
+  margin: 0.5rem;
+}
+.chat-drop .tumblr-list .blog-details .blog-icon-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+.chat-drop .tumblr-list .blog-details .blog-name-title {
+  font-size: 0.8rem;
+  align-items: center;
+}
+.chat-drop .tumblr-list .blog-details .blog-name-title .tumblr-name {
+  font-weight: 600;
+}
+.chat-drop .tumblr-list .blog-details .blog-name-title .tumblr-title {
+  font-weight: 300;
+}
+.chat-drop .tumblr-list .recently-followed {
+  font-size: 0.8rem;
+  background-color: rgba(0, 0, 0, 0.07);
+  padding: 0.3rem;
+}
+
+.user-drop {
+  display: block;
+}
+.user-drop .user-drop-content {
+  display: none;
+  width: 15rem;
+  transform: translateX(-9rem);
+}
+.user-drop .user-drop-content .user-drop-header {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+.user-drop .user-drop-content .user-drop-header button {
+  color: sky-blue;
+}
+.user-drop .user-drop-content .user-drop-header .profile {
+  display: flex;
+  align-items: center;
+}
+.user-drop .user-drop-content .user-drop-header .profile .icon-box {
+  width: 1.2rem;
+  margin-right: 0.5rem;
+}
+.user-drop .user-drop-content .user-drop-header .profile .icon-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+.user-drop .user-drop-content .user-item {
+  padding: 0.6rem 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.9rem;
+}
+.user-drop .user-drop-content .user-item span {
+  margin-left: 0.5rem;
+}
+.user-drop .user-drop-content .user-item:hover {
+  background-color: #e7e7e7;
+}
+.user-drop .user-drop-content .user-tumblr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+}
+.user-drop .user-drop-content .user-tumblr .blog-item {
+  display: flex;
+  justify-content: space-between;
+}
+.user-drop .user-drop-content .user-tumblr .blog-item:hover {
+  background-color: #e7e7e7;
+}
+.user-drop .user-drop-content .user-tumblr .blog-item .blog-details {
+  display: flex;
+  align-items: center;
+}
+.user-drop .user-drop-content .user-tumblr .blog-item .blog-details .blog-icon-box {
+  width: 2.5rem;
+  margin: 0.5rem;
+}
+.user-drop .user-drop-content .user-tumblr .blog-item .blog-details .blog-icon-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+.user-drop .user-drop-content .user-tumblr .blog-item .blog-details .blog-name-title {
+  font-size: 0.8rem;
+  align-items: center;
+}
+.user-drop .user-drop-content .user-tumblr .blog-item .blog-details .blog-name-title .tumblr-name {
+  font-weight: 600;
+}
+.user-drop .user-drop-content .user-tumblr .blog-item .blog-details .blog-name-title .tumblr-title {
+  font-weight: 300;
+}
+.user-drop .user-drop-content .user-tumblr .blog-item .hide-items {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+  cursor: pointer;
+}
+.user-drop .user-drop-content .user-tumblr .blog-options {
+  margin-left: 3.5rem;
+  margin-right: 1.2rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.user-drop .user-drop-content .user-tumblr .blog-options .blog-option {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.9rem;
+  padding: 0.2rem 0.3rem;
+  margin: 0rem 0rem;
+}
+.user-drop .user-drop-content .user-tumblr .blog-options .blog-option:hover {
+  background-color: #e7e7e7;
+}
+.user-drop .user-drop-content .misc-drop-header {
+  display: flex;
+  justify-content: space-around;
+  background-color: rgba(0, 0, 0, 0.07);
+  padding: 0.3rem;
+  font-size: 0.75rem;
+}
+.user-drop .user-drop-content .misc-drop-header .misc-item:hover {
+  text-decoration: underline;
+}
+
+.notifications-drop .notifications-drop-content {
+  display: none;
+  width: 24rem;
+  transform: translate(-62%, 2%);
+}
+.notifications-drop .notifications-drop-content .notifications-drop-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+  padding-left: 0.5rem;
+  padding-right: 1rem;
+}
+.notifications-drop .notifications-drop-content .notifications-drop-header .activity {
+  font-family: sans-serif;
+  font-weight: 900;
+  color: black;
+  text-decoration: underline;
+}
+.notifications-drop .notifications-drop-content .notifications-drop-header .profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+.notifications-drop .notifications-drop-content .notifications-drop-header .profile p {
+  font-weight: 600;
+  font-size: 0.87rem;
+  color: rgba(0, 0, 0, 0.65);
+}
+.notifications-drop .notifications-drop-content .notifications-drop-header .profile .icon-box {
+  width: 1.7rem;
+  margin-right: 0.5rem;
+}
+.notifications-drop .notifications-drop-content .notifications-drop-header .profile .icon-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+.notifications-drop .notifications-drop-content .notifications-drop-header .profile .tumblr-list {
+  display: flex;
+  flex-direction: column;
+  display: none;
+  position: absolute;
+  top: 2rem;
+  right: -2.2rem;
+  z-index: 999;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 3px;
+}
+.notifications-drop .notifications-drop-content .notifications-drop-header .profile .tumblr-list .blog-details {
+  display: flex;
+  align-items: center;
+  padding-right: 6.5rem;
+}
+.notifications-drop .notifications-drop-content .notifications-drop-header .profile .tumblr-list .blog-details:hover {
+  background-color: #e7e7e7;
+}
+.notifications-drop .notifications-drop-content .notifications-drop-header .profile .tumblr-list .blog-details .blog-icon-box {
+  width: 2.3rem;
+  margin: 0.5rem;
+}
+.notifications-drop .notifications-drop-content .notifications-drop-header .profile .tumblr-list .blog-details .blog-icon-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+.notifications-drop .notifications-drop-content .notifications-drop-header .profile .tumblr-list .blog-details .blog-name-title {
+  font-size: 0.8rem;
+  align-items: center;
+}
+.notifications-drop .notifications-drop-content .notifications-drop-header .profile .tumblr-list .blog-details .blog-name-title .tumblr-name {
+  font-weight: 600;
+}
+.notifications-drop .notifications-drop-content .notifications-drop-header .profile .tumblr-list .blog-details .blog-name-title .tumblr-title {
+  font-weight: 300;
+}
+.notifications-drop .notifications-drop-content .notifications-category {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+}
+.notifications-drop .notifications-drop-content .notifications-category .category-item {
+  flex-basis: 100%;
+  color: rgba(0, 0, 0, 0.65);
+  border-bottom: 0px solid #00b8ff;
+  font-weight: 500;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
+.notifications-drop .notifications-drop-content .notifications-category .all {
+  flex-basis: 70%;
+  color: #00b8ff;
+  border-bottom: 2px solid #00b8ff;
+}
+.notifications-drop .notifications-drop-content .time-drop-header {
+  background-color: rgba(0, 0, 0, 0.07);
+  padding-top: 0.2rem;
+  padding-bottom: 0.2rem;
+}
+.notifications-drop .notifications-drop-content .time-drop-header .time-lasted {
+  font-weight: 400;
+}
+.notifications-drop .notifications-drop-content .notification-item {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.7rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+  cursor: pointer;
+}
+.notifications-drop .notifications-drop-content .notification-item:hover {
+  background-color: #e7e7e7;
+}
+.notifications-drop .notifications-drop-content .notification-item .notification-box {
+  font-size: 0.8rem;
+  display: inline-block;
+}
+.notifications-drop .notifications-drop-content .notification-item .notification-box .tumblr-name {
+  font-weight: 600;
+  display: inline;
+}
+.notifications-drop .notifications-drop-content .notification-item .notification-box .notification-content {
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.65);
+}
+.notifications-drop .notifications-drop-content .notification-item .notification-content-icon {
+  width: 2rem;
+  margin-right: 0.5rem;
+}
+.notifications-drop .notifications-drop-content .notification-item .notification-content-icon img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10%;
+}
+.notifications-drop .notifications-drop-content .notification-item .notification-icon-box {
+  width: 1.5rem;
+  margin-right: 0.5rem;
+  position: relative;
+  display: inline-block;
+}
+.notifications-drop .notifications-drop-content .notification-item .notification-icon-box .profile-icon {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10%;
+}
+.notifications-drop .notifications-drop-content .notification-item .notification-icon-box .floating-icon {
+  filter: saturate(200%);
+  position: absolute;
+  max-width: 60%;
+  height: auto;
+  top: 0.9rem;
+  left: 0.8rem;
+}
+.notifications-drop .notifications-drop-content .see-everything {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-top: 0.3rem;
+  margin-bottom: 0.3rem;
+}
+
+html {
+  height: 100%;
+  background-color: #061833;
+}
