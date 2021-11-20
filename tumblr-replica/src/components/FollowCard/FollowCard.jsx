@@ -6,7 +6,18 @@ import ImageListItem from '@mui/material/ImageListItem';
 import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-// import ImageListItemBar from '@mui/material/ImageListItemBar';
+
+/**
+ * Component for render tag with its name and two images and the blog can follow that tag
+ * that use in {@link CarouselCards}
+ * @component
+ * @name
+ * FollowCard
+ * @example
+ * return (
+ *   <FollowCard image1="book1.com" image2="book2.com" tag="book" />
+ * )
+ */
 
 export default function FollowCard({ image1, image2, tag }) {
   const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;

@@ -3,9 +3,19 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-// import InboxIcon from '@mui/icons-material/Inbox';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+/**
+ * Component for render one tag with its image and tag name
+ *
+ * @component
+ * @name
+ * FollowingTag
+ * @example
+ * return (
+ *   <FollowingTag imageUrl="book.com" tag="books"/>
+ * )
+ */
 
 export default function FollowingTag({ imagUrl, tag }) {
   const border = {
@@ -43,6 +53,14 @@ export default function FollowingTag({ imagUrl, tag }) {
 }
 
 FollowingTag.propTypes = {
+  /**
+   * @param
+   * imageUrl: link for the image
+   */
   imagUrl: PropTypes.string.isRequired,
+  /**
+   * @param
+   * tag: tag's name
+   */
   tag: PropTypes.string.isRequired,
 };

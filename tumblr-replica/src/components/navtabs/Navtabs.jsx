@@ -1,7 +1,6 @@
 import * as React from 'react';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
-// import Paper from '@mui/material/Paper';
 import Box from '@mui/material/Box';
 import { Link } from 'react-router-dom';
 import InputLabel from '@mui/material/InputLabel';
@@ -9,10 +8,20 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import PropTypes from 'prop-types';
-// import NativeSelect from '@mui/material/NativeSelect';
 
-// import Trending from '../trending/Trending';
-
+/**
+ * Component for The navTabs which show in the top os explor section.
+ *
+ * @component
+ * @name
+ * NavTabs
+ * @example
+ * const tapnum = 1
+ * const selected = 'More'
+ * return (
+ *   <NavTabs tapnum={tapnum} selected={selected} />
+ * )
+ */
 export default function NavTabs({ tapnum, selsected }) {
   const [value, setValue] = React.useState(tapnum);
   const white = {
@@ -60,6 +69,14 @@ export default function NavTabs({ tapnum, selsected }) {
 }
 
 NavTabs.propTypes = {
+  /**
+   * @param {tapnum}
+   * tapnum the tab should have blue underline
+   */
   tapnum: PropTypes.number.isRequired,
+  /**
+   * @param {selsected}
+   * selected is the type of post selected to show ex: Gif,Photo..More
+  */
   selsected: PropTypes.string.isRequired,
 };

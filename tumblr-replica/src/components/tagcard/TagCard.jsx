@@ -7,7 +7,17 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
 import { getTaginfo, fetchAsynctag } from '../../states/features/tag/tagSlice';
-
+/**
+ * Component for render all information about specific tag
+ *
+ * @component
+ * @name
+ * TagCard
+ * @example
+ * return (
+ *   <TagCard />
+ * )
+ */
 export default function TagCard() {
   const buttonst = {
     width: '50%',

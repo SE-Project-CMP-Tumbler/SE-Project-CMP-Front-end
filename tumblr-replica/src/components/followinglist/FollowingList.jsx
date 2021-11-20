@@ -54,7 +54,18 @@ BootstrapDialogTitle.propTypes = {
   children: PropTypes.node.isRequired,
   onClose: PropTypes.func.isRequired,
 };
-
+/**
+ * Component for render all the tags the blog follow
+ * it has list of {@link FollowingTag}.
+ *
+ * @component
+ * @name
+ * FollowingList
+ * @example
+ * return (
+ *   <FollowList />
+ * )
+ */
 export default function FollowingList() {
   const [open, setOpen] = React.useState(false);
 

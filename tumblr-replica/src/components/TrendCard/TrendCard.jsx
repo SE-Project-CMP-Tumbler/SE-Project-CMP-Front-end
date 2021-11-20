@@ -6,8 +6,18 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import Grid from '@mui/material/Grid';
 import { Link } from 'react-router-dom';
-// import ImageListItemBar from '@mui/material/ImageListItemBar';
-
+/**
+ * Component for render the image and name for trending tag
+ * that use in {@link CarouselTrend}
+ *
+ * @component
+ * @name
+ * TrendCard
+ * @example
+ * return (
+ *   <TrendCard />
+ * )
+ */
 export default function TrendCard({
   image1, tag, color, number,
 }) {

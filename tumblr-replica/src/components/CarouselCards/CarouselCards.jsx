@@ -28,6 +28,17 @@ const responsive = {
     items: 2,
   },
 };
+/**
+ * Component for render  all {@link FollowCard} in Carousel
+
+ * @component
+ * @name
+ * CarouselCards
+ * @example
+ * return (
+ *   <CarouselCards  />
+ * )
+ */
 export default function CarouselCards() {
   const dispatch = useDispatch();
   React.useEffect(() => {

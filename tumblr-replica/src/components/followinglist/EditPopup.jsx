@@ -5,7 +5,17 @@ import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
 import { useSelector, useDispatch } from 'react-redux';
 import { getAllfollowtags, DeleteAsyncfollowtags } from '../../states/features/followtags/followtagsSlice';
-// import ListSubheader from '@mui/material/ListSubheader';
+/**
+ * Component that pop up when click Edit in {@Link FollowingList}
+ *here can edit the tags blog follow
+ * @component
+ * @name
+ * EditPopup
+ * @example
+ * return (
+ *   <EditPopup />
+ * )
+ */
 
 export default function EditPopup() {
   const followtags = useSelector(getAllfollowtags);

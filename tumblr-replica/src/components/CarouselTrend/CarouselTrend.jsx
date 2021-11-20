@@ -25,7 +25,17 @@ const responsive = {
     items: 1,
   },
 };
-
+/**
+ * Component for render eight of Trending tags each trend tag in {@link TrendCard}
+ *
+ * @component
+ * @name
+ * CarouselTrend
+ * @example
+ * return (
+ *   <CarouselTrend />
+ * )
+ */
 export default function CarouselTrend() {
   const dispatch = useDispatch();
   React.useEffect(() => {
