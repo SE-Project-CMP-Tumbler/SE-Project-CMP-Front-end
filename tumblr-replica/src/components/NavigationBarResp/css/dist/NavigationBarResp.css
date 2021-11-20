@@ -14,3 +14,37 @@ html {
 .basic-nav .mobile-nav i {
   color: white;
 }
+.basic-nav .mobile-nav button {
+  cursor: pointer;
+}
+.basic-nav .user-items {
+  display: flex;
+  justify-content: space-between;
+  overflow: hidden;
+  flex-direction: column;
+  font-family: "Poppins", sans-serif;
+  font-weight: 300;
+  z-index: 999;
+}
+.basic-nav .user-items .user-item {
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding-right: 1.4rem;
+  padding-top: 0.8rem;
+  padding-bottom: 0.8rem;
+  padding-left: 10px;
+  font-size: 1.1rem;
+}
+.basic-nav .user-items .user-item:hover {
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.basic-nav .user-items .user-item .icon-and-text {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.basic-nav .user-items .user-item .icon-and-text .font-icon {
+  padding-right: 1rem;
+}
