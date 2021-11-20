@@ -10,7 +10,11 @@ import SignUpPage from './components/SignUpPage/SignUpPage';
 // import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
 import ForgotPasswordPage from './components/ForgotPasswordPage/ForgotPasswordPage';
 // import { selectUser } from './states/user/UserSlice';
+import Explore from './components/Explore/Explore';
+import Tagged from './components/Tagged/Tagged';
+import Trending from './components/Trending/Trending';
 
+/* need to import more element when finished */
 function App() {
   // const user = useSelector(selectUser);
   return (
@@ -28,6 +32,17 @@ function App() {
         <Route path="/register" element={<SignUpPage />} />
         <Route path="/forgot_password" element={<ForgotPasswordPage />} />
         <Route path="/logout" element={<LogOutHome />} />
+        <Route path="/explore/recommended-for-you" element={<Explore />} />
+        <Route path="/explore/trending" element={<Trending />} />
+        <Route path="/explore/staff-picks" />
+        <Route path="/explore/text" />
+        <Route path="/explore/photos" />
+        <Route path="/explore/quotes" />
+        <Route path="/explore/chats" />
+        <Route path="/explore/Audio" />
+        <Route path="/explore/Video" />
+        <Route path="/explore/Asks" />
+        <Route path="/tagged/:tag" element={<Tagged />} />
       </Routes>
     </Router>
   );
