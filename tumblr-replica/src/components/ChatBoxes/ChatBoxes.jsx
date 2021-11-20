@@ -2,8 +2,8 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import { Avatar } from '@mui/material';
-import ChatComponent from './ChatComponent';
-import { removeAvaterID } from '../states/reducers/ChatReducer';
+import ChatComponent from '../ChatComponent/ChatComponent';
+import { removeAvaterID } from '../../states/reducers/ChatReducer';
 
 function ChatBoxes() {
   const chatBoxes = useSelector((state) => state.Chat.chatbox);

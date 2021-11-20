@@ -7,7 +7,7 @@ import { Divider, Grid } from '@material-ui/core';
 import axios from 'axios';
 import { Avatar } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { newMessagePress, setChats, setChatBoxesID } from '../states/reducers/ChatReducer';
+import { newMessagePress, setChats, setChatBoxesID } from '../../states/reducers/ChatReducer';
 
 function OldChatList() {
   const apiBaseUrl = 'http://localhost:8000';

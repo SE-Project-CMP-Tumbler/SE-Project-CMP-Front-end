@@ -81,7 +81,7 @@
     {
       "id": "2",
       "to": "ahmed",
-      "lastmessage": "hello ahmed",
+      "lastmessage": "jjjj",
       "img": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
       "chat_messages": [
         {
@@ -95,6 +95,12 @@
           "from": "nadeen",
           "text": "",
           "gif": "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "jjjj",
+          "gif": "",
           "photo": ""
         }
       ]

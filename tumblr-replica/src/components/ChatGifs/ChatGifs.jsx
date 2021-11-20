@@ -8,7 +8,7 @@ import GifIcon from '@mui/icons-material/Gif';
 import axios from 'axios';
 import {
   setGifs,
-} from '../states/reducers/ChatReducer';
+} from '../../states/reducers/ChatReducer';
 
 function ChatGifs({ setUploadedGif }) {
   const [anchorEl, setAnchorEl] = React.useState(null);

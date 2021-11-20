@@ -3,9 +3,9 @@ import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
-import ChatTopBar from './ChatTopBar';
-import ChatFeed from './ChatFeed';
-import ChatInput from './ChatInput';
+import ChatTopBar from '../ChatTopBar/ChatTopBar';
+import ChatFeed from '../ChatFeed/ChatFeed';
+import ChatInput from '../ChatInput/ChatInput';
 
 const useStyles = makeStyles({
   chatbox: {

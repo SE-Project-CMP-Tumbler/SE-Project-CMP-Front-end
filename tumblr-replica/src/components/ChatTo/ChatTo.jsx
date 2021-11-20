@@ -18,7 +18,7 @@ import { ListItemButton } from '@mui/material';
 import {
   setChatBoxesID,
   newMessagePress,
-} from '../states/reducers/ChatReducer';
+} from '../../states/reducers/ChatReducer';
 
 function ChatTo() {
   const chats = useSelector((state) => state.Chat.chats);

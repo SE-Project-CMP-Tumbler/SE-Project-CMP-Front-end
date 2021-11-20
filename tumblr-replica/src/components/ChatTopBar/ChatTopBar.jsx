@@ -20,7 +20,7 @@ import axios from 'axios';
 import {
   removeChatBoxIDOnly,
   removeChatBoxID,
-} from '../states/reducers/ChatReducer';
+} from '../../states/reducers/ChatReducer';
 
 const style = {
   position: 'absolute',

@@ -11,8 +11,8 @@ import IconButton from '@mui/material/IconButton';
 import axios from 'axios';
 import PropTypes from 'prop-types';
 import { Divider } from '@mui/material';
-import ChatGifs from './ChatGifs';
-import { addMessage } from '../states/reducers/ChatReducer';
+import ChatGifs from '../ChatGifs/ChatGifs';
+import { addMessage } from '../../states/reducers/ChatReducer';
 
 const useStyles = makeStyles({
   SendIcon: {
@@ -119,7 +119,7 @@ function ChatInput({ id, setMessages, messages }) {
         </ListItem>
         <ListItem>
           <ChatGifs setUploadedGif={setUploadedGif} />
-          <input type="file" accept="image/*" onChange={UploadImage} />
+          <input type="file" accept="image/*" hidden onChange={UploadImage} />
           <IconButton
             edge="start"
             sx={{ mr: 1, mt: 0 }}
