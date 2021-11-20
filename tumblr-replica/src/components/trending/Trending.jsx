@@ -1,5 +1,5 @@
 import React from 'react';
-import NavTabs from '../Navtabs/Navtabs';
+import NavTabs from '../NavTabs/Navtabs';
 import FollowingList from '../FollowingList/FollowingList';
 import CarouselTrend from '../CarouselTrend/CarouselTrend';
 /**
