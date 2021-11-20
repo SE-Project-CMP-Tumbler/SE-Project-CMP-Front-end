@@ -3,6 +3,13 @@ import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import { TumblrItem } from './ChatDropDown';
 
+/**
+ * This chooses one of the four notification categories and sets it as blue
+ * @method
+ * @param {MutableRefObject} chosenRef - the ref for the HTML node of the category to be set as blue
+ * @param {Array} allRefs - An array of the four refs representing the four categories
+ */
+
 function chooseBlueItem(chosenRef, allRefs) {
   const el = chosenRef;
   el.current.style.color = 'rgb(0, 184, 255)';
@@ -17,6 +24,11 @@ function chooseBlueItem(chosenRef, allRefs) {
   });
 }
 
+/**
+ * This is the notifications drop down component as can be seen in the official website
+ * @component
+ * @returns {ReactJSXElement} JSX Element.
+ */
 function NotificationsDropDown() {
   const allRef = useRef(null);
   // this ref is for the "all" category in the notifcation panel.
@@ -62,6 +74,11 @@ function NotificationsDropDown() {
   );
 }
 
+/**
+ *  This is a simple component that logs time for notifications and is used in the drop down
+ * @component
+ * @returns {ReactJSXElement} JSX Element.
+ */
 function NotificiationTime({ timeOfAction }) {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
@@ -78,6 +95,16 @@ NotificiationTime.propTypes = {
   timeOfAction: PropTypes.instanceOf(Date).isRequired,
 };
 
+/**
+ * This is the component representing the notification item in the drop down
+ * @component
+ * @param {String} action - the action associated with the notification (e.g. like, mention,...)
+ * @param {String} content - the text content of th enotification
+ * @param {String} actionIcon - the icon representing the action type or content
+ * @param {String} byTumblr - the Tumblr that caused the action
+ * @param {String} byTumblrIcon - the icon of the tumblr causing an action
+ * @returns {ReactJSXElement} JSX Element.
+ */
 function NotificationsItem({
   action, content, actionIcon, byTumblr, byTumblrIcon,
 }) {

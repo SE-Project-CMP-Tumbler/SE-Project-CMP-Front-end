@@ -1,6 +1,10 @@
 import React from 'react';
 import './css/dist/NavigationBarResp.css';
 
+/**
+ *  This is the navigation bar component for small view ports
+ *  @returns {ReactJSXElement} JSX Element.
+ */
 function NavigationBarResp() {
   return (
     <nav className="basic-nav">

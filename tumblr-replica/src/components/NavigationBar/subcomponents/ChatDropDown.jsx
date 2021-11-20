@@ -1,6 +1,13 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 
+/**
+ * This handles clicking on a new message when the chat drop down is open
+ * @method
+ * @param {MutableRefObject} chatsRef - the ref for the HTML node of the chat items container
+ * @param {MutableRefObject} followingRef - the ref for the node of the following items container
+ * @param {MutableRefObject} buttonRef - the ref for the node of the button pressed
+ */
 function newMessageHandler(chatsRef, followingRef, buttonRef) {
   const cEl = chatsRef;
   const fEl = followingRef;
@@ -12,7 +19,11 @@ function newMessageHandler(chatsRef, followingRef, buttonRef) {
   bEl.current.innerHTML = (bEl.current.innerHTML === 'New Message') ? 'Nevermind' : 'New Message';
   bEl.current.style.color = (bEl.current.innerHTML === 'New Message') ? 'rgb(0, 184, 255)' : 'rgba(0, 0, 0, 0.65)';
 }
-
+/**
+ *  This is the component for the chat dropdown
+ * @component
+ * @returns {ReactJSXElement} JSX Element.
+ */
 function ChatDropDown() {
   const chatsRef = useRef(null);
   const followingRef = useRef(null);
@@ -52,6 +63,15 @@ function ChatDropDown() {
   );
 }
 
+/**
+ * This is the component any of the chat items (conversations) in the chat drop down
+ * @component
+ * @param {String} senderName - the name of the message sender
+ * @param {String} senderIcon - their profile picture
+ * @param {String} chatContent - their message
+ * @param {Boolean} isOnline - specifies whether or not they are online
+ * @returns {ReactJSXElement} JSX Element.
+ */
 function ChatItem({
   senderName, senderIcon, chatContent, isOnline,
 }) {
@@ -74,6 +94,14 @@ function ChatItem({
   );
 }
 
+/**
+ * This is the component responsible for switching the tumblr that the dropdown conveys info about.
+ * @component
+ * @param {String} tumblrName- the name of the tumlr
+ * @param {String} tumblrTitle - the title of the tumblr
+ * @param {String} tumblrIcon - the profile picture of the tumblr
+ * @returns {ReactJSXElement} JSX Element.
+ */
 export function TumblrItem({ tumblrName, tumblrTitle, tumblrIcon }) {
   return (
     <div className="blog-item">

@@ -8,6 +8,12 @@ import ChatDropDown from './subcomponents/ChatDropDown';
 import ProfileDropDown from './subcomponents/ProfileDropDown';
 import NotificationsDropDown from './subcomponents/NotificationsDropDown';
 
+/**
+ * Toggles one of the three main drop down menus of the navigation bar.
+ * @method
+ * @param {MutableRefObject} toggleRef - The ref for HTML node that should have its display toggled.
+ * @param {Array} allRefs - Array of refs for HTML nodes that should have their display set to none.
+ */
 function toggleDropDown(toggleRef, allRefs) {
   const el = toggleRef;
   el.current.childNodes[1].style.display = (el.current.childNodes[1].style.display) === 'none' ? 'block' : 'none';
@@ -17,7 +23,11 @@ function toggleDropDown(toggleRef, allRefs) {
     if (element !== toggleRef) { element.current.childNodes[1].style.display = 'none'; }
   });
 }
-
+/**
+ * This is the navigation bar component for large view ports.
+ * @component
+ * @returns {ReactJSXElement} JSX Element.
+ */
 function NavigationBar() {
   const chatRef = useRef(null);
   const notificationsRef = useRef(null);
