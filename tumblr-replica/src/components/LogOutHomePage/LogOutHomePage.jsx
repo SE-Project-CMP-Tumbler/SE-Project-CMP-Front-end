@@ -11,6 +11,7 @@ import LogInButton from '../LogInButton/LogInButton';
 import SignUpButton from '../SignUpButton/SignUpButton';
 import ContinueWithGoogleButton from '../ContinueWithGoogleButton/ContinueWithGoogleButton';
 import HereIsWhatIsTrendingButton from '../HereIsWhatIsTrendingButton/HereIsWhatIsTrendingButton';
+import background from './placeholder.jpg';
 
 const theme = createTheme();
 
@@ -25,7 +26,10 @@ const LogOutHomePage = () => {
         <CssBaseline />
         <GlobalStyles
           styles={{
-            body: { backgroundColor: '#001935', height: '100%' },
+            body: { // backgroundColor: '#001935',
+              height: '100%',
+              backgroundImage: `url(${background})`,
+            },
           }}
         />
         <Box
@@ -37,7 +41,7 @@ const LogOutHomePage = () => {
             color: '#FFFFFF',
           }}
         >
-          <Link to="/" style={{ textDecoration: 'none' }}>
+          <Link to="/logout" style={{ textDecoration: 'none' }}>
             <Typography component="h2" color="white" fontSize="4.5rem" font='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;' sx={{ fontWeight: 'bold' }}>
               {title}
             </Typography>

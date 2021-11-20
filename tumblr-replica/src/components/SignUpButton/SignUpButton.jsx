@@ -5,9 +5,7 @@ import Box from '@mui/material/Box';
 
 const SignUpButton = () => (
   <Box
-    sx={{
-      spacing: 8, mt: 1, mr: 1, ml: 1, mb: 1,
-    }}
+    sx={{ spacing: 8, mt: 1.5 }}
   >
     <Link to="/register" style={{ textDecoration: 'none' }}>
       <Button

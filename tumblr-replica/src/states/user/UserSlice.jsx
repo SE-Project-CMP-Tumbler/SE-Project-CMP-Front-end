@@ -5,7 +5,7 @@ const userSlice = createSlice({
   name: 'user',
   initialState: {
     user: {
-      loggedin: false, // false
+      loggedin: true, // false
       email: '',
       password: '',
       blogName: '',
@@ -35,7 +35,7 @@ const userSlice = createSlice({
 });
 
 export const {
-  setEmail, setPassword, setBlogName, logIn,
+  setEmail, setPassword, setBlogName, logIn, logOut,
 } = userSlice.actions;
 
 export const selectUser = (state) => state.user.user;

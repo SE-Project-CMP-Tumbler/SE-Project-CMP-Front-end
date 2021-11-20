@@ -7,12 +7,12 @@ import NavigationBarResp from './components/NavigationBarResp/NavigationBarResp'
 import LogOutHome from './components/LogOutHomePage/LogOutHomePage';
 import LogInPage from './components/LogInPage/LogInPage';
 import SignUpPage from './components/SignUpPage/SignUpPage';
-// import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
 import ForgotPasswordPage from './components/ForgotPasswordPage/ForgotPasswordPage';
-// import { selectUser } from './states/user/UserSlice';
 import Explore from './components/Explore/Explore';
 import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
+// import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
+// import { selectUser } from './states/user/UserSlice';
 
 /* need to import more element when finished */
 function App() {

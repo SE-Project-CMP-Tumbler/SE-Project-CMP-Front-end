@@ -98,8 +98,18 @@ function NavigationBar() {
                 flexDirection: 'row',
               }}
             >
-              <LogInButton />
-              <SignUpButton />
+              <Box sx={{
+                spacing: 8, mr: 1, ml: 1, mb: 1,
+              }}
+              >
+                <LogInButton />
+              </Box>
+              <Box sx={{
+                spacing: 8, mr: 1, ml: 1, mb: 1,
+              }}
+              >
+                <SignUpButton />
+              </Box>
             </Box>
           )}
       </div>

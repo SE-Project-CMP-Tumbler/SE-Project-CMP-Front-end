@@ -5,9 +5,7 @@ import Box from '@mui/material/Box';
 
 const LogInButton = () => (
   <Box
-    sx={{
-      spacing: 8, mt: 1, mr: 1, ml: 1, mb: 1,
-    }}
+    sx={{ spacing: 8, mt: 1.5 }}
   >
     <Link to="/login" style={{ textDecoration: 'none' }}>
       <Button
