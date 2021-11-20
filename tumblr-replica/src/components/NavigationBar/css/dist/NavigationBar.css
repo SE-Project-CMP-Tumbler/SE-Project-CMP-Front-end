@@ -9,12 +9,6 @@ button {
   background: none;
 }
 
-* {
-  padding: 0;
-  margin: 0;
-  box-sizing: border-box;
-}
-
 .nav-styles {
   display: flex;
   align-items: center;
@@ -23,6 +17,19 @@ button {
   padding: 0.125rem 0.063rem;
   margin-right: 0;
   border-bottom: 0.05rem solid rgba(255, 255, 255, 0.25);
+}
+.nav-styles * {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.nav-styles a {
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.65);
+}
+.nav-styles button {
+  border: none;
+  background: none;
 }
 .nav-styles .nav-resp {
   display: flex;
