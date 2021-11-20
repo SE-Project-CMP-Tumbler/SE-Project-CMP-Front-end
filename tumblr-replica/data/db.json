@@ -107,49 +107,40 @@
     },
     {
       "to": "radwa",
-      "lastmessage": "",
+      "lastmessage": "hiiii",
       "img": "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
-      "chat_messages": [],
+      "chat_messages": [
+        {
+          "from": "nadeen",
+          "text": "hello radwa",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "hiiii",
+          "gif": "",
+          "photo": ""
+        }
+      ],
       "id": "3"
     },
     {
       "id": "4",
       "to": "ali",
-      "lastmessage": "hello aliiiiiiii!",
+      "lastmessage": "huuu",
       "img": "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
       "chat_messages": [
         {
-          "id": "1",
           "from": "nadeen",
-          "type": "text",
-          "text": "hello world!",
-          "photo": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e"
-        },
-        {
-          "id": "2",
-          "from": "ali",
-          "type": "photo",
-          "text": "hello aliiiiiiii!",
-          "photo": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d"
-        },
-        {
-          "from": "nadeen",
-          "to": "maryem",
-          "text": "nadeen",
+          "text": "hello aliiiii",
           "gif": "",
           "photo": ""
         },
         {
           "from": "nadeen",
-          "to": "maryem",
-          "text": "heloo nadeen",
+          "text": "huuu",
           "gif": "",
-          "photo": ""
-        },
-        {
-          "from": "nadeen",
-          "text": "",
-          "gif": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
           "photo": ""
         }
       ]

@@ -4,15 +4,17 @@ import Grid from '@material-ui/core/Grid';
 import { Avatar } from '@mui/material';
 import ChatComponent from '../ChatComponent/ChatComponent';
 import { removeAvaterID } from '../../states/reducers/ChatReducer';
-
+/**
+ * This function is for the Chat Boxes component this component to
+ * disply the grid of the chats open or the avatars for open put non active chats
+ * @method
+ * @returns {*} chatbox componenet
+ */
 function ChatBoxes() {
   const chatBoxes = useSelector((state) => state.Chat.chatbox);
   const avatars = useSelector((state) => state.Chat.avatars);
   const dispatch = useDispatch();
 
-  const avatarOnClickHandle = (id) => {
-    dispatch(removeAvaterID(id));
-  };
   return (
     <Grid
       container
@@ -39,7 +41,7 @@ function ChatBoxes() {
               <button
                 type="button"
                 onClick={() => {
-                  avatarOnClickHandle(avatar.id);
+                  dispatch(removeAvaterID(avatar.id));
                 }}
                 style={{
                   backgroundColor: 'transparent',

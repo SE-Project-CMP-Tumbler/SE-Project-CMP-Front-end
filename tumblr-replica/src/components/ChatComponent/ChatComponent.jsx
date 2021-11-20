@@ -9,18 +9,23 @@ import ChatInput from '../ChatInput/ChatInput';
 
 const useStyles = makeStyles({
   chatbox: {
-    width: '280px',
-    height: '485px',
+    width: '265px',
+    height: '390px',
     border: '1px solid #a9a9a9',
     borderRadius: '4px',
     position: 'fixed',
   },
 });
-
-function ChatComponent(props) {
+/**
+ * This function is for the ChatComponent this component to
+ * disply the top bar of the chat & chat feed & input bar
+ * @method
+ * @param {number} id id is a prop for this component to know witch chat box will be displayed
+ * @returns {*} ChatComponent componenet
+ */
+function ChatComponent({ id }) {
   const classes = useStyles();
   const apiBaseUrl = 'http://localhost:8000';
-  const { id } = props;
   const [messages, setMessages] = useState([]);
   useEffect(() => {
     axios({
@@ -37,8 +42,8 @@ function ChatComponent(props) {
       .then((res) => {
         setMessages(res?.data?.chat_messages);
       })
-      .catch((err) => {
-        console.log(err.message);
+      .catch(() => {
+        // console.log(err.message);
       });
   }, []);
   return (

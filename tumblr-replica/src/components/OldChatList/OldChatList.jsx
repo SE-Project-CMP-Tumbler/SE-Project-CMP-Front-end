@@ -9,6 +9,13 @@ import { Avatar } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import { newMessagePress, setChats, setChatBoxesID } from '../../states/reducers/ChatReducer';
 
+/**
+ * This function is for the OldChatList component this component has all friends of the user ,
+ * this component should appear when the user have no chats with his friends
+ * by click on the avatar the chat will open
+ * @method
+ * @returns {*} ChatTo componenet
+ */
 function OldChatList() {
   const apiBaseUrl = 'http://localhost:8000';
   const dispatch = useDispatch();
@@ -32,7 +39,7 @@ function OldChatList() {
     <Card sx={{ maxWidth: 260 }}>
       <CardHeader
         action={(
-          <Grid container spacing={5}>
+          <Grid container spacing={4}>
             <Grid item>
               <Typography
                 variant="body2"
@@ -49,7 +56,7 @@ function OldChatList() {
                   dispatch(newMessagePress());
                 }}
                 style={{
-                  marginLeft: '1px', color: '#778899', backgroundColor: 'transparent', border: 'none', cursor: 'pointer',
+                  color: '#778899', backgroundColor: 'transparent', border: 'none', cursor: 'pointer', marginRight: '10px',
                 }}
               >
                 New Message
