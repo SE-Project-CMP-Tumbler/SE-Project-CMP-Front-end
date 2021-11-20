@@ -1,0 +1,14 @@
+.menu-item{
+  text-align: center !important;
+  font-size: larger  !important;
+  justify-content: center !important;
+}
+.red-menuitem{
+  text-align: center !important;
+  font-size: larger  !important;
+  justify-content: center !important;
+  color:red !important;
+}
+.menu-icon{
+  margin-top: -6px;
+}
