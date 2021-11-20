@@ -2,7 +2,7 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import exploreApi from '../../../apis/exploreApi';
 
 const fetchAsynctrendtags = createAsyncThunk(
-  'tagged/:tagdescription',
+  'tag/trending',
   async () => {
     const response = await exploreApi.get('trending');
     // const response = await exploreApi.get(`tag/trending`);

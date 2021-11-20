@@ -51,8 +51,8 @@ export default function CarouselTrend() {
                 <TrendCard image1={trendTags.response.tags[5].tag_image} tag={trendTags.response.tags[5].tag_description} color="rgb(0 71 53)" number="6" />
               </div>
               <div>
-                <TrendCard image1={trendTags.response.tags[6].tag_image} tag={trendTags.response.tags[6].tag_description} color="rgb(58 73 54)" number="5" />
-                <TrendCard image1={trendTags.response.tags[7].tag_image} tag={trendTags.response.tags[7].tag_description} color="rgb(64 54 40)" number="6" />
+                <TrendCard image1={trendTags.response.tags[6].tag_image} tag={trendTags.response.tags[6].tag_description} color="rgb(58 73 54)" number="7" />
+                <TrendCard image1={trendTags.response.tags[7].tag_image} tag={trendTags.response.tags[7].tag_description} color="rgb(64 54 40)" number="8" />
               </div>
             </Carousel>
           ) : <h3>Loading</h3>}

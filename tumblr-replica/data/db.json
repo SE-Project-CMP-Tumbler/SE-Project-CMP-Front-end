@@ -122,5 +122,55 @@
             }
           ] 
      }  
+    },
+    "randomtags":{
+      "meta": {
+        "status": "200",
+        "msg": "OK"
+    },
+    "response": {
+        "tags": [
+            {
+              "tag_description": "Red",
+              "tag_image1": "http://dummyimage.com/219x105.png/dddddd/000000",
+              "tag_image2": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+            },
+            {
+              "tag_description": "Khaki",
+              "tag_image1": "http://dummyimage.com/219x232.png/5fa2dd/ffffff",
+              "tag_image2": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+            },
+            {
+              "tag_description": "Khakii",
+              "tag_image1": "http://dummyimage.com/207x249.png/dddddd/000000",
+              "tag_image2": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+            },
+            {
+              "tag_description": "Fuscia",
+              "tag_image1": "http://dummyimage.com/148x169.png/dddddd/000000",
+              "tag_image2": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+            },
+            {
+              "tag_description": "Indigo",
+              "tag_image1": "http://dummyimage.com/166x102.png/5fa2dd/ffffff",
+              "tag_image2": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+            },
+            {
+              "tag_description": "Aquamarine",
+              "tag_image1": "http://dummyimage.com/103x249.png/dddddd/000000",
+              "tag_image2": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+            },
+            {
+              "tag_description": "Teal",
+              "tag_image1": "http://dummyimage.com/147x121.png/dddddd/000000",
+              "tag_image2": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+            },
+            {
+              "tag_description": "Turquoiset",
+              "tag_image1": "http://dummyimage.com/125x154.png/cc0000/ffffff",
+              "tag_image2": "http://dummyimage.com/219x232.png/5fa2dd/ffffff"
+            }
+          ] 
+     }  
     }
 }

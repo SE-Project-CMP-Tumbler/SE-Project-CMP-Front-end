@@ -17,9 +17,10 @@ export default function TagCard() {
     backgroundColor: '#122943',
     color: 'white',
   };
+  const tagDescription = window.location.href.split('/').pop();
   const dispatch = useDispatch();
   React.useEffect(() => {
-    dispatch(fetchAsynctag());
+    dispatch(fetchAsynctag(tagDescription));
   }, []);
   const taginfo = useSelector(getTaginfo);
   // console.log(taginfo);

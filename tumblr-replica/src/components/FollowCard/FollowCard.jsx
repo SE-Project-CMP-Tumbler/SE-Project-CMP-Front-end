@@ -35,7 +35,15 @@ export default function FollowCard({ image1, image2, tag }) {
           #
           {tag}
         </div>
-        <ImageList sx={{ width: 120, height: 100, borderRadius: 1 }} gap={15}>
+        <ImageList
+          sx={{
+            width: 120,
+            height: 100,
+            borderRadius: 1,
+            overflowY: 'clip',
+          }}
+          gap={15}
+        >
           <ImageListItem>
             <img
               src={image1}

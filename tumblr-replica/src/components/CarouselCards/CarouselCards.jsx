@@ -1,6 +1,8 @@
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import { useDispatch, useSelector } from 'react-redux';
+import { fetchAsyncrandomtags, getRandomtags } from '../../states/features/randomtag/randomtagSlice';
 import FollowCard from '../FollowCard/FollowCard';
 
 const responsive = {
@@ -27,22 +29,23 @@ const responsive = {
   },
 };
 export default function CarouselCards() {
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(fetchAsyncrandomtags());
+  }, []);
+  const randomTags = useSelector(getRandomtags);
   return (
     <Carousel responsive={responsive}>
-      <FollowCard image1="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" image2="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" tag="raghad" />
-      <FollowCard image1="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" image2="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" tag="alaa" />
-      <FollowCard image1="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" image2="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" tag="raghad" />
-      <FollowCard image1="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" image2="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" tag="omar" />
-      <FollowCard image1="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" image2="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" tag="pas" />
-      <FollowCard image1="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" image2="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" tag="ro" />
-      <FollowCard image1="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" image2="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" tag="dsfgdfgfgh" />
-      <FollowCard image1="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" image2="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" tag="rag" />
-      <FollowCard image1="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" image2="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" tag="tititi" />
-      <FollowCard image1="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" image2="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" tag="sdfdfg" />
-      <FollowCard image1="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" image2="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" tag="ertert" />
-      <FollowCard image1="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" image2="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" tag="tttt" />
-      <FollowCard image1="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" image2="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" tag="uutt" />
-      <FollowCard image1="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" image2="https://images.unsplash.com/photo-1551963831-b3b1ca40c98e?w=248&" tag="oouu" />
+      { randomTags.meta.status === '200' ? (
+        randomTags.response.tags
+          .map((tag) => (
+            <FollowCard
+              image1={tag.tag_image1}
+              image2={tag.tag_image2}
+              tag={tag.tag_description}
+            />
+          )))
+        : (<h2>Loading</h2>) }
     </Carousel>
   );
 }
