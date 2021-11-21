@@ -1,0 +1,20 @@
+{
+  "meta": {
+    "status": "200",
+    "msg": "ok"
+  },
+  "response": {
+    "id": 2026,
+    "username": "Ghraboly",
+    "avatar": "https://www.whatsappprofiledpimages.com/wp-content/uploads/2021/08/Profile-Photo-Wallpaper.jpg",
+    "avatar_shape": "square",
+    "header_image": "https://images.unsplash.com/photo-1504805572947-34fad45aed93?ixid=MnwxMjA3fDB8MHxzZWFyY2h8MXx8Y292ZXIlMjBwaG90b3xlbnwwfHwwfHw%3D&ixlib=rb-1.2.1&w=1000&q=80",
+    "title": "i'm ghareeb",
+    "description": "i love food",
+    "follow":true,
+    "block":false,
+    "ask":true,
+    "submit":true,
+    "get_notifications":true
+  }
+}
