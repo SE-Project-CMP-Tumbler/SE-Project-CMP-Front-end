@@ -1,30 +1,30 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+// import { useDispatch, useSelector } from 'react-redux';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
-import { setPassword } from '../../states/user/UserSlice';
+import { setEmail } from '../../../../states/User/UserSlice';
 
-// TO DO: Add the password difficulty feature
-// and pass whether it will be there or not through an argument
-
-const PasswordInputTextField = () => {
-  const [password, setPasswordh] = useState('');
+const EmailInputTextField = () => {
+  const [email, setEmailh] = useState('');
+  // const { email } = useSelector((state) => state.user);
   const dispatch = useDispatch();
   return (
     <Box fullWidth sx={{ mb: 1 }}>
       <TextField
-        id="password"
-        type="password"
-        placeholder="Password"
-        value={password}
+        id="email"
+        type="email"
+        placeholder="Email"
+        value={email}
         onChange={(e) => {
-          setPasswordh(e.target.value);
+          setEmailh(e.target.value);
           // console.log('Inside the onChange Function!');
-          dispatch(setPassword(e.target.value));
+          dispatch(setEmail(e.target.value));
         }}
         variant="outlined"
         fullWidth
-        autoComplete="current-password"
+        autoComplete="email"
+        autoFocus
         disableRipple
         disableElevation
         style={{
@@ -36,10 +36,12 @@ const PasswordInputTextField = () => {
         inputProps={{
           style: {
             padding: '11px 13px',
+            // TO DO: Later remove the hover and focus effects
           },
         }}
       />
     </Box>
   );
 };
-export default PasswordInputTextField;
+
+export default EmailInputTextField;

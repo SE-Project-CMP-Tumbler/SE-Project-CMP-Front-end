@@ -1,5 +1,5 @@
 import { configureStore } from '@reduxjs/toolkit';
-import userReducer from './user/UserSlice';
+import userReducer from './User/UserSlice';
 import followtagsReducer from './features/followtags/followtagsSlice';
 import randomtagReducer from './features/randomtag/randomtagSlice';
 import tagReducer from './features/tag/tagSlice';
