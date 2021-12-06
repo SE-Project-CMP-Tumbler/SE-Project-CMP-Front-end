@@ -1,0 +1,532 @@
+{
+  "follow_tag": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "tags": [
+        {
+          "tag_description": "Red",
+          "tag_image": "https://picsum.photos/id/237/200/300"
+        },
+        {
+          "tag_description": "Khaki",
+          "tag_image": "https://picsum.photos/seed/picsum/200/300"
+        },
+        {
+          "tag_description": "Khakii",
+          "tag_image": "https://picsum.photos/200/300"
+        },
+        {
+          "tag_description": "Fuscia",
+          "tag_image": "https://picsum.photos/id/12/200/300"
+        }
+      ]
+    }
+  },
+  "tag": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "tag_description": "books",
+      "tag_image": "https://www.ukrgate.com/eng/wp-content/uploads/2021/02/The-Ukrainian-Book-Institute-Purchases-380.9-Thousand-Books-for-Public-Libraries1.jpeg",
+      "followed": true,
+      "followers_number": 1026
+    }
+  },
+  "trending": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "tags": [
+        {
+          "tag_description": "Red",
+          "tag_image": "https://picsum.photos/id/1/200/300"
+        },
+        {
+          "tag_description": "Khaki",
+          "tag_image": "https://picsum.photos/id/4/210/320"
+        },
+        {
+          "tag_description": "Khakii",
+          "tag_image": "https://picsum.photos/id/5/200/300"
+        },
+        {
+          "tag_description": "Fuscia",
+          "tag_image": "https://picsum.photos/id/10/200/300"
+        },
+        {
+          "tag_description": "Indigo",
+          "tag_image": "https://picsum.photos/id/6/200/300"
+        },
+        {
+          "tag_description": "Aquamarine",
+          "tag_image": "https://picsum.photos/id/9/200/300"
+        },
+        {
+          "tag_description": "Teal",
+          "tag_image": "https://picsum.photos/id/11/200/300"
+        },
+        {
+          "tag_description": "Turquoiset",
+          "tag_image": "https://picsum.photos/id/7/200/300"
+        }
+      ]
+    }
+  },
+  "randomtags": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "tags": [
+        {
+          "tag_description": "Red",
+          "tag_image1": "https://picsum.photos/id/1/200/300",
+          "tag_image2": "https://picsum.photos/id/2/200/300"
+        },
+        {
+          "tag_description": "Khaki",
+          "tag_image1": "https://picsum.photos/id/3/200/300",
+          "tag_image2": "https://picsum.photos/id/4/200/300"
+        },
+        {
+          "tag_description": "Khakii",
+          "tag_image1": "https://picsum.photos/id/5/200/300",
+          "tag_image2": "https://picsum.photos/id/6/200/300"
+        },
+        {
+          "tag_description": "Fuscia",
+          "tag_image1": "https://picsum.photos/id/7/200/300",
+          "tag_image2": "https://picsum.photos/id/8/200/300"
+        },
+        {
+          "tag_description": "Indigo",
+          "tag_image1": "https://picsum.photos/id/9/200/300",
+          "tag_image2": "https://picsum.photos/id/10/200/300"
+        },
+        {
+          "tag_description": "Aquamarine",
+          "tag_image1": "https://picsum.photos/id/12/200/300",
+          "tag_image2": "https://picsum.photos/id/13/200/300"
+        },
+        {
+          "tag_description": "Teal",
+          "tag_image1": "https://picsum.photos/id/14/200/300",
+          "tag_image2": "https://picsum.photos/id/15/200/300"
+        },
+        {
+          "tag_description": "Turquoiset",
+          "tag_image1": "https://picsum.photos/id/16/200/300",
+          "tag_image2": "https://picsum.photos/id/17/200/300"
+        }
+      ]
+    }
+  },
+  "gifs": [
+    {
+      "id": "1",
+      "img": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+      "title": "Breakfast",
+      "rows": "2",
+      "cols": "2"
+    },
+    {
+      "id": "2",
+      "img": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+      "title": "Burger"
+    },
+    {
+      "id": "3",
+      "img": "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
+      "title": "Camera"
+    },
+    {
+      "id": "4",
+      "img": "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
+      "title": "Coffee",
+      "cols": "2"
+    },
+    {
+      "id": "5",
+      "img": "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
+      "title": "Hats",
+      "cols": "2"
+    },
+    {
+      "id": "6",
+      "img": "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
+      "title": "Honey",
+      "rows": 2,
+      "cols": 2
+    },
+    {
+      "id": "7",
+      "img": "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
+      "title": " Basketball"
+    },
+    {
+      "id": "8",
+      "img": "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f",
+      "title": "Fern"
+    },
+    {
+      "id": "9",
+      "img": "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25",
+      "title": "Mushrooms",
+      "rows": " 2",
+      "cols": "2"
+    },
+    {
+      "id": "10",
+      "img": "https://images.unsplash.com/photo-1567306301408-9b74779a11af",
+      "title": "Tomato basil"
+    },
+    {
+      "id": "11",
+      "img": "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
+      "title": "Sea star"
+    },
+    {
+      "id": "19",
+      "img": "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
+      "title": "Bike",
+      "cols": "2"
+    }
+  ],
+  "chatsforoneuser": [
+    {
+      "id": "1",
+      "to": "maryem",
+      "lastmessage": "hhhhh",
+      "img": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+      "chat_messages": [
+        {
+          "from": "nadeen",
+          "text": "Hello",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "Why",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "hhhhh",
+          "gif": "",
+          "photo": ""
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "to": "ahmed",
+      "lastmessage": "hey",
+      "img": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+      "chat_messages": [
+        {
+          "from": "nadeen",
+          "to": "maryem",
+          "text": "hello ahmed",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "jjjj",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "hi",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "bye",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "hey",
+          "gif": "",
+          "photo": ""
+        }
+      ]
+    },
+    {
+      "to": "radwa",
+      "lastmessage": "wwwwwwwwwww",
+      "img": "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
+      "chat_messages": [
+        {
+          "from": "nadeen",
+          "text": "hello radwa",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "hiiii",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "Hi",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "hey",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "sss",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "m",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "gg",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "1",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "2",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "3",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "4",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "why",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "wwwwwwwwwww",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        }
+      ],
+      "id": "3"
+    },
+    {
+      "id": "4",
+      "to": "ali",
+      "lastmessage": "huuu",
+      "img": "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
+      "chat_messages": [
+        {
+          "from": "nadeen",
+          "text": "hello aliiiii",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "huuu",
+          "gif": "",
+          "photo": ""
+        }
+      ]
+    }
+  ]
+}

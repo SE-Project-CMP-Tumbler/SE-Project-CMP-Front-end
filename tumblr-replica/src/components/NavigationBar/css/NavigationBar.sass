@@ -1,0 +1,557 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
+
+
+$hover-color: rgb(231, 231, 231)
+$text-grey-color: rgba(0, 0, 0, 0.65)
+$sky-blue: rgb(0, 184, 255)
+$tumblr-blue: rgb(6, 24, 51)
+
+a
+   text-decoration: none
+   color: $text-grey-color
+button
+   border: none
+   background: none
+
+// *
+//    padding: 0
+//    margin: 0
+//    box-sizing: border-box
+.nav-styles
+   display: flex
+   align-items: center
+   justify-content: space-between
+   background-color: $tumblr-blue
+   padding: 0.125rem 0.063rem
+   margin-right: 0
+   border-bottom: 0.05rem solid rgba(255, 255, 255, 0.25) 
+   *
+      padding: 0
+      margin: 0
+      box-sizing: border-box
+   a
+      text-decoration: none
+      color: $text-grey-color
+   button
+      border: none
+      background: none
+
+   .nav-resp
+      display: flex
+      justify-content: space-between
+      align-items: center
+      width: auto
+      padding: 0 1rem
+
+      .tumblr-logo-cont
+         display: flex
+         align-items: center
+         margin-right: 0.25rem
+         flex-shrink: 0
+         i
+            color: #ffffff
+
+      .search-bar
+         position: relative
+         display: block
+         margin-left: 1rem
+         .search-icon
+            color: rgba(255, 255, 255, 0.65)
+            position: absolute
+            left: 6px
+            top: 6.5px
+            
+
+         .search-bar-input
+            background-color: rgba(255, 255, 255, 0.25)
+            color: white
+            height: 2rem
+            border-radius: 0.25rem
+            padding-left: 1.8rem
+            outline: none
+            border: none
+            &:focus
+               font-weight: 600
+               outline: none
+               background: white
+               color: $text-grey-color
+               
+               &::placeholder
+                  color: white
+            &::placeholder
+               color: $hover-color
+               font-family: poppins
+
+   .icons-container
+      display: flex
+      justify-content: flex-end
+      margin-right: 0.25rem
+      margin-left: 0.063rem
+      flex-grow: 1
+      align-items: center
+      .icon-style
+         display: inline-block
+         padding: 1rem 1.1rem 
+         border-radius: 0.25rem
+         margin-right: 0.1rem
+         transform: scale(110%)
+         cursor: pointer
+         .blue-pen
+            color: $sky-blue
+            transform: scale(120%)
+         i
+            color: #ffffff
+      button
+         border: none
+         background: none
+      
+
+
+
+
+
+
+.drop 
+   overflow: hidden
+   font-family: 'Poppins', sans-serif
+   font-weight: 300
+   .drop-content 
+      position: absolute
+      background-color: #ffffff
+      z-index: 999
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+
+      border-radius: 5px
+      color: black
+      .drop-header 
+         display: flex
+         justify-content: space-between
+         padding: 0.6rem
+         //font-weight: 600
+         font-size: 0.8rem
+   
+.chat-drop 
+   .chat-drop-content 
+      display: none
+      width: 17.5rem
+      transform: translateX(-40%)
+
+      .chat-drop-header 
+         border-bottom: 1px solid rgba(0, 0, 0, 0.13)
+         button 
+            color: $sky-blue
+         .profile 
+            display: flex
+            align-items: center
+            cursor: pointer
+            position: relative
+            .chevron
+               padding-left: 2px
+            p 
+               font-weight: 600
+               font-size: 0.75rem
+               color: $text-grey-color
+            .icon-box 
+               width: 1.5rem
+               margin-right: 0.5rem
+               img 
+                  max-width: 100%
+                  height: auto
+                  border-radius: 0.25rem
+            .tumblr-list 
+               display: flex
+               flex-direction: column
+               display: none
+               position: absolute
+               top: 2rem
+               right: -2.2rem
+               z-index: 999
+               background-color: white
+               box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+               border-radius: 3px
+
+               //from the user section
+               .blog-details 
+                  display: flex
+                  align-items: center
+                  padding-right: 6.5rem
+                  &:hover 
+                     background-color: $hover-color
+                  .blog-icon-box 
+                     width: 2.3rem
+                     margin: 0.5rem
+                     img 
+                        max-width: 100%
+                        height: auto
+                        border-radius: 0.25rem
+                  .blog-name-title 
+                     font-size: 0.8rem
+                     align-items: center
+                     .tumblr-name 
+                        font-weight: 600
+                     .tumblr-title 
+                        font-weight: 300
+
+   .chat-items
+      display: block
+      .chat-item 
+         padding: 0.7rem 1rem
+         display: flex
+         align-items: center
+         border-bottom: 1px solid rgba(0, 0, 0, 0.13)
+         cursor: pointer
+         &:hover 
+            background-color: $hover-color
+         .chat-box 
+            font-size: 0.8rem
+            .sender-name 
+               font-weight: 600
+            .chat-content 
+               color: $text-grey-color
+               .sender-name-colon 
+                  font-weight: 600
+
+         .chat-icon-box 
+            width: 2rem
+            margin-right: 0.5rem
+            position: relative
+            img 
+               max-width: 100%
+               height: auto
+               border-radius: 50%
+
+            .floating-icon 
+               filter: saturate(200%)
+               position: absolute
+               max-width: 36%
+               height: auto
+               top: 0rem
+               left: 1.4rem
+
+   .tumblr-list 
+      display: none
+      flex-direction: column
+      background-color: white
+      box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+      border-radius: 3px
+
+      //from the user section
+      .blog-details 
+         display: flex
+         align-items: center
+         padding-right: 6.5rem
+         &:hover 
+            background-color: $hover-color
+         .blog-icon-box 
+            width: 2.3rem
+            margin: 0.5rem
+            img 
+               max-width: 100%
+               height: auto
+               border-radius: 0.25rem
+         .blog-name-title 
+            font-size: 0.8rem
+            align-items: center
+            .tumblr-name 
+               font-weight: 600
+            .tumblr-title 
+               font-weight: 300
+      .recently-followed
+         font-size: 0.8rem
+         background-color: rgba(0, 0, 0, 0.07)
+         padding: 0.3rem
+
+
+         
+
+
+
+
+.user-drop 
+   display: block
+
+   .user-drop-content 
+      display: none
+      width: 15rem
+      transform: translateX(-9rem)
+
+      .user-drop-header 
+         background-color: rgba(0, 0, 0, 0.07)
+
+         button 
+            color: sky-blue
+         
+
+         .profile 
+            display: flex
+            align-items: center
+
+            .icon-box 
+               width: 1.2rem
+               margin-right: 0.5rem
+
+               img 
+                  max-width: 100%
+                  height: auto
+                  border-radius: 0.25rem
+  
+      .user-item 
+         padding: 0.6rem 1rem
+         display: flex
+         align-items: center
+         justify-content: space-between
+         font-size: 0.9rem
+
+         span 
+            margin-left: 0.5rem
+         
+
+         &:hover 
+            background-color: $hover-color
+         
+      
+
+      .user-tumblr 
+         border-bottom: 1px solid rgba(0, 0, 0, 0.13)
+
+         .blog-item 
+            display: flex
+            justify-content: space-between
+
+            &:hover 
+               background-color: $hover-color
+            
+
+            .blog-details 
+               display: flex
+               align-items: center
+
+               .blog-icon-box 
+                  width: 2.5rem
+                  margin: 0.5rem
+
+                  img 
+                     max-width: 100%
+                     height: auto
+                     border-radius: 0.25rem
+                  
+               .blog-name-title 
+                  font-size: 0.8rem
+                  align-items: center
+
+                  .tumblr-name 
+                     font-weight: 600
+                  
+
+                  .tumblr-title 
+                     font-weight: 300
+                  
+
+            .hide-items 
+               display: flex
+               align-items: center
+               margin-right: 0.5rem
+               cursor: pointer
+            
+         .blog-options 
+            margin-left: 3.5rem
+            margin-right: 1.2rem
+            margin-bottom: 0.5rem
+            display: block
+
+            .blog-option 
+               display: flex
+               justify-content: space-between
+               font-size: 0.9rem
+               padding: 0.2rem 0.3rem
+               margin: 0rem 0rem
+
+               &:hover 
+                  background-color: $hover-color
+
+      .misc-drop-header 
+         display: flex
+         justify-content: space-around
+         background-color: rgba(0, 0, 0, 0.07)
+         padding: 0.3rem
+         font-size: 0.75rem
+
+         .misc-item 
+            &:hover 
+               text-decoration: underline
+            
+         
+
+
+.notifications-drop 
+   .notifications-drop-content 
+      display: none
+      width: 24rem
+      transform: translate(-62%, 0%)
+
+      .notifications-drop-header 
+         border-bottom: 1px solid rgba(0, 0, 0, 0.13)
+         padding-left: 0.5rem
+         padding-right: 1rem
+
+         .activity
+            font-family: sans-serif
+            font-weight: 900
+            color: rgb(0, 0, 0)
+            text-decoration: underline
+         
+         .profile 
+            i
+               padding-left: 2px
+            display: flex
+            align-items: center
+            cursor: pointer
+            position: relative
+
+            p 
+               font-weight: 600
+               font-size: 0.87rem
+               color: $text-grey-color
+
+            .icon-box 
+               width: 1.7rem
+               margin-right: 0.5rem
+
+               img 
+                  max-width: 100%
+                  height: auto
+                  border-radius: 0.25rem
+     
+            .tumblr-list 
+               display: flex
+               flex-direction: column
+               display: none
+               position: absolute
+               top: 2rem
+               right: -2.2rem
+               z-index: 999
+               background-color: white
+               box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+               border-radius: 3px
+
+               //from the user section
+               .blog-details 
+                  display: flex
+                  align-items: center
+                  padding-right: 6.5rem
+
+                  &:hover 
+                     background-color: $hover-color
+                  
+
+                  .blog-icon-box 
+                     width: 2.3rem
+                     margin: 0.5rem
+
+                     img 
+                        max-width: 100%
+                        height: auto
+                        border-radius: 0.25rem
+
+                  .blog-name-title 
+                     font-size: 0.8rem
+                     align-items: center
+
+                     .tumblr-name 
+                        font-weight: 600
+                  
+                     .tumblr-title 
+                        font-weight: 300
+   
+      
+
+    
+      .notifications-category
+         display: flex
+         justify-content: space-between
+         border-bottom: 1px solid rgba(0, 0, 0, 0.13)
+
+         .category-item
+            flex-basis: 100%
+            color: $text-grey-color
+            border-bottom: 0px solid $sky-blue
+            font-family: 'poppins'
+            font-weight: 600
+            padding-top: 0.5rem
+            padding-bottom: 0.5rem
+         .all
+            flex-basis: 70%
+            color: $sky-blue
+            border-bottom: 2px solid $sky-blue
+      
+
+      .time-drop-header 
+         background-color: rgba(0, 0, 0, 0.07)
+         padding-top: 0.2rem
+         padding-bottom: 0.2rem
+         .time-lasted
+            font-weight: 400
+   
+      .notification-item
+         display: flex
+         justify-content: space-between
+         padding: 0.7rem 1rem
+         border-bottom: 1px solid rgba(0, 0, 0, 0.13)
+         cursor: pointer
+      
+         &:hover 
+            background-color: $hover-color
+      
+         .notification-box 
+            font-size: 0.8rem
+            display: inline-block
+            .tumblr-name 
+               font-weight: 600
+               display: inline
+            .notification-content 
+               font-weight: 300
+               color: $text-grey-color
+
+         .notification-content-icon
+            width: 2rem
+            margin-right: 0.5rem
+            img
+               max-width: 100%
+               height: auto
+               border-radius: 10%
+
+                   
+
+         .notification-icon-box 
+            width: 1.5rem
+            margin-right: 0.5rem
+            position: relative
+            display: inline-block
+            .profile-icon 
+               max-width: 100%
+               height: auto
+               border-radius: 10%
+
+            .floating-icon 
+               filter: saturate(200%)
+               position: absolute
+               max-width: 60%
+               height: auto
+               top: 0.9rem
+               left: 0.8rem
+      
+      .see-everything
+         text-align: center
+         font-size: 0.8rem
+         font-weight: 500
+         margin-top: 0.3rem
+         margin-bottom: 0.3rem
+   
+       
+
+
+
+html 
+   height: 100%
+   background-color: $tumblr-blue
+

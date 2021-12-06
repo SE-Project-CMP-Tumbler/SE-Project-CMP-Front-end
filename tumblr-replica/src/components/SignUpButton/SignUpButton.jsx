@@ -17,7 +17,9 @@ const SignUpButton = () => (
         style={{
           backgroundColor: '#00b8ff', color: '#000000', fontWeight: 'bold', textTransform: 'none',
         }}
-        sx={{ spacing: 8, mt: 1.5 }}
+        sx={{
+          spacing: 8, mt: 1.5, mr: 1, ml: 1, mb: 1,
+        }}
       >
         Sign up
       </Button>

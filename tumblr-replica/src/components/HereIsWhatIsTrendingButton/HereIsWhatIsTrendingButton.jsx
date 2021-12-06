@@ -8,7 +8,7 @@ const HereIsWhatIsTrendingButton = () => (
   <Box
     sx={{ spacing: 8, mt: 1.5 }}
   >
-    <Link to="/explore" style={{ textDecoration: 'none' }}>
+    <Link to="/explore/trending" style={{ textDecoration: 'none' }}>
       <Button
         startIcon={<ExploreIconOutlined />}
         fullWidth
