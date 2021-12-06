@@ -7,10 +7,11 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import LogInButton from '../LogInButton/LogInButton';
-import ContinueWithGoogleButton from '../ContinueWithGoogleButton/ContinueWithGoogleButton';
-import EmailInputTextField from '../EmailInputTextField/EmailInputTextField';
-import PasswordInputTextField from '../PasswordInputTextField/PasswordInputTextField';
+import LogInButton from '../LogOutHomePage/subcomponents/LogInButton/LogInButton';
+import ContinueWithGoogleButton from '../LogOutHomePage/subcomponents/ContinueWithGoogleButton/ContinueWithGoogleButton';
+import EmailInputTextField from '../SignUpPage/subcomponents/EmailInputTextField/EmailInputTextField';
+import PasswordInputTextField from '../SignUpPage/subcomponents/PasswordInputTextField/PasswordInputTextField';
+import background from '../LogOutHomePage/placeholder.jpg';
 
 const theme = createTheme();
 
@@ -29,7 +30,10 @@ const LogInPage = () => {
         <CssBaseline />
         <GlobalStyles
           styles={{
-            body: { backgroundColor: '#001935', height: '100%' },
+            body: { // backgroundColor: '#001935',
+              height: '100%',
+              backgroundImage: `url(${background})`,
+            },
           }}
         />
         <Box

@@ -10,13 +10,14 @@ import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import TextField from '@mui/material/TextField';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import SignUpButton from '../SignUpButton/SignUpButton';
-import ContinueWithGoogleButton from '../ContinueWithGoogleButton/ContinueWithGoogleButton';
-import HereIsWhatIsTrendingButton from '../HereIsWhatIsTrendingButton/HereIsWhatIsTrendingButton';
-import EmailInputTextField from '../EmailInputTextField/EmailInputTextField';
-import PasswordInputTextField from '../PasswordInputTextField/PasswordInputTextField';
-import { setBlogName } from '../../states/user/UserSlice';
+import SignUpButton from '../LogOutHomePage/subcomponents/SignUpButton/SignUpButton';
+import ContinueWithGoogleButton from '../LogOutHomePage/subcomponents/ContinueWithGoogleButton/ContinueWithGoogleButton';
+import HereIsWhatIsTrendingButton from '../LogOutHomePage/subcomponents/HereIsWhatIsTrendingButton/HereIsWhatIsTrendingButton';
+import EmailInputTextField from './subcomponents/EmailInputTextField/EmailInputTextField';
+import PasswordInputTextField from './subcomponents/PasswordInputTextField/PasswordInputTextField';
+import { setBlogName } from '../../states/User/UserSlice';
 // import { selectUser } from '../../states/user/UserSlice';
+import background from '../LogOutHomePage/placeholder.jpg';
 
 const theme = createTheme();
 
@@ -33,7 +34,10 @@ const SignUpPage = () => {
         <CssBaseline />
         <GlobalStyles
           styles={{
-            body: { backgroundColor: '#001935', height: '100%' },
+            body: { // backgroundColor: '#001935',
+              height: '100%',
+              backgroundImage: `url(${background})`,
+            },
           }}
         />
         {/* <h2>{user.email}</h2> */}

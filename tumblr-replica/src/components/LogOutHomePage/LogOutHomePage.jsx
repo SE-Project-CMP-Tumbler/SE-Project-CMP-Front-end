@@ -7,10 +7,10 @@ import Typography from '@mui/material/Typography';
 import Container from '@mui/material/Container';
 import Divider from '@mui/material/Divider';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import LogInButton from '../LogInButton/LogInButton';
-import SignUpButton from '../SignUpButton/SignUpButton';
-import ContinueWithGoogleButton from '../ContinueWithGoogleButton/ContinueWithGoogleButton';
-import HereIsWhatIsTrendingButton from '../HereIsWhatIsTrendingButton/HereIsWhatIsTrendingButton';
+import LogInButton from './subcomponents/LogInButton/LogInButton';
+import SignUpButton from './subcomponents/SignUpButton/SignUpButton';
+import ContinueWithGoogleButton from './subcomponents/ContinueWithGoogleButton/ContinueWithGoogleButton';
+import HereIsWhatIsTrendingButton from './subcomponents/HereIsWhatIsTrendingButton/HereIsWhatIsTrendingButton';
 import background from './placeholder.jpg';
 
 const theme = createTheme();
