@@ -199,6 +199,62 @@
       ]
     }
   },
+  "textposts": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_body": "<div><h1>What's Artificial intellegence? </h1> <p>#AI #humanity #freedom</p></div>",
+          "post_id": 5,
+          "post_status": "published",
+          "post_type": "text",
+          "blog_id": 5,
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        },
+        {
+          "post_body": "<div><h1>What's Happiness? </h1> <p>#AI #humanity #freedom</p></div>",
+          "post_id": 5,
+          "post_status": "published",
+          "post_type": "text",
+          "blog_id": 5,
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+  },
+  "videoposts":{
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_id": 5,
+          "post_body": "<div><h1>What's Artificial intellegence? </h1><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'></video></div>",
+          "blog_id": 5,
+          "post_type": "video",
+          "post_status": "published",
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+  },
   "gifs": [
     {
       "id": "1",

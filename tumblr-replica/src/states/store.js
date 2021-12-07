@@ -11,6 +11,8 @@ import NoteWindowReducer from './NotesWindow';
 import LikeReducer from './Like';
 import PostNoteReducer from './PostNotes';
 import Chatreduser from './reducers/ChatReducer';
+import textpostsReducer from './features/textposts/textpostsSlice';
+import videopostsReducer from './features/videoposts/videopostsSlice';
 
 const store = configureStore({
   reducer: {
@@ -20,6 +22,8 @@ const store = configureStore({
     randomposts: randompostsReducer,
     trendingposts: trendingpostsReducer,
     tag: tagReducer,
+    textposts: textpostsReducer,
+    videoposts: videopostsReducer,
     user: userReducer,
     displayNotesList: displayNotesListReducer,
     NoteWindow: NoteWindowReducer,
