@@ -33,7 +33,7 @@ export default function NavTabs({ tapnum, selsected }) {
   return (
     <div style={{ backgroundColor: '#001935' }}>
       <Box sx={{
-        width: '100%', typography: 'body1', borderBottom: 1, borderColor: 'primary.main', marginBottom: '20px',
+        width: '100%', typography: 'body1', borderBottom: 1, borderColor: 'primary.main', margin: '20px 0px',
       }}
       >
         <Tabs

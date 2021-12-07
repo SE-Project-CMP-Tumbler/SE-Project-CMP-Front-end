@@ -85,7 +85,7 @@ export default function FollowingList() {
   // followtags.response.tags.map((tag) => (tags.push(tag.tag_description)));
 
   return (
-    <Box sx={{ width: '100%', maxWidth: 320 }} style={{ backgroundColor: '#122943' }}>
+    <Box sx={{ width: '100%', maxWidth: 320, marginTop: 6 }} style={{ backgroundColor: '#122943' }}>
       <nav aria-label="main mailbox folders">
         <List>
           <ListItem disablePadding>
