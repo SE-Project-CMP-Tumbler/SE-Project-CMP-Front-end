@@ -35,7 +35,7 @@ export default function TagCard() {
   const taginfo = useSelector(getTaginfo);
   // console.log(taginfo);
   return (
-    <Card sx={{ maxWidth: 345 }} style={cardColor}>
+    <Card sx={{ maxWidth: 345, marginTop: 7 }} style={cardColor}>
       { taginfo.meta.status === '200'
         ? (
           <div>

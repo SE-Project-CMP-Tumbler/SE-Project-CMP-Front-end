@@ -18,8 +18,7 @@ import PropTypes from 'prop-types';
  *   <NavTabs tapnum={tapnum} selected={selected} />
  * )
  */
-export default function NavTabs({ tapnum }) {
-  const [value, setValue] = React.useState(tapnum);
+export default function NavTabs({ value, setValue }) {
   const white = {
     color: 'white',
     fontWeight: 'bolder',
@@ -29,7 +28,7 @@ export default function NavTabs({ tapnum }) {
   return (
     <div style={{ backgroundColor: '#001935' }}>
       <Box sx={{
-        width: '100%', typography: 'body1', borderBottom: 1, borderColor: 'primary.main', marginBottom: '20px',
+        width: '100%', typography: 'body1', borderBottom: 1, borderColor: 'primary.main', margin: '37px 0px',
       }}
       >
         <Tabs
@@ -37,8 +36,8 @@ export default function NavTabs({ tapnum }) {
           value={value}
           onChange={(event, newValue) => setValue(newValue)}
         >
-          <Tab style={white} label="Recent" to="/tagged/:tag?sort=recent" component={Link} />
-          <Tab style={white} label="Top" to="/tagged/:tag?sort=top" component={Link} />
+          <Tab style={white} label="Recent" to="?sort=recent" component={Link} />
+          <Tab style={white} label="Top" to="?sort=top" component={Link} />
         </Tabs>
       </Box>
     </div>
@@ -50,5 +49,6 @@ NavTabs.propTypes = {
    * @param {tapnum}
    * tapnum the tab should have blue underline
    */
-  tapnum: PropTypes.number.isRequired,
+  value: PropTypes.number.isRequired,
+  setValue: PropTypes.func.isRequired,
 };

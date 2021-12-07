@@ -26,7 +26,7 @@ export default function FollowingTag({ imagUrl, tag }) {
   const linkst = { width: '100%', textDecoration: 'none' };
   return (
     <ListItem disablePadding>
-      <Link to={`/tagged/${tag}`} style={linkst}>
+      <Link to={`/tagged/${tag}?sort=recent`} style={linkst}>
         <ListItemButton>
           <ListItemIcon sx={{
             width: 90, height: 60, borderRadius: '50%', mr: 0.5,

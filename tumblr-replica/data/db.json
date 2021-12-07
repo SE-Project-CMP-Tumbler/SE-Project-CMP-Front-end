@@ -391,6 +391,51 @@
       ]
     }
   },
+  "tagpostsrecent":{
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_id": 5,
+          "post_body": "<div><p>Nada</p><p>Hello Recent</p><p>Basel</p><p>Hey sara</p></div>",
+          "blog_id": 5,
+          "post_status": "published",
+          "post_type": "chat",
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+
+  },
+  "tagpoststop":{
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_id": 5,
+          "post_body": "<div><p>Nada</p><p>Hello Top</p><p>Basel</p><p>Hey sara</p></div>",
+          "blog_id": 5,
+          "post_status": "published",
+          "post_type": "chat",
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+  },
   "gifs": [
     {
       "id": "1",

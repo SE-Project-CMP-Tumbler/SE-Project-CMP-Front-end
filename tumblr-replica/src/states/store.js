@@ -19,6 +19,7 @@ import quotepostsReducer from './features/quoteposts/quotepostsSlice';
 import gifpostsReducer from './features/gifposts/gifpostsSlice';
 import askpostsReducer from './features/askposts/askpostsSlice';
 import audiopostsReducer from './features/audioposts/audiopostsSlice';
+import tagpostsReducer from './features/tagposts/tagpostsSlice';
 
 const store = configureStore({
   reducer: {
@@ -36,6 +37,7 @@ const store = configureStore({
     askposts: askpostsReducer,
     audioposts: audiopostsReducer,
     quoteposts: quotepostsReducer,
+    tagposts: tagpostsReducer,
     user: userReducer,
     displayNotesList: displayNotesListReducer,
     NoteWindow: NoteWindowReducer,
