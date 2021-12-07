@@ -3,7 +3,7 @@ import Grid from '@mui/material/Grid';
 import { useDispatch, useSelector } from 'react-redux';
 import NavTabs from '../NavTabs/NavTabs';
 import FollowingList from '../FollowingList/FollowingList';
-import PostsList from '../../PostsList/PostsList';
+import PostsList from '../PostsList/PostsList';
 import { getVideoposts, fetchAsyncvideoposts } from '../../states/features/videoposts/videopostsSlice';
 
 /**

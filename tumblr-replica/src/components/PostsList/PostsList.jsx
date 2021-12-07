@@ -2,7 +2,7 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import PropTypes from 'prop-types';
 import Avatar from '@mui/material/Avatar';
-import PostCard from '../components/NewsFeed/subcomponents/PostCard/PostCard';
+import PostCard from '../NewsFeed/subcomponents/PostCard/PostCard';
 
 function PostsList({ Posts }) {
   return (

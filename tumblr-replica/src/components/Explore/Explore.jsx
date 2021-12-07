@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import NavTabs from '../NavTabs/NavTabs';
 import FollowingList from '../FollowingList/FollowingList';
 import CarouselCards from '../CarouselCards/CarouselCards';
-import PostsList from '../../PostsList/PostsList';
+import PostsList from '../PostsList/PostsList';
 import { getRandomposts, fetchAsyncrandomposts } from '../../states/features/randomposts/randompostsSlice';
 
 /**

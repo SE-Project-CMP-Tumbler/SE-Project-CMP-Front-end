@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import NavTabs from '../NavTabs/NavTabs';
 import FollowingList from '../FollowingList/FollowingList';
 import CarouselTrend from '../CarouselTrend/CarouselTrend';
-import PostsList from '../../PostsList/PostsList';
+import PostsList from '../PostsList/PostsList';
 import { getTrendingposts, fetchAsynctrendingposts } from '../../states/features/trendingposts/trendingpostsSlice';
 /**
  * Component for render all elements in /explore/trending
