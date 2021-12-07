@@ -13,6 +13,9 @@ import PostNoteReducer from './PostNotes';
 import Chatreduser from './reducers/ChatReducer';
 import textpostsReducer from './features/textposts/textpostsSlice';
 import videopostsReducer from './features/videoposts/videopostsSlice';
+import imagepostsReducer from './features/imageposts/imagepostsSlice';
+import chatpostsReducer from './features/chatposts/chatpostsSlice';
+import quotepostsReducer from './features/quoteposts/quotepostsSlice';
 
 const store = configureStore({
   reducer: {
@@ -24,6 +27,9 @@ const store = configureStore({
     tag: tagReducer,
     textposts: textpostsReducer,
     videoposts: videopostsReducer,
+    imageposts: imagepostsReducer,
+    chatposts: chatpostsReducer,
+    quoteposts: quotepostsReducer,
     user: userReducer,
     displayNotesList: displayNotesListReducer,
     NoteWindow: NoteWindowReducer,

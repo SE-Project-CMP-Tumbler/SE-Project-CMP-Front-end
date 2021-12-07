@@ -15,6 +15,9 @@ import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
 import TextPosts from './components/TextPosts/TextPosts';
 import VideoPosts from './components/VideoPosts/VideoPosts';
+import ImagePosts from './components/ImagePosts/ImagePosts';
+import QuotePosts from './components/QuotePosts/QuotePosts';
+import ChatPosts from './components/ChatPosts/ChatPosts';
 // import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
 // import { selectUser } from './states/user/UserSlice';
 
@@ -42,9 +45,9 @@ function App() {
         <Route path="/explore/trending" element={<Trending />} />
         <Route path="/explore/staff-picks" element={<Explore />} />
         <Route path="/explore/text" element={<TextPosts />} />
-        <Route path="/explore/photos" />
-        <Route path="/explore/quotes" />
-        <Route path="/explore/chats" />
+        <Route path="/explore/photos" element={<ImagePosts />} />
+        <Route path="/explore/quotes" element={<QuotePosts />} />
+        <Route path="/explore/chats" element={<ChatPosts />} />
         <Route path="/explore/Audio" />
         <Route path="/explore/Video" element={<VideoPosts />} />
         <Route path="/explore/Asks" />

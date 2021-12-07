@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import NavTabs from '../NavTabs/NavTabs';
 import FollowingList from '../FollowingList/FollowingList';
 import PostsList from '../PostsList/PostsList';
-import { getVideoposts, fetchAsyncvideoposts } from '../../states/features/videoposts/videopostsSlice';
+import { getChatposts, fetchAsyncchatposts } from '../../states/features/chatposts/chatpostsSlice';
 
 /**
  * Component for render all elements in /explore/recommended-for-you
@@ -18,17 +18,17 @@ import { getVideoposts, fetchAsyncvideoposts } from '../../states/features/video
  *   <Explore />
  * )
  */
-function VideoPosts() {
+function ChatPosts() {
   const dispatch = useDispatch();
   React.useEffect(() => {
-    dispatch(fetchAsyncvideoposts());
+    dispatch(fetchAsyncchatposts());
   }, []);
-  const Posts = useSelector(getVideoposts);
+  const Posts = useSelector(getChatposts);
   return (
     <div>
       <Grid container spacing={2}>
         <Grid item xs={10} lg={6} sx={{ marginLeft: '10%' }}>
-          <NavTabs tapnum={3} selsected="Video" />
+          <NavTabs tapnum={3} selsected="Chat" />
           <PostsList Posts={Posts} />
         </Grid>
         <Grid item lg={4} sx={{ marginLeft: '2%', display: { xs: 'none', lg: 'block' } }}>
@@ -39,4 +39,4 @@ function VideoPosts() {
   );
 }
 
-export default VideoPosts;
+export default ChatPosts;

@@ -53,7 +53,7 @@ export default function NavTabs({ tapnum, selsected }) {
               inputProps={{ 'aria-label': 'Without label' }}
             >
               <MenuItem to="/explore/text" component={Link}>Texts</MenuItem>
-              <MenuItem to="explore/photos" component={Link}>Photos</MenuItem>
+              <MenuItem to="/explore/photos" component={Link}>Photos</MenuItem>
               <MenuItem to="/explore/gifs" component={Link}>GIFs</MenuItem>
               <MenuItem to="/explore/quotes" component={Link}>Quotes</MenuItem>
               <MenuItem to="/explore/chats" component={Link}>Chats</MenuItem>

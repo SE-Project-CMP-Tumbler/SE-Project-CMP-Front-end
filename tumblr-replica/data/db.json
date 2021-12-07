@@ -255,6 +255,73 @@
       ]
     }
   },
+  "imageposts":{
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_id": 5,
+          "post_body": "<div><h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''></div>",
+          "post_status": "published",
+          "post_type": "image",
+          "blog_id": 5,
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+
+  },
+  "quoteposts":{
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_id": 5,
+          "post_body": "<div><h1>What's Artificial intellegence? </h1><p>'Energy never lies'</p></div>",
+          "blog_id": 5,
+          "post_type": "quote",
+          "post_status": "published",
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+  },
+  "chatposts":{
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_id": 5,
+          "post_body": "<div><p>Nada</p><p>Hello Basel</p><p>Basel</p><p>Hey sara</p></div>",
+          "blog_id": 5,
+          "post_status": "published",
+          "post_type": "chat",
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+  },
   "gifs": [
     {
       "id": "1",
