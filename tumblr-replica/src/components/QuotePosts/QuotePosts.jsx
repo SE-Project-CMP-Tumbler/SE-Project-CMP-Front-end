@@ -28,7 +28,7 @@ function QuotePosts() {
     <div>
       <Grid container spacing={2}>
         <Grid item xs={10} lg={6} sx={{ marginLeft: '10%' }}>
-          <NavTabs tapnum={3} selsected="Quote" />
+          <NavTabs tapnum={3} selsected="Quotes" />
           <PostsList Posts={Posts} />
         </Grid>
         <Grid item lg={4} sx={{ marginLeft: '2%', display: { xs: 'none', lg: 'block' } }}>

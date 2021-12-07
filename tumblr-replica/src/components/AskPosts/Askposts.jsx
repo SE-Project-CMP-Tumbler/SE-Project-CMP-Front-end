@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import NavTabs from '../NavTabs/NavTabs';
 import FollowingList from '../FollowingList/FollowingList';
 import PostsList from '../PostsList/PostsList';
-import { getImageposts, fetchAsyncimageposts } from '../../states/features/imageposts/imagepostsSlice';
+import { getAskposts, fetchAsyncaskposts } from '../../states/features/askposts/askpostsSlice';
 
 /**
  * Component for render all elements in /explore/recommended-for-you
@@ -18,17 +18,17 @@ import { getImageposts, fetchAsyncimageposts } from '../../states/features/image
  *   <Explore />
  * )
  */
-function ImagePosts() {
+function AskPosts() {
   const dispatch = useDispatch();
   React.useEffect(() => {
-    dispatch(fetchAsyncimageposts());
+    dispatch(fetchAsyncaskposts());
   }, []);
-  const Posts = useSelector(getImageposts);
+  const Posts = useSelector(getAskposts);
   return (
     <div>
       <Grid container spacing={2}>
         <Grid item xs={10} lg={6} sx={{ marginLeft: '10%' }}>
-          <NavTabs tapnum={3} selsected="Photos" />
+          <NavTabs tapnum={3} selsected="Asks" />
           <PostsList Posts={Posts} />
         </Grid>
         <Grid item lg={4} sx={{ marginLeft: '2%', display: { xs: 'none', lg: 'block' } }}>
@@ -39,4 +39,4 @@ function ImagePosts() {
   );
 }
 
-export default ImagePosts;
+export default AskPosts;

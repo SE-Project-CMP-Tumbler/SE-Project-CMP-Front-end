@@ -18,6 +18,9 @@ import VideoPosts from './components/VideoPosts/VideoPosts';
 import ImagePosts from './components/ImagePosts/ImagePosts';
 import QuotePosts from './components/QuotePosts/QuotePosts';
 import ChatPosts from './components/ChatPosts/ChatPosts';
+import AudioPosts from './components/AudioPosts/AudioPosts';
+import GifPosts from './components/GifPosts/GifPosts';
+import AskPosts from './components/AskPosts/Askposts';
 // import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
 // import { selectUser } from './states/user/UserSlice';
 
@@ -48,9 +51,10 @@ function App() {
         <Route path="/explore/photos" element={<ImagePosts />} />
         <Route path="/explore/quotes" element={<QuotePosts />} />
         <Route path="/explore/chats" element={<ChatPosts />} />
-        <Route path="/explore/Audio" />
-        <Route path="/explore/Video" element={<VideoPosts />} />
-        <Route path="/explore/Asks" />
+        <Route path="/explore/audio" element={<AudioPosts />} />
+        <Route path="/explore/gifs" element={<GifPosts />} />
+        <Route path="/explore/video" element={<VideoPosts />} />
+        <Route path="/explore/asks" element={<AskPosts />} />
         <Route path="/tagged/:tag" element={<Tagged />} />
       </Routes>
     </Router>

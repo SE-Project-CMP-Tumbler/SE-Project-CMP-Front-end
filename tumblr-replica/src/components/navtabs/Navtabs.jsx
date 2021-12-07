@@ -52,14 +52,14 @@ export default function NavTabs({ tapnum, selsected }) {
               label="Age"
               inputProps={{ 'aria-label': 'Without label' }}
             >
-              <MenuItem to="/explore/text" component={Link}>Texts</MenuItem>
+              <MenuItem to="/explore/text" component={Link}>Text</MenuItem>
               <MenuItem to="/explore/photos" component={Link}>Photos</MenuItem>
               <MenuItem to="/explore/gifs" component={Link}>GIFs</MenuItem>
               <MenuItem to="/explore/quotes" component={Link}>Quotes</MenuItem>
               <MenuItem to="/explore/chats" component={Link}>Chats</MenuItem>
-              <MenuItem to="/explore/Audio" component={Link}>Audio</MenuItem>
-              <MenuItem to="/explore/Video" component={Link}>Video</MenuItem>
-              <MenuItem to="/explore/Asks" component={Link}>Asks</MenuItem>
+              <MenuItem to="/explore/audio" component={Link}>Audio</MenuItem>
+              <MenuItem to="/explore/video" component={Link}>Video</MenuItem>
+              <MenuItem to="/explore/asks" component={Link}>Asks</MenuItem>
             </Select>
           </FormControl>
         </Tabs>

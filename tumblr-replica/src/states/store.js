@@ -16,6 +16,9 @@ import videopostsReducer from './features/videoposts/videopostsSlice';
 import imagepostsReducer from './features/imageposts/imagepostsSlice';
 import chatpostsReducer from './features/chatposts/chatpostsSlice';
 import quotepostsReducer from './features/quoteposts/quotepostsSlice';
+import gifpostsReducer from './features/gifposts/gifpostsSlice';
+import askpostsReducer from './features/askposts/askpostsSlice';
+import audiopostsReducer from './features/audioposts/audiopostsSlice';
 
 const store = configureStore({
   reducer: {
@@ -29,6 +32,9 @@ const store = configureStore({
     videoposts: videopostsReducer,
     imageposts: imagepostsReducer,
     chatposts: chatpostsReducer,
+    gifposts: gifpostsReducer,
+    askposts: askpostsReducer,
+    audioposts: audiopostsReducer,
     quoteposts: quotepostsReducer,
     user: userReducer,
     displayNotesList: displayNotesListReducer,
