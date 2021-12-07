@@ -3,6 +3,8 @@ import userReducer from './user/UserSlice';
 import followtagsReducer from './features/followtags/followtagsSlice';
 import randomtagReducer from './features/randomtag/randomtagSlice';
 import tagReducer from './features/tag/tagSlice';
+import randompostsReducer from './features/randomposts/randompostsSlice';
+import trendingpostsReducer from './features/trendingposts/trendingpostsSlice';
 import trendtagReducer from './features/trendtag/trendtagSlice';
 import displayNotesListReducer from './displayNotesList';
 import NoteWindowReducer from './NotesWindow';
@@ -15,6 +17,8 @@ const store = configureStore({
     followtags: followtagsReducer,
     trendtag: trendtagReducer,
     randomtag: randomtagReducer,
+    randomposts: randompostsReducer,
+    trendingposts: trendingpostsReducer,
     tag: tagReducer,
     user: userReducer,
     displayNotesList: displayNotesListReducer,
