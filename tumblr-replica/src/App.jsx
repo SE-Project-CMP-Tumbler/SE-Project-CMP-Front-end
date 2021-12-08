@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import MediaQuery from 'react-responsive';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import NavigationBarResp from './components/NavigationBarResp/NavigationBarResp';
@@ -14,11 +14,13 @@ import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
 // import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
-// import { selectUser } from './states/user/UserSlice';
+import { initialCheck } from './states/User/UserSlice';
 
 /* need to import more element when finished */
 function App() {
+  const dispatch = useDispatch();
   // const user = useSelector(selectUser);
+  dispatch(initialCheck());
   return (
     <Router>
       <div className="App">

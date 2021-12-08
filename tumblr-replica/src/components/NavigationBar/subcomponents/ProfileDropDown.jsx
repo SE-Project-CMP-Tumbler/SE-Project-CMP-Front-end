@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { logOut } from '../../../states/User/UserSlice';
 
 /**
  * This is the component for the user profile's dropdown (last one on the right)
@@ -11,11 +13,12 @@ function ProfileDropDown() {
   const feedValues = {
     likes: 2, following: 3, posts: 5, followers: 3, activity: 6, drafts: 3, queue: 2,
   };
+  const dispatch = useDispatch();
   return (
     <div className="drop-content user-drop-content">
       <div className="drop-header user-drop-header">
         <p>Account</p>
-        <Link to="/logout">Log out</Link>
+        <Link to="/logout" onClick={() => { dispatch(logOut()); }}>Log out</Link>
       </div>
       <UserItems feedValues={feedValues} />
       <div className="drop-header user-drop-header">

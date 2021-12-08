@@ -41,6 +41,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "test:watch": "npm test -- --watch",
+    "json:server": "npx json-server --watch data/db.json --port 8000 --middlewares src/apis/loginMiddleware.js",
     "docs": "jsdoc -c jsdoc.conf.json"
   },
   "eslintConfig": {

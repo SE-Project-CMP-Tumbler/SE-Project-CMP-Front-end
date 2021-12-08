@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 // import { useSelector } from 'react-redux';
 import { GlobalStyles } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
@@ -15,8 +15,7 @@ import ContinueWithGoogleButton from '../LogOutHomePage/subcomponents/ContinueWi
 import HereIsWhatIsTrendingButton from '../LogOutHomePage/subcomponents/HereIsWhatIsTrendingButton/HereIsWhatIsTrendingButton';
 import EmailInputTextField from './subcomponents/EmailInputTextField/EmailInputTextField';
 import PasswordInputTextField from './subcomponents/PasswordInputTextField/PasswordInputTextField';
-import { setBlogName } from '../../states/User/UserSlice';
-// import { selectUser } from '../../states/user/UserSlice';
+import { setBlogName, selectUser } from '../../states/User/UserSlice';
 import background from '../LogOutHomePage/placeholder.jpg';
 
 const theme = createTheme();
@@ -25,7 +24,10 @@ const SignUpPage = () => {
   const title = 'tumblr';
   const [blogName, setBlogNameh] = useState('');
   const dispatch = useDispatch();
-  // const user = useSelector(selectUser);
+  const user = useSelector(selectUser);
+  if (user.loggedIn === true) {
+    window.location.replace('/dashboard');
+  }
   return (
     <ThemeProvider theme={theme}>
       <Container
@@ -73,8 +75,6 @@ const SignUpPage = () => {
               variant="outlined"
               fullWidth
               autoComplete="off"
-              disableRipple
-              disableElevation
               style={{
                 backgroundColor: '#E8F0FE',
                 borderRadius: 3,
