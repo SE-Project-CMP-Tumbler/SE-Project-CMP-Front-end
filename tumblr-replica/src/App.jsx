@@ -21,6 +21,7 @@ import ChatPosts from './components/ChatPosts/ChatPosts';
 import AudioPosts from './components/AudioPosts/AudioPosts';
 import GifPosts from './components/GifPosts/GifPosts';
 import AskPosts from './components/AskPosts/Askposts';
+import BlogPage from './components/BlogPage/BlogPage';
 // import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
 // import { selectUser } from './states/user/UserSlice';
 
@@ -56,6 +57,7 @@ function App() {
         <Route path="/explore/video" element={<VideoPosts />} />
         <Route path="/explore/asks" element={<AskPosts />} />
         <Route path="/tagged/:tag" element={<Tagged />} />
+        <Route path="/blog/:blogname" element={<BlogPage />} />
       </Routes>
     </Router>
   );
