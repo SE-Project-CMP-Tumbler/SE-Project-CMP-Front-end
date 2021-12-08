@@ -22,6 +22,8 @@ import AudioPosts from './components/AudioPosts/AudioPosts';
 import GifPosts from './components/GifPosts/GifPosts';
 import AskPosts from './components/AskPosts/Askposts';
 import BlogPage from './components/BlogPage/BlogPage';
+import Activity from './components/Activity/Activity';
+import Drafts from './components/Drafts/Drafts';
 // import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
 // import { selectUser } from './states/user/UserSlice';
 
@@ -58,6 +60,8 @@ function App() {
         <Route path="/explore/asks" element={<AskPosts />} />
         <Route path="/tagged/:tag" element={<Tagged />} />
         <Route path="/blog/:blogname" element={<BlogPage />} />
+        <Route path="/blog/:blogname/activity" element={<Activity />} />
+        <Route path="/blog/:blogname/drafts" element={<Drafts />} />
       </Routes>
     </Router>
   );

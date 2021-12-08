@@ -4,15 +4,15 @@ import Box from '@mui/material/Box';
 import { useDispatch, useSelector } from 'react-redux';
 import SideTabs from '../SideTabs/SideTabs';
 import PostsList from '../PostsList/PostsList';
-import { getBlogposts, fetchAsyncblogposts } from '../../states/features/blogposts/blogpostsSlice';
+import { getDraftposts, fetchAsyncdraftposts } from '../../states/features/draftposts/draftpostsSlice';
 
-function BlogPage() {
+function Drafts() {
   const blogId = 2026;
   const dispatch = useDispatch();
   React.useEffect(() => {
-    dispatch(fetchAsyncblogposts(blogId));
+    dispatch(fetchAsyncdraftposts(blogId));
   }, []);
-  const Posts = useSelector(getBlogposts);
+  const Posts = useSelector(getDraftposts);
   return (
     <div>
       <Grid container spacing={2}>
@@ -28,11 +28,11 @@ function BlogPage() {
           <PostsList Posts={Posts} />
         </Grid>
         <Grid item lg={4} sx={{ marginLeft: '2%', display: { xs: 'none', lg: 'block' } }}>
-          <SideTabs select={1} />
+          <SideTabs select={4} />
         </Grid>
       </Grid>
     </div>
   );
 }
 
-export default BlogPage;
+export default Drafts;
