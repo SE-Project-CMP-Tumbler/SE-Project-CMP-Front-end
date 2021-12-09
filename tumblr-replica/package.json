@@ -12,6 +12,7 @@
     "@mui/material": "^5.1.0",
     "@mui/styles": "^5.1.0",
     "@reduxjs/toolkit": "^1.6.2",
+    "axios": "^0.24.0",
     "history": "^5.1.0",
     "jsdoc": "^3.6.7",
     "prop-types": "^15.7.2",

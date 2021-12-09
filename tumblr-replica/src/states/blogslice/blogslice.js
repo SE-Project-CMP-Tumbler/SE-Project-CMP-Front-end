@@ -8,7 +8,7 @@ const initialState = {
   user: {},
 };
 
-export const fetchBlog = createAsyncThunk(
+const fetchBlog = createAsyncThunk(
   'blog/getblog',
   async () => {
     try {
@@ -22,15 +22,17 @@ export const fetchBlog = createAsyncThunk(
 );
 
 const blogSlice = createSlice({
-  name: 'blogSlice',
+  name: 'Blog',
   initialState,
   reducers: {
     // is for adding actions like follow etc...
     follow(state) {
+      // console.log('follow is called');
       const st = state;
       st.user.follow = true;
     },
     unFollow(state) {
+      // console.log('unfollow is called');
       const st = state;
       st.user.follow = false;
     },
@@ -65,11 +67,18 @@ const blogSlice = createSlice({
 });
 
 // export const { } = blogSlice.actions;
-export const create = () => async (getState) => {
-  const currentState = getState().blogSlice;
-  // console.log(currentState);
-  alert(5);
-  return (currentState);
+// export const create = () => async (getState) => {
+//   const currentState = getState().blogSlice;
+//   // console.log(currentState);
+//   return (currentState);
+// };
+const getBlog = (state) => state.Blog.user;
+const BlogReducer = blogSlice.reducer;
+export const {
+  follow, unFollow, block, unblock,
+} = blogSlice.actions;
+export {
+  getBlog,
+  fetchBlog,
 };
-
-export default blogSlice.reducer;
+export default BlogReducer;

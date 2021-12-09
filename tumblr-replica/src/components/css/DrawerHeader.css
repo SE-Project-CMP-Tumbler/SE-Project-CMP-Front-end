@@ -10,13 +10,24 @@
     height: 1500px;
     position: relative;
 }
-.profile{
+.square-profile{
     width: 160px;
     height: 160px;
     object-fit: cover;
     position: absolute;
     display: block;
     left: 40%;
+    top: 13rem;
+    border:8px solid #245272;
+}
+.circle-profile{
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    position: absolute;
+    display: block;
+    left: 40%;
+    border-radius: 100%;
     top: 13rem;
     border:8px solid #245272;
 }
@@ -63,4 +74,8 @@
     margin: 0;
     padding-left: 18px;
     vertical-align: baseline;
+}
+.posts{
+    margin-top: 100px;
+    text-align: center;
 }
