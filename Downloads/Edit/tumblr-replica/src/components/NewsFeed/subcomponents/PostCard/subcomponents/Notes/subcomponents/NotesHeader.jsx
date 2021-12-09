@@ -11,6 +11,7 @@ import Stack from '@mui/material/Stack';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import { useDispatch, useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 import { Hide } from '../../../../../../../state/displayNotesList';
 import { HideNote } from '../../../../../../../state/NotesWindow';
 /**
@@ -19,7 +20,8 @@ import { HideNote } from '../../../../../../../state/NotesWindow';
  * interacting blogs
  * @returns the component of that part
  */
-const NoteHeader = function NotesHeader() {
+const NoteHeader = function NotesHeader(props) {
+  const { num } = props;
   const { showNoteList } = useSelector((state) => state.displayNotesList);
   const dispatch = useDispatch();
   const { likes, reblogs } = useSelector((state) => state.PostNotes);
@@ -46,14 +48,19 @@ const NoteHeader = function NotesHeader() {
             pl: 7,
           }}
         >
-          <Typography
-            variant="subtitle2"
-            fontSize="medium"
-            style={{ fontWeight: 'bold' }}
-          >
-            {' '}
-            300 notes.
-          </Typography>
+          {
+            num && (
+            <Typography
+              variant="subtitle2"
+              fontSize="medium"
+              style={{ fontWeight: 'bold' }}
+            >
+              {num}
+              {' '}
+              {num > 1 ? 'notes' : 'note'}
+            </Typography>
+            )
+          }
         </Grid>
         <Grid item xs={2} sx={{ pr: 0.5 }}>
           <IconButton aria-label="back notes">
@@ -132,3 +139,6 @@ const NoteHeader = function NotesHeader() {
 };
 
 export default NoteHeader;
+NoteHeader.propTypes = {
+  num: PropTypes.number.isRequired,
+};

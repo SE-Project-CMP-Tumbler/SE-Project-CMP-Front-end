@@ -56,7 +56,7 @@ const PostContent = function PostContentDisplay(props) {
 
   return (
     <div className="postBody" style={{ maxWidth: 510, minWidth: 510 }}>
-      <Markup content={postBody} />
+      <Markup content={postBody} className="text" />
       {hashtags.map((hash) => (
         <>
           <Link href="/" underline="hover" style={{ color: 'grey' }} key={hash}>

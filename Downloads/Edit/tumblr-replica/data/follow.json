@@ -10,7 +10,7 @@
           "post_body": "<div><h1>What's @Artificial intellegence? by @maryem </h1> <img src='https://64.media.tumblr.com/8986298209e945beb4f854ef2c3aec7a/2375925468fd7e2e-8c/s2048x3072/dde57bae065e86817b80e2d78439883043da7c37.png' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
           "blog_id": 4,
           "blog_username": "nadeen-ayman",
-          "blog_avatar": "",
+          "blog_avatar": "https://assets.tumblr.com/images/default_avatar/cube_closed_64.png",
           "blog_avatar_shape": "",
           "blog_title": "",
           "post_time": "02-02-2012"
@@ -22,12 +22,41 @@
           "post_body": "<div><h1>What's Artificial @intellegence? </h1> <p>#AI #humanity #freedom</p></div>",
           "blog_id": 5,
           "blog_username": "maryem-salah",
-          "blog_avatar": "",
-          "blog_avatar_shape": "",
+          "blog_avatar": "https://64.media.tumblr.com/3501e098e635f40846179b1bdaf9c887/b1b67997bba11bee-e7/s400x600/24dc04de9ed8719291f8bb325c84b4bcbe73f46c.jpg",
+          "blog_avatar_shape": "circular",
           "blog_title": "",
           "post_time": "02-02-2012"
         }
       ]
+    },
+    {
+      "id": 6,
+      "post_id": 6,
+      "post_status": "published",
+      "post_type": "general",
+      "post_body": "<div><h1>What's Artificial @intellegence? </h1> <p>#AI #humanity #freedom</p></div>",
+      "blog_id": 5,
+      "blog_username": "maryem-salah",
+      "blog_avatar": "",
+      "blog_avatar_shape": "circular",
+      "blog_title": "",
+      "post_time": "02-02-2012"
+    },
+    {
+      "id": 5,
+      "post_status": "published",
+      "post_type": "general",
+      "post_body": "<div><h1>What's @Artificial intellegence? by @maryem </h1> <img src='https://64.media.tumblr.com/8986298209e945beb4f854ef2c3aec7a/2375925468fd7e2e-8c/s2048x3072/dde57bae065e86817b80e2d78439883043da7c37.png' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+      "blog_id": 4,
+      "blog_username": "nadeen-ayman",
+      "blog_avatar": "",
+      "blog_avatar_shape": "",
+      "blog_title": "",
+      "post_time": "02-02-2012"
+    },
+    {
+      "content": "<p>ay kalam fl wla haga</p>",
+      "id": 4
     }
   ],
   "follow_blogs": [
@@ -72,7 +101,7 @@
         "replies": [
           {
             "blog_avatar": "https://assets.tumblr.com/images/default_avatar/cube_closed_512.png",
-            "blog_avatar_shape": "circle",
+            "blog_avatar_shape": "rectangular",
             "blog_username": "radwa-ahmed213",
             "blog_id": 2,
             "reply_id": 5,
@@ -84,10 +113,46 @@
           {
             "post_id": 5,
             "blog_avatar": "https://assets.tumblr.com/images/default_avatar/cube_closed_512.png",
-            "blog_avatar_shape": "circle",
+            "blog_avatar_shape": "circular",
             "blog_username": "radwa-ahmed213",
             "blog_id": 2,
             "reblog_content": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>"
+          }
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "note": {
+        "likes": [
+          {
+            "blog_avatar": "https://assets.tumblr.com/images/default_avatar/cube_closed_512.png",
+            "blog_avatar_shape": "square",
+            "blog_username": "nadeen-ayman213",
+            "blog_title": "Positive Quotes",
+            "blog_id": 1032,
+            "followed": false
+          }
+        ],
+        "replies": [
+          {
+            "blog_avatar": "https://assets.tumblr.com/images/default_avatar/cube_closed_512.png",
+            "blog_avatar_shape": "square",
+            "blog_username": "nadeen-ayman3",
+            "blog_id": 2,
+            "reply_id": 5,
+            "reply_time": "02-02-2012",
+            "reply_text": "i agree with you"
+          }
+        ],
+        "reblogs": [
+          {
+            "post_id": 5,
+            "blog_avatar": "https://assets.tumblr.com/images/default_avatar/cube_closed_512.png",
+            "blog_avatar_shape": "circle",
+            "blog_username": "nadeen-ayman213",
+            "blog_id": 2,
+            "reblog_content": "<div> <h1> Good job </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>"
           }
         ]
       }
@@ -101,6 +166,31 @@
     {
       "reply_text": "try this one",
       "id": 3
+    },
+    {
+      "reply_text": "i am replying to radwa",
+      "post_id": 6,
+      "id": 4
+    },
+    {
+      "reply_text": "hello",
+      "post_id": 6,
+      "id": 5
+    },
+    {
+      "reply_text": "nadeen",
+      "post_id": 6,
+      "id": 6
+    },
+    {
+      "reply_text": "hi",
+      "post_id": 6,
+      "id": 7
+    },
+    {
+      "reply_text": "",
+      "post_id": 6,
+      "id": 8
     }
   ],
   "like": [
@@ -109,6 +199,66 @@
     },
     {
       "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 4
+    },
+    {
+      "id": 7
+    },
+    {
+      "id": 8
+    },
+    {
+      "post_id": {
+        "postId": 5
+      },
+      "id": 9
+    },
+    {
+      "post_id": {
+        "postId": 5
+      },
+      "id": 10
+    },
+    {
+      "post_id": {
+        "postId": 5
+      },
+      "id": 11
+    },
+    {
+      "post_id": {
+        "postId": 5
+      },
+      "id": 12
+    },
+    {
+      "post_id": {
+        "postId": 6
+      },
+      "id": 13
+    },
+    {
+      "post_id": {
+        "postId": 6
+      },
+      "id": 14
+    },
+    {
+      "post_id": {
+        "postId": 6
+      },
+      "id": 15
+    },
+    {
+      "post_id": {
+        "postId": 6
+      },
+      "id": 16
     }
   ]
 }

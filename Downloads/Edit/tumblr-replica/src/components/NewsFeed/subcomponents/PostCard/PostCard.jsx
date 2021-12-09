@@ -1,8 +1,10 @@
 import React from 'react';
 import Card from '@mui/material/Card';
+import { useMediaQuery } from 'react-responsive';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
+import Avatar from '@mui/material/Avatar';
 import PropTypes from 'prop-types';
 import PostFooter from './subcomponents/PostFooter';
 import PostContent from './subcomponents/PostContent';
@@ -17,22 +19,39 @@ import MoreMenu from '../../../MoreMenu/MoreMenu';
  */
 function PostCard(props) {
   const {
-    postId, blogId, postTime, blogUsername, postBody,
+    postId, postTime, blogId, blogUsername, postBody, blogAvatar,
   } = props;
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
   return (
     <>
       <Card>
         <CardHeader
           action={
-            <MoreMenu post_id={postId} blog_id={blogId} post_date={postTime} />
+            <MoreMenu postId={postId} blogId={blogId} postTime={postTime} />
           }
           title={blogUsername}
+          avatar={
+            isTabletOrMobile
+            && (
+            <Avatar
+              variant="square"
+              xs={2}
+              src={blogAvatar}
+              style={{
+                maxWidth: 64,
+                minWidth: 64,
+                maxHeight: 64,
+                minHeight: 64,
+              }}
+            />
+            )
+          }
         />
         <CardContent>
           <PostContent content={postBody} />
         </CardContent>
         <CardActions disableSpacing className="footer">
-          <PostFooter id={postId} blog_id={blogId} />
+          <PostFooter postId={postId} blogId={blogId} />
         </CardActions>
       </Card>
     </>
@@ -42,9 +61,10 @@ function PostCard(props) {
 export default PostCard;
 
 PostCard.propTypes = {
-  postId: PropTypes.string.isRequired,
-  blogId: PropTypes.string.isRequired,
+  postId: PropTypes.number.isRequired,
+  blogId: PropTypes.number.isRequired,
   postBody: PropTypes.string.isRequired,
   blogUsername: PropTypes.string.isRequired,
   postTime: PropTypes.string.isRequired,
+  blogAvatar: PropTypes.string.isRequired,
 };

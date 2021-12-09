@@ -17,7 +17,7 @@ import LoggedIn from '../Login/Login';
  *  mentioned above.
  */
 const MoreMenu = function MoreMenuComponent(props) {
-  const { postId, blogId, postDate } = props;
+  const { postId, blogId, postTime } = props;
   const [anchorEl, setAnchorEl] = useState(null);
   const [pinned, setPinned] = useState(false);
   const open = Boolean(anchorEl);
@@ -109,7 +109,7 @@ const MoreMenu = function MoreMenuComponent(props) {
         aria-controls="basic-menu"
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
-        onClick={() => handleClick()}
+        onClick={(event) => handleClick(event)}
       >
         <IconButton aria-label="More">
           <MoreHorizIcon />
@@ -124,7 +124,7 @@ const MoreMenu = function MoreMenuComponent(props) {
           'aria-labelledby': 'basic-button',
         }}
       >
-        <MenuItem>{postDate}</MenuItem>
+        <MenuItem>{postTime}</MenuItem>
         <Divider />
         {LoggedIn.blog_id === blogId && !pinned && (
           <MenuItem onClick={() => handlePin()}>pin</MenuItem>
@@ -136,7 +136,7 @@ const MoreMenu = function MoreMenuComponent(props) {
           Copy Link
         </MenuItem>
 
-        {LoggedIn.blogId !== blogId && (
+        {LoggedIn.blog_id !== blogId && (
           <MenuItem onClick={() => handleUnfollow()} style={{ color: 'red' }}>
             Unfollow
           </MenuItem>
@@ -157,5 +157,5 @@ export default MoreMenu;
 MoreMenu.propTypes = {
   postId: PropTypes.string.isRequired,
   blogId: PropTypes.string.isRequired,
-  postDate: PropTypes.string.isRequired,
+  postTime: PropTypes.string.isRequired,
 };

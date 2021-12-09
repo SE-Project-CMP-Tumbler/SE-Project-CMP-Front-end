@@ -13,9 +13,12 @@ const CreateText = function CreateText() {
       {console.log('i am create post')}
       <button
         type="button"
-        onClick={() => setshowCreate(true)}
+        onClick={() => {
+          console.log('i am create post');
+          setshowCreate(true);
+        }}
       >
-        create pos
+        create post
       </button>
       {showCreate && (
         <div>
@@ -38,7 +41,7 @@ const CreateText = function CreateText() {
                 'My-Custom-Header': 'foobar',
               };
               axios.post(
-                'http://localhost:8888/posts',
+                'http://localhost:8008/post',
                 { content },
                 { headers },
               );

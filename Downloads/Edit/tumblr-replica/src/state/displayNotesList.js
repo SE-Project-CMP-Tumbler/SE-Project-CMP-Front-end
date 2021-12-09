@@ -9,13 +9,10 @@ export const NoteListSlice = createSlice({
     Display: (state) => {
       const s = state;
       s.showNoteList = true;
-      console.log('hello from display');
     },
     Hide: (state) => {
       const s = state;
       s.showNoteList = false;
-      // if(state.showNoteList)
-      console.log('hello from Hide ');
     },
   },
 });
