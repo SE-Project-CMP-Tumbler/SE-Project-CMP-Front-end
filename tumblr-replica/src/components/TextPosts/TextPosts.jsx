@@ -7,15 +7,15 @@ import PostsList from '../PostsList/PostsList';
 import { getTextposts, fetchAsynctextposts } from '../../states/features/textposts/textpostsSlice';
 
 /**
- * Component for render all elements in /explore/recommended-for-you
- * now it has {@link CarouselCards} and {@link FollowingList}.
+ * Component for render all Text Posts
+ *
  *
  * @component
  * @name
- * Explore
+ * TextPosts
  * @example
  * return (
- *   <Explore />
+ *   <TextPosts />
  * )
  */
 function TextPosts() {

@@ -6,6 +6,17 @@ import SideTabs from '../SideTabs/SideTabs';
 import PostsList from '../PostsList/PostsList';
 import { getBlogposts, fetchAsyncblogposts } from '../../states/features/blogposts/blogpostsSlice';
 
+/**
+ * Component for show the Posts for the blog and {@link sideTabs}
+ *
+ * @component
+ * @name
+ * BlogPage
+ * @example
+ * return (
+ *   <BlogPage />
+ * )
+ */
 function BlogPage() {
   const blogId = 2026;
   const dispatch = useDispatch();

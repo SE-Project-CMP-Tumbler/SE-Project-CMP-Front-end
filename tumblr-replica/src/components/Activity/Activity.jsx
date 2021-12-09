@@ -2,6 +2,17 @@ import React from 'react';
 import Grid from '@mui/material/Grid';
 import SideTabs from '../SideTabs/SideTabs';
 
+/**
+ * Component for show the activity for the Blog it has graph
+ *
+ * @component
+ * @name
+ * Activity
+ * @example
+ * return (
+ *   <Activity />
+ * )
+ */
 function Activity() {
   return (
     <div>

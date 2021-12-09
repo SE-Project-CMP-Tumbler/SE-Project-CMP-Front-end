@@ -12,7 +12,7 @@ function PostsList({ Posts }) {
           item
           xs={12}
           container
-          spacing={8}
+          spacing={7}
           direction="column"
           justifyContent="center"
           alignItems="flex-end"
@@ -21,16 +21,17 @@ function PostsList({ Posts }) {
           {Posts.meta.status === '200'
             ? (
               Posts.response.posts.map((post) => (
-                <div>
+                <>
                   <Grid
                     item
                     xs
                     container
                     direction="row"
                     key={post.post_id}
-                    spacing={2}
+                    spacing={1}
                     justifyContent="center"
                     alignItems="start"
+                    style={{ paddingTop: '20px' }}
                   >
                     <Grid item>
                       <Avatar
@@ -56,7 +57,7 @@ function PostsList({ Posts }) {
                       />
                     </Grid>
                   </Grid>
-                </div>
+                </>
               ))
 
             ) : (<h3>{ Posts.meta.msg }</h3>)}

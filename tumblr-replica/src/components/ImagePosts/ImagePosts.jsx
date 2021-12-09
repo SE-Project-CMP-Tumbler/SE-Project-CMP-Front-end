@@ -7,15 +7,14 @@ import PostsList from '../PostsList/PostsList';
 import { getImageposts, fetchAsyncimageposts } from '../../states/features/imageposts/imagepostsSlice';
 
 /**
- * Component for render all elements in /explore/recommended-for-you
- * now it has {@link CarouselCards} and {@link FollowingList}.
+ * Component for render all Image Posts
  *
  * @component
  * @name
- * Explore
+ * ImagePosts
  * @example
  * return (
- *   <Explore />
+ *   <ImagePosts />
  * )
  */
 function ImagePosts() {

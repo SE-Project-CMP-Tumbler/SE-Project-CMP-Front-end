@@ -7,15 +7,15 @@ import PostsList from '../PostsList/PostsList';
 import { getVideoposts, fetchAsyncvideoposts } from '../../states/features/videoposts/videopostsSlice';
 
 /**
- * Component for render all elements in /explore/recommended-for-you
- * now it has {@link CarouselCards} and {@link FollowingList}.
+ * Component for render all Video Posts
+
  *
  * @component
  * @name
- * Explore
+ * VideoPosts
  * @example
  * return (
- *   <Explore />
+ *   <VideoPosts />
  * )
  */
 function VideoPosts() {

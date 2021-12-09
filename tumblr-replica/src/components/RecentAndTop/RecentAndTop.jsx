@@ -18,7 +18,7 @@ import PropTypes from 'prop-types';
  *   <NavTabs tapnum={tapnum} selected={selected} />
  * )
  */
-export default function NavTabs({ value, setValue }) {
+export default function RecentAndTop({ value, setValue }) {
   const white = {
     color: 'white',
     fontWeight: 'bolder',
@@ -28,7 +28,7 @@ export default function NavTabs({ value, setValue }) {
   return (
     <div style={{ backgroundColor: '#001935' }}>
       <Box sx={{
-        width: '100%', typography: 'body1', borderBottom: 1, borderColor: 'primary.main', margin: '37px 0px',
+        width: '100%', typography: 'body1', borderBottom: 1, borderColor: 'primary.main', marginTop: '37px',
       }}
       >
         <Tabs
@@ -44,11 +44,7 @@ export default function NavTabs({ value, setValue }) {
   );
 }
 
-NavTabs.propTypes = {
-  /**
-   * @param {tapnum}
-   * tapnum the tab should have blue underline
-   */
+RecentAndTop.propTypes = {
   value: PropTypes.number.isRequired,
   setValue: PropTypes.func.isRequired,
 };

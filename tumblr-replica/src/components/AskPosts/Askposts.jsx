@@ -7,15 +7,14 @@ import PostsList from '../PostsList/PostsList';
 import { getAskposts, fetchAsyncaskposts } from '../../states/features/askposts/askpostsSlice';
 
 /**
- * Component for render all elements in /explore/recommended-for-you
- * now it has {@link CarouselCards} and {@link FollowingList}.
+ * Component for render all Ask Posts
  *
  * @component
  * @name
- * Explore
+ * AskPosts
  * @example
  * return (
- *   <Explore />
+ *   <AskPosts />
  * )
  */
 function AskPosts() {
