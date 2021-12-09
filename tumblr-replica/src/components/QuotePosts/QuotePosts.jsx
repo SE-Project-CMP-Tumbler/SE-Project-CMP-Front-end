@@ -7,15 +7,14 @@ import PostsList from '../PostsList/PostsList';
 import { getQuoteposts, fetchAsyncquoteposts } from '../../states/features/quoteposts/quotepostsSlice';
 
 /**
- * Component for render all elements in /explore/recommended-for-you
- * now it has {@link CarouselCards} and {@link FollowingList}.
+ * Component for render all Quote Posts
  *
  * @component
  * @name
- * Explore
+ * QuotePosts
  * @example
  * return (
- *   <Explore />
+ *   <QuotePosts />
  * )
  */
 function QuotePosts() {

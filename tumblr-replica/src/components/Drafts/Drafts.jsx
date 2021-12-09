@@ -6,6 +6,17 @@ import SideTabs from '../SideTabs/SideTabs';
 import PostsList from '../PostsList/PostsList';
 import { getDraftposts, fetchAsyncdraftposts } from '../../states/features/draftposts/draftpostsSlice';
 
+/**
+ * Component for show the Drafts for the blog and {@link sideTabs}
+ *
+ * @component
+ * @name
+ * Drafts
+ * @example
+ * return (
+ *   <Drafts />
+ * )
+ */
 function Drafts() {
   const blogId = 2026;
   const dispatch = useDispatch();

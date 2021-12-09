@@ -7,6 +7,18 @@ import './SideTabs.css';
 import { Link } from 'react-router-dom';
 
 // need to edit and take blogusername, title from store
+/**
+ * Side Tab in blog Page to show number of Posts, followes, drafts for the Blog
+ *
+ *
+ * @component
+ * @name
+ * SideTabs
+ * @example
+ * return (
+ *   <SideTabs select={2} />
+ * )
+ */
 function SideTabs({ select }) {
   const blogusername = 'ragjadkhaled';
   const title = 'ragh';

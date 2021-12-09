@@ -7,15 +7,14 @@ import PostsList from '../PostsList/PostsList';
 import { getAudioposts, fetchAsyncaudioposts } from '../../states/features/audioposts/audiopostsSlice';
 
 /**
- * Component for render all elements in /explore/recommended-for-you
- * now it has {@link CarouselCards} and {@link FollowingList}.
+ * Component for render all Audio Posts
  *
  * @component
  * @name
- * Explore
+ * AudioPosts
  * @example
  * return (
- *   <Explore />
+ *   <AudioPosts />
  * )
  */
 function AudioPosts() {
