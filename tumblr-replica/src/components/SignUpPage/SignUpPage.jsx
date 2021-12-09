@@ -15,8 +15,11 @@ import ContinueWithGoogleButton from '../LogOutHomePage/subcomponents/ContinueWi
 import HereIsWhatIsTrendingButton from '../LogOutHomePage/subcomponents/HereIsWhatIsTrendingButton/HereIsWhatIsTrendingButton';
 import EmailInputTextField from './subcomponents/EmailInputTextField/EmailInputTextField';
 import PasswordInputTextField from './subcomponents/PasswordInputTextField/PasswordInputTextField';
-import { setBlogName, selectUser } from '../../states/User/UserSlice';
+import {
+  setBlogName, selectUser, signUpThunk, signUpThunkR,
+} from '../../states/User/UserSlice';
 import background from '../LogOutHomePage/placeholder.jpg';
+import { MOCK, REAL, SERVICETYPE } from '../../apis/globalAPI';
 
 const theme = createTheme();
 
@@ -42,7 +45,6 @@ const SignUpPage = () => {
             },
           }}
         />
-        {/* <h2>{user.email}</h2> */}
         <Box
           sx={{
             marginTop: 8,
@@ -58,62 +60,85 @@ const SignUpPage = () => {
             </Typography>
           </Link>
         </Box>
-        <Box>
-          <EmailInputTextField />
-          <PasswordInputTextField />
-          <Box fullWidth sx={{ mb: 1 }}>
-            <TextField
-              id="blog-name"
-              type="text"
-              placeholder="Blog name"
-              value={blogName}
-              onChange={(e) => {
-                setBlogNameh(e.target.value);
-                // console.log('Inside the onChange Function!');
-                dispatch(setBlogName(e.target.value));
-              }}
-              variant="outlined"
-              fullWidth
-              autoComplete="off"
-              style={{
-                backgroundColor: '#E8F0FE',
-                borderRadius: 3,
-                fontSize: '1rem',
-                border: 'none',
-              }}
-              inputProps={{
-                style: {
-                  padding: '11px 13px',
-                  // TO DO: Later remove the hover and focus effects
-                },
-              }}
-            />
-          </Box>
-          <SignUpButton />
-          <Divider
-            variant="fullWidth"
-            sx={{
-              spacing: 8,
-              mt: 1,
-              '&.MuiDivider-root': {
-                '&::before': {
-                  borderTop: 'thin solid #FFFFFF',
-                },
-                '&::after': {
-                  borderTop: 'thin solid #FFFFFF',
-                },
-              },
-            }}
-            style={{
-              color: '#FFFFFF',
-              textTransform: 'none',
-              borderColor: '#FFFFFF',
+        <Box component="div">
+          <form
+            id="signupform"
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (SERVICETYPE === MOCK) {
+                dispatch(signUpThunk({
+                  email: user.email,
+                  blog_username: user.blogName,
+                  password: user.password,
+                  age: user.age,
+                }));
+              } else if (SERVICETYPE === REAL) {
+                dispatch(signUpThunkR({
+                  email: user.email,
+                  blog_username: user.blogName,
+                  password: user.password,
+                  age: user.age,
+                }));
+              }
+            // dispatch(logIn());
             }}
           >
-            or
-          </Divider>
-          <ContinueWithGoogleButton />
-          <HereIsWhatIsTrendingButton />
+            <EmailInputTextField />
+            <PasswordInputTextField />
+            <Box fullWidth sx={{ mb: 1 }}>
+              <TextField
+                id="blog-name"
+                type="text"
+                placeholder="Blog name"
+                value={blogName}
+                onChange={(e) => {
+                  setBlogNameh(e.target.value);
+                  // console.log('Inside the onChange Function!');
+                  dispatch(setBlogName(e.target.value));
+                }}
+                variant="outlined"
+                fullWidth
+                autoComplete="off"
+                style={{
+                  backgroundColor: '#E8F0FE',
+                  borderRadius: 3,
+                  fontSize: '1rem',
+                  border: 'none',
+                }}
+                inputProps={{
+                  style: {
+                    padding: '11px 13px',
+                  // TO DO: Later remove the hover and focus effects
+                  },
+                }}
+              />
+            </Box>
+            <SignUpButton worksAsLink={false} />
+            <Divider
+              variant="fullWidth"
+              sx={{
+                spacing: 8,
+                mt: 1,
+                '&.MuiDivider-root': {
+                  '&::before': {
+                    borderTop: 'thin solid #FFFFFF',
+                  },
+                  '&::after': {
+                    borderTop: 'thin solid #FFFFFF',
+                  },
+                },
+              }}
+              style={{
+                color: '#FFFFFF',
+                textTransform: 'none',
+                borderColor: '#FFFFFF',
+              }}
+            >
+              or
+            </Divider>
+            <ContinueWithGoogleButton />
+            <HereIsWhatIsTrendingButton />
+          </form>
         </Box>
       </Container>
     </ThemeProvider>

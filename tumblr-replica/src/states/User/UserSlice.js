@@ -1,10 +1,9 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import {
+  api, apiR, MOCK, REAL, SERVICETYPE,
+} from '../../apis/globalAPI';
 
-const MOCK = 0;
-const REAL = 1;
-const SERVICETYPE = MOCK; // Change this to change the source
-const api = 'http://localhost:8000';
 const headers = {
   Accept: 'application/json',
 };
@@ -32,6 +31,53 @@ export const logInThunk = createAsyncThunk(
   }),
 );
 
+export const logInThunkR = createAsyncThunk(
+  'loginR',
+  async (query) => fetch(`${apiR}/login`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => res.json()),
+);
+
+export const signUpThunk = createAsyncThunk(
+  'register',
+  async (query) => fetch(`${api}/register`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const signUpThunkR = createAsyncThunk(
+  'registerR',
+  async (query) => fetch(`${apiR}/register`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => res.json()),
+);
+
 const userSlice = createSlice({
   name: 'user',
   initialState: {
@@ -42,7 +88,7 @@ const userSlice = createSlice({
       email: '',
       password: '',
       blogName: '',
-      age: 0,
+      age: 25, // should be ''
       primaryBlogAvatar: '',
       googleAccessToken: '',
     },
@@ -177,6 +223,69 @@ const userSlice = createSlice({
       }
     },
     [logInThunk.rejected]: () => {
+    },
+    [logInThunkR.pending]: () => {
+    },
+    [logInThunkR.fulfilled]: (state, { payload }) => {
+      console.log(payload);
+      if (payload.meta.status === '200') {
+        state.user.id = payload.response.id;
+        state.user.blogName = payload.response.blog_username;
+        state.user.email = payload.response.email;
+        state.user.primaryBlogAvatar = payload.response.blog_avatar;
+        state.user.accessToken = payload.response.access_token;
+        state.user.loggedin = true;
+        // store the user in localStorage
+        localStorage.setItem('user', JSON.stringify(state.user));
+        window.location.replace('/dashboard');
+      } else if (payload.meta.status === '404') {
+        console.log(payload.meta.msg);
+      }
+    },
+    [logInThunkR.rejected]: () => {
+    },
+    [signUpThunk.pending]: () => {
+    },
+    [signUpThunk.fulfilled]: (state, { payload }) => {
+      console.log(payload);
+      if (payload?.id === undefined) { // CASE 500 or 422 TO BE handled later
+        state.status = 'NOT FOUND';
+      } else { // CASE 200
+        state.user.id = payload.id;
+        state.user.blogName = payload.blog_username;
+        state.user.email = payload.email;
+        state.user.primaryBlogAvatar = payload.blog_avatar;
+        state.user.accessToken = payload.access_token;
+        state.user.loggedin = true;
+        // store the user in localStorage
+        localStorage.setItem('user', JSON.stringify(state.user));
+        window.location.replace('/dashboard');
+      }
+    },
+    [signUpThunk.rejected]: () => {
+    },
+    [signUpThunkR.pending]: () => {
+    },
+    [signUpThunkR.fulfilled]: (state, { payload }) => {
+      console.log('Inside the Reducer!');
+      console.log(payload);
+      if (payload.meta.status === '200') {
+        state.user.id = payload.response.id;
+        state.user.blogName = payload.response.blog_username;
+        state.user.email = payload.response.email;
+        state.user.primaryBlogAvatar = payload.response.blog_avatar;
+        state.user.accessToken = payload.response.access_token;
+        state.user.loggedin = true;
+        // store the user in localStorage
+        localStorage.setItem('user', JSON.stringify(state.user));
+        window.location.replace('/dashboard');
+      } else if (payload.meta.status === '422') {
+        console.log(payload.meta.msg);
+      } else if (payload.meta.status === '500') {
+        console.log(payload.meta.msg);
+      }
+    },
+    [signUpThunkR.rejected]: () => {
     },
   },
 });

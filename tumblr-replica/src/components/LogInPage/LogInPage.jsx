@@ -13,7 +13,8 @@ import ContinueWithGoogleButton from '../LogOutHomePage/subcomponents/ContinueWi
 import EmailInputTextField from '../SignUpPage/subcomponents/EmailInputTextField/EmailInputTextField';
 import PasswordInputTextField from '../SignUpPage/subcomponents/PasswordInputTextField/PasswordInputTextField';
 import background from '../LogOutHomePage/placeholder.jpg';
-import { selectUser, logInThunk } from '../../states/User/UserSlice';
+import { selectUser, logInThunk, logInThunkR } from '../../states/User/UserSlice';
+import { MOCK, REAL, SERVICETYPE } from '../../apis/globalAPI';
 
 const theme = createTheme();
 
@@ -63,24 +64,23 @@ const LogInPage = () => {
             id="loginform"
             onSubmit={(e) => {
               e.preventDefault();
-              dispatch(logInThunk({
-                email: user.email,
-                password: user.password,
-              }));
+              if (SERVICETYPE === MOCK) {
+                dispatch(logInThunk({
+                  email: user.email,
+                  password: user.password,
+                }));
+              } else if (SERVICETYPE === REAL) {
+                dispatch(logInThunkR({
+                  email: user.email,
+                  password: user.password,
+                }));
+              }
               // dispatch(logIn());
             }}
           >
             <EmailInputTextField />
             <PasswordInputTextField />
-            <LogInButton
-              // handleClick={() => {
-              //   if (document.getElementById('loginform')) {
-              //     document.getElementById('loginform').submit();
-              //   }
-              // }}
-              worksAsLink={false}
-            />
-            {/* <input type="submit" value="Try" /> */}
+            <LogInButton worksAsLink={false} />
             <Box sx={{
               marginTop: 0.5,
               display: 'flex',

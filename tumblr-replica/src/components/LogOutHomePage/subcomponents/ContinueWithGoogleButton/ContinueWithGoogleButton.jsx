@@ -23,9 +23,8 @@ const ContinueWithGoogleButton = () => {
             type: 'AUTH',
             data: { result, token, accessToken },
           }));
-          // console.log(`Result: ${result}\nToken Id: ${token}\nAccess Token: ${accessToken}`);
-          // window.location.replace('/dashboard');
         } catch (error) {
+          // eslint-disable-next-line no-console
           console.log(error);
         }
       })}
