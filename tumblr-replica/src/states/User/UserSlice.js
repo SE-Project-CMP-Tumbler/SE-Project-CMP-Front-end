@@ -113,6 +113,76 @@ export const checkCredentialsThunkR = createAsyncThunk(
   }).then((res) => res.json()),
 );
 
+export const logInWithGoogleThunk = createAsyncThunk(
+  'login_with_google',
+  async (query) => fetch(`${api}/login_with_google`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const logInWithGoogleThunkR = createAsyncThunk(
+  'login_with_googleR',
+  async (query) => fetch(`${apiR}/login_with_google`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => res.json()),
+);
+
+export const registerWithGoogleThunk = createAsyncThunk(
+  'register_with_google',
+  async (query) => fetch(`${api}/register_with_google`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const registerWithGoogleThunkR = createAsyncThunk(
+  'register_with_googleR',
+  async (query) => fetch(`${apiR}/register_with_google`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => res.json()),
+);
+
 const userSlice = createSlice({
   name: 'user',
   initialState: {
@@ -225,25 +295,23 @@ const userSlice = createSlice({
       state.regStep = action.payload;
     },
     /**
+    * This function sets Google Access Token
+    * @method
+    * @param {object} state The object that stores Google Access Token
+    * @param {object} action The object containing the Google Access Token
+    */
+    setGoogleAccessToken: (state, action) => {
+      state.googleAccessToken = action.payload;
+    },
+    /**
     * This function sends an API request (to actual API or to JSON server) to login with Google.
     * @method
     * @param {object} state The object that stores the User's email, password, age and other info
     */
     continueWithGoogle: (state, action) => {
-      // console.log('Entered ContinueWithGoogle!!');
-      console.log(action?.payload);
       switch (action?.payload.type) {
         case 'AUTH':
-          console.log('Entered AUTH!!');
-          state.user.loggedin = true;
           state.user.googleAccessToken = action?.payload.data.accessToken;
-          state.user.email = action?.payload.data.result.email;
-          state.user.primaryBlogAvatar = action?.payload.data.result.imageUrl;
-          state.user.blogName = action?.payload.data.result.name;
-          // store the user in localStorage
-          localStorage.setItem('user', JSON.stringify(state.user));
-          // console.log(action?.payload.data);
-          window.location.replace('/dashboard');
           break;
         default:
           break;
@@ -364,16 +432,97 @@ const userSlice = createSlice({
     },
     [checkCredentialsThunkR.rejected]: () => {
     },
+    [logInWithGoogleThunk.pending]: () => {
+    },
+    [logInWithGoogleThunk.fulfilled]: (state, { payload }) => {
+      if (payload?.id === undefined) { // CASE 500 or 422 TO BE handled later
+        state.status = 'NOT FOUND';
+      } else { // CASE 200
+        state.regStep = 2;
+        // store the user in localStorage
+        localStorage.setItem('user', JSON.stringify(state.user));
+        window.location.replace('/dashboard');
+      }
+    },
+    [logInWithGoogleThunk.rejected]: () => {
+    },
+    [logInWithGoogleThunkR.pending]: () => {
+    },
+    [logInWithGoogleThunkR.fulfilled]: (state, { payload }) => {
+      if (payload.meta.status === '200') {
+        state.user.id = payload.response.id;
+        state.user.blogName = payload.response.blog_username;
+        state.user.email = payload.response.email;
+        state.user.primaryBlogAvatar = payload.response.blog_avatar;
+        state.user.accessToken = payload.response.access_token;
+        state.user.loggedin = true;
+        // store the user in localStorage
+        localStorage.setItem('user', JSON.stringify(state.user));
+        window.location.replace('/dashboard');
+        state.googleAccessed = '';
+      } else if (payload.meta.status === '404') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        state.googleAccessed = '404';
+      } else if (payload.meta.status === '422') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        state.googleAccessed = '424';
+      }
+    },
+    [logInWithGoogleThunkR.rejected]: () => {
+    },
+    [registerWithGoogleThunk.pending]: () => {
+    },
+    [registerWithGoogleThunk.fulfilled]: (state, { payload }) => {
+      if (payload?.id === undefined) { // CASE 500 or 422 TO BE handled later
+        state.status = 'NOT FOUND';
+      } else { // CASE 200
+        state.regStep = 2;
+        // store the user in localStorage
+        localStorage.setItem('user', JSON.stringify(state.user));
+        window.location.replace('/dashboard');
+      }
+    },
+    [registerWithGoogleThunk.rejected]: () => {
+    },
+    [registerWithGoogleThunkR.pending]: () => {
+    },
+    [registerWithGoogleThunkR.fulfilled]: (state, { payload }) => {
+      if (payload.meta.status === '200') {
+        state.user.id = payload.response.id;
+        state.user.blogName = payload.response.blog_username;
+        state.user.email = payload.response.email;
+        state.user.primaryBlogAvatar = payload.response.blog_avatar;
+        state.user.accessToken = payload.response.access_token;
+        state.user.loggedin = true;
+        // store the user in localStorage
+        localStorage.setItem('user', JSON.stringify(state.user));
+        window.location.replace('/dashboard');
+        state.googleAccessed = '';
+      } else if (payload.meta.status === '422') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        state.status = '422';
+      } else if (payload.meta.status === '500') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      }
+    },
+    [registerWithGoogleThunkR.rejected]: () => {
+    },
   },
 });
 
 export const {
   initialCheck, setEmail, setPassword, setBlogName, setAge, logOut, signUp, continueWithGoogle,
-  setRegStep,
+  setRegStep, setGoogleAccessToken,
 } = userSlice.actions;
 
 export const selectUser = (state) => state.user.user;
 
 export const selectStep = (state) => state.user.regStep;
+
+export const selectGoogle = (state) => state.user.googleAccessed;
 
 export default userSlice.reducer;

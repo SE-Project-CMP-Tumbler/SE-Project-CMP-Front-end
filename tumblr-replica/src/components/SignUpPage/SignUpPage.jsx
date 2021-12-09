@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-// import { useSelector } from 'react-redux';
 import { GlobalStyles, Button } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
@@ -42,7 +41,8 @@ const SignUpPage = () => {
         <CssBaseline />
         <GlobalStyles
           styles={{
-            body: { // backgroundColor: '#001935',
+            body: {
+              backgroundColor: '#001935',
               height: '100%',
               backgroundImage: `url(${background})`,
               backgroundPosition: 'center',
@@ -98,7 +98,6 @@ const SignUpPage = () => {
                     value={blogName}
                     onChange={(e) => {
                       setBlogNameh(e.target.value);
-                      // console.log('Inside the onChange Function!');
                       dispatch(setBlogName(e.target.value));
                     }}
                     variant="outlined"

@@ -25,8 +25,6 @@ const LogInPage = () => {
   const text3 = 'Sign up!';
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
   if (user.loggedIn === true) {
     return <Navigate to="/dashboard" />;
   }
@@ -38,7 +36,8 @@ const LogInPage = () => {
         <CssBaseline />
         <GlobalStyles
           styles={{
-            body: { // backgroundColor: '#001935',
+            body: {
+              backgroundColor: '#001935',
               height: '100%',
               backgroundImage: `url(${background})`,
               backgroundPosition: 'center',
@@ -78,7 +77,6 @@ const LogInPage = () => {
                   password: user.password,
                 }));
               }
-              // dispatch(logIn());
             }}
           >
             <EmailInputTextField />

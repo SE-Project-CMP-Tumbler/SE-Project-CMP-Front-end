@@ -7,16 +7,16 @@ import NavigationBarResp from './components/NavigationBarResp/NavigationBarResp'
 import LogOutHome from './components/LogOutHomePage/LogOutHomePage';
 import LogInPage from './components/LogInPage/LogInPage';
 import SignUpPage from './components/SignUpPage/SignUpPage';
+import RegisterWithGooglePage from './components/RegisterWithGooglePage/RegisterWithGooglePage';
+import LinkAccountWithGooglePage from './components/LinkAccountWithGooglePage/LinkAccountWithGooglePage';
 import ForgotPasswordPage from './components/ForgotPasswordPage/ForgotPasswordPage';
 import Explore from './components/Explore/Explore';
 import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
-// import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
 import { initialCheck } from './states/User/UserSlice';
 
-/* need to import more element when finished */
 function App() {
   const dispatch = useDispatch();
   // const user = useSelector(selectUser);
@@ -35,6 +35,8 @@ function App() {
         <Route exact path="/chat" element={<HomePage />} />
         <Route exact path="/dashboard" element={<Newsfeed />} />
         <Route exact path="/login" element={<LogInPage />} />
+        <Route path="/onboarding" element={<RegisterWithGooglePage />} />
+        <Route path="/linkAccount" element={<LinkAccountWithGooglePage />} />
         <Route path="/register" element={<SignUpPage />} />
         <Route path="/forgot_password" element={<ForgotPasswordPage />} />
         <Route path="/logout" element={<LogOutHome />} />
