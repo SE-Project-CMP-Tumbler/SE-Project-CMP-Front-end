@@ -24,6 +24,7 @@ import AskPosts from './components/AskPosts/Askposts';
 import BlogPage from './components/BlogPage/BlogPage';
 import Activity from './components/Activity/Activity';
 import Drafts from './components/Drafts/Drafts';
+import RightBar from './components/DrawerRightBar/DrawerRightBar';
 // import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
 // import { selectUser } from './states/user/UserSlice';
 
@@ -39,6 +40,7 @@ function App() {
         <MediaQuery minWidth={1070}>
           <NavigationBar />
         </MediaQuery>
+
       </div>
       <Routes>
         <Route exact path="/chat" element={<HomePage />} />
@@ -62,6 +64,7 @@ function App() {
         <Route path="/blog/:blogname" element={<BlogPage />} />
         <Route path="/blog/:blogname/activity" element={<Activity />} />
         <Route path="/blog/:blogname/drafts" element={<Drafts />} />
+        <Route path="/rightbar" element={<RightBar />} />
       </Routes>
     </Router>
   );

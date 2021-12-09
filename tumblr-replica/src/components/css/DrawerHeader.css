@@ -1,0 +1,81 @@
+.cover{
+    width:100%;
+    height: 300px;
+    object-fit:cover;
+    position: relative;
+    z-index: 0;
+}
+.Body{
+    background-color: #245272;
+    height: 1500px;
+    position: relative;
+}
+.square-profile{
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    position: absolute;
+    display: block;
+    left: 40%;
+    top: 13rem;
+    border:8px solid #245272;
+}
+.circle-profile{
+    width: 160px;
+    height: 160px;
+    object-fit: cover;
+    position: absolute;
+    display: block;
+    left: 40%;
+    border-radius: 100%;
+    top: 13rem;
+    border:8px solid #245272;
+}
+
+.title{
+    font-family: "Sans Serif";
+    font-weight: bold;
+    font-size: 34px;
+}
+/* .text{
+    position: absolute;
+    top:45%;
+    left: 40%;
+    text-align: center;
+    color: black;
+} */
+.text{
+    border: none;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    text-align: center;
+    color: #a59cb6;
+}
+.title{
+    flex: 0 0 auto;
+    font-size: 42px;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    padding-top:48px ;
+    padding-left: 21px;
+    overflow: hidden;
+    overflow-wrap: break-word;
+    text-align: center;
+    text-overflow: ellipsis;
+    width: 97%;
+}
+.description{
+    border: none;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding-left: 18px;
+    vertical-align: baseline;
+}
+.posts{
+    margin-top: 100px;
+    text-align: center;
+}

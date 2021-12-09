@@ -22,6 +22,9 @@ import audiopostsReducer from './features/audioposts/audiopostsSlice';
 import tagpostsReducer from './features/tagposts/tagpostsSlice';
 import blogpostsReducer from './features/blogposts/blogpostsSlice';
 import draftpostsReducer from './features/draftposts/draftpostsSlice';
+import BlogReducer from './blogslice/blogslice';
+import FollowReducer from './followslice/followslice';
+import BlockReducer from './blockSlice/blockSlice';
 
 const store = configureStore({
   reducer: {
@@ -48,6 +51,9 @@ const store = configureStore({
     Like: LikeReducer,
     PostNotes: PostNoteReducer,
     Chat: Chatreduser,
+    Blog: BlogReducer,
+    Follow: FollowReducer,
+    Block: BlockReducer,
 
   },
 });
