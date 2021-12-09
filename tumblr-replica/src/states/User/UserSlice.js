@@ -78,6 +78,41 @@ export const signUpThunkR = createAsyncThunk(
   }).then((res) => res.json()),
 );
 
+export const checkCredentialsThunk = createAsyncThunk(
+  'checkRegisterCredentials',
+  async (query) => fetch(`${api}/check_register_credentials`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const checkCredentialsThunkR = createAsyncThunk(
+  'checkRegisterCredentialsR',
+  async (query) => fetch(`${apiR}/check_register_credentials`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => res.json()),
+);
+
 const userSlice = createSlice({
   name: 'user',
   initialState: {
@@ -88,12 +123,13 @@ const userSlice = createSlice({
       email: '',
       password: '',
       blogName: '',
-      age: 25, // should be ''
+      age: '',
       primaryBlogAvatar: '',
       googleAccessToken: '',
     },
     status: null,
     googleAccessed: null,
+    regStep: 1,
   },
   reducers: {
     /**
@@ -178,6 +214,17 @@ const userSlice = createSlice({
       state.user.loggedin = true;
     },
     /**
+    * This function sets the step of the Registeration of the new User
+    * 1 --> takes the email, password & the BlogName of the user
+    * 2 --> takes the age of the User
+    * @method
+    * @param {object} state The object that stores step of the registeration
+    * @param {object} action The object containing the number of the new step (set it to 1 or 2)
+    */
+    setRegStep: (state, action) => {
+      state.regStep = action.payload;
+    },
+    /**
     * This function sends an API request (to actual API or to JSON server) to login with Google.
     * @method
     * @param {object} state The object that stores the User's email, password, age and other info
@@ -207,7 +254,6 @@ const userSlice = createSlice({
     [logInThunk.pending]: () => {
     },
     [logInThunk.fulfilled]: (state, { payload }) => {
-      console.log(payload);
       if (payload.id === '') { // CASE 404
         state.status = 'NOT FOUND';
       } else { // CASE 200
@@ -227,7 +273,6 @@ const userSlice = createSlice({
     [logInThunkR.pending]: () => {
     },
     [logInThunkR.fulfilled]: (state, { payload }) => {
-      console.log(payload);
       if (payload.meta.status === '200') {
         state.user.id = payload.response.id;
         state.user.blogName = payload.response.blog_username;
@@ -239,6 +284,7 @@ const userSlice = createSlice({
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
       } else if (payload.meta.status === '404') {
+        // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
       }
     },
@@ -247,7 +293,6 @@ const userSlice = createSlice({
     [signUpThunk.pending]: () => {
     },
     [signUpThunk.fulfilled]: (state, { payload }) => {
-      console.log(payload);
       if (payload?.id === undefined) { // CASE 500 or 422 TO BE handled later
         state.status = 'NOT FOUND';
       } else { // CASE 200
@@ -260,6 +305,7 @@ const userSlice = createSlice({
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
+        state.regStep = 1;
       }
     },
     [signUpThunk.rejected]: () => {
@@ -267,8 +313,6 @@ const userSlice = createSlice({
     [signUpThunkR.pending]: () => {
     },
     [signUpThunkR.fulfilled]: (state, { payload }) => {
-      console.log('Inside the Reducer!');
-      console.log(payload);
       if (payload.meta.status === '200') {
         state.user.id = payload.response.id;
         state.user.blogName = payload.response.blog_username;
@@ -279,21 +323,57 @@ const userSlice = createSlice({
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
+        state.regStep = 1;
       } else if (payload.meta.status === '422') {
+        // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
       } else if (payload.meta.status === '500') {
+        // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
       }
     },
     [signUpThunkR.rejected]: () => {
+    },
+    [checkCredentialsThunk.pending]: () => {
+    },
+    [checkCredentialsThunk.fulfilled]: (state, { payload }) => {
+      if (payload?.id === undefined) { // CASE 500 or 422 TO BE handled later
+        state.status = 'NOT FOUND';
+      } else { // CASE 200
+        state.regStep = 2;
+        // store the user in localStorage
+        localStorage.setItem('user', JSON.stringify(state.user));
+        window.location.replace('/dashboard');
+      }
+    },
+    [checkCredentialsThunk.rejected]: () => {
+    },
+    [checkCredentialsThunkR.pending]: () => {
+    },
+    [checkCredentialsThunkR.fulfilled]: (state, { payload }) => {
+      if (payload.meta.status === '200') {
+        state.regStep = 2;
+      } else if (payload.meta.status === '422') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        state.status = '422';
+      } else if (payload.meta.status === '500') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      }
+    },
+    [checkCredentialsThunkR.rejected]: () => {
     },
   },
 });
 
 export const {
   initialCheck, setEmail, setPassword, setBlogName, setAge, logOut, signUp, continueWithGoogle,
+  setRegStep,
 } = userSlice.actions;
 
 export const selectUser = (state) => state.user.user;
+
+export const selectStep = (state) => state.user.regStep;
 
 export default userSlice.reducer;
