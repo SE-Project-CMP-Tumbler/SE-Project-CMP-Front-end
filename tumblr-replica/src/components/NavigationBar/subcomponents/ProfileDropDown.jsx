@@ -1,8 +1,8 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
-import { logOut } from '../../../states/User/UserSlice';
+import { useDispatch, useSelector } from 'react-redux';
+import { logOut, selectUser } from '../../../states/User/UserSlice';
 
 /**
  * This is the component for the user profile's dropdown (last one on the right)
@@ -14,6 +14,7 @@ function ProfileDropDown() {
     likes: 2, following: 3, posts: 5, followers: 3, activity: 6, drafts: 3, queue: 2,
   };
   const dispatch = useDispatch();
+  const user = useSelector(selectUser);
   return (
     <div className="drop-content user-drop-content">
       <div className="drop-header user-drop-header">
@@ -25,7 +26,15 @@ function ProfileDropDown() {
         <p>Tumblrs</p>
         <Link to="/new/blog">+ New</Link>
       </div>
-      <UserTumblr tumblrName="Jaximus" tumblrTitle="Grandmaster" tumblrIcon="./profile3.png" feedValues={feedValues} />
+      { user.loggedin ? (
+        <UserTumblr
+          tumblrName={user.blogName}
+          tumblrTitle={user.blogName}
+          tumblrIcon={user.primaryBlogAvatar}
+          feedValues={feedValues}
+        />
+      )
+        : (<UserTumblr tumblrName="Jaximus" tumblrTitle="Grandmaster" tumblrIcon="./profile3.png" feedValues={feedValues} />)}
       <UserTumblr tumblrName="Malzahar" tumblrTitle="Landlord" tumblrIcon="./profile.png" feedValues={feedValues} />
       <BottomBar />
     </div>

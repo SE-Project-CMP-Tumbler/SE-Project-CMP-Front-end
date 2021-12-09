@@ -44,8 +44,10 @@ const userSlice = createSlice({
       blogName: '',
       age: 0,
       primaryBlogAvatar: '',
+      googleAccessToken: '',
     },
     status: null,
+    googleAccessed: null,
   },
   reducers: {
     /**
@@ -117,6 +119,7 @@ const userSlice = createSlice({
         blogName: '',
         age: 0,
         primaryBlogAvatar: '',
+        googleAccessToken: '',
       };
       window.location.replace('/logout');
     },
@@ -127,6 +130,31 @@ const userSlice = createSlice({
     */
     signUp: (state) => {
       state.user.loggedin = true;
+    },
+    /**
+    * This function sends an API request (to actual API or to JSON server) to login with Google.
+    * @method
+    * @param {object} state The object that stores the User's email, password, age and other info
+    */
+    continueWithGoogle: (state, action) => {
+      // console.log('Entered ContinueWithGoogle!!');
+      console.log(action?.payload);
+      switch (action?.payload.type) {
+        case 'AUTH':
+          console.log('Entered AUTH!!');
+          state.user.loggedin = true;
+          state.user.googleAccessToken = action?.payload.data.accessToken;
+          state.user.email = action?.payload.data.result.email;
+          state.user.primaryBlogAvatar = action?.payload.data.result.imageUrl;
+          state.user.blogName = action?.payload.data.result.name;
+          // store the user in localStorage
+          localStorage.setItem('user', JSON.stringify(state.user));
+          // console.log(action?.payload.data);
+          window.location.replace('/dashboard');
+          break;
+        default:
+          break;
+      }
     },
   },
   extraReducers: {
@@ -154,7 +182,7 @@ const userSlice = createSlice({
 });
 
 export const {
-  initialCheck, setEmail, setPassword, setBlogName, setAge, logIn, logOut, signUp,
+  initialCheck, setEmail, setPassword, setBlogName, setAge, logOut, signUp, continueWithGoogle,
 } = userSlice.actions;
 
 export const selectUser = (state) => state.user.user;
