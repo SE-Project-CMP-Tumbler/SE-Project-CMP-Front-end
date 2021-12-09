@@ -1,5 +1,5 @@
 /* eslint-disable no-param-reassign */
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 
 const MOCK = 0;
 const REAL = 1;
@@ -9,20 +9,28 @@ const headers = {
   Accept: 'application/json',
 };
 
-// In the real API, it will be /login instead
-const logInPOST = async (query) => fetch(`${api}/login`, {
-  method: 'POST',
-  headers: {
-    ...headers,
-    'Content-Type': 'application/json',
-  },
-  body: JSON.stringify(query),
-}).then((res) => {
-  console.log(res.status);
-  console.log(res.statusText);
-  console.log(res.json());
-  return res;
-});
+export const logInThunk = createAsyncThunk(
+  'login',
+  async (query) => fetch(`${api}/login`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
 
 const userSlice = createSlice({
   name: 'user',
@@ -37,6 +45,7 @@ const userSlice = createSlice({
       age: 0,
       primaryBlogAvatar: '',
     },
+    status: null,
   },
   reducers: {
     /**
@@ -88,28 +97,6 @@ const userSlice = createSlice({
       state.user.age = action.payload;
     },
     /**
-    * This function sends an API request (to actual API or to JSON server) to log the User In.
-    * @method
-    * @param {object} state The object that stores the User's email, password, age and other info
-    */
-    logIn: (state) => {
-      // let data = new Response();
-      if (SERVICETYPE === MOCK) {
-        /* data = */logInPOST({
-          email: state.user.email,
-          password: state.user.password,
-        });
-      } else if (SERVICETYPE === REAL) {
-        //
-      }
-      console.log('Received Data!!');
-      // console.log(data);
-      // state.user.id = data.id;
-      state.user.loggedin = true;
-      // store the user in localStorage
-      localStorage.setItem('user', JSON.stringify(state.user));
-    },
-    /**
     * This function sends an API request (to actual API or to JSON server) to log the User out.
     * @method
     * @param {object} state The object that stores the User's email, password, age and other info
@@ -140,6 +127,28 @@ const userSlice = createSlice({
     */
     signUp: (state) => {
       state.user.loggedin = true;
+    },
+  },
+  extraReducers: {
+    [logInThunk.pending]: () => {
+    },
+    [logInThunk.fulfilled]: (state, { payload }) => {
+      console.log(payload);
+      if (payload.id === '') { // CASE 404
+        state.status = 'NOT FOUND';
+      } else { // CASE 200
+        state.user.id = payload.id;
+        state.user.blogName = payload.blog_username;
+        state.user.email = payload.email;
+        state.user.primaryBlogAvatar = payload.blog_avatar;
+        state.user.accessToken = payload.access_token;
+        state.user.loggedin = true;
+        // store the user in localStorage
+        localStorage.setItem('user', JSON.stringify(state.user));
+        window.location.replace('/dashboard');
+      }
+    },
+    [logInThunk.rejected]: () => {
     },
   },
 });

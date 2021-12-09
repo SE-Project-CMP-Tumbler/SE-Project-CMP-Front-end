@@ -13,7 +13,7 @@ import ContinueWithGoogleButton from '../LogOutHomePage/subcomponents/ContinueWi
 import EmailInputTextField from '../SignUpPage/subcomponents/EmailInputTextField/EmailInputTextField';
 import PasswordInputTextField from '../SignUpPage/subcomponents/PasswordInputTextField/PasswordInputTextField';
 import background from '../LogOutHomePage/placeholder.jpg';
-import { logIn, selectUser } from '../../states/User/UserSlice';
+import { selectUser, logInThunk } from '../../states/User/UserSlice';
 
 const theme = createTheme();
 
@@ -63,8 +63,11 @@ const LogInPage = () => {
             id="loginform"
             onSubmit={(e) => {
               e.preventDefault();
-              dispatch(logIn());
-              window.location.replace('/dashboard');
+              dispatch(logInThunk({
+                email: user.email,
+                password: user.password,
+              }));
+              // dispatch(logIn());
             }}
           >
             <EmailInputTextField />
