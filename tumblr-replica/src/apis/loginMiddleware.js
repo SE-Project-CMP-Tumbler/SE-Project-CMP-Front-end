@@ -1,8 +1,8 @@
 module.exports = (req, res, next) => {
   if (req.method === 'POST' && req.path === '/login') {
-    req.method = 'GET';
-    req.query = req.body;
-    
+    // req.method = 'GET';
+    // req.query = req.body;
+
     if (req.body.email === 'jzimek1@stanford.edu' && req.body.password === 'vppgBhACwQYp') {
       res.status(200).json({
         id: '2',
