@@ -1,8 +1,6 @@
 /* eslint-disable no-param-reassign */
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import {
-  api, apiR, MOCK, REAL, SERVICETYPE,
-} from '../../apis/globalAPI';
+import { api, apiR } from '../../apis/globalAPI';
 
 const headers = {
   Accept: 'application/json',
@@ -183,6 +181,41 @@ export const registerWithGoogleThunkR = createAsyncThunk(
   }).then((res) => res.json()),
 );
 
+export const logOutThunk = createAsyncThunk(
+  'logOut',
+  async (query) => fetch(`${api}/logout`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const logOutThunkR = createAsyncThunk(
+  'logOutR',
+  async (query) => fetch(`${apiR}/logout`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${query}`,
+    },
+  }).then((res) => res.json()),
+);
+
 const userSlice = createSlice({
   name: 'user',
   initialState: {
@@ -256,11 +289,6 @@ const userSlice = createSlice({
     * @param {object} state The object that stores the User's email, password, age and other info
     */
     logOut: (state) => {
-      if (SERVICETYPE === MOCK) {
-        // logOutPOST();
-      } else if (SERVICETYPE === REAL) {
-        //
-      }
       localStorage.clear();
       state.user = {
         loggedin: false,
@@ -510,6 +538,71 @@ const userSlice = createSlice({
       }
     },
     [registerWithGoogleThunkR.rejected]: () => {
+    },
+    [logOutThunk.pending]: () => {
+    },
+    [logOutThunk.fulfilled]: (state, { payload }) => {
+      if (payload?.id === undefined) { // CASE 500 or 422 TO BE handled later
+        state.status = 'NOT FOUND';
+      } else { // CASE 200
+        // store the user in localStorage
+        localStorage.clear();
+        state.user = {
+          loggedin: false,
+          id: '',
+          accessToken: '',
+          email: '',
+          password: '',
+          blogName: '',
+          age: 0,
+          primaryBlogAvatar: '',
+          googleAccessToken: '',
+        };
+        window.location.replace('/logout');
+      }
+    },
+    [logOutThunk.rejected]: () => {
+    },
+    [logOutThunkR.pending]: () => {
+    },
+    [logOutThunkR.fulfilled]: (state, { payload }) => {
+      if (payload.meta.status === '200') {
+        localStorage.clear();
+        state.user = {
+          loggedin: false,
+          id: '',
+          accessToken: '',
+          email: '',
+          password: '',
+          blogName: '',
+          age: 0,
+          primaryBlogAvatar: '',
+          googleAccessToken: '',
+        };
+        window.location.replace('/logout');
+      } else if (payload.meta.status === '401') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        window.location.replace('/dashboard');
+      } else if (payload.meta.status === '404') {
+        localStorage.clear();
+        state.user = {
+          loggedin: false,
+          id: '',
+          accessToken: '',
+          email: '',
+          password: '',
+          blogName: '',
+          age: 0,
+          primaryBlogAvatar: '',
+          googleAccessToken: '',
+        };
+        window.location.replace('/logout');
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      }
+    },
+    [logOutThunkR.rejected]: () => {
     },
   },
 });

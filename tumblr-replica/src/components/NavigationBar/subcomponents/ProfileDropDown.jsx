@@ -2,7 +2,8 @@ import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { logOut, selectUser } from '../../../states/User/UserSlice';
+import { selectUser, logOutThunk, logOutThunkR } from '../../../states/User/UserSlice';
+import { MOCK, REAL, SERVICETYPE } from '../../../apis/globalAPI';
 
 /**
  * This is the component for the user profile's dropdown (last one on the right)
@@ -19,7 +20,19 @@ function ProfileDropDown() {
     <div className="drop-content user-drop-content">
       <div className="drop-header user-drop-header">
         <p>Account</p>
-        <Link to="/logout" onClick={() => { dispatch(logOut()); }}>Log out</Link>
+        <Link
+          to="/logout"
+          onClick={() => {
+            if (SERVICETYPE === MOCK) {
+              dispatch(logOutThunk(user.accessToken));
+            } else if (SERVICETYPE === REAL) {
+              dispatch(logOutThunkR(user.accessToken));
+            }
+          }}
+        >
+          Log out
+
+        </Link>
       </div>
       <UserItems feedValues={feedValues} />
       <div className="drop-header user-drop-header">
