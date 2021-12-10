@@ -10,7 +10,7 @@ import { useMediaQuery } from 'react-responsive';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getBlog, fetchBlog, follow, unFollow, block, unblock,
-} from '../../states/blogslice/blogslice';
+} from '../../../states/blogslice/blogslice';
 import '../css/DrawerMenu.css';
 
 const ITEM_HEIGHT = 48;

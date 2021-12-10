@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import Menu from './DrawerMenu';
 import {
   getBlog, fetchBlog, follow, unFollow,
-} from '../../states/blogslice/blogslice';
+} from '../../../states/blogslice/blogslice';
 // import { create } from '../../../../states/slices/blogSlice';
 
 const MyBlog = false;

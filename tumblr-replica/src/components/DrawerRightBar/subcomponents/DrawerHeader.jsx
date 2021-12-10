@@ -2,7 +2,7 @@ import * as React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import NavBar from './DrawerNavBar';
-import { getBlog, fetchBlog } from '../../states/blogslice/blogslice';
+import { getBlog, fetchBlog } from '../../../states/blogslice/blogslice';
 import '../css/DrawerHeader.css';
 
 /**
