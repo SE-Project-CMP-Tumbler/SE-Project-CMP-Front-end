@@ -1,0 +1,50 @@
+.invite {
+  color: white;
+  margin: 2rem auto;
+  text-align: center;
+  cursor: pointer;
+}
+.invite abbr {
+  border: none;
+  text-decoration: none;
+}
+
+.artifacts-box {
+  background-color: #ffffff23;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 2rem auto;
+  width: 55%;
+  border-radius: 1rem;
+}
+@media (max-width: 1100px) {
+  .artifacts-box {
+    width: 95%;
+  }
+}
+.artifacts-box .image {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem 1rem;
+}
+.artifacts-box .image a {
+  text-align: center;
+  justify-content: center;
+  width: 45%;
+}
+.artifacts-box .image a .flutter {
+  width: 80%;
+  height: auto;
+}
+.artifacts-box .image a .flutter:hover {
+  transform: scale(105%);
+}
+.artifacts-box .image a .android {
+  width: 87%;
+  height: auto;
+}
+.artifacts-box .image a .android:hover {
+  transform: scale(105%);
+}

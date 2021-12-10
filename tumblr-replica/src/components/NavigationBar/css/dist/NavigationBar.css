@@ -329,6 +329,7 @@ button {
 .user-drop .user-drop-content .user-tumblr .blog-item {
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 }
 .user-drop .user-drop-content .user-tumblr .blog-item:hover {
   background-color: #e7e7e7;
@@ -404,6 +405,7 @@ button {
   font-weight: 900;
   color: black;
   text-decoration: underline;
+  cursor: pointer;
 }
 .notifications-drop .notifications-drop-content .notifications-drop-header .profile {
   display: flex;
@@ -480,6 +482,7 @@ button {
   font-weight: 600;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  cursor: pointer;
 }
 .notifications-drop .notifications-drop-content .notifications-category .all {
   flex-basis: 70%;

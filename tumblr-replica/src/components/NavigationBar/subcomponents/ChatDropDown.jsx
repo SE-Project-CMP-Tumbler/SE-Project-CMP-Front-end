@@ -43,7 +43,7 @@ function ChatDropDown() {
             <TumblrItem tumblrName="Malzahar" tumblrTitle="Landlord" tumblrIcon="/profile3.png" />
           </div>
         </div>
-        <button type="button" style={{ color: 'rgb(0, 184, 255)' }} ref={buttonRef} onClick={() => { newMessageHandler(chatsRef, followingRef, buttonRef); }}>New Message</button>
+        <button type="button" style={{ color: 'rgb(0, 184, 255)', cursor: 'pointer' }} ref={buttonRef} onClick={() => { newMessageHandler(chatsRef, followingRef, buttonRef); }}>New Message</button>
       </div>
       <div className="chat-items" ref={chatsRef} style={{ display: 'block' }}>
         <ChatItem senderName="Zoe" isOnline={false} senderIcon="/profile3.png" chatContent="It feels nice here in..." />
