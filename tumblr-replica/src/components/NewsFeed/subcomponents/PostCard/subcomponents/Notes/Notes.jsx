@@ -9,14 +9,13 @@ import Grid from '@mui/material/Grid';
 import TextField from '@mui/material/TextField';
 import { Paper } from '@mui/material';
 import PropTypes from 'prop-types';
-import Axios from 'axios';
 import { useDispatch, useSelector } from 'react-redux';
 import NoteBox from './subcomponents/NoteBox';
 import NoteHeader from './subcomponents/NotesHeader';
 import NoteList from './subcomponents/NoteList';
-import { Display } from '../../../../../../states/displayNotesList';
-import { DisplayNote, HideNote } from '../../../../../../states/NotesWindow';
-import { SetNotes } from '../../../../../../states/PostNotes';
+import { Display } from '../../../../../../states/features/dashboard/displayNotesListSlice';
+import { DisplayNote, HideNote } from '../../../../../../states/features/dashboard/NotesWindowSlice';
+import { getNotes, fetchNotes, addReply } from '../../../../../../states/features/dashboard/NotesSlice';
 /**
  * This function displays notes of a post and can switch between Re-blogs & replies content
  * and the list of people who have interacted with that post
@@ -28,67 +27,31 @@ const Notes = function NotesPopover(props) {
   // States
   const [reply, setReply] = useState('');
   const { showNoteList } = useSelector((state) => state.displayNotesList);
-  const { likes, replies, reblogs } = useSelector((state) => state.PostNotes);
-
-  // variables
-  const apiBaseUrl = 'http://localhost:8000';
 
   // reducers & states
   const { showen } = useSelector((state) => state.NoteWindow);
   const dispatch = useDispatch();
 
-  const getNotes = function GetNotesList() {
-    Axios({
-      method: 'GET',
-      url: `${apiBaseUrl}/post_notes/${postId}`,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => {
-        dispatch(
-          SetNotes(
-            {
-              likes: res.data.note.likes,
-              replies: res.data.note.replies,
-              reblogs: res.data.note.reblogs,
-            },
-          ),
-        );
-      })
-      .catch((err) => {
-        console.log("Can't get notes of post : ", err);
-      });
+  const getPostNotes = function GetNotesList() {
+    dispatch(fetchNotes(postId));
   };
+  const { likes, replies, reblogs } = useSelector(getNotes);
   const handleClick = function ShowNotesList(event) {
-    getNotes();
+    getPostNotes();
     dispatch(DisplayNote(event.currentTarget));
   };
 
   useEffect(() => {
-    getNotes();
+    getPostNotes();
   }, []);
   const handleClose = function HideNotesList() {
     dispatch(HideNote());
   };
 
-  const handleReply = function AddReply(event) {
-    Axios({
-      method: 'POST',
-      url: `${apiBaseUrl}/reply`,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      data: {
-        reply_text: reply,
-        post_id: event.currentTarget.key,
-      },
-    })
-      .then(() => {
-        setReply('');
-      })
-      .catch(() => {
-      });
+  const handleReply = function Reply() {
+    console.log(postId);
+    dispatch(addReply({ postID: postId, replyText: reply }));
+    setReply('');
   };
 
   const open = Boolean(showen);

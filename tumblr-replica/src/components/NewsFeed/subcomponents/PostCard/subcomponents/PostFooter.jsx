@@ -12,12 +12,12 @@ import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { FaRegComment } from 'react-icons/fa';
-import Axios from 'axios';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import Notes from './Notes/Notes';
 import LoggedIn from '../../../../Login/Login';
-import { DisplayNote } from '../../../../../states/NotesWindow';
+import { DisplayNote } from '../../../../../states/features/dashboard/NotesWindowSlice';
+import { addLike, deletePost, unLike } from '../../../../../states/features/dashboard/NotesSlice';
 
 const style = {
   position: 'absolute',
@@ -39,57 +39,20 @@ const PostFooter = function PostFooterButtons(props) {
   // States
   const [Liked, setLiked] = useState(false);
   const [showModel, setShowModel] = useState(false);
-  // variables
-  const apiBaseUrl = 'http://localhost:8000';
 
   // reducers & states
   const dispatch = useDispatch();
 
   const handleDelete = function DeletePost() {
-    Axios({
-      method: 'DELETE',
-      url: `${apiBaseUrl}/post/${postId}`, //    !!! TO BE EDITED !!!    //
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => console.log(res.data))
-      .catch((err) => {
-        console.log("Can't delete post due to : ", err);
-      });
+    dispatch(deletePost(postId));
     setShowModel(false);
   };
 
   const handleLike = function likeUnlikePost() {
     if (!Liked) {
-      Axios({
-        method: 'POST',
-        url: `${apiBaseUrl}/like`, //    !!! TO BE EDITED !!!    //
-        data: {
-          post_id: { postId },
-        },
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-        .then((res) => {
-          console.log(res.data.id);
-        })
-        .catch((err) => {
-          console.log("Can't like post due to : ", err);
-        });
+      dispatch(addLike(postId));
     } else {
-      Axios({
-        method: 'DELETE',
-        url: `${apiBaseUrl}/like/${postId}`, //    !!! TO BE EDITED !!!    //
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      })
-        .then((res) => console.log(res.data))
-        .catch((err) => {
-          console.log("Can't unlike post due to : ", err);
-        });
+      dispatch(unLike(postId));
     }
     setLiked(!Liked);
   };

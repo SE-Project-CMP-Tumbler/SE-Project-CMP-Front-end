@@ -1,13 +1,14 @@
-import { React, useState, useEffect } from 'react';
+import { React, useState } from 'react';
+import { useDispatch } from 'react-redux';
 import Divider from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import Axios from 'axios';
 import PropTypes from 'prop-types';
 import LoggedIn from '../Login/Login';
+import { blockBlog } from '../../states/features/dashboard/NotesSlice';
 /**
  * This function returns a component for the button ... that includes some options to be applied on
  * a post like : Report / Block /Pin etc.
@@ -21,25 +22,7 @@ const MoreMenu = function MoreMenuComponent(props) {
   const [anchorEl, setAnchorEl] = useState(null);
   const [pinned, setPinned] = useState(false);
   const open = Boolean(anchorEl);
-  const apiBaseUrl = 'http://localhost:8008';
-  useEffect(() => {
-    Axios({
-      method: 'GET',
-      url: `${apiBaseUrl}/post/${postId}`,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => {
-        if (res.data.pinned !== pinned) {
-          setPinned(res.data.pinned);
-        }
-        console.log('hello from useEffect / pin post');
-      })
-      .catch((err) => {
-        console.log('Failed to get pin data due to : ', err);
-      });
-  }, [pinned]);
+  const dispatch = useDispatch();
 
   // __________________Click handlers____________________\\
   const handleClick = function handleShowMenu(event) {
@@ -52,48 +35,13 @@ const MoreMenu = function MoreMenuComponent(props) {
 
   const handlePin = function CheckPostPinning() {
     setPinned(true);
-    Axios({
-      method: 'PATCH',
-      url: `${apiBaseUrl}/post/${postId}`,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      data: {
-        pinned,
-      },
-    })
-      .then((res) => console.log(res.data))
-      .catch((err) => {
-        console.log('Failed to pin due to error : ', err);
-      });
   };
 
   const handleUnfollow = function Unfollow() {
-    Axios({
-      method: 'DELETE',
-      url: `${apiBaseUrl}/follow_blogs/${blogId}`, //    !!! TO BE EDITED !!!    //
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => console.log(res.data))
-      .catch((err) => {
-        console.log("Can't Unfollow due to : ", err);
-      });
   };
 
   const handleBlock = function BlockBlog() {
-    Axios({
-      method: 'DELETE',
-      url: `${apiBaseUrl}/block/${blogId}`, //    !!! TO BE EDITED !!!    //
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => console.log(res.data))
-      .catch((err) => {
-        console.log("Can't Block due to : ", err);
-      });
+    dispatch(blockBlog(blogId));
   };
 
   const handleCopy = function CopyPostLinkOption() {
