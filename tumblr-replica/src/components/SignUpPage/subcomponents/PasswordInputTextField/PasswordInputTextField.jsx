@@ -19,7 +19,6 @@ const PasswordInputTextField = () => {
         value={password}
         onChange={(e) => {
           setPasswordh(e.target.value);
-          // console.log('Inside the onChange Function!');
           dispatch(setPassword(e.target.value));
         }}
         variant="outlined"

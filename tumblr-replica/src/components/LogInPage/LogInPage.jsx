@@ -1,5 +1,6 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import { GlobalStyles } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
@@ -12,6 +13,8 @@ import ContinueWithGoogleButton from '../LogOutHomePage/subcomponents/ContinueWi
 import EmailInputTextField from '../SignUpPage/subcomponents/EmailInputTextField/EmailInputTextField';
 import PasswordInputTextField from '../SignUpPage/subcomponents/PasswordInputTextField/PasswordInputTextField';
 import background from '../LogOutHomePage/placeholder.jpg';
+import { selectUser, logInThunk, logInThunkR } from '../../states/User/UserSlice';
+import { MOCK, REAL, SERVICETYPE } from '../../apis/globalAPI';
 
 const theme = createTheme();
 
@@ -20,8 +23,11 @@ const LogInPage = () => {
   const text1 = 'Forgot your password?';
   const text2 = 'New to Tumblr? ';
   const text3 = 'Sign up!';
-  // const [email, setEmail] = useState('');
-  // const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
+  if (user.loggedIn === true) {
+    return <Navigate to="/dashboard" />;
+  }
   return (
     <ThemeProvider theme={theme}>
       <Container
@@ -30,9 +36,13 @@ const LogInPage = () => {
         <CssBaseline />
         <GlobalStyles
           styles={{
-            body: { // backgroundColor: '#001935',
+            body: {
+              backgroundColor: '#001935',
               height: '100%',
               backgroundImage: `url(${background})`,
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
             },
           }}
         />
@@ -51,60 +61,78 @@ const LogInPage = () => {
             </Typography>
           </Link>
         </Box>
-        <Box component="form">
-          <EmailInputTextField />
-          <PasswordInputTextField />
-          <LogInButton />
-          <Box sx={{
-            marginTop: 0.5,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-          >
-            <Link to="/forgot_password" style={{ textDecoration: 'none', alignItems: 'center' }}>
-              <Typography component="h4" color="white" fontSize="1rem" font='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;'>
-                {text1}
-              </Typography>
-            </Link>
-          </Box>
-          <Divider
-            variant="fullWidth"
-            sx={{
-              spacing: 8,
-              mt: 1,
-              '&.MuiDivider-root': {
-                '&::before': {
-                  borderTop: 'thin solid #FFFFFF',
-                },
-                '&::after': {
-                  borderTop: 'thin solid #FFFFFF',
-                },
-              },
-            }}
-            style={{
-              color: '#FFFFFF',
-              textTransform: 'none',
-              borderColor: '#FFFFFF',
+        <Box component="div">
+          <form
+            id="loginform"
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (SERVICETYPE === MOCK) {
+                dispatch(logInThunk({
+                  email: user.email,
+                  password: user.password,
+                }));
+              } else if (SERVICETYPE === REAL) {
+                dispatch(logInThunkR({
+                  email: user.email,
+                  password: user.password,
+                }));
+              }
             }}
           >
-            or
-          </Divider>
-          <ContinueWithGoogleButton />
-          <Box sx={{
-            marginTop: 0.5,
-            display: 'flex',
-            flexDirection: 'column',
-            alignItems: 'center',
-          }}
-          >
-            <Typography component="h4" color="white" fontSize="1rem" font='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;'>
-              {text2}
-              <Link to="/register" style={{ textDecoration: 'none', color: 'white' }}>
-                {text3}
+            <EmailInputTextField />
+            <PasswordInputTextField />
+            <LogInButton worksAsLink={false} />
+            <Box sx={{
+              marginTop: 0.5,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+            >
+              <Link to="/forgot_password" style={{ textDecoration: 'none', alignItems: 'center' }}>
+                <Typography component="h4" color="white" fontSize="1rem" font='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;'>
+                  {text1}
+                </Typography>
               </Link>
-            </Typography>
-          </Box>
+            </Box>
+            <Divider
+              variant="fullWidth"
+              sx={{
+                spacing: 8,
+                mt: 1,
+                '&.MuiDivider-root': {
+                  '&::before': {
+                    borderTop: 'thin solid #FFFFFF',
+                  },
+                  '&::after': {
+                    borderTop: 'thin solid #FFFFFF',
+                  },
+                },
+              }}
+              style={{
+                color: '#FFFFFF',
+                textTransform: 'none',
+                borderColor: '#FFFFFF',
+              }}
+            >
+              or
+            </Divider>
+            <ContinueWithGoogleButton />
+            <Box sx={{
+              marginTop: 0.5,
+              display: 'flex',
+              flexDirection: 'column',
+              alignItems: 'center',
+            }}
+            >
+              <Typography component="h4" color="white" fontSize="1rem" font='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;'>
+                {text2}
+                <Link to="/register" style={{ textDecoration: 'none', color: 'white' }}>
+                  {text3}
+                </Link>
+              </Typography>
+            </Box>
+          </form>
         </Box>
       </Container>
     </ThemeProvider>

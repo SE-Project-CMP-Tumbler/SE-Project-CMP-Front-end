@@ -30,6 +30,7 @@
     "react": "^17.0.2",
     "react-axios": "^2.0.5",
     "react-dom": "^17.0.2",
+    "react-google-login": "^5.2.2",
     "react-grid-carousel": "^1.0.1",
     "react-multi-carousel": "^2.6.5",
     "react-redux": "^7.2.6",
@@ -45,6 +46,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "test:watch": "npm test -- --watch",
+    "json:server": "npx json-server --watch data/db.json --port 8000 --middlewares src/apis/loginMiddleware.js",
     "docs": "jsdoc -c jsdoc.conf.json"
   },
   "eslintConfig": {

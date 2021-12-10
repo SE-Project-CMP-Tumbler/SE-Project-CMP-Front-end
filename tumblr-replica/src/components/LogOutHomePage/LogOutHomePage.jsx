@@ -26,9 +26,13 @@ const LogOutHomePage = () => {
         <CssBaseline />
         <GlobalStyles
           styles={{
-            body: { // backgroundColor: '#001935',
+            body: {
+              backgroundColor: '#001935',
               height: '100%',
               backgroundImage: `url(${background})`,
+              backgroundPosition: 'center',
+              backgroundRepeat: 'no-repeat',
+              backgroundSize: 'cover',
             },
           }}
         />
