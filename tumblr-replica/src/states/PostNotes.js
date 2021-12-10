@@ -13,10 +13,7 @@ export const PostNotes = createSlice({
       s.replies = action.payload.replies;
       s.reblogs = action.payload.reblogs;
       s.likes = action.payload.likes;
-      console.log(s.replies);
-      console.log(s.reblogs);
-      console.log(s.likes);
-      console.log('hello from set notes');
+      console.log(s.likes, s.reblogs, s.replies);
     },
   },
 });

@@ -1,3 +1,8 @@
 .NewsFeed{
     background-color: rgb( 0, 25, 53);
 }
+.ProfilePic{
+    height: 100%;
+    left: -85px;
+    position: absolute;
+}

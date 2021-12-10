@@ -9,7 +9,6 @@ export const NoteWindowSlice = createSlice({
     DisplayNote: (state, action) => {
       const s = state;
       s.showen = action.payload;
-      console.log('this is showen value', s.showen);
     },
     HideNote: (state) => {
       const s2 = state;

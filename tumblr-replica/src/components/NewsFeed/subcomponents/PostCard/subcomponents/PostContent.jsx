@@ -4,7 +4,12 @@ import { Markup } from 'interweave';
 import '../css/PostContent.css';
 import PropTypes from 'prop-types';
 import Link from '@mui/material/Link';
-
+/**
+ * This function displays the content of a post and extracts mentions & hashtags
+ * of the post to be do the needed logic with them & link them to the corresponding components
+ * @param {Object} props the content of the post as a string of html format.
+ * @returns component contains text / imgs / videos of a post
+ */
 const PostContent = function PostContentDisplay(props) {
   let hashtags = [];
   const mentions = [];
@@ -51,7 +56,7 @@ const PostContent = function PostContentDisplay(props) {
 
   return (
     <div className="postBody" style={{ maxWidth: 510, minWidth: 510 }}>
-      <Markup content={postBody} />
+      <Markup content={postBody} className="text" />
       {hashtags.map((hash) => (
         <>
           <Link href="/" underline="hover" style={{ color: 'grey' }} key={hash}>
