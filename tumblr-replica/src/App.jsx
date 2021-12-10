@@ -16,6 +16,20 @@ import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
 import { initialCheck } from './states/User/UserSlice';
+import TextPosts from './components/TextPosts/TextPosts';
+import VideoPosts from './components/VideoPosts/VideoPosts';
+import ImagePosts from './components/ImagePosts/ImagePosts';
+import QuotePosts from './components/QuotePosts/QuotePosts';
+import ChatPosts from './components/ChatPosts/ChatPosts';
+import AudioPosts from './components/AudioPosts/AudioPosts';
+import GifPosts from './components/GifPosts/GifPosts';
+import AskPosts from './components/AskPosts/Askposts';
+import BlogPage from './components/BlogPage/BlogPage';
+import Activity from './components/Activity/Activity';
+import Drafts from './components/Drafts/Drafts';
+import RightBar from './components/DrawerRightBar/DrawerRightBar';
+// import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
+// import { selectUser } from './states/user/UserSlice';
 
 function App() {
   const dispatch = useDispatch();
@@ -30,6 +44,7 @@ function App() {
         <MediaQuery minWidth={1070}>
           <NavigationBar />
         </MediaQuery>
+
       </div>
       <Routes>
         <Route exact path="/chat" element={<HomePage />} />
@@ -42,15 +57,20 @@ function App() {
         <Route path="/logout" element={<LogOutHome />} />
         <Route path="/explore/recommended-for-you" element={<Explore />} />
         <Route path="/explore/trending" element={<Trending />} />
-        <Route path="/explore/staff-picks" />
-        <Route path="/explore/text" />
-        <Route path="/explore/photos" />
-        <Route path="/explore/quotes" />
-        <Route path="/explore/chats" />
-        <Route path="/explore/Audio" />
-        <Route path="/explore/Video" />
-        <Route path="/explore/Asks" />
+        <Route path="/explore/staff-picks" element={<Explore />} />
+        <Route path="/explore/text" element={<TextPosts />} />
+        <Route path="/explore/photos" element={<ImagePosts />} />
+        <Route path="/explore/quotes" element={<QuotePosts />} />
+        <Route path="/explore/chats" element={<ChatPosts />} />
+        <Route path="/explore/audio" element={<AudioPosts />} />
+        <Route path="/explore/gifs" element={<GifPosts />} />
+        <Route path="/explore/video" element={<VideoPosts />} />
+        <Route path="/explore/asks" element={<AskPosts />} />
         <Route path="/tagged/:tag" element={<Tagged />} />
+        <Route path="/blog/:blogname" element={<BlogPage />} />
+        <Route path="/blog/:blogname/activity" element={<Activity />} />
+        <Route path="/blog/:blogname/drafts" element={<Drafts />} />
+        <Route path="/rightbar" element={<RightBar />} />
       </Routes>
     </Router>
   );

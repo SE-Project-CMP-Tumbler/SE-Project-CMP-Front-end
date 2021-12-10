@@ -1,0 +1,102 @@
+.nav{
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+    box-sizing: border-box;
+    height: 50px;
+    padding: 10px;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1;
+}
+.exit-btn{
+     padding:-10px 0 0 4px !important;
+}
+
+.icons{
+    cursor: pointer;
+    margin: 0;
+    padding:0 20px 0 0;
+    border:none;
+}
+
+.user-account{
+    display: block;
+    /* font-size: 1rem !important; */
+    font-weight: 700;
+    height: 24px;
+    line-height: 1.5;
+    min-width: 0;
+    font-family: Arial, Helvetica, sans-serif;
+   
+    /* overflow: hidden; */
+    position: relative;
+    text-decoration: none;
+    transition: all .3s;
+    font-size:17px;
+    color: white;
+    top:3px;
+}
+.x{
+    border: none;
+    margin: 0 0 0 -2px;
+    padding: 0;
+}
+.make-right{
+    display:flex;
+    width: 400px;
+    flex-direction: row;
+    justify-content: flex-end;
+
+}
+.make-left{
+    display:flex;
+    justify-content: flex-start;
+    flex-direction: row;
+    max-width: 290px;
+    min-width: 290px;
+    
+}
+.search-text{
+    margin-left: 0;
+    color: white;
+    background-color: transparent;
+    border:none;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    opacity: 1;
+    outline: none;
+    padding: 5px;
+    transition: transform .3s;
+    width:150px;
+}
+.search-icon{
+        cursor: pointer;
+        margin: 0;
+        padding: 0;
+        border:none
+}
+.messages{
+    margin:0;
+    padding: 0;
+}
+.btn{
+    margin-left: 14px;
+    align-items: center;
+    border-radius:4px;
+    display: flex;
+    font-size: .875rem;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 1.5;
+    min-width: 57.5px;
+    padding: 4px 7px 5px;
+    cursor: pointer;
+    border: none;
+    background: white
+} 
+::placeholder { 
+  color: white;
+}

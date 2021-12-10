@@ -1,0 +1,12 @@
+.chat{
+  top: 43%;
+  width: 280px;
+  height: 450px;
+  position: fixed;
+  background-color: #245272;
+  right: 740px;
+  text-align: center;
+}
+.drawer{
+  position: relative;
+}
