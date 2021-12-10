@@ -1,5 +1,4 @@
 import { React, useEffect, useState } from 'react';
-import Axios from 'axios';
 import './css/Newsfeed.css';
 import Grid from '@mui/material/Grid';
 import Stack from '@mui/material/Stack';
@@ -12,8 +11,10 @@ import FormatQuoteIcon from '@mui/icons-material/FormatQuote';
 import FontDownloadSharpIcon from '@mui/icons-material/FontDownloadSharp';
 import { FaLink, FaRegCommentDots } from 'react-icons/fa';
 import { useMediaQuery } from 'react-responsive';
+import { useDispatch, useSelector } from 'react-redux';
 import AudiotrackIcon from '@mui/icons-material/Audiotrack';
 import VideoCallIcon from '@mui/icons-material/VideoCall';
+import { getDashPosts, fetchPosts } from '../../states/features/dashboard/dashboardSlice';
 import PostCard from './subcomponents/PostCard/PostCard';
 import CheckOut from './subcomponents/CheckOut/CheckOut';
 
@@ -34,32 +35,27 @@ const style = {
  * these blogs.
  */
 const Newsfeed = function NewsfeedPosts() {
-  const [Posts, setPosts] = useState(null);
-  const [isPending, setisPending] = useState(true);
+  const [isPending, setIsPending] = useState(true);
   const [open, setOpen] = useState(false);
   const handleOpen = () => setOpen(true);
   const handleClose = () => setOpen(false);
-  const apiBaseUrl = 'http://localhost:8000/post/3';
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(fetchPosts());
+  }, []);
+  const Posts = useSelector(getDashPosts);
 
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1224px)',
   });
 
+  const demo = function anyt() {
+    setIsPending(false);
+    console.log(Posts);
+  };
   useEffect(() => {
-    Axios({
-      method: 'GET',
-      url: `${apiBaseUrl}`, //    !!! TO BE EDITED !!!    //
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => {
-        setPosts(res.data.dashboard);
-        setisPending(false);
-      })
-      .catch((err) => {
-        console.log("Can't Unfollow due to : ", err);
-      });
+    dispatch(fetchPosts())
+      .then(demo);
   }, []);
 
   return (
