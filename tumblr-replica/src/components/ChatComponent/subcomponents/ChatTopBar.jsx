@@ -20,7 +20,7 @@ import axios from 'axios';
 import {
   removeChatBoxIDOnly,
   removeChatBoxID,
-} from '../../states/reducers/ChatReducer';
+} from '../../../slices/ChatModule/ChatModule';
 
 const style = {
   position: 'absolute',
@@ -62,20 +62,13 @@ const useStyles = makeStyles({
     height: '40px',
     borderTopLeftRadius: '4px',
     borderTopReightRadius: '4px',
+    color: '#ffff',
   },
   chatButtons: {
     cursor: 'pointer',
   },
 });
-/**
- * This function is for the ChatTopBar component this component is a part of chat componenet ,
- * it has close icon ,minimize icon,and menue list to delete the conversation or block friend
- * @method
- * @param {number} id id to determine the spacific chat for close or minimize.
- * @param {function} setMessages setMessages this function is to set the messages
- * state using for delete conversation
- * @returns {*} ChatTopBar componenet
- */
+
 function ChatTopBar({ id, setMessages }) {
   const [morehorpress, morehorPressHandle] = useState(false);
   const dispatch = useDispatch();
@@ -126,13 +119,11 @@ function ChatTopBar({ id, setMessages }) {
     <Grid container xs={12} className={classes.topBar}>
       <Grid item xs={6} className={classes.chatParticipant}>
         <Typography noWrap>
-          <Link color="#fff" href="/" style={{ textDecoration: 'none' }}>
+          <Link color="inherit" href="/" style={{ textDecoration: 'none', fontFamily: 'Poppins' }}>
             nadeen
           </Link>
-          <Link color="#fff" href="/" style={{ textDecoration: 'none' }}>
-            +
-          </Link>
-          <Link color="#fff" href="/" style={{ textDecoration: 'none' }}>
+          +
+          <Link color="inherit" href="/" style={{ textDecoration: 'none' }}>
             {friendnameS}
           </Link>
         </Typography>
@@ -161,7 +152,6 @@ function ChatTopBar({ id, setMessages }) {
               aria-labelledby="composition-button"
             >
               <MenuItem>Sound settings</MenuItem>
-              <br />
               <MenuItem
                 onClick={() => {
                   deleteConv(!deleteConvS);
@@ -175,62 +165,7 @@ function ChatTopBar({ id, setMessages }) {
                   aria-labelledby="modal-modal-title"
                   aria-describedby="modal-modal-description"
                 >
-                  <Box sx={style} style={{ textAlign: 'center' }}>
-                    <Typography
-                      id="modal-modal-title"
-                      variant="h5"
-                      component="h5"
-                      style={{ margin: '20px 0px' }}
-                    >
-                      Permanently delete this conversation?
-                    </Typography>
-                    <Stack spacing={2} direction="row">
-                      <Button
-                        variant="text"
-                        style={{
-                          backgroundColor: '#BEC8BB',
-                          color: '#FFFFFF',
-                          marginLeft: '30%',
-                          borderRadius: '10px',
-                          width: '100px',
-                          height: '40px',
-                        }}
-                      >
-                        Nevermind
-                      </Button>
-                      <Button
-                        variant="contained"
-                        style={{
-                          backgroundColor: '#D12C1F',
-                          color: '#FFFFFF',
-                          borderRadius: '10px',
-                          width: '40px',
-                          height: '40px',
-                        }}
-                        onClick={DeleteConversation}
-                      >
-                        Delete
-                      </Button>
-                    </Stack>
-                  </Box>
-                </Modal>
-                Delete conversation
-              </MenuItem>
-              <br />
-              <MenuItem
-                onClick={() => {
-                  blockConv(!blockConvS);
-                }}
-              >
-                <Modal
-                  open={blockConvS}
-                  onClose={() => {
-                    blockConv(!blockConvS);
-                  }}
-                  aria-labelledby="modal-modal-title"
-                  aria-describedby="modal-modal-description"
-                >
-                  <Box sx={style} style={{ textAlign: 'center' }}>
+                  <Box sx={style}>
                     <Typography
                       id="modal-modal-title"
                       variant="h5"
@@ -248,6 +183,7 @@ function ChatTopBar({ id, setMessages }) {
                       nadeen-dondon messages, see nadeen-dondon in search
                       results, or interact with any of nadeen-dondon  posts.
                     </Typography>
+
                     <Stack spacing={2} direction="row">
                       <Button
                         variant="text"
@@ -255,22 +191,57 @@ function ChatTopBar({ id, setMessages }) {
                           backgroundColor: '#BEC8BB',
                           color: '#FFFFFF',
                           marginLeft: '30%',
-                          borderRadius: '10px',
-                          width: '100px',
-                          height: '40px',
                         }}
                       >
                         Nevermind
                       </Button>
                       <Button
                         variant="contained"
+                        style={{ backgroundColor: '#D12C1F', color: '#FFFFFF' }}
+                        onClick={DeleteConversation}
+                      >
+                        Delete
+                      </Button>
+                    </Stack>
+                  </Box>
+                </Modal>
+                Delete conversation
+              </MenuItem>
+              <MenuItem
+                onClick={() => {
+                  blockConv(!blockConvS);
+                }}
+              >
+                <Modal
+                  open={blockConvS}
+                  onClose={() => {
+                    blockConv(!blockConvS);
+                  }}
+                  aria-labelledby="modal-modal-title"
+                  aria-describedby="modal-modal-description"
+                >
+                  <Box sx={style}>
+                    <Typography
+                      id="modal-modal-title"
+                      variant="h4"
+                      component="h4"
+                    >
+                      Permanently delete this conversation?
+                    </Typography>
+                    <Stack spacing={2} direction="row">
+                      <Button
+                        variant="text"
                         style={{
-                          backgroundColor: '#D12C1F',
+                          backgroundColor: '#BEC8BB',
                           color: '#FFFFFF',
-                          borderRadius: '10px',
-                          width: '40px',
-                          height: '40px',
+                          marginLeft: '30%',
                         }}
+                      >
+                        Nevermind
+                      </Button>
+                      <Button
+                        variant="contained"
+                        style={{ backgroundColor: '#D12C1F', color: '#FFFFFF' }}
                       >
                         Block
                       </Button>
@@ -283,7 +254,7 @@ function ChatTopBar({ id, setMessages }) {
           </Popover>
         ) : null}
         <SouthEastIcon
-          onClick={() => dispatch(removeChatBoxID({ id, friendImgS }))}
+          onClick={() => dispatch(removeChatBoxID({ id, img: friendImgS }))}
           style={{ fill: '#fff', margin: '2px' }}
         />
         <CloseIcon

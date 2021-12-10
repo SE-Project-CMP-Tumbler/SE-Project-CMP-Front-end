@@ -1,3 +1,4 @@
+/* eslint-disable operator-linebreak */
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ListSubheader from '@mui/material/ListSubheader';
@@ -18,19 +19,15 @@ import { ListItemButton } from '@mui/material';
 import {
   setChatBoxesID,
   newMessagePress,
-} from '../../states/reducers/ChatReducer';
+} from '../../slices/ChatModule/ChatModule';
 
-/**
- * This function is for the ChatTo component this component has a search
- * bar to search for friend to chat with
- * @method
- * @returns {*} ChatTo componenet
- */
 function ChatTo() {
   const chats = useSelector((state) => state.Chat.chats);
   const apiBaseUrl = 'http://localhost:8000';
   const dispatch = useDispatch();
   const pushtoChatBoxHandle = (event, chatId) => {
+    console.log('jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj');
+    console.log(chatId);
     event.preventDefault();
     axios({
       method: 'GET',
@@ -39,8 +36,8 @@ function ChatTo() {
         'Content-Type': 'application/json',
       },
     })
-      .then(() => {
-        dispatch(setChatBoxesID(chatId));
+      .then((res) => {
+        dispatch(setChatBoxesID({ id: chatId, img: res.data.img }));
       })
       .catch((err) => {
         console.log(err.message);
@@ -49,19 +46,18 @@ function ChatTo() {
   return (
     <List
       sx={{
-        width: '100%',
-        maxWidth: 280,
         bgcolor: 'background.paper',
         border: '1px solid #a9a9a9',
         padding: '0',
         borderRadius: '7px',
+        width: '280px',
       }}
       component="nav"
       aria-labelledby="nested-list-subheader"
       subheader={<ListSubheader component="div" id="nested-list-subheader" />}
     >
       <ListItem>
-        <Grid container spacing={1}>
+        <Grid container spacing={3}>
           <Grid item style={{ marginRight: '34px' }}>
             <Typography variant="body2" style={{ fontWeight: 'bold' }}>
               nadeen-dondon
@@ -100,10 +96,9 @@ function ChatTo() {
           height: '20px',
           backgroundColor: '#f5f5f5',
           padding: '10px 3%',
-          zIndex: '100',
         }}
       >
-        <Typography variant="body2" align="left">
+        <Typography variant="body2" align="left" sx={{ height: '22px' }}>
           Recently Followed
         </Typography>
       </Box>

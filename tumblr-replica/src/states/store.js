@@ -8,7 +8,8 @@ import displayNotesListReducer from './displayNotesList';
 import NoteWindowReducer from './NotesWindow';
 import LikeReducer from './Like';
 import PostNoteReducer from './PostNotes';
-import Chatreduser from './reducers/ChatReducer';
+import Chatreduser from '../slices/ChatModule/ChatModule';
+import Followreduser from '../slices/FollowingPage/FollowingPage';
 
 const store = configureStore({
   reducer: {
@@ -22,7 +23,7 @@ const store = configureStore({
     Like: LikeReducer,
     PostNotes: PostNoteReducer,
     Chat: Chatreduser,
-
+    Follow: Followreduser,
   },
 });
 

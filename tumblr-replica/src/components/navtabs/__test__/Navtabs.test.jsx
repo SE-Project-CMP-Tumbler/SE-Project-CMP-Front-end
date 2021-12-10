@@ -5,7 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import PropTypes from 'prop-types';
-import NavTabs from '../Navtabs';
+import NavTabs from '../NavTabs';
 
 const MockNavtabs = ({ selsected }) => (
   <BrowserRouter>

@@ -2,37 +2,43 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import Grid from '@material-ui/core/Grid';
 import { Avatar } from '@mui/material';
+import { Box } from '@material-ui/core';
 import ChatComponent from '../ChatComponent/ChatComponent';
-import { removeAvaterID } from '../../states/reducers/ChatReducer';
-/**
- * This function is for the Chat Boxes component this component to
- * disply the grid of the chats open or the avatars for open put non active chats
- * @method
- * @returns {*} chatbox componenet
- */
+import { removeAvaterID } from '../../slices/ChatModule/ChatModule';
+
 function ChatBoxes() {
   const chatBoxes = useSelector((state) => state.Chat.chatbox);
   const avatars = useSelector((state) => state.Chat.avatars);
   const dispatch = useDispatch();
 
+  const avatarOnClickHandle = (avatar) => {
+    dispatch(removeAvaterID(avatar));
+  };
   return (
-    <Grid
-      container
-      style={{
-        bottom: 0,
-        position: 'fixed',
-        justifyContent: 'flex-end',
-        display: 'flex',
-        alignItems: 'center',
-      }}
+    <Box style={{
+      position: 'relative',
+    }}
     >
+      <Box style={{
+        position: 'fixed',
+        bottom: '0',
+        right: '50px',
+      }}
+      >
+        {chatBoxes
+          && chatBoxes.map((chatbox) => (
+            <Grid item key={chatbox.id}>
+              <ChatComponent id={chatbox.id} />
+            </Grid>
+          ))}
+      </Box>
       <Grid
         container
         direction="column"
-        spacing={2}
         style={{
-          bottom: 0,
           position: 'fixed',
+          bottom: '0',
+          right: '0',
         }}
       >
         {avatars
@@ -41,7 +47,7 @@ function ChatBoxes() {
               <button
                 type="button"
                 onClick={() => {
-                  dispatch(removeAvaterID(avatar.id));
+                  avatarOnClickHandle(avatar);
                 }}
                 style={{
                   backgroundColor: 'transparent',
@@ -49,31 +55,12 @@ function ChatBoxes() {
                   cursor: 'pointer',
                 }}
               >
-                <Avatar src={avatar.friendImgS} />
+                <Avatar src={avatar.img} />
               </button>
             </Grid>
           ))}
       </Grid>
-      <Grid
-        container
-        direction="row"
-        spacing={2}
-        style={{
-          bottom: 0,
-          position: 'fixed',
-          justifyContent: 'flex-end',
-          display: 'flex',
-          alignItems: 'center',
-        }}
-      >
-        {chatBoxes
-          && chatBoxes.map((chatbox) => (
-            <Grid item key={chatbox}>
-              <ChatComponent id={chatbox} />
-            </Grid>
-          ))}
-      </Grid>
-    </Grid>
+    </Box>
   );
 }
 export default ChatBoxes;

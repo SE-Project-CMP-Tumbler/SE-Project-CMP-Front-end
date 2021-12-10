@@ -1,0 +1,8 @@
+button {
+background-color: transparent;
+border: none;
+cursor: pointer;
+}
+.send-button{
+    margin-left: 60%;
+}

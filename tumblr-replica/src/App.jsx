@@ -13,6 +13,7 @@ import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
+import FollowingPage from './components/FollowingPage/FollowingPage';
 // import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
 // import { selectUser } from './states/user/UserSlice';
 
@@ -31,6 +32,7 @@ function App() {
       </div>
       <Routes>
         <Route exact path="/chat" element={<HomePage />} />
+        <Route path="/followingpage" element={<FollowingPage />} />
         <Route exact path="/dashboard" element={<Newsfeed />} />
         <Route exact path="/login" element={<LogInPage />} />
         <Route path="/register" element={<SignUpPage />} />

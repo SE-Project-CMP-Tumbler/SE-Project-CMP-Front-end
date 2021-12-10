@@ -7,15 +7,8 @@ import { Divider, Grid } from '@material-ui/core';
 import axios from 'axios';
 import { Avatar } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { newMessagePress, setChats, setChatBoxesID } from '../../states/reducers/ChatReducer';
+import { newMessagePress, setChats, setChatBoxesID } from '../../slices/ChatModule/ChatModule';
 
-/**
- * This function is for the OldChatList component this component has all friends of the user ,
- * this component should appear when the user have no chats with his friends
- * by click on the avatar the chat will open
- * @method
- * @returns {*} ChatTo componenet
- */
 function OldChatList() {
   const apiBaseUrl = 'http://localhost:8000';
   const dispatch = useDispatch();
@@ -36,10 +29,10 @@ function OldChatList() {
       });
   }, []);
   return (
-    <Card sx={{ maxWidth: 260 }} style={{ position: 'absolute', right: '70px', top: '56px' }}>
+    <Card sx={{ maxWidth: 260 }}>
       <CardHeader
         action={(
-          <Grid container spacing={4}>
+          <Grid container spacing={5}>
             <Grid item>
               <Typography
                 variant="body2"
@@ -56,7 +49,7 @@ function OldChatList() {
                   dispatch(newMessagePress());
                 }}
                 style={{
-                  color: '#778899', backgroundColor: 'transparent', border: 'none', cursor: 'pointer', marginRight: '10px', zIndex: '100',
+                  marginLeft: '1px', color: '#778899', backgroundColor: 'transparent', border: 'none', cursor: 'pointer',
                 }}
               >
                 New Message
@@ -89,7 +82,7 @@ function OldChatList() {
             <Grid item xs={3} key={elem.id}>
               <button
                 type="button"
-                onClick={() => { dispatch(setChatBoxesID(elem.id)); }}
+                onClick={() => { dispatch(setChatBoxesID({ id: elem.id, img: elem.img })); }}
                 style={{ backgroundColor: 'transparent', border: 'none', cursor: 'pointer' }}
               >
                 <Avatar src={elem.img} />

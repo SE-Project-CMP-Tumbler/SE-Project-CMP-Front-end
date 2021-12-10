@@ -3,26 +3,20 @@ import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
 import PropTypes from 'prop-types';
-import ChatTopBar from '../ChatTopBar/ChatTopBar';
+import ChatTopBar from './subcomponents/ChatTopBar';
 import ChatFeed from '../ChatFeed/ChatFeed';
-import ChatInput from '../ChatInput/ChatInput';
+import ChatInput from './subcomponents/ChatInput';
 
 const useStyles = makeStyles({
   chatbox: {
     width: '265px',
-    height: '390px',
+    height: '405px',
     border: '1px solid #a9a9a9',
     borderRadius: '4px',
-    position: 'fixed',
+    zIndex: '3',
   },
 });
-/**
- * This function is for the ChatComponent this component to
- * disply the top bar of the chat & chat feed & input bar
- * @method
- * @param {number} id id is a prop for this component to know witch chat box will be displayed
- * @returns {*} ChatComponent componenet
- */
+
 function ChatComponent({ id }) {
   const classes = useStyles();
   const apiBaseUrl = 'http://localhost:8000';
@@ -42,15 +36,14 @@ function ChatComponent({ id }) {
       .then((res) => {
         setMessages(res?.data?.chat_messages);
       })
-      .catch(() => {
-        // console.log(err.message);
+      .catch((err) => {
+        console.log(err.message);
       });
   }, []);
   return (
     <Grid
       container
       className={classes.chatbox}
-      style={{ position: 'relative' }}
     >
       <Grid item xs={12}>
         <ChatTopBar id={id} setMessages={setMessages} />

@@ -1,31 +1,34 @@
-import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+// import { makeStyles } from '@material-ui/core/styles';
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
-import List from '@material-ui/core/List';
-import ListItemText from '@material-ui/core/ListItemText';
+// import ListItemText from '@material-ui/core/ListItemText';
 import { Box } from '@mui/system';
 import { useSelector } from 'react-redux';
-
+import { styled } from '@mui/material/styles';
+import Badge from '@mui/material/Badge';
+import Avatar from '@mui/material/Avatar';
+import FriendChatFeed from './subcomponents/FriendChatFeed';
+import MyChatFeed from './subcomponents/MyChatFeed';
+import User from '../../LogedInUser/DemoUser';
+/*
 const useStyles = makeStyles({
   messageArea: {
-    height: '38vh',
+    height: '50vh',
     width: '100%',
     overflowY: 'auto',
-    backgroundColor: '#f0fff0',
   },
   Myimg: {
     width: '30px',
     height: '30px',
     borderRadius: '50%',
-    margin: '2px 10px',
+    margin: '2px 2px',
   },
   friendImg: {
     width: '30px',
     height: '30px',
     borderRadius: '50%',
-    margin: '10px',
+    margin: '2px',
     marginLeft: '82%',
   },
   myBox: {
@@ -36,17 +39,37 @@ const useStyles = makeStyles({
     marginLeft: '2%',
   },
 });
-/**
- * This function is for the ChatFeed component this component is a part of the chat component
- * this component display the messages of the two chaters
- * @method
- * @param {number} id id is a prop for this component to know witch chat box will be displayed
- * @param {array} messages messeges is a prop for this component to know
- * witch chat box will be displayed
- * @returns {*} ChatFeed componenet
- */
+*/
+const StyledBadge = styled(Badge)(({ theme }) => ({
+  '& .MuiBadge-badge': {
+    backgroundColor: '#44b700',
+    color: '#44b700',
+    boxShadow: `0 0 0 2px ${theme.palette.background.paper}`,
+    '&::after': {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+      borderRadius: '50%',
+      animation: 'ripple 1.2s infinite ease-in-out',
+      border: '1px solid currentColor',
+      content: '""',
+    },
+  },
+  '@keyframes ripple': {
+    '0%': {
+      transform: 'scale(.8)',
+      opacity: 1,
+    },
+    '100%': {
+      transform: 'scale(2.4)',
+      opacity: 0,
+    },
+  },
+}));
 function ChatFeed({ id, messages }) {
-  const classes = useStyles();
+  // const classes = useStyles();
   const [friendImgS, setFriendImg] = useState('');
   const [friendName, setFriendName] = useState('');
   const myFriends = useSelector((state) => state.Chat.chats);
@@ -58,90 +81,37 @@ function ChatFeed({ id, messages }) {
   }, []);
 
   return (
-    <List className={classes.messageArea}>
-      <Box>
-        <img
-          alt="Not found"
-          style={{
-            width: '35px',
-            height: '35px',
-            borderRadius: '50%',
-            margin: '10px',
-            marginLeft: '45%',
-          }}
-          src={friendImgS}
-        />
+    <Box style={{
+      width: '100%', overflow: 'auto', overflowY: 'scroll', maxHeight: '260px', height: '260px', padding: '10px 0 0 0', backgroundColor: 'wight',
+    }}
+    >
+      <Box style={{ textAlign: 'center' }}>
+        <StyledBadge
+          overlap="circular"
+          anchorOrigin={{ vertical: 'bottom', horizontal: 'right' }}
+          variant="dot"
+        >
+          <Avatar sx={{ height: '30px', width: '30px' }} alt="Remy Sharp" src={friendImgS} />
+        </StyledBadge>
         <Typography
           variant="body2"
-          style={{ fontWeight: 'bold', marginLeft: '43%' }}
+          style={{ fontWeight: 'bold' }}
         >
           {friendName}
         </Typography>
         <Typography
           variant="body2"
-          style={{ marginLeft: '18%', color: '#c0c0c0', marginTop: '10px' }}
+          style={{ color: '#c0c0c0', textAlign: 'center', margin: '10px 0' }}
         >
           Matuals for less than year
         </Typography>
       </Box>
-      {messages.map((value) => (
-        <Grid container key={value.id}>
-          <Grid item xs={12}>
-            <Box>
-              <img
-                alt="Not found"
-                className={
-                  value.from === 'nadeen' ? classes.Myimg : classes.friendImg
-                }
-                src={value.from === 'nadeen' ? 'https://images.unsplash.com/photo-1551963831-b3b1ca40c98e' : friendImgS}
-              />
-              <Box
-                align={value.from === 'nadeen' ? 'right' : 'left'}
-                className={
-                  value.from === 'nadeen' ? classes.myBox : classes.friendBox
-                }
-              >
-                <ListItemText primary={value.text} />
-                {value.photo ? (
-                  <>
-                    <Typography variant="body2" style={{ fontWeight: 'bold' }}>
-                      nadeen-dondon sent a post
-                    </Typography>
-                    <img
-                      alt="Not found"
-                      style={{
-                        height: '100px',
-                        width: '75%',
-                        borderRadius: '10px',
-                        margin: '10px',
-                      }}
-                      src={value.photo}
-                    />
-                  </>
-                ) : null}
-                {value.gif ? (
-                  <>
-                    <Typography variant="body2" style={{ fontWeight: 'bold' }}>
-                      nadeen-dondon sent a post
-                    </Typography>
-                    <img
-                      alt="Not found"
-                      style={{
-                        height: '100px',
-                        width: '75%',
-                        borderRadius: '10px',
-                        margin: '10px',
-                      }}
-                      src={value.gif}
-                    />
-                  </>
-                ) : null}
-              </Box>
-            </Box>
-          </Grid>
-        </Grid>
-      ))}
-    </List>
+      <Box style={{ padding: '10px 5px 0 10px' }}>
+        {messages.map((value) => (value.from === User.name
+          ? <MyChatFeed id={id} value={value} />
+          : <FriendChatFeed id={id} value={value} />))}
+      </Box>
+    </Box>
   );
 }
 
