@@ -24,6 +24,7 @@ import AskPosts from './components/AskPosts/Askposts';
 import BlogPage from './components/BlogPage/BlogPage';
 import Activity from './components/Activity/Activity';
 import Drafts from './components/Drafts/Drafts';
+import StaffPicks from './components/StaffPicks/StaffPicks';
 // import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
 // import { selectUser } from './states/user/UserSlice';
 
@@ -49,7 +50,7 @@ function App() {
         <Route path="/logout" element={<LogOutHome />} />
         <Route path="/explore/recommended-for-you" element={<Explore />} />
         <Route path="/explore/trending" element={<Trending />} />
-        <Route path="/explore/staff-picks" element={<Explore />} />
+        <Route path="/explore/staff-picks" element={<StaffPicks />} />
         <Route path="/explore/text" element={<TextPosts />} />
         <Route path="/explore/photos" element={<ImagePosts />} />
         <Route path="/explore/quotes" element={<QuotePosts />} />

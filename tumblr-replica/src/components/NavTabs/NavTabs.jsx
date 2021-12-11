@@ -1,13 +1,8 @@
 import * as React from 'react';
-import Tabs from '@mui/material/Tabs';
-import Tab from '@mui/material/Tab';
-import Box from '@mui/material/Box';
-import { Link } from 'react-router-dom';
-import InputLabel from '@mui/material/InputLabel';
-import MenuItem from '@mui/material/MenuItem';
-import FormControl from '@mui/material/FormControl';
-import Select from '@mui/material/Select';
+import MediaQuery from 'react-responsive';
 import PropTypes from 'prop-types';
+import MnavTabs from './MnavTabs/MnavTabs';
+import LnavTabs from './LnavTabs/LnavTabs';
 
 /**
  * Component for The navTabs which show in the top os explor section.
@@ -23,48 +18,15 @@ import PropTypes from 'prop-types';
  * )
  */
 export default function NavTabs({ tapnum, selsected }) {
-  const [value, setValue] = React.useState(tapnum);
-  const white = {
-    color: 'white',
-    fontWeight: 'bolder',
-    textTransform: 'none',
-    fontSize: 'large',
-  };
   return (
-    <div style={{ backgroundColor: '#001935' }}>
-      <Box sx={{
-        width: '100%', typography: 'body1', borderBottom: 1, borderColor: 'primary.main', margin: '20px 0px',
-      }}
-      >
-        <Tabs
-          data-testid="tabs"
-          value={value}
-          onChange={(event, newValue) => setValue(newValue)}
-        >
-          <Tab style={white} label="For You 💖" to="/explore/recommended-for-you" component={Link} />
-          <Tab style={white} label="Trending 🚀" to="/explore/trending" component={Link} />
-          <Tab style={white} label="Staff Picks 🌟" to="/explore/staff-picks" component={Link} />
-          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
-            <InputLabel id="demo-simple-select-standard-label" style={white}>{selsected}</InputLabel>
-            <Select
-              labelId="demo-simple-select-standard-label"
-              id="demo-simple-select-standard"
-              label="Age"
-              inputProps={{ 'aria-label': 'Without label' }}
-            >
-              <MenuItem to="/explore/text" component={Link}>Text</MenuItem>
-              <MenuItem to="/explore/photos" component={Link}>Photos</MenuItem>
-              <MenuItem to="/explore/gifs" component={Link}>GIFs</MenuItem>
-              <MenuItem to="/explore/quotes" component={Link}>Quotes</MenuItem>
-              <MenuItem to="/explore/chats" component={Link}>Chats</MenuItem>
-              <MenuItem to="/explore/audio" component={Link}>Audio</MenuItem>
-              <MenuItem to="/explore/video" component={Link}>Video</MenuItem>
-              <MenuItem to="/explore/asks" component={Link}>Asks</MenuItem>
-            </Select>
-          </FormControl>
-        </Tabs>
-      </Box>
-    </div>
+    <>
+      <MediaQuery maxWidth={800}>
+        <MnavTabs tapnum={tapnum} selsected={selsected} />
+      </MediaQuery>
+      <MediaQuery minWidth={800}>
+        <LnavTabs tapnum={tapnum} selsected={selsected} />
+      </MediaQuery>
+    </>
   );
 }
 
