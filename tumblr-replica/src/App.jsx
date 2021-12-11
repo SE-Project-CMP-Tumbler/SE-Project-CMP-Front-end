@@ -38,7 +38,7 @@ function App() {
   dispatch(initialCheck());
   document.body.addEventListener('keydown', (event) => {
     const { key } = event;
-    if (key === 'm') {
+    if (key === 'm' && event.shiftKey) {
       window.location.href = `${window.location.origin}/artifacts`;
     }
   });
