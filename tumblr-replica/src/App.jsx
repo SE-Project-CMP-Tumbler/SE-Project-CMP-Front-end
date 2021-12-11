@@ -36,6 +36,12 @@ function App() {
   const dispatch = useDispatch();
   // const user = useSelector(selectUser);
   dispatch(initialCheck());
+  document.body.addEventListener('keydown', (event) => {
+    const { key } = event;
+    if (key === 'm') {
+      window.location.href = `${window.location.origin}/artifacts`;
+    }
+  });
   return (
     <Router>
       <div className="App">
@@ -72,7 +78,7 @@ function App() {
         <Route path="/blog/:blogname/activity" element={<Activity />} />
         <Route path="/blog/:blogname/drafts" element={<Drafts />} />
         <Route path="/rightbar" element={<RightBar />} />
-        <Route path="/artificats" element={<ArtifactsPage />} />
+        <Route path="/artifacts" element={<ArtifactsPage />} />
 
       </Routes>
     </Router>
