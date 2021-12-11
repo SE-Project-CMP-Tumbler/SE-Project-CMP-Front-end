@@ -22,7 +22,7 @@ import PropTypes from 'prop-types';
  *   <NavTabs tapnum={tapnum} selected={selected} />
  * )
  */
-export default function NavTabs({ tapnum, selsected }) {
+export default function MnavTabs({ tapnum, selsected }) {
   const [value, setValue] = React.useState(tapnum);
   const white = {
     color: 'white',
@@ -76,7 +76,7 @@ export default function NavTabs({ tapnum, selsected }) {
   );
 }
 
-NavTabs.propTypes = {
+MnavTabs.propTypes = {
   /**
    * @param {tapnum}
    * tapnum the tab should have blue underline
