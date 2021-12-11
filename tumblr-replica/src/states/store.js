@@ -24,7 +24,7 @@ import blogpostsReducer from './features/blogposts/blogpostsSlice';
 import draftpostsReducer from './features/draftposts/draftpostsSlice';
 import BlogReducer from './blogslice/blogslice';
 import FollowReducer from './followslice/followslice';
-import BlockReducer from './blockSlice/blockslice';
+import BlockReducer from './blockSlice/blockSlice';
 import DashReducer from './features/dashboard/dashboardSlice';
 import NotesReducer from './features/dashboard/NotesSlice';
 
