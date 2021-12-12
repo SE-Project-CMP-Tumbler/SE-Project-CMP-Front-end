@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
-import Grid from '@material-ui/core/Grid';
+import { Box } from '@mui/system';
 import PropTypes from 'prop-types';
 import ChatTopBar from './subcomponents/ChatTopBar';
 import ChatFeed from '../ChatFeed/ChatFeed';
@@ -11,7 +11,7 @@ const useStyles = makeStyles({
   chatbox: {
     width: '265px',
     height: '405px',
-    border: '1px solid #a9a9a9',
+    border: 'none',
     borderRadius: '4px',
     zIndex: '3',
   },
@@ -41,16 +41,13 @@ function ChatComponent({ id }) {
       });
   }, []);
   return (
-    <Grid
-      container
+    <Box
       className={classes.chatbox}
     >
-      <Grid item xs={12}>
-        <ChatTopBar id={id} setMessages={setMessages} />
-        <ChatFeed id={id} messages={messages} />
-        <ChatInput id={id} setMessages={setMessages} messages={messages} />
-      </Grid>
-    </Grid>
+      <ChatTopBar id={id} setMessages={setMessages} />
+      <ChatFeed id={id} messages={messages} />
+      <ChatInput id={id} setMessages={setMessages} messages={messages} />
+    </Box>
   );
 }
 export default ChatComponent;

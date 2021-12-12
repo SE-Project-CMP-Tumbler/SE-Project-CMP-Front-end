@@ -2,7 +2,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
-import ListItemText from '@material-ui/core/ListItemText';
 import { Box } from '@mui/system';
 import User from '../../../LogedInUser/DemoUser';
 
@@ -18,12 +17,14 @@ function MyChatFeed({ value }) {
             width: '30px',
             height: '30px',
             borderRadius: '50%',
-            margin: '10px 15px 10px 0',
+            margin: '0 15px 10px 0',
           }}
         />
       </Box>
       <Box>
-        <ListItemText primary={value.text} style={{ fontSize: '10px' }} />
+        <Typography style={{ fontSize: '13px', fontWeight: '200' }}>
+          {value.text}
+        </Typography>
         {value.photo ? (
           <>
             <Typography variant="body2" style={{ fontWeight: 'bold' }}>

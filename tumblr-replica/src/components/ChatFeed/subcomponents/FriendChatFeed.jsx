@@ -2,7 +2,6 @@
 import React, { useEffect, useState } from 'react';
 import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
-import ListItemText from '@material-ui/core/ListItemText';
 import { Box } from '@mui/system';
 import { useSelector } from 'react-redux';
 /*
@@ -51,7 +50,9 @@ function FriendChatFeed({ id, value }) {
   return (
     <Box style={{ display: 'flex' }}>
       <Box>
-        <ListItemText primary={value.text} style={{ fontSize: '10px' }} />
+        <Typography style={{ fontSize: '13px', fontWeight: '200' }}>
+          {value.text}
+        </Typography>
         {value.photo ? (
           <>
             <Typography variant="body2" style={{ fontWeight: 'bold' }}>
@@ -99,7 +100,7 @@ function FriendChatFeed({ id, value }) {
             width: '30px',
             height: '30px',
             borderRadius: '50%',
-            margin: '10px 0 10px 15px',
+            margin: '0 0 10px 15px',
           }}
         />
       </Box>

@@ -1,20 +1,17 @@
-import { makeStyles } from '@material-ui/core/styles';
 import { useSelector, useDispatch } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
-import Grid from '@material-ui/core/Grid';
 import Typography from '@material-ui/core/Typography';
 import { Popover } from '@mui/material';
 import Link from '@mui/material/Link';
 import { Modal } from '@material-ui/core';
 import { Box } from '@mui/system';
-import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
-import SouthEastIcon from '@mui/icons-material/SouthEast';
-import CloseIcon from '@mui/icons-material/Close';
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
+import '../../../index.css';
+import '../css/ChatTopBar.css';
 
 import axios from 'axios';
 import {
@@ -34,45 +31,10 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-
-const useStyles = makeStyles({
-  table: {
-    minWidth: 650,
-  },
-  headBG: {
-    backgroundColor: '#e0e0e0',
-  },
-  borderRight500: {
-    borderRight: '1px solid #e0e0e0',
-  },
-  messageArea: {
-    height: '50vh',
-    width: '100%',
-    overflowY: 'auto',
-  },
-  inputArea: {
-    height: '12vh',
-    width: '100%',
-  },
-  topBar: {
-    backgroundColor: '#008080',
-    padding: '8px',
-    display: 'flex',
-    width: '300px',
-    height: '40px',
-    borderTopLeftRadius: '4px',
-    borderTopReightRadius: '4px',
-    color: '#ffff',
-  },
-  chatButtons: {
-    cursor: 'pointer',
-  },
-});
-
 function ChatTopBar({ id, setMessages }) {
   const [morehorpress, morehorPressHandle] = useState(false);
   const dispatch = useDispatch();
-  const classes = useStyles();
+  // const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [deleteConvS, deleteConv] = useState(false);
   const [blockConvS, blockConv] = useState(false);
@@ -116,23 +78,24 @@ function ChatTopBar({ id, setMessages }) {
     setFriendName(friendname[0].to);
   }, []);
   return (
-    <Grid container xs={12} className={classes.topBar}>
-      <Grid item xs={6} className={classes.chatParticipant}>
+    <Box className="top-bar">
+      <Box className="chat-participant">
         <Typography noWrap>
           <Link color="inherit" href="/" style={{ textDecoration: 'none', fontFamily: 'Poppins' }}>
             nadeen
           </Link>
           +
-          <Link color="inherit" href="/" style={{ textDecoration: 'none' }}>
+          <Link color="inherit" href="/" style={{ textDecoration: 'none', fontFamily: 'Poppins' }}>
             {friendnameS}
           </Link>
         </Typography>
-      </Grid>
-      <Grid item xs={6} className={classes.chatButtons}>
-        <MoreHorizIcon
-          onClick={handleMoreOpenClick}
-          style={{ fill: '#fff', margin: '2px', marginLeft: '40px' }}
-        />
+      </Box>
+      <Box className="chat-buttons">
+        <button className="top-bar-icons" type="button" onClick={handleMoreOpenClick}>
+          <svg viewBox="0 0 17.5 3.9" width="18" height="12" fill="#ffffff">
+            <path d="M17.5 1.9c0 1.1-.9 1.9-1.9 1.9-1.1 0-1.9-.9-1.9-1.9S14.5 0 15.6 0c1 0 1.9.9 1.9 1.9m-6.8 0c0 1.1-.9 1.9-1.9 1.9-1.1.1-2-.8-2-1.9 0-1 .9-1.9 2-1.9s1.9.9 1.9 1.9m-6.8 0c0 1.1-.9 2-2 2-1 0-1.9-.9-1.9-2S.9 0 1.9 0c1.1 0 2 .9 2 1.9" />
+          </svg>
+        </button>
         {morehorpress ? (
           <Popover
             open={morehorpress}
@@ -255,16 +218,18 @@ function ChatTopBar({ id, setMessages }) {
             </MenuList>
           </Popover>
         ) : null}
-        <SouthEastIcon
-          onClick={() => dispatch(removeChatBoxID({ id, img: friendImgS }))}
-          style={{ fill: '#fff', margin: '2px' }}
-        />
-        <CloseIcon
-          onClick={() => dispatch(removeChatBoxIDOnly(id))}
-          style={{ fill: '#fff', margin: '2px' }}
-        />
-      </Grid>
-    </Grid>
+        <button className="top-bar-icons" type="button" onClick={() => dispatch(removeChatBoxID({ id, img: friendImgS }))}>
+          <svg className="minimize-icon" viewBox="0 0 20 17" width="16" height="12" fill="#ffffff">
+            <path d="M5.7 10.009l4.8 4.527c.2.2.2.603 0 .804L9 16.85c-.2.2-.6.2-.8 0L0 8.901v-.804L8.2.15c.2-.201.6-.201.8 0l1.5 1.509c.2.2.2.603 0 .804L5.7 6.991h13.4s.9.905.9 1.006v.905l-1 1.107H5.7z" />
+          </svg>
+        </button>
+        <button className="top-bar-icons" type="button" onClick={() => dispatch(removeChatBoxIDOnly(id))}>
+          <svg width="12" height="12" viewBox="0 0 14 14" fill="#ffffff">
+            <path d="M14 2.8L11.2 0 7 4.2 2.8 0 0 2.8 4.2 7 0 11.2 2.8 14 7 9.8l4.2 4.2 2.8-2.8L9.8 7 14 2.8z" />
+          </svg>
+        </button>
+      </Box>
+    </Box>
   );
 }
 
