@@ -85,7 +85,7 @@ function ChatInput({ id, setMessages, messages }) {
   }, []);
   return (
     <Box>
-      <Box sx={{ borderTop: '1px solid rgba(0, 184, 255, 0.1)' }}>
+      <Box>
         <textarea
           value={message}
           onChange={(e) => {
@@ -95,19 +95,23 @@ function ChatInput({ id, setMessages, messages }) {
           placeholder="New message"
           maxLength="4096"
           style={{
-            height: '32px',
+            height: '30px',
             overflowY: 'auto',
             outline: 'none',
             border: 'none',
-            width: '243px',
+            width: '244px',
             fontFamily: 'monospace',
             fontSize: '15px',
             padding: '10px',
             resize: 'none',
+            margin: '0',
           }}
         />
       </Box>
-      <Box style={{ display: 'flex', padding: '5px' }}>
+      <Box style={{
+        display: 'flex', padding: '5px', backgroundColor: 'white', border: 'none',
+      }}
+      >
         <ChatGifs setUploadedGif={setUploadedGif} />
         <button type="button">
           <span tabIndex="-1">

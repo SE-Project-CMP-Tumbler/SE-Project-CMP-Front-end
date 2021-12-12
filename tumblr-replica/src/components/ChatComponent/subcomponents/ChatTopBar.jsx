@@ -168,23 +168,13 @@ function ChatTopBar({ id, setMessages }) {
                   <Box sx={style}>
                     <Typography
                       id="modal-modal-title"
-                      variant="h5"
-                      component="h5"
+                      variant="h4"
+                      component="h4"
+                      style={{ textAlign: 'center' }}
                     >
-                      Are you sure you want to block maryem-salah from
-                      nadeen-dondon?
+                      Permanently delete this conversation?
                     </Typography>
-                    <Typography
-                      id="modal-modal-title"
-                      variant="h6"
-                      component="h6"
-                    >
-                      They will not be able to follow nadeen-dondon, send
-                      nadeen-dondon messages, see nadeen-dondon in search
-                      results, or interact with any of nadeen-dondon  posts.
-                    </Typography>
-
-                    <Stack spacing={2} direction="row">
+                    <Stack spacing={2} direction="row" sx={{ paddingTop: '20px' }}>
                       <Button
                         variant="text"
                         style={{
@@ -223,12 +213,24 @@ function ChatTopBar({ id, setMessages }) {
                   <Box sx={style}>
                     <Typography
                       id="modal-modal-title"
-                      variant="h4"
-                      component="h4"
+                      variant="h5"
+                      component="h5"
+                      style={{ textAlign: 'center' }}
                     >
-                      Permanently delete this conversation?
+                      Are you sure you want to block maryem-salah from
+                      nadeen-dondon?
                     </Typography>
-                    <Stack spacing={2} direction="row">
+                    <Typography
+                      id="modal-modal-title"
+                      variant="h6"
+                      component="h6"
+                      style={{ textAlign: 'center' }}
+                    >
+                      They will not be able to follow nadeen-dondon, send
+                      nadeen-dondon messages, see nadeen-dondon in search
+                      results, or interact with any of nadeen-dondon  posts.
+                    </Typography>
+                    <Stack spacing={2} direction="row" sx={{ paddingTop: '20px' }}>
                       <Button
                         variant="text"
                         style={{

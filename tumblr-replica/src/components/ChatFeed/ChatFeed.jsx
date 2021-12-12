@@ -82,7 +82,7 @@ function ChatFeed({ id, messages }) {
 
   return (
     <Box style={{
-      width: '100%', overflow: 'auto', overflowY: 'scroll', maxHeight: '260px', height: '260px', padding: '10px 0 0 0', backgroundColor: 'wight',
+      width: '100%', overflow: 'auto', overflowY: 'scroll', maxHeight: '260px', height: '260px', padding: '10px 0 0 0', backgroundColor: 'white',
     }}
     >
       <Box style={{ textAlign: 'center' }}>
