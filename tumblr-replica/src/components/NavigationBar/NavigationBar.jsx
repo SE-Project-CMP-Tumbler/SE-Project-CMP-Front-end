@@ -41,7 +41,7 @@ function NavigationBar() {
       <div className="nav-resp">
         <div className="tumblr-logo-cont">
           <Link to="/dashboard">
-            <i className="fab fa-tumblr fa-2x  md:fa-lg " />
+            <button type="button" aria-label="dashboard"><i className="fab fa-tumblr fa-2x " /></button>
           </Link>
         </div>
         <div className="search-bar">
