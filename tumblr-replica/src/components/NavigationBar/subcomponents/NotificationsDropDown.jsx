@@ -23,6 +23,10 @@ function chooseBlueItem(chosenRef, allRefs) {
     }
   });
 }
+function tumblrSelection(chevronRef) {
+  const el = chevronRef;
+  el.current.style.display = (el.current.style.display) === 'none' ? 'block' : 'none';
+}
 
 /**
  * This is the notifications drop down component as can be seen in the official website
@@ -35,6 +39,7 @@ function NotificationsDropDown() {
   const mentionsRef = useRef(null);
   const reblogsRef = useRef(null);
   const repliesRef = useRef(null);
+  const chevronRef = useRef(null);
   const allRefs = [allRef, mentionsRef, reblogsRef, repliesRef];
   return (
     <div className="drop-content notifications-drop-content">
@@ -43,9 +48,11 @@ function NotificationsDropDown() {
           <div className="icon-box">
             <img src="/profile2.png" alt="profile icon" />
           </div>
-          <p>Malzahar</p>
-          <i className="fas fa-chevron-down text-black fa-sm pl-1" />
-          <div className="tumblr-list">
+          <button type="button" aria-label="switch tumblr" className="chevron" onClick={() => { tumblrSelection(chevronRef); }}>
+            <p>Malzahar</p>
+            <i className="fas fa-chevron-down" />
+          </button>
+          <div className="tumblr-list" ref={chevronRef}>
             <TumblrItem tumblrName="Jaximus" tumblrTitle="Grandmaster" tumblrIcon="/profile2.png" />
             <TumblrItem tumblrName="Malzahar" tumblrTitle="Landlord" tumblrIcon="/profile3.png" />
           </div>
@@ -58,13 +65,18 @@ function NotificationsDropDown() {
         <button className="category-item" type="button" ref={reblogsRef} onClick={() => { chooseBlueItem(reblogsRef, allRefs); }}>Reblogs</button>
         <button className="category-item" type="button" ref={repliesRef} onClick={() => { chooseBlueItem(repliesRef, allRefs); }}>Replies</button>
       </div>
-      <NotificiationTime timeOfAction={new Date()} />
-      <NotificationsItem action=" reblogged your post " byTumblr="Yoshi" byTumblrIcon="/profile3.png" content="Love recursive..." actionIcon="/redo.png" />
-      <NotificationsItem action=" mentioned you on a post " byTumblr="Yoshi" byTumblrIcon="/profile2.png" content="@karim" actionIcon="/at.png" />
-      <NotificationsItem action=" liked your post " byTumblr="Ivern" byTumblrIcon="/profile3.png" content="Tumblr is awesome." actionIcon="/heart.png" />
-      <NotificiationTime timeOfAction={new Date()} />
-      <NotificationsItem action=" replied to your post " byTumblr="Swain" byTumblrIcon="/profile2.png" content="Morning Jazz is..." actionIcon="/comment.png" />
-      <NotificationsItem action=" liked your post " byTumblr="Ivern" byTumblrIcon="/profile.png" content="Tumblr is awesome." actionIcon="/heart.png" />
+      <div className="notifications">
+        <NotificiationTime timeOfAction={new Date()} />
+        <NotificationsItem action=" reblogged your post " byTumblr="Yoshi" byTumblrIcon="/profile3.png" content="Love recursive components" actionIcon="/redo.png" />
+        <NotificationsItem action=" mentioned you on a post " byTumblr="Yoshi" byTumblrIcon="/profile2.png" content="@karim" actionIcon="/at.png" />
+        <NotificationsItem action=" liked your post " byTumblr="Ivern" byTumblrIcon="/profile3.png" content="Tumblr is awesome." actionIcon="/heart.png" />
+        <NotificiationTime timeOfAction={new Date()} />
+        <NotificationsItem action=" replied to your post " byTumblr="Swain" byTumblrIcon="/profile2.png" content="Morning Jazz just feels so good.." actionIcon="/comment.png" />
+        <NotificationsItem action=" liked your post " byTumblr="Ivern" byTumblrIcon="/profile.png" content="Tumblr is awesome." actionIcon="/heart.png" />
+        <NotificationsItem action=" liked your post " byTumblr="Ivern" byTumblrIcon="/profile3.png" content="Tumblr is awesome." actionIcon="/heart.png" />
+        <NotificationsItem action=" liked your post " byTumblr="Ivern" byTumblrIcon="/profile3.png" content="Tumblr is awesome." actionIcon="/heart.png" />
+
+      </div>
       <Link to="/activity">
         <div className="see-everything">
           <p>See Everything.</p>
@@ -111,20 +123,18 @@ function NotificationsItem({
   return (
     <Link to="/">
       <div className="notification-item">
-        <div>
-          <div className="notification-icon-box">
-            <img src={byTumblrIcon} alt="profile icon" className="profile-icon" />
-            <img src={actionIcon} alt="state" className="floating-icon" />
-          </div>
-          <div className="notification-box">
-            <p className="tumblr-name">{byTumblr}</p>
-            <span>{action}</span>
-            <span className="notification-content">
-              &ldquo;
-              {content}
-              &rdquo;
-            </span>
-          </div>
+        <div className="notification-icon-box">
+          <img src={byTumblrIcon} alt="profile icon" className="profile-icon" />
+          <img src={actionIcon} alt="state" className="floating-icon" />
+        </div>
+        <div className="notification-box">
+          <p className="tumblr-name">{byTumblr}</p>
+          <span>{action}</span>
+          <span className="notification-content">
+            &ldquo;
+            {content}
+            &rdquo;
+          </span>
         </div>
         <div className="notification-content-icon">
           <img src="/profile.png" alt="profile icon" />

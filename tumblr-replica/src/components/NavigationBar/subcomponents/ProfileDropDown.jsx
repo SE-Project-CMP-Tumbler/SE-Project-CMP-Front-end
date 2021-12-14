@@ -1,6 +1,9 @@
 import React, { useRef } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser, logOutThunk, logOutThunkR } from '../../../states/User/UserSlice';
+import { MOCK, REAL, SERVICETYPE } from '../../../apis/globalAPI';
 
 /**
  * This is the component for the user profile's dropdown (last one on the right)
@@ -11,18 +14,40 @@ function ProfileDropDown() {
   const feedValues = {
     likes: 2, following: 3, posts: 5, followers: 3, activity: 6, drafts: 3, queue: 2,
   };
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
   return (
     <div className="drop-content user-drop-content">
       <div className="drop-header user-drop-header">
         <p>Account</p>
-        <Link to="/logout">Log out</Link>
+        <Link
+          to="/logout"
+          onClick={() => {
+            if (SERVICETYPE === MOCK) {
+              dispatch(logOutThunk(user.accessToken));
+            } else if (SERVICETYPE === REAL) {
+              dispatch(logOutThunkR(user.accessToken));
+            }
+          }}
+        >
+          Log out
+
+        </Link>
       </div>
       <UserItems feedValues={feedValues} />
       <div className="drop-header user-drop-header">
         <p>Tumblrs</p>
         <Link to="/new/blog">+ New</Link>
       </div>
-      <UserTumblr tumblrName="Jaximus" tumblrTitle="Grandmaster" tumblrIcon="./profile3.png" feedValues={feedValues} />
+      { user.loggedin ? (
+        <UserTumblr
+          tumblrName={user.blogName}
+          tumblrTitle={user.blogName}
+          tumblrIcon={user.primaryBlogAvatar ? user.primaryBlogAvatar : './profile2.png'}
+          feedValues={feedValues}
+        />
+      )
+        : (<UserTumblr tumblrName="Jaximus" tumblrTitle="Grandmaster" tumblrIcon="./profile3.png" feedValues={feedValues} />)}
       <UserTumblr tumblrName="Malzahar" tumblrTitle="Landlord" tumblrIcon="./profile.png" feedValues={feedValues} />
       <BottomBar />
     </div>

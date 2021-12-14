@@ -1,15 +1,15 @@
 import { configureStore } from '@reduxjs/toolkit';
-import userReducer from './user/UserSlice';
+import userReducer from './User/UserSlice';
 import followtagsReducer from './features/followtags/followtagsSlice';
 import randomtagReducer from './features/randomtag/randomtagSlice';
 import tagReducer from './features/tag/tagSlice';
 import randompostsReducer from './features/randomposts/randompostsSlice';
 import trendingpostsReducer from './features/trendingposts/trendingpostsSlice';
 import trendtagReducer from './features/trendtag/trendtagSlice';
-import displayNotesListReducer from './displayNotesList';
-import NoteWindowReducer from './NotesWindow';
-import LikeReducer from './Like';
-import PostNoteReducer from './PostNotes';
+import displayNotesListReducer from './features/dashboard/displayNotesListSlice';
+import NoteWindowReducer from './features/dashboard/NotesWindowSlice';
+import LikeReducer from './features/dashboard/LikeSlice';
+import PostNoteReducer from './features/dashboard/PostNotesSlice';
 import Chatreduser from './reducers/ChatReducer';
 import textpostsReducer from './features/textposts/textpostsSlice';
 import videopostsReducer from './features/videoposts/videopostsSlice';
@@ -22,6 +22,11 @@ import audiopostsReducer from './features/audioposts/audiopostsSlice';
 import tagpostsReducer from './features/tagposts/tagpostsSlice';
 import blogpostsReducer from './features/blogposts/blogpostsSlice';
 import draftpostsReducer from './features/draftposts/draftpostsSlice';
+import BlogReducer from './blogslice/blogslice';
+import FollowReducer from './followslice/followslice';
+import BlockReducer from './blockSlice/blockSlice';
+import DashReducer from './features/dashboard/dashboardSlice';
+import NotesReducer from './features/dashboard/NotesSlice';
 
 const store = configureStore({
   reducer: {
@@ -48,6 +53,11 @@ const store = configureStore({
     Like: LikeReducer,
     PostNotes: PostNoteReducer,
     Chat: Chatreduser,
+    Blog: BlogReducer,
+    Follow: FollowReducer,
+    Block: BlockReducer,
+    DashPosts: DashReducer,
+    Notes: NotesReducer,
 
   },
 });

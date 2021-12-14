@@ -1,18 +1,21 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-// import { useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import MediaQuery from 'react-responsive';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import NavigationBarResp from './components/NavigationBarResp/NavigationBarResp';
 import LogOutHome from './components/LogOutHomePage/LogOutHomePage';
 import LogInPage from './components/LogInPage/LogInPage';
 import SignUpPage from './components/SignUpPage/SignUpPage';
+import RegisterWithGooglePage from './components/RegisterWithGooglePage/RegisterWithGooglePage';
+import LinkAccountWithGooglePage from './components/LinkAccountWithGooglePage/LinkAccountWithGooglePage';
 import ForgotPasswordPage from './components/ForgotPasswordPage/ForgotPasswordPage';
 import Explore from './components/Explore/Explore';
 import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
+import { initialCheck } from './states/User/UserSlice';
 import TextPosts from './components/TextPosts/TextPosts';
 import VideoPosts from './components/VideoPosts/VideoPosts';
 import ImagePosts from './components/ImagePosts/ImagePosts';
@@ -25,12 +28,21 @@ import BlogPage from './components/BlogPage/BlogPage';
 import Activity from './components/Activity/Activity';
 import Drafts from './components/Drafts/Drafts';
 import StaffPicks from './components/StaffPicks/StaffPicks';
+import RightBar from './components/DrawerRightBar/DrawerRightBar';
+import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
 // import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
 // import { selectUser } from './states/user/UserSlice';
 
-/* need to import more element when finished */
 function App() {
+  const dispatch = useDispatch();
   // const user = useSelector(selectUser);
+  dispatch(initialCheck());
+  document.body.addEventListener('keydown', (event) => {
+    const { key } = event;
+    if (key === 'm' && event.shiftKey) {
+      window.location.href = `${window.location.origin}/artifacts`;
+    }
+  });
   return (
     <Router>
       <div className="App">
@@ -40,11 +52,14 @@ function App() {
         <MediaQuery minWidth={1070}>
           <NavigationBar />
         </MediaQuery>
+
       </div>
       <Routes>
         <Route exact path="/chat" element={<HomePage />} />
         <Route exact path="/dashboard" element={<Newsfeed />} />
         <Route exact path="/login" element={<LogInPage />} />
+        <Route path="/onboarding" element={<RegisterWithGooglePage />} />
+        <Route path="/linkAccount" element={<LinkAccountWithGooglePage />} />
         <Route path="/register" element={<SignUpPage />} />
         <Route path="/forgot_password" element={<ForgotPasswordPage />} />
         <Route path="/logout" element={<LogOutHome />} />
@@ -63,6 +78,9 @@ function App() {
         <Route path="/blog/:blogname" element={<BlogPage />} />
         <Route path="/blog/:blogname/activity" element={<Activity />} />
         <Route path="/blog/:blogname/drafts" element={<Drafts />} />
+        <Route path="/rightbar" element={<RightBar />} />
+        <Route path="/artifacts" element={<ArtifactsPage />} />
+
       </Routes>
     </Router>
   );

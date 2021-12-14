@@ -6,9 +6,9 @@ import Box from '@mui/material/Box';
 import ChatDropDown from './subcomponents/ChatDropDown';
 import ProfileDropDown from './subcomponents/ProfileDropDown';
 import NotificationsDropDown from './subcomponents/NotificationsDropDown';
-import LogInButton from '../LogInButton/LogInButton';
-import SignUpButton from '../SignUpButton/SignUpButton';
-import { selectUser } from '../../states/user/UserSlice';
+import LogInButton from '../LogOutHomePage/subcomponents/LogInButton/LogInButton';
+import SignUpButton from '../LogOutHomePage/subcomponents/SignUpButton/SignUpButton';
+import { selectUser } from '../../states/User/UserSlice';
 
 /**
  * Toggles one of the three main drop down menus of the navigation bar.
@@ -41,7 +41,7 @@ function NavigationBar() {
       <div className="nav-resp">
         <div className="tumblr-logo-cont">
           <Link to="/dashboard">
-            <i className="fab fa-tumblr fa-2x  md:fa-lg " />
+            <button type="button" aria-label="dashboard"><i className="fab fa-tumblr fa-2x " /></button>
           </Link>
         </div>
         <div className="search-bar">
