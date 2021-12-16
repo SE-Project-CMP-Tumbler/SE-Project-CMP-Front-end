@@ -10,6 +10,18 @@ const fetchAsynctag = createAsyncThunk(
   },
 );
 
+const DeleteAsyncfollowtags = async (TagDescription) => {
+  const response = await exploreApi.get(`deletfollowtag?${TagDescription}`);
+  // const response = await exploreApi.delete(`follow_tag/:${TagDescription}`);
+  return response.data;
+};
+
+const AddAsyncfollowtags = async (TagDescription) => {
+  const response = await exploreApi.get(`deletfollowtag?${TagDescription}`);
+  // const response = await exploreApi.post(`follow_tag/:${TagDescription}`);
+  return response.data;
+};
+
 const initialState = {
   tag: { response: { }, meta: { status: '000', msg: 'Loading' } },
 };
@@ -17,7 +29,18 @@ const initialState = {
 const tagSlice = createSlice({
   name: 'tag',
   initialState,
-  reducers: {},
+  reducers: {
+    unfollowtag: (state) => {
+      const newstate = state;
+      newstate.tag.response.followed = false;
+      DeleteAsyncfollowtags(newstate.tag.response.tag_description);
+    },
+    followtag: (state) => {
+      const newstate = state;
+      newstate.tag.response.followed = true;
+      AddAsyncfollowtags(newstate.tag.response.tag_description);
+    },
+  },
   extraReducers: {
     [fetchAsynctag.pending]: () => {
       // console.log('Pending');
@@ -30,6 +53,7 @@ const tagSlice = createSlice({
 });
 
 const getTaginfo = (state) => state.tag.tag;
+export const { unfollowtag, followtag } = tagSlice.actions;
 const tagreducer = tagSlice.reducer;
 export {
   getTaginfo,

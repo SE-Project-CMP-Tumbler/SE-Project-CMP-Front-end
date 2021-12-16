@@ -6,6 +6,8 @@ import ImageListItem from '@mui/material/ImageListItem';
 import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { followtag, unfollowtag } from '../../states/features/randomtag/randomtagSlice';
 
 /**
  * Component for render tag with its name and two images and the blog can follow that tag
@@ -19,7 +21,9 @@ import { Link } from 'react-router-dom';
  * )
  */
 
-export default function FollowCard({ image1, image2, tag }) {
+export default function FollowCard({
+  image1, image2, tag, follow,
+}) {
   const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
   const button = {
     backgroundColor: 'white',
@@ -32,6 +36,7 @@ export default function FollowCard({ image1, image2, tag }) {
     marginBottom: '5px',
   };
   const linkst = { textDecoration: 'none' };
+  const dispatch = useDispatch();
   return (
     <Box
       sx={{
@@ -71,8 +76,10 @@ export default function FollowCard({ image1, image2, tag }) {
               />
             </ImageListItem>
           </ImageList>
-          <Button style={button} variant="contained">Follow</Button>
         </Link>
+        {follow
+          ? (<Button style={button} onClick={() => dispatch(unfollowtag(tag))} variant="contained">Unfollow</Button>)
+          : (<Button style={button} onClick={() => dispatch(followtag(tag))} variant="contained">Follow</Button>)}
       </Paper>
     </Box>
   );
@@ -82,4 +89,5 @@ FollowCard.propTypes = {
   image1: PropTypes.string.isRequired,
   image2: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
+  follow: PropTypes.bool.isRequired,
 };

@@ -6,7 +6,10 @@ import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import { useDispatch, useSelector } from 'react-redux';
-import { getTaginfo, fetchAsynctag } from '../../states/features/tag/tagSlice';
+import {
+  getTaginfo, fetchAsynctag, unfollowtag,
+  followtag,
+} from '../../states/features/tag/tagSlice';
 /**
  * Component for render all information about specific tag
  *
@@ -54,7 +57,11 @@ export default function TagCard() {
               </Typography>
             </CardContent>
             <CardActions>
-              <Button variant={taginfo.response.followed ? 'outlined' : 'contained'} size="large" style={buttonst}>{taginfo.response.followed ? 'unFollow' : 'Follow'}</Button>
+              {
+              taginfo.response.followed
+                ? (<Button variant="outlined" onClick={() => dispatch(unfollowtag())} size="large" style={buttonst}>Unfollow</Button>)
+                : (<Button variant="contained" onClick={() => dispatch(followtag())} size="large" style={buttonst}>Follow</Button>)
+            }
               <Button variant="contained" size="large" style={buttonst}>New post</Button>
             </CardActions>
           </div>

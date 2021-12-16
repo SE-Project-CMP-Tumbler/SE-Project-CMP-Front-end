@@ -446,6 +446,12 @@
       ]
     }
   },
+  "deletfollowtag":{
+    "meta": {
+      "status": "400",
+      "msg": "OK"
+    }
+  },
   "gifposts":{
     "meta": {
       "status": "200",

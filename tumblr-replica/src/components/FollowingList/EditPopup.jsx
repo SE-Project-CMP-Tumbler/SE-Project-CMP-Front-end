@@ -4,7 +4,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import Button from '@mui/material/Button';
 import { useSelector, useDispatch } from 'react-redux';
-import { getAllfollowtags, DeleteAsyncfollowtags } from '../../states/features/followtags/followtagsSlice';
+import { getAllfollowtags, unfollowtag, followtag } from '../../states/features/followtags/followtagsSlice';
 /**
  * Component that pop up when click Edit in {@Link FollowingList}
  *here can edit the tags blog follow
@@ -35,9 +35,12 @@ export default function EditPopup() {
     >
       <ul>
         { followtags.response.tags.map((item) => (
-          <ListItem key={`${item.tag_description}`}>
+          <ListItem key={item.tag_description}>
             <ListItemText primary={`#${item.tag_description}`} />
-            <Button variant="outlined" color="secondary" sx={{ textTransform: 'none' }} onClick={() => dispatch(DeleteAsyncfollowtags(item.tag_description))}>Unfollow</Button>
+            { item.follow
+              ? (<Button variant="outlined" color="secondary" sx={{ textTransform: 'none' }} onClick={() => dispatch(unfollowtag(item.tag_description))}>Unfollow</Button>)
+              : (<Button variant="contained" sx={{ textTransform: 'none' }} onClick={() => dispatch(followtag(item.tag_description))}>Follow</Button>) }
+
           </ListItem>
         ))}
       </ul>

@@ -53,6 +53,8 @@ export default function CarouselCards() {
               image1={tag.tag_image1}
               image2={tag.tag_image2}
               tag={tag.tag_description}
+              follow={tag.follow}
+              key={tag.tag_description}
             />
           )))
         : (<h2>Loading</h2>) }
