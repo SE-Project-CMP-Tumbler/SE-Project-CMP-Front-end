@@ -42,9 +42,12 @@ export default function TrendCard({
           marginTop: '15px',
           p: 1,
         },
+        '&:hover': {
+          opacity: [0.9, 0.8, 0.7],
+        },
       }}
     >
-      <Paper style={{ backgroundColor: color }} elevation={3}>
+      <Paper style={{ backgroundColor: color, margin: '17px auto' }} elevation={3}>
         <Link to={`/tagged/${tag}`} style={linkst}>
           <Grid container>
             <Grid
@@ -56,7 +59,7 @@ export default function TrendCard({
             >
               {number}
             </Grid>
-            <Grid item xs={6} style={white} sx={{ fontFamily: 'default' }}>
+            <Grid item xs={7} style={white} sx={{ fontFamily: 'default' }}>
               {
               tag
               }
@@ -64,7 +67,7 @@ export default function TrendCard({
                 #endregion #ted
               </div>
             </Grid>
-            <Grid item xs={4}>
+            <Grid item xs={3}>
               <ImageList sx={{
                 borderRadius: 1, mt: 0.5, overflowY: 'clip',
               }}

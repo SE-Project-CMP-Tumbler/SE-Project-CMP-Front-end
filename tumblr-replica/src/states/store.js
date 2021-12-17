@@ -6,10 +6,10 @@ import tagReducer from './features/tag/tagSlice';
 import randompostsReducer from './features/randomposts/randompostsSlice';
 import trendingpostsReducer from './features/trendingposts/trendingpostsSlice';
 import trendtagReducer from './features/trendtag/trendtagSlice';
-import displayNotesListReducer from './displayNotesList';
-import NoteWindowReducer from './NotesWindow';
-import LikeReducer from './Like';
-import PostNoteReducer from './PostNotes';
+import displayNotesListReducer from './features/dashboard/displayNotesListSlice';
+import NoteWindowReducer from './features/dashboard/NotesWindowSlice';
+import LikeReducer from './features/dashboard/LikeSlice';
+import PostNoteReducer from './features/dashboard/PostNotesSlice';
 import Chatreduser from './reducers/ChatReducer';
 import textpostsReducer from './features/textposts/textpostsSlice';
 import videopostsReducer from './features/videoposts/videopostsSlice';
@@ -25,6 +25,8 @@ import draftpostsReducer from './features/draftposts/draftpostsSlice';
 import BlogReducer from './blogslice/blogslice';
 import FollowReducer from './followslice/followslice';
 import BlockReducer from './blockSlice/blockSlice';
+import DashReducer from './features/dashboard/dashboardSlice';
+import NotesReducer from './features/dashboard/NotesSlice';
 
 const store = configureStore({
   reducer: {
@@ -54,6 +56,8 @@ const store = configureStore({
     Blog: BlogReducer,
     Follow: FollowReducer,
     Block: BlockReducer,
+    DashPosts: DashReducer,
+    Notes: NotesReducer,
 
   },
 });

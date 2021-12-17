@@ -3,6 +3,7 @@
 
 $hover-color: rgb(231, 231, 231)
 $text-grey-color: rgba(0, 0, 0, 0.65)
+$light-grey-color: rgba(0, 0, 0, 0.493)
 $sky-blue: rgb(0, 184, 255)
 $tumblr-blue: rgb(6, 24, 51)
 
@@ -18,10 +19,9 @@ button
    align-items: center
    justify-content: space-between
    //background-color: $tumblr-blue
-   padding: 0.125rem 0.063rem
-   margin-right: 0
-   border-bottom: 0.05rem solid rgba(255, 255, 255, 0.25) 
-   *
+   margin: -0.4rem -0.5rem
+   border-bottom: 1px solid rgba(255, 255, 255, 0.123) 
+   * 
       padding: 0
       margin: 0
       box-sizing: border-box
@@ -42,10 +42,17 @@ button
       .tumblr-logo-cont
          display: flex
          align-items: center
-         margin-right: 0.25rem
-         flex-shrink: 0
-         i
-            color: #ffffff
+         margin-right: 0.2rem
+         margin-left: 0.2rem
+         button
+            transform: scale(120%)
+            cursor: pointer
+            color:#fff
+            &:hover
+               animation: AnimationName 7s ease infinite
+              
+           
+
 
       .search-bar
          position: relative
@@ -143,6 +150,7 @@ button
             position: relative
             .chevron
                padding-left: 2px
+               cursor: pointer
             p 
                font-weight: 600
                font-size: 0.75rem
@@ -282,6 +290,7 @@ button
             display: flex
             align-items: center
 
+
             .icon-box 
                width: 1.2rem
                margin-right: 0.5rem
@@ -313,6 +322,7 @@ button
          .blog-item 
             display: flex
             justify-content: space-between
+            cursor: pointer
 
             &:hover 
                background-color: $hover-color
@@ -327,9 +337,11 @@ button
                   margin: 0.5rem
 
                   img 
-                     max-width: 100%
-                     height: auto
+                     width: 2.5rem
+                     height: 2.5rem
                      border-radius: 0.25rem
+                     object-fit: cover
+                     
                   
                .blog-name-title 
                   font-size: 0.8rem
@@ -384,6 +396,7 @@ button
       display: none
       width: 24rem
       transform: translate(-62%, 0%)
+      
 
       .notifications-drop-header 
          border-bottom: 1px solid rgba(0, 0, 0, 0.13)
@@ -395,8 +408,13 @@ button
             font-weight: 900
             color: rgb(0, 0, 0)
             text-decoration: underline
+            cursor: pointer
          
          .profile 
+            .chevron
+               display: flex
+               align-items: center
+               cursor: pointer
             i
                padding-left: 2px
             display: flex
@@ -467,6 +485,7 @@ button
          justify-content: space-between
          border-bottom: 1px solid rgba(0, 0, 0, 0.13)
 
+
          .category-item
             flex-basis: 100%
             color: $text-grey-color
@@ -475,66 +494,71 @@ button
             font-weight: 600
             padding-top: 0.5rem
             padding-bottom: 0.5rem
+            cursor: pointer
          .all
             flex-basis: 70%
             color: $sky-blue
             border-bottom: 2px solid $sky-blue
       
-
-      .time-drop-header 
-         background-color: rgba(0, 0, 0, 0.07)
-         padding-top: 0.2rem
-         padding-bottom: 0.2rem
-         .time-lasted
-            font-weight: 400
-   
-      .notification-item
-         display: flex
-         justify-content: space-between
-         padding: 0.7rem 1rem
-         border-bottom: 1px solid rgba(0, 0, 0, 0.13)
-         cursor: pointer
+      .notifications
+         max-height: 30rem
+         overflow: scroll 
+         .time-drop-header 
+            background-color: rgba(0, 0, 0, 0.07)
+            padding-top: 0.2rem
+            padding-bottom: 0.2rem
+            .time-lasted
+               font-weight: 400
       
-         &:hover 
-            background-color: $hover-color
-      
-         .notification-box 
-            font-size: 0.8rem
-            display: inline-block
-            .tumblr-name 
-               font-weight: 600
-               display: inline
-            .notification-content 
-               font-weight: 300
-               color: $text-grey-color
+         .notification-item
+            display: flex
+            justify-content: space-between
+            align-items: center
+            padding: 0.7rem 1rem
+            border-bottom: 1px solid rgba(0, 0, 0, 0.13)
+            cursor: pointer
 
-         .notification-content-icon
-            width: 2rem
-            margin-right: 0.5rem
-            img
-               max-width: 100%
-               height: auto
-               border-radius: 10%
+         
+            &:hover 
+               background-color: $hover-color
+         
+            .notification-box 
+               font-size: 0.8rem
+               display: inline-block
+               .tumblr-name 
+                  font-weight: 600
+                  display: inline
+               .notification-content 
+                  font-weight: 300
+                  color: $light-grey-color
 
-                   
+            .notification-content-icon
+               max-width: 2.2rem
+               margin: 0.2rem 0.5rem
+               img
+                  max-width: 100%
+                  height: auto
+                  border-radius: 10%
 
-         .notification-icon-box 
-            width: 1.5rem
-            margin-right: 0.5rem
-            position: relative
-            display: inline-block
-            .profile-icon 
-               max-width: 100%
-               height: auto
-               border-radius: 10%
+                     
 
-            .floating-icon 
-               filter: saturate(200%)
-               position: absolute
-               max-width: 60%
-               height: auto
-               top: 0.9rem
-               left: 0.8rem
+            .notification-icon-box 
+               max-width: 1.8rem
+               margin-right: 1rem
+               position: relative
+               display: inline-block
+               .profile-icon 
+                  max-width: 100%
+                  height: auto
+                  border-radius: 10%
+
+               .floating-icon 
+                  filter: saturate(200%)
+                  position: absolute
+                  max-width: 60%
+                  height: auto
+                  top: 0.9rem
+                  left: 0.8rem
       
       .see-everything
          text-align: center
@@ -551,3 +575,38 @@ html
    height: 100%
    background-color: $tumblr-blue
 
+
+@keyframes AnimationName
+   0% 
+    color: #80e3f0
+  
+   10% 
+    color: #0ba6ff
+  
+   20% 
+    color: #01ddb1
+  
+   30% 
+    color: #61c8e2
+  
+   40% 
+    color: #5fd35f
+  
+   50% 
+    color: #a8eb51
+  
+   60% 
+    color: #fbff05ef
+  
+   70% 
+    color: #4da0ff
+  
+   80% 
+    color: #90a0ff
+  
+   90% 
+    color: #2980b9
+  
+   100% 
+    color: #83fde1
+  

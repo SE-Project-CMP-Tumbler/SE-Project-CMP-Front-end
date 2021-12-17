@@ -7,14 +7,18 @@ import './css/CheckOut.css';
 import Typography from '@mui/material/Typography';
 import { Grid } from '@mui/material';
 
+/**
+ *
+ * @returns component that includes some recommended blogs to follow.
+ */
 const CheckOut = function CheckOutTheseBlogs() {
   return (
     <div style={{ minWidth: 350, maxWidth: 350 }}>
       <Grid container justifyContent="start" alignItems="start">
-        <Grid item xs={12}>
+        <Grid item xs={0} sm={12}>
           <h1 className="header">Check out these blogs</h1>
         </Grid>
-        <Grid item xs={12}>
+        <Grid item xs={0} sm={12}>
           <Card
             sx={{ bgcolor: 'transparent', border: 'none', boxShadow: 'none' }}
           >
@@ -48,7 +52,7 @@ const CheckOut = function CheckOutTheseBlogs() {
             />
           </Card>
         </Grid>
-        <Grid item style={{ textAlign: 'left' }} xs={12}>
+        <Grid item style={{ textAlign: 'left' }} xs={0} sm={12}>
           <a className="I_SFh" href="/explore" style={{ color: 'white' }}>
             Explore all of Tumblr
           </a>

@@ -13,9 +13,8 @@ button {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.125rem 0.063rem;
-  margin-right: 0;
-  border-bottom: 0.05rem solid rgba(255, 255, 255, 0.25);
+  margin: -0.4rem -0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.123);
 }
 .nav-styles * {
   padding: 0;
@@ -40,11 +39,16 @@ button {
 .nav-styles .nav-resp .tumblr-logo-cont {
   display: flex;
   align-items: center;
-  margin-right: 0.25rem;
-  flex-shrink: 0;
+  margin-right: 0.2rem;
+  margin-left: 0.2rem;
 }
-.nav-styles .nav-resp .tumblr-logo-cont i {
-  color: #ffffff;
+.nav-styles .nav-resp .tumblr-logo-cont button {
+  transform: scale(120%);
+  cursor: pointer;
+  color: #fff;
+}
+.nav-styles .nav-resp .tumblr-logo-cont button:hover {
+  animation: AnimationName 7s ease infinite;
 }
 .nav-styles .nav-resp .search-bar {
   position: relative;
@@ -146,6 +150,7 @@ button {
 }
 .chat-drop .chat-drop-content .chat-drop-header .profile .chevron {
   padding-left: 2px;
+  cursor: pointer;
 }
 .chat-drop .chat-drop-content .chat-drop-header .profile p {
   font-weight: 600;
@@ -329,6 +334,7 @@ button {
 .user-drop .user-drop-content .user-tumblr .blog-item {
   display: flex;
   justify-content: space-between;
+  cursor: pointer;
 }
 .user-drop .user-drop-content .user-tumblr .blog-item:hover {
   background-color: #e7e7e7;
@@ -342,9 +348,10 @@ button {
   margin: 0.5rem;
 }
 .user-drop .user-drop-content .user-tumblr .blog-item .blog-details .blog-icon-box img {
-  max-width: 100%;
-  height: auto;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 0.25rem;
+  object-fit: cover;
 }
 .user-drop .user-drop-content .user-tumblr .blog-item .blog-details .blog-name-title {
   font-size: 0.8rem;
@@ -404,12 +411,18 @@ button {
   font-weight: 900;
   color: black;
   text-decoration: underline;
+  cursor: pointer;
 }
 .notifications-drop .notifications-drop-content .notifications-drop-header .profile {
   display: flex;
   align-items: center;
   cursor: pointer;
   position: relative;
+}
+.notifications-drop .notifications-drop-content .notifications-drop-header .profile .chevron {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
 }
 .notifications-drop .notifications-drop-content .notifications-drop-header .profile i {
   padding-left: 2px;
@@ -480,63 +493,69 @@ button {
   font-weight: 600;
   padding-top: 0.5rem;
   padding-bottom: 0.5rem;
+  cursor: pointer;
 }
 .notifications-drop .notifications-drop-content .notifications-category .all {
   flex-basis: 70%;
   color: #00b8ff;
   border-bottom: 2px solid #00b8ff;
 }
-.notifications-drop .notifications-drop-content .time-drop-header {
+.notifications-drop .notifications-drop-content .notifications {
+  max-height: 30rem;
+  overflow: scroll;
+}
+.notifications-drop .notifications-drop-content .notifications .time-drop-header {
   background-color: rgba(0, 0, 0, 0.07);
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
 }
-.notifications-drop .notifications-drop-content .time-drop-header .time-lasted {
+.notifications-drop .notifications-drop-content .notifications .time-drop-header .time-lasted {
   font-weight: 400;
 }
-.notifications-drop .notifications-drop-content .notification-item {
+.notifications-drop .notifications-drop-content .notifications .notification-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0.7rem 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.13);
   cursor: pointer;
 }
-.notifications-drop .notifications-drop-content .notification-item:hover {
+.notifications-drop .notifications-drop-content .notifications .notification-item:hover {
   background-color: #e7e7e7;
 }
-.notifications-drop .notifications-drop-content .notification-item .notification-box {
+.notifications-drop .notifications-drop-content .notifications .notification-item .notification-box {
   font-size: 0.8rem;
   display: inline-block;
 }
-.notifications-drop .notifications-drop-content .notification-item .notification-box .tumblr-name {
+.notifications-drop .notifications-drop-content .notifications .notification-item .notification-box .tumblr-name {
   font-weight: 600;
   display: inline;
 }
-.notifications-drop .notifications-drop-content .notification-item .notification-box .notification-content {
+.notifications-drop .notifications-drop-content .notifications .notification-item .notification-box .notification-content {
   font-weight: 300;
-  color: rgba(0, 0, 0, 0.65);
+  color: rgba(0, 0, 0, 0.493);
 }
-.notifications-drop .notifications-drop-content .notification-item .notification-content-icon {
-  width: 2rem;
-  margin-right: 0.5rem;
+.notifications-drop .notifications-drop-content .notifications .notification-item .notification-content-icon {
+  max-width: 2.2rem;
+  margin: 0.2rem 0.5rem;
 }
-.notifications-drop .notifications-drop-content .notification-item .notification-content-icon img {
+.notifications-drop .notifications-drop-content .notifications .notification-item .notification-content-icon img {
   max-width: 100%;
   height: auto;
   border-radius: 10%;
 }
-.notifications-drop .notifications-drop-content .notification-item .notification-icon-box {
-  width: 1.5rem;
-  margin-right: 0.5rem;
+.notifications-drop .notifications-drop-content .notifications .notification-item .notification-icon-box {
+  max-width: 1.8rem;
+  margin-right: 1rem;
   position: relative;
   display: inline-block;
 }
-.notifications-drop .notifications-drop-content .notification-item .notification-icon-box .profile-icon {
+.notifications-drop .notifications-drop-content .notifications .notification-item .notification-icon-box .profile-icon {
   max-width: 100%;
   height: auto;
   border-radius: 10%;
 }
-.notifications-drop .notifications-drop-content .notification-item .notification-icon-box .floating-icon {
+.notifications-drop .notifications-drop-content .notifications .notification-item .notification-icon-box .floating-icon {
   filter: saturate(200%);
   position: absolute;
   max-width: 60%;
@@ -555,4 +574,40 @@ button {
 html {
   height: 100%;
   background-color: #061833;
+}
+
+@keyframes AnimationName {
+  0% {
+    color: #80e3f0;
+  }
+  10% {
+    color: #0ba6ff;
+  }
+  20% {
+    color: #01ddb1;
+  }
+  30% {
+    color: #61c8e2;
+  }
+  40% {
+    color: #5fd35f;
+  }
+  50% {
+    color: #a8eb51;
+  }
+  60% {
+    color: #fbff05ef;
+  }
+  70% {
+    color: #4da0ff;
+  }
+  80% {
+    color: #90a0ff;
+  }
+  90% {
+    color: #2980b9;
+  }
+  100% {
+    color: #83fde1;
+  }
 }

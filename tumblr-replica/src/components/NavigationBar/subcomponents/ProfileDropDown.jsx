@@ -43,7 +43,7 @@ function ProfileDropDown() {
         <UserTumblr
           tumblrName={user.blogName}
           tumblrTitle={user.blogName}
-          tumblrIcon={user.primaryBlogAvatar}
+          tumblrIcon={user.primaryBlogAvatar ? user.primaryBlogAvatar : './profile2.png'}
           feedValues={feedValues}
         />
       )
