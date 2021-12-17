@@ -1,8 +1,8 @@
 import React from 'react';
 import {
-  BrowserRouter as Router, Navigate, Route, Routes,
+  BrowserRouter as Router, Route, Routes,
 } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
+import { useDispatch } from 'react-redux';
 import MediaQuery from 'react-responsive';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import NavigationBarResp from './components/NavigationBarResp/NavigationBarResp';
@@ -17,7 +17,7 @@ import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
-import { initialCheck, selectUser } from './states/User/UserSlice';
+import { initialCheck } from './states/User/UserSlice';
 import TextPosts from './components/TextPosts/TextPosts';
 import VideoPosts from './components/VideoPosts/VideoPosts';
 import ImagePosts from './components/ImagePosts/ImagePosts';
@@ -35,7 +35,6 @@ import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
 
 function App() {
   const dispatch = useDispatch();
-  const user = useSelector(selectUser);
   dispatch(initialCheck());
   document.body.addEventListener('keydown', (event) => {
     const { key } = event;
@@ -55,7 +54,7 @@ function App() {
 
       </div>
       <Routes>
-        <Route path="/" element={user.loggedIn ? (<Navigate to="/dashboard" />) : (<LogOutHome />)} />
+        <Route path="/" element={<LogOutHome />} />
         <Route exact path="/chat" element={<HomePage />} />
         <Route exact path="/dashboard" element={<Newsfeed />} />
         <Route exact path="/login" element={<LogInPage />} />

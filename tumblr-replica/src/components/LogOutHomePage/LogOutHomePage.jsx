@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, Navigate } from 'react-router-dom';
 import { GlobalStyles } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import Box from '@mui/material/Box';
@@ -18,6 +18,13 @@ const theme = createTheme();
 const LogOutHomePage = () => {
   const title = 'tumblr';
   const subTitle = 'Make stuff, look at stuff, talk about stuff, find your people.';
+  const loggedInUser = localStorage.getItem('user');
+  if (loggedInUser) {
+    const foundUser = JSON.parse(loggedInUser);
+    if (foundUser.loggedin === true) {
+      return <Navigate to="/dashboard" />;
+    }
+  }
   return (
     <ThemeProvider theme={theme}>
       <Container
