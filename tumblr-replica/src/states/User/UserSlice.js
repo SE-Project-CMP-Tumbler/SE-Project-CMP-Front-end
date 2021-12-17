@@ -301,7 +301,7 @@ const userSlice = createSlice({
         primaryBlogAvatar: '',
         googleAccessToken: '',
       };
-      window.location.replace('/logout');
+      window.location.replace('/');
     },
     /**
     * This function sends an API request (to actual API or to JSON server) to register the new User.
@@ -558,7 +558,7 @@ const userSlice = createSlice({
           primaryBlogAvatar: '',
           googleAccessToken: '',
         };
-        window.location.replace('/logout');
+        window.location.replace('/');
       }
     },
     [logOutThunk.rejected]: () => {
@@ -579,7 +579,7 @@ const userSlice = createSlice({
           primaryBlogAvatar: '',
           googleAccessToken: '',
         };
-        window.location.replace('/logout');
+        window.location.replace('/');
       } else if (payload.meta.status === '401') {
         // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
@@ -597,7 +597,7 @@ const userSlice = createSlice({
           primaryBlogAvatar: '',
           googleAccessToken: '',
         };
-        window.location.replace('/logout');
+        window.location.replace('/');
         // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
       }

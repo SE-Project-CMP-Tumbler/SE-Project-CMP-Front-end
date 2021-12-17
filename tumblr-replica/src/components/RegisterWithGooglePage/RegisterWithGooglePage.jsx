@@ -53,7 +53,7 @@ const RegisterWithGooglePage = () => {
             color: '#FFFFFF',
           }}
         >
-          <Link to="/logout" style={{ textDecoration: 'none' }}>
+          <Link to="/" style={{ textDecoration: 'none' }}>
             <Typography component="h2" color="white" fontSize="4.5rem" font='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;' sx={{ fontWeight: 'bold' }}>
               {title}
             </Typography>

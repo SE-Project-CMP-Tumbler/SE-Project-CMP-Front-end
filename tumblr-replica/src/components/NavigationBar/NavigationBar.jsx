@@ -1,5 +1,5 @@
 import React, { useRef } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import './css/dist/NavigationBar.css';
 import Box from '@mui/material/Box';
@@ -36,6 +36,7 @@ function NavigationBar() {
   const profileRef = useRef(null);
   const allRefs = [chatRef, notificationsRef, profileRef];
   const user = useSelector(selectUser);
+  const location = useLocation();
   return (
     <nav className="nav-styles">
       <div className="nav-resp">
@@ -98,18 +99,22 @@ function NavigationBar() {
                 flexDirection: 'row',
               }}
             >
-              <Box sx={{
-                spacing: 8, mr: 1, ml: 1, mb: 1,
-              }}
-              >
-                <LogInButton />
-              </Box>
-              <Box sx={{
-                spacing: 8, mr: 1, ml: 1, mb: 1,
-              }}
-              >
-                <SignUpButton />
-              </Box>
+              { location.pathname.endsWith('login') === false ? (
+                <Box sx={{
+                  spacing: 8, mr: 1, ml: 1, mb: 1,
+                }}
+                >
+                  <LogInButton />
+                </Box>
+              ) : (<Box />) }
+              { location.pathname.endsWith('register') === false ? (
+                <Box sx={{
+                  spacing: 8, mr: 1, ml: 1, mb: 1,
+                }}
+                >
+                  <SignUpButton />
+                </Box>
+              ) : (<Box />) }
             </Box>
           )}
       </div>

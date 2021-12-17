@@ -1,6 +1,8 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import {
+  BrowserRouter as Router, Navigate, Route, Routes,
+} from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import MediaQuery from 'react-responsive';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import NavigationBarResp from './components/NavigationBarResp/NavigationBarResp';
@@ -15,7 +17,7 @@ import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
-import { initialCheck } from './states/User/UserSlice';
+import { initialCheck, selectUser } from './states/User/UserSlice';
 import TextPosts from './components/TextPosts/TextPosts';
 import VideoPosts from './components/VideoPosts/VideoPosts';
 import ImagePosts from './components/ImagePosts/ImagePosts';
@@ -30,12 +32,10 @@ import Drafts from './components/Drafts/Drafts';
 import StaffPicks from './components/StaffPicks/StaffPicks';
 import RightBar from './components/DrawerRightBar/DrawerRightBar';
 import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
-// import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
-// import { selectUser } from './states/user/UserSlice';
 
 function App() {
   const dispatch = useDispatch();
-  // const user = useSelector(selectUser);
+  const user = useSelector(selectUser);
   dispatch(initialCheck());
   document.body.addEventListener('keydown', (event) => {
     const { key } = event;
@@ -55,6 +55,7 @@ function App() {
 
       </div>
       <Routes>
+        <Route path="/" element={user.loggedIn ? (<Navigate to="/dashboard" />) : (<LogOutHome />)} />
         <Route exact path="/chat" element={<HomePage />} />
         <Route exact path="/dashboard" element={<Newsfeed />} />
         <Route exact path="/login" element={<LogInPage />} />
@@ -62,7 +63,7 @@ function App() {
         <Route path="/linkAccount" element={<LinkAccountWithGooglePage />} />
         <Route path="/register" element={<SignUpPage />} />
         <Route path="/forgot_password" element={<ForgotPasswordPage />} />
-        <Route path="/logout" element={<LogOutHome />} />
+        {/* <Route path="/logout" element={<LogOutHome />} /> */}
         <Route path="/explore/recommended-for-you" element={<Explore />} />
         <Route path="/explore/trending" element={<Trending />} />
         <Route path="/explore/staff-picks" element={<StaffPicks />} />
