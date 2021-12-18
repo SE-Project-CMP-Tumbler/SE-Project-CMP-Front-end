@@ -216,6 +216,40 @@ export const logOutThunkR = createAsyncThunk(
   }).then((res) => res.json()),
 );
 
+export const verifyEmailThunk = createAsyncThunk(
+  'verifyEmail',
+  async (query) => fetch(`${api}/email/verify/${query.id}/${query.hash}`, {
+    method: 'GET',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const verifyEmailThunkR = createAsyncThunk(
+  'verifyEmailR',
+  async (query) => fetch(`${apiR}/email/verify/${query.id}/${query.hash}`, {
+    method: 'GET',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+  }).then((res) => res.json()),
+);
+
 export const deleteAccountThunk = createAsyncThunk(
   'deleteAccount',
   async (query) => fetch(`${api}/delete_user`, {
@@ -266,6 +300,7 @@ const userSlice = createSlice({
       age: '',
       primaryBlogAvatar: '',
       googleAccessToken: '',
+      verified: false, // TO DO:Add it to all API calls and responses & Also, recieve it from login.
     },
     status: null,
     googleAccessed: null,
@@ -382,6 +417,15 @@ const userSlice = createSlice({
           break;
       }
     },
+    /**
+    * This function sets the verifed state of the User
+    * @method
+    * @param {object} state The object that stores the current verification state of the User
+    * @param {object} action The object containing whether the user is verified or not
+    */
+    setVerified: (state, action) => {
+      state.user.verified = action.payload;
+    },
   },
   extraReducers: {
     [logInThunk.pending]: () => {
@@ -396,6 +440,7 @@ const userSlice = createSlice({
         state.user.primaryBlogAvatar = payload.blog_avatar;
         state.user.accessToken = payload.access_token;
         state.user.loggedin = true;
+        state.user.verified = payload.verified;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
@@ -413,6 +458,7 @@ const userSlice = createSlice({
         state.user.primaryBlogAvatar = payload.response.blog_avatar;
         state.user.accessToken = payload.response.access_token;
         state.user.loggedin = true;
+        state.user.verified = true; // TO DO: Change it to payload.verified when API is finished
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
@@ -435,6 +481,7 @@ const userSlice = createSlice({
         state.user.primaryBlogAvatar = payload.blog_avatar;
         state.user.accessToken = payload.access_token;
         state.user.loggedin = true;
+        state.user.verified = false; // Of course, the user can't be verified. He just registered.
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
@@ -453,6 +500,7 @@ const userSlice = createSlice({
         state.user.primaryBlogAvatar = payload.response.blog_avatar;
         state.user.accessToken = payload.response.access_token;
         state.user.loggedin = true;
+        state.user.verified = false; // Of course, the user can't be verified. He just registered.
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
@@ -504,6 +552,7 @@ const userSlice = createSlice({
         state.status = 'NOT FOUND';
       } else { // CASE 200
         state.regStep = 2;
+        state.user.verified = true;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
@@ -521,6 +570,7 @@ const userSlice = createSlice({
         state.user.primaryBlogAvatar = payload.response.blog_avatar;
         state.user.accessToken = payload.response.access_token;
         state.user.loggedin = true;
+        state.user.verified = true;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
@@ -544,6 +594,7 @@ const userSlice = createSlice({
         state.status = 'NOT FOUND';
       } else { // CASE 200
         state.regStep = 2;
+        state.user.verified = true;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
@@ -561,6 +612,7 @@ const userSlice = createSlice({
         state.user.primaryBlogAvatar = payload.response.blog_avatar;
         state.user.accessToken = payload.response.access_token;
         state.user.loggedin = true;
+        state.user.verified = true;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
@@ -594,6 +646,7 @@ const userSlice = createSlice({
           age: 0,
           primaryBlogAvatar: '',
           googleAccessToken: '',
+          verified: false,
         };
         window.location.replace('/');
       }
@@ -615,6 +668,7 @@ const userSlice = createSlice({
           age: 0,
           primaryBlogAvatar: '',
           googleAccessToken: '',
+          verified: false,
         };
         window.location.replace('/');
       } else if (payload.meta.status === '401') {
@@ -641,6 +695,51 @@ const userSlice = createSlice({
     },
     [logOutThunkR.rejected]: () => {
     },
+    [verifyEmailThunk.pending]: () => {
+    },
+    [verifyEmailThunk.fulfilled]: (state, { payload }) => {
+      if (payload?.id === undefined) { // CASE 500 or 422 TO BE handled later
+        state.status = 'NOT FOUND';
+        // eslint-disable-next-line no-console
+        console.log('Entered Error!');
+      } else { // CASE 200
+        state.user.verified = true;
+        // eslint-disable-next-line no-console
+        console.log('Entered Here!!!');
+      }
+    },
+    [verifyEmailThunk.rejected]: () => {
+    },
+    [verifyEmailThunkR.pending]: () => {
+    },
+    [verifyEmailThunkR.fulfilled]: (state, { payload }) => {
+      if (payload.meta.status === '200') {
+        state.user.verified = true;
+      } else if (payload.meta.status === '500') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        // window.location.replace('/dashboard');
+      } else if (payload.meta.status === '404') {
+        localStorage.clear();
+        state.user = {
+          loggedin: false,
+          id: '',
+          accessToken: '',
+          email: '',
+          password: '',
+          blogName: '',
+          age: 0,
+          primaryBlogAvatar: '',
+          googleAccessToken: '',
+          verified: false,
+        };
+        window.location.replace('/');
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      }
+    },
+    [verifyEmailThunkR.rejected]: () => {
+    },
     [deleteAccountThunk.pending]: () => {
     },
     [deleteAccountThunk.fulfilled]: (state, { payload }) => {
@@ -659,6 +758,7 @@ const userSlice = createSlice({
           age: 0,
           primaryBlogAvatar: '',
           googleAccessToken: '',
+          verified: false,
         };
       }
     },
@@ -696,6 +796,7 @@ const userSlice = createSlice({
           age: 0,
           primaryBlogAvatar: '',
           googleAccessToken: '',
+          verified: false,
         };
         window.location.replace('/');
         // eslint-disable-next-line no-console
@@ -712,7 +813,7 @@ const userSlice = createSlice({
 
 export const {
   initialCheck, setEmail, setPassword, setBlogName, setAge, logOut, signUp, continueWithGoogle,
-  setRegStep, setGoogleAccessToken,
+  setRegStep, setGoogleAccessToken, setVerified,
 } = userSlice.actions;
 
 export const selectUser = (state) => state.user.user;

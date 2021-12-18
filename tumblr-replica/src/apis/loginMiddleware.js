@@ -10,6 +10,7 @@ module.exports = (req, res, next) => {
         email: 'jzimek1@stanford.edu',
         blog_avatar: 'https://robohash.org/utautdeleniti.png?size=50x50&set=set1',
         access_token: 'P2UJLzC51ugq8DfegI7d2c9x7b3BqqrrEP0xFPNP',
+        verified: false,
       });
     } else {
       res.status(404).json({ msg: 'not found' });

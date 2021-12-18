@@ -13,6 +13,7 @@ import RegisterWithGooglePage from './components/RegisterWithGooglePage/Register
 import LinkAccountWithGooglePage from './components/LinkAccountWithGooglePage/LinkAccountWithGooglePage';
 import ForgotPasswordPage from './components/ForgotPasswordPage/ForgotPasswordPage';
 import DeleteAccountPage from './components/DeleteAccountPage/DeleteAccountPage';
+import VerifyEmailPage from './components/VerifyEmailPage/VerifyEmailPage';
 import Explore from './components/Explore/Explore';
 import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
@@ -64,6 +65,7 @@ function App() {
         <Route path="/register" element={<SignUpPage />} />
         <Route path="/forgot_password" element={<ForgotPasswordPage />} />
         <Route path="/account/delete" element={<DeleteAccountPage />} />
+        <Route path="/verify/:id/:hash" element={<VerifyEmailPage />} />
         <Route path="/explore/recommended-for-you" element={<Explore />} />
         <Route path="/explore/trending" element={<Trending />} />
         <Route path="/explore/staff-picks" element={<StaffPicks />} />
