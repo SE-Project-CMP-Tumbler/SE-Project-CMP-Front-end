@@ -216,6 +216,43 @@ export const logOutThunkR = createAsyncThunk(
   }).then((res) => res.json()),
 );
 
+export const deleteAccountThunk = createAsyncThunk(
+  'deleteAccount',
+  async (query) => fetch(`${api}/delete_user`, {
+    method: 'DELETE',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${query.accessToken}`,
+    },
+    body: JSON.stringify(query.body),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const deleteAccountThunkR = createAsyncThunk(
+  'deleteAccountR',
+  async (query) => fetch(`${apiR}/delete_user`, {
+    method: 'DELETE',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${query.accessToken}`,
+    },
+    body: JSON.stringify(query.body),
+  }).then((res) => res.json()),
+);
+
 const userSlice = createSlice({
   name: 'user',
   initialState: {
@@ -603,6 +640,72 @@ const userSlice = createSlice({
       }
     },
     [logOutThunkR.rejected]: () => {
+    },
+    [deleteAccountThunk.pending]: () => {
+    },
+    [deleteAccountThunk.fulfilled]: (state, { payload }) => {
+      if (payload?.id === undefined) { // CASE 500 or 422 TO BE handled later
+        state.status = 'NOT FOUND';
+      } else { // CASE 200
+        // store the user in localStorage
+        localStorage.clear();
+        state.user = {
+          loggedin: false,
+          id: '',
+          accessToken: '',
+          email: '',
+          password: '',
+          blogName: '',
+          age: 0,
+          primaryBlogAvatar: '',
+          googleAccessToken: '',
+        };
+      }
+    },
+    [deleteAccountThunk.rejected]: () => {
+    },
+    [deleteAccountThunkR.pending]: () => {
+    },
+    [deleteAccountThunkR.fulfilled]: (state, { payload }) => {
+      if (payload.meta.status === '200') {
+        localStorage.clear();
+        state.user = {
+          loggedin: false,
+          id: '',
+          accessToken: '',
+          email: '',
+          password: '',
+          blogName: '',
+          age: 0,
+          primaryBlogAvatar: '',
+          googleAccessToken: '',
+        };
+      } else if (payload.meta.status === '401' || payload.meta.status === '403') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        window.location.replace('/dashboard');
+      } else if (payload.meta.status === '404') {
+        localStorage.clear();
+        state.user = {
+          loggedin: false,
+          id: '',
+          accessToken: '',
+          email: '',
+          password: '',
+          blogName: '',
+          age: 0,
+          primaryBlogAvatar: '',
+          googleAccessToken: '',
+        };
+        window.location.replace('/');
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      } else { // Case 500
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      }
+    },
+    [deleteAccountThunkR.rejected]: () => {
     },
   },
 });

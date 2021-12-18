@@ -104,7 +104,7 @@ const SignUpPage = () => {
                     fullWidth
                     autoComplete="off"
                     style={{
-                      backgroundColor: '#E8F0FE',
+                      backgroundColor: '#FFFFFF', // '#E8F0FE',
                       borderRadius: 3,
                       fontSize: '1rem',
                       border: 'none',

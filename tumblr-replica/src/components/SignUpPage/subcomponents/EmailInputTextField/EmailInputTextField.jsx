@@ -1,14 +1,19 @@
 import React, { useState } from 'react';
 import { useDispatch } from 'react-redux';
+import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { setEmail } from '../../../../states/User/UserSlice';
 
-const EmailInputTextField = () => {
+const EmailInputTextField = ({ marginOff }) => {
   const [email, setEmailh] = useState('');
   const dispatch = useDispatch();
+  let marginBottomValue = 1;
+  if (marginOff) {
+    marginBottomValue = -0.25;
+  }
   return (
-    <Box fullWidth sx={{ mb: 1 }}>
+    <Box fullWidth sx={{ mb: marginBottomValue }}>
       <TextField
         id="email"
         type="email"
@@ -25,7 +30,7 @@ const EmailInputTextField = () => {
         disableRipple
         disableElevation
         style={{
-          backgroundColor: '#E8F0FE',
+          backgroundColor: '#FFFFFF', // '#E8F0FE',
           borderRadius: 3,
           fontSize: '1rem',
           border: 'none',
@@ -39,6 +44,14 @@ const EmailInputTextField = () => {
       />
     </Box>
   );
+};
+
+EmailInputTextField.propTypes = {
+  marginOff: PropTypes.bool,
+};
+
+EmailInputTextField.defaultProps = {
+  marginOff: false,
 };
 
 export default EmailInputTextField;
