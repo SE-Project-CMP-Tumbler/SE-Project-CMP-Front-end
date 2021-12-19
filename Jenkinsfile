@@ -20,20 +20,20 @@ docker build . \\
       steps {
         sh '''docker run \\
 --name tumbler-react \\
---entrypoint /bin/bash \\
+--entrypoint /bin/sh \\
 -dt --rm tumbler-react'''
       }
     }
 
     stage('Lint') {
       steps {
-        sh 'docker exec tumbler-react bash -c \'bash lint.sh\''
+        sh 'docker exec tumbler-react sh -c \'sh lint.sh\''
       }
     }
 
     stage('Test') {
       steps {
-        sh 'docker exec tumbler-react bash -c \'bash test.sh\''
+        sh 'docker exec tumbler-react sh -c \'sh test.sh\''
       }
     }
 
