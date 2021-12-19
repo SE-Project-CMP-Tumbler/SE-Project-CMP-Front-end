@@ -1,7 +1,9 @@
 import axios from 'axios';
 
-export default axios.create({
-  api: 'http://localhost:8000/',
-  apiR: 'https://api.tumbler.social/api',
+export const api = axios.create({
+  baseURL: 'http://localhost:8000/',
+});
 
+export const apiR = axios.create({
+  baseURL: 'https://api.dev.tumbler.social/api',
 });

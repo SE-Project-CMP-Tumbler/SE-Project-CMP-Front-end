@@ -1,0 +1,92 @@
+.new-tumblr {
+  background-color: white;
+  width: 64%;
+  margin: 3rem auto;
+  padding: 0.4rem 1.3rem;
+  border-radius: 1.3rem;
+}
+.new-tumblr .top-content {
+  padding: 0rem 1rem;
+}
+.new-tumblr .top-content h1, .new-tumblr .top-content p {
+  color: rgba(0, 0, 0, 0.815);
+}
+.new-tumblr .top-content p, .new-tumblr .top-content a {
+  font-size: 0.84rem;
+  color: #707070;
+}
+.new-tumblr .top-content p span, .new-tumblr .top-content a span {
+  font-weight: 500;
+}
+.new-tumblr .top-content p {
+  margin-top: -0.9rem;
+}
+.new-tumblr .form-content {
+  padding: 0rem 1rem;
+}
+.new-tumblr .form-content p {
+  color: rgba(0, 0, 0, 0.815);
+}
+.new-tumblr .form-content .inputs-container {
+  display: flex;
+  flex-direction: column;
+}
+.new-tumblr .form-content .inputs-container .input-container {
+  display: flex;
+  align-items: center;
+  border-top: 1px solid #d7d7d7;
+  border-bottom: 1px solid #d7d7d7;
+}
+.new-tumblr .form-content .inputs-container .input-container .input-name {
+  background-color: #f5f5f5;
+  text-align: right;
+  float: left;
+  width: 20%;
+  padding-right: 1rem;
+}
+.new-tumblr .form-content .inputs-container .input-container .input-field {
+  padding-left: 1rem;
+  position: relative;
+}
+.new-tumblr .form-content .inputs-container .input-container .input-field input {
+  width: 100%;
+  border-radius: 2px;
+  padding: 0.3rem 1rem;
+  border: #d7d7d7 1px solid;
+  outline: none;
+  box-sizing: border-box;
+}
+.new-tumblr .form-content .inputs-container .input-container .input-field .url {
+  text-align: right;
+}
+.new-tumblr .form-content .inputs-container .input-container .hint {
+  font-size: 0.6rem;
+  font-weight: 300;
+  margin-left: 10%;
+  color: #dddbdb;
+  width: 20%;
+}
+.new-tumblr .form-content .button-group {
+  margin: 1rem 0rem;
+  display: flex;
+  justify-content: space-between;
+}
+.new-tumblr .form-content .button-group .submit {
+  border: none;
+  color: white;
+  background-color: #00b8ff;
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+.new-tumblr .form-content .button-group .cancel {
+  border: none;
+  background-color: #9da6af;
+  border-radius: 4px;
+  padding: 0.5rem;
+}
+.new-tumblr .form-content .button-group .cancel a {
+  color: white;
+}
+.new-tumblr .form-content .recaptcha {
+  margin: 1rem 0 0 0;
+}

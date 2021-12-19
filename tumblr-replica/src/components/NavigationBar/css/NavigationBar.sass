@@ -1,25 +1,23 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap')
-
-
 $hover-color: rgb(231, 231, 231)
-$text-grey-color: rgba(0, 0, 0, 0.65)
-$light-grey-color: rgba(0, 0, 0, 0.493)
+$text-grey-color: rgba(0, 0, 0, 0.815)
+$light-grey-color: rgba(0, 0, 0, 0.616)
 $sky-blue: rgb(0, 184, 255)
 $tumblr-blue: rgb(6, 24, 51)
+$new-notification-color: #F4F8FB
 
-a
-   text-decoration: none
-   color: $text-grey-color
-button
-   border: none
-   background: none
 
 .nav-styles
+   a
+   text-decoration: none
+   color: $text-grey-color
+   button
+      border: none
+      background: none
    display: flex
    align-items: center
    justify-content: space-between
    //background-color: $tumblr-blue
-   margin: -0.4rem -0.5rem
+   margin: 0rem -0.5rem
    border-bottom: 1px solid rgba(255, 255, 255, 0.123) 
    * 
       padding: 0
@@ -103,7 +101,10 @@ button
             color: $sky-blue
             transform: scale(120%)
          i
-            color: #ffffff
+            color: #ffffffb2
+      .dash-icon
+         i
+            color: white
       button
          border: none
          background: none
@@ -517,6 +518,7 @@ button
             padding: 0.7rem 1rem
             border-bottom: 1px solid rgba(0, 0, 0, 0.13)
             cursor: pointer
+            background-color: white
 
          
             &:hover 
@@ -531,10 +533,22 @@ button
                .notification-content 
                   font-weight: 300
                   color: $light-grey-color
+                  .notification-context
+                     color: black
+                     .pipe
+                        background-color: #e2edf5
+                        display: inline-block
+                        width: 0.15rem
+                        height: 1.3rem
+                        align-items: center
+                        vertical-align: middle
+                        padding-top: 0.2rem
+
+
 
             .notification-content-icon
                max-width: 2.2rem
-               margin: 0.2rem 0.5rem
+               margin: 0.2rem 0.6rem
                img
                   max-width: 100%
                   height: auto
@@ -555,10 +569,10 @@ button
                .floating-icon 
                   filter: saturate(200%)
                   position: absolute
-                  max-width: 60%
+                  max-width: 50%
                   height: auto
-                  top: 0.9rem
-                  left: 0.8rem
+                  top: 0.95rem
+                  left: 1.1rem
       
       .see-everything
          text-align: center
@@ -566,14 +580,11 @@ button
          font-weight: 500
          margin-top: 0.3rem
          margin-bottom: 0.3rem
+         border-top: 1px solid rgba(0, 0, 0, 0.13)
+
    
        
 
-
-
-html 
-   height: 100%
-   background-color: $tumblr-blue
 
 
 @keyframes AnimationName

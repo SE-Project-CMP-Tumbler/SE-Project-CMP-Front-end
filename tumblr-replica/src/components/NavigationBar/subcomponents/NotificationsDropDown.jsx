@@ -67,14 +67,14 @@ function NotificationsDropDown() {
       </div>
       <div className="notifications">
         <NotificiationTime timeOfAction={new Date()} />
-        <NotificationsItem action=" reblogged your post " byTumblr="Yoshi" byTumblrIcon="/profile3.png" content="Love recursive components" actionIcon="/redo.png" />
-        <NotificationsItem action=" mentioned you on a post " byTumblr="Yoshi" byTumblrIcon="/profile2.png" content="@karim" actionIcon="/at.png" />
-        <NotificationsItem action=" liked your post " byTumblr="Ivern" byTumblrIcon="/profile3.png" content="Tumblr is awesome." actionIcon="/heart.png" />
+        <NotificationsItem action=" reblogged your post " byTumblr="Yoshi" byTumblrIcon="/profile3.png" content="Love recursive components" actionIcon="/redo.png" context="It's time for dravennn!" />
+        <NotificationsItem action=" mentioned you on a post " byTumblr="Yoshi" byTumblrIcon="/profile2.png" content="@karim" actionIcon="/at.png" context="It's time for dravennn!" />
+        <NotificationsItem action=" liked your post " byTumblr="Ivern" byTumblrIcon="/profile3.png" content="Tumblr is awesome." actionIcon="/heart.png" context="It's time for dravennn!" />
         <NotificiationTime timeOfAction={new Date()} />
-        <NotificationsItem action=" replied to your post " byTumblr="Swain" byTumblrIcon="/profile2.png" content="Morning Jazz just feels so good.." actionIcon="/comment.png" />
-        <NotificationsItem action=" liked your post " byTumblr="Ivern" byTumblrIcon="/profile.png" content="Tumblr is awesome." actionIcon="/heart.png" />
-        <NotificationsItem action=" liked your post " byTumblr="Ivern" byTumblrIcon="/profile3.png" content="Tumblr is awesome." actionIcon="/heart.png" />
-        <NotificationsItem action=" liked your post " byTumblr="Ivern" byTumblrIcon="/profile3.png" content="Tumblr is awesome." actionIcon="/heart.png" />
+        <NotificationsItem action=" replied to your post " byTumblr="Swain" byTumblrIcon="/profile2.png" content="Morning Jazz just feels so good.." actionIcon="/comment.png" context="It's time for dravennn!" />
+        <NotificationsItem action=" liked your post " byTumblr="Ivern" byTumblrIcon="/profile.png" content="Tumblr is awesome." actionIcon="/heart.png" context="It's time for dravennn!" />
+        <NotificationsItem action=" liked your post " byTumblr="Ivern" byTumblrIcon="/profile3.png" content="Tumblr is awesome." actionIcon="/heart.png" context="It's time for dravennn!" />
+        <NotificationsItem action=" liked your post " byTumblr="Ivern" byTumblrIcon="/profile3.png" content="Tumblr is awesome." actionIcon="/heart.png" context="It's time for dravennn!" />
 
       </div>
       <Link to="/activity">
@@ -118,7 +118,7 @@ NotificiationTime.propTypes = {
  * @returns {ReactJSXElement} JSX Element.
  */
 function NotificationsItem({
-  action, content, actionIcon, byTumblr, byTumblrIcon,
+  action, content, actionIcon, byTumblr, byTumblrIcon, context,
 }) {
   return (
     <Link to="/">
@@ -134,6 +134,12 @@ function NotificationsItem({
             &ldquo;
             {content}
             &rdquo;
+            <br />
+            <p className="notification-context">
+              <div className="pipe"> </div>
+              &nbsp;&nbsp;&nbsp;
+              {context}
+            </p>
           </span>
         </div>
         <div className="notification-content-icon">
@@ -150,6 +156,7 @@ NotificationsItem.propTypes = {
   actionIcon: PropTypes.string.isRequired,
   byTumblr: PropTypes.string.isRequired,
   byTumblrIcon: PropTypes.string.isRequired,
+  context: PropTypes.string.isRequired,
 };
 
 TumblrItem.propTypes = {
