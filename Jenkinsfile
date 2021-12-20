@@ -41,6 +41,7 @@ docker build . \\
       steps {
         sh 'docker container stop tumbler-react'
         sh 'docker image remove tumbler-react'
+        sh 'docker system prune -f'
       }
     }
 
@@ -86,6 +87,7 @@ docker system prune -f;'''
     unsuccessful {
       sh 'docker container stop tumbler-react || true'
       sh 'docker image remove tumbler-react || true'
+      sh 'docker system prune -f'
     }
 
     cleanup {
