@@ -2,9 +2,18 @@ import * as React from 'react';
 import Grid from '@mui/material/Grid';
 import PropTypes from 'prop-types';
 import Avatar from '@mui/material/Avatar';
+import Box from '@mui/material/Box';
+import { useMediaQuery } from 'react-responsive';
+import { useSelector } from 'react-redux';
 import PostCard from '../NewsFeed/subcomponents/PostCard/PostCard';
+import { getpostview } from '../../states/features/postview/postviewSlice';
 
 function PostsList({ Posts }) {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1224px)',
+  });
+  const postslen = Posts.response.posts;
+  const small = useSelector(getpostview);
   return (
     <div>
       <Grid container direction="row">
@@ -20,7 +29,7 @@ function PostsList({ Posts }) {
         >
           {Posts.meta.status === '200'
             ? (
-              Posts.response.posts.map((post) => (
+              (!small || !isDesktopOrLaptop) && Posts.response.posts.map((post) => (
                 <>
                   <Grid
                     item
@@ -33,6 +42,9 @@ function PostsList({ Posts }) {
                     alignItems="start"
                     style={{ paddingTop: '20px' }}
                   >
+                    {
+                       isDesktopOrLaptop
+                    && (
                     <Grid item>
                       <Avatar
                         sx={{ bgcolor: 'orange' }}
@@ -46,6 +58,8 @@ function PostsList({ Posts }) {
                         }}
                       />
                     </Grid>
+                    )
+                    }
                     <Grid item>
                       <PostCard
                         postId={post.post_id}
@@ -59,10 +73,44 @@ function PostsList({ Posts }) {
                   </Grid>
                 </>
               ))
-
-            ) : (<h3>{ Posts.meta.msg }</h3>)}
+            ) : (<h3>{ Posts.meta.msg }</h3>
+            )}
         </Grid>
       </Grid>
+      { (small && isDesktopOrLaptop) && (
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            {Posts.response.posts.slice(0, postslen.length / 2).map((post) => (
+              <Box sx={{ mt: 3 }}>
+                <PostCard
+                  postId={post.post_id}
+                  postDate={post.post_date}
+                  blogId={post.blog_id}
+                  blogUsername={post.blog_username}
+                  postBody={post.post_body}
+                  small={small}
+                  xs={10}
+                />
+              </Box>
+            ))}
+          </Grid>
+          <Grid item xs={6}>
+            {Posts.response.posts.slice(postslen.length / 2, postslen.length).map((post) => (
+              <Box sx={{ mt: 3 }}>
+                <PostCard
+                  postId={post.post_id}
+                  postDate={post.post_date}
+                  blogId={post.blog_id}
+                  blogUsername={post.blog_username}
+                  postBody={post.post_body}
+                  small={small}
+                  xs={10}
+                />
+              </Box>
+            ))}
+          </Grid>
+        </Grid>
+      )}
     </div>
   );
 }

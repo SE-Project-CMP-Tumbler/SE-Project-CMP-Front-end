@@ -29,6 +29,7 @@ import DashReducer from './features/dashboard/dashboardSlice';
 import NotesReducer from './features/dashboard/NotesSlice';
 import usertumblrsReducer from './usertumblr/usertumblrSlice';
 import newtumblrReducer from './newtumblr/newtumblrSlice';
+import postviewreducer from './features/postview/postviewSlice';
 
 const store = configureStore({
   reducer: {
@@ -47,6 +48,7 @@ const store = configureStore({
     audioposts: audiopostsReducer,
     quoteposts: quotepostsReducer,
     blogposts: blogpostsReducer,
+    postview: postviewreducer,
     draftposts: draftpostsReducer,
     tagposts: tagpostsReducer,
     user: userReducer,

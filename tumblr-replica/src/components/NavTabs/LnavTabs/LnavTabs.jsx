@@ -8,6 +8,13 @@ import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
 import PropTypes from 'prop-types';
+import ViewListIcon from '@mui/icons-material/ViewList';
+import ViewModuleIcon from '@mui/icons-material/ViewModule';
+import { useDispatch } from 'react-redux';
+import { useMediaQuery } from 'react-responsive';
+import { tosmall, tolarge } from '../../../states/features/postview/postviewSlice';
+// import ToggleButton from '@mui/material/ToggleButton';
+// import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 /**
  * Component for The navTabs which show in the top os explor section.
@@ -24,6 +31,15 @@ import PropTypes from 'prop-types';
  */
 export default function LnavTabs({ tapnum, selsected }) {
   const [value, setValue] = React.useState(tapnum);
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1224px)',
+  });
+  // const [view, setView] = React.useState('list');
+
+  // const handleChange = (event, nextView) => {
+  //  setView(nextView);
+  // };
+  const dispatch = useDispatch();
   const white = {
     color: 'white',
     fontWeight: 'bolder',
@@ -35,7 +51,7 @@ export default function LnavTabs({ tapnum, selsected }) {
     fontWeight: 'bolder',
     textTransform: 'none',
     fontSize: 'large',
-    width: '26%',
+    width: '25.7%',
   };
   return (
     <div>
@@ -51,7 +67,7 @@ export default function LnavTabs({ tapnum, selsected }) {
           <Tab style={width} label="For You 💖" to="/explore/recommended-for-you" component={Link} />
           <Tab style={width} label="Trending 🚀" to="/explore/trending" component={Link} />
           <Tab style={width} label="Staff Picks 🌟" to="/explore/staff-picks" component={Link} />
-          <FormControl variant="standard" sx={{ m: 1, minWidth: 120 }}>
+          <FormControl variant="standard" sx={{ m: 1, minWidth: 70 }}>
             <InputLabel id="demo-simple-select-standard-label" style={white}>{selsected}</InputLabel>
             <Select
               labelId="demo-simple-select-standard-label"
@@ -69,6 +85,28 @@ export default function LnavTabs({ tapnum, selsected }) {
               <MenuItem to="/explore/asks" component={Link}>Asks</MenuItem>
             </Select>
           </FormControl>
+          {isDesktopOrLaptop && (
+          <>
+            <ViewModuleIcon
+              sx={{
+                color: white,
+                fontSize: 30,
+                mt: 3,
+                cursor: 'pointer',
+              }}
+              onClick={() => dispatch(tosmall())}
+            />
+            <ViewListIcon
+              sx={{
+                color: white,
+                fontSize: 30,
+                mt: 3,
+                cursor: 'pointer',
+              }}
+              onClick={() => dispatch(tolarge())}
+            />
+          </>
+          )}
         </Tabs>
       </Box>
     </div>
