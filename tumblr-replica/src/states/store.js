@@ -27,6 +27,8 @@ import FollowReducer from './followslice/followslice';
 import BlockReducer from './blockSlice/blockSlice';
 import DashReducer from './features/dashboard/dashboardSlice';
 import NotesReducer from './features/dashboard/NotesSlice';
+import usertumblrsReducer from './usertumblr/usertumblrSlice';
+import newtumblrReducer from './newtumblr/newtumblrSlice';
 
 const store = configureStore({
   reducer: {
@@ -58,7 +60,8 @@ const store = configureStore({
     Block: BlockReducer,
     DashPosts: DashReducer,
     Notes: NotesReducer,
-
+    userBlogs: usertumblrsReducer,
+    newTumblr: newtumblrReducer,
   },
 });
 

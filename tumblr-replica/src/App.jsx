@@ -1,6 +1,6 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import MediaQuery from 'react-responsive';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import NavigationBarResp from './components/NavigationBarResp/NavigationBarResp';
@@ -15,7 +15,7 @@ import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
-import { initialCheck } from './states/User/UserSlice';
+import { initialCheck, selectUser } from './states/User/UserSlice';
 import TextPosts from './components/TextPosts/TextPosts';
 import VideoPosts from './components/VideoPosts/VideoPosts';
 import ImagePosts from './components/ImagePosts/ImagePosts';
@@ -30,6 +30,7 @@ import Drafts from './components/Drafts/Drafts';
 import StaffPicks from './components/StaffPicks/StaffPicks';
 import RightBar from './components/DrawerRightBar/DrawerRightBar';
 import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
+import NewTumblr from './components/NewTumblr/NewTumblr';
 // import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
 // import { selectUser } from './states/user/UserSlice';
 
@@ -37,24 +38,23 @@ function App() {
   const dispatch = useDispatch();
   // const user = useSelector(selectUser);
   dispatch(initialCheck());
-  document.body.addEventListener('keydown', (event) => {
-    const { key } = event;
-    if (key === 'm' && event.shiftKey) {
-      window.location.href = `${window.location.origin}/artifacts`;
-    }
-  });
+  const user = useSelector(selectUser);
+
   return (
     <Router>
       <div className="App">
-        <MediaQuery maxWidth={1070}>
-          <NavigationBarResp />
-        </MediaQuery>
         <MediaQuery minWidth={1070}>
           <NavigationBar />
         </MediaQuery>
+        {
+          <MediaQuery maxWidth={1070}>
+            <NavigationBarResp />
+          </MediaQuery> && user.loggedin
+}
 
       </div>
       <Routes>
+        <Route exact path="/" element={(user.loggedin) ? <Newsfeed /> : <LogOutHome />} />
         <Route exact path="/chat" element={<HomePage />} />
         <Route exact path="/dashboard" element={<Newsfeed />} />
         <Route exact path="/login" element={<LogInPage />} />
@@ -80,6 +80,7 @@ function App() {
         <Route path="/blog/:blogname/drafts" element={<Drafts />} />
         <Route path="/rightbar" element={<RightBar />} />
         <Route path="/artifacts" element={<ArtifactsPage />} />
+        <Route path="/new/blog" element={<NewTumblr />} />
 
       </Routes>
     </Router>

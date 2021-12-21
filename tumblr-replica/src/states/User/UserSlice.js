@@ -220,7 +220,7 @@ const userSlice = createSlice({
   name: 'user',
   initialState: {
     user: {
-      loggedin: false,
+      loggedin: true,
       id: '',
       accessToken: '',
       email: '',

@@ -129,7 +129,7 @@
       ]
     }
   },
-  "randomposts":{
+  "randomposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -160,11 +160,10 @@
           "blog_title": "so happy :)",
           "post_time": "02-02-2012"
         }
-
       ]
     }
   },
-  "trendingposts":{
+  "trendingposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -195,7 +194,6 @@
           "blog_title": "Trending",
           "post_time": "02-02-2012"
         }
-
       ]
     }
   },
@@ -233,7 +231,7 @@
       ]
     }
   },
-  "videoposts":{
+  "videoposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -255,7 +253,7 @@
       ]
     }
   },
-  "imageposts":{
+  "imageposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -276,9 +274,8 @@
         }
       ]
     }
-
   },
-  "quoteposts":{
+  "quoteposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -300,7 +297,7 @@
       ]
     }
   },
-  "audioposts":{
+  "audioposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -322,7 +319,7 @@
       ]
     }
   },
-  "askposts":{
+  "askposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -347,7 +344,7 @@
       ]
     }
   },
-  "blogposts":{
+  "blogposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -408,7 +405,7 @@
       ]
     }
   },
-  "draftposts":{
+  "draftposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -446,6 +443,7 @@
       ]
     }
   },
+<<<<<<< HEAD
   "deletfollowtag":{
     "meta": {
       "status": "400",
@@ -453,6 +451,9 @@
     }
   },
   "gifposts":{
+=======
+  "gifposts": {
+>>>>>>> 49ae5cc1b5d7b409dd554d12436ec1da7c94f436
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -474,7 +475,7 @@
       ]
     }
   },
-  "chatposts":{
+  "chatposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -496,7 +497,7 @@
       ]
     }
   },
-  "tagpostsrecent":{
+  "tagpostsrecent": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -517,9 +518,8 @@
         }
       ]
     }
-
   },
-  "tagpoststop":{
+  "tagpoststop": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -1342,5 +1342,50 @@
       "blog_avatar": "https://robohash.org/quivoluptasoptio.png?size=50x50&set=set1",
       "access_token": "iYs4ehbt1HPRj5SyrsyfE4LWtn8L6RIUe8pDxUG1"
     }
-  ]
+  ],
+  "blog": {
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "pagination": {
+        "total": 1,
+        "count": 1,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 1,
+        "first_page_url": true,
+        "last_page_url": 1,
+        "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
+        "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
+      },
+      "blogs": [
+        {
+          "id": 2026,
+          "is_primary": false,
+          "username": "Jaximus",
+          "avatar": "",
+          "avatar_shape": "square",
+          "header_image": "",
+          "title": "My 1st Blog",
+          "allow_ask": true,
+          "allow_submittions": true,
+          "description": "This blog is a sketch of thoughts"
+        },
+        {
+          "id": 2126,
+          "is_primary": false,
+          "username": "GordonRamsey",
+          "avatar": "",
+          "avatar_shape": "square",
+          "header_image": "",
+          "title": "Oh dearr!",
+          "allow_ask": true,
+          "allow_submittions": true,
+          "description": "This blog is a sketch of thoughts"
+        }
+      ]
+    }
+  }
 }

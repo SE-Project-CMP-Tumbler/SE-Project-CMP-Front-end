@@ -17,7 +17,7 @@ function toggleDropDown(divRef) {
  */
 function NavigationBarResp() {
   const feedValues = {
-    likes: 2, following: 3, posts: 5, followers: 3, activity: 6, drafts: 3, queue: 2,
+    likes: '2', following: '3', posts: '5', followers: '3', activity: '6', drafts: '3', queue: '2',
   };
   const divRef = useRef(null);
   return (

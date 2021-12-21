@@ -16,6 +16,8 @@ html {
 }
 .basic-nav .mobile-nav button {
   cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  border: none;
 }
 .basic-nav .user-items {
   display: flex;
