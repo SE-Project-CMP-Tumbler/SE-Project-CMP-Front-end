@@ -64,7 +64,7 @@ docker build . \\
       steps {
         sh 'whoami;hostname;uptime'
         sh '''cd tumblr-replica;
-az storage file download --account-name tumblerstorageaccount -s tumbler-secrets -p frontend.dev.env --dest .env;
+#az storage file download --account-name tumblerstorageaccount -s tumbler-secrets -p frontend.dev.env --dest .env;
 docker-compose -f docker-compose.dev.yml up -d --build;
 docker system prune -f;'''
       }
