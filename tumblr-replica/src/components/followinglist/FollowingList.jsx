@@ -68,6 +68,7 @@ BootstrapDialogTitle.propTypes = {
  */
 export default function FollowingList() {
   const [open, setOpen] = React.useState(false);
+  const [start, setStart] = React.useState(0);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -80,6 +81,10 @@ export default function FollowingList() {
     dispatch(fetchAsyncfollowtags());
   }, []);
   const followtags = useSelector(getAllfollowtags);
+  const maxlen = followtags.response.tags.length;
+  const handleStart = () => {
+    setStart(((start + 4) % maxlen));
+  };
   // console.log(followtags);
   // const tags = [];
   // followtags.response.tags.map((tag) => (tags.push(tag.tag_description)));
@@ -120,7 +125,7 @@ export default function FollowingList() {
           <Divider />
           {
             followtags.meta.status === '200'
-              ? (followtags.response.tags
+              ? (followtags.response.tags.slice(start, start + 4)
                 .map((tag) => (
                   <FollowingTag
                     key={tag}
@@ -132,7 +137,7 @@ export default function FollowingList() {
           }
           <Divider />
           <ListItem disablePadding sx={{ justifyContent: 'center' }}>
-            <Button variant="text" sx={{ textTransform: 'none', fontWeight: 'bold' }}>
+            <Button variant="text" onClick={handleStart} sx={{ textTransform: 'none', fontWeight: 'bold' }}>
               Show more Tags
             </Button>
           </ListItem>

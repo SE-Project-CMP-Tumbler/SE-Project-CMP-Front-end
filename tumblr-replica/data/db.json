@@ -21,6 +21,37 @@
         {
           "tag_description": "Fuscia",
           "tag_image": "https://picsum.photos/id/12/200/300"
+        },
+        {
+          "tag_description": "Reds",
+          "tag_image": "https://picsum.photos/id/237/200/300"
+        },
+        {
+          "tag_description": "Khakis",
+          "tag_image": "https://picsum.photos/seed/picsum/200/300"
+        },
+        {
+          "tag_description": "Khakiis",
+          "tag_image": "https://picsum.photos/200/300"
+        },
+        {
+          "tag_description": "Fuscias",
+          "tag_image": "https://picsum.photos/id/12/200/300"
+        },
+        {
+          "tag_description": "Rede",
+          "tag_image": "https://picsum.photos/id/237/200/300"
+        },
+        {
+          "tag_description": "Khakie",
+          "tag_image": "https://picsum.photos/seed/picsum/200/300"
+        }, {
+          "tag_description": "Khakiise",
+          "tag_image": "https://picsum.photos/200/300"
+        },
+        {
+          "tag_description": "Fusciase",
+          "tag_image": "https://picsum.photos/id/12/200/300"
         }
       ]
     }
@@ -443,7 +474,6 @@
       ]
     }
   },
-<<<<<<< HEAD
   "deletfollowtag":{
     "meta": {
       "status": "400",
@@ -451,9 +481,6 @@
     }
   },
   "gifposts":{
-=======
-  "gifposts": {
->>>>>>> 49ae5cc1b5d7b409dd554d12436ec1da7c94f436
     "meta": {
       "status": "200",
       "msg": "OK"
