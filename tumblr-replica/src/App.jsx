@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 // import { useSelector } from 'react-redux';
-import MediaQuery from 'react-responsive';
-import NavigationBar from './components/NavigationBar/NavigationBar';
-import NavigationBarResp from './components/NavigationBarResp/NavigationBarResp';
+// import MediaQuery from 'react-responsive';
+// import NavigationBar from './components/NavigationBar/NavigationBar';
+// import NavigationBarResp from './components/NavigationBarResp/NavigationBarResp';
 import LogOutHome from './components/LogOutHomePage/LogOutHomePage';
 import LogInPage from './components/LogInPage/LogInPage';
 import SignUpPage from './components/SignUpPage/SignUpPage';
@@ -13,26 +13,23 @@ import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
-import FollowingPage from './components/FollowingPage/FollowingPage';
+import Following from './components/Following/Following';
+// import FollowersPage from './components/FollowersPage/FollowersPage';
+import ChatListResp from './components/ChatListResp/ChatListResp';
+// import FollowingPage from './components/FollowingPage/FollowingPage';
 // import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
 // import { selectUser } from './states/user/UserSlice';
-
+import Followers from './components/Followers/Followers';
 /* need to import more element when finished */
 function App() {
   // const user = useSelector(selectUser);
   return (
     <Router>
-      <div className="App">
-        <MediaQuery maxWidth={1070}>
-          <NavigationBarResp />
-        </MediaQuery>
-        <MediaQuery minWidth={1070}>
-          <NavigationBar />
-        </MediaQuery>
-      </div>
       <Routes>
         <Route exact path="/chat" element={<HomePage />} />
-        <Route path="/followingpage" element={<FollowingPage />} />
+        <Route path="/followingpage" element={<Following />} />
+        <Route path="/followerspage" element={<Followers />} />
+        <Route path="/messaging" element={<ChatListResp />} />
         <Route exact path="/dashboard" element={<Newsfeed />} />
         <Route exact path="/login" element={<LogInPage />} />
         <Route path="/register" element={<SignUpPage />} />

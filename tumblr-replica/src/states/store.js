@@ -10,6 +10,7 @@ import LikeReducer from './Like';
 import PostNoteReducer from './PostNotes';
 import Chatreduser from '../slices/ChatModule/ChatModule';
 import Followreduser from '../slices/FollowingPage/FollowingPage';
+import Followerreducer from '../slices/FollowersPage/FollowersPage';
 
 const store = configureStore({
   reducer: {
@@ -24,6 +25,7 @@ const store = configureStore({
     PostNotes: PostNoteReducer,
     Chat: Chatreduser,
     Follow: Followreduser,
+    Follower: Followerreducer,
   },
 });
 

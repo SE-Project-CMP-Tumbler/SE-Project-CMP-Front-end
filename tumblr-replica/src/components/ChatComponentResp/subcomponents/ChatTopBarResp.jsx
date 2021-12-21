@@ -1,4 +1,4 @@
-import { useSelector, useDispatch } from 'react-redux';
+import { useSelector } from 'react-redux';
 import React, { useState, useEffect } from 'react';
 import Stack from '@mui/material/Stack';
 import Button from '@mui/material/Button';
@@ -11,13 +11,9 @@ import { Box } from '@mui/system';
 import MenuList from '@mui/material/MenuList';
 import MenuItem from '@mui/material/MenuItem';
 import '../../../index.css';
-import '../css/ChatTopBar.css';
+import '../css/ChatTopBarResp.css';
 
 import axios from 'axios';
-import {
-  removeChatBoxIDOnly,
-  removeChatBoxID,
-} from '../../../slices/ChatModule/ChatModule';
 
 const style = {
   position: 'absolute',
@@ -31,16 +27,14 @@ const style = {
   boxShadow: 24,
   p: 4,
 };
-function ChatTopBar({ id, setMessages }) {
+function ChatTopBarResp({ id, setMessages }) {
   const [morehorpress, morehorPressHandle] = useState(false);
-  const dispatch = useDispatch();
   // const classes = useStyles();
   const [anchorEl, setAnchorEl] = useState(null);
   const [deleteConvS, deleteConv] = useState(false);
   const [blockConvS, blockConv] = useState(false);
   const apiBaseUrl = 'http://localhost:8000';
   const [friendnameS, setFriendName] = useState('');
-  const [friendImgS, setFriendImg] = useState('');
 
   const myFriends = useSelector((state) => state.Chat.chats);
 
@@ -74,11 +68,17 @@ function ChatTopBar({ id, setMessages }) {
   };
   useEffect(() => {
     const friendname = myFriends.filter((elem) => elem.id === id);
-    setFriendImg(friendname[0].img);
     setFriendName(friendname[0].to);
   }, []);
   return (
     <Box className="top-bar">
+      <Box>
+        <a href="/messaging/nadeen-dondon">
+          <svg viewBox="0 0 13 20.1" width="20" height="20" fill="#ffffff" className="back-icon">
+            <path d="M0 2.9l7.2 7.2-7.1 7.1L3 20.1l7.1-7.1 2.9-2.9L2.9 0 0 2.9" />
+          </svg>
+        </a>
+      </Box>
       <Box className="chat-participant">
         <Typography noWrap>
           <Link
@@ -231,24 +231,14 @@ function ChatTopBar({ id, setMessages }) {
             </MenuList>
           </Popover>
         ) : null}
-        <button className="top-bar-icons" type="button" onClick={() => dispatch(removeChatBoxID({ id, img: friendImgS }))}>
-          <svg className="minimize-icon" viewBox="0 0 20 17" width="16" height="12" fill="#ffffff">
-            <path d="M5.7 10.009l4.8 4.527c.2.2.2.603 0 .804L9 16.85c-.2.2-.6.2-.8 0L0 8.901v-.804L8.2.15c.2-.201.6-.201.8 0l1.5 1.509c.2.2.2.603 0 .804L5.7 6.991h13.4s.9.905.9 1.006v.905l-1 1.107H5.7z" />
-          </svg>
-        </button>
-        <button className="top-bar-icons" type="button" onClick={() => dispatch(removeChatBoxIDOnly(id))}>
-          <svg width="12" height="12" viewBox="0 0 14 14" fill="#ffffff">
-            <path d="M14 2.8L11.2 0 7 4.2 2.8 0 0 2.8 4.2 7 0 11.2 2.8 14 7 9.8l4.2 4.2 2.8-2.8L9.8 7 14 2.8z" />
-          </svg>
-        </button>
       </Box>
     </Box>
   );
 }
 
-export default ChatTopBar;
+export default ChatTopBarResp;
 
-ChatTopBar.propTypes = {
+ChatTopBarResp.propTypes = {
   id: PropTypes.string.isRequired,
   setMessages: PropTypes.func.isRequired,
 };

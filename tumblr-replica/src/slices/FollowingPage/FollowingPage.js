@@ -1,7 +1,6 @@
-import axios from 'axios';
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import AxiosApi, { MOCK, SERVICETYPE } from '../../apis/globalAxpi';
 
-const apiBaseUrl = 'http://localhost:8000';
 const initialState = {
   following: [],
   followingNum: '0',
@@ -10,52 +9,42 @@ const initialState = {
 
 export const fetchFollowing = createAsyncThunk('Follow/fetchFollowing', async () => {
   try {
-    console.log('helo fron async function');
-    const response = await axios({
-      method: 'GET',
-      url: `${apiBaseUrl}/following`,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then((res) => {
-      console.log(res.data);
-      return res.data;
-    });
-    console.log(response);
-    return response;
+    if (SERVICETYPE === MOCK) {
+      const response = await AxiosApi.get('/following');
+      console.log(response.data);
+      return response.data;
+    }
+    const response = await AxiosApi.get('/following');
+    return response.data;
   } catch (err) {
     throw Error(err);
   }
 });
 
-export const unfollow = createAsyncThunk('Follow/toggleFollowState', async (id) => {
+export const followBlogsearch = createAsyncThunk('Follow/followBlogsearch', async (toFollow) => {
   try {
-    console.log('helo fron async function');
-    await axios({
-      method: 'DELETE',
-      url: `${apiBaseUrl}/following/${id}`,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    }).then(() => {
-    });
+    let payload = null;
+    if (SERVICETYPE === MOCK) {
+      const response = await AxiosApi.post('/follow_blog_search');
+      payload = { res: response.data, toFollow };
+      return payload;
+    }
+    const response = await AxiosApi.post('/follow_blog_search', { blog_value: toFollow });
+    payload = { res: response.data, toFollow };
+    return payload;
   } catch (err) {
     throw Error(err);
   }
 });
 
-export const follow = createAsyncThunk('Follow/toggleFollowState', async (id) => {
+export const unfollow = createAsyncThunk('Follow/toggleFollowState', async (blogId) => {
   try {
-    console.log('helo fron async function');
-    await axios({
-      method: 'POST',
-      url: `${apiBaseUrl}/following`,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      data: id,
-    }).then(() => {
-    });
+    if (SERVICETYPE === MOCK) {
+      const response = await AxiosApi.delete(`/following/${blogId}`);
+      return response.data;
+    }
+    const response = await AxiosApi.delete(`/follow_blog/${blogId}`);
+    return response.data;
   } catch (err) {
     throw Error(err);
   }
@@ -64,97 +53,46 @@ export const follow = createAsyncThunk('Follow/toggleFollowState', async (id) =>
 const followingReduser = createSlice({
   name: 'Follow',
   initialState,
-  reducers: {
-    getUsersAndFollow: async (state, action) => {
-      const newstate = state;
-      console.log(state.following);
-      const response1 = await axios({
-        method: 'GET',
-        url: `${apiBaseUrl}/users`,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }).then((res) => {
-        console.log(res.data);
-        return res.data;
-      });
-      console.log(response1);
-      let newData = [];
-      if (action.payload.includes('.tumblr.com')) {
-        // URL
-        newData = response1.filter((elem) => elem.url === action.payload);
-      } else if (action.payload.includes('@tumblr.com'))
-      // eslint-disable-next-line brace-style
-      { newData = response1.filter((elem) => elem.email === action.payload); } // User name
-      else {
-        console.log('helooooooooo');
-        newData = response1.filter((elem) => elem.username === action.payload);
-        console.log(newData);
-      }
-      if (newData !== []) {
-        console.log('new data is not null');
-        console.log(newstate);
-        newstate.afterFollowMessage = `Great. Now you're following ${newData[0].username}`;
-        const newFollowing = {
-          img: newData[0].img,
-          name: newData[0].username,
-          lastupdate: newData[0].lastupdate,
-        };
-        await axios({
-          method: 'POST',
-          url: `${apiBaseUrl}/following`,
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          data: newFollowing,
-        })
-          .then(() => { console.log('post request is done'); });
-
-        const response3 = await axios({
-          method: 'GET',
-          url: `${apiBaseUrl}/following`,
-          headers: {
-            'Content-Type': 'application/json',
-          },
-        }).then((res2) => res2.data);
-        // eslint-disable-next-line no-param-reassign
-        newstate.following = response3;
-        console.log(newstate.following);
-        // newstate.followingNum = response2.length;
-      } else {
-        newstate.afterFollowMessage = 'Maybe you spelled it wrong?';
-      }
-    },
-  },
   extraReducers: {
     [fetchFollowing.pending]: () => {
       console.log('pending');
     },
-    [fetchFollowing.fulfilled]: (state, action) => {
-      console.log(state);
+    [fetchFollowing.fulfilled]: (state, { payload }) => {
       const newstate = state;
-      newstate.following = action.payload;
-      console.log(action.payload);
-      newstate.followingNum = action.payload.length;
+      if (payload?.meta.status === '200') {
+        newstate.following = payload?.response.followings;
+        newstate.followingNum = (payload?.response.followings).length;
+      } else {
+        console.log('there us an error when fetch the following');
+      }
     },
     [fetchFollowing.rejected]: () => {
-      console.log('errorrrrrrrrrrrrr');
+      console.log('error');
     },
     [unfollow.pending]: () => {
       console.log('pending');
     },
     [unfollow.fulfilled]: () => {
+      console.log('Unfollow user is done sucessfully');
     },
     [unfollow.rejected]: () => {
-      console.log('errorrrrrrrrrrrrr');
+      console.log('error');
     },
-    [follow.pending]: () => {
+    [followBlogsearch.pending]: () => {
       console.log('pending');
     },
-    [follow.fulfilled]: () => {
+    [followBlogsearch.fulfilled]: (state, { payload }) => {
+      const newstate = state;
+      if (payload?.res?.meta.status === '200') {
+        newstate.afterFollowMessage = `you are following ${payload?.toFollow} now. What is a great decision`;
+      } else if (payload?.res?.meta.status === '404') {
+        newstate.afterFollowMessage = 'Yes!Nothing found';
+      } else {
+        console.log('Error happen while try to follow someone ');
+      }
     },
-    [follow.rejected]: () => {
-      console.log('errorrrrrrrrrrrrr');
+    [followBlogsearch.rejected]: () => {
+      console.log('error');
     },
   },
 });

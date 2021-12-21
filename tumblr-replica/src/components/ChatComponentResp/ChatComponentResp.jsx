@@ -3,21 +3,19 @@ import axios from 'axios';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box } from '@mui/system';
 import PropTypes from 'prop-types';
-import ChatTopBar from './subcomponents/ChatTopBar';
+import ChatTopBarResp from './subcomponents/ChatTopBarResp';
 import ChatFeed from '../ChatFeed/ChatFeed';
-import ChatInput from './subcomponents/ChatInput';
+import ChatInputResp from './subcomponents/ChatInputResp';
 
 const useStyles = makeStyles({
   chatbox: {
-    width: '275px',
-    height: '405px',
+    width: '100%',
+    height: '100%',
     border: 'none',
-    borderRadius: '4px',
-    zIndex: '3',
   },
 });
 
-function ChatComponent({ id }) {
+function ChatComponentResp({ id }) {
   const classes = useStyles();
   const apiBaseUrl = 'http://localhost:8000';
   const [messages, setMessages] = useState([]);
@@ -44,14 +42,14 @@ function ChatComponent({ id }) {
     <Box
       className={classes.chatbox}
     >
-      <ChatTopBar id={id} setMessages={setMessages} />
+      <ChatTopBarResp id={id} setMessages={setMessages} />
       <ChatFeed id={id} messages={messages} />
-      <ChatInput id={id} setMessages={setMessages} messages={messages} />
+      <ChatInputResp id={id} setMessages={setMessages} messages={messages} />
     </Box>
   );
 }
-export default ChatComponent;
+export default ChatComponentResp;
 
-ChatComponent.propTypes = {
+ChatComponentResp.propTypes = {
   id: PropTypes.string.isRequired,
 };

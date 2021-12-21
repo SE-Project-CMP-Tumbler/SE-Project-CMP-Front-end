@@ -4,35 +4,53 @@ import Button from '@mui/material/Button';
 import List from '@mui/material/List';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
+// import Carousel from 'react-multi-carousel';
 import FollowingBlog from './subcomponents/FollowingBlog';
 import './css/FollowingPage.css';
 import {
-  fetchFollowing, getUsersAndFollow,
+  fetchFollowing, followBlogsearch,
 } from '../../slices/FollowingPage/FollowingPage';
 
-function FollowingPart() {
+function FollowingPage() {
   const [tofollow, setToFollow] = useState('');
   const followingNum = useSelector((state) => state.Follow.followingNum);
   const following = useSelector((state) => state.Follow.following);
   const afterFollowMessage = useSelector((state) => state.Follow.afterFollowMessage);
   const dispatch = useDispatch();
+  const handleEnterKeyPress = (e) => {
+    if (e.charCode === 13) {
+      dispatch(followBlogsearch(tofollow));
+    }
+  };
+  // const responsive = {
+  //   superLargeDesktop: {
+  //     // the naming can be any, depends on you.
+  //     breakpoint: { max: 4000, min: 3000 },
+  //     items: 3,
+  //   },
+  //   desktop: {
+  //     breakpoint: { max: 3000, min: 1024 },
+  //     items: 2,
+  //   },
+  //   tablet: {
+  //     breakpoint: { max: 1024, min: 715 },
+  //     items: 2,
+  //   },
+  //   mobile: {
+  //     breakpoint: { max: 715, min: 0 },
+  //     items: 1,
+  //   },
+  // };
   useEffect(() => {
     dispatch(fetchFollowing());
   }, []);
 
   return (
     <main
-      style={{
-        padding: '0 20px',
-        backgroundColor: 'rgb(6, 24, 51)',
-      }}
+      className="following-main"
     >
       <div
         className="following-div"
-        style={{
-          width: '550px',
-          margin: '5% 0 0 20%',
-        }}
       >
         <div
           style={{
@@ -75,7 +93,8 @@ function FollowingPart() {
           <Button
             variant="outlined"
             href="#outlined-buttons"
-            onClick={() => { dispatch(getUsersAndFollow(tofollow)); }}
+            onClick={() => { dispatch(followBlogsearch(tofollow)); }}
+            onKeyPress={handleEnterKeyPress}
             style={{
               backgroundColor: 'transparent',
               color: 'rgb(255, 255, 255,0.5)',
@@ -105,7 +124,6 @@ function FollowingPart() {
           dense
           sx={{
             width: '100%',
-            maxWidth: 550,
             bgcolor: 'background.paper',
             borderRadius: '7px',
           }}
@@ -113,8 +131,8 @@ function FollowingPart() {
           {following
           && following.map((elem) => (
             <FollowingBlog
-              key={elem.id}
-              id={elem.id}
+              key={elem.blog_id}
+              id={elem.blog_id}
               blogavatarshape={elem.blog_avatar_shape}
               blogavatar={elem.blog_avatar}
               blogusername={elem.blog_username}
@@ -128,4 +146,4 @@ function FollowingPart() {
   );
 }
 
-export default FollowingPart;
+export default FollowingPage;

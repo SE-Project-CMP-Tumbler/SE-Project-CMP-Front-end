@@ -25,3 +25,26 @@ border: 1px solid black;
         width: 100%;
     }
 }
+@media screen and (min-width: 1070px) {
+    div.search-input{
+        margin-left: 6%;
+        width: 50%;
+    }
+}
+@media screen and (max-width: 1070px) {
+div.search-input{
+    width: 100%;
+}
+}
+@media screen and (min-width: 1070px) {
+    div.search-div{
+        display: flex;
+    }
+}
+.is-follow-message{
+    font-size: 14px;
+    font-family: 'Poppins';
+    font-weight: 400;
+    color: aliceblue;
+    margin-bottom: 20px;
+}

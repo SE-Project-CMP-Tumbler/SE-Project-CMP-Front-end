@@ -27,9 +27,7 @@ function ChatBoxes() {
       >
         {chatBoxes
           && chatBoxes.map((chatbox) => (
-            <Grid item key={chatbox.id}>
-              <ChatComponent id={chatbox.id} />
-            </Grid>
+            <ChatComponent id={chatbox.id} key={chatbox.id} />
           ))}
       </Box>
       <Grid

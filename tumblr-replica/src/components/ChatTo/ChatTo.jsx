@@ -26,8 +26,6 @@ function ChatTo() {
   const apiBaseUrl = 'http://localhost:8000';
   const dispatch = useDispatch();
   const pushtoChatBoxHandle = (event, chatId) => {
-    console.log('jjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjjj');
-    console.log(chatId);
     event.preventDefault();
     axios({
       method: 'GET',

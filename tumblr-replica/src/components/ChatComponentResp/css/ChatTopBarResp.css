@@ -1,0 +1,17 @@
+.back-icon{
+    transform: rotate(180deg)
+}
+.chat-participant{
+    width: 71%;
+    color: white;
+    justify-content: center;
+}
+.top-bar{
+    background-color: #0f0225;
+    padding: 8px;
+    display: flex;
+    height: 27px;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    color: '#ffff',
+}

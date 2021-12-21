@@ -1,5 +1,7 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import axios from 'axios';
 
+const apiBaseUrl = 'http://localhost:8000';
 const initialState = {
   gifs: [],
   chatbox: [],
@@ -9,6 +11,19 @@ const initialState = {
   Isloading: false,
   newmessagepress: false,
 };
+
+export const fetchChats = createAsyncThunk('Chat/fetchChats', async () => {
+  try {
+    if (SERVICETYPE === MOCK) {
+      const response = await AxiosApi.get('/followed_by');
+      return response?.data;
+    }
+    const response = await AxiosApi.get(`/followed_by/${blogID}`);
+    return response?.data;
+  } catch (err) {
+    throw Error(err);
+  }
+});
 const chatReducer = createSlice({
   name: 'Chat',
   initialState,
@@ -60,9 +75,19 @@ const chatReducer = createSlice({
       const newstate = state;
       newstate.newmessage = !state.newmessage;
     },
-    setChats: (state, action) => {
+  },
+  extraReducers: {
+    [fetchChats.pending]: () => {
+
+    },
+    [fetchChats.fulfilled]: (state, action) => {
       const newstate = state;
       newstate.chats = action.payload;
+      console.log('Chat list to resp ');
+      console.log(newstate.chats);
+    },
+    [fetchChats.rejected]: () => {
+
     },
   },
 });

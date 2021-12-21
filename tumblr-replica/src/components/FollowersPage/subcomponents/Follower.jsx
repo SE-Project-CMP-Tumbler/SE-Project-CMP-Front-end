@@ -1,39 +1,37 @@
-import * as React from 'react';
+import React, { useEffect } from 'react';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
-import Link from '@mui/material/Link';
 import Popover from '@mui/material/Popover';
 import PropTypes from 'prop-types';
-import '../css/FollowingPage.css';
+import '../css/FollowersPage.css';
 import Typography from '@mui/material/Typography';
-import { useState } from 'react';
-import { useDispatch } from 'react-redux';
-import { unfollow } from '../../../slices/FollowingPage/FollowingPage';
-import { follow } from '../../../slices/FollowersPage/FollowersPage';
-import MoreVertical from '../../FollowersPage/subcomponents/MoreVertical';
+import MoreVertical from './MoreVertical';
 
-function FollowingBlog({
+function Follower({
   id,
   blogavatarshape,
   blogavatar,
   blogusername,
   followingfrom,
-  lastupdate,
 }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const [followState, setFollowState] = useState('Unfollow');
-  const dispatch = useDispatch();
+  // const [followState, setFollowState] = React.useState(false);
+  // const dispatch = useDispatch();
   const handlePopoverOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handlePopoverClose = () => {
     setAnchorEl(null);
   };
+  useEffect(() => {
+    // setFollowState(dispatch(followedBy(id)));
+  }, []);
   return (
     <ListItem
       key={id}
+      style={{ zIndex: '0' }}
       secondaryAction={(
         <MoreVertical blogusername={blogusername} />
       )}
@@ -84,73 +82,68 @@ function FollowingBlog({
               20.1.9 21 2 21h14.2c1.1 0 1.8-.9 1.8-2.1V8h-2v11zm2-17V0h-2v2h-2v2h2v2h2V4h2V2h-2z"
               />
             </svg>
-            <Popover
-              id="mouse-over-popover"
-              sx={{
-                pointerEvents: 'none',
-                boxShadow: 'none',
-              }}
-              open={open}
-              anchorEl={anchorEl}
-              anchorOrigin={{
-                vertical: 'bottom',
-                horizontal: 'left',
-              }}
-              transformOrigin={{
-                vertical: 'top',
-                horizontal: 'left',
-              }}
-              onClose={handlePopoverClose}
-              disableRestoreFocus
-            >
-              <Typography sx={{ p: 1, fontSize: '12px' }}>
-                Following each other from
-                {' '}
-                {followingfrom}
-              </Typography>
-            </Popover>
+            <div>
+              <Popover
+                id="mouse-over-popover"
+                sx={{
+                  pointerEvents: 'none',
+                  boxShadow: 'none',
+                }}
+                open={open}
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left',
+                }}
+                onClose={handlePopoverClose}
+                disableRestoreFocus
+              >
+                <Typography sx={{ p: 1, fontSize: '12px' }}>
+                  Following each other from
+                  {' '}
+                  {followingfrom}
+                </Typography>
+              </Popover>
+            </div>
           </div>
           <ListItemText
             style={{ color: '#778899' }}
-            primary={lastupdate}
+            primary={blogusername}
           />
         </div>
-        {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
-        <Link
-          href="#"
-          underline="hover"
-          style={{
-            margin: '0 0 0 30%',
-            fontWeight: '600',
-            fontSize: '12.5px',
-            color: '#48D1CC',
-            fontFamily: 'Poppins',
-          }}
-          onClick={() => {
-            // eslint-disable-next-line no-unused-expressions
-            followState === 'Unfollow'
-              ? dispatch(unfollow(id))
-              : dispatch(follow({ id }));
-            // eslint-disable-next-line no-unused-expressions
-            followState === 'Unfollow'
-              ? setFollowState('Follow')
-              : setFollowState('Unfollow');
-          }}
-        >
-          {followState}
-          {console.log(followState)}
-        </Link>
+        {/* {!followState
+        && (
+          <Link
+            href="/"
+            underline="hover"
+            style={{
+              margin: '0 0 0 30%',
+              fontWeight: '600',
+              fontSize: '12.5px',
+              color: '#48D1CC',
+              fontFamily: 'Poppins',
+            }}
+            onClick={() => {
+              dispatch(follow());
+            }}
+          >
+            follow
+          </Link>
+        )} */}
       </ListItemButton>
     </ListItem>
   );
 }
-export default FollowingBlog;
+export default Follower;
 
-FollowingBlog.propTypes = {
+Follower.propTypes = {
   id: PropTypes.string.isRequired,
   blogavatarshape: PropTypes.string.isRequired,
   blogavatar: PropTypes.string.isRequired,
   blogusername: PropTypes.string.isRequired,
   followingfrom: PropTypes.string.isRequired,
-  lastupdate: PropTypes.string.isRequired,
 };

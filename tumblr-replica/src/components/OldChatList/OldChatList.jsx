@@ -4,29 +4,17 @@ import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
 import Typography from '@mui/material/Typography';
 import { Divider, Grid } from '@material-ui/core';
-import axios from 'axios';
 import { Avatar } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
-import { newMessagePress, setChats, setChatBoxesID } from '../../slices/ChatModule/ChatModule';
+import {
+  newMessagePress, setChatBoxesID, fetchChats,
+} from '../../slices/ChatModule/ChatModule';
 
 function OldChatList() {
-  const apiBaseUrl = 'http://localhost:8000';
   const dispatch = useDispatch();
   const myFriends = useSelector((state) => state.Chat.chats);
   useEffect(() => {
-    axios({
-      method: 'GET',
-      url: `${apiBaseUrl}/chatsforoneuser`,
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => {
-        dispatch(setChats(res.data));
-      })
-      .catch((err) => {
-        console.log(err.message); // TODO: set the msg which comes from backend
-      });
+    dispatch(fetchChats());
   }, []);
   return (
     <Card sx={{ maxWidth: 260 }}>
@@ -73,7 +61,6 @@ function OldChatList() {
           variant="h5"
           color="text.secondary"
           align="center"
-          gutterBottom="true"
         >
           Talk To a Tumblr
         </Typography>

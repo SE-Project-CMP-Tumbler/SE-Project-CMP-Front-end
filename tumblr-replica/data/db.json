@@ -517,7 +517,7 @@
     {
       "id": "4",
       "to": "ali",
-      "lastmessage": "nadeen",
+      "lastmessage": "hello",
       "img": "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
       "chat_messages": [
         {
@@ -549,94 +549,276 @@
           "text": "nadeen",
           "gif": "",
           "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "nadeen",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "maryem",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "hello",
+          "gif": "",
+          "photo": ""
         }
       ]
     }
   ],
-  "Following": [
+  "following": {
+    "id": {
+      "id": 1032
+    }
+  },
+  "followers": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "followers": [
+      {
+        "blog_avatar": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+        "blog_avatar_shape": "circle",
+        "blog_username": "maryem salah",
+        "blog_id": "1",
+        "followingfrom": "15"
+      },
+      {
+        "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+        "blog_avatar_shape": "circle",
+        "blog_username": "radwa gamal",
+        "blog_id": "3",
+        "followingfrom": "17"
+      },
+      {
+        "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+        "blog_avatar_shape": "circle",
+        "blog_username": "ahmed khaled",
+        "blog_id": "4",
+        "followingfrom": "18"
+      },
+      {
+        "blog_avatar": "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
+        "blog_avatar_shape": "circle",
+        "blog_username": "hossam ali",
+        "blog_id": "5",
+        "followingfrom": "20"
+      },
+      {
+        "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+        "blog_avatar_shape": "circle",
+        "blog_username": "ahmed ali",
+        "blog_id": "6",
+        "followingfrom": "33"
+      },
+      {
+        "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+        "blog_avatar_shape": "rectangle",
+        "blog_username": "ahmed ali",
+        "blog_id": "KDWkj0h",
+        "followingfrom": "19"
+      }
+    ]
+  },
+  "search_follow_blog": [
     {
-      "img": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-      "name": "maryem salah",
-      "lastupdate": "Updeted 4 hours ago",
-      "id": "2",
-      "followingfrom": "15"
+      "id": "ahmed ali",
+      "meta": {
+        "status": "200",
+        "msg": "ahmed ali follows you"
+      }
     },
     {
-      "img": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-      "name": "radwa gamal",
-      "lastupdate": "Updeted 8 hours ago",
-      "id": "3",
-      "followingfrom": "17"
-    },
-    {
-      "img": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-      "name": "ahmed khaled",
-      "lastupdate": "Updeted 4 days ago",
-      "id": "4",
-      "followingfrom": "18"
-    },
-    {
-      "img": "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
-      "name": "hossam ali",
-      "lastupdate": "Updeted 4 hours ago",
-      "id": "5",
-      "followingfrom": "20"
-    },
-    {
-      "img": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-      "name": "ahmed ali",
-      "lastupdate": "Updeted 4 hours ago",
-      "id": "6",
-      "followingfrom": "33"
-    },
-    {
-      "img": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-      "name": "ahmed ali",
-      "lastupdate": "Updeted 4 hours ago",
-      "id": "KDWkj0h",
-      "followingfrom": "19"
+      "id": "hossam ali",
+      "meta": {
+        "status": "200",
+        "msg": "hossam ali follows you"
+      }
     }
   ],
-  "users": [
+  "followed_by": [
     {
-      "id": "1",
-      "username": "ahmed ali",
-      "email": "ahmedali@tumblr.com",
-      "url": "http://ahmedali.tumblr.com",
-      "lastupdate": "Updeted 4 hours ago",
-      "img": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d"
+      "id": "username",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "followed": true
+      }
     },
     {
       "id": "2",
-      "username": "nadeen ali",
-      "email": "nadeenali@tumblr.com",
-      "url": "http://nadeenali.tumblr.com",
-      "lastupdate": "Updeted 4 hours ago",
-      "img": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d"
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "followed": true
+      }
     },
     {
       "id": "3",
-      "username": "hadi ali",
-      "email": "hadiali@tumblr.com",
-      "url": "http://hadiali.tumblr.com",
-      "lastupdate": "Updeted 4 hours ago",
-      "img": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d"
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "followed": true
+      }
+    }
+  ],
+  "block": [
+    {
+      "id": "1",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      }
+    },
+    {
+      "id": "3",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      }
     },
     {
       "id": "4",
-      "username": "haidi hesham",
-      "email": "haidihesham@tumblr.com",
-      "url": "http://haidihesham.tumblr.com",
-      "lastupdate": "Updeted 4 hours ago",
-      "img": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d"
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      }
     },
     {
       "id": "5",
-      "username": "ahmed ahmed",
-      "email": "ahmedali@tumblr.com",
-      "url": "http://ahmedali.tumblr.com",
-      "lastupdate": "Updeted 4 hours ago",
-      "img": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d"
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      }
     }
-  ]
+  ],
+  "all_chats":{
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+      "chats": [
+        {
+          "blog_avatar": "/storage/imgname2.extension",
+          "blog_avatar_shape": "circle",
+          "blog_username": "radwa-ahmed213",
+          "blog_id": 1032,
+          "last_message":"hello nadeen",
+          "from":"radwa-ahmed213"
+        },
+        {
+          "blog_avatar": "/storage/imgname2.extension",
+          "blog_avatar_shape": "circle",
+          "blog_username": "maryem-ahmed213",
+          "blog_id": 1032,
+          "last_message":"hello maryem",
+          "from":"nadeen"
+        }
+
+      ]
+    },
+    "messages":[{
+      "id":"1",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "chat_messages": [
+          {
+            "from": "blog_name",
+            "type": "text",
+            "text": "hello world!",
+            "id": "1"
+          }
+        ,
+        
+          {
+            "from": "blog_name",
+            "type": "photo",
+            "photo": "/storage/photo_example.jpg",
+            "id": "2"
+          }
+        ,
+        
+          {
+            "from": "blog_name",
+            "type": "text",
+            "text": "hello world!",
+            "gif": "/storage/gif_example.gif",
+            "id": "3"
+          }
+          
+        ]
+      }
+},
+{
+  "id":"2",
+  "meta": {
+    "status": "200",
+    "msg": "ok"
+  },
+  "response": {
+    "chat_messages": [
+      {
+        "from": "blog_name",
+        "type": "text",
+        "text": "hello world!",
+        "id": "1"
+      }
+    ,
+    
+      {
+        "from": "blog_name",
+        "type": "photo",
+        "photo": "/storage/photo_example.jpg",
+        "id": "2"
+      }
+    ,
+    
+      {
+        "from": "blog_name",
+        "type": "text",
+        "text": "hello world!",
+        "gif": "/storage/gif_example.gif",
+        "id": "3"
+      }
+      
+    ]
+  }
+}],"recently_followed":{
+  "meta": {
+    "status": "200",
+    "msg": "ok"
+  },
+    "response": [
+      {
+        "blog_avatar": "/storage/imgname2.extension",
+        "blog_avatar_shape": "circle",
+        "blog_username": "radwa-ahmed213",
+        "blog_title": "radwa-ahmed213",
+        "blog_id": 1
+      },
+      {
+        "blog_avatar": "/storage/imgname2.extension",
+        "blog_avatar_shape": "circle",
+        "blog_username": "maryem-ahmed213",
+        "blog_title": "radwa-ahmed213",
+        "blog_id": 1032
+      }
+
+    ]
 }
+  }
