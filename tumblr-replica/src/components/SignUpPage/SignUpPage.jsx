@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { GlobalStyles, Button } from '@mui/material';
@@ -16,7 +16,7 @@ import EmailInputTextField from './subcomponents/EmailInputTextField/EmailInputT
 import PasswordInputTextField from './subcomponents/PasswordInputTextField/PasswordInputTextField';
 import {
   setBlogName, setAge, selectUser, selectStep, signUpThunk, signUpThunkR,
-  checkCredentialsThunk, checkCredentialsThunkR,
+  checkCredentialsThunk, checkCredentialsThunkR, selectStatusMessage, setStatusMessage,
 } from '../../states/User/UserSlice';
 import background from '../LogOutHomePage/placeholder.jpg';
 import { MOCK, REAL, SERVICETYPE } from '../../apis/globalAPI';
@@ -30,6 +30,10 @@ const SignUpPage = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
   const step = useSelector(selectStep);
+  const message = useSelector(selectStatusMessage);
+  useEffect(() => {
+    dispatch(setStatusMessage());
+  }, []);
   if (user.loggedIn === true) {
     window.location.replace('/dashboard');
   }
@@ -66,6 +70,32 @@ const SignUpPage = () => {
             </Typography>
           </Link>
         </Box>
+        { message === '' ? (<Box />)
+          : (
+            <Box
+              sx={{
+                borderRadius: 1,
+                marginBottom: 1.5,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                color: '#FFFFFF',
+                padding: '14px 15px',
+                backgroundColor: '#00000040',
+                textAlign: 'center',
+                fontSize: '0.875rem',
+                font: '"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;',
+              }}
+            >
+              <Typography
+                component="h2"
+                fontSize="0.875rem"
+                font='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;'
+              >
+                {message}
+              </Typography>
+            </Box>
+          )}
         <Box component="div">
           { step === 1 ? (
             <form

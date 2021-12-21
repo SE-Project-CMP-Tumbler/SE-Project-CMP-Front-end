@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import ReCAPTCHA from 'react-google-recaptcha';
 import { GlobalStyles } from '@mui/material';
 import CssBaseline from '@mui/material/CssBaseline';
 import Button from '@mui/material/Button';
@@ -23,6 +24,7 @@ const VerifyEmailPage = () => {
   const dispatch = useDispatch();
   const params = useParams();
   const user = useSelector(selectUser);
+  const [btnDisabled, setBtnDisabled] = useState(true);
   // console.log(user.verified);
   return (
     <ThemeProvider theme={theme}>
@@ -56,7 +58,7 @@ const VerifyEmailPage = () => {
         //   False
         // </Button>
         }
-        { user.verified && user.loggedin ? (
+        { user.verified ? (
           <Box sx={{ marginTop: 20 }}>
             <Typography component="h1" color="white" fontSize="2.25rem" font='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;' sx={{ fontWeight: 'bold' }}>
               {title}
@@ -75,10 +77,12 @@ const VerifyEmailPage = () => {
                 }}
               >
                 <a
+                  target="_blank"
                   href="http://download.tumbler.social/cross"
                   style={{
                     color: '#FFFFFF',
                   }}
+                  rel="noreferrer"
                 >
                   Flutter
                 </a>
@@ -90,7 +94,9 @@ const VerifyEmailPage = () => {
                 }}
               >
                 <a
-                  href="http://download.tumbler.social/android"
+                  target="_blank"
+                  href="
+                  http:// download.tumbler.social/android"
                   style={{
                     color: '#FFFFFF',
                   }}
@@ -117,10 +123,19 @@ const VerifyEmailPage = () => {
               marginTop: 25,
             }}
           >
+            <ReCAPTCHA
+              sitekey="6Lf95LsdAAAAAHh_fPk9_5a2Qz1_Fk7166vtyuUa"
+              onChange={(/* value */) => {
+                setBtnDisabled(!btnDisabled);
+                // console.log('Captcha value:', value);
+              }}
+            />
             <Box sx={{ width: 260 }}>
               <Button
+                id="verify-btn"
                 fullWidth
                 disableRipple
+                disabled={btnDisabled}
                 variant="contained"
                 size="large"
                 font="'Favorit', 'Helvetica Neue', 'HelveticaNeue', Helvetica, Arial, sans-serif;"

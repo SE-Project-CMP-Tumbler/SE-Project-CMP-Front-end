@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { GlobalStyles } from '@mui/material';
@@ -13,7 +13,9 @@ import ContinueWithGoogleButton from '../LogOutHomePage/subcomponents/ContinueWi
 import EmailInputTextField from '../SignUpPage/subcomponents/EmailInputTextField/EmailInputTextField';
 import PasswordInputTextField from '../SignUpPage/subcomponents/PasswordInputTextField/PasswordInputTextField';
 import background from '../LogOutHomePage/placeholder.jpg';
-import { selectUser, logInThunk, logInThunkR } from '../../states/User/UserSlice';
+import {
+  selectUser, selectStatusMessage, logInThunk, logInThunkR, setStatusMessage,
+} from '../../states/User/UserSlice';
 import { MOCK, REAL, SERVICETYPE } from '../../apis/globalAPI';
 
 const theme = createTheme();
@@ -25,6 +27,10 @@ const LogInPage = () => {
   const text3 = 'Sign up!';
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const message = useSelector(selectStatusMessage);
+  useEffect(() => {
+    dispatch(setStatusMessage());
+  }, []);
   if (user.loggedIn === true) {
     return <Navigate to="/dashboard" />;
   }
@@ -79,6 +85,32 @@ const LogInPage = () => {
               }
             }}
           >
+            { message === '' ? (<Box />)
+              : (
+                <Box
+                  sx={{
+                    borderRadius: 1,
+                    marginBottom: 1.5,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    color: '#FFFFFF',
+                    padding: '14px 15px',
+                    backgroundColor: '#00000040',
+                    textAlign: 'center',
+                    fontSize: '0.875rem',
+                    font: '"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;',
+                  }}
+                >
+                  <Typography
+                    component="h2"
+                    fontSize="0.875rem"
+                    font='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;'
+                  >
+                    {message}
+                  </Typography>
+                </Box>
+              )}
             <EmailInputTextField />
             <PasswordInputTextField />
             <LogInButton worksAsLink={false} bgColor="#00b8ff" />

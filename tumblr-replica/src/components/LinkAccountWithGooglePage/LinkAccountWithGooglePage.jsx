@@ -15,7 +15,7 @@ import { MOCK, REAL, SERVICETYPE } from '../../apis/globalAPI';
 
 const theme = createTheme();
 
-const SignUpPage = () => {
+const LinkAccountWithGooglePage = () => {
   const title = 'tumblr';
   const text1 = 'Looks like your account already exists.';
   const text2 = 'Please enter your password to link your account. If you forgot your password or don\'t have one for your account, click ';
@@ -133,22 +133,23 @@ const SignUpPage = () => {
                 </Button>
               </Box>
               <Box sx={{ marginTop: 1 }}>
-                <Button
-                  fullWidth
-                  disableRipple
-                  variant="contained"
-                  size="large"
-                  font="'Favorit', 'Helvetica Neue', 'HelveticaNeue', Helvetica, Arial, sans-serif;"
-                  style={{
-                    backgroundColor: '#00cf35', color: '#000000', fontWeight: 'bold', textTransform: 'none',
-                  }}
-                  sx={{
-                    spacing: 8, mt: 1.5, mr: 1, ml: 1, mb: 1,
-                  }}
-                  type="submit"
-                >
-                  Go Back
-                </Button>
+                <Link to="/">
+                  <Button
+                    fullWidth
+                    disableRipple
+                    variant="contained"
+                    size="large"
+                    font="'Favorit', 'Helvetica Neue', 'HelveticaNeue', Helvetica, Arial, sans-serif;"
+                    style={{
+                      backgroundColor: '#00cf35', color: '#000000', fontWeight: 'bold', textTransform: 'none',
+                    }}
+                    sx={{
+                      spacing: 8, mt: 1.5, mr: 1, ml: 1, mb: 1,
+                    }}
+                  >
+                    Go Back
+                  </Button>
+                </Link>
               </Box>
             </Box>
           </form>
@@ -159,4 +160,4 @@ const SignUpPage = () => {
   );
 };
 
-export default SignUpPage;
+export default LinkAccountWithGooglePage;
