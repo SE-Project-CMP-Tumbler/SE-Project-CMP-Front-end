@@ -1,6 +1,8 @@
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 import { useDispatch, useSelector } from 'react-redux';
+import ReactLoading from 'react-loading';
+import Box from '@mui/material/Box';
 import { fetchAsyncrandomtags, getRandomtags } from '../../states/features/randomtag/randomtagSlice';
 import FollowCard from '../FollowCard/FollowCard';
 
@@ -57,7 +59,7 @@ export default function CarouselCards() {
               key={tag.tag_description}
             />
           )))
-        : (<h2>Loading</h2>) }
+        : (<Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>) }
     </Carousel>
   );
 }

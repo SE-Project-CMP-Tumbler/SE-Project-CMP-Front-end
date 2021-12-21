@@ -2,6 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import ReactLoading from 'react-loading';
 import { useSelector } from 'react-redux';
 import { getTrendtags } from '../../../states/features/trendtag/trendtagSlice';
 import TrendCard from '../../TrendCard/TrendCard';
@@ -60,7 +61,7 @@ export default function LcarouselTrend() {
               <TrendCard image1={trendTags.response.tags[7].tag_image} tag={trendTags.response.tags[7].tag_description} color="rgb(64 54 40)" number="8" />
             </div>
           </Carousel>
-        ) : <h3>Loading</h3>}
+        ) : <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>}
     </Box>
   );
 }

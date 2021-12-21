@@ -3,6 +3,7 @@ import Grid from '@mui/material/Grid';
 import PropTypes from 'prop-types';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
+import ReactLoading from 'react-loading';
 import { useMediaQuery } from 'react-responsive';
 import { useSelector } from 'react-redux';
 import PostCard from '../NewsFeed/subcomponents/PostCard/PostCard';
@@ -73,7 +74,7 @@ function PostsList({ Posts }) {
                   </Grid>
                 </>
               ))
-            ) : (<h3>{ Posts.meta.msg }</h3>
+            ) : (Posts.meta.msg === 'loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>
             )}
         </Grid>
       </Grid>

@@ -5,6 +5,8 @@ import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
+import ReactLoading from 'react-loading';
+import Box from '@mui/material/Box';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getTaginfo, fetchAsynctag, unfollowtag,
@@ -66,7 +68,7 @@ export default function TagCard() {
             </CardActions>
           </div>
         )
-        : (<h3>{ taginfo.meta.msg }</h3>)}
+        : (taginfo.meta.msg === 'loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)}
     </Card>
   );
 }

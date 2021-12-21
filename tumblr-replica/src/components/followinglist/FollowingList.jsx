@@ -12,6 +12,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import ReactLoading from 'react-loading';
 import { useDispatch, useSelector } from 'react-redux';
 import FollowingTag from './FollowingTag';
 import EditPopup from './EditPopup';
@@ -133,7 +134,7 @@ export default function FollowingList() {
                     imagUrl={tag.tag_image}
                   />
                 )))
-              : (<h3>{ followtags.meta.msg }</h3>)
+              : (followtags.meta.msg === 'loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)
           }
           <Divider />
           <ListItem disablePadding sx={{ justifyContent: 'center' }}>

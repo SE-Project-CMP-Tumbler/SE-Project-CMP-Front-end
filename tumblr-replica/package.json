@@ -58,6 +58,7 @@
     "react-google-recaptcha": "^2.1.0",
     "react-grid-carousel": "^1.0.1",
     "react-icons": "^4.3.1",
+    "react-loading": "^2.0.3",
     "react-multi-carousel": "^2.6.5",
     "react-redux": "^7.2.6",
     "react-responsive": "^9.0.0-beta.4",
