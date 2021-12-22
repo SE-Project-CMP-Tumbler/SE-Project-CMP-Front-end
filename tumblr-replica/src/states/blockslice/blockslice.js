@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import BlockApi from '../../apis/BlockApi';
+import BlockApi from '../../apis/BlogApi';
 
 const BlockAsynch = createAsyncThunk(
   'block_blog/:blog_id',
@@ -18,7 +18,7 @@ const UnBlockAsynch = createAsyncThunk(
 );
 
 const initialState = {
-  block: { response: { tags: [] }, meta: { status: '000', msg: 'Loading' } },
+  block: { meta: { status: '000', msg: 'Loading' } },
 };
 
 const BlockSlice = createSlice({

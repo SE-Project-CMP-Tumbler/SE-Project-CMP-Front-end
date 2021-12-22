@@ -29,6 +29,11 @@ import Activity from './components/Activity/Activity';
 import Drafts from './components/Drafts/Drafts';
 import StaffPicks from './components/StaffPicks/StaffPicks';
 import RightBar from './components/DrawerRightBar/DrawerRightBar';
+import Posts from './components/Profile/Posts';
+import Likes from './components/Profile/Likes';
+import Followings from './components/Profile/Followings';
+import Ask from './components/Profile/Ask';
+import Submit from './components/Profile/Submit';
 import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
 import NewTumblr from './components/NewTumblr/NewTumblr';
 // import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
@@ -50,7 +55,7 @@ function App() {
           <MediaQuery maxWidth={1070}>
             <NavigationBarResp />
           </MediaQuery> && user.loggedin
-}
+        }
 
       </div>
       <Routes>
@@ -79,9 +84,13 @@ function App() {
         <Route path="/blog/:blogname/activity" element={<Activity />} />
         <Route path="/blog/:blogname/drafts" element={<Drafts />} />
         <Route path="/rightbar" element={<RightBar />} />
+        <Route path="/profile/" element={<Posts />} />
+        <Route path="/profile/likes" element={<Likes />} />
+        <Route path="/profile/followings" element={<Followings />} />
+        <Route path="/profile/ask" element={<Ask />} />
+        <Route path="/profile/submit" element={<Submit />} />
         <Route path="/artifacts" element={<ArtifactsPage />} />
         <Route path="/new/blog" element={<NewTumblr />} />
-
       </Routes>
     </Router>
   );

@@ -3,7 +3,7 @@ import { Drawer } from '@mui/material';
 import PropTypes from 'prop-types';
 import { makeStyles } from '@mui/styles';
 import { useMediaQuery } from 'react-responsive';
-import Header from './subcomponents/DrawerHeader';
+import Header from './DrawerHeader';
 import './css/DrawerRightBar.css';
 
 const useStyles = makeStyles({
