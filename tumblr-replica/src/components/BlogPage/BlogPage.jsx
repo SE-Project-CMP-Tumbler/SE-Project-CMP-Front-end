@@ -18,7 +18,7 @@ import { getBlogposts, fetchAsyncblogposts } from '../../states/features/blogpos
  * )
  */
 function BlogPage() {
-  const blogId = 2026;
+  const blogId = '2026';
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchAsyncblogposts(blogId));

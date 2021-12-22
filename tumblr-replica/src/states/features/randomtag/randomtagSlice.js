@@ -2,12 +2,13 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import exploreApi from '../../../apis/exploreApi';
 
 const fetchAsyncrandomtags = createAsyncThunk(
-  'tag/random_tags',
+  'tag/suggesting',
   async () => {
     const response = await exploreApi.get('randomtags');
-    // const response = await exploreApi.get(`tag/random_tags`);
+    // const response = await exploreApi.get(`tag/suggesting`);
     for (let i = 0; i < response.data.response.tags.length; i += 1) {
       response.data.response.tags[i].follow = false;
+      response.data.response.tags[i].randomcolor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
     }
     return response.data;
   },

@@ -22,12 +22,12 @@ import { followtag, unfollowtag } from '../../states/features/randomtag/randomta
  */
 
 export default function FollowCard({
-  image1, image2, tag, follow,
+  image1, image2, tag, follow, randomcolor,
 }) {
-  const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  // const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
   const button = {
     backgroundColor: 'white',
-    color: randomColor,
+    color: randomcolor,
     width: '100%',
     marginTop: '10px',
   };
@@ -43,12 +43,12 @@ export default function FollowCard({
         '& > :not(style)': {
           m: 1,
           width: 120,
-          height: 170,
+          height: 175,
           p: 1,
         },
       }}
     >
-      <Paper style={{ backgroundColor: randomColor, margin: 'auto' }} elevation={3}>
+      <Paper style={{ backgroundColor: randomcolor, margin: 'auto' }} elevation={3}>
         <Link to={`/tagged/${tag}`} style={linkst}>
           <div style={white}>
             #
@@ -90,4 +90,5 @@ FollowCard.propTypes = {
   image2: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
   follow: PropTypes.bool.isRequired,
+  randomcolor: PropTypes.string.isRequired,
 };

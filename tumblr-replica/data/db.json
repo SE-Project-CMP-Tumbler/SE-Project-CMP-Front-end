@@ -1,4 +1,22 @@
 {
+  "bloginfo":{
+    "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "id": 2026,
+        "is_primary": false,
+        "username": "newinvestigations",
+        "avatar": "",
+        "avatar_shape": "square",
+        "header_image": "",
+        "title": "My 1st Blog",
+        "allow_ask": true,
+        "allow_submittions": true,
+        "description": "This blog is a sketch of thoughts"
+      }
+  },
   "follow_tag": {
     "meta": {
       "status": "200",
@@ -116,48 +134,64 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 120,
+        "count": 10,
+        "per_page": 10,
+        "current_page": 2,
+        "total_pages": 12,
+        "first_page_url": false,
+        "last_page_url": 12,
+        "next_page_url": "http://127.0.0.1:8000/api/tag/trending?page=3",
+        "prev_page_url": "http://127.0.0.1:8000/api/tag/trending?page=1"
+      },
       "tags": [
         {
           "tag_description": "Red",
-          "tag_image1": "https://picsum.photos/id/1/200/300",
-          "tag_image2": "https://picsum.photos/id/2/200/300"
+          "tag_image": "https://picsum.photos/id/1/200/300"
         },
         {
           "tag_description": "Khaki",
-          "tag_image1": "https://picsum.photos/id/3/200/300",
-          "tag_image2": "https://picsum.photos/id/4/200/300"
+          "tag_image": "https://picsum.photos/id/3/200/300"
         },
         {
           "tag_description": "Khakii",
-          "tag_image1": "https://picsum.photos/id/5/200/300",
-          "tag_image2": "https://picsum.photos/id/6/200/300"
+          "tag_image": "https://picsum.photos/id/5/200/300"
         },
         {
           "tag_description": "Fuscia",
-          "tag_image1": "https://picsum.photos/id/7/200/300",
-          "tag_image2": "https://picsum.photos/id/8/200/300"
+          "tag_image": "https://picsum.photos/id/7/200/300"
         },
         {
           "tag_description": "Indigo",
-          "tag_image1": "https://picsum.photos/id/9/200/300",
-          "tag_image2": "https://picsum.photos/id/10/200/300"
+          "tag_image": "https://picsum.photos/id/9/200/300"
         },
         {
           "tag_description": "Aquamarine",
-          "tag_image1": "https://picsum.photos/id/12/200/300",
-          "tag_image2": "https://picsum.photos/id/13/200/300"
+          "tag_image": "https://picsum.photos/id/12/200/300"
         },
         {
           "tag_description": "Teal",
-          "tag_image1": "https://picsum.photos/id/14/200/300",
-          "tag_image2": "https://picsum.photos/id/15/200/300"
+          "tag_image": "https://picsum.photos/id/14/200/300"
         },
         {
           "tag_description": "Turquoiset",
-          "tag_image1": "https://picsum.photos/id/16/200/300",
-          "tag_image2": "https://picsum.photos/id/17/200/300"
+          "tag_image": "https://picsum.photos/id/16/200/300"
         }
       ]
+    }
+  },
+  "blogactivity": {
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "followers": 5,
+      "followings": 5,
+      "likes": 5,
+      "posts": 5,
+      "drafts": 5
     }
   },
   "randomposts": {

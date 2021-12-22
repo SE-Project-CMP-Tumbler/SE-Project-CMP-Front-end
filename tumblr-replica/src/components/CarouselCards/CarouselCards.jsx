@@ -52,11 +52,12 @@ export default function CarouselCards() {
         randomTags.response.tags
           .map((tag) => (
             <FollowCard
-              image1={tag.tag_image1}
-              image2={tag.tag_image2}
+              image1={tag.tag_image}
+              image2={tag.tag_image}
               tag={tag.tag_description}
               follow={tag.follow}
               key={tag.tag_description}
+              randomcolor={tag.randomcolor}
             />
           )))
         : (<Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>) }

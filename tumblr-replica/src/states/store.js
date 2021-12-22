@@ -30,6 +30,8 @@ import NotesReducer from './features/dashboard/NotesSlice';
 import usertumblrsReducer from './usertumblr/usertumblrSlice';
 import newtumblrReducer from './newtumblr/newtumblrSlice';
 import postviewreducer from './features/postview/postviewSlice';
+import blogactivityreducer from './features/blogactivity/blogacttivitySlice';
+import bloginforeducer from './features/bloginfo/bloginfoSlice';
 
 const store = configureStore({
   reducer: {
@@ -48,9 +50,11 @@ const store = configureStore({
     audioposts: audiopostsReducer,
     quoteposts: quotepostsReducer,
     blogposts: blogpostsReducer,
+    blogactivity: blogactivityreducer,
     postview: postviewreducer,
     draftposts: draftpostsReducer,
     tagposts: tagpostsReducer,
+    bloginfo: bloginforeducer,
     user: userReducer,
     displayNotesList: displayNotesListReducer,
     NoteWindow: NoteWindowReducer,
