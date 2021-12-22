@@ -12,6 +12,7 @@ import SignUpPage from './components/SignUpPage/SignUpPage';
 import RegisterWithGooglePage from './components/RegisterWithGooglePage/RegisterWithGooglePage';
 import LinkAccountWithGooglePage from './components/LinkAccountWithGooglePage/LinkAccountWithGooglePage';
 import ForgotPasswordPage from './components/ForgotPasswordPage/ForgotPasswordPage';
+import ResetPasswordPage from './components/ResetPasswordPage/ResetPasswordPage';
 import DeleteAccountPage from './components/DeleteAccountPage/DeleteAccountPage';
 import VerifyEmailPage from './components/VerifyEmailPage/VerifyEmailPage';
 import Explore from './components/Explore/Explore';
@@ -64,6 +65,7 @@ function App() {
         <Route path="/linkAccount" element={<LinkAccountWithGooglePage />} />
         <Route path="/register" element={<SignUpPage />} />
         <Route path="/forgot_password" element={<ForgotPasswordPage />} />
+        <Route path="/reset_password/:id/:token" element={<ResetPasswordPage />} />
         <Route path="/account/delete" element={<DeleteAccountPage />} />
         <Route path="/verify/:id/:hash" element={<VerifyEmailPage />} />
         <Route path="/explore/recommended-for-you" element={<Explore />} />

@@ -250,6 +250,41 @@ export const verifyEmailThunkR = createAsyncThunk(
   }).then((res) => res.json()),
 );
 
+export const resendVerificationThunk = createAsyncThunk(
+  'resendVerification',
+  async (query) => fetch(`${api}/email/resend_verification`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const resendVerificationThunkR = createAsyncThunk(
+  'resendVerificationR',
+  async (query) => fetch(`${apiR}/email/resend_verification`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${query}`,
+    },
+  }).then((res) => res.json()),
+);
+
 export const forgotPasswordThunk = createAsyncThunk(
   'forgot_password',
   async (query) => fetch(`${api}/forgot_password`, {
@@ -345,6 +380,7 @@ const userSlice = createSlice({
     statusMessage: '',
     googleAccessed: null,
     regStep: 1,
+    showReVerify: true,
   },
   reducers: {
     /**
@@ -442,6 +478,15 @@ const userSlice = createSlice({
     */
     setGoogleAccessToken: (state, action) => {
       state.googleAccessToken = action.payload;
+    },
+    /**
+    * This function sets showReVerify with false
+    * @method
+    * @param {object} state The object that stores the value of showReVerify
+    * used in showing the reVerify prompt
+    */
+    hideReVerify: (state) => {
+      state.showReVerify = false;
     },
     /**
     * This function sends an API request (to actual API or to JSON server) to login with Google.
@@ -807,11 +852,11 @@ const userSlice = createSlice({
     },
     [verifyEmailThunkR.fulfilled]: (state, { payload }) => {
       if (payload.meta.status === '200') {
-        state.user.verified = true;
         const loggedInUser = localStorage.getItem('user');
         if (loggedInUser) {
           const foundUser = JSON.parse(loggedInUser);
           state.user = foundUser;
+          state.user.verified = true;
           localStorage.clear();
           localStorage.setItem('user', JSON.stringify(state.user));
         }
@@ -835,7 +880,7 @@ const userSlice = createSlice({
           googleAccessToken: '',
           verified: false,
         };
-        window.location.replace('/');
+        // window.location.replace('/');
         // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
       }
@@ -843,6 +888,35 @@ const userSlice = createSlice({
     [verifyEmailThunkR.rejected]: () => {
     },
     [forgotPasswordThunk.pending]: () => {
+    },
+    [resendVerificationThunk.pending]: () => {
+    },
+    [resendVerificationThunk.fulfilled]: (state, { payload }) => {
+      if (payload?.id === undefined) { // CASE 500 or 422 TO BE handled later
+        state.status = 'NOT FOUND';
+      } else { // CASE 200
+        state.showReVerify = false;
+      }
+    },
+    [resendVerificationThunk.rejected]: () => {
+    },
+    [resendVerificationThunkR.pending]: () => {
+    },
+    [resendVerificationThunkR.fulfilled]: (state, { payload }) => {
+      if (payload.meta.status === '200') {
+        state.showReVerify = false;
+      } else if (payload.meta.status === '401') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      } else if (payload.meta.status === '404') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      } else if (payload.meta.status === '500') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      }
+    },
+    [resendVerificationThunkR.rejected]: () => {
     },
     [forgotPasswordThunk.fulfilled]: (state, { payload }) => {
       if (payload.id === '') { // CASE 404
@@ -960,7 +1034,7 @@ const userSlice = createSlice({
 
 export const {
   initialCheck, setEmail, setPassword, setBlogName, setAge, logOut, signUp, continueWithGoogle,
-  setRegStep, setGoogleAccessToken, setVerified, setStatusMessage,
+  setRegStep, setGoogleAccessToken, setVerified, setStatusMessage, hideReVerify,
 } = userSlice.actions;
 
 export const selectUser = (state) => state.user.user;
@@ -968,6 +1042,8 @@ export const selectUser = (state) => state.user.user;
 export const selectStep = (state) => state.user.regStep;
 
 export const selectGoogle = (state) => state.user.googleAccessed;
+
+export const selectShowReVerify = (state) => state.user.showReVerify;
 
 export const selectStatus = (state) => state.user.status;
 

@@ -41,23 +41,6 @@ const VerifyEmailPage = () => {
             },
           }}
         />
-        {// TO DO: Remove the following after testing
-        // }
-        // <Button
-        //   onClick={() => {
-        //     dispatch(setVerified(true));
-        //   }}
-        // >
-        //   True
-        // </Button>
-        // <Button
-        //   onClick={() => {
-        //     dispatch(setVerified(false));
-        //   }}
-        // >
-        //   False
-        // </Button>
-        }
         { user.verified ? (
           <Box sx={{ marginTop: 20 }}>
             <Typography component="h1" color="white" fontSize="2.25rem" font='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;' sx={{ fontWeight: 'bold' }}>
