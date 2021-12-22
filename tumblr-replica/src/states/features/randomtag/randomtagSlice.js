@@ -1,30 +1,41 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import exploreApi from '../../../apis/exploreApi';
+import { api, apiR } from '../../../apis/globalAxpi';
+import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
 const fetchAsyncrandomtags = createAsyncThunk(
   'tag/suggesting',
-  async () => {
-    const response = await exploreApi.get('randomtags');
-    // const response = await exploreApi.get(`tag/suggesting`);
-    for (let i = 0; i < response.data.response.tags.length; i += 1) {
-      response.data.response.tags[i].follow = false;
-      response.data.response.tags[i].randomcolor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+  async (dispatch, { getState }) => {
+    if (SERVICETYPE === MOCK) {
+      try {
+        const response = await api.get('randomtags');
+        for (let i = 0; i < response.data.response.tags.length; i += 1) {
+          response.data.response.tags[i].follow = false;
+          response.data.response.tags[i].randomcolor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+        }
+        return response.data;
+      } catch (error) {
+        throw Error(error);
+      }
+    } else {
+      try {
+        const state = getState();
+        console.log(state);
+        const USERTOKEN = state.user.user.accessToken;
+        console.log(USERTOKEN);
+        const AuthStr = `Bearer ${USERTOKEN}`;
+        const response = await apiR.get('tag/suggesting', { headers: { Authorization: AuthStr } });
+        console.log(response.data);
+        for (let i = 0; i < response.data.response.tags.length; i += 1) {
+          response.data.response.tags[i].follow = false;
+          response.data.response.tags[i].randomcolor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+        }
+        return response.data;
+      } catch (e) {
+        throw Error(e);
+      }
     }
-    return response.data;
   },
 );
-
-const DeleteAsyncfollowtags = async (TagDescription) => {
-  const response = await exploreApi.get(`deletfollowtag?${TagDescription}`);
-  // const response = await exploreApi.delete(`follow_tag/:${TagDescription}`);
-  return response.data;
-};
-
-const AddAsyncfollowtags = async (TagDescription) => {
-  const response = await exploreApi.get(`deletfollowtag?${TagDescription}`);
-  // const response = await exploreApi.post(`follow_tag/:${TagDescription}`);
-  return response.data;
-};
 
 const initialState = {
   randomtag: { response: { }, meta: { status: '000', msg: 'Loading' } },
@@ -43,7 +54,6 @@ const randomtagSlice = createSlice({
           break;
         }
       }
-      DeleteAsyncfollowtags(action.payload);
     },
     followtag: (state, action) => {
       const newstate = state;
@@ -54,7 +64,6 @@ const randomtagSlice = createSlice({
           break;
         }
       }
-      AddAsyncfollowtags(action.payload);
     },
   },
   extraReducers: {

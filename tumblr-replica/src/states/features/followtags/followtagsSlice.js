@@ -1,38 +1,39 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import exploreApi from '../../../apis/exploreApi';
+import { api, apiR } from '../../../apis/globalAxpi';
+import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
 const fetchAsyncfollowtags = createAsyncThunk(
   'follow_tag',
-  async () => {
-    const response = await exploreApi.get('follow_tag');
-    for (let i = 0; i < response.data.response.tags.length; i += 1) {
-      // console.log(response.data.response.tags[i]);
-      response.data.response.tags[i].follow = true;
+  async (dispatch, { getState }) => {
+    if (SERVICETYPE === MOCK) {
+      try {
+        const response = await api.get('follow_tag');
+        for (let i = 0; i < response.data.response.tags.length; i += 1) {
+          response.data.response.tags[i].follow = true;
+        }
+        return response.data;
+      } catch (error) {
+        throw Error(error);
+      }
+    } else {
+      try {
+        const state = getState();
+        console.log(state);
+        const USERTOKEN = state.user.user.accessToken;
+        console.log(USERTOKEN);
+        const AuthStr = `Bearer ${USERTOKEN}`;
+        const response = await apiR.get('follow_tag', { headers: { Authorization: AuthStr } });
+        console.log(response.data);
+        for (let i = 0; i < response.data.response.tags.length; i += 1) {
+          response.data.response.tags[i].follow = true;
+        }
+        return response.data;
+      } catch (e) {
+        throw Error(e);
+      }
     }
-    return response.data;
   },
 );
-
-const DeleteAsyncfollowtags = async (TagDescription) => {
-  const response = await exploreApi.get(`deletfollowtag?${TagDescription}`);
-  // const response = await exploreApi.delete(`follow_tag/:${TagDescription}`);
-  return response.data;
-};
-
-const AddAsyncfollowtags = async (TagDescription) => {
-  const response = await exploreApi.get(`deletfollowtag?${TagDescription}`);
-  // const response = await exploreApi.post(`follow_tag/:${TagDescription}`);
-  return response.data;
-};
-
-// const AddAsyncfollowtags = createAsyncThunk(
-//   'follow_tag/:tag_description',
-//   async (TagDescription) => {
-//     const response = await exploreApi.get(`deletfollowtag?${TagDescription}`);
-//     // const response = await exploreApi.post(`follow_tag/:${TagDescription}`);
-//     return { data: response.data, TagDescription };
-//   },
-// );
 
 const initialState = {
   followtags: { response: { tags: [] }, meta: { status: '000', msg: 'Loading' } },
@@ -51,15 +52,6 @@ const followtagsSlice = createSlice({
           break;
         }
       }
-      DeleteAsyncfollowtags(action.payload);
-      // DeleteAsyncfollowtags(action.payload).then((data) => {
-      //   if (data.meta.status !== 200) {
-      //     const newstate2 = state;
-      //     console.log(newstate2);
-      //     newstate2.followtags.response.tags[i].follow = true;
-      //     console.log(data.meta.status);
-      //   }
-      // }).catch((err) => console.log(err));
     },
     followtag: (state, action) => {
       const newstate = state;
@@ -70,7 +62,6 @@ const followtagsSlice = createSlice({
           break;
         }
       }
-      AddAsyncfollowtags(action.payload);
     },
   },
   extraReducers: {
@@ -91,7 +82,5 @@ const followreducer = followtagsSlice.reducer;
 export {
   getAllfollowtags,
   fetchAsyncfollowtags,
-  DeleteAsyncfollowtags,
-  AddAsyncfollowtags,
 };
 export default followreducer;

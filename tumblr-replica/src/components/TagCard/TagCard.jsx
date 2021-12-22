@@ -10,7 +10,7 @@ import Box from '@mui/material/Box';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   getTaginfo, fetchAsynctag, unfollowtag,
-  followtag,
+  followtag, AddAsyncfollowtags, DeleteAsyncfollowtags,
 } from '../../states/features/tag/tagSlice';
 /**
  * Component for render all information about specific tag
@@ -38,9 +38,16 @@ export default function TagCard() {
     dispatch(fetchAsynctag(tagDescription));
   }, []);
   const taginfo = useSelector(getTaginfo);
-  // console.log(taginfo);
+  const followtagcard = (tag) => {
+    dispatch(followtag());
+    dispatch(AddAsyncfollowtags(tag));
+  };
+  const unfollowtagcard = (tag) => {
+    dispatch(unfollowtag());
+    dispatch(DeleteAsyncfollowtags(tag));
+  };
   return (
-    <Card sx={{ maxWidth: 345, marginTop: 7 }} style={cardColor}>
+    <Card sx={{ maxWidth: 345, marginTop: 7, minHeight: 150 }} style={cardColor}>
       { taginfo.meta.status === '200'
         ? (
           <div>
@@ -61,14 +68,14 @@ export default function TagCard() {
             <CardActions>
               {
               taginfo.response.followed
-                ? (<Button variant="outlined" onClick={() => dispatch(unfollowtag())} size="large" style={buttonst}>Unfollow</Button>)
-                : (<Button variant="contained" onClick={() => dispatch(followtag())} size="large" style={buttonst}>Follow</Button>)
+                ? (<Button variant="outlined" onClick={() => unfollowtagcard(taginfo.response.tag_description)} size="large" style={buttonst}>Unfollow</Button>)
+                : (<Button variant="contained" onClick={() => followtagcard(taginfo.response.tag_description)} size="large" style={buttonst}>Follow</Button>)
             }
               <Button variant="contained" size="large" style={buttonst}>New post</Button>
             </CardActions>
           </div>
         )
-        : (taginfo.meta.msg === 'loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)}
+        : (taginfo.meta.msg === 'Loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)}
     </Card>
   );
 }

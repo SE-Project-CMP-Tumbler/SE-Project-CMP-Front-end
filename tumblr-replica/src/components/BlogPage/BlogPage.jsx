@@ -1,10 +1,11 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
-import Box from '@mui/material/Box';
+// import Box from '@mui/material/Box';
 import { useDispatch, useSelector } from 'react-redux';
 import SideTabs from '../SideTabs/SideTabs';
 import PostsList from '../PostsList/PostsList';
 import { getBlogposts, fetchAsyncblogposts } from '../../states/features/blogposts/blogpostsSlice';
+// import CreatePost from './CreatPost';
 
 /**
  * Component for show the Posts for the blog and {@link sideTabs}
@@ -18,7 +19,7 @@ import { getBlogposts, fetchAsyncblogposts } from '../../states/features/blogpos
  * )
  */
 function BlogPage() {
-  const blogId = '2026';
+  const blogId = 14;
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchAsyncblogposts(blogId));
@@ -28,14 +29,7 @@ function BlogPage() {
     <div>
       <Grid container spacing={2}>
         <Grid item xs={10} lg={6} sx={{ marginLeft: '10%' }}>
-          <Box
-            sx={{
-              marginTop: 5,
-              height: 90,
-              backgroundColor: 'white',
-              borderRadius: 1,
-            }}
-          />
+
           <PostsList Posts={Posts} />
         </Grid>
         <Grid item lg={4} sx={{ marginLeft: '2%', display: { xs: 'none', lg: 'block' } }}>

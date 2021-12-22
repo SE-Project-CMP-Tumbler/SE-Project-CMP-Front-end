@@ -8,6 +8,9 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useDispatch } from 'react-redux';
 import { followtag, unfollowtag } from '../../states/features/randomtag/randomtagSlice';
+import {
+  AddAsyncfollowtags, DeleteAsyncfollowtags,
+} from '../../states/features/tag/tagSlice';
 
 /**
  * Component for render tag with its name and two images and the blog can follow that tag
@@ -37,6 +40,14 @@ export default function FollowCard({
   };
   const linkst = { textDecoration: 'none' };
   const dispatch = useDispatch();
+  const unfollowtagcard = (tagdis) => {
+    dispatch(unfollowtag(tagdis));
+    dispatch(DeleteAsyncfollowtags(tagdis));
+  };
+  const followtagcard = (tagdis) => {
+    dispatch(followtag(tagdis));
+    dispatch(AddAsyncfollowtags(tagdis));
+  };
   return (
     <Box
       sx={{
@@ -78,8 +89,8 @@ export default function FollowCard({
           </ImageList>
         </Link>
         {follow
-          ? (<Button style={button} onClick={() => dispatch(unfollowtag(tag))} variant="contained">Unfollow</Button>)
-          : (<Button style={button} onClick={() => dispatch(followtag(tag))} variant="contained">Follow</Button>)}
+          ? (<Button style={button} onClick={() => unfollowtagcard(tag)} variant="contained">Unfollow</Button>)
+          : (<Button style={button} onClick={() => followtagcard(tag)} variant="contained">Follow</Button>)}
       </Paper>
     </Box>
   );

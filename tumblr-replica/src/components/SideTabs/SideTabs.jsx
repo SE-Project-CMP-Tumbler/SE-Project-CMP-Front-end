@@ -24,7 +24,7 @@ import { getBloginfo, fetchAsyncbloginfo } from '../../states/features/bloginfo/
  * )
  */
 function SideTabs({ select }) {
-  const blogid = '123';
+  const blogid = 14;
   const item = { height: '60px', fontSize: 20 };
   const item2 = { height: '60px', backgroundColor: 'rgba(255,255,255,.1)', fontSize: 20 };
   const dispatch = useDispatch();

@@ -18,7 +18,7 @@ import { getDraftposts, fetchAsyncdraftposts } from '../../states/features/draft
  * )
  */
 function Drafts() {
-  const blogId = 2026;
+  const blogId = 14;
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchAsyncdraftposts(blogId));

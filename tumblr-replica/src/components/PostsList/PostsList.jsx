@@ -74,7 +74,7 @@ function PostsList({ Posts }) {
                   </Grid>
                 </>
               ))
-            ) : (Posts.meta.msg === 'loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>
+            ) : (Posts.meta.msg === 'Loading' && <Box style={{ marginRight: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>
             )}
         </Grid>
       </Grid>
