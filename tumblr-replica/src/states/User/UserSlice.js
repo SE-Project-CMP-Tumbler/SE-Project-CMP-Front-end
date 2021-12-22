@@ -250,6 +250,41 @@ export const verifyEmailThunkR = createAsyncThunk(
   }).then((res) => res.json()),
 );
 
+export const forgotPasswordThunk = createAsyncThunk(
+  'forgot_password',
+  async (query) => fetch(`${api}/forgot_password`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const forgotPasswordThunkR = createAsyncThunk(
+  'forgot_passwordR',
+  async (query) => fetch(`${apiR}/forgot_password`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => res.json()),
+);
+
 export const deleteAccountThunk = createAsyncThunk(
   'deleteAccount',
   async (query) => fetch(`${api}/delete_user`, {
@@ -283,7 +318,10 @@ export const deleteAccountThunkR = createAsyncThunk(
       'Content-Type': 'application/json',
       Authorization: `Bearer ${query.accessToken}`,
     },
-    body: JSON.stringify(query.body),
+    body: JSON.stringify({
+      email: query.body.email,
+      password: query.body.password,
+    }),
   }).then((res) => res.json()),
 );
 
@@ -451,6 +489,7 @@ const userSlice = createSlice({
         state.user.accessToken = payload.access_token;
         state.user.loggedin = true;
         state.user.verified = payload.verified;
+        state.user.primaryBlogId = payload.response.blog_id;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
@@ -500,8 +539,10 @@ const userSlice = createSlice({
         state.user.email = payload.email;
         state.user.primaryBlogAvatar = payload.blog_avatar;
         state.user.accessToken = payload.access_token;
+        state.user.primaryBlogId = payload.response.blog_id;
         state.user.loggedin = true;
-        state.user.verified = false; // Of course, the user can't be verified. He just registered.
+        // Of course, the user can't be verified. He just registered.
+        state.user.verified = payload.response.is_verified;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
@@ -521,8 +562,10 @@ const userSlice = createSlice({
         state.user.email = payload.response.email;
         state.user.primaryBlogAvatar = payload.response.blog_avatar;
         state.user.accessToken = payload.response.access_token;
+        state.user.primaryBlogId = payload.response.blog_id;
         state.user.loggedin = true;
-        state.user.verified = false; // Of course, the user can't be verified. He just registered.
+        // False: Of course, the user can't be verified. He just registered.
+        state.user.verified = payload.response.is_verified;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
@@ -602,8 +645,9 @@ const userSlice = createSlice({
         state.user.email = payload.response.email;
         state.user.primaryBlogAvatar = payload.response.blog_avatar;
         state.user.accessToken = payload.response.access_token;
+        state.user.primaryBlogId = payload.response.blog_id;
+        state.user.verified = payload.response.is_verified;
         state.user.loggedin = true;
-        state.user.verified = true;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
@@ -648,8 +692,8 @@ const userSlice = createSlice({
         state.user.email = payload.response.email;
         state.user.primaryBlogAvatar = payload.response.blog_avatar;
         state.user.accessToken = payload.response.access_token;
+        state.user.primaryBlogId = payload.response.blog_id;
         state.user.loggedin = true;
-        state.user.verified = true;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
@@ -681,8 +725,9 @@ const userSlice = createSlice({
           email: '',
           password: '',
           blogName: '',
-          age: 0,
+          age: '',
           primaryBlogAvatar: '',
+          primaryBlogId: '',
           googleAccessToken: '',
           verified: false,
         };
@@ -703,7 +748,8 @@ const userSlice = createSlice({
           email: '',
           password: '',
           blogName: '',
-          age: 0,
+          age: '',
+          primaryBlogId: '',
           primaryBlogAvatar: '',
           googleAccessToken: '',
           verified: false,
@@ -722,7 +768,8 @@ const userSlice = createSlice({
           email: '',
           password: '',
           blogName: '',
-          age: 0,
+          age: '',
+          primaryBlogId: '',
           primaryBlogAvatar: '',
           googleAccessToken: '',
         };
@@ -773,6 +820,7 @@ const userSlice = createSlice({
         console.log(payload.meta.msg);
         // window.location.replace('/dashboard');
       } else if (payload.meta.status === '404') {
+        console.log(payload.meta.msg);
         localStorage.clear();
         state.user = {
           loggedin: false,
@@ -781,7 +829,8 @@ const userSlice = createSlice({
           email: '',
           password: '',
           blogName: '',
-          age: 0,
+          age: '',
+          primaryBlogId: '',
           primaryBlogAvatar: '',
           googleAccessToken: '',
           verified: false,
@@ -792,6 +841,47 @@ const userSlice = createSlice({
       }
     },
     [verifyEmailThunkR.rejected]: () => {
+    },
+    [forgotPasswordThunk.pending]: () => {
+    },
+    [forgotPasswordThunk.fulfilled]: (state, { payload }) => {
+      if (payload.id === '') { // CASE 404
+        state.status = 'NOT FOUND';
+      } else { // CASE 200
+        state.user.id = payload.id;
+        state.user.blogName = payload.blog_username;
+        state.user.email = payload.email;
+        state.user.primaryBlogAvatar = payload.blog_avatar;
+        state.user.accessToken = payload.access_token;
+        state.user.loggedin = true;
+        state.user.verified = payload.verified;
+        state.user.primaryBlogId = payload.response.blog_id;
+        // store the user in localStorage
+        localStorage.setItem('user', JSON.stringify(state.user));
+        window.location.replace('/dashboard');
+      }
+    },
+    [forgotPasswordThunk.rejected]: () => {
+    },
+    [forgotPasswordThunkR.pending]: () => {
+    },
+    [forgotPasswordThunkR.fulfilled]: (state, { payload }) => {
+      if (payload.meta.status === '200') {
+        state.status = payload.meta.status;
+        state.statusMessage = '';
+      } else if (payload.meta.status === '404') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        state.status = payload.meta.status;
+        state.statusMessage = 'Sorry, that email address is not registered with us.';
+      } else if (payload.meta.status === '400') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        state.status = payload.meta.status;
+        state.statusMessage = payload.meta.msg;
+      }
+    },
+    [forgotPasswordThunkR.rejected]: () => {
     },
     [deleteAccountThunk.pending]: () => {
     },
@@ -808,7 +898,8 @@ const userSlice = createSlice({
           email: '',
           password: '',
           blogName: '',
-          age: 0,
+          age: '',
+          primaryBlogId: '',
           primaryBlogAvatar: '',
           googleAccessToken: '',
           verified: false,
@@ -829,10 +920,11 @@ const userSlice = createSlice({
           email: '',
           password: '',
           blogName: '',
-          age: 0,
+          age: '',
+          primaryBlogId: '',
           primaryBlogAvatar: '',
           googleAccessToken: '',
-          verified: true,
+          verified: false,
         };
       } else if (payload.meta.status === '401' || payload.meta.status === '403') {
         // eslint-disable-next-line no-console
@@ -847,7 +939,8 @@ const userSlice = createSlice({
           email: '',
           password: '',
           blogName: '',
-          age: 0,
+          age: '',
+          primaryBlogId: '',
           primaryBlogAvatar: '',
           googleAccessToken: '',
           verified: false,
@@ -875,6 +968,8 @@ export const selectUser = (state) => state.user.user;
 export const selectStep = (state) => state.user.regStep;
 
 export const selectGoogle = (state) => state.user.googleAccessed;
+
+export const selectStatus = (state) => state.user.status;
 
 export const selectStatusMessage = (state) => state.user.statusMessage;
 // export const selectVerified = (state) => state.user.verified;

@@ -74,6 +74,13 @@ const DeleteAccountPage = () => {
                     },
                   }));
                 } else if (SERVICETYPE === REAL) {
+                  console.log({
+                    accessToken: user.accessToken,
+                    body: {
+                      email: user.email,
+                      password: user.password,
+                    },
+                  });
                   dispatch(deleteAccountThunkR({
                     accessToken: user.accessToken,
                     body: {

@@ -73,13 +73,13 @@ const RegisterWithGooglePage = () => {
                 dispatch(registerWithGoogleThunk({
                   google_access_token: user.googleAccessToken,
                   blog_username: user.blogName,
-                  age: toString(user.age),
+                  age: user.age,
                 }));
               } else if (SERVICETYPE === REAL) {
                 dispatch(registerWithGoogleThunkR({
                   google_access_token: user.googleAccessToken,
                   blog_username: user.blogName,
-                  age: toString(user.age),
+                  age: user.age,
                 }));
               }
             }}
