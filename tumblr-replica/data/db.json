@@ -1448,5 +1448,164 @@
         }
       ]
     }
+  },
+  "notes":{
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "notes_count": 16,
+      "new_followers_count": 6,
+      "total_followers_count": 326,
+      "data": [
+        {
+          "0": {
+            "timestamp": "2021-11-03 01:13:39",
+            "notes": 5,
+            "top_post": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>"
+          },
+          "1": {
+            "timestamp": "2021-11-04 01:13:39",
+            "notes": 7,
+            "top_post": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>"
+          },
+          "2": {
+            "timestamp": "2021-11-05 01:13:39",
+            "notes": 2,
+            "top_post": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>"
+          }
+        }
+      ],
+      "top_post": {
+        "post_body": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+        "total_notes_count": 14,
+        "notes_count": 2
+      },
+      "biggest_fan": [
+        {
+          "name": "mycppblog",
+          "blog_id": 123456789,
+          "blog_username": 123456789,
+          "blog_avatar": "storage/blogs/avatar2125",
+          "blog_avatar_shape": "square",
+          "followed": true,
+          "theme_id": 123456789,
+          "title": [
+            {
+              "text": "CPP Programming",
+              "show": true,
+              "color": "#000000",
+              "font": "Gibson",
+              "font_weight": "bold"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "newfollowers":{
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "notes_count": 16,
+      "new_followers_count": 6,
+      "total_followers_count": 326,
+      "data": [
+        {
+          "0": {
+            "timestamp": "2021-11-03 01:13:39",
+            "new_followers": 5
+          },
+          "1": {
+            "timestamp": "2021-11-04 01:13:39",
+            "new_followers": 7
+          },
+          "2": {
+            "timestamp": "2021-11-05 01:13:39",
+            "new_followers": 2
+          }
+        }
+      ],
+      "top_post": {
+        "post_body": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+        "total_notes_count": 14,
+        "notes_count": 2
+      },
+      "biggest_fan": [
+        {
+          "name": "mycppblog",
+          "blog_id": 123456789,
+          "blog_username": 123456789,
+          "blog_avatar": "storage/blogs/avatar2125",
+          "blog_avatar_shape": "square",
+          "followed": true,
+          "theme_id": 123456789,
+          "title": [
+            {
+              "text": "CPP Programming",
+              "show": true,
+              "color": "#000000",
+              "font": "Gibson",
+              "font_weight": "bold"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "totalfollowers":{
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "notes_count": 16,
+      "new_followers_count": 6,
+      "total_followers_count": 326,
+      "data": [
+        {
+          "0": {
+            "timestamp": "2021-11-03 01:13:39",
+            "total_followers": 100
+          },
+          "1": {
+            "timestamp": "2021-11-04 01:13:39",
+            "total_followers": 156
+          },
+          "2": {
+            "timestamp": "2021-11-05 01:13:39",
+            "total_followers": 304
+          }
+        }
+      ],
+      "top_post": {
+        "post_body": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+        "total_notes_count": 14,
+        "notes_count": 2
+      },
+      "biggest_fan": [
+        {
+          "name": "mycppblog",
+          "blog_id": 123456789,
+          "blog_username": 123456789,
+          "blog_avatar": "storage/blogs/avatar2125",
+          "blog_avatar_shape": "square",
+          "followed": true,
+          "theme_id": 123456789,
+          "title": [
+            {
+              "text": "CPP Programming",
+              "show": true,
+              "color": "#000000",
+              "font": "Gibson",
+              "font_weight": "bold"
+            }
+          ]
+        }
+      ]
+    }
   }
 }

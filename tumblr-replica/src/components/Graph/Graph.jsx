@@ -1,31 +1,26 @@
 import * as React from 'react';
 import * as V from 'victory';
+import Grid from '@mui/material/Grid';
+import Box from '@mui/material/Box';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import FormControl from '@mui/material/FormControl';
 import Select from '@mui/material/Select';
-// import { scaleTime } from 'd3-scale';
+import ReactLoading from 'react-loading';
+import ListItemText from '@mui/material/ListItemText';
+import { useDispatch, useSelector } from 'react-redux';
+import { getNotes, fetchAsyncgraphnotes } from '../../states/features/graph/graphSlice';
 
 export default function Graph() {
-  const data = [
-    { x: new Date(2021, 5, 1), y: 8 },
-    { x: new Date(2021, 5, 2), y: 10 },
-    { x: new Date(2021, 5, 3), y: 7 },
-    { x: new Date(2021, 5, 4), y: 4 },
-    { x: new Date(2021, 5, 7), y: 6 },
-    { x: new Date(2021, 5, 8), y: 3 },
-    { x: new Date(2021, 5, 9), y: 7 },
-    { x: new Date(2021, 5, 10), y: 9 },
-    { x: new Date(2021, 5, 11), y: 6 },
-  ];
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(fetchAsyncgraphnotes());
+  }, []);
+  const Notes = useSelector(getNotes);
 
-  // scaleDiscontinuous and discontinuitySkipWeekends are both
-  // plugins imported from @d3fc/d3fc-discontinuous-scale
-  // const discontinuousScale = V.scaleDiscontinuous(
-  //   scaleTime(),
-  // ).discontinuityProvider(discontinuitySkipWeekends());
+  // console.log(Notes.response.data[0]);
+
   const [age, setAge] = React.useState('');
-
   const handleChange = (event) => {
     setAge(event.target.value);
   };
@@ -34,8 +29,44 @@ export default function Graph() {
   const handleChange2 = (event) => {
     setAge2(event.target.value);
   };
+  const buttonstyle = {
+    height: 100,
+    backgroundColor: '#21374f',
+    borderRadius: 3,
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  };
+  const primarystyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'white',
+    fontSize: 25,
+  };
+  const secondrystyle = {
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'rgba(255,255,255,.5)',
+    fontSize: 20,
+    opacity: '.7',
+  };
+  const buttonstyle2 = {
+    height: 100,
+    border: 3,
+    borderRadius: 3,
+    borderColor: 'primary.main',
+    cursor: 'pointer',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+    color: 'white',
+    fontSize: 20,
+  };
   return (
-    <>
+    <div xs={{ marginButton: 20 }}>
       <FormControl variant="standard" sx={{ ml: 3, minWidth: 90 }}>
         <InputLabel id="demo-simple-select-standard-label" style={{ color: 'white' }}>Last Day</InputLabel>
         <Select
@@ -63,20 +94,63 @@ export default function Graph() {
           <MenuItem value={20}>Hourly</MenuItem>
         </Select>
       </FormControl>
-      <V.VictoryChart
-        width={700}
-        height={400}
-        theme={V.VictoryTheme.material}
-      >
-        <V.VictoryArea
-          data={data}
-          style={{
-            data: {
-              fill: 'lightblue', fillOpacity: 0.7, stroke: '#c43a31', strokeWidth: 3,
-            },
-          }}
-        />
-      </V.VictoryChart>
-    </>
+      {Notes.meta.status === '200' ? (
+        <>
+          <V.VictoryChart
+            width={700}
+            height={400}
+            theme={V.VictoryTheme.material}
+          >
+            <V.VictoryArea
+              data={Notes.response.data}
+              style={{
+                data: {
+                  fill: 'lightblue', fillOpacity: 0.7, stroke: '#c43a31', strokeWidth: 3,
+                },
+              }}
+            />
+          </V.VictoryChart>
+          <Grid container spacing={2}>
+            <Grid item xs={4}>
+              <Box
+                sx={buttonstyle}
+              >
+                <ListItemText
+                  primary={Notes.response.notes_count}
+                  secondary="Notes"
+                  primaryTypographyProps={primarystyle}
+                  secondaryTypographyProps={secondrystyle}
+                />
+              </Box>
+            </Grid>
+            <Grid item xs={4}>
+              <Box
+                sx={buttonstyle}
+              >
+                <ListItemText
+                  primary={Notes.response.new_followers_count}
+                  secondary="New followers"
+                  primaryTypographyProps={primarystyle}
+                  secondaryTypographyProps={secondrystyle}
+                />
+              </Box>
+            </Grid>
+            <Grid item xs={4}>
+              <Box
+                sx={buttonstyle2}
+              >
+                <ListItemText
+                  primary={Notes.response.total_followers_count}
+                  secondary="Total Followers"
+                  primaryTypographyProps={primarystyle}
+                  secondaryTypographyProps={secondrystyle}
+                />
+              </Box>
+            </Grid>
+          </Grid>
+        </>
+      ) : (Notes.meta.msg === 'Loading' && <Box style={{ marginRight: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)}
+
+    </div>
   );
 }

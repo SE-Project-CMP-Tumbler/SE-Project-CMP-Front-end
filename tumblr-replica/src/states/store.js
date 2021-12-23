@@ -32,6 +32,7 @@ import newtumblrReducer from './newtumblr/newtumblrSlice';
 import postviewreducer from './features/postview/postviewSlice';
 import blogactivityreducer from './features/blogactivity/blogacttivitySlice';
 import bloginforeducer from './features/bloginfo/bloginfoSlice';
+import graphReducer from './features/graph/graphSlice';
 
 const store = configureStore({
   reducer: {
@@ -68,6 +69,7 @@ const store = configureStore({
     Notes: NotesReducer,
     userBlogs: usertumblrsReducer,
     newTumblr: newtumblrReducer,
+    graph: graphReducer,
   },
 });
 
