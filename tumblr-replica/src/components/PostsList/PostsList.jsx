@@ -6,6 +6,7 @@ import Box from '@mui/material/Box';
 import ReactLoading from 'react-loading';
 import { useMediaQuery } from 'react-responsive';
 import { useSelector } from 'react-redux';
+import Tooltip from '@mui/material/Tooltip';
 import PostCard from '../NewsFeed/subcomponents/PostCard/PostCard';
 import { getpostview } from '../../states/features/postview/postviewSlice';
 
@@ -46,19 +47,33 @@ function PostsList({ Posts }) {
                     {
                        isDesktopOrLaptop
                     && (
-                    <Grid item>
-                      <Avatar
-                        sx={{ bgcolor: 'orange' }}
-                        variant="square"
-                        xs={2}
-                        style={{
-                          maxWidth: 64,
-                          minWidth: 64,
-                          maxHeight: 64,
-                          minHeight: 64,
-                        }}
-                      />
-                    </Grid>
+                    <Tooltip
+                      placement="right"
+                      title={(
+                        <PostCard
+                          postId={post.post_id}
+                          postDate={post.post_date}
+                          blogId={post.blog_id}
+                          blogUsername={post.blog_username}
+                          postBody={post.post_body}
+                          xs={10}
+                        />
+                    )}
+                    >
+                      <Grid item>
+                        <Avatar
+                          sx={{ bgcolor: 'orange' }}
+                          variant="square"
+                          xs={2}
+                          style={{
+                            maxWidth: 64,
+                            minWidth: 64,
+                            maxHeight: 64,
+                            minHeight: 64,
+                          }}
+                        />
+                      </Grid>
+                    </Tooltip>
                     )
                     }
                     <Grid item>

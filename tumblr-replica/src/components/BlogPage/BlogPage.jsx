@@ -41,7 +41,11 @@ function BlogPage() {
                 <img alt="empty" src="https://img.icons8.com/ios/170/ffffff/empty-set.png" />
                 <div>No Posts available</div>
               </Box>
-            ) : (<PostsList Posts={Posts} />)}
+            ) : (
+              <>
+                <PostsList Posts={Posts} />
+              </>
+            )}
         </Grid>
         <Grid item lg={4} sx={{ marginLeft: '2%', display: { xs: 'none', lg: 'block' } }}>
           <SideTabs select={1} />
