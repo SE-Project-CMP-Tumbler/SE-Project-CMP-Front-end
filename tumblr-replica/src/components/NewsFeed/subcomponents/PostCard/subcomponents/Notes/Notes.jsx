@@ -13,52 +13,52 @@ import { useDispatch, useSelector } from 'react-redux';
 import NoteBox from './subcomponents/NoteBox';
 import NoteHeader from './subcomponents/NotesHeader';
 import NoteList from './subcomponents/NoteList';
-import { Display } from '../../../../../../states/features/dashboard/displayNotesListSlice';
-import { DisplayNote, HideNote } from '../../../../../../states/features/dashboard/NotesWindowSlice';
-import { getNotes, fetchNotes, addReply } from '../../../../../../states/features/dashboard/NotesSlice';
+import fetchNotes from '../../../../../../states/features/dashboard/NotesAPI';
+import AddReply from '../../../../../../states/features/dashboard/replyAPI';
+import { selectUser } from '../../../../../../states/User/UserSlice';
+
 /**
  * This function displays notes of a post and can switch between Re-blogs & replies content
  * and the list of people who have interacted with that post
  * @returns the popover that contains note info
  */
 const Notes = function NotesPopover(props) {
-  const { postId } = props;
+  const { postId, showNotes, setShowNotes } = props;
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
   // States
   const [reply, setReply] = useState('');
+  const [likes, setLikes] = useState([]);
+  const [replies, setReplies] = useState([]);
+  const [reblogs, setReblogs] = useState([]);
   const { showNoteList } = useSelector((state) => state.displayNotesList);
-
+  // eslint-disable-next-line no-unused-vars
+  const [pid, setpid] = useState(postId);
   // reducers & states
-  const { showen } = useSelector((state) => state.NoteWindow);
+  const User = useSelector(selectUser);
   const dispatch = useDispatch();
 
-  const getPostNotes = function GetNotesList() {
-    dispatch(fetchNotes(postId));
-  };
-  const { likes, replies, reblogs } = useSelector(getNotes);
   const handleClick = function ShowNotesList(event) {
-    getPostNotes();
-    dispatch(DisplayNote(event.currentTarget));
+    setShowNotes(event.currentTarget);
   };
 
   useEffect(() => {
-    getPostNotes();
-  }, []);
+    fetchNotes(postId, setLikes, setReplies, setReblogs);
+  }, [showNotes, replies, reblogs, likes]);
   const handleClose = function HideNotesList() {
-    dispatch(HideNote());
+    setShowNotes(null);
   };
 
   const handleReply = function Reply() {
     console.log(postId);
-    dispatch(addReply({ postID: postId, replyText: reply }));
+    dispatch(AddReply({ postID: postId, reply_text: reply, User }));
     setReply('');
   };
 
-  const open = Boolean(showen);
+  const open = Boolean(showNotes);
   const id = open ? 'simple-popover' : undefined;
   return (
     <>
-      { likes.length + replies.length + reblogs.length
+      { (likes.length + replies.length + reblogs.length) > 0
         && (
         <button
           type="button"
@@ -77,7 +77,7 @@ const Notes = function NotesPopover(props) {
           <Popover
             id={id}
             open={open}
-            anchorEl={showen}
+            anchorEl={showNotes}
             onClose={() => handleClose()}
             style={{ display: 'inline-block' }}
             anchorOrigin={{
@@ -93,7 +93,7 @@ const Notes = function NotesPopover(props) {
               type="button"
               style={{ border: 'none', cursor: 'pointer', background: '#ffffff' }}
               onClick={(event) => {
-                dispatch(Display((event.currentTarget)));
+                setShowNotes(event.currentTarget);
               }}
             >
               <Typography
@@ -133,13 +133,14 @@ const Notes = function NotesPopover(props) {
               {showNoteList && <NoteList />}
             </Paper>
             {!showNoteList && (
-            <Grid container direction="row" fullWidth>
-              <Grid item>
+            <Grid container direction="row">
+              <Grid item xs={10}>
                 <TextField
                   id="standard-basic"
                   variant="standard"
                   fullWidth
                   placeholder="Have something to say ?"
+                  multiline
                   value={reply}
                   onChange={(e) => {
                     setReply(e.currentTarget.value);
@@ -147,8 +148,14 @@ const Notes = function NotesPopover(props) {
                   autoComplete="false"
                 />
               </Grid>
-              <Grid item>
-                <Button color="primary" index={postId} onClick={(event) => handleReply(event)}>
+              <Grid item xs={2}>
+                <Button
+                  color="primary"
+                  index={postId}
+                  onClick={(event) => {
+                    handleReply(event);
+                  }}
+                >
                   Reply
                 </Button>
               </Grid>
@@ -164,4 +171,6 @@ const Notes = function NotesPopover(props) {
 export default Notes;
 Notes.propTypes = {
   postId: PropTypes.number.isRequired,
+  showNotes: PropTypes.instanceOf(Object).isRequired,
+  setShowNotes: PropTypes.func.isRequired,
 };

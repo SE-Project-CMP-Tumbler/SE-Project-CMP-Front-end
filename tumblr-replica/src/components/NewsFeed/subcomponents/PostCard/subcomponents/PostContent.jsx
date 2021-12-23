@@ -4,6 +4,7 @@ import { Markup } from 'interweave';
 import '../css/PostContent.css';
 import PropTypes from 'prop-types';
 import Link from '@mui/material/Link';
+import { useMediaQuery } from 'react-responsive';
 /**
  * This function displays the content of a post and extracts mentions & hashtags
  * of the post to be do the needed logic with them & link them to the corresponding components
@@ -11,6 +12,9 @@ import Link from '@mui/material/Link';
  * @returns component contains text / imgs / videos of a post
  */
 const PostContent = function PostContentDisplay(props) {
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1224px)',
+  });
   let hashtags = [];
   const mentions = [];
 
@@ -55,8 +59,8 @@ const PostContent = function PostContentDisplay(props) {
   }
 
   return (
-    <div className="postBody" style={{ maxWidth: 510, minWidth: 510 }}>
-      <Markup content={postBody} className="text" />
+    <div className="postBody" style={{ maxWidth: isDesktopOrLaptop ? 480 : 300, minWidth: isDesktopOrLaptop ? 480 : 300 }}>
+      <Markup content={postBody} />
       {hashtags.map((hash) => (
         <>
           <Link href="/" underline="hover" style={{ color: 'grey' }} key={hash}>

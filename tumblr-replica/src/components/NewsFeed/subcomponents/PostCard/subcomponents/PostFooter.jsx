@@ -13,11 +13,11 @@ import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
 import { FaRegComment } from 'react-icons/fa';
 import PropTypes from 'prop-types';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser } from '../../../../../states/User/UserSlice';
+import { UnlikePost, LikePost } from '../../../../../states/features/dashboard/likeAPI';
 import Notes from './Notes/Notes';
-import LoggedIn from '../../../../Login/Login';
-import { DisplayNote } from '../../../../../states/features/dashboard/NotesWindowSlice';
-import { addLike, deletePost, unLike } from '../../../../../states/features/dashboard/NotesSlice';
+import { deletePost } from '../../../../../states/features/dashboard/NotesSlice';
 
 const style = {
   position: 'absolute',
@@ -39,10 +39,10 @@ const PostFooter = function PostFooterButtons(props) {
   // States
   const [Liked, setLiked] = useState(false);
   const [showModel, setShowModel] = useState(false);
-
+  const [showNotes, setShowNotes] = useState(false);
+  const User = useSelector(selectUser);
   // reducers & states
   const dispatch = useDispatch();
-
   const handleDelete = function DeletePost() {
     dispatch(deletePost(postId));
     setShowModel(false);
@@ -50,19 +50,26 @@ const PostFooter = function PostFooterButtons(props) {
 
   const handleLike = function likeUnlikePost() {
     if (!Liked) {
-      dispatch(addLike(postId));
+      dispatch(LikePost({ postID: postId, User }));
     } else {
-      dispatch(unLike(postId));
+      dispatch(UnlikePost({ postID: postId, User }));
     }
     setLiked(!Liked);
   };
 
+  const handleEdit = function Edit() {
+  };
   const handleReblog = function ReblogwithCaption() {};
 
   return (
     <>
       <div className="notediv">
-        <Notes postId={postId} blog_id={blogId} />
+        <Notes
+          postId={postId}
+          blog_id={blogId}
+          showNotes={showNotes}
+          setShowNotes={setShowNotes}
+        />
       </div>
       <div className="postActions">
         <IconButton aria-label="Send to message" className="action">
@@ -72,7 +79,7 @@ const PostFooter = function PostFooterButtons(props) {
         <IconButton
           aria-label="add note"
           className="action"
-          onClick={(event) => dispatch(DisplayNote(event.currentTarget))}
+          onClick={(event) => setShowNotes(event.currentTarget)}
         >
           <FaRegComment style={{ fontSize: 25 }} />
         </IconButton>
@@ -98,7 +105,7 @@ const PostFooter = function PostFooterButtons(props) {
           )}
         </IconButton>
 
-        {LoggedIn.blog_id === blogId && (
+        {User.id === blogId && (
           <IconButton
             aria-label="Delete"
             className="action"
@@ -108,8 +115,8 @@ const PostFooter = function PostFooterButtons(props) {
           </IconButton>
         )}
 
-        {LoggedIn.blog_id === blogId && (
-          <IconButton aria-label="Edit post" className="action">
+        {User.id === blogId && (
+          <IconButton aria-label="Edit post" className="action" onClick={() => handleEdit()}>
             <EditOutlinedIcon style={{ fontSize: 25 }} />
           </IconButton>
         )}

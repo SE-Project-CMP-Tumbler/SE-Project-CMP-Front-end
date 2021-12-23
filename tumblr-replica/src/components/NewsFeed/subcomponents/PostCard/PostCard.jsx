@@ -24,7 +24,12 @@ function PostCard(props) {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
   return (
     <>
-      <Card>
+      <Card
+        style={{
+          maxWidth: isTabletOrMobile ? 300 : 480,
+          minWidth: isTabletOrMobile ? 300 : 480,
+        }}
+      >
         <CardHeader
           action={
             <MoreMenu postId={postId} blogId={blogId} postTime={postTime} />
