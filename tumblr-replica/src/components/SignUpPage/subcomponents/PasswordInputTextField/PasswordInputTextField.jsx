@@ -8,7 +8,7 @@ import { setPassword } from '../../../../states/User/UserSlice';
 // TO DO: Add the password difficulty feature
 // and pass whether it will be there or not through a prop
 
-const PasswordInputTextField = ({ marginOff, showDifficulty }) => {
+const PasswordInputTextField = ({ marginOff, showDifficulty, newPassword }) => {
   const [password, setPasswordh] = useState('');
   const dispatch = useDispatch();
   let marginBottomValue = 1;
@@ -24,7 +24,7 @@ const PasswordInputTextField = ({ marginOff, showDifficulty }) => {
       <TextField
         id="password"
         type="password"
-        placeholder="Password"
+        placeholder={newPassword ? 'New password' : 'Password'}
         value={password}
         onChange={(e) => {
           setPasswordh(e.target.value);
@@ -55,11 +55,13 @@ const PasswordInputTextField = ({ marginOff, showDifficulty }) => {
 PasswordInputTextField.propTypes = {
   marginOff: PropTypes.bool,
   showDifficulty: PropTypes.bool,
+  newPassword: PropTypes.bool,
 };
 
 PasswordInputTextField.defaultProps = {
   marginOff: false,
   showDifficulty: false,
+  newPassword: false,
 };
 
 export default PasswordInputTextField;

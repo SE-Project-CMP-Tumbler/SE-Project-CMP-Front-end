@@ -320,6 +320,75 @@ export const forgotPasswordThunkR = createAsyncThunk(
   }).then((res) => res.json()),
 );
 
+export const getResetPasswordEmailThunk = createAsyncThunk(
+  'getresetpasswordemail',
+  async (query) => fetch(`${api}/reset_password/${query.id}/${query.token}`, {
+    method: 'GET',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const getResetPasswordEmailThunkR = createAsyncThunk(
+  'getresetpasswordemailR',
+  async (query) => fetch(`${apiR}/reset_password/${query.id}/${query.token}`, {
+    method: 'GET',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+  }).then((res) => res.json()),
+);
+
+export const resetPasswordThunk = createAsyncThunk(
+  'resetpassword',
+  async (query) => fetch(`${api}/reset_password`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const resetPasswordThunkR = createAsyncThunk(
+  'resetpasswordR',
+  async (query) => fetch(`${apiR}/reset_password`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => res.json()),
+);
+
 export const deleteAccountThunk = createAsyncThunk(
   'deleteAccount',
   async (query) => fetch(`${api}/delete_user`, {
@@ -353,10 +422,7 @@ export const deleteAccountThunkR = createAsyncThunk(
       'Content-Type': 'application/json',
       Authorization: `Bearer ${query.accessToken}`,
     },
-    body: JSON.stringify({
-      email: query.body.email,
-      password: query.body.password,
-    }),
+    body: JSON.stringify(query.body),
   }).then((res) => res.json()),
 );
 
@@ -381,6 +447,7 @@ const userSlice = createSlice({
     googleAccessed: null,
     regStep: 1,
     showReVerify: true,
+    resetEmailReceived: false,
   },
   reducers: {
     /**
@@ -487,6 +554,15 @@ const userSlice = createSlice({
     */
     hideReVerify: (state) => {
       state.showReVerify = false;
+    },
+    /**
+    * This function sets resetEmailReceived with true
+    * @method
+    * @param {object} state The object that stores the value of resetEmailReceived
+    * used in executing the Reset Password Page
+    */
+    setResetEmailReceived: (state) => {
+      state.resetEmailReceived = true;
     },
     /**
     * This function sends an API request (to actual API or to JSON server) to login with Google.
@@ -887,8 +963,6 @@ const userSlice = createSlice({
     },
     [verifyEmailThunkR.rejected]: () => {
     },
-    [forgotPasswordThunk.pending]: () => {
-    },
     [resendVerificationThunk.pending]: () => {
     },
     [resendVerificationThunk.fulfilled]: (state, { payload }) => {
@@ -917,6 +991,8 @@ const userSlice = createSlice({
       }
     },
     [resendVerificationThunkR.rejected]: () => {
+    },
+    [forgotPasswordThunk.pending]: () => {
     },
     [forgotPasswordThunk.fulfilled]: (state, { payload }) => {
       if (payload.id === '') { // CASE 404
@@ -957,6 +1033,86 @@ const userSlice = createSlice({
     },
     [forgotPasswordThunkR.rejected]: () => {
     },
+    [getResetPasswordEmailThunk.pending]: () => {
+    },
+    [getResetPasswordEmailThunk.fulfilled]: (state, { payload }) => {
+      if (payload.id === '') { // CASE 404
+        // state.status = 'NOT FOUND';
+        console.log(payload.meta.msg);
+      } else { // CASE 200
+        state.user.email = payload.email;
+      }
+    },
+    [getResetPasswordEmailThunk.rejected]: () => {
+    },
+    [getResetPasswordEmailThunkR.pending]: () => {
+    },
+    [getResetPasswordEmailThunkR.fulfilled]: (state, { payload }) => {
+      if (payload.meta.status === '200') {
+        state.user.email = payload.response.email;
+        console.log('Email = ', payload.response.email);
+      } else if (payload.meta.status === '404') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      } else if (payload.meta.status === '500') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      }
+    },
+    [getResetPasswordEmailThunkR.rejected]: () => {
+    },
+    [resetPasswordThunk.pending]: () => {
+    },
+    [resetPasswordThunk.fulfilled]: (state, { payload }) => {
+      if (payload.id === '') { // CASE 404
+        state.status = 'NOT FOUND';
+      } else { // CASE 200
+        state.user.id = payload.id;
+        state.user.blogName = payload.blog_username;
+        state.user.email = payload.email;
+        state.user.primaryBlogAvatar = payload.blog_avatar;
+        state.user.accessToken = payload.access_token;
+        state.user.loggedin = true;
+        state.user.verified = payload.verified;
+        state.user.primaryBlogId = payload.response.blog_id;
+        // store the user in localStorage
+        localStorage.setItem('user', JSON.stringify(state.user));
+        window.location.replace('/dashboard');
+      }
+    },
+    [resetPasswordThunk.rejected]: () => {
+    },
+    [resetPasswordThunkR.pending]: () => {
+    },
+    [resetPasswordThunkR.fulfilled]: (state, { payload }) => {
+      if (payload.meta.status === '200') {
+        state.status = payload.meta.status;
+        state.statusMessage = '';
+        state.user.id = payload.response.id;
+        state.user.primaryBlogId = payload.response.blog_id;
+        state.user.blogName = payload.response.blog_username;
+        state.user.email = payload.response.email;
+        state.user.verified = payload.response.is_verified;
+        state.user.primaryBlogAvatar = payload.response.blog_avatar;
+        state.user.accessToken = payload.response.access_token;
+        state.user.loggedin = true;
+        // store the user in localStorage
+        localStorage.setItem('user', JSON.stringify(state.user));
+        window.location.replace('/dashboard');
+      } else if (payload.meta.status === '404') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        state.status = payload.meta.status;
+        state.statusMessage = 'Error! Please Try Again Later';
+      } else if (payload.meta.status === '422') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        state.status = payload.meta.status;
+        state.statusMessage = 'The two passwords don\'t match';
+      }
+    },
+    [resetPasswordThunkR.rejected]: () => {
+    },
     [deleteAccountThunk.pending]: () => {
     },
     [deleteAccountThunk.fulfilled]: (state, { payload }) => {
@@ -986,6 +1142,7 @@ const userSlice = createSlice({
     },
     [deleteAccountThunkR.fulfilled]: (state, { payload }) => {
       if (payload.meta.status === '200') {
+        console.log('Delete Successful!');
         localStorage.clear();
         state.user = {
           loggedin: false,
@@ -1005,6 +1162,7 @@ const userSlice = createSlice({
         console.log(payload.meta.msg);
         // window.location.replace('/dashboard');
       } else if (payload.meta.status === '404') {
+        console.log(payload.meta.msg);
         localStorage.clear();
         state.user = {
           loggedin: false,
@@ -1035,6 +1193,7 @@ const userSlice = createSlice({
 export const {
   initialCheck, setEmail, setPassword, setBlogName, setAge, logOut, signUp, continueWithGoogle,
   setRegStep, setGoogleAccessToken, setVerified, setStatusMessage, hideReVerify,
+  setResetEmailReceived,
 } = userSlice.actions;
 
 export const selectUser = (state) => state.user.user;
@@ -1044,6 +1203,8 @@ export const selectStep = (state) => state.user.regStep;
 export const selectGoogle = (state) => state.user.googleAccessed;
 
 export const selectShowReVerify = (state) => state.user.showReVerify;
+
+export const selectResetEmailReceived = (state) => state.user.resetEmailReceived;
 
 export const selectStatus = (state) => state.user.status;
 
