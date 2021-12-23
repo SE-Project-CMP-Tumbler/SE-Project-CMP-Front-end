@@ -904,7 +904,6 @@ const userSlice = createSlice({
     [verifyEmailThunk.pending]: () => {
     },
     [verifyEmailThunk.fulfilled]: (state, { payload }) => {
-      console.log('Email Verified!');
       if (payload?.id === undefined) { // CASE 500 or 422 TO BE handled later
         state.status = 'NOT FOUND';
         // eslint-disable-next-line no-console
@@ -941,6 +940,7 @@ const userSlice = createSlice({
         console.log(payload.meta.msg);
         // window.location.replace('/dashboard');
       } else if (payload.meta.status === '404') {
+        // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
         localStorage.clear();
         state.user = {
@@ -1038,6 +1038,7 @@ const userSlice = createSlice({
     [getResetPasswordEmailThunk.fulfilled]: (state, { payload }) => {
       if (payload.id === '') { // CASE 404
         // state.status = 'NOT FOUND';
+        // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
       } else { // CASE 200
         state.user.email = payload.email;
@@ -1050,6 +1051,7 @@ const userSlice = createSlice({
     [getResetPasswordEmailThunkR.fulfilled]: (state, { payload }) => {
       if (payload.meta.status === '200') {
         state.user.email = payload.response.email;
+        // eslint-disable-next-line no-console
         console.log('Email = ', payload.response.email);
       } else if (payload.meta.status === '404') {
         // eslint-disable-next-line no-console
@@ -1162,6 +1164,7 @@ const userSlice = createSlice({
         console.log(payload.meta.msg);
         // window.location.replace('/dashboard');
       } else if (payload.meta.status === '404') {
+        // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
         localStorage.clear();
         state.user = {

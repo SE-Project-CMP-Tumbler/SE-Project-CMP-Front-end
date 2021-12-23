@@ -1,10 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser, logOutThunk, logOutThunkR } from '../../../states/User/UserSlice';
 import { MOCK, REAL, SERVICETYPE } from '../../../apis/globalAPI';
-
+import { selectBlogs, fetchBlogs } from '../../../states/usertumblr/usertumblrSlice';
 /**
  * This is the component for the user profile's dropdown (last one on the right)
  * @component
@@ -12,10 +12,12 @@ import { MOCK, REAL, SERVICETYPE } from '../../../apis/globalAPI';
  */
 function ProfileDropDown() {
   const feedValues = {
-    likes: 2, following: 3, posts: 5, followers: 3, activity: 6, drafts: 3, queue: 2,
+    likes: '', following: '', posts: '', followers: '', activity: '', drafts: '', queue: '',
   };
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const blogState = useSelector(selectBlogs);
+  useEffect(() => dispatch(fetchBlogs()), []);
   return (
     <div className="drop-content user-drop-content">
       <div className="drop-header user-drop-header">
@@ -39,16 +41,19 @@ function ProfileDropDown() {
         <p>Tumblrs</p>
         <Link to="/new/blog">+ New</Link>
       </div>
-      { user.loggedin ? (
-        <UserTumblr
-          tumblrName={user.blogName}
-          tumblrTitle={user.blogName}
-          tumblrIcon={user.primaryBlogAvatar ? user.primaryBlogAvatar : './profile2.png'}
-          feedValues={feedValues}
-        />
-      )
-        : (<UserTumblr tumblrName="Jaximus" tumblrTitle="Grandmaster" tumblrIcon="./profile3.png" feedValues={feedValues} />)}
-      <UserTumblr tumblrName="Malzahar" tumblrTitle="Landlord" tumblrIcon="./profile.png" feedValues={feedValues} />
+      {(blogState.isLoading)
+        ? (<UserTumblr tumblrName="Loading..." tumblrTitle="Loading..." tumblrIcon="./profile.png" feedValues={feedValues} />)
+        : (
+          (blogState.blogs).map((blog) => (
+            <UserTumblr
+              tumblrName={blog.username}
+              tumblrTitle={blog.title}
+              tumblrIcon={blog.avatar ? blog.avatar : './profile2.png'}
+              feedValues={feedValues}
+            />
+          ))
+
+        ) }
       <BottomBar />
     </div>
   );
@@ -174,12 +179,6 @@ function UserTumblr({
             <p>{feedValues.drafts}</p>
           </div>
         </Link>
-        <Link to={`/blog/${tumblrName}/queue`}>
-          <div className="blog-option">
-            <p>Queue</p>
-            <p>{feedValues.queue}</p>
-          </div>
-        </Link>
         <Link to={`/settings/blog/${tumblrName}`}>
           <div className="blog-option">
             <p>Edit Appearance</p>
@@ -194,11 +193,11 @@ UserTumblr.propTypes = {
   tumblrName: PropTypes.string.isRequired,
   tumblrTitle: PropTypes.string.isRequired,
   tumblrIcon: PropTypes.string.isRequired,
-  feedValues: PropTypes.objectOf(PropTypes.number).isRequired,
+  feedValues: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 UserItems.propTypes = {
-  feedValues: PropTypes.objectOf(PropTypes.number).isRequired,
+  feedValues: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 /**

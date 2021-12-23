@@ -3,3 +3,16 @@
 * {
    font-family: poppins;
 }
+html 
+{
+   height: 100%;
+   background-color: rgb(6, 24, 51);
+}
+
+button {
+   cursor: pointer
+}
+
+a {
+   text-decoration: none
+}
