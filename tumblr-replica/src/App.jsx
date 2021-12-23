@@ -31,6 +31,8 @@ import StaffPicks from './components/StaffPicks/StaffPicks';
 import RightBar from './components/DrawerRightBar/DrawerRightBar';
 import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
 import NewTumblr from './components/NewTumblr/NewTumblr';
+import Following from './components/Following/Following';
+import Followers from './components/Followers/Followers';
 // import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
 // import { selectUser } from './states/user/UserSlice';
 
@@ -56,6 +58,8 @@ function App() {
       <Routes>
         <Route exact path="/" element={(user.loggedin) ? <Newsfeed /> : <LogOutHome />} />
         <Route exact path="/chat" element={<HomePage />} />
+        <Route path="/following" element={<Following />} />
+        <Route path="/followerspage" element={<Followers />} />
         <Route exact path="/dashboard" element={<Newsfeed />} />
         <Route exact path="/login" element={<LogInPage />} />
         <Route path="/onboarding" element={<RegisterWithGooglePage />} />

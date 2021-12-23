@@ -29,6 +29,10 @@ import DashReducer from './features/dashboard/dashboardSlice';
 import NotesReducer from './features/dashboard/NotesSlice';
 import usertumblrsReducer from './usertumblr/usertumblrSlice';
 import newtumblrReducer from './newtumblr/newtumblrSlice';
+// eslint-disable-next-line import/no-unresolved
+import Followreduser from '../slices/followingpage/followingpageSlice';
+// eslint-disable-next-line import/no-unresolved
+import Followerreducer from '../slices/followerspage/followerspageSlice';
 
 const store = configureStore({
   reducer: {
@@ -62,6 +66,8 @@ const store = configureStore({
     Notes: NotesReducer,
     userBlogs: usertumblrsReducer,
     newTumblr: newtumblrReducer,
+    Following: Followreduser,
+    Follower: Followerreducer,
   },
 });
 

@@ -1,0 +1,17 @@
+.check-these-blogs{
+    width: 200px;
+    height: 400px;
+    background-color: white;
+    color: black;
+    display: block;
+}
+@media screen and (max-width: 1070px) {
+    div.check-these-blogs{
+        visibility: hidden;
+    }
+}
+@media screen and (min-width: 1070px) {
+    div.check-these-blogs{
+        display: block;
+    }
+}
