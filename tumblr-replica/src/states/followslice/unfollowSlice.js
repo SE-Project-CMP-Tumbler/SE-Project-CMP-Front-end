@@ -8,7 +8,7 @@ const UnFollowAsynch = createAsyncThunk(
   'unfollow_blog/:blog_id',
   async (BlogId) => {
     console.log(BlogId, 'hi ziad');
-    const response = await FollowApi.delete('follow_blog/2', { headers: { Authorization: AuthStr, Accept: 'application/json', 'Content-Type': 'application/json' } });
+    const response = await FollowApi.delete(`follow_blog/${BlogId}`, { headers: { Authorization: AuthStr, Accept: 'application/json', 'Content-Type': 'application/json' } });
     console.log(response.data, 'zeyad');
     return response.data;
   },

@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
   faCommentMedical, faUserAlt, faEye, faHome, faCog,
 } from '@fortawesome/free-solid-svg-icons';
+import PropTypes from 'prop-types';
 import { IconButton } from '@mui/material';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -12,41 +13,47 @@ import {
 import { FollowAsynch } from '../../states/followslice/followslice';
 import { UnFollowAsynch } from '../../states/followslice/unfollowSlice';
 import { getFollowed, FollowedByAsynch } from '../../states/followslice/getfollowslice';
-
+import { getBlocked, BlockedByAsynch } from '../../states/blockSlice/getblockslice';
+import { BlockAsynch } from '../../states/blockSlice/blockslice';
+import { selectUser } from '../../states/User/UserSlice';
 import './css/ProfileNavBar.css';
 
-const MyBlog = false;
-function ProfileNavBar() {
-  const [Block, SetBlock] = useState(false);
+// const MyBlog = false;
+// _________takecare login must be handeld
+function ProfileNavBar({ BlogId }) {
   const [Open, SetOpen] = useState(false);
 
   const dispatch = useDispatch();
   React.useEffect(() => {
-    dispatch(FollowedByAsynch());
-    dispatch(fetchBlog());// will use blogId
+    dispatch(FollowedByAsynch(BlogId));
+    dispatch(fetchBlog(BlogId));// will use blogId
+    dispatch(BlockedByAsynch(BlogId));
   }, []);
-
+  const User = useSelector(selectUser);
+  // eslint-disable-next-line prefer-const
+  let BlockInit = useSelector(getBlocked).response; // will be used insted of blog.follow
   // eslint-disable-next-line prefer-const
   let FollowInit = useSelector(getFollowed).response;
   const Blog = useSelector(getBlog).response;
 
   function HandelBlock() {
-    SetBlock(true);
+    dispatch(BlockAsynch(BlogId));
+    dispatch(BlockedByAsynch(BlogId));
   }
   function HandelFollow() {
-    dispatch(FollowAsynch(Blog.id));
-    dispatch(FollowedByAsynch());
+    dispatch(FollowAsynch(BlogId));
+    dispatch(FollowedByAsynch(BlogId));
   }
   function HandelUnFollow() {
-    dispatch(UnFollowAsynch(Blog.id));
-    dispatch(FollowedByAsynch());
+    dispatch(UnFollowAsynch(BlogId));
+    dispatch(FollowedByAsynch(BlogId));
   }
 
   return (
     <div className="nav">
       <IconButton>
         <a href="https://www.tumblr.com/dashboard" target="_blank" rel="noreferrer">
-          <FontAwesomeIcon className="icons" icon={faHome} color="white" />
+          <FontAwesomeIcon data-testid="HomeIcon" className="icons" icon={faHome} color="white" />
           {' '}
 
         </a>
@@ -59,17 +66,18 @@ function ProfileNavBar() {
 
         </a>
       </IconButton>
-      {!MyBlog && (
+      {User.primaryBlogId !== BlogId && (
         <IconButton>
           <FontAwesomeIcon className="icons" icon={faCommentMedical} color="white" />
         </IconButton>
       )}
-      {!MyBlog && Open && !FollowInit.followed && <button type="button" className="btn" onClick={HandelFollow}>Follow</button>}
-      {!MyBlog && Open && FollowInit.followed && <button type="button" className="btn" onClick={HandelUnFollow}>Unfollow</button>}
-      {!MyBlog && Open && <button type="button" className="btn" onClick={HandelBlock}>{!Block ? 'Block' : 'Blocked'}</button>}
+      {User.primaryBlogId !== BlogId && Open && !FollowInit.followed && <button data-testid="FollowBtn" type="button" className="btn" onClick={HandelFollow}>Follow</button>}
+      {User.primaryBlogId !== BlogId && Open && FollowInit.followed && <button type="button" className="btn" onClick={HandelUnFollow}>Unfollow</button>}
+      {User.primaryBlogId !== BlogId && Open && BlockInit.is_blocking && <button type="button" className="btn">Blocked</button>}
+      {User.primaryBlogId !== BlogId && Open && !BlockInit.is_blocking && <button data-testid="BlockBtn" type="button" className="btn" onClick={HandelBlock}>Block</button>}
       <IconButton>
-        {!MyBlog && <FontAwesomeIcon onClick={() => SetOpen(!Open)} className="icons" icon={faUserAlt} color="white" />}
-        {MyBlog && (
+        {User.primaryBlogId !== BlogId && <FontAwesomeIcon data-testid="HumanIcon" onClick={() => SetOpen(!Open)} className="icons" icon={faUserAlt} color="white" />}
+        {User.primaryBlogId === BlogId && (
           <a href={`https://www.tumblr.com/settings/blog/${Blog.username}`}>
             <FontAwesomeIcon className="icons" icon={faCog} color="white" />
             {' '}
@@ -80,4 +88,10 @@ function ProfileNavBar() {
     </div>
   );
 }
+ProfileNavBar.propTypes = {
+  BlogId: PropTypes.func.isRequired,
+  /**
+* if user click the close button it will be call function HandelClose
+*/
+};
 export default ProfileNavBar;

@@ -14,12 +14,13 @@ import {
 import { UnFollowAsynch } from '../../states/followslice/unfollowSlice';
 import { FollowAsynch } from '../../states/followslice/followslice';
 import { getFollowed, FollowedByAsynch } from '../../states/followslice/getfollowslice';
-import { getBlocked } from '../../states/blockSlice/getblockslice';
-import { getBlock, BlockAsynch, UnBlockAsynch } from '../../states/blockSlice/blockslice';
+import { getBlocked, BlockedByAsynch } from '../../states/blockSlice/getblockslice';
+import { BlockAsynch } from '../../states/blockSlice/blockslice';
+import { UnBlockAsynch } from '../../states/blockSlice/unblockslice';
+import { selectUser } from '../../states/User/UserSlice';
 import './css/DrawerMenu.css';
 
 const ITEM_HEIGHT = 48;
-const MyBlog = false;
 /**
  * Component for showing menu items of the returnd blog_id.
  *
@@ -34,23 +35,23 @@ const MyBlog = false;
  */
 
 export default function LongMenu({ BlogId }) {
+  console.log(BlogId, 'blog id from menu');
   const IsTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
   const [anchorEl, setAnchorEl] = useState(null);
   const dispatch = useDispatch();// use BlogId
-  const BlockInit = useSelector(getBlocked).response; // will be used insted of blog.follow
-  const [Block, setBlock] = useState(BlockInit.block);// will be changed
-  // React.useEffect(() => {
-  //   dispatch(fetchBlog()); // use BlogID here
-  //   dispatch(FollowedByAsynch()); // not needed
-  //   // dispatch(BlockedByAsynch(setBlock)); // the only one should be fetshed
-  // }, []);
+  React.useEffect(() => {
+    dispatch(FollowedByAsynch(BlogId)); // not needed
+    dispatch(BlockedByAsynch(BlogId)); // the only one should be fetshed
+  }, []);
+  const User = useSelector(selectUser);
+  // eslint-disable-next-line prefer-const
+  let BlockInit = useSelector(getBlocked).response; // will be used insted of blog.follow
   /* takecare from the logic here */
   const blog = useSelector(getBlog).response;
-  console.log(BlogId);
   // eslint-disable-next-line prefer-const
   let FollowInit = useSelector(getFollowed).response;
   // let BlockStatue = useSelector(getBlock).meta;
-  const [LogOut, SetLogOut] = useState(false);
+  const [LogOut, SetLogOut] = useState(false); // insted of it i will use User.loggedin
   const [open, setOpen] = useState(false);
   const HandelClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -66,12 +67,12 @@ export default function LongMenu({ BlogId }) {
     setOpen(false);
   };
   const HandelUnfollow = () => {
-    dispatch(UnFollowAsynch(blog.id));
-    dispatch(FollowedByAsynch());
+    dispatch(UnFollowAsynch(BlogId));
+    dispatch(FollowedByAsynch(BlogId));
   };
   const HandelFollow = () => {
-    dispatch(FollowAsynch(blog.id));
-    dispatch(FollowedByAsynch());
+    dispatch(FollowAsynch(BlogId));
+    dispatch(FollowedByAsynch(BlogId));
   };
   const HandelFollowing = () => {
     // will send him to the following page
@@ -86,31 +87,12 @@ export default function LongMenu({ BlogId }) {
     HandelClose();
   };
   const HandelBlock = () => {
-    dispatch(UnBlockAsynch(blog.id));
-    const BlockStatue = useSelector(getBlock).meta;
-    if (BlockStatue.status === '200') {
-      setBlock(true);
-    } else if (BlockStatue.status === '401') {
-      console.log('UnAutharized');
-    } else if (BlockStatue.status === '403') {
-      console.log('forbidden');
-    } else if (BlockStatue.status === '401') {
-      console.log('UnAutharized');
-    }
+    dispatch(BlockAsynch(BlogId, User.id));
+    dispatch(BlockedByAsynch(BlogId, User.id));
   };
   const HandelUnblock = () => {
-    // dispatch(unblock());
-    dispatch(BlockAsynch(blog.id));
-    const BlockStatue = useSelector(getBlock).meta;
-    if (BlockStatue.status === '200') {
-      setBlock(true);
-    } else if (BlockStatue.status === '401') {
-      console.log('UnAutharized');
-    } else if (BlockStatue.status === '403') {
-      console.log('forbidden');
-    } else if (BlockStatue.status === '401') {
-      console.log('UnAutharized');
-    }
+    dispatch(UnBlockAsynch(BlogId, User.id));
+    dispatch(BlockedByAsynch(BlogId, User.id));
   };
   const HandelLogOut = () => {
     SetLogOut(!LogOut);
@@ -141,14 +123,14 @@ export default function LongMenu({ BlogId }) {
         }}
 
       >
-        {!LogOut && IsTabletOrMobile && FollowInit.followed && !MyBlog && <MenuItem className="menu-item" onClick={HandelUnfollow}>Unfollow</MenuItem>}
-        {!LogOut && IsTabletOrMobile && !FollowInit.followed && !MyBlog && <MenuItem className="menu-item" onClick={HandelFollow}>Follow</MenuItem>}
-        {LogOut && IsTabletOrMobile && <MenuItem className="menu-item" onClick={HandelLogOut}>Follow</MenuItem>}
-        {!LogOut && <MenuItem className="menu-item" onClick={HandelFollowing}><a href={`https://www.tumblr.com/followed/by/${blog.username}`}>Following</a></MenuItem>}
+        {!LogOut && IsTabletOrMobile && FollowInit.followed && User.primaryBlogId !== BlogId && <MenuItem className="menu-item" onClick={HandelUnfollow}>Unfollow</MenuItem>}
+        {!LogOut && IsTabletOrMobile && !FollowInit.followed && User.primaryBlogId !== BlogId && <MenuItem className="menu-item" onClick={HandelFollow}>Follow</MenuItem>}
+        { LogOut && IsTabletOrMobile && <MenuItem className="menu-item" onClick={HandelLogOut}>Follow</MenuItem>}
+        {!LogOut && blog.share_followings && <MenuItem className="menu-item" onClick={HandelFollowing}><a href={`https://www.tumblr.com/followed/by/${blog.username}`}>Following</a></MenuItem>}
         {!LogOut && blog.allow_ask && <MenuItem className="menu-item" onClick={HandelAsk}><a href={`https://${blog.username}.tumblr.com/ask`} target="blank">Ask</a></MenuItem>}
         {!LogOut && blog.allow_submittions && <MenuItem className="menu-item" onClick={HandelSubmit}><a href={`https://${blog.username}.tumblr.com/submit`} target="blank">Submit</a></MenuItem>}
-        {!LogOut && Block && !MyBlog && <MenuItem className="menu-item" onClick={HandelUnblock}>Unblock</MenuItem>}
-        {!LogOut && !Block && !MyBlog && <MenuItem className="red-menuitem" onClick={HandelBlock}>Block</MenuItem>}
+        {!LogOut && BlockInit.is_blocking && User.primaryBlogId !== BlogId && <MenuItem className="menu-item" onClick={HandelUnblock}>Unblock</MenuItem>}
+        {!LogOut && !BlockInit.is_blocking && User.primaryBlogId !== BlogId && <MenuItem className="red-menuitem" onClick={HandelBlock}>Block</MenuItem>}
         <MenuItem className="menu-item" onClick={HandelClose}>Close</MenuItem>
       </Menu>
     </div>

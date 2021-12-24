@@ -16,9 +16,9 @@
   object-fit: cover;
   position: absolute;
   display: block;
-  left: 45%;
+  left: 44%;
   top: 16rem;
-  border:8px solid #245272;
+  border:8px solid #061833;
 }
 .circle-profile{
   width: 160px;
@@ -26,10 +26,10 @@
   object-fit: cover;
   position: absolute;
   display: block;
-  left: 45%;
+  left: 44%;
   border-radius: 100%;
   top: 16rem;
-  border:8px solid #245272;
+  border:8px solid #061833;
 }
 
 .text{
@@ -56,6 +56,7 @@
   font-family: 'Gibson', sans-serif, "Helvetica Neue", HelveticaNeue, Arial, sans-serif;
   font-weight: bold;
   width: 97%;
+  color:inherit;
 }
 .description{
   border: none;
@@ -65,6 +66,7 @@
   margin: 20px 0 0;
   display: block;
   vertical-align: baseline;
+  color:inherit;
 }
 .navv{
   overflow: hidden;
@@ -226,4 +228,9 @@ label{
   font-weight: bold;
   cursor: pointer;
   font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+.not-found{
+  text-align: center;
+  font-size: xx-large;
+  color: red;
 }

@@ -5,8 +5,8 @@ const USER_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjo
 const AuthStr = `Bearer ${USER_TOKEN}`;
 const fetchBlog = createAsyncThunk(
   'blog/getblog',
-  async () => {
-    const response = await BlogApi.get('blog/2', { headers: { Authorization: AuthStr } });
+  async (BlogId) => {
+    const response = await BlogApi.get(`blog/${BlogId}`, { headers: { Authorization: AuthStr } });
     console.log(response.data);
     return response.data;
   },

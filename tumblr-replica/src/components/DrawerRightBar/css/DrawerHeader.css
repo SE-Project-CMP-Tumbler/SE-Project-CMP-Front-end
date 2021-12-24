@@ -1,4 +1,4 @@
-.cover{
+.cover-drawer{
     width:100%;
     height: 300px;
     object-fit:cover;
@@ -6,45 +6,34 @@
     z-index: 0;
 }
 .Body{
-    background-color: #245272;
+    background-color: #061833;
     height: 1500px;
     position: relative;
 }
-.square-profile{
+.square-profile-drawer{
     width: 160px;
     height: 160px;
     object-fit: cover;
     position: absolute;
     display: block;
-    left: 40%;
+    left: 39% !important ;
     top: 13rem;
-    border:8px solid #245272;
+    border: 8px solid #061833;
 }
-.circle-profile{
+.circle-profile-drawer{
     width: 160px;
     height: 160px;
     object-fit: cover;
     position: absolute;
     display: block;
-    left: 40%;
+    left: 39% !important ;
     border-radius: 100%;
     top: 13rem;
-    border:8px solid #245272;
+    border: 8px solid #061833;
 }
 
-/* .title{
-    font-family: "Sans Serif";
-    font-weight: bold;
-    font-size: 34px;
-} */
-/* .text{
-    position: absolute;
-    top:45%;
-    left: 40%;
-    text-align: center;
-    color: black;
-} */
-.text{
+
+.text-drawer{
     border: none;
     font: inherit;
     font-size: 100%;
@@ -52,9 +41,9 @@
     padding: 0;
     vertical-align: baseline;
     text-align: center;
-    color: #a59cb6;
+    color: #a59cb6 !important ;
 }
-.title{
+.title-drawer{
     flex: 0 0 auto;
     font-size: 42px;
     line-height: 1.2;
@@ -66,16 +55,19 @@
     text-align: center;
     text-overflow: ellipsis;
     width: 97%;
+    color: inherit;
 }
-.description{
+.description-drawer{
     border: none;
     font: inherit;
     font-size: 100%;
     margin: 0;
     padding-left: 18px;
     vertical-align: baseline;
+    color: inherit;
 }
-.posts{
+.posts-drawer{
     margin-top: 100px;
     text-align: center;
+    color: inherit;
 }

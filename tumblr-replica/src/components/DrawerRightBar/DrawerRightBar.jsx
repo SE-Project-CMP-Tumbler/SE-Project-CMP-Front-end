@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { Drawer } from '@mui/material';
-import PropTypes from 'prop-types';
 import { makeStyles } from '@mui/styles';
 import { useMediaQuery } from 'react-responsive';
+import { useParams, useNavigate } from 'react-router-dom';
 import Header from './DrawerHeader';
 import './css/DrawerRightBar.css';
 
@@ -25,8 +25,11 @@ const useStyles = makeStyles({
  * )
  */
 
-function RightBar({ BlogID }) {
-  const [Open, setOpening] = useState(false);
+function RightBar() {
+  const { blogid } = useParams();
+  console.log(blogid, 'drawer id');
+  const navigate = useNavigate();
+  const [Open, setOpening] = useState(true);
   const [OpenChat, setOpenChat] = useState(false);
   const IsTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
 
@@ -34,9 +37,7 @@ function RightBar({ BlogID }) {
 * toggelDrawer open drawer state to uodate the drawer state
 * @param   {hook} setOpening  hook for updating drawer state
 */
-  function toggelDrawer() {
-    setOpening(!Open);
-  }
+
   /**
  * closing the drawer and make open=false
  * @param   {hook} setOpening  hook for updating drawer state
@@ -44,6 +45,7 @@ function RightBar({ BlogID }) {
   function handelCloseDrawer() {
     setOpening(false);
     setOpenChat(false);
+    navigate(-1);
   }
 
   // function OpenTheChat() {
@@ -56,7 +58,6 @@ function RightBar({ BlogID }) {
   const classes = useStyles();
   return (
     <div>
-      <button type="button" onClick={toggelDrawer}> Open Drawer</button>
       {/* <button type="button" onClick={OpenTheChat}> Open chat</button> */}
       <div className="drawer">
 
@@ -75,7 +76,7 @@ function RightBar({ BlogID }) {
                 setOpenChat(true);
                 console.log('Openn chat');
               }}
-              BlogId={BlogID}
+              BlogId={blogid}
             />
           </div>
           {/* this part for  integrating chat module */}
@@ -91,10 +92,5 @@ function RightBar({ BlogID }) {
     </div>
   );
 }
-RightBar.propTypes = {
-  BlogID: PropTypes.func.isRequired,
-  /**
-* if user click the close button it will be call function HandelClose
-*/
-};
+
 export default RightBar;

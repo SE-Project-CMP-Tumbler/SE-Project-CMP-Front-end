@@ -15,8 +15,9 @@ import {
 import { FollowAsynch } from '../../states/followslice/followslice';
 import { UnFollowAsynch } from '../../states/followslice/unfollowSlice';
 import { getFollowed, FollowedByAsynch } from '../../states/followslice/getfollowslice';
+import { selectUser } from '../../states/User/UserSlice';
 
-const MyBlog = false;
+// const MyBlog = true;
 
 /**
  * Component for showing navBar of the returned blog id
@@ -34,17 +35,19 @@ const MyBlog = false;
  */
 
 function NavBar({ CloseClicked, OpenChatClicked, BlogId }) {
+  console.log(BlogId, 'blog id from navBar');
   const IsTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
   const dispatch = useDispatch();
 
   React.useEffect(() => {
-    dispatch(FollowedByAsynch());
-    dispatch(fetchBlog());// will use blogId
+    dispatch(FollowedByAsynch(BlogId));
+    dispatch(fetchBlog(BlogId));// will use blogId
   }, []);
 
   // eslint-disable-next-line prefer-const
   let FollowInit = useSelector(getFollowed).response;
   const Blog = useSelector(getBlog).response;
+  const User = useSelector(selectUser);
 
   /**
  * toggel follow state from when the user click follow button
@@ -52,21 +55,21 @@ function NavBar({ CloseClicked, OpenChatClicked, BlogId }) {
  */
   function HandelFollow() {
     console.log('follow called');
-    dispatch(FollowAsynch(Blog.id));
+    dispatch(FollowAsynch(BlogId));
     console.log('follow back');
-    dispatch(FollowedByAsynch());
+    dispatch(FollowedByAsynch(BlogId));
   }
   function HandelUnFollow() {
-    dispatch(UnFollowAsynch(Blog.id));
-    dispatch(FollowedByAsynch());
+    dispatch(UnFollowAsynch(BlogId));
+    dispatch(FollowedByAsynch(BlogId));
   }
 
   return (
 
-    <div className="nav">
+    <div className="nav-drawer">
       <div className="make-left">
         <IconButton className="exit-btn">
-          <FontAwesomeIcon data-testid="CloseBtn" onClick={CloseClicked} icon={faTimes} color="white" className="x" />
+          <FontAwesomeIcon data-testid="CloseBtn" onClick={CloseClicked} icon={faTimes} color="white" className="x icons-drawer" />
         </IconButton>
 
         <a href={`https://${Blog.username}.tumblr.com/`} className="user-account">{`${Blog.username}.tumblr.com`}</a>
@@ -84,12 +87,12 @@ function NavBar({ CloseClicked, OpenChatClicked, BlogId }) {
         }
 
         <IconButton>
-          {!MyBlog && <FontAwesomeIcon onClick={OpenChatClicked} icon={faCommentMedical} color="white" className="messages" />}
-          {MyBlog && <FontAwesomeIcon icon={faCog} color="white" className="messages" />}
+          {User.primaryBlogId !== BlogId && <FontAwesomeIcon onClick={OpenChatClicked} icon={faCommentMedical} color="white" className="messages icons-drawer" />}
+          {User.primaryBlogId === BlogId && <FontAwesomeIcon icon={faCog} color="white" data-testid="MessagesBtn" className="messages icons-drawer" />}
         </IconButton>
-        <Menu BlogID={BlogId} />
-        {!FollowInit.followed && (!IsTabletOrMobile && !MyBlog) && <button data-testid="FollowBtn" type="button" className="btn" onClick={HandelFollow}>Follow</button>}
-        {FollowInit.followed && (!IsTabletOrMobile && !MyBlog) && <button data-testid="FollowBtn" type="button" className="btn" onClick={HandelUnFollow}>Unfollow</button>}
+        <Menu BlogId={BlogId} />
+        {!FollowInit.followed && (!IsTabletOrMobile && User.id !== BlogId) && <button data-testid="FollowBtn" type="button" className="btn-drawer" onClick={HandelFollow}>Follow</button>}
+        {FollowInit.followed && (!IsTabletOrMobile && User.id !== BlogId) && <button data-testid="FollowBtn" type="button" className="btn-drawer" onClick={HandelUnFollow}>Unfollow</button>}
       </div>
     </div>
   );
