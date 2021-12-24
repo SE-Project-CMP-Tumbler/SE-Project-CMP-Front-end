@@ -18,7 +18,7 @@ import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
-import { initialCheck, selectUser } from './states/User/UserSlice';
+import { initialCheck } from './states/User/UserSlice';
 import { getBlogs, fetchBlogs } from './states/blogslice/blogsslice';
 import { getBlog } from './states/blogslice/blogslice';
 import TextPosts from './components/TextPosts/TextPosts';
@@ -43,11 +43,9 @@ import BlogMessages from './components/Messages/BlogMessages';
 import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
 import NewTumblr from './components/NewTumblr/NewTumblr';
 
-
 function App() {
   const dispatch = useDispatch();
   dispatch(initialCheck());
-  const user = useSelector(selectUser);
   React.useEffect(() => {
     dispatch(fetchBlogs());
   }, []);
@@ -61,11 +59,9 @@ function App() {
         <MediaQuery minWidth={1070}>
           <NavigationBar />
         </MediaQuery>
-        {
-          <MediaQuery maxWidth={1070}>
-            <NavigationBarResp />
-          </MediaQuery> && user.loggedin
-        }
+        <MediaQuery maxWidth={1070}>
+          <NavigationBarResp />
+        </MediaQuery>
 
       </div>
       <Routes>
