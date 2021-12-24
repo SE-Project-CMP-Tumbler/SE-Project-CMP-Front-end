@@ -23,7 +23,7 @@ function ProfileDropDown() {
       <div className="drop-header user-drop-header">
         <p>Account</p>
         <Link
-          to="/logout"
+          to="/"
           onClick={() => {
             if (SERVICETYPE === MOCK) {
               dispatch(logOutThunk(user.accessToken));

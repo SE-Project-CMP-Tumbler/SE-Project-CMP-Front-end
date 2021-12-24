@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { GlobalStyles, Button } from '@mui/material';
@@ -11,6 +11,7 @@ import { createTheme, ThemeProvider } from '@mui/material/styles';
 import HereIsWhatIsTrendingButton from '../LogOutHomePage/subcomponents/HereIsWhatIsTrendingButton/HereIsWhatIsTrendingButton';
 import {
   setBlogName, setAge, selectUser, registerWithGoogleThunk, registerWithGoogleThunkR,
+  selectStatusMessage, setStatusMessage,
 } from '../../states/User/UserSlice';
 import background from '../LogOutHomePage/placeholder.jpg';
 import { MOCK, REAL, SERVICETYPE } from '../../apis/globalAPI';
@@ -23,6 +24,10 @@ const RegisterWithGooglePage = () => {
   const [age, setAgeh] = useState('');
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const message = useSelector(selectStatusMessage);
+  useEffect(() => {
+    dispatch(setStatusMessage());
+  }, []);
   if (user.loggedIn === true) {
     window.location.replace('/dashboard');
   }
@@ -53,7 +58,7 @@ const RegisterWithGooglePage = () => {
             color: '#FFFFFF',
           }}
         >
-          <Link to="/logout" style={{ textDecoration: 'none' }}>
+          <Link to="/" style={{ textDecoration: 'none' }}>
             <Typography component="h2" color="white" fontSize="4.5rem" font='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;' sx={{ fontWeight: 'bold' }}>
               {title}
             </Typography>
@@ -79,6 +84,32 @@ const RegisterWithGooglePage = () => {
               }
             }}
           >
+            { message === '' ? (<Box />)
+              : (
+                <Box
+                  sx={{
+                    borderRadius: 1,
+                    marginBottom: 1.5,
+                    display: 'flex',
+                    flexDirection: 'column',
+                    alignItems: 'center',
+                    color: '#FFFFFF',
+                    padding: '14px 15px',
+                    backgroundColor: '#00000040',
+                    textAlign: 'center',
+                    fontSize: '0.875rem',
+                    font: '"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;',
+                  }}
+                >
+                  <Typography
+                    component="h2"
+                    fontSize="0.875rem"
+                    font='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;'
+                  >
+                    {message}
+                  </Typography>
+                </Box>
+              )}
             <Box fullWidth sx={{ mb: 1 }}>
               <TextField
                 id="blog-name"
