@@ -18,7 +18,7 @@ import { getDraftposts, fetchAsyncdraftposts } from '../../states/features/draft
  * )
  */
 function Drafts() {
-  const blogId = 2026;
+  const blogId = 14;
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchAsyncdraftposts(blogId));
@@ -36,7 +36,16 @@ function Drafts() {
               borderRadius: 1,
             }}
           />
-          <PostsList Posts={Posts} />
+          { Posts.response.posts && Posts.response.posts.length === 0
+            ? (
+              <Box sx={{
+                margin: '30%', marginTop: 10, color: 'white', fontSize: 18,
+              }}
+              >
+                <img alt="empty" src="https://img.icons8.com/ios/170/ffffff/empty-set.png" />
+                <div>No drafts available</div>
+              </Box>
+            ) : (<PostsList Posts={Posts} />)}
         </Grid>
         <Grid item lg={4} sx={{ marginLeft: '2%', display: { xs: 'none', lg: 'block' } }}>
           <SideTabs select={4} />

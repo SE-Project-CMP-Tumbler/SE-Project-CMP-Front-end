@@ -2,6 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Carousel from 'react-multi-carousel';
 import 'react-multi-carousel/lib/styles.css';
+import ReactLoading from 'react-loading';
 import { useSelector } from 'react-redux';
 import { getTrendtags } from '../../../states/features/trendtag/trendtagSlice';
 import TrendCard from '../../TrendCard/TrendCard';
@@ -38,6 +39,7 @@ const responsive = {
  */
 export default function LcarouselTrend() {
   const trendTags = useSelector(getTrendtags);
+  console.log(trendTags);
   return (
     <Box sx={{ width: '100%' }}>
       { trendTags.meta.status === '200'
@@ -47,20 +49,8 @@ export default function LcarouselTrend() {
               <TrendCard image1={trendTags.response.tags[0].tag_image} tag={trendTags.response.tags[0].tag_description} color="rgb(58 73 54)" number="1" />
               <TrendCard image1={trendTags.response.tags[1].tag_image} tag={trendTags.response.tags[1].tag_description} color="rgb(64 54 40)" number="2" />
             </div>
-            <div>
-              <TrendCard image1={trendTags.response.tags[2].tag_image} tag={trendTags.response.tags[2].tag_description} color="rgb(64 37 52)" number="3" />
-              <TrendCard image1={trendTags.response.tags[3].tag_image} tag={trendTags.response.tags[3].tag_description} color="rgb(64 44 92)" number="4" />
-            </div>
-            <div>
-              <TrendCard image1={trendTags.response.tags[4].tag_image} tag={trendTags.response.tags[4].tag_description} color="rgb(31 42 104)" number="5" />
-              <TrendCard image1={trendTags.response.tags[5].tag_image} tag={trendTags.response.tags[5].tag_description} color="rgb(0 71 53)" number="6" />
-            </div>
-            <div>
-              <TrendCard image1={trendTags.response.tags[6].tag_image} tag={trendTags.response.tags[6].tag_description} color="rgb(58 73 54)" number="7" />
-              <TrendCard image1={trendTags.response.tags[7].tag_image} tag={trendTags.response.tags[7].tag_description} color="rgb(64 54 40)" number="8" />
-            </div>
           </Carousel>
-        ) : <h3>Loading</h3>}
+        ) : <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>}
     </Box>
   );
 }

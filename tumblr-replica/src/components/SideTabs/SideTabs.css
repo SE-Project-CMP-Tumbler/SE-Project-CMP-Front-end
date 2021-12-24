@@ -5,3 +5,16 @@
     color: white;
     margin-top: '20px';
 }
+.h3{
+    font-family: poppins;
+    margin-left: 18px;
+    margin-top: 40px;
+    font-weight: normal;
+}
+.h31{
+    font-family: poppins;
+    margin-left: 18px;
+    color: rgba(255, 255, 255, 0.459);
+    margin-top: -10px;
+    font-weight: normal;
+}

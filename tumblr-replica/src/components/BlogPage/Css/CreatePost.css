@@ -1,0 +1,10 @@
+.FOqaP{
+    height: 90px;
+    width: 70px;
+    cursor: pointer;
+    text-align: center;
+}
+.FOqaP:hover {
+  /*  Making button bigger on hover  */
+    transform: scale(1.1) perspective(0.5px)
+  }

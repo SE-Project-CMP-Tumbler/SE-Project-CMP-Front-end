@@ -2,12 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { api, apiR } from '../../../apis/globalAxpi';
 import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
-const fetchAsyncblogposts = createAsyncThunk(
-  'posts/{blog_id}',
+const fetchAsyncbloginfo = createAsyncThunk(
+  'blog/:blog_id',
   async (BlogId, { getState }) => {
     if (SERVICETYPE === MOCK) {
       try {
-        const response = await api.get('blogposts');
+        const response = await api.get('bloginfo');
         return response.data;
       } catch (error) {
         throw Error(error);
@@ -19,7 +19,7 @@ const fetchAsyncblogposts = createAsyncThunk(
         const USERTOKEN = state.user.user.accessToken;
         console.log(USERTOKEN);
         const AuthStr = `Bearer ${USERTOKEN}`;
-        const response = await apiR.get(`post/submission/${BlogId}`, { headers: { Authorization: AuthStr } });
+        const response = await apiR.get(`blog/${BlogId}`, { headers: { Authorization: AuthStr } });
         console.log(response.data);
         return response.data;
       } catch (e) {
@@ -30,29 +30,29 @@ const fetchAsyncblogposts = createAsyncThunk(
 );
 
 const initialState = {
-  blogposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  bloginfo: { response: { }, meta: { status: '000', msg: 'Loading' } },
 };
 
-const blogpostsSlice = createSlice({
-  name: 'blogposts',
+const bloginfoSlice = createSlice({
+  name: 'bloginfo',
   initialState,
   reducers: {},
   extraReducers: {
-    [fetchAsyncblogposts.pending]: () => {
+    [fetchAsyncbloginfo.pending]: () => {
       // console.log('Pending');
     },
-    [fetchAsyncblogposts.fulfilled]:
-     (state, { payload }) => ({ ...state, blogposts: payload }),
-    [fetchAsyncblogposts.rejected]: () => {
+    [fetchAsyncbloginfo.fulfilled]:
+     (state, { payload }) => ({ ...state, bloginfo: payload }),
+    [fetchAsyncbloginfo.rejected]: () => {
       // console.log('Rejected!');
     },
   },
 });
 
-const getBlogposts = (state) => state.blogposts.blogposts;
-const blogpostsReducer = blogpostsSlice.reducer;
+const getBloginfo = (state) => state.bloginfo.bloginfo;
+const bloginforeducer = bloginfoSlice.reducer;
 export {
-  getBlogposts,
-  fetchAsyncblogposts,
+  getBloginfo,
+  fetchAsyncbloginfo,
 };
-export default blogpostsReducer;
+export default bloginforeducer;

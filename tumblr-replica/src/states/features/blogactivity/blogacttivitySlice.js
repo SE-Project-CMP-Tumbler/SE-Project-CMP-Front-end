@@ -2,12 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { api, apiR } from '../../../apis/globalAxpi';
 import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
-const fetchAsyncblogposts = createAsyncThunk(
-  'posts/{blog_id}',
-  async (BlogId, { getState }) => {
+const fetchAsyncblogactivity = createAsyncThunk(
+  'blog_activity/:blog_id',
+  async (Blogid, { getState }) => {
     if (SERVICETYPE === MOCK) {
       try {
-        const response = await api.get('blogposts');
+        const response = await api.get('blogactivity');
         return response.data;
       } catch (error) {
         throw Error(error);
@@ -19,7 +19,7 @@ const fetchAsyncblogposts = createAsyncThunk(
         const USERTOKEN = state.user.user.accessToken;
         console.log(USERTOKEN);
         const AuthStr = `Bearer ${USERTOKEN}`;
-        const response = await apiR.get(`post/submission/${BlogId}`, { headers: { Authorization: AuthStr } });
+        const response = await apiR.get(`blog_activity/${Blogid}`, { headers: { Authorization: AuthStr } });
         console.log(response.data);
         return response.data;
       } catch (e) {
@@ -30,29 +30,29 @@ const fetchAsyncblogposts = createAsyncThunk(
 );
 
 const initialState = {
-  blogposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  blogactivity: { response: { }, meta: { status: '000', msg: 'Loading' } },
 };
 
-const blogpostsSlice = createSlice({
-  name: 'blogposts',
+const blogactivitySlice = createSlice({
+  name: 'blogactivity',
   initialState,
   reducers: {},
   extraReducers: {
-    [fetchAsyncblogposts.pending]: () => {
+    [fetchAsyncblogactivity.pending]: () => {
       // console.log('Pending');
     },
-    [fetchAsyncblogposts.fulfilled]:
-     (state, { payload }) => ({ ...state, blogposts: payload }),
-    [fetchAsyncblogposts.rejected]: () => {
+    [fetchAsyncblogactivity.fulfilled]:
+     (state, { payload }) => ({ ...state, blogactivity: payload }),
+    [fetchAsyncblogactivity.rejected]: () => {
       // console.log('Rejected!');
     },
   },
 });
 
-const getBlogposts = (state) => state.blogposts.blogposts;
-const blogpostsReducer = blogpostsSlice.reducer;
+const getBlogactivity = (state) => state.blogactivity.blogactivity;
+const blogactivityreducer = blogactivitySlice.reducer;
 export {
-  getBlogposts,
-  fetchAsyncblogposts,
+  getBlogactivity,
+  fetchAsyncblogactivity,
 };
-export default blogpostsReducer;
+export default blogactivityreducer;
