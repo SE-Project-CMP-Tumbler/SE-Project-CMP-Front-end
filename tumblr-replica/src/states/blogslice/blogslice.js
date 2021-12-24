@@ -1,82 +1,42 @@
-// createEntotyAdabtor let me update without need to write the logic of the reducer
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import BlogApi from '../../apis/BlogApi';
 
-const initialState = {
-  isLoggedIn: true,
-  loading: false,
-  error: null,
-  user: {},
-};
-
+const USER_TOKEN = 'eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIxIiwianRpIjoiMDU2MGM5MTUzMjQ0NDc3NWVlYWViYzIwZTQyNjZiMmM4MWY5M2FhOWFiNDQ2ZTEwYTIxZTY5NDYwMDRmOTljOTFhMmNiNTBlZGMyMDUyZTQiLCJpYXQiOjE2NDAxMjUwMDUuNjM5ODAyLCJuYmYiOjE2NDAxMjUwMDUuNjM5ODA2LCJleHAiOjE2NzE2NjEwMDUuNjM2NjI0LCJzdWIiOiI0Iiwic2NvcGVzIjpbXX0.avTBVm-XObWmxPuMdCrkuNmJ_2tfa-mBDeVauZdxd8zAyf7mwjBYtiCNrkWHWry35exuTdX33nKi-_bxSucjtavYoL0xH1MCWD32sJ8QZppF7x2B1tW4TgFivA-MhjSISPZ0JjKnqpOAIH0CYQSSsEf_Hw1c7sBlcTCbjP_Zt03ps75lQfSmzl3qIWsNovlmIQj70WkwkDvdO7FF_KhUDG8NMm-eHfWM_Qf54CGSdma4ZxSf73vNotoC7NyadAKvnxR8yuT76GBk1kcF0UhA9l3cw_tEGRlCZg4zu30GcyJDoSU0Qg2Jp6a6GbLh7tjZWBKIMMAyq9FmjbTB4_9-pG_oWv75lUANyeEfWfWGi8rJ62MRbQpuikJ0O7XuqfMMwCFjM9Aja22lEtwYFZl5Al8-78uudj8ek4xO2wtlSgISpJieXp_qlpvYVnn-xuV-wmdPyjuspZAzCYYiL3UpuR3PvqOQiMdXgeJB9kZj6vBq8fKg8zP6sbOF8qVuFis7mTTdU_mCwyuONn8NLxFLK8L0CYCvyNIPxj35oRfDH_sf-OiEO155m6MWnIIx7zXWg9yhNJQBHxM3fM8GSq_XbJHyEqk5pUkVq5JkOIzkNrqRLZXwDPzPSZ2ppAqivLqqQx3kXPXmivjax2bZFTw69ZEreuXiNm8dHCoaXHuhjyA';
+const AuthStr = `Bearer ${USER_TOKEN}`;
 const fetchBlog = createAsyncThunk(
   'blog/getblog',
-  async () => {
-    try {
-      const response = await fetch('http://localhost:8000/response');
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      throw Error(error);
-    }
+  async (BlogId) => {
+    const response = await BlogApi.get(`blog/${BlogId}`, { headers: { Authorization: AuthStr } });
+    console.log(response.data);
+    return response.data;
   },
 );
 
-const blogSlice = createSlice({
-  name: 'Blog',
-  initialState,
-  reducers: {
-    // is for adding actions like follow etc...
-    follow(state) {
-      // console.log('follow is called');
-      const st = state;
-      st.user.follow = true;
-    },
-    unFollow(state) {
-      // console.log('unfollow is called');
-      const st = state;
-      st.user.follow = false;
-    },
-    block(state) {
-      const st = state;
-      st.user.block = true;
-    },
-    unblock(state) {
-      const st = state;
-      st.user.block = false;
-    },
-
+const initialState = {
+  blog: {
+    response: {},
+    meta: { status: '000', msg: 'Loading' },
   },
+};
+
+const BlogSlice = createSlice({
+  name: 'blog',
+  initialState,
+  reducers: {},
   extraReducers: {
-    [fetchBlog.pending]: (state) => {
-      const st = state;
-      st.loading = true;
-      st.error = null;
+    [fetchBlog.pending]: () => {
+      // console.log('Pending');
     },
-    [fetchBlog.fulfilled]: (state, action) => {
-      const st = state;
-      st.user = action.payload;
-      st.loading = false;
-    },
-    [fetchBlog.rejected]: (state, action) => {
-      const st = state;
-      st.error = action.error.message;
-      console.error(action.error.message);
-      st.loading = false;
+    [fetchBlog.fulfilled]: (state, { payload }) => ({ ...state, blog: payload }),
+    [fetchBlog.rejected]: () => {
+      // console.log('Rejected!');
     },
   },
 });
 
-// export const { } = blogSlice.actions;
-// export const create = () => async (getState) => {
-//   const currentState = getState().blogSlice;
-//   // console.log(currentState);
-//   return (currentState);
-// };
-const getBlog = (state) => state.Blog.user;
-const BlogReducer = blogSlice.reducer;
-export const {
-  follow, unFollow, block, unblock,
-} = blogSlice.actions;
+const getBlog = (state) => state.blog.blog;
+console.log(getBlog);
+const BlogReducer = BlogSlice.reducer;
 export {
   getBlog,
   fetchBlog,

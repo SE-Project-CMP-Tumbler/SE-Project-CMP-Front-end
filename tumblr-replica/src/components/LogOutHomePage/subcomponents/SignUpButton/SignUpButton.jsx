@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import { Button } from '@mui/material';
 import Box from '@mui/material/Box';
 
-const SignUpButton = ({ handleClick, worksAsLink }) => (
+const SignUpButton = ({ handleClick, worksAsLink, again }) => (
   <Box
     sx={{ spacing: 8, mt: 1.5 }}
   >
@@ -17,7 +17,7 @@ const SignUpButton = ({ handleClick, worksAsLink }) => (
           size="large"
           font="'Favorit', 'Helvetica Neue', 'HelveticaNeue', Helvetica, Arial, sans-serif;"
           style={{
-            backgroundColor: '#00b8ff', color: '#000000', fontWeight: 'bold', textTransform: 'none',
+            backgroundColor: '#00b8ff', color: again ? '#FFFFFF' : '#000000', fontWeight: 'bold', textTransform: 'none',
           }}
           sx={{
             spacing: 8, mt: 1.5, mr: 1, ml: 1, mb: 1,
@@ -25,7 +25,7 @@ const SignUpButton = ({ handleClick, worksAsLink }) => (
           type="submit"
           onClick={() => handleClick()}
         >
-          Sign up
+          { again ? 'Sign up again' : 'Sign up'}
         </Button>
       </Link>
     ) : (
@@ -53,11 +53,13 @@ const SignUpButton = ({ handleClick, worksAsLink }) => (
 SignUpButton.propTypes = {
   handleClick: PropTypes.func,
   worksAsLink: PropTypes.bool,
+  again: PropTypes.bool,
 };
 
 SignUpButton.defaultProps = {
   handleClick: () => {},
   worksAsLink: true,
+  again: false,
 };
 
 export default SignUpButton;
