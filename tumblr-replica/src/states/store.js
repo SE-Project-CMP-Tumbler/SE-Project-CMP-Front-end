@@ -23,12 +23,18 @@ import tagpostsReducer from './features/tagposts/tagpostsSlice';
 import blogpostsReducer from './features/blogposts/blogpostsSlice';
 import draftpostsReducer from './features/draftposts/draftpostsSlice';
 import BlogReducer from './blogslice/blogslice';
+import BlogsReducer from './blogslice/blogsslice';
 import FollowReducer from './followslice/followslice';
-import BlockReducer from './blockSlice/blockSlice';
+import BlockReducer from './blockSlice/blockslice';
 import DashReducer from './features/dashboard/dashboardSlice';
 import NotesReducer from './features/dashboard/NotesSlice';
 import usertumblrsReducer from './usertumblr/usertumblrSlice';
 import newtumblrReducer from './newtumblr/newtumblrSlice';
+import unFollowReducer from './followslice/unfollowSlice';
+import FollowedReducer from './followslice/getfollowslice';
+import BlockedReducer from './blockSlice/getblockslice';
+import unBlockReducer from './blockSlice/unblockslice';
+import AskReducer from './askpostslice/askpostslice';
 
 const store = configureStore({
   reducer: {
@@ -55,13 +61,19 @@ const store = configureStore({
     Like: LikeReducer,
     PostNotes: PostNoteReducer,
     Chat: Chatreduser,
-    Blog: BlogReducer,
-    Follow: FollowReducer,
-    Block: BlockReducer,
+    blog: BlogReducer,
+    blogs: BlogsReducer,
+    follow: FollowReducer,
+    block: BlockReducer,
+    followed: FollowedReducer,
+    blocked: BlockedReducer,
+    unfollow: unFollowReducer,
+    unblock: unBlockReducer,
     DashPosts: DashReducer,
     Notes: NotesReducer,
     userBlogs: usertumblrsReducer,
     newTumblr: newtumblrReducer,
+    ask: AskReducer,
   },
 });
 

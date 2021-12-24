@@ -19,6 +19,8 @@ import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
 import { initialCheck, selectUser } from './states/User/UserSlice';
+import { getBlogs, fetchBlogs } from './states/blogslice/blogsslice';
+import { getBlog } from './states/blogslice/blogslice';
 import TextPosts from './components/TextPosts/TextPosts';
 import VideoPosts from './components/VideoPosts/VideoPosts';
 import ImagePosts from './components/ImagePosts/ImagePosts';
@@ -32,6 +34,12 @@ import Activity from './components/Activity/Activity';
 import Drafts from './components/Drafts/Drafts';
 import StaffPicks from './components/StaffPicks/StaffPicks';
 import RightBar from './components/DrawerRightBar/DrawerRightBar';
+import Posts from './components/Profile/Posts';
+import Likes from './components/Profile/Likes';
+import Ask from './components/Profile/Ask';
+import Submit from './components/Profile/Submit';
+import AllMassages from './components/Messages/Allmessages';
+import BlogMessages from './components/Messages/BlogMessages';
 import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
 import NewTumblr from './components/NewTumblr/NewTumblr';
 
@@ -40,7 +48,13 @@ function App() {
   const dispatch = useDispatch();
   dispatch(initialCheck());
   const user = useSelector(selectUser);
-
+  React.useEffect(() => {
+    dispatch(fetchBlogs());
+  }, []);
+  const blogs = useSelector(getBlogs).response;
+  const blog = useSelector(getBlog).response;
+  console.log(blog);
+  console.log(blogs.blogs, 'hi Essam');
   return (
     <Router>
       <div className="App">
@@ -51,7 +65,7 @@ function App() {
           <MediaQuery maxWidth={1070}>
             <NavigationBarResp />
           </MediaQuery> && user.loggedin
-}
+        }
 
       </div>
       <Routes>
@@ -81,10 +95,17 @@ function App() {
         <Route path="/blog/:blogname" element={<BlogPage />} />
         <Route path="/blog/:blogname/activity" element={<Activity />} />
         <Route path="/blog/:blogname/drafts" element={<Drafts />} />
-        <Route path="/rightbar" element={<RightBar />} />
+        <Route path="/rightbar/:blogid" element={<RightBar />} />
+        <Route path="/profile/:blogid" element={<Posts />} />
+        <Route path="/profile/:blogid/likes" element={<Likes />} />
+        <Route path="/profile/:blogid/ask" element={<Ask />} />
+        <Route path="/profile/:blogid/submit" element={<Submit />} />
+        <Route path="/inbox" element={<AllMassages />} />
+        {/* eslint-disable */
+          blogs && blogs.blogs && blogs.blogs?.map((blog) => ((blog.allow_ask || blog.allow_submittions) && <Route key={blog.id} path={'/blog/' + blog.username + '/messages'} element={<BlogMessages BlogId={blog.id} />} />))
+        /* eslint-enable */}
         <Route path="/artifacts" element={<ArtifactsPage />} />
         <Route path="/new/blog" element={<NewTumblr />} />
-
       </Routes>
     </Router>
   );
