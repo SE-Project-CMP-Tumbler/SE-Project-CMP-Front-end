@@ -35,6 +35,7 @@ import RightBar from './components/DrawerRightBar/DrawerRightBar';
 import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
 import NewTumblr from './components/NewTumblr/NewTumblr';
 
+
 function App() {
   const dispatch = useDispatch();
   dispatch(initialCheck());
