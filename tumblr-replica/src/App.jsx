@@ -76,11 +76,16 @@ function App() {
         <Route path="/explore/asks" element={<AskPosts />} />
         <Route path="/tagged/:tag" element={<Tagged />} />
         <Route path="/blog/:blogname" element={<BlogPage />} />
-        <Route path="/blog/:blogname/activity" element={<Activity />} />
         <Route path="/blog/:blogname/drafts" element={<Drafts />} />
         <Route path="/rightbar" element={<RightBar />} />
         <Route path="/artifacts" element={<ArtifactsPage />} />
         <Route path="/new/blog" element={<NewTumblr />} />
+        <Route path="/blog/:blogname/activity/new/:period/:rate" element={<Activity option="1" />} />
+        <Route path="/blog/:blogname/activity/total/:period/:rate" element={<Activity option="1" />} />
+        <Route path="/blog/:blogname/activity/notes/:period/:rate" element={<Activity option="1" />} />
+        <Route path="/blog/:blogname/activity/:period/:rate" element={<Activity option="2" />} />
+        <Route path="/blog/:blogname/activity/:period" element={<Activity option="3" />} />
+        <Route path="/blog/:blogname/activity" element={<Activity option="4" />} />
 
       </Routes>
     </Router>
