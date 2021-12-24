@@ -9,8 +9,8 @@ export const fetchBlogs = createAsyncThunk(
       try {
         const response = await api.get('blog');
         return response.data.response;
-      } catch (error) {
-        throw Error(error);
+      } catch (e) {
+        throw Error(e);
       }
     } else {
       try {

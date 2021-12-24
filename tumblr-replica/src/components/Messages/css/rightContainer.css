@@ -1,0 +1,109 @@
+/* .rContainer{
+    display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    width: 320px;
+} */
+
+.allMassages{
+    border: none;
+    font: inherit;
+    font-size: 100%;
+    margin: 0;
+    padding: 0;
+    vertical-align: baseline;
+    width:100%
+}
+ul{
+    margin-bottom: 0.75em;
+    padding-left: 2.8em;
+    list-style: none;
+}
+
+.blogs{
+    font-size: 1.25rem;
+    font-weight: 400;
+    line-height: 1.333;
+    padding-left: 0;
+    width: 100%;
+    color: RGB(255, 255, 255);
+    font-family: "Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+}
+a{
+    text-decoration: none;
+    color: white;
+    align-items: center;
+    color: inherit;
+    display: flex;
+    justify-content: space-between;
+    text-decoration: none;
+    
+}
+.pad{
+    padding-left: 15px;
+}
+.icon {
+    padding:0 10px 0 0;
+}
+li{
+    padding: 8px 12px;
+    display: list-item;
+    text-align: -webkit-match-parent;
+}
+.firstLi{
+    align-items: center;
+    display: flex;
+    flex-direction: row;
+    margin-left: 0;
+}
+.secondLi-shaded{
+    background-color: rgb(255, 255, 255,.07);
+}
+
+.userName{
+    font-size: 1.2rem;
+    word-break: break-word;
+}
+.userMassages{
+    color: rgba(255, 255, 255,.65);
+    display: inline-block;
+    font-family: "Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    margin-left: 5px;
+    text-align: right;
+    font-size:small;
+}
+.secondLi:hover{
+ background-color: rgb(255, 255, 255,.07);
+}
+
+.firstLi:hover{
+ background-color: rgb(255, 255, 255,.07);
+}
+.thirdLi:hover{
+ background-color: rgb(255, 255, 255,.07);
+}
+.deleteBtn{
+    color:inherit;
+    font: inherit;
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    user-select: none; 
+    background-color: transparent;
+    border: none;
+    font-size: .9rem;
+}
+
+
+.info{
+    background-color: rgb(255, 255, 255,.07);
+    font-size: .78125rem;
+    line-height: 1.44;
+    margin-top: 12px;
+    padding: 12px;
+    font-size: smaller;
+    font-weight: 400;
+}

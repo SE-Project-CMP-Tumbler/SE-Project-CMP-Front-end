@@ -1,0 +1,8 @@
+.lContainer{
+    align-items: flex-end;
+    display: flex;
+    flex-direction: column;
+    max-width: 625px;
+    width: 100%;
+    color:black;
+}

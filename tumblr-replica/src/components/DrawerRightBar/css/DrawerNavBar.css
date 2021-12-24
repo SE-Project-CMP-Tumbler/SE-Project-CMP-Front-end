@@ -1,4 +1,4 @@
-.nav{
+.nav-drawer{
     display: flex;
     flex: 1;
     flex-direction: row;
@@ -14,7 +14,7 @@
      padding:-10px 0 0 4px !important;
 }
 
-.icons{
+.icons-drawer{
     cursor: pointer;
     margin: 0;
     padding:0 20px 0 0;
@@ -48,7 +48,6 @@
     width: 400px;
     flex-direction: row;
     justify-content: flex-end;
-
 }
 .make-left{
     display:flex;
@@ -56,7 +55,6 @@
     flex-direction: row;
     max-width: 290px;
     min-width: 290px;
-    
 }
 .search-text{
     margin-left: 0;
@@ -73,16 +71,16 @@
     width:150px;
 }
 .search-icon{
-        cursor: pointer;
-        margin: 0;
-        padding: 0;
-        border:none
+    cursor: pointer;
+    margin: 0;
+    padding: 0;
+    border:none
 }
 .messages{
     margin:0;
     padding: 0;
 }
-.btn{
+.btn-drawer{
     margin-left: 14px;
     align-items: center;
     border-radius:4px;
@@ -95,7 +93,6 @@
     padding: 4px 7px 5px;
     cursor: pointer;
     border: none;
-    background: white
 } 
 ::placeholder { 
   color: white;

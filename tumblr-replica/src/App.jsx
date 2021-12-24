@@ -10,12 +10,17 @@ import SignUpPage from './components/SignUpPage/SignUpPage';
 import RegisterWithGooglePage from './components/RegisterWithGooglePage/RegisterWithGooglePage';
 import LinkAccountWithGooglePage from './components/LinkAccountWithGooglePage/LinkAccountWithGooglePage';
 import ForgotPasswordPage from './components/ForgotPasswordPage/ForgotPasswordPage';
+import ResetPasswordPage from './components/ResetPasswordPage/ResetPasswordPage';
+import DeleteAccountPage from './components/DeleteAccountPage/DeleteAccountPage';
+import VerifyEmailPage from './components/VerifyEmailPage/VerifyEmailPage';
 import Explore from './components/Explore/Explore';
 import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
-import { initialCheck, selectUser } from './states/User/UserSlice';
+import { initialCheck } from './states/User/UserSlice';
+import { getBlogs, fetchBlogs } from './states/blogslice/blogsslice';
+import { getBlog } from './states/blogslice/blogslice';
 import TextPosts from './components/TextPosts/TextPosts';
 import VideoPosts from './components/VideoPosts/VideoPosts';
 import ImagePosts from './components/ImagePosts/ImagePosts';
@@ -29,32 +34,38 @@ import Activity from './components/Activity/Activity';
 import Drafts from './components/Drafts/Drafts';
 import StaffPicks from './components/StaffPicks/StaffPicks';
 import RightBar from './components/DrawerRightBar/DrawerRightBar';
+import Posts from './components/Profile/Posts';
+import Likes from './components/Profile/Likes';
+import Ask from './components/Profile/Ask';
+import Submit from './components/Profile/Submit';
+import AllMassages from './components/Messages/Allmessages';
+import BlogMessages from './components/Messages/BlogMessages';
 import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
 import NewTumblr from './components/NewTumblr/NewTumblr';
-// import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
-// import { selectUser } from './states/user/UserSlice';
 
 function App() {
   const dispatch = useDispatch();
-  // const user = useSelector(selectUser);
   dispatch(initialCheck());
-  const user = useSelector(selectUser);
-
+  React.useEffect(() => {
+    dispatch(fetchBlogs());
+  }, []);
+  const blogs = useSelector(getBlogs).response;
+  const blog = useSelector(getBlog).response;
+  console.log(blog);
+  console.log(blogs.blogs, 'hi Essam');
   return (
     <Router>
       <div className="App">
         <MediaQuery minWidth={1070}>
           <NavigationBar />
         </MediaQuery>
-        {
-          <MediaQuery maxWidth={1070}>
-            <NavigationBarResp />
-          </MediaQuery> && user.loggedin
-}
+        <MediaQuery maxWidth={1070}>
+          <NavigationBarResp />
+        </MediaQuery>
 
       </div>
       <Routes>
-        <Route exact path="/" element={(user.loggedin) ? <Newsfeed /> : <LogOutHome />} />
+        <Route path="/" element={<LogOutHome />} />
         <Route exact path="/chat" element={<HomePage />} />
         <Route exact path="/dashboard" element={<Newsfeed />} />
         <Route exact path="/login" element={<LogInPage />} />
@@ -62,7 +73,9 @@ function App() {
         <Route path="/linkAccount" element={<LinkAccountWithGooglePage />} />
         <Route path="/register" element={<SignUpPage />} />
         <Route path="/forgot_password" element={<ForgotPasswordPage />} />
-        <Route path="/logout" element={<LogOutHome />} />
+        <Route path="/reset_password/:id/:token" element={<ResetPasswordPage />} />
+        <Route path="/account/delete" element={<DeleteAccountPage />} />
+        <Route path="/verify/:id/:hash" element={<VerifyEmailPage />} />
         <Route path="/explore/recommended-for-you" element={<Explore />} />
         <Route path="/explore/trending" element={<Trending />} />
         <Route path="/explore/staff-picks" element={<StaffPicks />} />
@@ -77,7 +90,15 @@ function App() {
         <Route path="/tagged/:tag" element={<Tagged />} />
         <Route path="/blog/:blogname" element={<BlogPage />} />
         <Route path="/blog/:blogname/drafts" element={<Drafts />} />
-        <Route path="/rightbar" element={<RightBar />} />
+        <Route path="/rightbar/:blogid" element={<RightBar />} />
+        <Route path="/profile/:blogid" element={<Posts />} />
+        <Route path="/profile/:blogid/likes" element={<Likes />} />
+        <Route path="/profile/:blogid/ask" element={<Ask />} />
+        <Route path="/profile/:blogid/submit" element={<Submit />} />
+        <Route path="/inbox" element={<AllMassages />} />
+        {/* eslint-disable */
+          blogs && blogs.blogs && blogs.blogs?.map((blog) => ((blog.allow_ask || blog.allow_submittions) && <Route key={blog.id} path={'/blog/' + blog.username + '/messages'} element={<BlogMessages BlogId={blog.id} />} />))
+        /* eslint-enable */}
         <Route path="/artifacts" element={<ArtifactsPage />} />
         <Route path="/new/blog" element={<NewTumblr />} />
         <Route path="/blog/:blogname/activity/new/:period/:rate" element={<Activity option="1" />} />
