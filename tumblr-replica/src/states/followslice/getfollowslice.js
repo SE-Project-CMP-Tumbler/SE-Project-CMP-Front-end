@@ -1,5 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import FollowedByApi from '../../apis/BlogApi';
+import { apiR } from '../../apis/globalAxpi';
 
 // const FollowedByAsynch = createAsyncThunk(
 //   'followed_by/:blog_id',
@@ -16,7 +16,7 @@ const FollowedByAsynch = createAsyncThunk(
   'followed_by/:blog_id',
   async (BlogId) => {
     console.log('before followed by');
-    const response = await FollowedByApi.get(`followed_by/${BlogId}`, { headers: { Authorization: AuthStr } });
+    const response = await apiR.get(`followed_by/${BlogId}`, { headers: { Authorization: AuthStr } });
     console.log('after followed by');
     // setFollow(response.data.response.followed);
     // console.log(response.data.response.followed, 'hi by');

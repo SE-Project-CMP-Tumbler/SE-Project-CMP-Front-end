@@ -10,12 +10,15 @@ import SignUpPage from './components/SignUpPage/SignUpPage';
 import RegisterWithGooglePage from './components/RegisterWithGooglePage/RegisterWithGooglePage';
 import LinkAccountWithGooglePage from './components/LinkAccountWithGooglePage/LinkAccountWithGooglePage';
 import ForgotPasswordPage from './components/ForgotPasswordPage/ForgotPasswordPage';
+import ResetPasswordPage from './components/ResetPasswordPage/ResetPasswordPage';
+import DeleteAccountPage from './components/DeleteAccountPage/DeleteAccountPage';
+import VerifyEmailPage from './components/VerifyEmailPage/VerifyEmailPage';
 import Explore from './components/Explore/Explore';
 import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
-import { initialCheck, selectUser } from './states/User/UserSlice';
+import { initialCheck } from './states/User/UserSlice';
 import { getBlogs, fetchBlogs } from './states/blogslice/blogsslice';
 import { getBlog } from './states/blogslice/blogslice';
 import TextPosts from './components/TextPosts/TextPosts';
@@ -39,14 +42,10 @@ import AllMassages from './components/Messages/Allmessages';
 import BlogMessages from './components/Messages/BlogMessages';
 import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
 import NewTumblr from './components/NewTumblr/NewTumblr';
-// import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
-// import { selectUser } from './states/user/UserSlice';
 
 function App() {
   const dispatch = useDispatch();
-  // const user = useSelector(selectUser);
   dispatch(initialCheck());
-  const user = useSelector(selectUser);
   React.useEffect(() => {
     dispatch(fetchBlogs());
   }, []);
@@ -60,15 +59,13 @@ function App() {
         <MediaQuery minWidth={1070}>
           <NavigationBar />
         </MediaQuery>
-        {
-          <MediaQuery maxWidth={1070}>
-            <NavigationBarResp />
-          </MediaQuery> && user.loggedin
-        }
+        <MediaQuery maxWidth={1070}>
+          <NavigationBarResp />
+        </MediaQuery>
 
       </div>
       <Routes>
-        <Route exact path="/" element={(user.loggedin) ? <Newsfeed /> : <LogOutHome />} />
+        <Route path="/" element={<LogOutHome />} />
         <Route exact path="/chat" element={<HomePage />} />
         <Route exact path="/dashboard" element={<Newsfeed />} />
         <Route exact path="/login" element={<LogInPage />} />
@@ -76,7 +73,9 @@ function App() {
         <Route path="/linkAccount" element={<LinkAccountWithGooglePage />} />
         <Route path="/register" element={<SignUpPage />} />
         <Route path="/forgot_password" element={<ForgotPasswordPage />} />
-        <Route path="/logout" element={<LogOutHome />} />
+        <Route path="/reset_password/:id/:token" element={<ResetPasswordPage />} />
+        <Route path="/account/delete" element={<DeleteAccountPage />} />
+        <Route path="/verify/:id/:hash" element={<VerifyEmailPage />} />
         <Route path="/explore/recommended-for-you" element={<Explore />} />
         <Route path="/explore/trending" element={<Trending />} />
         <Route path="/explore/staff-picks" element={<StaffPicks />} />

@@ -4,7 +4,11 @@ import ListItem from '@material-ui/core/ListItem';
 import PropTypes from 'prop-types';
 import Grid from '@mui/material/Grid';
 import './SideTabs.css';
+import ReactLoading from 'react-loading';
 import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { getBlogactivity, fetchAsyncblogactivity } from '../../states/features/blogactivity/blogacttivitySlice';
+import { getBloginfo, fetchAsyncbloginfo } from '../../states/features/bloginfo/bloginfoSlice';
 
 // need to edit and take blogusername, title from store
 /**
@@ -20,59 +24,72 @@ import { Link } from 'react-router-dom';
  * )
  */
 function SideTabs({ select }) {
-  const blogusername = 'ragjadkhaled';
-  const title = 'ragh';
-  const item = { height: '50px' };
-  const item2 = { height: '50px', backgroundColor: 'rgba(255,255,255,.1)' };
+  const blogid = 14;
+  const item = { height: '60px', fontSize: 20 };
+  const item2 = { height: '60px', backgroundColor: 'rgba(255,255,255,.1)', fontSize: 20 };
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(fetchAsyncblogactivity(blogid));
+  }, []);
+  const Activity = useSelector(getBlogactivity);
+  React.useEffect(() => {
+    dispatch(fetchAsyncbloginfo(blogid));
+  }, []);
+  const Bloginfo = useSelector(getBloginfo);
   return (
     <Box className="font" minWidth={240}>
-      <h4>{blogusername}</h4>
-      <h4>{title}</h4>
-      <Link to={`/blog/${blogusername}`} className="link">
-        <ListItem style={select === 1 ? item2 : item} button>
-          <Grid item xs={11}>
-            Posts
-          </Grid>
-          <Grid item xs={1}>
-            4
-          </Grid>
-        </ListItem>
-      </Link>
-      <Link to={`/blog/${blogusername}/followers`} className="link">
-        <ListItem style={select === 2 ? item2 : item} button>
-          <Grid item xs={11}>
-            Followers
-          </Grid>
-          <Grid item xs={1}>
-            4
-          </Grid>
-        </ListItem>
-      </Link>
-      <Link to={`/blog/${blogusername}/activity`} className="link">
-        <ListItem style={select === 3 ? item2 : item} button>
-          Activity
-        </ListItem>
-      </Link>
-      <Link to={`/blog/${blogusername}/drafts`} className="link">
-        <ListItem style={select === 4 ? item2 : item} button>
-          <Grid item xs={11}>
-            Drafts
-          </Grid>
-          <Grid item xs={1}>
-            4
-          </Grid>
-        </ListItem>
-      </Link>
-      <Link to={`/setting/blog/${blogusername}`} className="link">
-        <ListItem style={select === 5 ? item2 : item} button>
-          <Grid item xs={11}>
-            Edit Appearance
-          </Grid>
-          <Grid item xs={1}>
-            <img alt="arrow" src="https://img.icons8.com/external-flatart-icons-solid-flatarticons/20/ffffff/external-right-arrow-arrow-flatart-icons-solid-flatarticons-9.png" />
-          </Grid>
-        </ListItem>
-      </Link>
+      {Activity.meta.status === '200' && Bloginfo.meta.status === '200'
+        ? (
+          <>
+            <h3 className="h3">{Bloginfo.response.username}</h3>
+            <h3 className="h31">{Bloginfo.response.title}</h3>
+            <Link to={`/blog/${Bloginfo.response.username}`} className="link">
+              <ListItem style={select === 1 ? item2 : item} button>
+                <Grid item xs={11}>
+                  Posts
+                </Grid>
+                <Grid item xs={1}>
+                  {Activity.response.posts}
+                </Grid>
+              </ListItem>
+            </Link>
+            <Link to={`/blog/${Bloginfo.response.username}/followers`} className="link">
+              <ListItem style={select === 2 ? item2 : item} button>
+                <Grid item xs={11}>
+                  Followers
+                </Grid>
+                <Grid item xs={1}>
+                  {Activity.response.followers}
+                </Grid>
+              </ListItem>
+            </Link>
+            <Link to={`/blog/${Bloginfo.response.username}/activity`} className="link">
+              <ListItem style={select === 3 ? item2 : item} button>
+                Activity
+              </ListItem>
+            </Link>
+            <Link to={`/blog/${Bloginfo.response.username}/drafts`} className="link">
+              <ListItem style={select === 4 ? item2 : item} button>
+                <Grid item xs={11}>
+                  Drafts
+                </Grid>
+                <Grid item xs={1}>
+                  {Activity.response.drafts}
+                </Grid>
+              </ListItem>
+            </Link>
+            <Link to={`/setting/blog/${Bloginfo.response.username}`} className="link">
+              <ListItem style={select === 5 ? item2 : item} button>
+                <Grid item xs={11}>
+                  Edit Appearance
+                </Grid>
+                <Grid item xs={1}>
+                  <img alt="arrow" src="https://img.icons8.com/external-flatart-icons-solid-flatarticons/20/ffffff/external-right-arrow-arrow-flatart-icons-solid-flatarticons-9.png" />
+                </Grid>
+              </ListItem>
+            </Link>
+          </>
+        ) : (Bloginfo.meta.msg === 'Loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)}
     </Box>
   );
 }

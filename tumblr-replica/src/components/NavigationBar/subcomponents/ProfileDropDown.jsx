@@ -5,25 +5,28 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUser, logOutThunk, logOutThunkR } from '../../../states/User/UserSlice';
 import { MOCK, REAL, SERVICETYPE } from '../../../apis/globalAPI';
 import { selectBlogs, fetchBlogs } from '../../../states/usertumblr/usertumblrSlice';
+import { useOutsideAlerter, toggleOptions } from '../interactions';
 /**
  * This is the component for the user profile's dropdown (last one on the right)
  * @component
  * @returns {ReactJSXElement} JSX Element.
  */
-function ProfileDropDown() {
+function ProfileDropDown({ buttonRef }) {
   const feedValues = {
     likes: '', following: '', posts: '', followers: '', activity: '', drafts: '', queue: '',
   };
   const dispatch = useDispatch();
-  const user = useSelector(selectUser);
   const blogState = useSelector(selectBlogs);
+  const user = useSelector(selectUser);
+  const profileDropRef = useRef(null);
+  useOutsideAlerter(profileDropRef, buttonRef);
   useEffect(() => dispatch(fetchBlogs()), []);
   return (
-    <div className="drop-content user-drop-content">
+    <div className="drop-content user-drop-content" ref={profileDropRef} style={{ display: 'none' }}>
       <div className="drop-header user-drop-header">
         <p>Account</p>
         <Link
-          to="/logout"
+          to="/"
           onClick={() => {
             if (SERVICETYPE === MOCK) {
               dispatch(logOutThunk(user.accessToken));
@@ -114,15 +117,7 @@ function UserItems({ feedValues }) {
     </>
   );
 }
-/**
- * Responsible for toggling the options that drop from each tumblr in user profile drop down
- * @method
- * @param {MutableRefObject} optionsRef - the ref for the HTML node pertaining to the options
- */
-function toggleOptions(optionsRef) {
-  const el = optionsRef;
-  el.current.style.display = (el.current.style.display) === 'none' ? 'block' : 'none';
-}
+
 /**
  * This is the component representing any of the tumblrs that the user controls
  * @component

@@ -1,6 +1,7 @@
 import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
+import ReactLoading from 'react-loading';
 import { Typography } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { getTrendtags } from '../../../states/features/trendtag/trendtagSlice';
@@ -58,7 +59,7 @@ export default function McarouselTrend() {
             </>
             )}
           </>
-        ) : <h3>Loading</h3>}
+        ) : <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>}
     </Box>
   );
 }

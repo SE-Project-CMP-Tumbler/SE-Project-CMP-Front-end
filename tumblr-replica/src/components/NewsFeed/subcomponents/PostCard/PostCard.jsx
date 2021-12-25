@@ -19,7 +19,7 @@ import MoreMenu from '../../../MoreMenu/MoreMenu';
  */
 function PostCard(props) {
   const {
-    postId, postTime, blogId, blogUsername, postBody, blogAvatar,
+    postId, postTime, blogId, blogUsername, postBody, blogAvatar, small,
   } = props;
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
   return (
@@ -31,7 +31,7 @@ function PostCard(props) {
           }
           title={blogUsername}
           avatar={
-            isTabletOrMobile
+            (isTabletOrMobile || small)
             && (
             <Avatar
               variant="square"
@@ -67,4 +67,8 @@ PostCard.propTypes = {
   blogUsername: PropTypes.string.isRequired,
   postTime: PropTypes.string.isRequired,
   blogAvatar: PropTypes.string.isRequired,
+  small: PropTypes.bool,
+};
+PostCard.defaultProps = {
+  small: false,
 };

@@ -1,13 +1,35 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import exploreApi from '../../../apis/exploreApi';
+import { api, apiR } from '../../../apis/globalAxpi';
+import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
 const fetchAsynctagposts = createAsyncThunk(
   'tagged/:tagdescription?sort=sort_type',
-  async ({ TagDescription, SortType }) => {
-    const response = SortType === 'recent' ? await exploreApi.get(`tagpostsrecent?tag=${TagDescription}&sort=${SortType}`)
-      : await exploreApi.get(`tagpoststop?tag=${TagDescription}&sort=${SortType}`);
-    // const response = await exploreApi.get(`tag/posts/${TagDescription}?sort=${SortType}`);
-    return response.data;
+
+  async (dispatch, { getState }) => {
+    const { SortType, TagDescription } = dispatch;
+    if (SERVICETYPE === MOCK) {
+      try {
+        const response = SortType === 'recent' ? await api.get(`tagpostsrecent?tag=${TagDescription}&sort=${SortType}`)
+          : await api.get(`tagpoststop?tag=${TagDescription}&sort=${SortType}`);
+        return response.data;
+      } catch (error) {
+        throw Error(error);
+      }
+    } else {
+      try {
+        console.log(TagDescription, SortType);
+        const state = getState();
+        console.log(state);
+        const USERTOKEN = state.user.user.accessToken;
+        console.log(USERTOKEN);
+        const AuthStr = `Bearer ${USERTOKEN}`;
+        const response = await apiR.get(`tag/posts/${TagDescription}?sort=${SortType}`, { headers: { Authorization: AuthStr } });
+        console.log(response.data);
+        return response.data;
+      } catch (e) {
+        throw Error(e);
+      }
+    }
   },
 );
 

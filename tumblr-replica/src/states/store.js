@@ -30,6 +30,10 @@ import DashReducer from './features/dashboard/dashboardSlice';
 import NotesReducer from './features/dashboard/NotesSlice';
 import usertumblrsReducer from './usertumblr/usertumblrSlice';
 import newtumblrReducer from './newtumblr/newtumblrSlice';
+import postviewreducer from './features/postview/postviewSlice';
+import blogactivityreducer from './features/blogactivity/blogacttivitySlice';
+import bloginforeducer from './features/bloginfo/bloginfoSlice';
+import graphReducer from './features/graph/graphSlice';
 import unFollowReducer from './followslice/unfollowSlice';
 import FollowedReducer from './followslice/getfollowslice';
 import BlockedReducer from './blockSlice/getblockslice';
@@ -53,8 +57,11 @@ const store = configureStore({
     audioposts: audiopostsReducer,
     quoteposts: quotepostsReducer,
     blogposts: blogpostsReducer,
+    blogactivity: blogactivityreducer,
+    postview: postviewreducer,
     draftposts: draftpostsReducer,
     tagposts: tagpostsReducer,
+    bloginfo: bloginforeducer,
     user: userReducer,
     displayNotesList: displayNotesListReducer,
     NoteWindow: NoteWindowReducer,
@@ -73,6 +80,7 @@ const store = configureStore({
     Notes: NotesReducer,
     userBlogs: usertumblrsReducer,
     newTumblr: newtumblrReducer,
+    graph: graphReducer,
     ask: AskReducer,
   },
 });

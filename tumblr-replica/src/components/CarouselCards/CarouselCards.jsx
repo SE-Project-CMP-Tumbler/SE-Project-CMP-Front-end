@@ -1,6 +1,8 @@
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 import { useDispatch, useSelector } from 'react-redux';
+import ReactLoading from 'react-loading';
+import Box from '@mui/material/Box';
 import { fetchAsyncrandomtags, getRandomtags } from '../../states/features/randomtag/randomtagSlice';
 import FollowCard from '../FollowCard/FollowCard';
 
@@ -50,12 +52,15 @@ export default function CarouselCards() {
         randomTags.response.tags
           .map((tag) => (
             <FollowCard
-              image1={tag.tag_image1}
-              image2={tag.tag_image2}
+              image1={tag.tag_image}
+              image2={tag.tag_image}
               tag={tag.tag_description}
+              follow={tag.follow}
+              key={tag.tag_description}
+              randomcolor={tag.randomcolor}
             />
           )))
-        : (<h2>Loading</h2>) }
+        : (<Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>) }
     </Carousel>
   );
 }
