@@ -55,9 +55,11 @@ var _draftpostsSlice = _interopRequireDefault(require("./features/draftposts/dra
 
 var _blogslice = _interopRequireDefault(require("./blogslice/blogslice"));
 
+var _blogsslice = _interopRequireDefault(require("./blogslice/blogsslice"));
+
 var _followslice = _interopRequireDefault(require("./followslice/followslice"));
 
-var _blockSlice = _interopRequireDefault(require("./blockSlice/blockSlice"));
+var _blockslice = _interopRequireDefault(require("./blockSlice/blockslice"));
 
 var _dashboardSlice = _interopRequireDefault(require("./features/dashboard/dashboardSlice"));
 
@@ -66,6 +68,16 @@ var _NotesSlice = _interopRequireDefault(require("./features/dashboard/NotesSlic
 var _usertumblrSlice = _interopRequireDefault(require("./usertumblr/usertumblrSlice"));
 
 var _newtumblrSlice = _interopRequireDefault(require("./newtumblr/newtumblrSlice"));
+
+var _unfollowSlice = _interopRequireDefault(require("./followslice/unfollowSlice"));
+
+var _getfollowslice = _interopRequireDefault(require("./followslice/getfollowslice"));
+
+var _getblockslice = _interopRequireDefault(require("./blockSlice/getblockslice"));
+
+var _unblockslice = _interopRequireDefault(require("./blockSlice/unblockslice"));
+
+var _askpostslice = _interopRequireDefault(require("./askpostslice/askpostslice"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -94,13 +106,19 @@ var store = (0, _toolkit.configureStore)({
     Like: _LikeSlice["default"],
     PostNotes: _PostNotesSlice["default"],
     Chat: _ChatReducer["default"],
-    Blog: _blogslice["default"],
-    Follow: _followslice["default"],
-    Block: _blockSlice["default"],
+    blog: _blogslice["default"],
+    blogs: _blogsslice["default"],
+    follow: _followslice["default"],
+    block: _blockslice["default"],
+    followed: _getfollowslice["default"],
+    blocked: _getblockslice["default"],
+    unfollow: _unfollowSlice["default"],
+    unblock: _unblockslice["default"],
     DashPosts: _dashboardSlice["default"],
     Notes: _NotesSlice["default"],
     userBlogs: _usertumblrSlice["default"],
-    newTumblr: _newtumblrSlice["default"]
+    newTumblr: _newtumblrSlice["default"],
+    ask: _askpostslice["default"]
   }
 });
 var _default = store;
