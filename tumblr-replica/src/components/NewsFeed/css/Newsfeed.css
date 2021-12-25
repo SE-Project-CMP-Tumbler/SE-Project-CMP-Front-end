@@ -14,3 +14,15 @@ h1{
   /*  Making button bigger on hover  */
     transform: scale(1.1) perspective(0.5px)
   }
+
+.right{
+  display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    width: 320px;
+}
+
+.side{
+  margin-bottom: 38px;
+  width: 100%;
+}

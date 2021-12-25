@@ -18,6 +18,7 @@ import { selectUser } from '../../../../../states/User/UserSlice';
 import { UnlikePost, LikePost } from '../../../../../states/features/dashboard/likeAPI';
 import Notes from './Notes/Notes';
 import { deletePost } from '../../../../../states/features/dashboard/NotesSlice';
+import ReactEditor from '../../../../CreatPost/ReactEditor';
 
 const style = {
   position: 'absolute',
@@ -35,14 +36,22 @@ const style = {
  * @returns buttons and notes part of the post
  */
 const PostFooter = function PostFooterButtons(props) {
-  const { postId, blogId } = props;
+  const { postId, blogId, content } = props;
   // States
   const [Liked, setLiked] = useState(false);
   const [showModel, setShowModel] = useState(false);
   const [showNotes, setShowNotes] = useState(false);
+  const [edit, setEdit] = useState(0);
   const User = useSelector(selectUser);
   // reducers & states
   const dispatch = useDispatch();
+  const [open, setOpen] = useState(false);
+  const handleOpen = () => {
+    setOpen(true);
+  };
+  const handleClose = () => {
+    setOpen(false);
+  };
   const handleDelete = function DeletePost() {
     dispatch(deletePost(postId));
     setShowModel(false);
@@ -58,8 +67,13 @@ const PostFooter = function PostFooterButtons(props) {
   };
 
   const handleEdit = function Edit() {
+    setEdit(1);
+    handleOpen();
   };
-  const handleReblog = function ReblogwithCaption() {};
+  const handleReblog = function ReblogwithCaption() {
+    setEdit(2);
+    handleOpen();
+  };
 
   return (
     <>
@@ -138,6 +152,14 @@ const PostFooter = function PostFooterButtons(props) {
             </Box>
           </Modal>
         )}
+        <Modal
+          open={open}
+          onClose={handleClose}
+          aria-labelledby="modal-modal-title"
+          aria-describedby="modal-modal-description"
+        >
+          <ReactEditor body={edit === 1 ? content : ''} edit={edit} postID={postId} />
+        </Modal>
       </div>
     </>
   );
@@ -147,4 +169,5 @@ export default PostFooter;
 PostFooter.propTypes = {
   postId: PropTypes.number.isRequired,
   blogId: PropTypes.number.isRequired,
+  content: PropTypes.string.isRequired,
 };

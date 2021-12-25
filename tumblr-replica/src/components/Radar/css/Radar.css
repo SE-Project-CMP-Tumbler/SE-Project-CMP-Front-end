@@ -1,0 +1,17 @@
+.header {
+    border-bottom: 2px !important;
+    border-bottom-color: rgba(255,255,255,0.13) !important;
+    border-bottom-style: solid !important;
+    font-size: 1.3125rem!important;
+    font-weight: 500!important;
+    line-height: 1.5238!important;
+    line-height: 1.2!important;
+    padding: 0 10px 10px!important;
+    color: rgb(255, 255, 255);
+    border: none;
+    font: inherit;
+    vertical-align: baseline;
+    margin-block-start: 0.83em;
+    margin-block-end: 0.83em;
+    display: block;
+}

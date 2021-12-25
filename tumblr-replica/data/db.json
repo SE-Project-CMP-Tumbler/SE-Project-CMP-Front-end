@@ -1652,5 +1652,38 @@
         "upload_id": false
       }
     }
+  ],
+  "blogs":[
+    {
+      "id":"chc_out_blogs",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "pagination": {
+          "total": 1,
+          "count": 1,
+          "per_page": 10,
+          "current_page": 1,
+          "total_pages": 1,
+          "first_page_url": true,
+          "last_page_url": 1,
+          "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
+          "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
+        },
+        "blogs": [
+          {
+            "id": 2026,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "description": "This blog is a sketch of thoughts"
+          }
+        ]
+      }
+    }
   ]
 }

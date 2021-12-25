@@ -27,6 +27,8 @@ import FollowReducer from './followslice/followslice';
 import BlockReducer from './blockSlice/blockslice';
 import DashReducer from './features/dashboard/dashboardSlice';
 import NotesReducer from './features/dashboard/NotesSlice';
+import checkoutReducer from './features/checkout/checkoutSlice';
+import radarReducer from './features/radar/radarSlice';
 
 const store = configureStore({
   reducer: {
@@ -58,7 +60,8 @@ const store = configureStore({
     Block: BlockReducer,
     DashPosts: DashReducer,
     Notes: NotesReducer,
-
+    checkout: checkoutReducer,
+    radar: radarReducer,
   },
 });
 

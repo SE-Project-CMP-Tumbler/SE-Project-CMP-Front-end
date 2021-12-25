@@ -24,7 +24,7 @@ import { selectUser } from '../../../../../../states/User/UserSlice';
  */
 const Notes = function NotesPopover(props) {
   const { postId, showNotes, setShowNotes } = props;
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 992px)' });
   // States
   const [reply, setReply] = useState('');
   const [likes, setLikes] = useState([]);

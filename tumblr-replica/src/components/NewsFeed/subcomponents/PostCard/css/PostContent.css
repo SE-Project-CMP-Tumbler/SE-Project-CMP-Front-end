@@ -11,7 +11,8 @@
   align-items: flex-start !important;
   justify-content: flex-start !important;
   text-align: left;
-  width: fit-content;
+  width: 100%;
+  height: fit-content;
 }
 
 .postBody p {

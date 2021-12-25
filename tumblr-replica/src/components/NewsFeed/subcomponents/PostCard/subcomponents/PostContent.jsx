@@ -12,17 +12,14 @@ import { useMediaQuery } from 'react-responsive';
  * @returns component contains text / imgs / videos of a post
  */
 const PostContent = function PostContentDisplay(props) {
-  const isDesktopOrLaptop = useMediaQuery({
-    query: '(min-width: 1224px)',
-  });
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 992px)' });
   let hashtags = [];
   const mentions = [];
 
-  const { content } = props;
+  const { content, small } = props;
 
   let current = content;
-
-  let i = current.indexOf('#');
+  let i = content ? current.indexOf('#') : -1;
   if (i !== -1) {
     current = current.substring(i, current.length);
     hashtags = current.split(' ');
@@ -35,7 +32,7 @@ const PostContent = function PostContentDisplay(props) {
   let postBody = i !== -1 ? content.substring(0, i - 3) : content;
 
   current = postBody;
-  i = postBody.indexOf('@');
+  i = current ? postBody.indexOf('@') : -1;
   let j = 0;
   let cut = 0;
   while (i !== -1) {
@@ -59,7 +56,7 @@ const PostContent = function PostContentDisplay(props) {
   }
 
   return (
-    <div className="postBody" style={{ maxWidth: isDesktopOrLaptop ? 480 : 300, minWidth: isDesktopOrLaptop ? 480 : 300 }}>
+    <div className="postBody" style={{ maxWidth: isTabletOrMobile || small ? 300 : 480, minWidth: isTabletOrMobile || small ? 300 : 480 }}>
       <Markup content={postBody} />
       {hashtags.map((hash) => (
         <>
@@ -77,5 +74,6 @@ const PostContent = function PostContentDisplay(props) {
 export default PostContent;
 
 PostContent.propTypes = {
+  small: PropTypes.bool.isRequired,
   content: PropTypes.string.isRequired,
 };
