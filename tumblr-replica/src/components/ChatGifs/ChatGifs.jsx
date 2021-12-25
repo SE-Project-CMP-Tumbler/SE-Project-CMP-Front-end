@@ -3,35 +3,20 @@ import ImageList from '@mui/material/ImageList';
 import ImageListItem from '@mui/material/ImageListItem';
 import { useSelector, useDispatch } from 'react-redux';
 import PropTypes from 'prop-types';
-import { IconButton, Popover } from '@material-ui/core';
-import GifIcon from '@mui/icons-material/Gif';
+import { Popover } from '@material-ui/core';
 import axios from 'axios';
 import {
   setGifs,
-} from '../../states/reducers/ChatReducer';
-/**
- * This function is for the ChatFeed component this component is a part of the chat component
- * this component display the messages of the two chaters
- * @method
- * @param {function} setUploadedGif setUploadedGif this function is a state for uploading
- * gifs and send them
- * @returns {*} ChatGifs componenet
- */
+} from '../../slices/chatmodule/chatmoduleSlice';
+
 function ChatGifs({ setUploadedGif }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
+  // const gifIconPressed = useSelector((state) => state.Chat.gifIconPressed);
   const [gifIconPressed, gifIconPressedHandle] = useState(false);
   const gifs = useSelector((state) => state.Chat.gifs);
   const apiBaseUrl = 'http://localhost:8000';
   const dispatch = useDispatch();
-  /**
-  * This function is for display the gifs with different sizes
-  * @method
-  * @param {string} image source of the image
-  * @param {number} size size of the img
-  * @param {number} rows to determine hight
-  * @param {number} cols to determine width
-  * @returns {object} object contain some attributes for the img
-  */
+
   const srcset = (image, size, rows = 1, cols = 1) => ({
     src: `${image}?w=${size * cols}&h=${size * rows}&fit=crop&auto=format`,
     srcSet: `${image}?w=${size * cols}&h=${
@@ -58,13 +43,18 @@ function ChatGifs({ setUploadedGif }) {
     gifIconPressedHandle(!gifIconPressed);
   };
   return (
-    <IconButton
-      size="large"
-      edge="start"
-      sx={{ mr: 1, mt: 0 }}
-      onClick={gifIconPressHandle}
-    >
-      <GifIcon color="primary" />
+    <button type="button" onClick={gifIconPressHandle}>
+      <svg
+        preserveAspectRatio="xMinYMin"
+        viewBox="1 1 22 21"
+        width="28"
+        height="28"
+        fill="#00B8FF"
+      >
+        <path d="M1 4.995C1 3.893 1.89 3 2.991 3H21.01C22.109 3 23 3.893
+        23 4.995v14.01C23 20.107 22.11 21 21.009 21H2.99A1.992 1.992 0 0 1 1 19.005V4.995zm9.829 6.653H7.722v1.26h1.487v1.047s-.328.45-1.477.45c-1.148 0-2.05-.83-2.05-2.265 0-1.436.881-2.266 2.02-2.266.963 0 1.517.482 1.814.81l1.097-.954c-.225-.246-1.035-1.23-2.912-1.23C5.723 8.5 4 9.782 4 12.14s1.723 3.65 3.68 3.65c1.949 0 2.79-.892 3.149-1.21v-2.932zm2.82-3.045h-1.662v7.074h1.661V8.603zm6.064 0h-4.42v7.074h1.651v-2.696h2.605v-1.323h-2.605V9.925h2.769V8.603z"
+        />
+      </svg>
       <Popover
         open={gifIconPressed}
         anchorEl={anchorEl}
@@ -103,7 +93,7 @@ function ChatGifs({ setUploadedGif }) {
           ))}
         </ImageList>
       </Popover>
-    </IconButton>
+    </button>
   );
 }
 

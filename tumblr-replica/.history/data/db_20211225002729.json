@@ -1,0 +1,1909 @@
+{
+  "follow_tag": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "tags": [
+        {
+          "tag_description": "Red",
+          "tag_image": "https://picsum.photos/id/237/200/300"
+        },
+        {
+          "tag_description": "Khaki",
+          "tag_image": "https://picsum.photos/seed/picsum/200/300"
+        },
+        {
+          "tag_description": "Khakii",
+          "tag_image": "https://picsum.photos/200/300"
+        },
+        {
+          "tag_description": "Fuscia",
+          "tag_image": "https://picsum.photos/id/12/200/300"
+        }
+      ]
+    }
+  },
+  "tag": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "tag_description": "books",
+      "tag_image": "https://www.ukrgate.com/eng/wp-content/uploads/2021/02/The-Ukrainian-Book-Institute-Purchases-380.9-Thousand-Books-for-Public-Libraries1.jpeg",
+      "followed": true,
+      "followers_number": 1026
+    }
+  },
+  "trending": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "tags": [
+        {
+          "tag_description": "Red",
+          "tag_image": "https://picsum.photos/id/1/200/300"
+        },
+        {
+          "tag_description": "Khaki",
+          "tag_image": "https://picsum.photos/id/4/210/320"
+        },
+        {
+          "tag_description": "Khakii",
+          "tag_image": "https://picsum.photos/id/5/200/300"
+        },
+        {
+          "tag_description": "Fuscia",
+          "tag_image": "https://picsum.photos/id/10/200/300"
+        },
+        {
+          "tag_description": "Indigo",
+          "tag_image": "https://picsum.photos/id/6/200/300"
+        },
+        {
+          "tag_description": "Aquamarine",
+          "tag_image": "https://picsum.photos/id/9/200/300"
+        },
+        {
+          "tag_description": "Teal",
+          "tag_image": "https://picsum.photos/id/11/200/300"
+        },
+        {
+          "tag_description": "Turquoiset",
+          "tag_image": "https://picsum.photos/id/7/200/300"
+        }
+      ]
+    }
+  },
+  "randomtags": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "tags": [
+        {
+          "tag_description": "Red",
+          "tag_image1": "https://picsum.photos/id/1/200/300",
+          "tag_image2": "https://picsum.photos/id/2/200/300"
+        },
+        {
+          "tag_description": "Khaki",
+          "tag_image1": "https://picsum.photos/id/3/200/300",
+          "tag_image2": "https://picsum.photos/id/4/200/300"
+        },
+        {
+          "tag_description": "Khakii",
+          "tag_image1": "https://picsum.photos/id/5/200/300",
+          "tag_image2": "https://picsum.photos/id/6/200/300"
+        },
+        {
+          "tag_description": "Fuscia",
+          "tag_image1": "https://picsum.photos/id/7/200/300",
+          "tag_image2": "https://picsum.photos/id/8/200/300"
+        },
+        {
+          "tag_description": "Indigo",
+          "tag_image1": "https://picsum.photos/id/9/200/300",
+          "tag_image2": "https://picsum.photos/id/10/200/300"
+        },
+        {
+          "tag_description": "Aquamarine",
+          "tag_image1": "https://picsum.photos/id/12/200/300",
+          "tag_image2": "https://picsum.photos/id/13/200/300"
+        },
+        {
+          "tag_description": "Teal",
+          "tag_image1": "https://picsum.photos/id/14/200/300",
+          "tag_image2": "https://picsum.photos/id/15/200/300"
+        },
+        {
+          "tag_description": "Turquoiset",
+          "tag_image1": "https://picsum.photos/id/16/200/300",
+          "tag_image2": "https://picsum.photos/id/17/200/300"
+        }
+      ]
+    }
+  },
+  "randomposts": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_id": 5,
+          "post_body": "<div><h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+          "post_status": "published",
+          "blog_id": 5,
+          "blog_username": "raghad",
+          "post_type": "general",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "so happy",
+          "post_time": "02-02-2012"
+        },
+        {
+          "post_id": 5,
+          "post_body": "<div><h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+          "post_status": "published",
+          "blog_id": 5,
+          "blog_username": "Alaa",
+          "post_type": "general",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "so happy :)",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+  },
+  "trendingposts": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_id": 5,
+          "post_body": "<div><h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+          "post_status": "published",
+          "blog_id": 5,
+          "blog_username": "raghad",
+          "post_type": "general",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "here is the Trend",
+          "post_time": "02-02-2012"
+        },
+        {
+          "post_id": 5,
+          "post_body": "<div><h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><p>#AI #humanity #freedom</p></div>",
+          "post_status": "published",
+          "blog_id": 5,
+          "blog_username": "Alaa ^^",
+          "post_type": "general",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "Trending",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+  },
+  "textposts": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_body": "<div><h1>What's Artificial intellegence? </h1> <p>#AI #humanity #freedom</p></div>",
+          "post_id": 5,
+          "post_status": "published",
+          "post_type": "text",
+          "blog_id": 5,
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        },
+        {
+          "post_body": "<div><h1>What's Happiness? </h1> <p>#AI #humanity #freedom</p></div>",
+          "post_id": 5,
+          "post_status": "published",
+          "post_type": "text",
+          "blog_id": 5,
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+  },
+  "videoposts": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_id": 5,
+          "post_body": "<div><h1>What's Artificial intellegence? </h1><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'></video></div>",
+          "blog_id": 5,
+          "post_type": "video",
+          "post_status": "published",
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+  },
+  "imageposts": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_id": 5,
+          "post_body": "<div><h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''></div>",
+          "post_status": "published",
+          "post_type": "image",
+          "blog_id": 5,
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+  },
+  "quoteposts": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_id": 5,
+          "post_body": "<div><h1>What's Artificial intellegence? </h1><p>'Energy never lies'</p></div>",
+          "blog_id": 5,
+          "post_type": "quote",
+          "post_status": "published",
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+  },
+  "audioposts": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_id": 5,
+          "post_body": "<div><h1>What's Artificial intellegence? </h1><audio controls><source src='horse.ogg' type='audio/ogg'>Your browser does not support the audio tag.</audio> </div>",
+          "post_status": "published",
+          "post_type": "audio",
+          "blog_id": 5,
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+  },
+  "askposts": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_id": 5,
+          "post_body": "<div><p>I'm not fine !!</p></div>",
+          "post_status": "published",
+          "blog_id": 5,
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_type": "answer",
+          "question_body": "<h1>How are you?</h1>",
+          "question_id": 3,
+          "question_flag": false,
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+  },
+  "blogposts": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 2,
+        "total_pages": 2,
+        "first_page_url": false,
+        "last_page_url": 2,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
+      "posts": [
+        {
+          "post_id": 5,
+          "blog_id": 5,
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "pinned": false,
+          "post_status": "published",
+          "post_time": "02-02-2012",
+          "question_body": "How are you?",
+          "question_id": 3,
+          "question_flag": false,
+          "blog_id_asking": "",
+          "blog_username_asking": "",
+          "blog_avatar_asking": "",
+          "blog_avatar_shape_asking": "",
+          "blog_title_asking": "",
+          "post_type": "general",
+          "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+          "traced_back_posts": [
+            {
+              "post_id": 5,
+              "blog_id": 5,
+              "blog_username": "lifeisnotfair",
+              "blog_avatar": "",
+              "blog_avatar_shape": "circle",
+              "post_time": "02-02-2011",
+              "post_type": "general",
+              "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+              "question_body": "",
+              "question_id": "",
+              "question_flag": false,
+              "blog_id_asking": "",
+              "blog_username_asking": "",
+              "blog_avatar_asking": "",
+              "blog_avatar_shape_asking": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "draftposts": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_id": 5,
+          "blog_id": 5,
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_status": "draft",
+          "post_time": "02-02-2012",
+          "post_type": "general",
+          "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+          "traced_back_posts": [
+            {
+              "post_id": 5,
+              "blog_id": 5,
+              "post_time": "02-02-2011",
+              "post_type": "general",
+              "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+              "question_body": "How are you?",
+              "question_id": 3,
+              "question_flag": false,
+              "blog_id_asking": "",
+              "blog_username_asking": "",
+              "blog_avatar_asking": "",
+              "blog_avatar_shape_asking": ""
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "gifposts": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_id": 5,
+          "post_body": "<div><h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+          "post_status": "published",
+          "post_type": "general",
+          "blog_id": 5,
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+  },
+  "chatposts": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_id": 5,
+          "post_body": "<div><p>Nada</p><p>Hello Basel</p><p>Basel</p><p>Hey sara</p></div>",
+          "blog_id": 5,
+          "post_status": "published",
+          "post_type": "chat",
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+  },
+  "tagpostsrecent": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_id": 5,
+          "post_body": "<div><p>Nada</p><p>Hello Recent</p><p>Basel</p><p>Hey sara</p></div>",
+          "blog_id": 5,
+          "post_status": "published",
+          "post_type": "chat",
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+  },
+  "tagpoststop": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": [
+        {
+          "post_id": 5,
+          "post_body": "<div><p>Nada</p><p>Hello Top</p><p>Basel</p><p>Hey sara</p></div>",
+          "blog_id": 5,
+          "post_status": "published",
+          "post_type": "chat",
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }
+  },
+  "gifs": [
+    {
+      "id": "1",
+      "img": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+      "title": "Breakfast",
+      "rows": "2",
+      "cols": "2"
+    },
+    {
+      "id": "2",
+      "img": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+      "title": "Burger"
+    },
+    {
+      "id": "3",
+      "img": "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
+      "title": "Camera"
+    },
+    {
+      "id": "4",
+      "img": "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
+      "title": "Coffee",
+      "cols": "2"
+    },
+    {
+      "id": "5",
+      "img": "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
+      "title": "Hats",
+      "cols": "2"
+    },
+    {
+      "id": "6",
+      "img": "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
+      "title": "Honey",
+      "rows": 2,
+      "cols": 2
+    },
+    {
+      "id": "7",
+      "img": "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
+      "title": " Basketball"
+    },
+    {
+      "id": "8",
+      "img": "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f",
+      "title": "Fern"
+    },
+    {
+      "id": "9",
+      "img": "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25",
+      "title": "Mushrooms",
+      "rows": " 2",
+      "cols": "2"
+    },
+    {
+      "id": "10",
+      "img": "https://images.unsplash.com/photo-1567306301408-9b74779a11af",
+      "title": "Tomato basil"
+    },
+    {
+      "id": "11",
+      "img": "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
+      "title": "Sea star"
+    },
+    {
+      "id": "19",
+      "img": "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
+      "title": "Bike",
+      "cols": "2"
+    }
+  ],
+  "chatsforoneuser": [
+    {
+      "id": "1",
+      "to": "maryem",
+      "lastmessage": "hhhhh",
+      "img": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+      "chat_messages": [
+        {
+          "from": "nadeen",
+          "text": "Hello",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "Why",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "hhhhh",
+          "gif": "",
+          "photo": ""
+        }
+      ]
+    },
+    {
+      "id": "2",
+      "to": "ahmed",
+      "lastmessage": "hey",
+      "img": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+      "chat_messages": [
+        {
+          "from": "nadeen",
+          "to": "maryem",
+          "text": "hello ahmed",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "jjjj",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "hi",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "bye",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "hey",
+          "gif": "",
+          "photo": ""
+        }
+      ]
+    },
+    {
+      "to": "radwa",
+      "lastmessage": "wwwwwwwwwww",
+      "img": "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
+      "chat_messages": [
+        {
+          "from": "nadeen",
+          "text": "hello radwa",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "hiiii",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "Hi",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "hey",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "sss",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "m",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "gg",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "1",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "2",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "3",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "4",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "why",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "wwwwwwwwwww",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "",
+          "gif": "",
+          "photo": ""
+        }
+      ],
+      "id": "3"
+    },
+    {
+      "id": "4",
+      "to": "ali",
+      "lastmessage": "huuu",
+      "img": "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
+      "chat_messages": [
+        {
+          "from": "nadeen",
+          "text": "hello aliiiii",
+          "gif": "",
+          "photo": ""
+        },
+        {
+          "from": "nadeen",
+          "text": "huuu",
+          "gif": "",
+          "photo": ""
+        }
+      ]
+    }
+  ],
+  "users": [
+    {
+      "id": 1,
+      "blog_username": "pwrist0",
+      "email": "kczaja0@technorati.com",
+      "password": "5OTCtn",
+      "blog_avatar": "https://robohash.org/isteeaqueerror.png?size=50x50&set=set1",
+      "access_token": "rcDuPaFqM8SuK0hQJTWQ6xz043x7y3ODXaYHBffm"
+    },
+    {
+      "id": 2,
+      "blog_username": "bdoudny1",
+      "email": "jzimek1@stanford.edu",
+      "password": "vppgBhACwQYp",
+      "blog_avatar": "https://robohash.org/utautdeleniti.png?size=50x50&set=set1",
+      "access_token": "P2UJLzC51ugq8DfegI7d2c9x7b3BqqrrEP0xFPNP"
+    },
+    {
+      "id": 3,
+      "blog_username": "mmcnay2",
+      "email": "eedelheit2@scientificamerican.com",
+      "password": "gPvPv0b",
+      "blog_avatar": "https://robohash.org/dolorconsequunturest.png?size=50x50&set=set1",
+      "access_token": "mOp7PMadjmCjYjfdANeU9p0Xyppg3x1JnLdqgivg"
+    },
+    {
+      "id": 4,
+      "blog_username": "lvanderdaal3",
+      "email": "esterry3@mediafire.com",
+      "password": "8eVyyI",
+      "blog_avatar": "https://robohash.org/quoutiste.png?size=50x50&set=set1",
+      "access_token": "zFjrw8l1ym4WCaPmbmN1j5qaqh7izPZPIxvoRC1h"
+    },
+    {
+      "id": 5,
+      "blog_username": "ssighart4",
+      "email": "qsoftley4@flickr.com",
+      "password": "kbA5M2AVnGaw",
+      "blog_avatar": "https://robohash.org/aliquamvoluptassed.png?size=50x50&set=set1",
+      "access_token": "6eUaaesSHtsrEHZLH9nqx0jhkvQQpoVNaIHzQTaA"
+    },
+    {
+      "id": 6,
+      "blog_username": "dellingworth5",
+      "email": "eminney5@wufoo.com",
+      "password": "eyZHBAV",
+      "blog_avatar": "https://robohash.org/porrosuscipitlibero.png?size=50x50&set=set1",
+      "access_token": "eoKOxMWoKaCFOPMbvj0UbvJjEC1LsJ36VCMsGTOO"
+    },
+    {
+      "id": 7,
+      "blog_username": "aspybey6",
+      "email": "jfarlham6@ebay.co.uk",
+      "password": "vWo5TkX5kE",
+      "blog_avatar": "https://robohash.org/praesentiumperspiciatisdicta.png?size=50x50&set=set1",
+      "access_token": "9xgOyrW5uWkIuJtHKoQTcG1C9D4MukretsAlbtMl"
+    },
+    {
+      "id": 8,
+      "blog_username": "vcorkett7",
+      "email": "amcclurg7@51.la",
+      "password": "847cn2b",
+      "blog_avatar": "https://robohash.org/porroipsaaliquam.png?size=50x50&set=set1",
+      "access_token": "t86QoxxIxbIPl5So4QI23aHqriE3PBSqrqmxszSz"
+    },
+    {
+      "id": 9,
+      "blog_username": "bgartery8",
+      "email": "jbransden8@360.cn",
+      "password": "cLEKpzzPM",
+      "blog_avatar": "https://robohash.org/laboredebitisofficia.png?size=50x50&set=set1",
+      "access_token": "aFtCZq0xipXmEP9yTl3IGR95rzvgKTtn2f8Aa943"
+    },
+    {
+      "id": 10,
+      "blog_username": "kcroxon9",
+      "email": "csames9@usgs.gov",
+      "password": "Smo8R6jTq",
+      "blog_avatar": "https://robohash.org/hicisteut.png?size=50x50&set=set1",
+      "access_token": "KdVpojUlPlLfuN3hU3wKLophqHlaTlXkeUwtUnu7"
+    },
+    {
+      "id": 11,
+      "blog_username": "rpeskina",
+      "email": "hemiliena@zimbio.com",
+      "password": "P6T4LKsSoi8",
+      "blog_avatar": "https://robohash.org/nobisdeseruntodit.png?size=50x50&set=set1",
+      "access_token": "naLc5Lz53FYBZ3ABOdERlU8TfHloYgnwSEubZWdg"
+    },
+    {
+      "id": 12,
+      "blog_username": "wfinessyb",
+      "email": "nbyrneb@google.com.hk",
+      "password": "tomaqKyR",
+      "blog_avatar": "https://robohash.org/estcupiditateut.png?size=50x50&set=set1",
+      "access_token": "dHJywGiG2rTA9jq664z3Jclr0eNHuCDEbfHZaXhI"
+    },
+    {
+      "id": 13,
+      "blog_username": "ctomlinsonc",
+      "email": "ckemstonc@cbslocal.com",
+      "password": "O1Af73",
+      "blog_avatar": "https://robohash.org/temporasuntexercitationem.png?size=50x50&set=set1",
+      "access_token": "p4m38j2QwqKQ0ZKlhQhcYfAr63PR9da7w9F4ztpA"
+    },
+    {
+      "id": 14,
+      "blog_username": "grylettd",
+      "email": "rantoszczykd@networkadvertising.org",
+      "password": "PJENrs89y",
+      "blog_avatar": "https://robohash.org/repudiandaequiaaliquam.png?size=50x50&set=set1",
+      "access_token": "zR4lfmG1pPm8n7nVyPRXyqbCjVgCBwHdP5jpw1EV"
+    },
+    {
+      "id": 15,
+      "blog_username": "beisake",
+      "email": "cdaverne@ftc.gov",
+      "password": "oPd23yguT5",
+      "blog_avatar": "https://robohash.org/eosisteut.png?size=50x50&set=set1",
+      "access_token": "pOIJBCbLBVZfitMfxoPnbz3WhUpeq8spx5Z5jZtQ"
+    },
+    {
+      "id": 16,
+      "blog_username": "cprettymanf",
+      "email": "tfreerf@google.it",
+      "password": "KNQurozbeA",
+      "blog_avatar": "https://robohash.org/verovoluptasdignissimos.png?size=50x50&set=set1",
+      "access_token": "8koz14wj88iYpADM62uOKDjhmT9gOiVnU6RIoK7w"
+    },
+    {
+      "id": 17,
+      "blog_username": "lvenesg",
+      "email": "eminerdog@oaic.gov.au",
+      "password": "3skksXKejy",
+      "blog_avatar": "https://robohash.org/necessitatibusassumendavelit.png?size=50x50&set=set1",
+      "access_token": "zencxz98W4m5nwJtFBp86Wl6TjNyGu8Q2odBDuxQ"
+    },
+    {
+      "id": 18,
+      "blog_username": "psiggsh",
+      "email": "batleeh@noaa.gov",
+      "password": "I8pzzfRYJe",
+      "blog_avatar": "https://robohash.org/culpaestcum.png?size=50x50&set=set1",
+      "access_token": "fDcYKmLh6p7wPwluYmzuxGCQcmcCOcJdKLDDQCfR"
+    },
+    {
+      "id": 19,
+      "blog_username": "skeami",
+      "email": "ddunsfordi@mozilla.org",
+      "password": "7s18ZBpnlxYf",
+      "blog_avatar": "https://robohash.org/ipsamdictadolore.png?size=50x50&set=set1",
+      "access_token": "sPb2MfUgAunbqayeu2B9EjPfulHndbE3y1ywFqAT"
+    },
+    {
+      "id": 20,
+      "blog_username": "onapperj",
+      "email": "slingj@answers.com",
+      "password": "RrGeL3K",
+      "blog_avatar": "https://robohash.org/indistinctiodeleniti.png?size=50x50&set=set1",
+      "access_token": "oWwHn0wM0XLEWxRXqVKFVfWemWIUKcH80YkHFepA"
+    },
+    {
+      "id": 21,
+      "blog_username": "vlaughlink",
+      "email": "bneemk@dailymail.co.uk",
+      "password": "HDXpE4",
+      "blog_avatar": "https://robohash.org/molestiaevoluptatemmagnam.png?size=50x50&set=set1",
+      "access_token": "3ihKHVf4k6mcd1V6YX7IEAopb0SxRZtUfG8GTdH4"
+    },
+    {
+      "id": 22,
+      "blog_username": "bgleedl",
+      "email": "rarnowl@rambler.ru",
+      "password": "bfcEjUyu4",
+      "blog_avatar": "https://robohash.org/autrerumenim.png?size=50x50&set=set1",
+      "access_token": "1LLbFkc7mAQjf49qSHhuXObIrUJz5mGUaHlo6UVO"
+    },
+    {
+      "id": 23,
+      "blog_username": "aosmarm",
+      "email": "dwooffindenm@scribd.com",
+      "password": "KVnFCRajPZe9",
+      "blog_avatar": "https://robohash.org/iustoquiad.png?size=50x50&set=set1",
+      "access_token": "yOvghrx6TG2vjg4f4iWBLSOvHYTUyjKJSBKeSz21"
+    },
+    {
+      "id": 24,
+      "blog_username": "bkenawayn",
+      "email": "wairtonn@netscape.com",
+      "password": "xyl3aZAz6D",
+      "blog_avatar": "https://robohash.org/nobiscommodioccaecati.png?size=50x50&set=set1",
+      "access_token": "82RSlEc37HfNEp4hsaIjddVDGU8Oqrkjw0wAwgh0"
+    },
+    {
+      "id": 25,
+      "blog_username": "wpenyltono",
+      "email": "jbemwello@buzzfeed.com",
+      "password": "VF7bvZ5gkPt",
+      "blog_avatar": "https://robohash.org/voluptasminimavoluptas.png?size=50x50&set=set1",
+      "access_token": "mpeGYb9RhGVPhkDC84E1v5ncjLBpxZYdrKvyhu0Q"
+    },
+    {
+      "id": 26,
+      "blog_username": "callibandp",
+      "email": "fkitleep@wunderground.com",
+      "password": "c5qGjldp",
+      "blog_avatar": "https://robohash.org/faceremaximequibusdam.png?size=50x50&set=set1",
+      "access_token": "DsXo9cvx53mZZ4ZGt4O5tBVSJv9iPR0ath4t0Dl1"
+    },
+    {
+      "id": 27,
+      "blog_username": "wrobjantq",
+      "email": "cwhitwhamq@linkedin.com",
+      "password": "18apFJmEEm5",
+      "blog_avatar": "https://robohash.org/cupiditatesuscipitomnis.png?size=50x50&set=set1",
+      "access_token": "iVzAZ2yStN5RMBGvMhZY11oUPamHycF0K3jNmHUN"
+    },
+    {
+      "id": 28,
+      "blog_username": "hduesberryr",
+      "email": "awormellr@ezinearticles.com",
+      "password": "vDIosCtkVt",
+      "blog_avatar": "https://robohash.org/excepturiperspiciatisconsequatur.png?size=50x50&set=set1",
+      "access_token": "oGzLiLWIpjsmTkoedfwXWwNAAjLMCrJMKQmxbeJg"
+    },
+    {
+      "id": 29,
+      "blog_username": "lmoneys",
+      "email": "cbaroches@aol.com",
+      "password": "kAScBuIOZ",
+      "blog_avatar": "https://robohash.org/sitoditquo.png?size=50x50&set=set1",
+      "access_token": "Bh4F3WsQXQfxXPUPArkIi1DuB9CFgeeyKj1Lf864"
+    },
+    {
+      "id": 30,
+      "blog_username": "rburghillt",
+      "email": "mbarffordt@mapy.cz",
+      "password": "nEdDZ0HwUHY0",
+      "blog_avatar": "https://robohash.org/essequisiure.png?size=50x50&set=set1",
+      "access_token": "G70lvino8fEhh5ubi84yZCpvijMxdNgdAEt8aR7N"
+    },
+    {
+      "id": 31,
+      "blog_username": "delmhurstu",
+      "email": "ebaxstareu@whitehouse.gov",
+      "password": "wvV2Of7d0R",
+      "blog_avatar": "https://robohash.org/aliquidquodelectus.png?size=50x50&set=set1",
+      "access_token": "IC4Iv3KOjhTnN1vYJuc3BJiwaK2o8KiRboHuE1IK"
+    },
+    {
+      "id": 32,
+      "blog_username": "sduerdinv",
+      "email": "klambshinev@sogou.com",
+      "password": "gjfs9SNACWT",
+      "blog_avatar": "https://robohash.org/exercitationematquenon.png?size=50x50&set=set1",
+      "access_token": "Ko1gjVJVmeRUppkcAqTd21nyj2acAKrq5E64M6oH"
+    },
+    {
+      "id": 33,
+      "blog_username": "ibristerw",
+      "email": "jmiddlewickw@multiply.com",
+      "password": "Ysrs1W",
+      "blog_avatar": "https://robohash.org/voluptasidomnis.png?size=50x50&set=set1",
+      "access_token": "3k1XmOPWkxyQVbVATkcdZIBbqsC3XBuLHQZrXG4v"
+    },
+    {
+      "id": 34,
+      "blog_username": "wphibbx",
+      "email": "tobingtonx@npr.org",
+      "password": "IEb8jGJ2nuE",
+      "blog_avatar": "https://robohash.org/estutillo.png?size=50x50&set=set1",
+      "access_token": "e1nMgAEx216ORDv1IbMtSD51pGsFcR6H3VTl5NNY"
+    },
+    {
+      "id": 35,
+      "blog_username": "jdohmanny",
+      "email": "rcavozziy@sohu.com",
+      "password": "PN9YyHUCdsQ",
+      "blog_avatar": "https://robohash.org/vitaeducimuscum.png?size=50x50&set=set1",
+      "access_token": "84CGyr9JgkpCVVGFb1WkVxpFDQjkrYFrDC7id038"
+    },
+    {
+      "id": 36,
+      "blog_username": "jconringz",
+      "email": "skalbererz@admin.ch",
+      "password": "ZZkcjhDO",
+      "blog_avatar": "https://robohash.org/quamassumendaeligendi.png?size=50x50&set=set1",
+      "access_token": "u61f6BLkk5HZTWceVMhw905JbwtoQhfqKHHWtdkq"
+    },
+    {
+      "id": 37,
+      "blog_username": "hgildersleaves10",
+      "email": "lblockwell10@exblog.jp",
+      "password": "urygEh43uOC",
+      "blog_avatar": "https://robohash.org/expeditaconsequatura.png?size=50x50&set=set1",
+      "access_token": "pU4hLzPOxUo0BNezbxe4pkBeuMD1wAmGi9w0wYFP"
+    },
+    {
+      "id": 38,
+      "blog_username": "tpauli11",
+      "email": "aruprich11@columbia.edu",
+      "password": "Z4rtMrmZ",
+      "blog_avatar": "https://robohash.org/dignissimoscommodiet.png?size=50x50&set=set1",
+      "access_token": "CDxicaVb7zrz2YSKHJHzeI2aiakpCp2Th68LT14j"
+    },
+    {
+      "id": 39,
+      "blog_username": "korht12",
+      "email": "gyoung12@multiply.com",
+      "password": "xtaVri3k0",
+      "blog_avatar": "https://robohash.org/solutavoluptatesnulla.png?size=50x50&set=set1",
+      "access_token": "PQd5n4afDeTbI11qtx82Fevh2a475oc7fin91clP"
+    },
+    {
+      "id": 40,
+      "blog_username": "pgabala13",
+      "email": "cspadari13@usgs.gov",
+      "password": "NIVAJu8Sk",
+      "blog_avatar": "https://robohash.org/fugiatoptioaccusantium.png?size=50x50&set=set1",
+      "access_token": "zHrs25zy2hCBnoXZMCbncGQpIi7Zv7rPM9rngVHT"
+    },
+    {
+      "id": 41,
+      "blog_username": "ssemered14",
+      "email": "bhague14@house.gov",
+      "password": "CEg2ZjFwOFzR",
+      "blog_avatar": "https://robohash.org/dolorumplaceataliquid.png?size=50x50&set=set1",
+      "access_token": "s5wI5PZmQyxomkLqlaA4LfnjtzwKblXyxQCiGlMx"
+    },
+    {
+      "id": 42,
+      "blog_username": "odornan15",
+      "email": "rharriman15@alexa.com",
+      "password": "W8z96JMEKse",
+      "blog_avatar": "https://robohash.org/voluptasconsequaturab.png?size=50x50&set=set1",
+      "access_token": "adKXKA8G2XnyT7OIBhb24PLfCBnpGVOH2bZP1qDM"
+    },
+    {
+      "id": 43,
+      "blog_username": "ashemelt16",
+      "email": "marckoll16@google.pl",
+      "password": "gQqk7wM",
+      "blog_avatar": "https://robohash.org/sedetvoluptatibus.png?size=50x50&set=set1",
+      "access_token": "FbPFjbQwkC2LnThmrHiQc8nF8fZsdbSmgbh74khn"
+    },
+    {
+      "id": 44,
+      "blog_username": "dlevene17",
+      "email": "cpollastro17@wordpress.com",
+      "password": "1tWcOt57aRw",
+      "blog_avatar": "https://robohash.org/undecorporisearum.png?size=50x50&set=set1",
+      "access_token": "SPxjdHwlZNPX9bZ3L1XTf48SbCAjSEwMfY5zTpA7"
+    },
+    {
+      "id": 45,
+      "blog_username": "hfarenden18",
+      "email": "ustork18@census.gov",
+      "password": "SlK9vE6N2Jb",
+      "blog_avatar": "https://robohash.org/aperiamsedodit.png?size=50x50&set=set1",
+      "access_token": "cBH32b5w6rxk4NJZKmpL5aAv1y3gIVOKMv7NtS9f"
+    },
+    {
+      "id": 46,
+      "blog_username": "mbentham19",
+      "email": "kyewen19@dailymotion.com",
+      "password": "An06oG",
+      "blog_avatar": "https://robohash.org/repellendusautemdebitis.png?size=50x50&set=set1",
+      "access_token": "ySmXGRbzxVDW6NXDpBXDzmsO37MWu4eLjJyXSR8K"
+    },
+    {
+      "id": 47,
+      "blog_username": "cdriscoll1a",
+      "email": "cposthill1a@cyberchimps.com",
+      "password": "NVEViw1KA9",
+      "blog_avatar": "https://robohash.org/ipsuminciduntrerum.png?size=50x50&set=set1",
+      "access_token": "bokJB5fHQVEupGDno06nmPki7KAeTXhsyrDOmLUd"
+    },
+    {
+      "id": 48,
+      "blog_username": "descalero1b",
+      "email": "pstannah1b@bizjournals.com",
+      "password": "2oANQ1",
+      "blog_avatar": "https://robohash.org/estdolorprovident.png?size=50x50&set=set1",
+      "access_token": "SzArNgBI3Mjv0aekLxuED89EpmX0RMb6FcZMmXc3"
+    },
+    {
+      "id": 49,
+      "blog_username": "wdutton1c",
+      "email": "pleahey1c@disqus.com",
+      "password": "mFOFTchEeDY",
+      "blog_avatar": "https://robohash.org/officiissequidolore.png?size=50x50&set=set1",
+      "access_token": "v2ezheX2cjb7mG1kZ5WmC6YHvTwu3ucITWfKTDEk"
+    },
+    {
+      "id": 50,
+      "blog_username": "nrishman1d",
+      "email": "icapewell1d@goo.gl",
+      "password": "d2obS6c",
+      "blog_avatar": "https://robohash.org/quivoluptasoptio.png?size=50x50&set=set1",
+      "access_token": "iYs4ehbt1HPRj5SyrsyfE4LWtn8L6RIUe8pDxUG1"
+    }
+  ],
+  "blog": {
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "pagination": {
+        "total": 1,
+        "count": 1,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 1,
+        "first_page_url": true,
+        "last_page_url": 1,
+        "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
+        "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
+      },
+      "blogs": [
+        {
+          "id": 2026,
+          "is_primary": false,
+          "username": "Jaximus",
+          "avatar": "",
+          "avatar_shape": "square",
+          "header_image": "",
+          "title": "My 1st Blog",
+          "allow_ask": true,
+          "allow_submittions": true,
+          "description": "This blog is a sketch of thoughts"
+        },
+        {
+          "id": 2126,
+          "is_primary": false,
+          "username": "GordonRamsey",
+          "avatar": "",
+          "avatar_shape": "square",
+          "header_image": "",
+          "title": "Oh dearr!",
+          "allow_ask": true,
+          "allow_submittions": true,
+          "description": "This blog is a sketch of thoughts"
+        }
+      ]
+    }
+  },"following": {
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "pagination": {
+        "total": 1,
+        "count": 1,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 1,
+        "first_page_url": true,
+        "last_page_url": 1,
+        "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
+        "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
+      },
+      "followings": [
+        {
+          "blog_avatar": "/storage/imgname2.extension",
+          "blog_avatar_shape": "circle",
+          "blog_username": "radwa-ahmed213",
+          "blog_id": 1032
+        }
+      ]
+    }
+  },
+  "followers": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "followers": [
+      {
+        "blog_avatar": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+        "blog_avatar_shape": "circle",
+        "blog_username": "maryem salah",
+        "blog_id": "1",
+        "followingfrom": "15"
+      },
+      {
+        "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+        "blog_avatar_shape": "circle",
+        "blog_username": "radwa gamal",
+        "blog_id": "3",
+        "followingfrom": "17"
+      },
+      {
+        "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+        "blog_avatar_shape": "circle",
+        "blog_username": "ahmed khaled",
+        "blog_id": "4",
+        "followingfrom": "18"
+      },
+      {
+        "blog_avatar": "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
+        "blog_avatar_shape": "circle",
+        "blog_username": "hossam ali",
+        "blog_id": "5",
+        "followingfrom": "20"
+      },
+      {
+        "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+        "blog_avatar_shape": "circle",
+        "blog_username": "ahmed ali",
+        "blog_id": "6",
+        "followingfrom": "33"
+      },
+      {
+        "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+        "blog_avatar_shape": "rectangle",
+        "blog_username": "ahmed ali",
+        "blog_id": "KDWkj0h",
+        "followingfrom": "19"
+      }
+    ]
+  },
+  "search_follow_blog": [
+    {
+      "id": "ahmed ali",
+      "meta": {
+        "status": "200",
+        "msg": "ahmed ali follows you"
+      }
+    },
+    {
+      "id": "hossam ali",
+      "meta": {
+        "status": "200",
+        "msg": "hossam ali follows you"
+      }
+    }
+  ],
+  "followed_by": [
+    {
+      "id": "username",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "followed": true
+      }
+    },
+    {
+      "id": "2",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "followed": true
+      }
+    },
+    {
+      "id": "3",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "followed": true
+      }
+    }
+  ],
+  "block": [
+    {
+      "id": "1",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      }
+    },
+    {
+      "id": "3",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      }
+    },
+    {
+      "id": "4",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      }
+    },
+    {
+      "id": "5",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      }
+    }
+  ],
+  "all_chats": {
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "chats": [
+      {
+        "blog_avatar": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+        "blog_avatar_shape": "circle",
+        "blog_username": "radwa-ahmed213",
+        "blog_id": 1032,
+        "last_message": "hellonadeennnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnnn",
+        "from": "radwa-ahmed213"
+      },
+      {
+        "blog_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
+        "blog_avatar_shape": "circle",
+        "blog_username": "maryem-ahmed213",
+        "blog_id": 10,
+        "last_message": "hello maryem",
+        "from": "nadeen"
+      },
+      {
+        "blog_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+        "blog_avatar_shape": "circle",
+        "blog_username": "nadeen-ahmed213",
+        "blog_id": 1011,
+        "last_message": "hello nadeen",
+        "from": "radwa-ahmed213"
+      },
+      {
+        "blog_avatar": "https://1.bp.blogspot.com/-YqS2GId1AVw/YESOLMEJ-3I/AAAAAAAAK_o/v8oWT-C5okw3-Yi-n_SW3kogqnt4RQxKwCLcBGAsYHQ/s16000/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-%25D9%2584%25D9%2584%25D9%2581%25D9%258A%25D8%25B3-%25D8%25A8%25D9%2588%25D9%2583-16.webp",
+        "blog_avatar_shape": "circle",
+        "blog_username": "ali-ahmed213",
+        "blog_id": 112,
+        "last_message": "hello nadeen",
+        "from": "radwa-ahmed213"
+      },
+      {
+        "blog_avatar": "https://1.bp.blogspot.com/-FZXji_IODBI/YKppykyjGhI/AAAAAAACDJU/JvRCsOgRZVIyrcC1BXN5GI1Mz795XRoxACLcBGAsYHQ/s640/%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-%25D9%2581%25D9%258A%25D8%25B3-%25D8%25A8%25D9%2588%25D9%2583032.jpg",
+        "blog_avatar_shape": "circle",
+        "blog_username": "hossam-ahmed213",
+        "blog_id": 113,
+        "last_message": "hello nadeen",
+        "from": "radwa-ahmed213"
+      },
+      {
+        "blog_avatar": "data:image/jpeg;base64,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",
+        "blog_avatar_shape": "circle",
+        "blog_username": "hoda-ahmed213",
+        "blog_id": 114,
+        "last_message": "hello nadeen",
+        "from": "radwa-ahmed213"
+      },
+      {
+        "blog_avatar": "https://img.wattpad.com/cover/259072761-288-k591831.jpg",
+        "blog_avatar_shape": "circle",
+        "blog_username": "allaa-ahmed213",
+        "blog_id": 115,
+        "last_message": "hello nadeen",
+        "from": "radwa-ahmed213"
+      },
+      {
+        "blog_avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8cDW5DcPwWg2SuwnCEeniXdddi3kgtF-fg&usqp=CAU",
+        "blog_avatar_shape": "circle",
+        "blog_username": "mona-ahmed213",
+        "blog_id": 116,
+        "last_message": "hello nadeen",
+        "from": "radwa-ahmed213"
+      }
+    ]
+  },
+  "messages": [
+    {
+      "id": 10,
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "chat_messages": [
+          {
+            "from": "blog_name",
+            "type": "text",
+            "text": "hello world!",
+            "id": "1"
+          },
+          {
+            "from": "blog_name",
+            "type": "photo",
+            "photo": "/storage/photo_example.jpg",
+            "id": "2"
+          },
+          {
+            "from": "blog_name",
+            "type": "text",
+            "text": "hello world!",
+            "gif": "/storage/gif_example.gif",
+            "id": "3"
+          }
+        ]
+      }
+    },
+    {
+      "id": 1032,
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "chat_messages": [
+          {
+            "from": "radwa-ahmed213",
+            "type": "text",
+            "text": "hello world!",
+            "id": "1"
+          },
+          {
+            "from": "nadeen",
+            "type": "photo",
+            "photo": "/storage/photo_example.jpg",
+            "id": "2"
+          },
+          {
+            "from": "radwa-ahmed213",
+            "type": "text",
+            "text": "hello world!",
+            "gif": "/storage/gif_example.gif",
+            "id": "3"
+          }
+        ]
+      }
+    }
+  ],
+  "recently_followed": {
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": [
+      {
+        "blog_avatar": "/storage/imgname2.extension",
+        "blog_avatar_shape": "circle",
+        "blog_username": "radwa-ahmed213",
+        "blog_title": "radwa-ahmed213",
+        "blog_id": 1
+      },
+      {
+        "blog_avatar": "/storage/imgname2.extension",
+        "blog_avatar_shape": "circle",
+        "blog_username": "maryem-ahmed213",
+        "blog_title": "radwa-ahmed213",
+        "blog_id": 1032
+      }
+    ]
+  },
+  "mockmessages": [
+    {
+      "id": 1032,
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "chat_messages": [
+        {
+          "from": "radwa-ahmed213",
+          "type": "text",
+          "text": "hello world!",
+          "id": "1"
+        },
+        {
+          "from": "nadeen",
+          "type": "photo",
+          "photo": "/storage/photo_example.jpg",
+          "id": "2"
+        },
+        {
+          "from": "radwa-ahmed213",
+          "type": "text",
+          "text": "hello nadeen!",
+          "gif": "/storage/gif_example.gif",
+          "id": "3"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "chat_messages": [
+        {
+          "from": "maryem-ahmed213",
+          "type": "text",
+          "text": "hello world!",
+          "id": "1"
+        },
+        {
+          "from": "nadeen",
+          "type": "photo",
+          "photo": "/storage/photo_example.jpg",
+          "id": "2"
+        },
+        {
+          "from": "maryem-ahmed213",
+          "type": "text",
+          "text": "hello oooooooooooo0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000!",
+          "gif": "/storage/gif_example.gif",
+          "id": "3"
+        }
+      ]
+    },
+    {
+      "id": 112,
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "chat_messages": [
+        {
+          "from": "ali-ahmed213",
+          "type": "text",
+          "text": "hello world!",
+          "id": "1"
+        },
+        {
+          "from": "nadeen",
+          "type": "photo",
+          "photo": "/storage/photo_example.jpg",
+          "id": "2"
+        },
+        {
+          "from": "ali-ahmed213",
+          "type": "text",
+          "text": "hellooooooooooooo0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000!",
+          "gif": "/storage/gif_example.gif",
+          "id": "3"
+        }
+      ]
+    }
+  ],
+  "chat_id":[
+    {
+    "id":2,
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "chat_room_id": "1452"
+    }},
+    {
+      "id":3,
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "chat_room_id": "1453"
+    }
+  },{
+    "id":4,
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "chat_room_id": "1454"
+  }
+},{
+  "id":5,
+  "meta": {
+    "status": "200",
+    "msg": "ok"
+  },
+  "response": {
+    "chat_room_id": "1455"
+  }
+  }
+  
+  ],
+  "all_chats":{
+    
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "chat_messages": [
+          {
+            "text": "hello world!",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 5,
+            "blog_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+            "blog_avatar_shape": "circle",
+            "blog_username": "nadeen-ahmed213",
+            "blog_title": "",
+            "friend_id": 6,
+            "friend_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+            "friend_avatar_shape": "circle",
+            "friend_username": "nadeen-ahmed213",
+            "friend_title": ""
+          },
+          {
+            "text": "hello world!",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 5,
+            "blog_username": "helloeverywhere",
+            "blog_avatar": "",
+            "blog_avatar_shape": "",
+            "blog_title": "",
+            "friend_id": 6,
+            "friend_username": "cppmainblog",
+            "friend_avatar": "",
+            "friend_avatar_shape": "",
+            "friend_title": ""
+          },
+          {
+            "text": "hello world!",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 5,
+            "blog_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
+            "blog_avatar_shape": "circle",
+            "blog_username": "maryem-ahmed213",
+            "blog_title": "",
+            "friend_id": 6,
+            "friend_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
+            "friend_avatar_shape": "circle",
+            "friend_username": "maryem-ahmed213",
+            "friend_title": ""
+          },
+          {
+            "text": "hello world!",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 5,
+            "blog_avatar": "https://1.bp.blogspot.com/-FZXji_IODBI/YKppykyjGhI/AAAAAAACDJU/JvRCsOgRZVIyrcC1BXN5GI1Mz795XRoxACLcBGAsYHQ/s640/%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-%25D9%2581%25D9%258A%25D8%25B3-%25D8%25A8%25D9%2588%25D9%2583032.jpg",
+            "blog_avatar_shape": "circle",
+            "blog_username": "hossam-ahmed213",
+            "blog_title": "",
+            "friend_id": 6,
+            "friend_avatar": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+            "friend_avatar_shape": "circle",
+            "friend_username": "radwa-ahmed213",
+            "friend_title": ""
+          },
+          {
+            "text": "hello world!",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 5,
+            "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+            "blog_avatar_shape": "rectangle",
+            "blog_username": "ahmed ali",
+            "blog_title": "",
+            "friend_id": 6,
+            "friend_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+            "friend_avatar_shape": "rectangle",
+            "friend_username": "ahmed ali",
+            "friend_title": ""
+          }
+        ]
+      }
+    
+  }
+}
