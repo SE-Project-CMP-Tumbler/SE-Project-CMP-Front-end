@@ -27,6 +27,8 @@ function Ask() {
     dispatch(AskAsynch(blogid, str, unknown));
     if (AskStatue.statues === '200') {
       console.log('sucsses'); // will be changed after the api completed
+      setAskText('');
+      setUnknown(false);
     } else {
       console.log('fail');
     }
