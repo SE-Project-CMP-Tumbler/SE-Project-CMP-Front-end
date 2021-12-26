@@ -24,7 +24,7 @@ const fetchAsynctextposts = createAsyncThunk(
 );
 
 const initialState = {
-  textposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  textposts: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const textpostsSlice = createSlice({
@@ -37,9 +37,8 @@ const textpostsSlice = createSlice({
     },
     [fetchAsynctextposts.fulfilled]:
      (state, { payload }) => ({ ...state, textposts: payload }),
-    [fetchAsynctextposts.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsynctextposts.rejected]:
+    (state) => ({ ...state, textposts: { ...state.textposts, error: true } }),
   },
 });
 

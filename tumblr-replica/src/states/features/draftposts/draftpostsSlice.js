@@ -29,7 +29,7 @@ const fetchAsyncdraftposts = createAsyncThunk(
 );
 
 const initialState = {
-  draftposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  draftposts: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const draftpostsSlice = createSlice({
@@ -42,9 +42,8 @@ const draftpostsSlice = createSlice({
     },
     [fetchAsyncdraftposts.fulfilled]:
      (state, { payload }) => ({ ...state, draftposts: payload }),
-    [fetchAsyncdraftposts.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsyncdraftposts.rejected]:
+    (state) => ({ ...state, draftposts: { ...state.draftposts, error: true } }),
   },
 });
 

@@ -2,6 +2,7 @@ import React from 'react';
 import Carousel from 'react-multi-carousel';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactLoading from 'react-loading';
+import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import { fetchAsyncrandomtags, getRandomtags } from '../../states/features/randomtag/randomtagSlice';
 import FollowCard from '../FollowCard/FollowCard';
@@ -10,22 +11,26 @@ const responsive = {
   superLargeDesktop: {
     // the naming can be any, depends on you.
     breakpoint: { max: 4000, min: 3000 },
-    items: 4,
+    items: 7,
+  },
+  desktoplarge: {
+    breakpoint: { max: 3000, min: 1000 },
+    items: 6,
   },
   desktop: {
-    breakpoint: { max: 3000, min: 1024 },
-    items: 4,
+    breakpoint: { max: 1500, min: 900 },
+    items: 5,
   },
   tablet: {
-    breakpoint: { max: 1024, min: 800 },
+    breakpoint: { max: 900, min: 700 },
     items: 4,
   },
   phone: {
-    breakpoint: { max: 800, min: 600 },
+    breakpoint: { max: 700, min: 480 },
     items: 3,
   },
   mobile: {
-    breakpoint: { max: 600, min: 0 },
+    breakpoint: { max: 480, min: 0 },
     items: 2,
   },
 };
@@ -60,7 +65,8 @@ export default function CarouselCards() {
               randomcolor={tag.randomcolor}
             />
           )))
-        : (<Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>) }
+        : ((randomTags.error && <Alert style={{ marginTop: '15%' }} severity="error">This is an error in loading that component</Alert>)
+          || (<Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>))}
     </Carousel>
   );
 }

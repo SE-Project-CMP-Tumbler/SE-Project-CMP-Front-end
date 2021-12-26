@@ -24,7 +24,7 @@ const fetchAsyncquoteposts = createAsyncThunk(
 );
 
 const initialState = {
-  quoteposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  quoteposts: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const quotepostsSlice = createSlice({
@@ -37,9 +37,8 @@ const quotepostsSlice = createSlice({
     },
     [fetchAsyncquoteposts.fulfilled]:
      (state, { payload }) => ({ ...state, quoteposts: payload }),
-    [fetchAsyncquoteposts.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsyncquoteposts.rejected]:
+    (state) => ({ ...state, quoteposts: { ...state.quoteposts, error: true } }),
   },
 });
 

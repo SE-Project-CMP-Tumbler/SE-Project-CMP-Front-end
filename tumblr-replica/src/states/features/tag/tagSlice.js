@@ -4,7 +4,7 @@ import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
 const fetchAsynctag = createAsyncThunk(
   'tagged/:tagdescription',
-  async (TagDescription) => {
+  async (TagDescription, { getState }) => {
     if (SERVICETYPE === MOCK) {
       try {
         const response = await api.get('tag');
@@ -14,7 +14,12 @@ const fetchAsynctag = createAsyncThunk(
       }
     } else {
       try {
-        const response = await apiR.get(`tag/data/${TagDescription}`);
+        const state = getState();
+        console.log(state);
+        const USERTOKEN = state.user.user.accessToken;
+        console.log(USERTOKEN);
+        const AuthStr = `Bearer ${USERTOKEN}`;
+        const response = await apiR.get(`tag/data/${TagDescription}`, { headers: { Authorization: AuthStr } });
         return response.data;
       } catch (e) {
         throw Error(e);
@@ -75,7 +80,7 @@ const AddAsyncfollowtags = createAsyncThunk(
 );
 
 const initialState = {
-  tag: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  tag: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const tagSlice = createSlice({
@@ -100,9 +105,8 @@ const tagSlice = createSlice({
       // console.log('Pending');
     },
     [fetchAsynctag.fulfilled]: (state, { payload }) => ({ ...state, tag: payload }),
-    [fetchAsynctag.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsynctag.rejected]:
+    (state) => ({ ...state, tag: { ...state.tag, error: true } }),
   },
 });
 

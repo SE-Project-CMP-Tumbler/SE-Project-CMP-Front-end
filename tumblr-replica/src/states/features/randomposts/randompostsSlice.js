@@ -24,7 +24,7 @@ const fetchAsyncrandomposts = createAsyncThunk(
 );
 
 const initialState = {
-  randomposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  randomposts: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const randompostsSlice = createSlice({
@@ -36,9 +36,8 @@ const randompostsSlice = createSlice({
       // console.log('Pending');
     },
     [fetchAsyncrandomposts.fulfilled]: (state, { payload }) => ({ ...state, randomposts: payload }),
-    [fetchAsyncrandomposts.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsyncrandomposts.rejected]:
+    (state) => ({ ...state, randomposts: { ...state.randomposts, error: true } }),
   },
 });
 

@@ -24,7 +24,7 @@ const fetchAsyncimageposts = createAsyncThunk(
 );
 
 const initialState = {
-  imageposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  imageposts: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const imagepostsSlice = createSlice({
@@ -37,9 +37,8 @@ const imagepostsSlice = createSlice({
     },
     [fetchAsyncimageposts.fulfilled]:
      (state, { payload }) => ({ ...state, imageposts: payload }),
-    [fetchAsyncimageposts.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsyncimageposts.rejected]:
+    (state) => ({ ...state, imageposts: { ...state.imageposts, error: true } }),
   },
 });
 

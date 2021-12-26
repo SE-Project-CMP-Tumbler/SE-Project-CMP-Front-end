@@ -24,7 +24,7 @@ const fetchAsyncchatposts = createAsyncThunk(
 );
 
 const initialState = {
-  chatposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  chatposts: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const chatpostsSlice = createSlice({
@@ -37,9 +37,8 @@ const chatpostsSlice = createSlice({
     },
     [fetchAsyncchatposts.fulfilled]:
      (state, { payload }) => ({ ...state, chatposts: payload }),
-    [fetchAsyncchatposts.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsyncchatposts.rejected]:
+    (state) => ({ ...state, chatposts: { ...state.chatposts, error: true } }),
   },
 });
 

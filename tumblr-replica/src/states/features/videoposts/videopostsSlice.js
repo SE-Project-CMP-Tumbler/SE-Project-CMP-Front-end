@@ -24,7 +24,7 @@ const fetchAsyncvideoposts = createAsyncThunk(
 );
 
 const initialState = {
-  videoposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  videoposts: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const videopostsSlice = createSlice({
@@ -37,9 +37,8 @@ const videopostsSlice = createSlice({
     },
     [fetchAsyncvideoposts.fulfilled]:
      (state, { payload }) => ({ ...state, videoposts: payload }),
-    [fetchAsyncvideoposts.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsyncvideoposts.rejected]:
+    (state) => ({ ...state, videoposts: { ...state.videoposts, error: true } }),
   },
 });
 

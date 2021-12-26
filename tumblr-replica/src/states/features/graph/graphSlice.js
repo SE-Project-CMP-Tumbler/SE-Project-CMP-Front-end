@@ -179,8 +179,8 @@ const fetchAsyncgraphtotalfollowers = createAsyncThunk(
 
 const initialState = {
   notes: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
-  newfollowers: { response: { }, meta: { status: '000', msg: 'Loading' } },
-  totalfollowers: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  newfollowers: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
+  totalfollowers: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const graphSlice = createSlice({
@@ -200,17 +200,15 @@ const graphSlice = createSlice({
     },
     [fetchAsyncgraphnewfollowers.fulfilled]:
        (state, { payload }) => ({ ...state, newfollowers: payload }),
-    [fetchAsyncgraphnewfollowers.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsyncgraphnewfollowers.rejected]:
+     (state) => ({ ...state, newfollowers: { ...state.newfollowers, error: true } }),
     [fetchAsyncgraphtotalfollowers.pending]: () => {
       // console.log('Pending');
     },
     [fetchAsyncgraphtotalfollowers.fulfilled]:
        (state, { payload }) => ({ ...state, totalfollowers: payload }),
-    [fetchAsyncgraphtotalfollowers.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsyncgraphtotalfollowers.rejected]:
+     (state) => ({ ...state, totalfollowers: { ...state.totalfollowers, error: true } }),
   },
 });
 

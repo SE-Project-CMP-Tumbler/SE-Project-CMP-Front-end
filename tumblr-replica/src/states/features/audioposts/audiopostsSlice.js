@@ -24,7 +24,7 @@ const fetchAsyncaudioposts = createAsyncThunk(
 );
 
 const initialState = {
-  audioposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  audioposts: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const audiopostsSlice = createSlice({
@@ -37,9 +37,8 @@ const audiopostsSlice = createSlice({
     },
     [fetchAsyncaudioposts.fulfilled]:
      (state, { payload }) => ({ ...state, audioposts: payload }),
-    [fetchAsyncaudioposts.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsyncaudioposts.rejected]:
+    (state) => ({ ...state, audioposts: { ...state.audioposts, error: true } }),
   },
 });
 

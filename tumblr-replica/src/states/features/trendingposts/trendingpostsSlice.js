@@ -24,7 +24,7 @@ const fetchAsynctrendingposts = createAsyncThunk(
 );
 
 const initialState = {
-  trendingposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  trendingposts: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const trendingpostsSlice = createSlice({
@@ -37,9 +37,8 @@ const trendingpostsSlice = createSlice({
     },
     [fetchAsynctrendingposts.fulfilled]:
      (state, { payload }) => ({ ...state, trendingposts: payload }),
-    [fetchAsynctrendingposts.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsynctrendingposts.rejected]:
+    (state) => ({ ...state, trendingposts: { ...state.trendingposts, error: true } }),
   },
 });
 

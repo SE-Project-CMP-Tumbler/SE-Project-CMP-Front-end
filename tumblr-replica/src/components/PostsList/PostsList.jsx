@@ -4,6 +4,7 @@ import PropTypes from 'prop-types';
 import Avatar from '@mui/material/Avatar';
 import Box from '@mui/material/Box';
 import ReactLoading from 'react-loading';
+import Alert from '@mui/material/Alert';
 import { useMediaQuery } from 'react-responsive';
 import { useSelector } from 'react-redux';
 import Tooltip from '@mui/material/Tooltip';
@@ -89,7 +90,8 @@ function PostsList({ Posts }) {
                   </Grid>
                 </>
               ))
-            ) : (Posts.meta.msg === 'Loading' && <Box style={{ marginRight: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>
+            ) : ((Posts.error && <Alert style={{ marginTop: '15%' }} severity="error">This is an error in loading that component</Alert>)
+            || (Posts.meta.msg === 'Loading' && <Box style={{ marginRight: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)
             )}
         </Grid>
       </Grid>

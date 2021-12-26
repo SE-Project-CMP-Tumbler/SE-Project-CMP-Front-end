@@ -34,7 +34,7 @@ const fetchAsynctagposts = createAsyncThunk(
 );
 
 const initialState = {
-  tagposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  tagposts: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const tagpostsSlice = createSlice({
@@ -46,9 +46,8 @@ const tagpostsSlice = createSlice({
       // console.log('Pending');
     },
     [fetchAsynctagposts.fulfilled]: (state, { payload }) => ({ ...state, tagposts: payload }),
-    [fetchAsynctagposts.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsynctagposts.rejected]:
+    (state) => ({ ...state, tagposts: { ...state.tagposts, error: true } }),
   },
 });
 
