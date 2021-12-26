@@ -93,7 +93,7 @@ function PostsList({ Posts }) {
             )}
         </Grid>
       </Grid>
-      { (small && isDesktopOrLaptop) && (
+      { (Posts.meta.status === '200' && small && isDesktopOrLaptop) && (
         <Grid container spacing={2}>
           <Grid item xs={6}>
             {Posts.response.posts.slice(0, postslen.length / 2).map((post) => (

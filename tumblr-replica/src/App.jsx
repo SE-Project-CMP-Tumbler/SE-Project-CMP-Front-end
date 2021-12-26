@@ -42,6 +42,7 @@ import AllMassages from './components/Messages/Allmessages';
 import BlogMessages from './components/Messages/BlogMessages';
 import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
 import NewTumblr from './components/NewTumblr/NewTumblr';
+import NotFound from './components/NotFound/NoteFound';
 
 function App() {
   const dispatch = useDispatch();
@@ -107,6 +108,7 @@ function App() {
         <Route path="/blog/:blogname/activity/:period/:rate" element={<Activity option="2" />} />
         <Route path="/blog/:blogname/activity/:period" element={<Activity option="3" />} />
         <Route path="/blog/:blogname/activity" element={<Activity option="4" />} />
+        <Route path="*" element={<NotFound />} />
 
       </Routes>
     </Router>

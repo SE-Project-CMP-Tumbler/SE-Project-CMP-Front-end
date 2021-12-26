@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import SideTabs from '../SideTabs/SideTabs';
 import PostsList from '../PostsList/PostsList';
 import { getBlogposts, fetchAsyncblogposts } from '../../states/features/blogposts/blogpostsSlice';
+import { getBlogId, fetchBlogs, setcurrentblog } from '../../states/features/userblogs/userblogsSlice';
 import { tolarge } from '../../states/features/postview/postviewSlice';
 // import CreatePost from './CreatPost';
 
@@ -20,13 +21,19 @@ import { tolarge } from '../../states/features/postview/postviewSlice';
  * )
  */
 function BlogPage() {
-  const blogId = 14;
+  // const blogId = 14;
   const dispatch = useDispatch();
+  const blogname = window.location.href.split('/').pop();
+  const Posts = useSelector(getBlogposts);
+  const BlogId = useSelector(getBlogId);
+  console.log(BlogId, 'BBLOgIDDDDDDDDDDDDDDDDDDDDD');
   React.useEffect(() => {
-    dispatch(fetchAsyncblogposts(blogId));
+    dispatch(setcurrentblog(blogname));
+    dispatch(fetchBlogs());
+    dispatch(fetchAsyncblogposts(BlogId));
     dispatch(tolarge());
   }, []);
-  const Posts = useSelector(getBlogposts);
+
   return (
     <div>
       <Grid container spacing={2}>

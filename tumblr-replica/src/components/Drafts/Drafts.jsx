@@ -4,6 +4,7 @@ import Box from '@mui/material/Box';
 import { useDispatch, useSelector } from 'react-redux';
 import SideTabs from '../SideTabs/SideTabs';
 import PostsList from '../PostsList/PostsList';
+import { getBlogId, fetchBlogs, setcurrentblog } from '../../states/features/userblogs/userblogsSlice';
 import { getDraftposts, fetchAsyncdraftposts } from '../../states/features/draftposts/draftpostsSlice';
 
 /**
@@ -18,9 +19,14 @@ import { getDraftposts, fetchAsyncdraftposts } from '../../states/features/draft
  * )
  */
 function Drafts() {
-  const blogId = 14;
+  // const blogId = 14;
   const dispatch = useDispatch();
+  const blogname = window.location.href.split('/')[4];
+  const blogId = useSelector(getBlogId);
+  console.log(blogId, 'BBLOgIDDDDDDDDDDDDDDDDDDDDDraft');
   React.useEffect(() => {
+    dispatch(setcurrentblog(blogname));
+    dispatch(fetchBlogs());
     dispatch(fetchAsyncdraftposts(blogId));
   }, []);
   const Posts = useSelector(getDraftposts);
