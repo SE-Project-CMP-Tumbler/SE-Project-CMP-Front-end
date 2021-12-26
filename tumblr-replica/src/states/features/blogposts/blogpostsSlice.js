@@ -18,6 +18,7 @@ const fetchAsyncblogposts = createAsyncThunk(
         console.log(state);
         const USERTOKEN = state.user.user.accessToken;
         console.log(USERTOKEN);
+        console.log(BlogId);
         const AuthStr = `Bearer ${USERTOKEN}`;
         const response = await apiR.get(`post/submission/${BlogId}`, { headers: { Authorization: AuthStr } });
         console.log(response.data);

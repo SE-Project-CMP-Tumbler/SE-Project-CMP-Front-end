@@ -38,6 +38,11 @@ function SideTabs({ select }) {
     dispatch(fetchAsyncblogactivity(blogid));
     dispatch(fetchAsyncbloginfo(blogid));
   }, []);
+
+  React.useEffect(() => {
+    dispatch(fetchAsyncblogactivity(blogid));
+    dispatch(fetchAsyncbloginfo(blogid));
+  }, [blogid]);
   const Activity = useSelector(getBlogactivity);
   const Bloginfo = useSelector(getBloginfo);
   return (

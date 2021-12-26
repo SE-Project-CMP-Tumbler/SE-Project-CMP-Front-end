@@ -29,6 +29,9 @@ function Drafts() {
     dispatch(fetchBlogs());
     dispatch(fetchAsyncdraftposts(blogId));
   }, []);
+  React.useEffect(() => {
+    dispatch(fetchAsyncdraftposts(blogId));
+  }, [blogId]);
   const Posts = useSelector(getDraftposts);
   return (
     <div>

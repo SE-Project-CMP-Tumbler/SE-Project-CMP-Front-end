@@ -22,9 +22,6 @@ const fetchBlogs = createAsyncThunk(
         const AuthStr = `Bearer ${USERTOKEN}`;
         const response = await apiR.get('blog', { headers: { Authorization: AuthStr } });
         console.log(response.data);
-        for (let i = 0; i < response.data.response.tags.length; i += 1) {
-          response.data.response.tags[i].follow = true;
-        }
         return response.data;
       } catch (e) {
         throw Error(e);

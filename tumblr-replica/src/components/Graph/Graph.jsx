@@ -1,5 +1,6 @@
 import * as React from 'react';
 import * as V from 'victory';
+import Alert from '@mui/material/Alert';
 import Grid from '@mui/material/Grid';
 import PropTypes from 'prop-types';
 import Box from '@mui/material/Box';
@@ -14,7 +15,7 @@ import { Link } from 'react-router-dom';
 export default function Graph({
   Notes, periodval, rateval, optionval,
 }) {
-  // console.log(Notes.response.data[0]);
+  console.log(Notes, 'HHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHHH');
   let option1 = 'Last Month';
   switch (periodval) {
     case 'day':
@@ -129,7 +130,7 @@ export default function Graph({
           </Link>
         </Select>
       </FormControl>
-      {Notes.meta.status === '200' ? (
+      {Notes.meta.status === '200' && !Notes.error ? (
         <>
           <V.VictoryChart
             width={700}
@@ -190,7 +191,9 @@ export default function Graph({
             </Grid>
           </Grid>
         </>
-      ) : (Notes.meta.msg === 'Loading' && <Box style={{ marginRight: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)}
+      ) : ((Notes.error && <Alert style={{ marginTop: '15%' }} severity="error">This is an error in loading that component</Alert>)
+      || (Notes.meta.msg === 'Loading' && <Box style={{ marginRight: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)
+      )}
 
     </div>
   );

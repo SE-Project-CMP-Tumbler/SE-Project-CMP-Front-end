@@ -34,6 +34,10 @@ function BlogPage() {
     dispatch(tolarge());
   }, []);
 
+  React.useEffect(() => {
+    dispatch(fetchAsyncblogposts(BlogId));
+  }, [BlogId]);
+
   return (
     <div>
       <Grid container spacing={2}>
