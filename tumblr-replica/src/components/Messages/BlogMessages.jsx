@@ -23,7 +23,7 @@ const BlogMessages = ({ BlogId }) => {
   return (
 
     <div className="Base">
-      <div className="container">
+      <div className="container-m">
         <div className="leftContent"><LeftContent /></div>
 
         <div className="rightContent">
@@ -31,22 +31,22 @@ const BlogMessages = ({ BlogId }) => {
             && (
               <div className="allMassages">
 
-                <ul className="blogs">
+                <ul className="blogs ul-m">
 
-                  <li className="firstLi">
+                  <li className="firstLi li-m">
                     <Link to="/inbox">
                       <FontAwesomeIcon className="icon" icon={faEnvelope} color="white" size="lg" />
                       All massages
                     </Link>
                   </li>
                   {blogs.blogs?.map((blog) => ((blog.allow_ask || blog.allow_submittions) ? (
-                    <li className={blog.id === BlogId ? 'secondLi-shaded' : 'secondLi'}>
+                    <li className={blog.id === BlogId ? 'secondLi-shaded li-m' : 'secondLi li-m'}>
                       <Link to={'/blog/' + blog.username + '/messages'}>
                         <span className="userName">{blog.username}</span>
                       </Link>
                     </li>
                   ) : <></>))}
-                  <li className="thirdLi">
+                  <li className="thirdLi li-m">
                     <button type="button" className="deleteBtn">Delete all massages</button>
                   </li>
                 </ul>

@@ -12,9 +12,10 @@
     margin: 0;
     padding: 0;
     vertical-align: baseline;
-    width:100%
+    width:100%;
+    color: white;
 }
-ul{
+.ul-m{
     margin-bottom: 0.75em;
     padding-left: 2.8em;
     list-style: none;
@@ -29,7 +30,7 @@ ul{
     color: RGB(255, 255, 255);
     font-family: "Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;
 }
-a{
+.a-m{
     text-decoration: none;
     color: white;
     align-items: center;
@@ -45,16 +46,18 @@ a{
 .icon {
     padding:0 10px 0 0;
 }
-li{
+.li-m{
     padding: 8px 12px;
     display: list-item;
     text-align: -webkit-match-parent;
+    color: white;
 }
 .firstLi{
     align-items: center;
     display: flex;
     flex-direction: row;
     margin-left: 0;
+    color: white;
 }
 .secondLi-shaded{
     background-color: rgb(255, 255, 255,.07);
@@ -63,6 +66,7 @@ li{
 .userName{
     font-size: 1.2rem;
     word-break: break-word;
+    color: white;
 }
 .userMassages{
     color: rgba(255, 255, 255,.65);

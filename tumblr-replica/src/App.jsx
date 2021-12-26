@@ -40,6 +40,7 @@ import Ask from './components/Profile/Ask';
 import Submit from './components/Profile/Submit';
 import AllMassages from './components/Messages/Allmessages';
 import BlogMessages from './components/Messages/BlogMessages';
+// import ProfileHeader from './components/ProfileTemp/ProfileTempHeader';
 import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
 import NewTumblr from './components/NewTumblr/NewTumblr';
 
@@ -91,7 +92,8 @@ function App() {
         <Route path="/blog/:blogname" element={<BlogPage />} />
         <Route path="/blog/:blogname/activity" element={<Activity />} />
         <Route path="/blog/:blogname/drafts" element={<Drafts />} />
-        <Route path="/rightbar/:blogid" element={<RightBar />} />
+        <Route path="/blog/view/:blogid" element={<RightBar />} />
+        {/* <Route path="/profiletemp" element={<ProfileHeader BlogId={2} />} /> */}
         <Route path="/profile/:blogid" element={<Posts />} />
         <Route path="/profile/:blogid/likes" element={<Likes />} />
         <Route path="/profile/:blogid/ask" element={<Ask />} />

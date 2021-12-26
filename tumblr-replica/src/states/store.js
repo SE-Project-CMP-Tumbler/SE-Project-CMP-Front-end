@@ -39,6 +39,7 @@ import FollowedReducer from './followslice/getfollowslice';
 import BlockedReducer from './blockSlice/getblockslice';
 import unBlockReducer from './blockSlice/unblockslice';
 import AskReducer from './askpostslice/askpostslice';
+import PostslikedReducer from './likedposts/likedpostsSlice';
 
 const store = configureStore({
   reducer: {
@@ -82,6 +83,7 @@ const store = configureStore({
     newTumblr: newtumblrReducer,
     graph: graphReducer,
     ask: AskReducer,
+    postsliked: PostslikedReducer,
   },
 });
 
