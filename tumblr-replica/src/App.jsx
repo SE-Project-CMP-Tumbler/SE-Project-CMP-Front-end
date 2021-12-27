@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import MediaQuery from 'react-responsive';
@@ -20,7 +20,6 @@ import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
 import { initialCheck } from './states/User/UserSlice';
 import { getBlogs, fetchBlogs } from './states/blogslice/blogsslice';
-import { getBlog } from './states/blogslice/blogslice';
 import TextPosts from './components/TextPosts/TextPosts';
 import VideoPosts from './components/VideoPosts/VideoPosts';
 import ImagePosts from './components/ImagePosts/ImagePosts';
@@ -40,29 +39,37 @@ import Ask from './components/Profile/Ask';
 import Submit from './components/Profile/Submit';
 import AllMassages from './components/Messages/Allmessages';
 import BlogMessages from './components/Messages/BlogMessages';
+// import ProfileHeader from './components/ProfileTemp/ProfileTempHeader';
 import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
 import NewTumblr from './components/NewTumblr/NewTumblr';
 import NotFound from './components/NotFound/NoteFound';
+import { selectHideNav } from './states/hidenav/hidenavSlice';
+// import { changeTheme } from './components/NavigationBar/interactions';
 
 function App() {
   const dispatch = useDispatch();
   dispatch(initialCheck());
-  React.useEffect(() => {
+  useEffect(() => {
+    // changeTheme("'Pacifico', cursive !important", 'pink', 'rgb(6, 24, 51)');
     dispatch(fetchBlogs());
   }, []);
   const blogs = useSelector(getBlogs).response;
-  const blog = useSelector(getBlog).response;
-  console.log(blog);
-  console.log(blogs.blogs, 'hi Essam');
+  const hideNav = useSelector(selectHideNav);
+  const wrapperRef = useRef(null);
   return (
     <Router>
       <div className="App">
-        <MediaQuery minWidth={1070}>
-          <NavigationBar />
-        </MediaQuery>
-        <MediaQuery maxWidth={1070}>
-          <NavigationBarResp />
-        </MediaQuery>
+        { !hideNav.hideAll
+        && (
+        <>
+          <MediaQuery minWidth={1070}>
+            <NavigationBar />
+          </MediaQuery>
+          <MediaQuery maxWidth={1070}>
+            <NavigationBarResp pageRef={wrapperRef} />
+          </MediaQuery>
+        </>
+        )}
 
       </div>
       <Routes>
@@ -109,7 +116,6 @@ function App() {
         <Route path="/blog/:blogname/activity/:period" element={<Activity option="3" />} />
         <Route path="/blog/:blogname/activity" element={<Activity option="4" />} />
         <Route path="*" element={<NotFound />} />
-
       </Routes>
     </Router>
   );

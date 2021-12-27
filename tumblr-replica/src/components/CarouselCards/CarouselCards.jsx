@@ -53,7 +53,7 @@ export default function CarouselCards() {
   const randomTags = useSelector(getRandomtags);
   return (
     <Carousel responsive={responsive}>
-      { randomTags.meta.status === '200' ? (
+      {randomTags.meta.status === '200' ? (
         randomTags.response.tags
           .map((tag) => (
             <FollowCard
@@ -65,8 +65,12 @@ export default function CarouselCards() {
               randomcolor={tag.randomcolor}
             />
           )))
+<<<<<<< HEAD
         : ((randomTags.error && <Alert style={{ marginTop: '15%' }} severity="error">This is an error in loading that component</Alert>)
           || (<Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>))}
+=======
+        : (<Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)}
+>>>>>>> 90199dc98ececf8047bd30e7642b40d7852ba7cd
     </Carousel>
   );
 }

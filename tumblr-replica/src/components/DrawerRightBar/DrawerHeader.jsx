@@ -33,10 +33,10 @@ function Header({ CloseClicked, OpenChatClicked, BlogId }) {
     <div className="Body">
       <NavBar CloseClicked={CloseClicked} OpenChatClicked={OpenChatClicked} BlogId={BlogId} />
       <div className="photos">
-        <a target="blank" href={`https://${Blog.username}.tumblr.com/`}>
+        <a target="blank" href={`https://web.dev.tumbler.social/profile/${BlogId}`}>
           <img className="cover-drawer" src={Blog.header_image} alt="cover" />
         </a>
-        <a target="blank" href={`https://${Blog.username}.tumblr.com/`}>
+        <a target="blank" href={`https://web.dev.tumbler.social/profile/${BlogId}`}>
           <img className={Blog.avatar_shape === 'square' ? 'square-profile-drawer' : 'circle-profile-drawer'} src={Blog.avatar} alt="profile pic" />
         </a>
       </div>

@@ -1427,6 +1427,356 @@
       "access_token": "iYs4ehbt1HPRj5SyrsyfE4LWtn8L6RIUe8pDxUG1"
     }
   ],
+  "posts": [
+    {
+      "id": "dashboard",
+      "meta": {
+        "status": "200",
+        "msg": "OK"
+      },
+      "response": {
+        "pagination": {
+          "total": 17,
+          "count": 7,
+          "per_page": 10,
+          "current_page": 2,
+          "total_pages": 2,
+          "first_page_url": false,
+          "next_page_url": null,
+          "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+        },
+        "posts": [
+          {
+            "post_id": 5,
+            "post_status": "published",
+            "post_type": "general",
+            "post_body": "<div><h1>What's @Artificial intellegence? by @maryem </h1> <img src='https://64.media.tumblr.com/8986298209e945beb4f854ef2c3aec7a/2375925468fd7e2e-8c/s2048x3072/dde57bae065e86817b80e2d78439883043da7c37.png' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+            "blog_id": 4,
+            "blog_username": "nadeen-ayman",
+            "blog_avatar": "https://assets.tumblr.com/images/default_avatar/cube_closed_64.png",
+            "blog_avatar_shape": "",
+            "blog_title": "",
+            "post_time": "02-02-2012"
+          },
+          {
+            "post_id": 6,
+            "post_status": "published",
+            "post_type": "general",
+            "post_body": "<div><h1>What's Artificial @intellegence? </h1> <p>#AI #humanity #freedom</p></div>",
+            "blog_id": 5,
+            "blog_username": "maryem-salah",
+            "blog_avatar": "https://64.media.tumblr.com/3501e098e635f40846179b1bdaf9c887/b1b67997bba11bee-e7/s400x600/24dc04de9ed8719291f8bb325c84b4bcbe73f46c.jpg",
+            "blog_avatar_shape": "circular",
+            "blog_title": "",
+            "post_time": "02-02-2012"
+          },
+          {
+            "post_id": 7,
+            "post_status": "published",
+            "post_type": "general",
+            "post_body": "<div><p> Please work properly</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag.</video></div>",
+            "blog_id": 12,
+            "blog_username": "no-one",
+            "blog_avatar": "https://assets.tumblr.com/images/default_avatar/cube_closed_64.png",
+            "blog_avatar_shape": "",
+            "blog_title": "",
+            "post_time": "02-02-2012"
+          },
+          {
+            "post_id": 8,
+            "post_status": "published",
+            "post_type": "general",
+            "post_body": "<p style=\"text-align:start;\"></p>\n<p style=\"text-align:left;\"><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: medium;font-family: poppins;\">myTitle </span></p>\n<p style=\"text-align:start;\"><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: medium;font-family: poppins;\">i want to make sure my create post component is working </span></p>\n<p style=\"text-align:start;\"><span style=\"color: rgb(184,49,47);background-color: rgb(255,255,255);font-size: medium;font-family: poppins;\">Congrats !</span></p>\n<p><span style=\"color: rgb(26,188,156);background-color: rgb(255,255,255);font-size: medium;font-family: poppins;\">yarabbbbb</span>&nbsp;</p>\n",
+            "blog_id": 4,
+            "blog_username": "tumblr-user",
+            "blog_avatar": "https://assets.tumblr.com/images/default_avatar/cube_closed_64.png",
+            "blog_avatar_shape": "",
+            "blog_title": "",
+            "post_time": "02-02-2012"
+          }
+        ]
+      }
+    },
+    {
+      "id": "radar",
+      "meta": {
+        "status": "200",
+        "msg": "OK"
+      },
+      "response": {
+        "post": [
+          {
+            "post_id": 5,
+            "post_body": "<div><h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+            "post_status": "published",
+            "post_type": "general",
+            "blog_id": 5,
+            "blog_username": "",
+            "blog_avatar": "",
+            "blog_avatar_shape": "",
+            "blog_title": "",
+            "post_time": "2012-02-30"
+          }
+        ]
+      }
+    }
+  ],
+  "follow_blogs": [
+    {
+      "id": 2
+    },
+    {
+      "id": 3
+    },
+    {
+      "id": 5
+    }
+  ],
+  "blockk": [
+    {
+      "blog_id": 4,
+      "id": 1
+    }
+  ],
+  "post_notes": [
+    {
+      "id": 5,
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "likes": [
+          {
+            "blog_avatar": "https://assets.tumblr.com/images/default_avatar/cube_closed_512.png",
+            "blog_avatar_shape": "circle",
+            "blog_username": "radwa-ahmed213",
+            "blog_title": "Positive Quotes",
+            "blog_id": 1032,
+            "followed": false
+          }
+        ],
+        "replies": [
+          {
+            "blog_avatar": "https://assets.tumblr.com/images/default_avatar/cube_closed_512.png",
+            "blog_avatar_shape": "rectangular",
+            "blog_username": "radwa-ahmed213",
+            "blog_id": 2,
+            "reply_id": 5,
+            "reply_time": "02-02-2012",
+            "reply_text": "What an amazing post!"
+          }
+        ],
+        "reblogs": [
+          {
+            "post_id": 5,
+            "blog_avatar": "https://assets.tumblr.com/images/default_avatar/cube_closed_512.png",
+            "blog_avatar_shape": "circular",
+            "blog_username": "radwa-ahmed213",
+            "blog_id": 2,
+            "reblog_content": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>"
+          }
+        ]
+      }
+    },
+    {
+      "id": 6,
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "likes": [
+          {
+            "blog_avatar": "https://assets.tumblr.com/images/default_avatar/cube_closed_512.png",
+            "blog_avatar_shape": "square",
+            "blog_username": "nadeen-ayman213",
+            "blog_title": "Positive Quotes",
+            "blog_id": 1032,
+            "followed": false
+          }
+        ],
+        "replies": [
+          {
+            "blog_avatar": "https://assets.tumblr.com/images/default_avatar/cube_closed_512.png",
+            "blog_avatar_shape": "square",
+            "blog_username": "nadeen-ayman3",
+            "blog_id": 2,
+            "reply_id": 5,
+            "reply_time": "02-02-2012",
+            "reply_text": "i agree with you"
+          }
+        ],
+        "reblogs": [
+          {
+            "post_id": 5,
+            "blog_avatar": "https://assets.tumblr.com/images/default_avatar/cube_closed_512.png",
+            "blog_avatar_shape": "circle",
+            "blog_username": "nadeen-ayman213",
+            "blog_id": 2,
+            "reblog_content": "<div> <h1> Good job </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>"
+          }
+        ]
+      }
+    }
+  ],
+  "reply": [
+    {
+      "id": 2,
+      "reply_text": "hello"
+    }
+  ],
+  "like": [
+    {
+      "post_id": 6,
+      "id": 1
+    },
+    {
+      "post_id": 8,
+      "id": 2
+    }
+  ],
+  "createdpost": [
+    {
+      "postBody": {
+        "postBody": "<p>AYKALAM</p>\n"
+      },
+      "id": 1
+    },
+    {
+      "postBody": "<p>YY</p>\n",
+      "id": 2
+    },
+    {
+      "postBody": "<p style=\"text-align:start;\"></p>\n<p style=\"text-align:left;\"><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: medium;font-family: poppins;\">myTitle </span></p>\n<p style=\"text-align:start;\"><span style=\"color: rgb(0,0,0);background-color: rgb(255,255,255);font-size: medium;font-family: poppins;\">i want to make sure my create post component is working </span></p>\n<p style=\"text-align:start;\"><span style=\"color: rgb(184,49,47);background-color: rgb(255,255,255);font-size: medium;font-family: poppins;\">Congrats !</span></p>\n<p><span style=\"color: rgb(26,188,156);background-color: rgb(255,255,255);font-size: medium;font-family: poppins;\">yarabbbbb</span>&nbsp;</p>\n",
+      "id": 3
+    },
+    {
+      "headers": {
+        "Authorization": "Bearerundefined",
+        "Accept": "application/json",
+        "Content-Type": "application/json"
+      },
+      "body": {
+        "post_status": "puplished",
+        "post_time": "2012-02-30",
+        "post_type": "general",
+        "post_body": "<p>haaaaaaaaaa ama nshof</p>\n"
+      },
+      "id": 4
+    },
+    {
+      "body": {
+        "post_status": "puplished",
+        "post_time": "2012-02-30",
+        "post_type": "general",
+        "post_body": "<p>haaaaaaaaaa ama nshof</p>\n"
+      },
+      "id": 5
+    },
+    {
+      "id": 6
+    },
+    {
+      "post_status": "puplished",
+      "post_time": "2012-02-30",
+      "post_type": "general",
+      "post_body": "<p>let's try</p>\n",
+      "id": 7
+    }
+  ],
+  "upload_file": [
+    {
+      "meta": {
+        "status": "200",
+        "msg": "OK"
+      },
+      "response": {
+        "url": "/storage/image_url.jpg",
+        "width": 360,
+        "height": 168,
+        "orignal_filename": "home.jpg",
+        "rotation": false,
+        "upload_id": false
+      }
+    },
+    {
+      "meta": {
+        "status": "200",
+        "msg": "OK"
+      },
+      "response": {
+        "url": "/storage/image_url.jpg",
+        "width": 360,
+        "height": 168,
+        "orignal_filename": "home.jpg",
+        "rotation": false,
+        "upload_id": false
+      }
+    },
+    {
+      "meta": {
+        "status": "200",
+        "msg": "OK"
+      },
+      "response": {
+        "url": "/storage/image_url.jpg",
+        "width": 360,
+        "height": 168,
+        "orignal_filename": "home.jpg",
+        "rotation": false,
+        "upload_id": false
+      }
+    },
+    {
+      "meta": {
+        "status": "200",
+        "msg": "OK"
+      },
+      "response": {
+        "url": "/storage/image_url.jpg",
+        "width": 360,
+        "height": 168,
+        "orignal_filename": "home.jpg",
+        "rotation": false,
+        "upload_id": false
+      }
+    }
+  ],
+  "blogs":[
+    {
+      "id":"chc_out_blogs",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "pagination": {
+          "total": 1,
+          "count": 1,
+          "per_page": 10,
+          "current_page": 1,
+          "total_pages": 1,
+          "first_page_url": true,
+          "last_page_url": 1,
+          "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
+          "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
+        },
+        "blogs": [
+          {
+            "id": 2026,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "description": "This blog is a sketch of thoughts"
+          }
+        ]
+      }
+    }
+  ]
+,
   "blog": {
     "meta": {
       "status": "200",
@@ -1472,6 +1822,45 @@
       ]
     }
   },
+  "followed_by":{
+  "meta": {
+    "status": "200",
+    "msg": "ok"
+  },
+  "response": {
+    "followed": true
+  }
+},
+  "block":{
+  "meta": {
+    "status": "200",
+    "msg": "ok"
+  },
+  "response": {
+    "is_blocking": false
+  }
+},
+  "blogm":{
+  "meta": {
+    "status": "200",
+    "msg": "ok"
+  },
+  "response": {
+    "share_likes": true,
+    "share_followings": true,
+    "id": 2026,
+    "is_primary": false,
+    "username": "ahmad-ghareeb",
+    "avatar": "https://scontent.fcai19-7.fna.fbcdn.net/v/t1.6435-9/131377863_2819233718394652_8340224791482069975_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeH77U1q39s0YwlxOoOOZpkOYAIITRUXLK1gAghNFRcsrc0lcejGuFpG42urYOWA-vxMg8xj0ct5h4d5y17wAS7Q&_nc_ohc=d4ULMS8cbbwAX-PRlwx&_nc_ht=scontent.fcai19-7.fna&oh=00_AT-DEH7Q4u72h5t8vL3pSN0UwY5pAVLIlWKKiG2Hfl6NpA&oe=61EB56A3",
+    "avatar_shape": "circle",
+    "header_image": "https://scontent.fcai19-8.fna.fbcdn.net/v/t1.6435-9/110317044_2680778068906885_6342427761542127472_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeEswvLZKjPSatwn_ayQKxQETaZe8tBIdmtNpl7y0Eh2a5d5SnznW7t0v4QioaBBFLOVbH5EDay_dHM67irUU19-&_nc_ohc=-RlN2LB1pE8AX9Zw6mj&_nc_ht=scontent.fcai19-8.fna&oh=00_AT9nEsi7oN4zphqAE9uuWZa2g4hula92bUHk6CUQGQgONw&oe=61EE2321",
+    "title": "i'm ghareeb",
+    "allow_ask": true,
+    "followed": true,
+    "allow_submittions": true,
+    "description": "i love food"
+  }
+},
   "notes":{
     "meta": {
       "status": "200",

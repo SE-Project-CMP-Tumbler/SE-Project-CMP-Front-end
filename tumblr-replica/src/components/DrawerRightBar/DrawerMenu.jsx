@@ -44,6 +44,8 @@ export default function LongMenu({ BlogId }) {
     dispatch(BlockedByAsynch(BlogId)); // the only one should be fetshed
   }, []);
   const User = useSelector(selectUser);
+  console.log(User.primaryBlogId, 'pbid', BlogId);
+  // const id = BlogId.toString();
   // eslint-disable-next-line prefer-const
   let BlockInit = useSelector(getBlocked).response; // will be used insted of blog.follow
   /* takecare from the logic here */
@@ -51,7 +53,6 @@ export default function LongMenu({ BlogId }) {
   // eslint-disable-next-line prefer-const
   let FollowInit = useSelector(getFollowed).response;
   // let BlockStatue = useSelector(getBlock).meta;
-  const [LogOut, SetLogOut] = useState(false); // insted of it i will use User.loggedin
   const [open, setOpen] = useState(false);
   const HandelClick = (event) => {
     setAnchorEl(event.currentTarget);
@@ -94,9 +95,6 @@ export default function LongMenu({ BlogId }) {
     dispatch(UnBlockAsynch(BlogId, User.id));
     dispatch(BlockedByAsynch(BlogId, User.id));
   };
-  const HandelLogOut = () => {
-    SetLogOut(!LogOut);
-  };
 
   return (
     <div>
@@ -123,14 +121,14 @@ export default function LongMenu({ BlogId }) {
         }}
 
       >
-        {!LogOut && IsTabletOrMobile && FollowInit.followed && User.primaryBlogId !== BlogId && <MenuItem className="menu-item" onClick={HandelUnfollow}>Unfollow</MenuItem>}
-        {!LogOut && IsTabletOrMobile && !FollowInit.followed && User.primaryBlogId !== BlogId && <MenuItem className="menu-item" onClick={HandelFollow}>Follow</MenuItem>}
-        { LogOut && IsTabletOrMobile && <MenuItem className="menu-item" onClick={HandelLogOut}>Follow</MenuItem>}
-        {!LogOut && blog.share_followings && <MenuItem className="menu-item" onClick={HandelFollowing}><a href={`https://www.tumblr.com/followed/by/${blog.username}`}>Following</a></MenuItem>}
-        {!LogOut && blog.allow_ask && <MenuItem className="menu-item" onClick={HandelAsk}><a href={`https://${blog.username}.tumblr.com/ask`} target="blank">Ask</a></MenuItem>}
-        {!LogOut && blog.allow_submittions && <MenuItem className="menu-item" onClick={HandelSubmit}><a href={`https://${blog.username}.tumblr.com/submit`} target="blank">Submit</a></MenuItem>}
-        {!LogOut && BlockInit.is_blocking && User.primaryBlogId !== BlogId && <MenuItem className="menu-item" onClick={HandelUnblock}>Unblock</MenuItem>}
-        {!LogOut && !BlockInit.is_blocking && User.primaryBlogId !== BlogId && <MenuItem className="red-menuitem" onClick={HandelBlock}>Block</MenuItem>}
+        {User.loggedin && IsTabletOrMobile && FollowInit.followed && User.primaryBlogId.toString() !== BlogId && <MenuItem className="menu-item" onClick={HandelUnfollow}>Unfollow</MenuItem>}
+        {User.loggedin && IsTabletOrMobile && !FollowInit.followed && User.primaryBlogId.toString() !== BlogId && <MenuItem className="menu-item" onClick={HandelFollow}>Follow</MenuItem>}
+        {!User.loggedin && IsTabletOrMobile && <MenuItem className="menu-item" onClick={HandelClose}>Follow</MenuItem>}
+        {User.loggedin && blog.share_followings && <MenuItem className="menu-item" onClick={HandelFollowing}><a target="blank" href={`https://web.dev.tumbler.social/followed/by/${BlogId}`}>Following</a></MenuItem>}
+        {User.loggedin && blog.allow_ask && <MenuItem className="menu-item" onClick={HandelAsk}><a href={`https://web.dev.tumbler.social/profile/${BlogId}/ask`} target="blank">Ask</a></MenuItem>}
+        {User.loggedin && blog.allow_submittions && <MenuItem className="menu-item" onClick={HandelSubmit}><a href={`https://web.dev.tumbler.social/profile/${BlogId}/submit`} target="blank">Submit</a></MenuItem>}
+        {User.loggedin && BlockInit.is_blocking && User.primaryBlogId.toString() !== BlogId && <MenuItem className="menu-item" onClick={HandelUnblock}>Unblock</MenuItem>}
+        {User.loggedin && !BlockInit.is_blocking && User.primaryBlogId.toString() !== BlogId && <MenuItem className="red-menuitem" onClick={HandelBlock}>Block</MenuItem>}
         <MenuItem className="menu-item" onClick={HandelClose}>Close</MenuItem>
       </Menu>
     </div>

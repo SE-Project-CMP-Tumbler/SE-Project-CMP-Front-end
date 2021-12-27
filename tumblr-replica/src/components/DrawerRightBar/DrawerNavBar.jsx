@@ -72,7 +72,7 @@ function NavBar({ CloseClicked, OpenChatClicked, BlogId }) {
           <FontAwesomeIcon data-testid="CloseBtn" onClick={CloseClicked} icon={faTimes} color="white" className="x icons-drawer" />
         </IconButton>
 
-        <a href={`https://${Blog.username}.tumblr.com/`} className="user-account">{`${Blog.username}.tumblr.com`}</a>
+        <a href={`https://web.dev.tumbler.social/profile/${BlogId}`} className="user-account">{`${Blog.username}.tumblr.com`}</a>
       </div>
       <div className="make-right">
 
@@ -87,12 +87,16 @@ function NavBar({ CloseClicked, OpenChatClicked, BlogId }) {
         }
 
         <IconButton>
-          {User.primaryBlogId !== BlogId && <FontAwesomeIcon onClick={OpenChatClicked} icon={faCommentMedical} color="white" className="messages icons-drawer" />}
-          {User.primaryBlogId === BlogId && <FontAwesomeIcon icon={faCog} color="white" data-testid="MessagesBtn" className="messages icons-drawer" />}
+          {User.primaryBlogId.toString() !== BlogId && <FontAwesomeIcon onClick={OpenChatClicked} icon={faCommentMedical} color="white" className="messages icons-drawer" />}
+          {User.primaryBlogId.toString() === BlogId && (
+            <a href={`https://web.dev.tumbler.social/settings/blog/${BlogId}`} target="blank">
+              <FontAwesomeIcon className="icons" icon={faCog} color="white" />
+            </a>
+          )}
         </IconButton>
         <Menu BlogId={BlogId} />
-        {!FollowInit.followed && (!IsTabletOrMobile && User.id !== BlogId) && <button data-testid="FollowBtn" type="button" className="btn-drawer" onClick={HandelFollow}>Follow</button>}
-        {FollowInit.followed && (!IsTabletOrMobile && User.id !== BlogId) && <button data-testid="FollowBtn" type="button" className="btn-drawer" onClick={HandelUnFollow}>Unfollow</button>}
+        {!FollowInit.followed && (!IsTabletOrMobile && User.primaryBlogId.toString() !== BlogId) && <button data-testid="FollowBtn" type="button" className="btn-drawer" onClick={HandelFollow}>Follow</button>}
+        {FollowInit.followed && (!IsTabletOrMobile && User.primaryBlogId.toString() !== BlogId) && <button data-testid="FollowBtn" type="button" className="btn-drawer" onClick={HandelUnFollow}>Unfollow</button>}
       </div>
     </div>
   );

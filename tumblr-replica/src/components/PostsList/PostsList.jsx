@@ -47,36 +47,36 @@ function PostsList({ Posts }) {
                     style={{ paddingTop: '20px' }}
                   >
                     {
-                       isDesktopOrLaptop
-                    && (
-                    <Tooltip
-                      placement="right"
-                      title={(
-                        <PostCard
-                          postId={post.post_id}
-                          postDate={post.post_date}
-                          blogId={post.blog_id}
-                          blogUsername={post.blog_username}
-                          postBody={post.post_body}
-                          xs={10}
-                        />
-                    )}
-                    >
-                      <Grid item>
-                        <Avatar
-                          sx={{ bgcolor: 'orange' }}
-                          variant="square"
-                          xs={2}
-                          style={{
-                            maxWidth: 64,
-                            minWidth: 64,
-                            maxHeight: 64,
-                            minHeight: 64,
-                          }}
-                        />
-                      </Grid>
-                    </Tooltip>
-                    )
+                      isDesktopOrLaptop
+                      && (
+                        <Tooltip
+                          placement="right"
+                          title={(
+                            <PostCard
+                              postId={post.post_id}
+                              postDate={post.post_date}
+                              blogId={post.blog_id}
+                              blogUsername={post.blog_username}
+                              postBody={post.post_body}
+                              xs={10}
+                            />
+                          )}
+                        >
+                          <Grid item>
+                            <Avatar
+                              sx={{ bgcolor: 'orange' }}
+                              variant="square"
+                              xs={2}
+                              style={{
+                                maxWidth: 64,
+                                minWidth: 64,
+                                maxHeight: 64,
+                                minHeight: 64,
+                              }}
+                            />
+                          </Grid>
+                        </Tooltip>
+                      )
                     }
                     <Grid item>
                       <PostCard
