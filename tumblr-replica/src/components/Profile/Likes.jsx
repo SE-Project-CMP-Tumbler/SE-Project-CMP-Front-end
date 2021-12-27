@@ -2,8 +2,12 @@ import * as React from 'react';
 import './css/ProfileHeader.css';
 import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import Grid from '@mui/material/Grid';
 import ProfileHeader from './ProfileHeader';
 import { getBlog, fetchBlog } from '../../states/blogslice/blogslice';
+import PostsList from '../PostsList/PostsList';
+import { getPostsliked, fetchAsyncPostsLiked } from '../../states/likedposts/likedpostsSlice';
+import { tosmall } from '../../states/features/postview/postviewSlice';
 
 function Likes() {
   const { blogid } = useParams();
@@ -11,8 +15,12 @@ function Likes() {
 
   React.useEffect(() => {
     dispatch(fetchBlog(blogid)); // will use blogId
+    dispatch(fetchAsyncPostsLiked(blogid));
+    dispatch(tosmall());
   }, []);
   const Blog = useSelector(getBlog).response;
+  const Posts = useSelector(getPostsliked);
+
   return Blog.share_likes ? (
     <div>
       <ProfileHeader BlogId={blogid} />
@@ -27,7 +35,7 @@ function Likes() {
                 POSTS
               </Link>
             </li>
-            {Blog.share_likes && (
+            {(Blog.share_likes) && (
               <li className="navv-item">
                 <Link
                   className="navv-link-selected"
@@ -59,6 +67,11 @@ function Likes() {
             )}
           </ul>
         </div>
+      </div>
+      <div className="liked-posts">
+        <Grid container spacing={1} item xs={3} lg={3} sx={{ marginLeft: '20%' }}>
+          <PostsList Posts={Posts} />
+        </Grid>
       </div>
     </div>
   ) : (

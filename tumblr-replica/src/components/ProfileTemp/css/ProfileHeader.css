@@ -1,0 +1,256 @@
+.cover{
+  width:100%;
+  height: 350px;
+  object-fit:cover;
+  position: relative;
+  z-index: 0;
+}
+.body{
+  background-color: #061833;
+  position: relative;
+  line-height: 1.4;
+}
+.square-profile{
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  position: absolute;
+  display: block;
+  left: 44%;
+  top: 16rem;
+  border:8px solid #061833;
+}
+.circle-profile{
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  position: absolute;
+  display: block;
+  left: 44%;
+  border-radius: 100%;
+  top: 16rem;
+  border:8px solid #061833;
+}
+.square-profile-small{
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  position: absolute;
+  display: block;
+  left: 34%;
+  top: 16rem;
+  border:8px solid #061833;
+}
+.circle-profile-small{
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  position: absolute;
+  display: block;
+  left: 34%;
+  border-radius: 100%;
+  top: 16rem;
+  border:8px solid #061833;
+}
+.text{
+  border: none;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+  text-align: center;
+  color: #a59cb6;
+}
+.title{
+  flex: 0 0 auto;
+  font-size: 56px;
+  line-height: 1.2;
+  margin-bottom: 5px;
+  padding-top:48px ;
+  padding-left: 21px;
+  overflow: hidden;
+  overflow-wrap: break-word;
+  text-align: center;
+  text-overflow: ellipsis;
+  font-family: 'Gibson', sans-serif, "Helvetica Neue", HelveticaNeue, Arial, sans-serif;
+  font-weight: bold;
+  width: 97%;
+  color:inherit;
+}
+.description{
+  border: none;
+  font: inherit;
+  font-size: 15px;
+  line-height: 1.4;
+  margin: 20px 0 0;
+  display: block;
+  vertical-align: baseline;
+  color:inherit;
+}
+.navv{
+  overflow: hidden;
+  white-space: nowrap;
+}
+.navv-menu{
+  display: block;
+  margin-bottom: 25px;
+}
+.inline-navv{
+  position: relative;
+  margin: 7px 0 0;
+  padding: 0;
+  text-align: center;
+}
+.navv-item{
+  display: inline-block;
+  margin: 5px 10px;
+}
+.navv-link-selected{
+  padding-bottom: 5px;
+  border-bottom: 2px solid;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color:white;
+}
+.navv-link{
+  padding-bottom: 5px;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: white;
+}
+.ask-container{
+  display: flex;
+  justify-content: center;
+  flex-direction: row;
+}
+.ask-main{
+  flex-direction: column;
+  -webkit-box-flex: 1;
+  flex: auto;
+  max-width: 502px;
+  margin-bottom: 30px;
+  position: relative;
+  background: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+  padding: 0;
+  position: relative;
+  background-clip: padding-box;
+  border: 1px solid #eee; 
+}
+
+.ask-post{
+  word-wrap: break-word;
+  padding: 0;
+}
+.ask-content{
+  padding: 20px;
+}
+.ask-header{
+  font-size: 26px;
+  text-align:start;
+  text-decoration: none;
+  color: black;
+  line-height: 1.16;
+  font-weight: 400;
+  margin-top: 0;
+}
+.askk-header{
+  text-decoration: none;
+  color: black;
+
+}
+.ask-body{
+  margin-top: 1em;
+  line-height: 1.6;
+}
+.ask-frame{
+  background-color: transparent;
+  overflow: hidden;
+  width: 100%;
+  height: 190px;
+  vertical-align: middle;
+  outline: 0;
+  outline-style: none;
+  outline-width: 0;
+  width:100%;
+  height:190px;
+  margin-bottom: 13px;
+}
+
+.ask-form{
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border: 1px solid rgba(0,0,0,0.12);
+  border-radius: 3px;
+  padding: 10px;
+  height: 100%;
+  min-height: 168px;
+  box-sizing: border-box;
+}
+
+.ask-textarea{
+  height: 125px;
+  padding: 0 40px 0 5px;
+  position: relative;
+}
+.ask-text{
+  border: none;
+  color: #444;
+  font-family: inherit;
+  font-size: 14px;
+  height: 115px;
+  line-height: 1.4;
+  outline: none;
+  overflow: hidden;
+  resize: none;
+  width: 100%;
+  box-sizing: border-box;
+}
+.ask-footer{
+  margin: 0 -10px;
+  padding: 15px 10px 0 15px;
+  border-top: 1px solid #e0e0e0;
+  position: relative;
+}
+
+.ask-check{
+    float: left;
+}
+.ask-an{
+  vertical-align: middle;
+}
+label{
+  cursor: pointer;
+  color: #aaa;
+  font-size: 12px;
+  font-weight: bold
+}
+.ask-submit{
+  float: right;
+}
+.ask-btn{
+  margin-top: -3px;
+  color: rgba(255,255,255,0.5);
+  background: #00b8ff;
+  border: 1px solid #529ecc;
+  text-decoration: none;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 14px;
+  height: 30px;
+  padding: 4px 20px 5px 20px;
+  font-weight: bold;
+  cursor: pointer;
+  font-family: "Helvetica Neue", Arial, Helvetica, sans-serif;
+}
+.not-found{
+  text-align: center;
+  font-size: xx-large;
+  color: red;
+}
