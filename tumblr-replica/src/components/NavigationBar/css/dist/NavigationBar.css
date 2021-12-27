@@ -1,21 +1,16 @@
-@import url("https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-a {
-  text-decoration: none;
-  color: rgba(0, 0, 0, 0.65);
-}
-
-button {
-  border: none;
-  background: none;
-}
-
 .nav-styles {
+  background-color: #061833;
+  text-decoration: none;
+  color: rgba(0, 0, 0, 0.815);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0.125rem 0.063rem;
-  margin-right: 0;
-  border-bottom: 0.05rem solid rgba(255, 255, 255, 0.25);
+  margin: 0rem -0.5rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.123);
+}
+.nav-styles button {
+  border: none;
+  background: none;
 }
 .nav-styles * {
   padding: 0;
@@ -24,7 +19,7 @@ button {
 }
 .nav-styles a {
   text-decoration: none;
-  color: rgba(0, 0, 0, 0.65);
+  color: rgba(0, 0, 0, 0.815);
 }
 .nav-styles button {
   border: none;
@@ -40,11 +35,16 @@ button {
 .nav-styles .nav-resp .tumblr-logo-cont {
   display: flex;
   align-items: center;
-  margin-right: 0.25rem;
-  flex-shrink: 0;
+  margin-right: 0.2rem;
+  margin-left: 0.2rem;
 }
-.nav-styles .nav-resp .tumblr-logo-cont i {
-  color: #ffffff;
+.nav-styles .nav-resp .tumblr-logo-cont button {
+  transform: scale(120%);
+  cursor: pointer;
+  color: #fff;
+}
+.nav-styles .nav-resp .tumblr-logo-cont button:hover {
+  animation: AnimationName 7s ease infinite;
 }
 .nav-styles .nav-resp .search-bar {
   position: relative;
@@ -70,7 +70,7 @@ button {
   font-weight: 600;
   outline: none;
   background: white;
-  color: rgba(0, 0, 0, 0.65);
+  color: rgba(0, 0, 0, 0.815);
 }
 .nav-styles .nav-resp .search-bar .search-bar-input:focus::placeholder {
   color: white;
@@ -100,7 +100,10 @@ button {
   transform: scale(120%);
 }
 .nav-styles .icons-container .icon-style i {
-  color: #ffffff;
+  color: rgba(255, 255, 255, 0.698);
+}
+.nav-styles .icons-container .dash-icon i {
+  color: white;
 }
 .nav-styles .icons-container button {
   border: none;
@@ -146,11 +149,12 @@ button {
 }
 .chat-drop .chat-drop-content .chat-drop-header .profile .chevron {
   padding-left: 2px;
+  cursor: pointer;
 }
 .chat-drop .chat-drop-content .chat-drop-header .profile p {
   font-weight: 600;
   font-size: 0.75rem;
-  color: rgba(0, 0, 0, 0.65);
+  color: rgba(0, 0, 0, 0.815);
 }
 .chat-drop .chat-drop-content .chat-drop-header .profile .icon-box {
   width: 1.5rem;
@@ -220,7 +224,7 @@ button {
   font-weight: 600;
 }
 .chat-drop .chat-items .chat-item .chat-box .chat-content {
-  color: rgba(0, 0, 0, 0.65);
+  color: rgba(0, 0, 0, 0.815);
 }
 .chat-drop .chat-items .chat-item .chat-box .chat-content .sender-name-colon {
   font-weight: 600;
@@ -343,9 +347,10 @@ button {
   margin: 0.5rem;
 }
 .user-drop .user-drop-content .user-tumblr .blog-item .blog-details .blog-icon-box img {
-  max-width: 100%;
-  height: auto;
+  width: 2.5rem;
+  height: 2.5rem;
   border-radius: 0.25rem;
+  object-fit: cover;
 }
 .user-drop .user-drop-content .user-tumblr .blog-item .blog-details .blog-name-title {
   font-size: 0.8rem;
@@ -413,13 +418,18 @@ button {
   cursor: pointer;
   position: relative;
 }
+.notifications-drop .notifications-drop-content .notifications-drop-header .profile .chevron {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
 .notifications-drop .notifications-drop-content .notifications-drop-header .profile i {
   padding-left: 2px;
 }
 .notifications-drop .notifications-drop-content .notifications-drop-header .profile p {
   font-weight: 600;
   font-size: 0.87rem;
-  color: rgba(0, 0, 0, 0.65);
+  color: rgba(0, 0, 0, 0.815);
 }
 .notifications-drop .notifications-drop-content .notifications-drop-header .profile .icon-box {
   width: 1.7rem;
@@ -476,7 +486,7 @@ button {
 }
 .notifications-drop .notifications-drop-content .notifications-category .category-item {
   flex-basis: 100%;
-  color: rgba(0, 0, 0, 0.65);
+  color: rgba(0, 0, 0, 0.815);
   border-bottom: 0px solid #00b8ff;
   font-family: "poppins";
   font-weight: 600;
@@ -489,63 +499,81 @@ button {
   color: #00b8ff;
   border-bottom: 2px solid #00b8ff;
 }
-.notifications-drop .notifications-drop-content .time-drop-header {
+.notifications-drop .notifications-drop-content .notifications {
+  max-height: 30rem;
+  overflow: scroll;
+}
+.notifications-drop .notifications-drop-content .notifications .time-drop-header {
   background-color: rgba(0, 0, 0, 0.07);
   padding-top: 0.2rem;
   padding-bottom: 0.2rem;
 }
-.notifications-drop .notifications-drop-content .time-drop-header .time-lasted {
+.notifications-drop .notifications-drop-content .notifications .time-drop-header .time-lasted {
   font-weight: 400;
 }
-.notifications-drop .notifications-drop-content .notification-item {
+.notifications-drop .notifications-drop-content .notifications .notification-item {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 0.7rem 1rem;
   border-bottom: 1px solid rgba(0, 0, 0, 0.13);
   cursor: pointer;
+  background-color: white;
 }
-.notifications-drop .notifications-drop-content .notification-item:hover {
+.notifications-drop .notifications-drop-content .notifications .notification-item:hover {
   background-color: #e7e7e7;
 }
-.notifications-drop .notifications-drop-content .notification-item .notification-box {
+.notifications-drop .notifications-drop-content .notifications .notification-item .notification-box {
   font-size: 0.8rem;
   display: inline-block;
 }
-.notifications-drop .notifications-drop-content .notification-item .notification-box .tumblr-name {
+.notifications-drop .notifications-drop-content .notifications .notification-item .notification-box .tumblr-name {
   font-weight: 600;
   display: inline;
 }
-.notifications-drop .notifications-drop-content .notification-item .notification-box .notification-content {
+.notifications-drop .notifications-drop-content .notifications .notification-item .notification-box .notification-content {
   font-weight: 300;
-  color: rgba(0, 0, 0, 0.65);
+  color: rgba(0, 0, 0, 0.616);
 }
-.notifications-drop .notifications-drop-content .notification-item .notification-content-icon {
-  width: 2rem;
-  margin-right: 0.5rem;
+.notifications-drop .notifications-drop-content .notifications .notification-item .notification-box .notification-content .notification-context {
+  color: black;
 }
-.notifications-drop .notifications-drop-content .notification-item .notification-content-icon img {
+.notifications-drop .notifications-drop-content .notifications .notification-item .notification-box .notification-content .notification-context .pipe {
+  background-color: #e2edf5;
+  display: inline-block;
+  width: 0.15rem;
+  height: 1.3rem;
+  align-items: center;
+  vertical-align: middle;
+  padding-top: 0.2rem;
+}
+.notifications-drop .notifications-drop-content .notifications .notification-item .notification-content-icon {
+  max-width: 2.2rem;
+  margin: 0.2rem 0.6rem;
+}
+.notifications-drop .notifications-drop-content .notifications .notification-item .notification-content-icon img {
   max-width: 100%;
   height: auto;
   border-radius: 10%;
 }
-.notifications-drop .notifications-drop-content .notification-item .notification-icon-box {
-  width: 1.5rem;
-  margin-right: 0.5rem;
+.notifications-drop .notifications-drop-content .notifications .notification-item .notification-icon-box {
+  max-width: 1.8rem;
+  margin-right: 1rem;
   position: relative;
   display: inline-block;
 }
-.notifications-drop .notifications-drop-content .notification-item .notification-icon-box .profile-icon {
+.notifications-drop .notifications-drop-content .notifications .notification-item .notification-icon-box .profile-icon {
   max-width: 100%;
   height: auto;
   border-radius: 10%;
 }
-.notifications-drop .notifications-drop-content .notification-item .notification-icon-box .floating-icon {
+.notifications-drop .notifications-drop-content .notifications .notification-item .notification-icon-box .floating-icon {
   filter: saturate(200%);
   position: absolute;
-  max-width: 60%;
+  max-width: 50%;
   height: auto;
-  top: 0.9rem;
-  left: 0.8rem;
+  top: 0.95rem;
+  left: 1.1rem;
 }
 .notifications-drop .notifications-drop-content .see-everything {
   text-align: center;
@@ -553,9 +581,41 @@ button {
   font-weight: 500;
   margin-top: 0.3rem;
   margin-bottom: 0.3rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.13);
 }
 
-html {
-  height: 100%;
-  background-color: #061833;
+@keyframes AnimationName {
+  0% {
+    color: #80e3f0;
+  }
+  10% {
+    color: #0ba6ff;
+  }
+  20% {
+    color: #01ddb1;
+  }
+  30% {
+    color: #61c8e2;
+  }
+  40% {
+    color: #5fd35f;
+  }
+  50% {
+    color: #a8eb51;
+  }
+  60% {
+    color: #fbff05ef;
+  }
+  70% {
+    color: #4da0ff;
+  }
+  80% {
+    color: #90a0ff;
+  }
+  90% {
+    color: #2980b9;
+  }
+  100% {
+    color: #83fde1;
+  }
 }

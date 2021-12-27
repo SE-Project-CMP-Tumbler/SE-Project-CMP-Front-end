@@ -23,12 +23,26 @@ import tagpostsReducer from './features/tagposts/tagpostsSlice';
 import blogpostsReducer from './features/blogposts/blogpostsSlice';
 import draftpostsReducer from './features/draftposts/draftpostsSlice';
 import BlogReducer from './blogslice/blogslice';
+import BlogsReducer from './blogslice/blogsslice';
 import FollowReducer from './followslice/followslice';
 import BlockReducer from './blockSlice/blockslice';
 import DashReducer from './features/dashboard/dashboardSlice';
 import NotesReducer from './features/dashboard/NotesSlice';
 import checkoutReducer from './features/checkout/checkoutSlice';
 import radarReducer from './features/radar/radarSlice';
+import usertumblrsReducer from './usertumblr/usertumblrSlice';
+import newtumblrReducer from './newtumblr/newtumblrSlice';
+import postviewreducer from './features/postview/postviewSlice';
+import blogactivityreducer from './features/blogactivity/blogacttivitySlice';
+import bloginforeducer from './features/bloginfo/bloginfoSlice';
+import graphReducer from './features/graph/graphSlice';
+import unFollowReducer from './followslice/unfollowSlice';
+import FollowedReducer from './followslice/getfollowslice';
+import BlockedReducer from './blockSlice/getblockslice';
+import unBlockReducer from './blockSlice/unblockslice';
+import AskReducer from './askpostslice/askpostslice';
+import PostslikedReducer from './likedposts/likedpostsSlice';
+import hideNavReducer from './hidenav/hidenavSlice';
 
 const store = configureStore({
   reducer: {
@@ -47,21 +61,35 @@ const store = configureStore({
     audioposts: audiopostsReducer,
     quoteposts: quotepostsReducer,
     blogposts: blogpostsReducer,
+    blogactivity: blogactivityreducer,
+    postview: postviewreducer,
     draftposts: draftpostsReducer,
     tagposts: tagpostsReducer,
+    bloginfo: bloginforeducer,
     user: userReducer,
     displayNotesList: displayNotesListReducer,
     NoteWindow: NoteWindowReducer,
     Like: LikeReducer,
     PostNotes: PostNoteReducer,
     Chat: Chatreduser,
-    Blog: BlogReducer,
-    Follow: FollowReducer,
-    Block: BlockReducer,
+    blog: BlogReducer,
+    blogs: BlogsReducer,
+    follow: FollowReducer,
+    block: BlockReducer,
+    followed: FollowedReducer,
+    blocked: BlockedReducer,
+    unfollow: unFollowReducer,
+    unblock: unBlockReducer,
     DashPosts: DashReducer,
     Notes: NotesReducer,
     checkout: checkoutReducer,
     radar: radarReducer,
+    userBlogs: usertumblrsReducer,
+    newTumblr: newtumblrReducer,
+    graph: graphReducer,
+    ask: AskReducer,
+    postsliked: PostslikedReducer,
+    hideNav: hideNavReducer,
   },
 });
 

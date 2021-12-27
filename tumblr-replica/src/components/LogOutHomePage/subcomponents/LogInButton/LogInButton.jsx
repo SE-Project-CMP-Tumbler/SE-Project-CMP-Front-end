@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 import Button from '@material-ui/core/Button';
 import Box from '@mui/material/Box';
 
-const LogInButton = ({ handleClick, worksAsLink }) => (
+const LogInButton = ({ handleClick, worksAsLink, bgColor }) => (
   <Box
     sx={{ spacing: 8, mt: 1.5 }}
   >
@@ -17,7 +17,7 @@ const LogInButton = ({ handleClick, worksAsLink }) => (
           size="large"
           fontFamily="Arial"
           style={{
-            backgroundColor: '#00cf35',
+            backgroundColor: bgColor,
             color: '#000000',
             fontWeight: 'bold',
             textTransform: 'none',
@@ -36,7 +36,7 @@ const LogInButton = ({ handleClick, worksAsLink }) => (
         size="large"
         fontFamily="Arial"
         style={{
-          backgroundColor: '#00cf35',
+          backgroundColor: bgColor,
           color: '#000000',
           fontWeight: 'bold',
           textTransform: 'none',
@@ -53,11 +53,13 @@ const LogInButton = ({ handleClick, worksAsLink }) => (
 LogInButton.propTypes = {
   handleClick: PropTypes.func,
   worksAsLink: PropTypes.bool,
+  bgColor: PropTypes.string,
 };
 
 LogInButton.defaultProps = {
   handleClick: () => {},
   worksAsLink: true,
+  bgColor: '#00cf35',
 };
 
 export default LogInButton;

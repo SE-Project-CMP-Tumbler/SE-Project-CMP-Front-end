@@ -73,4 +73,8 @@ PostCard.propTypes = {
   blogUsername: PropTypes.string.isRequired,
   postTime: PropTypes.string.isRequired,
   blogAvatar: PropTypes.string.isRequired,
+  small: PropTypes.bool,
+};
+PostCard.defaultProps = {
+  small: false,
 };

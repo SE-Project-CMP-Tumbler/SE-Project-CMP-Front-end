@@ -12,6 +12,7 @@ import DialogTitle from '@mui/material/DialogTitle';
 import DialogContent from '@mui/material/DialogContent';
 import IconButton from '@mui/material/IconButton';
 import CloseIcon from '@mui/icons-material/Close';
+import ReactLoading from 'react-loading';
 import { useDispatch, useSelector } from 'react-redux';
 import FollowingTag from './FollowingTag';
 import EditPopup from './EditPopup';
@@ -68,6 +69,7 @@ BootstrapDialogTitle.propTypes = {
  */
 export default function FollowingList() {
   const [open, setOpen] = React.useState(false);
+  const [start, setStart] = React.useState(0);
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -80,6 +82,10 @@ export default function FollowingList() {
     dispatch(fetchAsyncfollowtags());
   }, []);
   const followtags = useSelector(getAllfollowtags);
+  const maxlen = followtags.response.tags.length;
+  const handleStart = () => {
+    setStart(((start + 4) % maxlen));
+  };
   // console.log(followtags);
   // const tags = [];
   // followtags.response.tags.map((tag) => (tags.push(tag.tag_description)));
@@ -120,7 +126,7 @@ export default function FollowingList() {
           <Divider />
           {
             followtags.meta.status === '200'
-              ? (followtags.response.tags
+              ? (followtags.response.tags.slice(start, start + 4)
                 .map((tag) => (
                   <FollowingTag
                     key={tag}
@@ -128,11 +134,11 @@ export default function FollowingList() {
                     imagUrl={tag.tag_image}
                   />
                 )))
-              : (<h3>{ followtags.meta.msg }</h3>)
+              : (followtags.meta.msg === 'loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)
           }
           <Divider />
           <ListItem disablePadding sx={{ justifyContent: 'center' }}>
-            <Button variant="text" sx={{ textTransform: 'none', fontWeight: 'bold' }}>
+            <Button variant="text" onClick={handleStart} sx={{ textTransform: 'none', fontWeight: 'bold' }}>
               Show more Tags
             </Button>
           </ListItem>

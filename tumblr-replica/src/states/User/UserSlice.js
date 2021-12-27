@@ -216,6 +216,216 @@ export const logOutThunkR = createAsyncThunk(
   }).then((res) => res.json()),
 );
 
+export const verifyEmailThunk = createAsyncThunk(
+  'verifyEmail',
+  async (query) => fetch(`${api}/email/verify/${query.id}/${query.hash}`, {
+    method: 'GET',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const verifyEmailThunkR = createAsyncThunk(
+  'verifyEmailR',
+  async (query) => fetch(`${apiR}/email/verify/${query.id}/${query.hash}`, {
+    method: 'GET',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+  }).then((res) => res.json()),
+);
+
+export const resendVerificationThunk = createAsyncThunk(
+  'resendVerification',
+  async (query) => fetch(`${api}/email/resend_verification`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const resendVerificationThunkR = createAsyncThunk(
+  'resendVerificationR',
+  async (query) => fetch(`${apiR}/email/resend_verification`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${query}`,
+    },
+  }).then((res) => res.json()),
+);
+
+export const forgotPasswordThunk = createAsyncThunk(
+  'forgot_password',
+  async (query) => fetch(`${api}/forgot_password`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const forgotPasswordThunkR = createAsyncThunk(
+  'forgot_passwordR',
+  async (query) => fetch(`${apiR}/forgot_password`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => res.json()),
+);
+
+export const getResetPasswordEmailThunk = createAsyncThunk(
+  'getresetpasswordemail',
+  async (query) => fetch(`${api}/reset_password/${query.id}/${query.token}`, {
+    method: 'GET',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const getResetPasswordEmailThunkR = createAsyncThunk(
+  'getresetpasswordemailR',
+  async (query) => fetch(`${apiR}/reset_password/${query.id}/${query.token}`, {
+    method: 'GET',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+  }).then((res) => res.json()),
+);
+
+export const resetPasswordThunk = createAsyncThunk(
+  'resetpassword',
+  async (query) => fetch(`${api}/reset_password`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const resetPasswordThunkR = createAsyncThunk(
+  'resetpasswordR',
+  async (query) => fetch(`${apiR}/reset_password`, {
+    method: 'POST',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(query),
+  }).then((res) => res.json()),
+);
+
+export const deleteAccountThunk = createAsyncThunk(
+  'deleteAccount',
+  async (query) => fetch(`${api}/delete_user`, {
+    method: 'DELETE',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${query.accessToken}`,
+    },
+    body: JSON.stringify(query.body),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const deleteAccountThunkR = createAsyncThunk(
+  'deleteAccountR',
+  async (query) => fetch(`${apiR}/delete_user`, {
+    method: 'DELETE',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${query.accessToken}`,
+    },
+    body: JSON.stringify(query.body),
+  }).then((res) => res.json()),
+);
+
 const userSlice = createSlice({
   name: 'user',
   initialState: {
@@ -228,11 +438,16 @@ const userSlice = createSlice({
       blogName: '',
       age: '',
       primaryBlogAvatar: '',
+      primaryBlogId: '',
       googleAccessToken: '',
+      verified: false, // TO DO:Add it to all API calls and responses & Also, recieve it from login.
     },
     status: null,
+    statusMessage: '',
     googleAccessed: null,
     regStep: 1,
+    showReVerify: true,
+    resetEmailReceived: false,
   },
   reducers: {
     /**
@@ -301,7 +516,7 @@ const userSlice = createSlice({
         primaryBlogAvatar: '',
         googleAccessToken: '',
       };
-      window.location.replace('/logout');
+      window.location.replace('/');
     },
     /**
     * This function sends an API request (to actual API or to JSON server) to register the new User.
@@ -332,6 +547,24 @@ const userSlice = createSlice({
       state.googleAccessToken = action.payload;
     },
     /**
+    * This function sets showReVerify with false
+    * @method
+    * @param {object} state The object that stores the value of showReVerify
+    * used in showing the reVerify prompt
+    */
+    hideReVerify: (state) => {
+      state.showReVerify = false;
+    },
+    /**
+    * This function sets resetEmailReceived with true
+    * @method
+    * @param {object} state The object that stores the value of resetEmailReceived
+    * used in executing the Reset Password Page
+    */
+    setResetEmailReceived: (state) => {
+      state.resetEmailReceived = true;
+    },
+    /**
     * This function sends an API request (to actual API or to JSON server) to login with Google.
     * @method
     * @param {object} state The object that stores the User's email, password, age and other info
@@ -344,6 +577,23 @@ const userSlice = createSlice({
         default:
           break;
       }
+    },
+    /**
+    * This function sets the verifed state of the User
+    * @method
+    * @param {object} state The object that stores the current verification state of the User
+    * @param {object} action The object containing whether the user is verified or not
+    */
+    setVerified: (state, action) => {
+      state.user.verified = action.payload;
+    },
+    /**
+    * This function resets the status message state
+    * @method
+    * @param {object} state The object that stores the current Status Message
+    */
+    setStatusMessage: (state) => {
+      state.statusMessage = '';
     },
   },
   extraReducers: {
@@ -359,6 +609,8 @@ const userSlice = createSlice({
         state.user.primaryBlogAvatar = payload.blog_avatar;
         state.user.accessToken = payload.access_token;
         state.user.loggedin = true;
+        state.user.verified = payload.verified;
+        state.user.primaryBlogId = payload.response.blog_id;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
@@ -370,9 +622,13 @@ const userSlice = createSlice({
     },
     [logInThunkR.fulfilled]: (state, { payload }) => {
       if (payload.meta.status === '200') {
+        state.status = payload.meta.status;
+        state.statusMessage = '';
         state.user.id = payload.response.id;
+        state.user.primaryBlogId = payload.response.blog_id;
         state.user.blogName = payload.response.blog_username;
         state.user.email = payload.response.email;
+        state.user.verified = payload.response.is_verified;
         state.user.primaryBlogAvatar = payload.response.blog_avatar;
         state.user.accessToken = payload.response.access_token;
         state.user.loggedin = true;
@@ -382,6 +638,13 @@ const userSlice = createSlice({
       } else if (payload.meta.status === '404') {
         // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
+        state.status = payload.meta.status;
+        state.statusMessage = 'Error! Please Try Again Later';
+      } else if (payload.meta.status === '422') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        state.status = payload.meta.status;
+        state.statusMessage = payload.meta.msg;
       }
     },
     [logInThunkR.rejected]: () => {
@@ -397,7 +660,10 @@ const userSlice = createSlice({
         state.user.email = payload.email;
         state.user.primaryBlogAvatar = payload.blog_avatar;
         state.user.accessToken = payload.access_token;
+        state.user.primaryBlogId = payload.response.blog_id;
         state.user.loggedin = true;
+        // Of course, the user can't be verified. He just registered.
+        state.user.verified = payload.response.is_verified;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
@@ -410,12 +676,17 @@ const userSlice = createSlice({
     },
     [signUpThunkR.fulfilled]: (state, { payload }) => {
       if (payload.meta.status === '200') {
+        state.status = payload.meta.status;
+        state.statusMessage = '';
         state.user.id = payload.response.id;
         state.user.blogName = payload.response.blog_username;
         state.user.email = payload.response.email;
         state.user.primaryBlogAvatar = payload.response.blog_avatar;
         state.user.accessToken = payload.response.access_token;
+        state.user.primaryBlogId = payload.response.blog_id;
         state.user.loggedin = true;
+        // False: Of course, the user can't be verified. He just registered.
+        state.user.verified = payload.response.is_verified;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
@@ -423,9 +694,13 @@ const userSlice = createSlice({
       } else if (payload.meta.status === '422') {
         // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
+        state.status = payload.meta.status;
+        state.statusMessage = payload.meta.msg;
       } else if (payload.meta.status === '500') {
         // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
+        state.status = payload.meta.status;
+        state.statusMessage = 'Error! Please Try Again Later';
       }
     },
     [signUpThunkR.rejected]: () => {
@@ -449,13 +724,18 @@ const userSlice = createSlice({
     [checkCredentialsThunkR.fulfilled]: (state, { payload }) => {
       if (payload.meta.status === '200') {
         state.regStep = 2;
+        state.status = payload.meta.status;
+        state.statusMessage = '';
       } else if (payload.meta.status === '422') {
         // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
-        state.status = '422';
+        state.status = payload.meta.status;
+        state.statusMessage = payload.meta.msg;
       } else if (payload.meta.status === '500') {
         // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
+        state.status = payload.meta.status;
+        state.statusMessage = 'Error! Please Try Again Later';
       }
     },
     [checkCredentialsThunkR.rejected]: () => {
@@ -467,6 +747,7 @@ const userSlice = createSlice({
         state.status = 'NOT FOUND';
       } else { // CASE 200
         state.regStep = 2;
+        state.user.verified = true;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
@@ -478,11 +759,15 @@ const userSlice = createSlice({
     },
     [logInWithGoogleThunkR.fulfilled]: (state, { payload }) => {
       if (payload.meta.status === '200') {
+        state.status = payload.meta.status;
+        state.statusMessage = '';
         state.user.id = payload.response.id;
         state.user.blogName = payload.response.blog_username;
         state.user.email = payload.response.email;
         state.user.primaryBlogAvatar = payload.response.blog_avatar;
         state.user.accessToken = payload.response.access_token;
+        state.user.primaryBlogId = payload.response.blog_id;
+        state.user.verified = payload.response.is_verified;
         state.user.loggedin = true;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
@@ -495,6 +780,8 @@ const userSlice = createSlice({
       } else if (payload.meta.status === '422') {
         // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
+        state.status = payload.meta.status;
+        state.statusMessage = payload.meta.msg;
         state.googleAccessed = '424';
       }
     },
@@ -507,6 +794,7 @@ const userSlice = createSlice({
         state.status = 'NOT FOUND';
       } else { // CASE 200
         state.regStep = 2;
+        state.user.verified = true;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
         window.location.replace('/dashboard');
@@ -518,11 +806,14 @@ const userSlice = createSlice({
     },
     [registerWithGoogleThunkR.fulfilled]: (state, { payload }) => {
       if (payload.meta.status === '200') {
+        state.status = payload.meta.status;
+        state.statusMessage = '';
         state.user.id = payload.response.id;
         state.user.blogName = payload.response.blog_username;
         state.user.email = payload.response.email;
         state.user.primaryBlogAvatar = payload.response.blog_avatar;
         state.user.accessToken = payload.response.access_token;
+        state.user.primaryBlogId = payload.response.blog_id;
         state.user.loggedin = true;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
@@ -531,7 +822,8 @@ const userSlice = createSlice({
       } else if (payload.meta.status === '422') {
         // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
-        state.status = '422';
+        state.status = payload.meta.status;
+        state.statusMessage = payload.meta.msg;
       } else if (payload.meta.status === '500') {
         // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
@@ -554,11 +846,13 @@ const userSlice = createSlice({
           email: '',
           password: '',
           blogName: '',
-          age: 0,
+          age: '',
           primaryBlogAvatar: '',
+          primaryBlogId: '',
           googleAccessToken: '',
+          verified: false,
         };
-        window.location.replace('/logout');
+        window.location.replace('/');
       }
     },
     [logOutThunk.rejected]: () => {
@@ -575,11 +869,13 @@ const userSlice = createSlice({
           email: '',
           password: '',
           blogName: '',
-          age: 0,
+          age: '',
+          primaryBlogId: '',
           primaryBlogAvatar: '',
           googleAccessToken: '',
+          verified: false,
         };
-        window.location.replace('/logout');
+        window.location.replace('/');
       } else if (payload.meta.status === '401') {
         // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
@@ -593,23 +889,314 @@ const userSlice = createSlice({
           email: '',
           password: '',
           blogName: '',
-          age: 0,
+          age: '',
+          primaryBlogId: '',
           primaryBlogAvatar: '',
           googleAccessToken: '',
         };
-        window.location.replace('/logout');
+        window.location.replace('/');
         // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
       }
     },
     [logOutThunkR.rejected]: () => {
     },
+    [verifyEmailThunk.pending]: () => {
+    },
+    [verifyEmailThunk.fulfilled]: (state, { payload }) => {
+      if (payload?.id === undefined) { // CASE 500 or 422 TO BE handled later
+        state.status = 'NOT FOUND';
+        // eslint-disable-next-line no-console
+        console.log('Entered Error!');
+      } else { // CASE 200
+        state.user.verified = true;
+        const loggedInUser = localStorage.getItem('user');
+        if (loggedInUser) {
+          const foundUser = JSON.parse(loggedInUser);
+          state.user = foundUser;
+          localStorage.clear();
+          localStorage.setItem('user', JSON.stringify(state.user));
+        }
+        // eslint-disable-next-line no-console
+        console.log('Entered Here!!!');
+      }
+    },
+    [verifyEmailThunk.rejected]: () => {
+    },
+    [verifyEmailThunkR.pending]: () => {
+    },
+    [verifyEmailThunkR.fulfilled]: (state, { payload }) => {
+      if (payload.meta.status === '200') {
+        const loggedInUser = localStorage.getItem('user');
+        if (loggedInUser) {
+          const foundUser = JSON.parse(loggedInUser);
+          state.user = foundUser;
+          state.user.verified = true;
+          localStorage.clear();
+          localStorage.setItem('user', JSON.stringify(state.user));
+        }
+      } else if (payload.meta.status === '500') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        // window.location.replace('/dashboard');
+      } else if (payload.meta.status === '404') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        localStorage.clear();
+        state.user = {
+          loggedin: false,
+          id: '',
+          accessToken: '',
+          email: '',
+          password: '',
+          blogName: '',
+          age: '',
+          primaryBlogId: '',
+          primaryBlogAvatar: '',
+          googleAccessToken: '',
+          verified: false,
+        };
+        // window.location.replace('/');
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      }
+    },
+    [verifyEmailThunkR.rejected]: () => {
+    },
+    [resendVerificationThunk.pending]: () => {
+    },
+    [resendVerificationThunk.fulfilled]: (state, { payload }) => {
+      if (payload?.id === undefined) { // CASE 500 or 422 TO BE handled later
+        state.status = 'NOT FOUND';
+      } else { // CASE 200
+        state.showReVerify = false;
+      }
+    },
+    [resendVerificationThunk.rejected]: () => {
+    },
+    [resendVerificationThunkR.pending]: () => {
+    },
+    [resendVerificationThunkR.fulfilled]: (state, { payload }) => {
+      if (payload.meta.status === '200') {
+        state.showReVerify = false;
+      } else if (payload.meta.status === '401') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      } else if (payload.meta.status === '404') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      } else if (payload.meta.status === '500') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      }
+    },
+    [resendVerificationThunkR.rejected]: () => {
+    },
+    [forgotPasswordThunk.pending]: () => {
+    },
+    [forgotPasswordThunk.fulfilled]: (state, { payload }) => {
+      if (payload.id === '') { // CASE 404
+        state.status = 'NOT FOUND';
+      } else { // CASE 200
+        state.user.id = payload.id;
+        state.user.blogName = payload.blog_username;
+        state.user.email = payload.email;
+        state.user.primaryBlogAvatar = payload.blog_avatar;
+        state.user.accessToken = payload.access_token;
+        state.user.loggedin = true;
+        state.user.verified = payload.verified;
+        state.user.primaryBlogId = payload.response.blog_id;
+        // store the user in localStorage
+        localStorage.setItem('user', JSON.stringify(state.user));
+        window.location.replace('/dashboard');
+      }
+    },
+    [forgotPasswordThunk.rejected]: () => {
+    },
+    [forgotPasswordThunkR.pending]: () => {
+    },
+    [forgotPasswordThunkR.fulfilled]: (state, { payload }) => {
+      if (payload.meta.status === '200') {
+        state.status = payload.meta.status;
+        state.statusMessage = '';
+      } else if (payload.meta.status === '404') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        state.status = payload.meta.status;
+        state.statusMessage = 'Sorry, that email address is not registered with us.';
+      } else if (payload.meta.status === '400') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        state.status = payload.meta.status;
+        state.statusMessage = payload.meta.msg;
+      }
+    },
+    [forgotPasswordThunkR.rejected]: () => {
+    },
+    [getResetPasswordEmailThunk.pending]: () => {
+    },
+    [getResetPasswordEmailThunk.fulfilled]: (state, { payload }) => {
+      if (payload.id === '') { // CASE 404
+        // state.status = 'NOT FOUND';
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      } else { // CASE 200
+        state.user.email = payload.email;
+      }
+    },
+    [getResetPasswordEmailThunk.rejected]: () => {
+    },
+    [getResetPasswordEmailThunkR.pending]: () => {
+    },
+    [getResetPasswordEmailThunkR.fulfilled]: (state, { payload }) => {
+      if (payload.meta.status === '200') {
+        state.user.email = payload.response.email;
+        // eslint-disable-next-line no-console
+        console.log('Email = ', payload.response.email);
+      } else if (payload.meta.status === '404') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      } else if (payload.meta.status === '500') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      }
+    },
+    [getResetPasswordEmailThunkR.rejected]: () => {
+    },
+    [resetPasswordThunk.pending]: () => {
+    },
+    [resetPasswordThunk.fulfilled]: (state, { payload }) => {
+      if (payload.id === '') { // CASE 404
+        state.status = 'NOT FOUND';
+      } else { // CASE 200
+        state.user.id = payload.id;
+        state.user.blogName = payload.blog_username;
+        state.user.email = payload.email;
+        state.user.primaryBlogAvatar = payload.blog_avatar;
+        state.user.accessToken = payload.access_token;
+        state.user.loggedin = true;
+        state.user.verified = payload.verified;
+        state.user.primaryBlogId = payload.response.blog_id;
+        // store the user in localStorage
+        localStorage.setItem('user', JSON.stringify(state.user));
+        window.location.replace('/dashboard');
+      }
+    },
+    [resetPasswordThunk.rejected]: () => {
+    },
+    [resetPasswordThunkR.pending]: () => {
+    },
+    [resetPasswordThunkR.fulfilled]: (state, { payload }) => {
+      if (payload.meta.status === '200') {
+        state.status = payload.meta.status;
+        state.statusMessage = '';
+        state.user.id = payload.response.id;
+        state.user.primaryBlogId = payload.response.blog_id;
+        state.user.blogName = payload.response.blog_username;
+        state.user.email = payload.response.email;
+        state.user.verified = payload.response.is_verified;
+        state.user.primaryBlogAvatar = payload.response.blog_avatar;
+        state.user.accessToken = payload.response.access_token;
+        state.user.loggedin = true;
+        // store the user in localStorage
+        localStorage.setItem('user', JSON.stringify(state.user));
+        window.location.replace('/dashboard');
+      } else if (payload.meta.status === '404') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        state.status = payload.meta.status;
+        state.statusMessage = 'Error! Please Try Again Later';
+      } else if (payload.meta.status === '422') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        state.status = payload.meta.status;
+        state.statusMessage = 'The two passwords don\'t match';
+      }
+    },
+    [resetPasswordThunkR.rejected]: () => {
+    },
+    [deleteAccountThunk.pending]: () => {
+    },
+    [deleteAccountThunk.fulfilled]: (state, { payload }) => {
+      if (payload?.id === undefined) { // CASE 500 or 422 TO BE handled later
+        state.status = 'NOT FOUND';
+      } else { // CASE 200
+        // store the user in localStorage
+        localStorage.clear();
+        state.user = {
+          loggedin: false,
+          id: '',
+          accessToken: '',
+          email: '',
+          password: '',
+          blogName: '',
+          age: '',
+          primaryBlogId: '',
+          primaryBlogAvatar: '',
+          googleAccessToken: '',
+          verified: false,
+        };
+      }
+    },
+    [deleteAccountThunk.rejected]: () => {
+    },
+    [deleteAccountThunkR.pending]: () => {
+    },
+    [deleteAccountThunkR.fulfilled]: (state, { payload }) => {
+      if (payload.meta.status === '200') {
+        console.log('Delete Successful!');
+        localStorage.clear();
+        state.user = {
+          loggedin: false,
+          id: '',
+          accessToken: '',
+          email: '',
+          password: '',
+          blogName: '',
+          age: '',
+          primaryBlogId: '',
+          primaryBlogAvatar: '',
+          googleAccessToken: '',
+          verified: false,
+        };
+      } else if (payload.meta.status === '401' || payload.meta.status === '403') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        // window.location.replace('/dashboard');
+      } else if (payload.meta.status === '404') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        localStorage.clear();
+        state.user = {
+          loggedin: false,
+          id: '',
+          accessToken: '',
+          email: '',
+          password: '',
+          blogName: '',
+          age: '',
+          primaryBlogId: '',
+          primaryBlogAvatar: '',
+          googleAccessToken: '',
+          verified: false,
+        };
+        // window.location.replace('/');
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      } else { // Case 500
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      }
+    },
+    [deleteAccountThunkR.rejected]: () => {
+    },
   },
 });
 
 export const {
   initialCheck, setEmail, setPassword, setBlogName, setAge, logOut, signUp, continueWithGoogle,
-  setRegStep, setGoogleAccessToken,
+  setRegStep, setGoogleAccessToken, setVerified, setStatusMessage, hideReVerify,
+  setResetEmailReceived,
 } = userSlice.actions;
 
 export const selectUser = (state) => state.user.user;
@@ -617,5 +1204,14 @@ export const selectUser = (state) => state.user.user;
 export const selectStep = (state) => state.user.regStep;
 
 export const selectGoogle = (state) => state.user.googleAccessed;
+
+export const selectShowReVerify = (state) => state.user.showReVerify;
+
+export const selectResetEmailReceived = (state) => state.user.resetEmailReceived;
+
+export const selectStatus = (state) => state.user.status;
+
+export const selectStatusMessage = (state) => state.user.statusMessage;
+// export const selectVerified = (state) => state.user.verified;
 
 export default userSlice.reducer;

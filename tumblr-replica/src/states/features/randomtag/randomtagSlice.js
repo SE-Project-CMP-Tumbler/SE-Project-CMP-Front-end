@@ -1,12 +1,39 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import exploreApi from '../../../apis/exploreApi';
+import { api, apiR } from '../../../apis/globalAxpi';
+import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
 const fetchAsyncrandomtags = createAsyncThunk(
-  'tag/random_tags',
-  async () => {
-    const response = await exploreApi.get('randomtags');
-    // const response = await exploreApi.get(`tag/random_tags`);
-    return response.data;
+  'tag/suggesting',
+  async (dispatch, { getState }) => {
+    if (SERVICETYPE === MOCK) {
+      try {
+        const response = await api.get('randomtags');
+        for (let i = 0; i < response.data.response.tags.length; i += 1) {
+          response.data.response.tags[i].follow = false;
+          response.data.response.tags[i].randomcolor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+        }
+        return response.data;
+      } catch (error) {
+        throw Error(error);
+      }
+    } else {
+      try {
+        const state = getState();
+        console.log(state);
+        const USERTOKEN = state.user.user.accessToken;
+        console.log(USERTOKEN);
+        const AuthStr = `Bearer ${USERTOKEN}`;
+        const response = await apiR.get('tag/suggesting', { headers: { Authorization: AuthStr } });
+        console.log(response.data);
+        for (let i = 0; i < response.data.response.tags.length; i += 1) {
+          response.data.response.tags[i].follow = false;
+          response.data.response.tags[i].randomcolor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+        }
+        return response.data;
+      } catch (e) {
+        throw Error(e);
+      }
+    }
   },
 );
 
@@ -17,7 +44,28 @@ const initialState = {
 const randomtagSlice = createSlice({
   name: 'randomtag',
   initialState,
-  reducers: {},
+  reducers: {
+    unfollowtag: (state, action) => {
+      const newstate = state;
+      let i = 0;
+      for (i = 0; i < newstate.randomtag.response.tags.length; i += 1) {
+        if (newstate.randomtag.response.tags[i].tag_description === action.payload) {
+          newstate.randomtag.response.tags[i].follow = false;
+          break;
+        }
+      }
+    },
+    followtag: (state, action) => {
+      const newstate = state;
+      let i = 0;
+      for (i = 0; i < newstate.randomtag.response.tags.length; i += 1) {
+        if (newstate.randomtag.response.tags[i].tag_description === action.payload) {
+          newstate.randomtag.response.tags[i].follow = true;
+          break;
+        }
+      }
+    },
+  },
   extraReducers: {
     [fetchAsyncrandomtags.pending]: () => {
       // console.log('Pending');
@@ -30,6 +78,7 @@ const randomtagSlice = createSlice({
 });
 
 const getRandomtags = (state) => state.randomtag.randomtag;
+export const { unfollowtag, followtag } = randomtagSlice.actions;
 const randomtagReducer = randomtagSlice.reducer;
 export {
   getRandomtags,

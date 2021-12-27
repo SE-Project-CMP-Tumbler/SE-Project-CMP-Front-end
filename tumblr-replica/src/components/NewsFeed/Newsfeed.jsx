@@ -26,6 +26,9 @@ import UploadPhoto from '../CreatPost/subcomponents/uploadPhoto';
  * these blogs.
  */
 const Newsfeed = function NewsfeedPosts() {
+  // const resendVerificationMessage =
+  // 'All the finest Tumblr users verify their email address.
+  // Check your inbox for the message we just sent.';
   const [isPending, setIsPending] = useState(true);
   const [open, setOpen] = useState(false);
   const handleOpen = () => {

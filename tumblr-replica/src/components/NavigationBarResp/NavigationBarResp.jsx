@@ -1,30 +1,30 @@
-import React, { useRef } from 'react';
+/* eslint-disable jsx-a11y/click-events-have-key-events */
+/* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
+import React, { useRef, useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './css/dist/NavigationBarResp.css';
-
-/**
- * Toggles the dropdown menu of the mobile navigation bar.
- * @method
- * @param {MutableRefObject} divRef - The ref for HTML node that should have its display toggled.
- */
-function toggleDropDown(divRef) {
-  const el = divRef;
-  el.current.style.display = (el.current.style.display) === 'none' ? 'block' : 'none';
-}
+import { toggleOptions, toggleDropDownM } from '../NavigationBar/interactions';
+import { selectBlogs, fetchBlogs } from '../../states/usertumblr/usertumblrSlice';
+import { BottomBar } from '../NavigationBar/subcomponents/ProfileDropDown';
 /**
  *  This is the navigation bar component for small view ports
  *  @returns {ReactJSXElement} JSX Element.
  */
-function NavigationBarResp() {
+function NavigationBarResp({ pageRef }) {
   const feedValues = {
-    likes: 2, following: 3, posts: 5, followers: 3, activity: 6, drafts: 3, queue: 2,
+    likes: '2', following: '3', posts: '', followers: '', activity: '', drafts: '',
   };
+  const [toggled, setToggled] = useState(false);
   const divRef = useRef(null);
+  const dispatch = useDispatch();
+  const blogState = useSelector(selectBlogs);
+  useEffect(() => dispatch(fetchBlogs()), []);
   return (
     <nav className="basic-nav">
       <div className="mobile-nav">
-        <button type="button" className="menu" onClick={() => { toggleDropDown(divRef); }}>
-          <i className="fas fa-bars fa-2x" />
+        <button type="button" className="menu" onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
+          {(toggled) ? (<i className="fas fa-times fa-2x" />) : (<i className="fas fa-bars fa-2x" />)}
         </button>
         <button type="button" className="tumblr">
           <i className="fab fa-tumblr fa-2x " />
@@ -35,7 +35,7 @@ function NavigationBarResp() {
       </div>
       <div className="user-items" ref={divRef} style={{ display: 'none' }}>
 
-        <Link to="/">
+        <Link to="/" onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
           <div className="user-item">
             <div className="icon-and-text">
               <i className="fas fa-home  fa-lg font-icon" />
@@ -44,7 +44,7 @@ function NavigationBarResp() {
             <span> </span>
           </div>
         </Link>
-        <Link to="/explore">
+        <Link to="/explore" onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
           <div className="user-item">
             <div className="icon-and-text">
               <i className="far fa-compass  fa-lg font-icon" />
@@ -54,7 +54,7 @@ function NavigationBarResp() {
           </div>
         </Link>
 
-        <Link to="/inbox">
+        <Link to="/inbox" onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
           <div className="user-item">
             <div className="icon-and-text">
               <i className="fas fa-envelope  fa-lg font-icon" />
@@ -64,7 +64,7 @@ function NavigationBarResp() {
           </div>
         </Link>
 
-        <Link to="/messaging">
+        <Link to="/messaging" onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
           <div className="user-item">
             <div className="icon-and-text">
               <i className="far fa-comment-alt  fa-lg font-icon" />
@@ -74,7 +74,7 @@ function NavigationBarResp() {
           </div>
         </Link>
 
-        <Link to="/activity">
+        <Link to="/activity" onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
           <div className="user-item">
             <div className="icon-and-text">
               <i className="fas fa-bolt  fa-lg fa-lg font-icon" />
@@ -84,7 +84,7 @@ function NavigationBarResp() {
           </div>
         </Link>
 
-        <Link to="/likes">
+        <Link to="/likes" onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
           <div className="user-item">
             <div className="icon-and-text">
               <i className="fas fa-heart text-gray-700 fa-lg font-icon" />
@@ -93,7 +93,7 @@ function NavigationBarResp() {
             <span>{feedValues.likes}</span>
           </div>
         </Link>
-        <Link to="/following">
+        <Link to="/following" onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
           <div className="user-item">
             <div className="icon-and-text">
               <i className="fas fa-user-plus text-gray-700 fa-lg font-icon" />
@@ -102,7 +102,7 @@ function NavigationBarResp() {
             <span>{feedValues.following}</span>
           </div>
         </Link>
-        <Link to="/settings/account">
+        <Link to="/settings/account" onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
           <div className="user-item">
             <div className="icon-and-text">
               <i className="fas fa-cog text-gray-700 fa-lg font-icon" />
@@ -110,7 +110,7 @@ function NavigationBarResp() {
             </div>
           </div>
         </Link>
-        <a href="https://tumblr.zendesk.com/hc/en-us#_=_" target="_blank" rel="noreferrer">
+        <a href="https://tumblr.zendesk.com/hc/en-us#_=_" target="_blank" rel="noreferrer" onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
           <div className="user-item">
             <div className="icon-and-text">
               <i className="fas fa-question-circle text-gray-700 fa-lg font-icon" />
@@ -118,7 +118,7 @@ function NavigationBarResp() {
             </div>
           </div>
         </a>
-        <Link to="/">
+        <Link to="/" onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
           <div className="user-item">
             <div className="icon-and-text">
               <i className="fas fa-palette text-gray-700 fa-lg font-icon" />
@@ -127,8 +127,81 @@ function NavigationBarResp() {
             <span>1/12</span>
           </div>
         </Link>
+        {(blogState.isLoading)
+          ? (<UserTumblrMobile tumblrName="Loading..." tumblrTitle="Loading..." tumblrIcon="./profile.png" feedValues={feedValues} divRef={divRef} toggled={toggled} setToggled={setToggled} pageRef={pageRef} />)
+          : (
+            (blogState.blogs).map((blog) => (
+              <UserTumblrMobile
+                tumblrName={blog.username}
+                tumblrTitle={blog.title}
+                tumblrIcon={blog.avatar ? blog.avatar : './profile2.png'}
+                feedValues={feedValues}
+                divRef={divRef}
+                toggled={toggled}
+                setToggled={setToggled}
+                pageRef={pageRef}
+              />
+            ))
+
+          ) }
+        <BottomBar />
       </div>
     </nav>
+  );
+}
+
+function UserTumblrMobile({
+  tumblrName, tumblrTitle, tumblrIcon, feedValues, divRef, toggled, setToggled, pageRef,
+}) {
+  const optionsRef = useRef(null);
+  return (
+    <div className="user-tumblr">
+      <div className="blog-item" role="banner" onClick={() => { toggleOptions(optionsRef); }}>
+        <div className="blog-details">
+          <div className="blog-icon-box">
+            <img src={tumblrIcon} alt="blog icon" />
+          </div>
+          <div className="blog-name-title">
+            <p className="tumblr-name">{ tumblrName }</p>
+            <p className="tumblr-title">{ tumblrTitle }</p>
+          </div>
+        </div>
+        <button type="button" className="hide-items" onClick={() => { toggleOptions(optionsRef); }}>
+          <i className="fas fa-chevron-down" />
+        </button>
+      </div>
+      <div className="blog-options" ref={optionsRef}>
+        <Link to={`/blog/${tumblrName}`} onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
+          <div className="blog-option">
+            <p>Posts</p>
+            <p>{feedValues.posts}</p>
+          </div>
+        </Link>
+        <Link to={`/blog/${tumblrName}/followers`} onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
+          <div className="blog-option">
+            <p>Followers</p>
+            <p>{feedValues.followers}</p>
+          </div>
+        </Link>
+        <Link to={`/blog/${tumblrName}/activity`} onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
+          <div className="blog-option">
+            <p>Activity</p>
+            <p>{feedValues.activity}</p>
+          </div>
+        </Link>
+        <Link to={`/blog/${tumblrName}/drafts`} onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
+          <div className="blog-option">
+            <p>Drafts</p>
+            <p>{feedValues.drafts}</p>
+          </div>
+        </Link>
+        <Link to={`/settings/blog/${tumblrName}`} onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
+          <div className="blog-option">
+            <p>Edit Appearance</p>
+          </div>
+        </Link>
+      </div>
+    </div>
   );
 }
 

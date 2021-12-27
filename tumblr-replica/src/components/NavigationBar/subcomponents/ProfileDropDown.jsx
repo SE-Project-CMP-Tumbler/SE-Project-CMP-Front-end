@@ -1,27 +1,32 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser, logOutThunk, logOutThunkR } from '../../../states/User/UserSlice';
 import { MOCK, REAL, SERVICETYPE } from '../../../apis/globalAPI';
-
+import { selectBlogs, fetchBlogs } from '../../../states/usertumblr/usertumblrSlice';
+import { useOutsideAlerter, toggleOptions } from '../interactions';
 /**
  * This is the component for the user profile's dropdown (last one on the right)
  * @component
  * @returns {ReactJSXElement} JSX Element.
  */
-function ProfileDropDown() {
+function ProfileDropDown({ buttonRef }) {
   const feedValues = {
-    likes: 2, following: 3, posts: 5, followers: 3, activity: 6, drafts: 3, queue: 2,
+    likes: '', following: '', posts: '', followers: '', activity: '', drafts: '', queue: '',
   };
   const dispatch = useDispatch();
+  const blogState = useSelector(selectBlogs);
+  useEffect(() => dispatch(fetchBlogs()), []);
   const user = useSelector(selectUser);
+  const profileDropRef = useRef(null);
+  useOutsideAlerter(profileDropRef, buttonRef);
   return (
-    <div className="drop-content user-drop-content">
+    <div className="drop-content user-drop-content" ref={profileDropRef} style={{ display: 'none' }}>
       <div className="drop-header user-drop-header">
         <p>Account</p>
         <Link
-          to="/logout"
+          to="/"
           onClick={() => {
             if (SERVICETYPE === MOCK) {
               dispatch(logOutThunk(user.accessToken));
@@ -39,16 +44,19 @@ function ProfileDropDown() {
         <p>Tumblrs</p>
         <Link to="/new/blog">+ New</Link>
       </div>
-      { user.loggedin ? (
-        <UserTumblr
-          tumblrName={user.blogName}
-          tumblrTitle={user.blogName}
-          tumblrIcon={user.primaryBlogAvatar ? user.primaryBlogAvatar : './profile2.png'}
-          feedValues={feedValues}
-        />
-      )
-        : (<UserTumblr tumblrName="Jaximus" tumblrTitle="Grandmaster" tumblrIcon="./profile3.png" feedValues={feedValues} />)}
-      <UserTumblr tumblrName="Malzahar" tumblrTitle="Landlord" tumblrIcon="./profile.png" feedValues={feedValues} />
+      {(blogState.isLoading)
+        ? (<UserTumblr tumblrName="Loading..." tumblrTitle="Loading..." tumblrIcon="./profile.png" feedValues={feedValues} />)
+        : (
+          (blogState.blogs).map((blog) => (
+            <UserTumblr
+              tumblrName={blog.username}
+              tumblrTitle={blog.title}
+              tumblrIcon={blog.avatar ? blog.avatar : './profile2.png'}
+              feedValues={feedValues}
+            />
+          ))
+
+        ) }
       <BottomBar />
     </div>
   );
@@ -109,15 +117,7 @@ function UserItems({ feedValues }) {
     </>
   );
 }
-/**
- * Responsible for toggling the options that drop from each tumblr in user profile drop down
- * @method
- * @param {MutableRefObject} optionsRef - the ref for the HTML node pertaining to the options
- */
-function toggleOptions(optionsRef) {
-  const el = optionsRef;
-  el.current.style.display = (el.current.style.display) === 'none' ? 'block' : 'none';
-}
+
 /**
  * This is the component representing any of the tumblrs that the user controls
  * @component
@@ -127,7 +127,7 @@ function toggleOptions(optionsRef) {
  * @param {Object} feedValues - an object with the count of likes, following, followers,...
  * @returns {ReactJSXElement} JSX Element.
  */
-function UserTumblr({
+export function UserTumblr({
   tumblrName, tumblrTitle, tumblrIcon, feedValues,
 }) {
   const optionsRef = useRef(null);
@@ -174,12 +174,6 @@ function UserTumblr({
             <p>{feedValues.drafts}</p>
           </div>
         </Link>
-        <Link to={`/blog/${tumblrName}/queue`}>
-          <div className="blog-option">
-            <p>Queue</p>
-            <p>{feedValues.queue}</p>
-          </div>
-        </Link>
         <Link to={`/settings/blog/${tumblrName}`}>
           <div className="blog-option">
             <p>Edit Appearance</p>
@@ -194,11 +188,11 @@ UserTumblr.propTypes = {
   tumblrName: PropTypes.string.isRequired,
   tumblrTitle: PropTypes.string.isRequired,
   tumblrIcon: PropTypes.string.isRequired,
-  feedValues: PropTypes.objectOf(PropTypes.number).isRequired,
+  feedValues: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 UserItems.propTypes = {
-  feedValues: PropTypes.objectOf(PropTypes.number).isRequired,
+  feedValues: PropTypes.objectOf(PropTypes.string).isRequired,
 };
 
 /**
@@ -206,7 +200,7 @@ UserItems.propTypes = {
  * @component
  * @returns {ReactJSXElement} JSX Element.
  */
-function BottomBar() {
+export function BottomBar() {
   return (
     <div className="misc-drop-header">
       <a href="https://www.tumblr.com/about" target="_blank" rel="noreferrer" className="misc-item">About</a>

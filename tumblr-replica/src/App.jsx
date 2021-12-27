@@ -1,6 +1,6 @@
-import React from 'react';
+import { React, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import MediaQuery from 'react-responsive';
 import NavigationBar from './components/NavigationBar/NavigationBar';
 import NavigationBarResp from './components/NavigationBarResp/NavigationBarResp';
@@ -10,12 +10,16 @@ import SignUpPage from './components/SignUpPage/SignUpPage';
 import RegisterWithGooglePage from './components/RegisterWithGooglePage/RegisterWithGooglePage';
 import LinkAccountWithGooglePage from './components/LinkAccountWithGooglePage/LinkAccountWithGooglePage';
 import ForgotPasswordPage from './components/ForgotPasswordPage/ForgotPasswordPage';
+import ResetPasswordPage from './components/ResetPasswordPage/ResetPasswordPage';
+import DeleteAccountPage from './components/DeleteAccountPage/DeleteAccountPage';
+import VerifyEmailPage from './components/VerifyEmailPage/VerifyEmailPage';
 import Explore from './components/Explore/Explore';
 import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
 import { initialCheck } from './states/User/UserSlice';
+import { getBlogs, fetchBlogs } from './states/blogslice/blogsslice';
 import TextPosts from './components/TextPosts/TextPosts';
 import VideoPosts from './components/VideoPosts/VideoPosts';
 import ImagePosts from './components/ImagePosts/ImagePosts';
@@ -27,27 +31,49 @@ import AskPosts from './components/AskPosts/Askposts';
 import BlogPage from './components/BlogPage/BlogPage';
 import Activity from './components/Activity/Activity';
 import Drafts from './components/Drafts/Drafts';
+import StaffPicks from './components/StaffPicks/StaffPicks';
 import RightBar from './components/DrawerRightBar/DrawerRightBar';
+import Posts from './components/Profile/Posts';
+import Likes from './components/Profile/Likes';
+import Ask from './components/Profile/Ask';
+import Submit from './components/Profile/Submit';
+import AllMassages from './components/Messages/Allmessages';
+import BlogMessages from './components/Messages/BlogMessages';
+// import ProfileHeader from './components/ProfileTemp/ProfileTempHeader';
 import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
-// import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
-// import { selectUser } from './states/user/UserSlice';
+import NewTumblr from './components/NewTumblr/NewTumblr';
+import { selectHideNav } from './states/hidenav/hidenavSlice';
+// import { changeTheme } from './components/NavigationBar/interactions';
 
 function App() {
   const dispatch = useDispatch();
-  // const user = useSelector(selectUser);
   dispatch(initialCheck());
+  useEffect(() => {
+    // changeTheme("'Pacifico', cursive !important", 'pink', 'rgb(6, 24, 51)');
+    dispatch(fetchBlogs());
+  }, []);
+  const blogs = useSelector(getBlogs).response;
+  const hideNav = useSelector(selectHideNav);
+  const wrapperRef = useRef(null);
   return (
     <Router>
       <div className="App">
-        <MediaQuery maxWidth={1070}>
-          <NavigationBarResp />
-        </MediaQuery>
-        <MediaQuery minWidth={1070}>
-          <NavigationBar />
-        </MediaQuery>
+        { !hideNav.hideAll
+        && (
+        <>
+          <MediaQuery minWidth={1070}>
+            <NavigationBar />
+          </MediaQuery>
+          <MediaQuery maxWidth={1070}>
+            <NavigationBarResp pageRef={wrapperRef} />
+          </MediaQuery>
+        </>
+        )}
 
       </div>
       <Routes>
+      <div className="page-wrapper" ref={wrapperRef}>
+        <Route path="/" element={<LogOutHome />} />
         <Route exact path="/chat" element={<HomePage />} />
         <Route exact path="/dashboard" element={<Newsfeed />} />
         <Route exact path="/login" element={<LogInPage />} />
@@ -55,10 +81,12 @@ function App() {
         <Route path="/linkAccount" element={<LinkAccountWithGooglePage />} />
         <Route path="/register" element={<SignUpPage />} />
         <Route path="/forgot_password" element={<ForgotPasswordPage />} />
-        <Route path="/logout" element={<LogOutHome />} />
+        <Route path="/reset_password/:id/:token" element={<ResetPasswordPage />} />
+        <Route path="/account/delete" element={<DeleteAccountPage />} />
+        <Route path="/verify/:id/:hash" element={<VerifyEmailPage />} />
         <Route path="/explore/recommended-for-you" element={<Explore />} />
         <Route path="/explore/trending" element={<Trending />} />
-        <Route path="/explore/staff-picks" element={<Explore />} />
+        <Route path="/explore/staff-picks" element={<StaffPicks />} />
         <Route path="/explore/text" element={<TextPosts />} />
         <Route path="/explore/photos" element={<ImagePosts />} />
         <Route path="/explore/quotes" element={<QuotePosts />} />
@@ -71,10 +99,21 @@ function App() {
         <Route path="/blog/:blogname" element={<BlogPage />} />
         <Route path="/blog/:blogname/activity" element={<Activity />} />
         <Route path="/blog/:blogname/drafts" element={<Drafts />} />
-        <Route path="/rightbar" element={<RightBar />} />
-        <Route path="/artificats" element={<ArtifactsPage />} />
-
+        <Route path="/blog/view/:blogid" element={<RightBar />} />
+        {/* <Route path="/profiletemp" element={<ProfileHeader BlogId={2} />} /> */}
+        <Route path="/profile/:blogid" element={<Posts />} />
+        <Route path="/profile/:blogid/likes" element={<Likes />} />
+        <Route path="/profile/:blogid/ask" element={<Ask />} />
+        <Route path="/profile/:blogid/submit" element={<Submit />} />
+        <Route path="/inbox" element={<AllMassages />} />
+        {/* eslint-disable */
+          blogs && blogs.blogs && blogs.blogs?.map((blog) => ((blog.allow_ask || blog.allow_submittions) && <Route key={blog.id} path={'/blog/' + blog.username + '/messages'} element={<BlogMessages BlogId={blog.id} />} />))
+        /* eslint-enable */}
+        <Route path="/artifacts" element={<ArtifactsPage />} />
+        <Route path="/new/blog" element={<NewTumblr />} />
       </Routes>
+      </div>
+
     </Router>
   );
 }

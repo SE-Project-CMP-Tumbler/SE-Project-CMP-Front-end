@@ -1,4 +1,22 @@
 {
+  "bloginfo":{
+    "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "id": 2026,
+        "is_primary": false,
+        "username": "newinvestigations",
+        "avatar": "",
+        "avatar_shape": "square",
+        "header_image": "",
+        "title": "My 1st Blog",
+        "allow_ask": true,
+        "allow_submittions": true,
+        "description": "This blog is a sketch of thoughts"
+      }
+  },
   "follow_tag": {
     "meta": {
       "status": "200",
@@ -20,6 +38,37 @@
         },
         {
           "tag_description": "Fuscia",
+          "tag_image": "https://picsum.photos/id/12/200/300"
+        },
+        {
+          "tag_description": "Reds",
+          "tag_image": "https://picsum.photos/id/237/200/300"
+        },
+        {
+          "tag_description": "Khakis",
+          "tag_image": "https://picsum.photos/seed/picsum/200/300"
+        },
+        {
+          "tag_description": "Khakiis",
+          "tag_image": "https://picsum.photos/200/300"
+        },
+        {
+          "tag_description": "Fuscias",
+          "tag_image": "https://picsum.photos/id/12/200/300"
+        },
+        {
+          "tag_description": "Rede",
+          "tag_image": "https://picsum.photos/id/237/200/300"
+        },
+        {
+          "tag_description": "Khakie",
+          "tag_image": "https://picsum.photos/seed/picsum/200/300"
+        }, {
+          "tag_description": "Khakiise",
+          "tag_image": "https://picsum.photos/200/300"
+        },
+        {
+          "tag_description": "Fusciase",
           "tag_image": "https://picsum.photos/id/12/200/300"
         }
       ]
@@ -85,51 +134,67 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 120,
+        "count": 10,
+        "per_page": 10,
+        "current_page": 2,
+        "total_pages": 12,
+        "first_page_url": false,
+        "last_page_url": 12,
+        "next_page_url": "http://127.0.0.1:8000/api/tag/trending?page=3",
+        "prev_page_url": "http://127.0.0.1:8000/api/tag/trending?page=1"
+      },
       "tags": [
         {
           "tag_description": "Red",
-          "tag_image1": "https://picsum.photos/id/1/200/300",
-          "tag_image2": "https://picsum.photos/id/2/200/300"
+          "tag_image": "https://picsum.photos/id/1/200/300"
         },
         {
           "tag_description": "Khaki",
-          "tag_image1": "https://picsum.photos/id/3/200/300",
-          "tag_image2": "https://picsum.photos/id/4/200/300"
+          "tag_image": "https://picsum.photos/id/3/200/300"
         },
         {
           "tag_description": "Khakii",
-          "tag_image1": "https://picsum.photos/id/5/200/300",
-          "tag_image2": "https://picsum.photos/id/6/200/300"
+          "tag_image": "https://picsum.photos/id/5/200/300"
         },
         {
           "tag_description": "Fuscia",
-          "tag_image1": "https://picsum.photos/id/7/200/300",
-          "tag_image2": "https://picsum.photos/id/8/200/300"
+          "tag_image": "https://picsum.photos/id/7/200/300"
         },
         {
           "tag_description": "Indigo",
-          "tag_image1": "https://picsum.photos/id/9/200/300",
-          "tag_image2": "https://picsum.photos/id/10/200/300"
+          "tag_image": "https://picsum.photos/id/9/200/300"
         },
         {
           "tag_description": "Aquamarine",
-          "tag_image1": "https://picsum.photos/id/12/200/300",
-          "tag_image2": "https://picsum.photos/id/13/200/300"
+          "tag_image": "https://picsum.photos/id/12/200/300"
         },
         {
           "tag_description": "Teal",
-          "tag_image1": "https://picsum.photos/id/14/200/300",
-          "tag_image2": "https://picsum.photos/id/15/200/300"
+          "tag_image": "https://picsum.photos/id/14/200/300"
         },
         {
           "tag_description": "Turquoiset",
-          "tag_image1": "https://picsum.photos/id/16/200/300",
-          "tag_image2": "https://picsum.photos/id/17/200/300"
+          "tag_image": "https://picsum.photos/id/16/200/300"
         }
       ]
     }
   },
-  "randomposts":{
+  "blogactivity": {
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "followers": 5,
+      "followings": 5,
+      "likes": 5,
+      "posts": 5,
+      "drafts": 5
+    }
+  },
+  "randomposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -160,11 +225,10 @@
           "blog_title": "so happy :)",
           "post_time": "02-02-2012"
         }
-
       ]
     }
   },
-  "trendingposts":{
+  "trendingposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -195,7 +259,6 @@
           "blog_title": "Trending",
           "post_time": "02-02-2012"
         }
-
       ]
     }
   },
@@ -233,7 +296,7 @@
       ]
     }
   },
-  "videoposts":{
+  "videoposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -255,7 +318,7 @@
       ]
     }
   },
-  "imageposts":{
+  "imageposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -276,9 +339,8 @@
         }
       ]
     }
-
   },
-  "quoteposts":{
+  "quoteposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -300,7 +362,7 @@
       ]
     }
   },
-  "audioposts":{
+  "audioposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -322,7 +384,7 @@
       ]
     }
   },
-  "askposts":{
+  "askposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -347,7 +409,7 @@
       ]
     }
   },
-  "blogposts":{
+  "blogposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -408,7 +470,7 @@
       ]
     }
   },
-  "draftposts":{
+  "draftposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -446,6 +508,12 @@
       ]
     }
   },
+  "deletfollowtag":{
+    "meta": {
+      "status": "400",
+      "msg": "OK"
+    }
+  },
   "gifposts":{
     "meta": {
       "status": "200",
@@ -468,7 +536,7 @@
       ]
     }
   },
-  "chatposts":{
+  "chatposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -490,7 +558,7 @@
       ]
     }
   },
-  "tagpostsrecent":{
+  "tagpostsrecent": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -511,9 +579,8 @@
         }
       ]
     }
-
   },
-  "tagpoststop":{
+  "tagpoststop": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -1442,7 +1509,7 @@
       "id": 5
     }
   ],
-  "block": [
+  "blockk": [
     {
       "blog_id": 4,
       "id": 1
@@ -1686,4 +1753,248 @@
       }
     }
   ]
-}
+,
+  "blog": {
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "pagination": {
+        "total": 1,
+        "count": 1,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 1,
+        "first_page_url": true,
+        "last_page_url": 1,
+        "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
+        "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
+      },
+      "blogs": [
+        {
+          "id": 2026,
+          "is_primary": false,
+          "username": "Jaximus",
+          "avatar": "",
+          "avatar_shape": "square",
+          "header_image": "",
+          "title": "My 1st Blog",
+          "allow_ask": true,
+          "allow_submittions": true,
+          "description": "This blog is a sketch of thoughts"
+        },
+        {
+          "id": 2126,
+          "is_primary": false,
+          "username": "GordonRamsey",
+          "avatar": "",
+          "avatar_shape": "square",
+          "header_image": "",
+          "title": "Oh dearr!",
+          "allow_ask": true,
+          "allow_submittions": true,
+          "description": "This blog is a sketch of thoughts"
+        }
+      ]
+    }
+  },
+  "followed_by":{
+  "meta": {
+    "status": "200",
+    "msg": "ok"
+  },
+  "response": {
+    "followed": true
+  }
+},
+  "block":{
+  "meta": {
+    "status": "200",
+    "msg": "ok"
+  },
+  "response": {
+    "is_blocking": false
+  }
+},
+  "blogm":{
+  "meta": {
+    "status": "200",
+    "msg": "ok"
+  },
+  "response": {
+    "share_likes": true,
+    "share_followings": true,
+    "id": 2026,
+    "is_primary": false,
+    "username": "ahmad-ghareeb",
+    "avatar": "https://scontent.fcai19-7.fna.fbcdn.net/v/t1.6435-9/131377863_2819233718394652_8340224791482069975_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeH77U1q39s0YwlxOoOOZpkOYAIITRUXLK1gAghNFRcsrc0lcejGuFpG42urYOWA-vxMg8xj0ct5h4d5y17wAS7Q&_nc_ohc=d4ULMS8cbbwAX-PRlwx&_nc_ht=scontent.fcai19-7.fna&oh=00_AT-DEH7Q4u72h5t8vL3pSN0UwY5pAVLIlWKKiG2Hfl6NpA&oe=61EB56A3",
+    "avatar_shape": "circle",
+    "header_image": "https://scontent.fcai19-8.fna.fbcdn.net/v/t1.6435-9/110317044_2680778068906885_6342427761542127472_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeEswvLZKjPSatwn_ayQKxQETaZe8tBIdmtNpl7y0Eh2a5d5SnznW7t0v4QioaBBFLOVbH5EDay_dHM67irUU19-&_nc_ohc=-RlN2LB1pE8AX9Zw6mj&_nc_ht=scontent.fcai19-8.fna&oh=00_AT9nEsi7oN4zphqAE9uuWZa2g4hula92bUHk6CUQGQgONw&oe=61EE2321",
+    "title": "i'm ghareeb",
+    "allow_ask": true,
+    "followed": true,
+    "allow_submittions": true,
+    "description": "i love food"
+  }
+},
+  "notes":{
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "notes_count": 16,
+      "new_followers_count": 6,
+      "total_followers_count": 326,
+      "data": [
+        {
+          "0": {
+            "timestamp": "2021-11-03 01:13:39",
+            "notes": 5,
+            "top_post": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>"
+          },
+          "1": {
+            "timestamp": "2021-11-04 01:13:39",
+            "notes": 7,
+            "top_post": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>"
+          },
+          "2": {
+            "timestamp": "2021-11-05 01:13:39",
+            "notes": 2,
+            "top_post": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>"
+          }
+        }
+      ],
+      "top_post": {
+        "post_body": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+        "total_notes_count": 14,
+        "notes_count": 2
+      },
+      "biggest_fan": [
+        {
+          "name": "mycppblog",
+          "blog_id": 123456789,
+          "blog_username": 123456789,
+          "blog_avatar": "storage/blogs/avatar2125",
+          "blog_avatar_shape": "square",
+          "followed": true,
+          "theme_id": 123456789,
+          "title": [
+            {
+              "text": "CPP Programming",
+              "show": true,
+              "color": "#000000",
+              "font": "Gibson",
+              "font_weight": "bold"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "newfollowers":{
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "notes_count": 16,
+      "new_followers_count": 6,
+      "total_followers_count": 326,
+      "data": [
+        {
+          "0": {
+            "timestamp": "2021-11-03 01:13:39",
+            "new_followers": 5
+          },
+          "1": {
+            "timestamp": "2021-11-04 01:13:39",
+            "new_followers": 7
+          },
+          "2": {
+            "timestamp": "2021-11-05 01:13:39",
+            "new_followers": 2
+          }
+        }
+      ],
+      "top_post": {
+        "post_body": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+        "total_notes_count": 14,
+        "notes_count": 2
+      },
+      "biggest_fan": [
+        {
+          "name": "mycppblog",
+          "blog_id": 123456789,
+          "blog_username": 123456789,
+          "blog_avatar": "storage/blogs/avatar2125",
+          "blog_avatar_shape": "square",
+          "followed": true,
+          "theme_id": 123456789,
+          "title": [
+            {
+              "text": "CPP Programming",
+              "show": true,
+              "color": "#000000",
+              "font": "Gibson",
+              "font_weight": "bold"
+            }
+          ]
+        }
+      ]
+    }
+  },
+  "totalfollowers":{
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "notes_count": 16,
+      "new_followers_count": 6,
+      "total_followers_count": 326,
+      "data": [
+        {
+          "0": {
+            "timestamp": "2021-11-03 01:13:39",
+            "total_followers": 100
+          },
+          "1": {
+            "timestamp": "2021-11-04 01:13:39",
+            "total_followers": 156
+          },
+          "2": {
+            "timestamp": "2021-11-05 01:13:39",
+            "total_followers": 304
+          }
+        }
+      ],
+      "top_post": {
+        "post_body": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+        "total_notes_count": 14,
+        "notes_count": 2
+      },
+      "biggest_fan": [
+        {
+          "name": "mycppblog",
+          "blog_id": 123456789,
+          "blog_username": 123456789,
+          "blog_avatar": "storage/blogs/avatar2125",
+          "blog_avatar_shape": "square",
+          "followed": true,
+          "theme_id": 123456789,
+          "title": [
+            {
+              "text": "CPP Programming",
+              "show": true,
+              "color": "#000000",
+              "font": "Gibson",
+              "font_weight": "bold"
+            }
+          ]
+        }
+      ]
+    }
+  }
+ }
