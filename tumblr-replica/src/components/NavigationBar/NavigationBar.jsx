@@ -1,6 +1,7 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { useSelector } from 'react-redux';
+import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import './css/dist/NavigationBar.css';
 import Box from '@mui/material/Box';
 import ChatDropDown from './subcomponents/ChatDropDown';
@@ -9,7 +10,9 @@ import NotificationsDropDown from './subcomponents/NotificationsDropDown';
 import LogInButton from '../LogOutHomePage/subcomponents/LogInButton/LogInButton';
 import SignUpButton from '../LogOutHomePage/subcomponents/SignUpButton/SignUpButton';
 import { selectUser } from '../../states/User/UserSlice';
-import { toggleDropDown, toggleIconColor } from './interactions';
+import {
+  toggleDropDown, toggleIconColor, items,
+} from './interactions';
 
 /**
  * This is the navigation bar component for large view ports.
@@ -18,6 +21,51 @@ import { toggleDropDown, toggleIconColor } from './interactions';
  */
 function NavigationBar() {
   // User-related
+  const initialStyle = {
+    height: '34px',
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    border: '0px solid rgba(255, 255, 255, 0.3)',
+    placeholderColor: 'rgba(255, 255, 255, 0.7)',
+    fontSize: '0.9rem',
+    borderRadius: '5px',
+    iconColor: 'rgba(255, 255, 255, 0.7)',
+
+  };
+
+  const [searchStyle, setSearchStyle] = useState(initialStyle);
+  const [iconShow, setIconShow] = useState(true);
+
+  function checkOutside(ref) {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        if (ref.current && !ref.current.contains(event.target)) {
+          setSearchStyle(initialStyle);
+          setIconShow(true);
+        }
+      }
+      // Bind the event listener
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+      // Unbind the event listener on clean up
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [ref]);
+  }
+
+  const handleOnFocus = () => {
+    const newStyle = {
+      height: '34px',
+      backgroundColor: 'rgba(255, 255, 255, 1)',
+      border: '0px solid rgba(255, 255, 255, 0.3)',
+      placeholderColor: 'rgba(255, 255, 255, 0.7)',
+      fontSize: '0.9rem',
+      borderRadius: '5px',
+    };
+    setSearchStyle(newStyle);
+    setIconShow(false);
+  };
+  const searchRef = useRef(null);
+  checkOutside(searchRef);
   const user = useSelector(selectUser);
   return (
     <nav className="nav-styles">
@@ -27,14 +75,15 @@ function NavigationBar() {
             <button type="button" aria-label="dashboard"><i className="fab fa-tumblr fa-2x " /></button>
           </Link>
         </div>
-        <div className="search-bar">
-          <i className="fas fa-search search-icon" />
-          <input
-            className="search-bar-input"
-            type="search"
-            name="search"
-            size="65"
-            placeholder="Search Tumblr"
+        <div className="search-bar" style={{ width: 490 }} ref={searchRef}>
+          <ReactSearchAutocomplete
+            placeholder="    Search Tumblr"
+            items={items}
+            onFocus={handleOnFocus}
+            showClear={false}
+            showIcon={iconShow}
+            styling={searchStyle}
+            key={searchStyle}
           />
         </div>
       </div>
@@ -68,7 +117,13 @@ function LoggedInGroup() {
   const allIconRefs = [dashboardRef, exploreRef, inboxRef];
   return (
     <div className="icons-container">
-      <Link to="/dashboard" className="icon-style dash-icon" onClick={() => { toggleIconColor(dashboardRef, allIconRefs); }}>
+      <Link
+        to="/dashboard"
+        className="icon-style dash-icon"
+        onClick={() => {
+          toggleIconColor(dashboardRef, allIconRefs);
+        }}
+      >
         <abbr title="Dashboard"><i className="fas fa-home  fa-lg" ref={dashboardRef} /></abbr>
       </Link>
       <Link to="/explore/recommended-for-you" className="icon-style" onClick={() => { toggleIconColor(exploreRef, allIconRefs); }}>
@@ -78,7 +133,13 @@ function LoggedInGroup() {
         <abbr title="Inbox"><i className="fas fa-envelope  fa-lg" style={{ color: 'rgba(255, 255, 255, 0.698)' }} ref={inboxRef} /></abbr>
       </Link>
       <div className="drop chat-drop" ref={chatRef}>
-        <button type="button" className="icon-style" onClick={() => { toggleDropDown(chatRef, allRefs); }}>
+        <button
+          type="button"
+          className="icon-style"
+          onClick={() => {
+            toggleDropDown(chatRef, allRefs);
+          }}
+        >
           <abbr title="Chat"><i className="far fa-comment-alt  fa-lg" style={{ color: 'rgba(255, 255, 255, 0.698)' }} /></abbr>
         </button>
         <ChatDropDown style={{ display: 'none' }} buttonRef={chatRef} />

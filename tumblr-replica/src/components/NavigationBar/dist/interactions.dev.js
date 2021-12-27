@@ -3,9 +3,11 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.newMessageHandler = exports.tumblrSelection = exports.chooseBlueItem = exports.toggleOptions = exports.useOutsideAlerter = exports.toggleIconColor = exports.toggleDropDown = void 0;
+exports.changeTheme = exports.toggleDropDownM = exports.items = exports.newMessageHandler = exports.tumblrSelection = exports.chooseBlueItem = exports.toggleOptions = exports.useOutsideAlerter = exports.toggleIconColor = exports.toggleDropDown = void 0;
 
 var _react = require("react");
+
+/* eslint-disable */
 
 /**
  * Toggles one of the three main drop down menus of the navigation bar.
@@ -160,3 +162,101 @@ var newMessageHandler = function newMessageHandler(chatsRef, followingRef, butto
 };
 
 exports.newMessageHandler = newMessageHandler;
+var items = [{
+  id: 0,
+  name: 'Eiffel Tower'
+}, {
+  id: 1,
+  name: 'Tumblr'
+}, {
+  id: 2,
+  name: 'Pyramids'
+}, {
+  id: 3,
+  name: 'Cairo'
+}, {
+  id: 4,
+  name: 'Waterall'
+}, {
+  id: 5,
+  name: 'Flowers'
+}, {
+  id: 4,
+  name: 'Meh'
+}, {
+  id: 4,
+  name: 'Jordon'
+}, {
+  id: 4,
+  name: 'Tram Car'
+}, {
+  id: 4,
+  name: 'Surfing'
+}, {
+  id: 4,
+  name: 'Karthus'
+}, {
+  id: 4,
+  name: 'Zed'
+}, {
+  id: 4,
+  name: 'Yasuo'
+}, {
+  id: 4,
+  name: 'MrWonderful'
+}, {
+  id: 4,
+  name: 'Jax'
+}, {
+  id: 4,
+  name: 'Malzahar'
+}, {
+  id: 4,
+  name: 'Zeo'
+}];
+/**
+* Toggles the dropdown menu of the mobile navigation bar.
+* @method
+* @param {MutableRefObject} divRef - The ref for HTML node that should have its display toggled.
+* @param {Boolean} toggled - The state that should be toggled
+* @param {Function} setToggled - The function that would help toggle it.
+* @param {MutableRefObject} pageRef - The ref for HTML node that should have its display toggled (page).
+
+*/
+
+exports.items = items;
+
+var toggleDropDownM = function toggleDropDownM(divRef, toggled, setToggled, pageRef) {
+  var el = divRef;
+  el.current.style.display = el.current.style.display === 'none' ? 'block' : 'none';
+  var el2 = pageRef;
+  el2.current.style.display = el2.current.style.display === 'none' ? 'block' : 'none';
+
+  if (toggled) {
+    setToggled(false);
+  } else {
+    setToggled(true);
+  }
+};
+/**
+* Toggles the dropdown menu of the mobile navigation bar.
+* @method
+* @param {String} new theme's font.
+* @param {String} new theme's font color.
+* @param {String} new theme's background color.
+*/
+
+
+exports.toggleDropDownM = toggleDropDownM;
+
+var changeTheme = function changeTheme(font, fontColor, backgroundColor) {
+  var elements = document.querySelectorAll('*');
+
+  for (var i = 0; i < elements.length; ++i) {
+    elements[i].style.font = font;
+    elements[i].style.color = fontColor;
+    elements[i].style.backgroundColor = backgroundColor;
+  }
+};
+
+exports.changeTheme = changeTheme;

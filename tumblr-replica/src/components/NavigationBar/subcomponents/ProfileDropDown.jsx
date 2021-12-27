@@ -17,10 +17,10 @@ function ProfileDropDown({ buttonRef }) {
   };
   const dispatch = useDispatch();
   const blogState = useSelector(selectBlogs);
+  useEffect(() => dispatch(fetchBlogs()), []);
   const user = useSelector(selectUser);
   const profileDropRef = useRef(null);
   useOutsideAlerter(profileDropRef, buttonRef);
-  useEffect(() => dispatch(fetchBlogs()), []);
   return (
     <div className="drop-content user-drop-content" ref={profileDropRef} style={{ display: 'none' }}>
       <div className="drop-header user-drop-header">
@@ -127,7 +127,7 @@ function UserItems({ feedValues }) {
  * @param {Object} feedValues - an object with the count of likes, following, followers,...
  * @returns {ReactJSXElement} JSX Element.
  */
-function UserTumblr({
+export function UserTumblr({
   tumblrName, tumblrTitle, tumblrIcon, feedValues,
 }) {
   const optionsRef = useRef(null);
@@ -200,7 +200,7 @@ UserItems.propTypes = {
  * @component
  * @returns {ReactJSXElement} JSX Element.
  */
-function BottomBar() {
+export function BottomBar() {
   return (
     <div className="misc-drop-header">
       <a href="https://www.tumblr.com/about" target="_blank" rel="noreferrer" className="misc-item">About</a>

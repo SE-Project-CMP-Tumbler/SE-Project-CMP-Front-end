@@ -40,6 +40,7 @@ import BlockedReducer from './blockSlice/getblockslice';
 import unBlockReducer from './blockSlice/unblockslice';
 import AskReducer from './askpostslice/askpostslice';
 import PostslikedReducer from './likedposts/likedpostsSlice';
+import hideNavReducer from './hidenav/hidenavSlice';
 
 const store = configureStore({
   reducer: {
@@ -84,6 +85,7 @@ const store = configureStore({
     graph: graphReducer,
     ask: AskReducer,
     postsliked: PostslikedReducer,
+    hideNav: hideNavReducer,
   },
 });
 

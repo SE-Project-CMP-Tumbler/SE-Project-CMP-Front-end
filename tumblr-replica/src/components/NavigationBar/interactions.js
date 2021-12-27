@@ -1,3 +1,4 @@
+/* eslint-disable */
 import { useEffect } from 'react';
 
 /**
@@ -127,3 +128,109 @@ export const newMessageHandler = function newMessageHandler(chatsRef, followingR
   bEl.current.innerHTML = (bEl.current.innerHTML === 'New Message') ? 'Nevermind' : 'New Message';
   bEl.current.style.color = (bEl.current.innerHTML === 'New Message') ? 'rgb(0, 184, 255)' : 'rgba(0, 0, 0, 0.65)';
 };
+
+export const items = [
+  {
+    id: 0,
+    name: 'Eiffel Tower',
+  },
+  {
+    id: 1,
+    name: 'Tumblr',
+  },
+  {
+    id: 2,
+    name: 'Pyramids',
+  },
+  {
+    id: 3,
+    name: 'Cairo',
+  },
+  {
+    id: 4,
+    name: 'Waterall',
+  },
+  {
+    id: 5,
+    name: 'Flowers',
+  },
+  {
+    id: 4,
+    name: 'Meh',
+  },
+  {
+    id: 4,
+    name: 'Jordon',
+  },
+  {
+    id: 4,
+    name: 'Tram Car',
+  },
+  {
+    id: 4,
+    name: 'Surfing',
+  },
+  {
+    id: 4,
+    name: 'Karthus',
+  },
+  {
+    id: 4,
+    name: 'Zed',
+  },
+  {
+    id: 4,
+    name: 'Yasuo',
+  },
+  {
+    id: 4,
+    name: 'MrWonderful',
+  },
+  {
+    id: 4,
+    name: 'Jax',
+  },
+  {
+    id: 4,
+    name: 'Malzahar',
+  },
+  {
+    id: 4,
+    name: 'Zeo',
+  },
+];
+
+/**
+* Toggles the dropdown menu of the mobile navigation bar.
+* @method
+* @param {MutableRefObject} divRef - The ref for HTML node that should have its display toggled.
+* @param {Boolean} toggled - The state that should be toggled
+* @param {Function} setToggled - The function that would help toggle it.
+* @param {MutableRefObject} pageRef - The ref for HTML node that should have its display toggled (page).
+
+*/
+export const toggleDropDownM = function toggleDropDownM(divRef, toggled, setToggled, pageRef) {
+  const el = divRef;
+  el.current.style.display = (el.current.style.display) === 'none' ? 'block' : 'none';
+  const el2 = pageRef;
+  el2.current.style.display = (el2.current.style.display) === 'none' ? 'block' : 'none';
+  if (toggled) { setToggled(false); } else { setToggled(true); }
+};
+
+
+/**
+* Toggles the dropdown menu of the mobile navigation bar.
+* @method
+* @param {String} new theme's font.
+* @param {String} new theme's font color.
+* @param {String} new theme's background color.
+*/
+export const changeTheme = function changeTheme(font, fontColor, backgroundColor ){
+  let elements = document.querySelectorAll('*');
+  for (let i = 0; i < elements.length; ++i) {
+    elements[i].style.font = font;
+    elements[i].style.color = fontColor;
+    elements[i].style.backgroundColor = backgroundColor;
+  }
+  
+}
