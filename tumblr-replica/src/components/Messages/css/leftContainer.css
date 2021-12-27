@@ -2,7 +2,8 @@
     align-items: flex-end;
     display: flex;
     flex-direction: column;
-    max-width: 625px;
+    justify-content: center;
+    width: 640px !important;
     width: 100%;
-    color:black;
+    margin-top: 25px;
 }

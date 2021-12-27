@@ -8,7 +8,7 @@ const fetchBlogs = createAsyncThunk(
   'blogs/getblogs',
   async (dispatch, { getState }) => {
     if (SERVICETYPE === MOCK) {
-      const response = await api.get('blogm');
+      const response = await api.get('blog');
       return response.data;
     }
     const state = getState();

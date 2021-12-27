@@ -1,23 +1,23 @@
 import React, { useState } from 'react';
 import IconButton from '@mui/material/IconButton';
-import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
-import RepeatIcon from '@mui/icons-material/Repeat';
-import FavoriteIcon from '@mui/icons-material/Favorite';
+// import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+// import RepeatIcon from '@mui/icons-material/Repeat';
+// import FavoriteIcon from '@mui/icons-material/Favorite';
 import DeleteOutlineIcon from '@mui/icons-material/DeleteOutline';
-import ReplyOutlinedIcon from '@mui/icons-material/ReplyOutlined';
-import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+// import ReplyOutlinedIcon from '@mui/icons-material/ReplyOutlined';
+// import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import '../css/PostFooter.css';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Modal from '@mui/material/Modal';
-import { FaRegComment } from 'react-icons/fa';
+// import { FaRegComment } from 'react-icons/fa';
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import Notes from './Notes/Notes';
-import LoggedIn from '../../../../Login/Login';
-import { DisplayNote } from '../../../../../states/features/dashboard/NotesWindowSlice';
-import { addLike, deletePost, unLike } from '../../../../../states/features/dashboard/NotesSlice';
+// import LoggedIn from '../../../../Login/Login';
+// import { DisplayNote } from '../../../../../states/features/dashboard/NotesWindowSlice';
+import { deletePost } from '../../../../../states/features/dashboard/NotesSlice';
 
 const style = {
   position: 'absolute',
@@ -37,27 +37,15 @@ const style = {
 const PostFooter = function PostFooterButtons(props) {
   const { postId, blogId, postType } = props;
   // States
-  const [Liked, setLiked] = useState(false);
   const [showModel, setShowModel] = useState(false);
 
   // reducers & states
   const dispatch = useDispatch();
-
+  // for deleting ask or submission
   const handleDelete = function DeletePost() {
     dispatch(deletePost(postId));
     setShowModel(false);
   };
-
-  const handleLike = function likeUnlikePost() {
-    if (!Liked) {
-      dispatch(addLike(postId));
-    } else {
-      dispatch(unLike(postId));
-    }
-    setLiked(!Liked);
-  };
-
-  const handleReblog = function ReblogwithCaption() { };
 
   return (
     <>
@@ -65,64 +53,40 @@ const PostFooter = function PostFooterButtons(props) {
         <Notes postId={postId} blog_id={blogId} />
       </div>
       <div className="postActions">
-        <IconButton aria-label="Send to message" className="action">
-          <ReplyOutlinedIcon style={{ fontSize: 25 }} />
-        </IconButton>
 
         <IconButton
-          aria-label="add note"
+          aria-label="Delete"
           className="action"
-          onClick={(event) => dispatch(DisplayNote(event.currentTarget))}
+          onClick={() => setShowModel(true)}
         >
-          <FaRegComment style={{ fontSize: 25 }} />
+          <DeleteOutlineIcon style={{ fontSize: 25 }} />
         </IconButton>
 
-        <IconButton
-          aria-label="reblog"
-          className="action"
-          onClick={() => handleReblog()}
-        >
-          <RepeatIcon style={{ fontSize: 25 }} />
-        </IconButton>
-        <IconButton
-          aria-label="add to favorites"
-          id={postId}
-          onClick={() => handleLike()}
-          className="action"
-        >
-          {!Liked && <FavoriteBorderIcon style={{ fontSize: 25 }} />}
-          {Liked && (
-            <FavoriteIcon
-              style={{ fill: '#DE320C', fontSize: 25 }}
-            />
-          )}
-        </IconButton>
-
-        {(postType === 'ask' || postType === 'submit') && (
+        {postType === 'ask' && (
           <IconButton
             aria-label="Answer"
             className="action"
+            size="small"
             onClick={() => setShowModel(true)}
           >
             Answer
           </IconButton>
         )}
-
-        {LoggedIn.blog_id === blogId && (
+        {postType === 'submit' && (
           <IconButton
-            aria-label="Delete"
+            aria-label="Answer"
             className="action"
             onClick={() => setShowModel(true)}
+            size="small"
           >
-            <DeleteOutlineIcon style={{ fontSize: 25 }} />
+            Post
           </IconButton>
         )}
-
-        {(LoggedIn.blog_id === blogId && postType !== 'ask') && (
+        {/* {postType === 'submit' && (
           <IconButton aria-label="Edit post" className="action">
             <EditOutlinedIcon style={{ fontSize: 25 }} />
           </IconButton>
-        )}
+        )} */}
 
         {showModel && (
           <Modal

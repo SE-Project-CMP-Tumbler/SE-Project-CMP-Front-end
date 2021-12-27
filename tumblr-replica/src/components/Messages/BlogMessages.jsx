@@ -8,17 +8,23 @@ import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
-import LeftContent from './LeftContainer';
+import LeftContent from './BlogLeftContainer';
 import { getBlogs, fetchBlogs } from '../../states/blogslice/blogsslice';
+import { fetchAsyncBlogMessages } from '../../states/retriveblogmessagesslice/retriveblogmessagesslice';
+import { DeleteBlogMsgAsynch } from '../../states/deleteblogmessagesslice/deleteblogmessagesslice';
 
 const BlogMessages = ({ BlogId }) => {
   const dispatch = useDispatch();// use BlogId
   React.useEffect(() => {
     dispatch(fetchBlogs());
+    dispatch(fetchAsyncBlogMessages(BlogId));
   }, []);
   const blogs = useSelector(getBlogs).response;
   const IsTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
-
+  function handelDelete() {
+    dispatch(DeleteBlogMsgAsynch(BlogId));
+    dispatch(fetchAsyncBlogMessages(BlogId));
+  }
   // here i should call some apis
   return (
 
@@ -34,7 +40,7 @@ const BlogMessages = ({ BlogId }) => {
                 <ul className="blogs ul-m">
 
                   <li className="firstLi li-m">
-                    <Link to="/inbox">
+                    <Link to="/inbox" className="a-m">
                       <FontAwesomeIcon className="icon" icon={faEnvelope} color="white" size="lg" />
                       All massages
                     </Link>
@@ -47,7 +53,7 @@ const BlogMessages = ({ BlogId }) => {
                     </li>
                   ) : <></>))}
                   <li className="thirdLi li-m">
-                    <button type="button" className="deleteBtn">Delete all massages</button>
+                    <button type="button" onClick={handelDelete} className="deleteBtn">Delete all massages</button>
                   </li>
                 </ul>
                 <div className="info">

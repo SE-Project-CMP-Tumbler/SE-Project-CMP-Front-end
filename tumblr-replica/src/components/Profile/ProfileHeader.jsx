@@ -6,7 +6,6 @@ import ProfileNavBar from './ProfileNavBar';
 import { getBlog, fetchBlog } from '../../states/blogslice/blogslice';
 
 function ProfileHeader({ BlogId }) {
-  console.log(BlogId, 'from profile header');
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchBlog(BlogId));// will take BlogId

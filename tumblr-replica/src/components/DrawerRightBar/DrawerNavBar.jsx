@@ -35,7 +35,6 @@ import { selectUser } from '../../states/User/UserSlice';
  */
 
 function NavBar({ CloseClicked, OpenChatClicked, BlogId }) {
-  console.log(BlogId, 'blog id from navBar');
   const IsTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
   const dispatch = useDispatch();
 
@@ -54,9 +53,7 @@ function NavBar({ CloseClicked, OpenChatClicked, BlogId }) {
  * @param   {hook} setFollow  hook for updating seting follow
  */
   function HandelFollow() {
-    console.log('follow called');
     dispatch(FollowAsynch(BlogId));
-    console.log('follow back');
     dispatch(FollowedByAsynch(BlogId));
   }
   function HandelUnFollow() {

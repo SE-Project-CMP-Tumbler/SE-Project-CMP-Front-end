@@ -35,7 +35,6 @@ const ITEM_HEIGHT = 48;
  */
 
 export default function LongMenu({ BlogId }) {
-  console.log(BlogId, 'blog id from menu');
   const IsTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
   const [anchorEl, setAnchorEl] = useState(null);
   const dispatch = useDispatch();// use BlogId
@@ -44,7 +43,6 @@ export default function LongMenu({ BlogId }) {
     dispatch(BlockedByAsynch(BlogId)); // the only one should be fetshed
   }, []);
   const User = useSelector(selectUser);
-  console.log(User.primaryBlogId, 'pbid', BlogId);
   // const id = BlogId.toString();
   // eslint-disable-next-line prefer-const
   let BlockInit = useSelector(getBlocked).response; // will be used insted of blog.follow

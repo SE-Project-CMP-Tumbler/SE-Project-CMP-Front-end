@@ -20,7 +20,6 @@ import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
 import { initialCheck } from './states/User/UserSlice';
 import { getBlogs, fetchBlogs } from './states/blogslice/blogsslice';
-import { getBlog } from './states/blogslice/blogslice';
 import TextPosts from './components/TextPosts/TextPosts';
 import VideoPosts from './components/VideoPosts/VideoPosts';
 import ImagePosts from './components/ImagePosts/ImagePosts';
@@ -51,8 +50,6 @@ function App() {
     dispatch(fetchBlogs());
   }, []);
   const blogs = useSelector(getBlogs).response;
-  const blog = useSelector(getBlog).response;
-  console.log(blog);
   console.log(blogs.blogs, 'hi Essam');
   return (
     <Router>

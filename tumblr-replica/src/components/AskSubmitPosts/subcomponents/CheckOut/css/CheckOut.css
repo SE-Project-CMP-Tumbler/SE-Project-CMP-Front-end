@@ -1,0 +1,11 @@
+.header {
+    border-bottom: 2px solid rgba(255,255,255,0.13);
+    font-size: 1.3125rem;
+    font-weight: 550;
+    line-height: 1.5238;
+    line-height: 1.2;
+    padding: 0 5px 5px;
+    color: rgb(255, 255, 255);
+}
+
+

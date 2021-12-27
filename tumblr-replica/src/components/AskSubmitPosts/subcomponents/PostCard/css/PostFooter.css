@@ -1,0 +1,36 @@
+.postActions {
+  align-items: center;
+  display: flex;
+  justify-content: flex-end;
+}
+.notediv {
+  border: none;
+  font: inherit;
+  font-size: 100%;
+  margin: 0;
+  padding: 0;
+  vertical-align: baseline;
+}
+.action {
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.5;
+  line-height: 1;
+  margin-left: 1px;
+  position: relative;
+}
+
+.notebutton {
+  cursor: pointer;
+  display: inline-block;
+  line-height: 1.5;
+  max-width: 100%;
+  text-align: left;
+  background-color: transparent;
+  border: none;
+  margin-left: 20px;
+  padding: 0;
+  color: grey;
+  font-family: Arial;
+  font-size: 20px;
+}

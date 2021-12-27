@@ -40,6 +40,11 @@ import BlockedReducer from './blockSlice/getblockslice';
 import unBlockReducer from './blockSlice/unblockslice';
 import AskReducer from './askpostslice/askpostslice';
 import PostslikedReducer from './likedposts/likedpostsSlice';
+import MyPostsReducer from './mypostsslice/mypostsSlice';
+import deleteBlogMessagesReducer from './deleteblogmessagesslice/deleteblogmessagesslice';
+import deleteAllMessagesReducer from './deleteallmessagesslice/deleteallmessagesslice';
+import BlogMessagesReducer from './retriveblogmessagesslice/retriveblogmessagesslice';
+import AllMessagesReducer from './retriveallmessagesslice/retriveallmessagesslice';
 
 const store = configureStore({
   reducer: {
@@ -84,6 +89,11 @@ const store = configureStore({
     graph: graphReducer,
     ask: AskReducer,
     postsliked: PostslikedReducer,
+    myposts: MyPostsReducer,
+    deleteblogmsg: deleteBlogMessagesReducer,
+    deleteallmsg: deleteAllMessagesReducer,
+    blogmessages: BlogMessagesReducer,
+    allmessages: AllMessagesReducer,
   },
 });
 

@@ -1,8 +1,11 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
+import Grid from '@mui/material/Grid';
 import NavBar from './DrawerNavBar';
 import { getBlog, fetchBlog } from '../../states/blogslice/blogslice';
+import PostCard from '../NewsFeed/subcomponents/PostCard/PostCard';
+import { getMyPosts, fetchAsyncMyPosts } from '../../states/mypostsslice/mypostsSlice';
 import './css/DrawerHeader.css';
 
 /**
@@ -21,14 +24,13 @@ import './css/DrawerHeader.css';
  */
 
 function Header({ CloseClicked, OpenChatClicked, BlogId }) {
-  // const title = 'ghareeb';
-  console.log(BlogId, 'blog id from header');
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchBlog(BlogId));// will take BlogId
+    dispatch(fetchAsyncMyPosts(BlogId));
   }, []);
   const Blog = useSelector(getBlog).response;
-
+  const Posts = useSelector(getMyPosts).response.posts;
   return (
     <div className="Body">
       <NavBar CloseClicked={CloseClicked} OpenChatClicked={OpenChatClicked} BlogId={BlogId} />
@@ -51,7 +53,34 @@ function Header({ CloseClicked, OpenChatClicked, BlogId }) {
         </p>
       </div>
       <div className="posts-drawer">
-        here posts will be integrated
+        {Posts
+          && Posts.map((post) => (
+            <>
+              <Grid
+                item
+                xs
+                container
+                direction="row"
+                key={post.post_id}
+                spacing={2}
+                style={{ justifyContent: 'center', alignItems: 'flex-start', display: 'flex' }}
+                sx={{ mb: 2, mt: 0 }}
+              >
+                <Grid item>
+                  <PostCard
+                    postId={post.post_id}
+                    postTime={post.post_date}
+                    blogId={post.blog_id}
+                    blogUsername=""
+                    postBody={post.post_body}
+                    blogAvatar={post.blog_avatar}
+                    xs={10}
+                    sx={{ mt: 0 }}
+                  />
+                </Grid>
+              </Grid>
+            </>
+          ))}
       </div>
     </div>
   );

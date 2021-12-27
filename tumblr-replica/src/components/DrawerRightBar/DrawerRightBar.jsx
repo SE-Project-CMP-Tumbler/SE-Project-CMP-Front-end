@@ -9,6 +9,7 @@ import './css/DrawerRightBar.css';
 const useStyles = makeStyles({
   drawerpaper: {
     width: 730,
+    background: '#061833!important',
   },
 
 });
@@ -27,7 +28,6 @@ const useStyles = makeStyles({
 
 function RightBar() {
   const { blogid } = useParams();
-  console.log(blogid, 'drawer id');
   const navigate = useNavigate();
   const [Open, setOpening] = useState(true);
   const [OpenChat, setOpenChat] = useState(false);
