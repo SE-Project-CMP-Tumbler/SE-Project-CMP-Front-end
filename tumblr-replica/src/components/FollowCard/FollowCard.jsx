@@ -6,6 +6,11 @@ import ImageListItem from '@mui/material/ImageListItem';
 import Button from '@mui/material/Button';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+import { followtag, unfollowtag } from '../../states/features/randomtag/randomtagSlice';
+import {
+  AddAsyncfollowtags, DeleteAsyncfollowtags,
+} from '../../states/features/tag/tagSlice';
 
 /**
  * Component for render tag with its name and two images and the blog can follow that tag
@@ -19,11 +24,13 @@ import { Link } from 'react-router-dom';
  * )
  */
 
-export default function FollowCard({ image1, image2, tag }) {
-  const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+export default function FollowCard({
+  image1, image2, tag, follow, randomcolor,
+}) {
+  // const randomColor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
   const button = {
     backgroundColor: 'white',
-    color: randomColor,
+    color: randomcolor,
     width: '100%',
     marginTop: '10px',
   };
@@ -32,18 +39,27 @@ export default function FollowCard({ image1, image2, tag }) {
     marginBottom: '5px',
   };
   const linkst = { textDecoration: 'none' };
+  const dispatch = useDispatch();
+  const unfollowtagcard = (tagdis) => {
+    dispatch(unfollowtag(tagdis));
+    dispatch(DeleteAsyncfollowtags(tagdis));
+  };
+  const followtagcard = (tagdis) => {
+    dispatch(followtag(tagdis));
+    dispatch(AddAsyncfollowtags(tagdis));
+  };
   return (
     <Box
       sx={{
         '& > :not(style)': {
           m: 1,
           width: 120,
-          height: 170,
+          height: 175,
           p: 1,
         },
       }}
     >
-      <Paper style={{ backgroundColor: randomColor, margin: 'auto' }} elevation={3}>
+      <Paper style={{ backgroundColor: randomcolor, margin: 'auto' }} elevation={3}>
         <Link to={`/tagged/${tag}`} style={linkst}>
           <div style={white}>
             #
@@ -71,8 +87,10 @@ export default function FollowCard({ image1, image2, tag }) {
               />
             </ImageListItem>
           </ImageList>
-          <Button style={button} variant="contained">Follow</Button>
         </Link>
+        {follow
+          ? (<Button style={button} onClick={() => unfollowtagcard(tag)} variant="contained">Unfollow</Button>)
+          : (<Button style={button} onClick={() => followtagcard(tag)} variant="contained">Follow</Button>)}
       </Paper>
     </Box>
   );
@@ -82,4 +100,6 @@ FollowCard.propTypes = {
   image1: PropTypes.string.isRequired,
   image2: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
+  follow: PropTypes.bool.isRequired,
+  randomcolor: PropTypes.string.isRequired,
 };

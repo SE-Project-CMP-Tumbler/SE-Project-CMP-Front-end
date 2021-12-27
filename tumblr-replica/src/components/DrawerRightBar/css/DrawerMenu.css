@@ -12,3 +12,7 @@
 .menu-icon{
   margin-top: -6px;
 }
+a{
+  text-decoration: none;
+  color: black;
+}

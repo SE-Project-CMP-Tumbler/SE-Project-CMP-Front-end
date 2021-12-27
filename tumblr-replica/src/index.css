@@ -1,18 +1,43 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
-
-* {
-   font-family: poppins;
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@300&family=Cinzel+Decorative&family=Indie+Flower&family=Merienda&family=Oooh+Baby&family=Pacifico&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.App {
+   position: sticky;
+   top: 0;
+   z-index: 99;
 }
+
+.page-wrapper {
+   display: block;
+}
+
+
+/* 'Chakra Petch', sans-serif !important;
+'Cinzel Decorative', cursive !important;
+'Indie Flower', cursive !important;
+'Merienda', cursive !important;
+'Oooh Baby', cursive !important;
+'Pacifico', cursive !important;
+'Poppins', sans-serif !important; */
+* {
+   font-family: Poppins;
+   color: '';
+}
+
+body i {
+   font-family:'FontAwesome'!important;
+   }
+
 html 
 {
    height: 100%;
-   background-color: rgb(6, 24, 51);
+   background-color: rgb(6, 24, 51); 
 }
 
 button {
-   cursor: pointer
+   cursor: pointer;
+   border: none;
 }
 
 a {
    text-decoration: none
 }
+

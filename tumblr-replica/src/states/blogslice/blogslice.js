@@ -1,82 +1,47 @@
-// createEntotyAdabtor let me update without need to write the logic of the reducer
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-
-const initialState = {
-  isLoggedIn: true,
-  loading: false,
-  error: null,
-  user: {},
-};
+import { api, apiR } from '../../apis/globalAxpi';
+import { SERVICETYPE, MOCK } from '../../apis/globalAPI';
 
 const fetchBlog = createAsyncThunk(
   'blog/getblog',
-  async () => {
-    try {
-      const response = await fetch('http://localhost:8000/response');
-      const data = await response.json();
-      return data;
-    } catch (error) {
-      throw Error(error);
+  async (BlogId, { getState }) => {
+    if (SERVICETYPE === MOCK) {
+      const response = await api.get('blogm');
+      return response.data;
     }
+    const state = getState();
+    const USER_TOKEN = state.user.user.accessToken;
+    const AuthStr = `Bearer ${USER_TOKEN}`;
+    const response = await apiR.get(`blog/${BlogId}`, { headers: { Authorization: AuthStr } });
+    return response.data;
   },
 );
 
-const blogSlice = createSlice({
-  name: 'Blog',
-  initialState,
-  reducers: {
-    // is for adding actions like follow etc...
-    follow(state) {
-      // console.log('follow is called');
-      const st = state;
-      st.user.follow = true;
-    },
-    unFollow(state) {
-      // console.log('unfollow is called');
-      const st = state;
-      st.user.follow = false;
-    },
-    block(state) {
-      const st = state;
-      st.user.block = true;
-    },
-    unblock(state) {
-      const st = state;
-      st.user.block = false;
-    },
-
+const initialState = {
+  blog: {
+    response: {},
+    meta: { status: '000', msg: 'Loading' },
   },
+};
+
+const BlogSlice = createSlice({
+  name: 'blog',
+  initialState,
+  reducers: {},
   extraReducers: {
-    [fetchBlog.pending]: (state) => {
-      const st = state;
-      st.loading = true;
-      st.error = null;
+    [fetchBlog.pending]: () => {
+      // console.log('Pending');
     },
-    [fetchBlog.fulfilled]: (state, action) => {
-      const st = state;
-      st.user = action.payload;
-      st.loading = false;
-    },
-    [fetchBlog.rejected]: (state, action) => {
-      const st = state;
-      st.error = action.error.message;
-      console.error(action.error.message);
-      st.loading = false;
+    [fetchBlog.fulfilled]: (state, { payload }) => ({ ...state, blog: payload }),
+    [fetchBlog.rejected]: () => {
+      // console.log('Rejected!');
     },
   },
 });
 
-// export const { } = blogSlice.actions;
-// export const create = () => async (getState) => {
-//   const currentState = getState().blogSlice;
-//   // console.log(currentState);
-//   return (currentState);
-// };
-const getBlog = (state) => state.Blog.user;
-const BlogReducer = blogSlice.reducer;
-export const {
-  follow, unFollow, block, unblock,
-} = blogSlice.actions;
+const getBlog = (state) => state.blog.blog;
+console.log(getBlog);
+const BlogReducer = BlogSlice.reducer;
 export {
   getBlog,
   fetchBlog,

@@ -1,15 +1,17 @@
 html {
   height: 100%;
-  background-color: #061833;
 }
 
+.basic-nav {
+  background-color: #061833;
+}
 .basic-nav .mobile-nav {
   display: flex;
   justify-content: space-between;
   width: 100%;
-  height: 3rem;
-  padding: 0.5rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.13);
+  height: 2rem;
+  padding: 0.5rem 0rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.068);
 }
 .basic-nav .mobile-nav i {
   color: white;
@@ -38,9 +40,10 @@ html {
   padding-bottom: 0.8rem;
   padding-left: 10px;
   font-size: 1.1rem;
+  height: 100%;
 }
 .basic-nav .user-items .user-item:hover {
-  background-color: rgba(0, 0, 0, 0.2);
+  background-color: #ffffff0f;
 }
 .basic-nav .user-items .user-item .icon-and-text {
   display: flex;
@@ -49,4 +52,76 @@ html {
 }
 .basic-nav .user-items .user-item .icon-and-text .font-icon {
   padding-right: 1rem;
+}
+.basic-nav .user-tumblr {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.027);
+  color: white;
+}
+.basic-nav .user-tumblr .blog-item {
+  display: flex;
+  justify-content: space-between;
+  cursor: pointer;
+}
+.basic-nav .user-tumblr .blog-item:hover {
+  background-color: #ffffff0f;
+}
+.basic-nav .user-tumblr .blog-item .blog-details {
+  display: flex;
+  align-items: center;
+}
+.basic-nav .user-tumblr .blog-item .blog-details .blog-icon-box {
+  width: 2.5rem;
+  margin: 0.5rem;
+}
+.basic-nav .user-tumblr .blog-item .blog-details .blog-icon-box img {
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 0.25rem;
+  object-fit: cover;
+}
+.basic-nav .user-tumblr .blog-item .blog-details .blog-name-title {
+  font-size: 0.8rem;
+  align-items: center;
+}
+.basic-nav .user-tumblr .blog-item .blog-details .blog-name-title .tumblr-name {
+  font-weight: 600;
+}
+.basic-nav .user-tumblr .blog-item .blog-details .blog-name-title .tumblr-title {
+  font-weight: 300;
+}
+.basic-nav .user-tumblr .blog-item .hide-items {
+  display: flex;
+  align-items: center;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0);
+  color: white;
+  border: none;
+}
+.basic-nav .user-tumblr .blog-options {
+  margin-left: 3.5rem;
+  margin-right: 1.2rem;
+  margin-bottom: 0.3rem;
+  display: block;
+}
+.basic-nav .user-tumblr .blog-options .blog-option {
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  font-size: 1.1rem;
+  padding: 0rem 0.3rem;
+  margin: -0.5rem 0rem;
+}
+.basic-nav .user-tumblr .blog-options .blog-option:hover {
+  background-color: #ffffff0f;
+}
+.basic-nav .misc-drop-header {
+  display: flex;
+  justify-content: space-around;
+  padding: 0.3rem;
+  font-size: 0.75rem;
+  color: white;
+}
+.basic-nav .misc-drop-header .misc-item:hover {
+  text-decoration: underline;
 }

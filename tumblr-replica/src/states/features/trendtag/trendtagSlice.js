@@ -1,12 +1,25 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import exploreApi from '../../../apis/exploreApi';
+import { api, apiR } from '../../../apis/globalAxpi';
+import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
 const fetchAsynctrendtags = createAsyncThunk(
   'tag/trending',
   async () => {
-    const response = await exploreApi.get('trending');
-    // const response = await exploreApi.get(`tag/trending`);
-    return response.data;
+    if (SERVICETYPE === MOCK) {
+      try {
+        const response = await api.get('trending');
+        return response.data;
+      } catch (error) {
+        throw Error(error);
+      }
+    } else {
+      try {
+        const response = await apiR.get('tag/trending');
+        return response.data;
+      } catch (e) {
+        throw Error(e);
+      }
+    }
   },
 );
 

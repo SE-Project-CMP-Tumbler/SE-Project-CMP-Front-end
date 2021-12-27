@@ -1,39 +1,16 @@
 import React, { useRef } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { TumblrItem } from './ChatDropDown';
-
-/**
- * This chooses one of the four notification categories and sets it as blue
- * @method
- * @param {MutableRefObject} chosenRef - the ref for the HTML node of the category to be set as blue
- * @param {Array} allRefs - An array of the four refs representing the four categories
- */
-
-function chooseBlueItem(chosenRef, allRefs) {
-  const el = chosenRef;
-  el.current.style.color = 'rgb(0, 184, 255)';
-  el.current.style.borderBottom = '2px solid rgb(0, 184, 255)';
-  const els = allRefs;
-  els.forEach((currentRef) => {
-    const element = currentRef;
-    if (element !== chosenRef) {
-      element.current.style.color = 'rgba(0, 0, 0, 0.65)';
-      element.current.style.borderBottom = '0px solid rgb(0, 184, 255)';
-    }
-  });
-}
-function tumblrSelection(chevronRef) {
-  const el = chevronRef;
-  el.current.style.display = (el.current.style.display) === 'none' ? 'block' : 'none';
-}
+import { useSelector } from 'react-redux';
+import { selectBlogs } from '../../../states/usertumblr/usertumblrSlice';
+import { chooseBlueItem, tumblrSelection, useOutsideAlerter } from '../interactions';
 
 /**
  * This is the notifications drop down component as can be seen in the official website
  * @component
  * @returns {ReactJSXElement} JSX Element.
  */
-function NotificationsDropDown() {
+function NotificationsDropDown({ buttonRef }) {
   const allRef = useRef(null);
   // this ref is for the "all" category in the notifcation panel.
   const mentionsRef = useRef(null);
@@ -41,8 +18,11 @@ function NotificationsDropDown() {
   const repliesRef = useRef(null);
   const chevronRef = useRef(null);
   const allRefs = [allRef, mentionsRef, reblogsRef, repliesRef];
+  const notificationsDropRef = useRef(null);
+  const blogState = useSelector(selectBlogs);
+  useOutsideAlerter(notificationsDropRef, buttonRef);
   return (
-    <div className="drop-content notifications-drop-content">
+    <div className="drop-content notifications-drop-content" ref={notificationsDropRef} style={{ display: 'none' }}>
       <div className="drop-header notifications-drop-header">
         <div className="profile">
           <div className="icon-box">
@@ -53,8 +33,17 @@ function NotificationsDropDown() {
             <i className="fas fa-chevron-down" />
           </button>
           <div className="tumblr-list" ref={chevronRef}>
-            <TumblrItem tumblrName="Jaximus" tumblrTitle="Grandmaster" tumblrIcon="/profile2.png" />
-            <TumblrItem tumblrName="Malzahar" tumblrTitle="Landlord" tumblrIcon="/profile3.png" />
+            {(blogState.isLoading)
+              ? (<TumblrItem tumblrName="Jaximus" tumblrTitle="Grandmaster" tumblrIcon="/profile2.png" />
+              )
+              : (
+                (blogState.blogs).map((blog) => (
+
+                  <TumblrItem tumblrName={blog.username} tumblrTitle={blog.title} tumblrIcon={blog.avatar ? blog.avatar : './profile2.png'} />
+
+                ))
+
+              ) }
           </div>
         </div>
         <button type="button" className="activity">________</button>
@@ -147,6 +136,31 @@ function NotificationsItem({
         </div>
       </div>
     </Link>
+  );
+}
+
+/**
+ * This is the component responsible for switching the tumblr that the dropdown conveys info about.
+ * @component
+ * @param {String} tumblrName- the name of the tumlr
+ * @param {String} tumblrTitle - the title of the tumblr
+ * @param {String} tumblrIcon - the profile picture of the tumblr
+ * @returns {ReactJSXElement} JSX Element.
+ */
+export function TumblrItem({ tumblrName, tumblrTitle, tumblrIcon }) {
+  return (
+    <div className="blog-item">
+      <div className="blog-details">
+        <div className="blog-icon-box">
+          <img src={tumblrIcon} alt="blog icon" />
+        </div>
+        <div className="blog-name-title">
+          <p className="tumblr-name">{ tumblrName }</p>
+          <p className="tumblr-title">{ tumblrTitle }</p>
+        </div>
+        {/* <i className="fas fa-check" /> */}
+      </div>
+    </div>
   );
 }
 

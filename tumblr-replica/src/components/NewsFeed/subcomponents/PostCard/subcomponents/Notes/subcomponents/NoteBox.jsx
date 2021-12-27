@@ -16,9 +16,10 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
+import { useSelector } from 'react-redux';
 import Box from '@mui/material/Box';
 import PropTypes from 'prop-types';
-import LoggedIn from '../../../../../../Login/Login';
+import { selectUser } from '../../../../../../../states/User/UserSlice';
 
 /**
  * This function is focused on creating the notes content on a post which includes profile picture
@@ -32,7 +33,7 @@ const NoteBox = function NoteBox(props) {
   } = props;
   const open = Boolean(anchorEl);
   const apiBaseUrl = 'http://localhost:8000';
-
+  const User = useSelector(selectUser);
   const handleClick = function ShowPopover(event) {
     setAnchorEl(event.currentTarget);
   };
@@ -156,7 +157,7 @@ const NoteBox = function NoteBox(props) {
                         'aria-labelledby': 'basic-button',
                       }}
                     >
-                      {LoggedIn.blog_id === 2 && (
+                      {User.id === 2 && (
                       <MenuItem
                         onClick={() => handleDelete(reply.reply_id)}
                         style={{ color: 'red' }}
@@ -164,7 +165,7 @@ const NoteBox = function NoteBox(props) {
                         Delete reply
                       </MenuItem>
                       )}
-                      {LoggedIn.blog_id !== 2 && (
+                      {User.id !== 2 && (
                       <MenuItem
                         onClick={() => handleBlock(reply.blog_id)}
                         style={{ color: 'red' }}
@@ -267,7 +268,7 @@ const NoteBox = function NoteBox(props) {
                       }}
                     >
                       <Divider />
-                      {LoggedIn.blog_id === 2 && (
+                      {User.id === 2 && (
                       <MenuItem
                         onClick={() => handleDelete(reply.reply_id)}
                         style={{ color: 'red' }}
@@ -275,7 +276,7 @@ const NoteBox = function NoteBox(props) {
                         Delete reply
                       </MenuItem>
                       )}
-                      {LoggedIn.blog_id !== 2 && (
+                      {User.id !== 2 && (
                       <MenuItem
                         onClick={() => handleBlock(reply.blog_id)}
                         style={{ color: 'red' }}

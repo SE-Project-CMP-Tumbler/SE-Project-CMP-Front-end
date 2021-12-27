@@ -1,4 +1,5 @@
 .nav-styles {
+  background-color: #061833;
   text-decoration: none;
   color: rgba(0, 0, 0, 0.815);
   display: flex;
@@ -99,7 +100,7 @@
   transform: scale(120%);
 }
 .nav-styles .icons-container .icon-style i {
-  color: #ffffffb2;
+  color: rgba(255, 255, 255, 0.698);
 }
 .nav-styles .icons-container .dash-icon i {
   color: white;

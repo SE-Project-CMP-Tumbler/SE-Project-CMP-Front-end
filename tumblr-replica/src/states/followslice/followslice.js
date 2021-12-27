@@ -1,24 +1,33 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import FollowApi from '../../apis/FollowApi';
+import axios from 'axios';
 
 const FollowAsynch = createAsyncThunk(
   'follow_blog/:blog_id',
-  async (BlogId) => {
-    const response = await FollowApi.post(`follow_blog/:${BlogId}`);
-    return response.data;
-  },
-);
+  async (BlogId, { getState }) => {
+    const state = getState();
+    const USER_TOKEN = state.user.user.accessToken;
+    const AuthStr = `Bearer ${USER_TOKEN}`;
 
-const UnFollowAsynch = createAsyncThunk(
-  'follow_blog/:blog_id',
-  async (BlogId) => {
-    const response = await FollowApi.delete(`follow_blog/:${BlogId}`);
-    return response.data;
+    try {
+      const response = await axios({
+        method: 'POST',
+        url: `https://api.dev.tumbler.social/api/follow_blog/${BlogId}`,
+        headers: {
+          Authorization: AuthStr,
+          Accept: 'application/json',
+          'Content-Type': 'application/json',
+        },
+      });
+      return response.data;
+    } catch (err) {
+      console.log(err);
+      throw Error(err);
+    }
   },
 );
 
 const initialState = {
-  follow: { response: { tags: [] }, meta: { status: '000', msg: 'Loading' } },
+  follow: { meta: { status: '000', msg: 'Loading' } },
 };
 
 const FollowSlice = createSlice({
@@ -26,13 +35,9 @@ const FollowSlice = createSlice({
   initialState,
   reducers: {},
   extraReducers: {
-    [FollowAsynch.fulfilled]: (state, { payload }) => ({ ...state, followtags: payload }),
+    [FollowAsynch.pending]: () => { },
+    [FollowAsynch.fulfilled]: (state, { payload }) => ({ ...state, follow: payload }),
     [FollowAsynch.rejected]: () => {
-      // console.log('Rejected!');
-    },
-
-    [UnFollowAsynch.fulfilled]: (state, { payload }) => ({ ...state, followtags: payload }),
-    [UnFollowAsynch.rejected]: () => {
       // console.log('Rejected!');
     },
   },
@@ -43,6 +48,5 @@ const FollowReducer = FollowSlice.reducer;
 export {
   getFollow,
   FollowAsynch,
-  UnFollowAsynch,
 };
 export default FollowReducer;

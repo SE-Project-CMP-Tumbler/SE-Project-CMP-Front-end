@@ -1,12 +1,30 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
-import exploreApi from '../../../apis/exploreApi';
+import { api, apiR } from '../../../apis/globalAxpi';
+import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
 const fetchAsyncdraftposts = createAsyncThunk(
-  'posts/{draft_id}',
-  async (blogId) => {
-    const response = await exploreApi.get(`draftposts?${blogId}`);
-    // const response = await exploreApi.get(`post/${blogId}/draft`);
-    return response.data;
+  'post/{blogId}/draft',
+  async (blogId, { getState }) => {
+    if (SERVICETYPE === MOCK) {
+      try {
+        const response = await api.get('draftposts');
+        return response.data;
+      } catch (error) {
+        throw Error(error);
+      }
+    } else {
+      try {
+        const state = getState();
+        console.log(state);
+        const USERTOKEN = state.user.user.accessToken;
+        console.log(USERTOKEN);
+        const AuthStr = `Bearer ${USERTOKEN}`;
+        const response = await apiR.get(`post/${blogId}/draft`, { headers: { Authorization: AuthStr } });
+        return response.data;
+      } catch (e) {
+        throw Error(e);
+      }
+    }
   },
 );
 
