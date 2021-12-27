@@ -21,10 +21,15 @@ function PostCard(props) {
   const {
     postId, postTime, blogId, blogUsername, postBody, blogAvatar, small,
   } = props;
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 992px)' });
   return (
     <>
-      <Card>
+      <Card
+        style={{
+          maxWidth: isTabletOrMobile || small ? 300 : 480,
+          minWidth: isTabletOrMobile || small ? 300 : 480,
+        }}
+      >
         <CardHeader
           action={
             <MoreMenu postId={postId} blogId={blogId} postTime={postTime} />
@@ -38,20 +43,20 @@ function PostCard(props) {
               xs={2}
               src={blogAvatar}
               style={{
-                maxWidth: 64,
-                minWidth: 64,
-                maxHeight: 64,
-                minHeight: 64,
+                maxWidth: 40,
+                minWidth: 40,
+                maxHeight: 40,
+                minHeight: 40,
               }}
             />
             )
           }
         />
         <CardContent>
-          <PostContent content={postBody} />
+          <PostContent content={postBody} small={small} />
         </CardContent>
         <CardActions disableSpacing className="footer">
-          <PostFooter postId={postId} blogId={blogId} />
+          <PostFooter postId={postId} blogId={blogId} content={postBody} />
         </CardActions>
       </Card>
     </>
@@ -61,6 +66,7 @@ function PostCard(props) {
 export default PostCard;
 
 PostCard.propTypes = {
+  small: PropTypes.bool.isRequired,
   postId: PropTypes.number.isRequired,
   blogId: PropTypes.number.isRequired,
   postBody: PropTypes.string.isRequired,

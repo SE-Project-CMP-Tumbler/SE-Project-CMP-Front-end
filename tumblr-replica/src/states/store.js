@@ -28,6 +28,8 @@ import FollowReducer from './followslice/followslice';
 import BlockReducer from './blockSlice/blockslice';
 import DashReducer from './features/dashboard/dashboardSlice';
 import NotesReducer from './features/dashboard/NotesSlice';
+import checkoutReducer from './features/checkout/checkoutSlice';
+import radarReducer from './features/radar/radarSlice';
 import usertumblrsReducer from './usertumblr/usertumblrSlice';
 import newtumblrReducer from './newtumblr/newtumblrSlice';
 import postviewreducer from './features/postview/postviewSlice';
@@ -80,6 +82,8 @@ const store = configureStore({
     unblock: unBlockReducer,
     DashPosts: DashReducer,
     Notes: NotesReducer,
+    checkout: checkoutReducer,
+    radar: radarReducer,
     userBlogs: usertumblrsReducer,
     newTumblr: newtumblrReducer,
     graph: graphReducer,

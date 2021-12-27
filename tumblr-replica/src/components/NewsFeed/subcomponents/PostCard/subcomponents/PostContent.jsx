@@ -4,6 +4,7 @@ import { Markup } from 'interweave';
 import '../css/PostContent.css';
 import PropTypes from 'prop-types';
 import Link from '@mui/material/Link';
+import { useMediaQuery } from 'react-responsive';
 /**
  * This function displays the content of a post and extracts mentions & hashtags
  * of the post to be do the needed logic with them & link them to the corresponding components
@@ -11,14 +12,14 @@ import Link from '@mui/material/Link';
  * @returns component contains text / imgs / videos of a post
  */
 const PostContent = function PostContentDisplay(props) {
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 992px)' });
   let hashtags = [];
   const mentions = [];
 
-  const { content } = props;
+  const { content, small } = props;
 
   let current = content;
-
-  let i = current.indexOf('#');
+  let i = content ? current.indexOf('#') : -1;
   if (i !== -1) {
     current = current.substring(i, current.length);
     hashtags = current.split(' ');
@@ -31,7 +32,7 @@ const PostContent = function PostContentDisplay(props) {
   let postBody = i !== -1 ? content.substring(0, i - 3) : content;
 
   current = postBody;
-  i = postBody.indexOf('@');
+  i = current ? postBody.indexOf('@') : -1;
   let j = 0;
   let cut = 0;
   while (i !== -1) {
@@ -55,8 +56,8 @@ const PostContent = function PostContentDisplay(props) {
   }
 
   return (
-    <div className="postBody" style={{ maxWidth: 510, minWidth: 510 }}>
-      <Markup content={postBody} className="text" />
+    <div className="postBody" style={{ maxWidth: isTabletOrMobile || small ? 300 : 480, minWidth: isTabletOrMobile || small ? 300 : 480 }}>
+      <Markup content={postBody} />
       {hashtags.map((hash) => (
         <>
           <Link href="/" underline="hover" style={{ color: 'grey' }} key={hash}>
@@ -73,5 +74,6 @@ const PostContent = function PostContentDisplay(props) {
 export default PostContent;
 
 PostContent.propTypes = {
+  small: PropTypes.bool.isRequired,
   content: PropTypes.string.isRequired,
 };

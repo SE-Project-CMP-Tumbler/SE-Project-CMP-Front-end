@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Divider from '@mui/material/Divider';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
@@ -7,8 +7,8 @@ import Button from '@mui/material/Button';
 import IconButton from '@mui/material/IconButton';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import PropTypes from 'prop-types';
-import LoggedIn from '../Login/Login';
 import { blockBlog } from '../../states/features/dashboard/NotesSlice';
+import { selectUser } from '../../states/User/UserSlice';
 /**
  * This function returns a component for the button ... that includes some options to be applied on
  * a post like : Report / Block /Pin etc.
@@ -23,7 +23,7 @@ const MoreMenu = function MoreMenuComponent(props) {
   const [pinned, setPinned] = useState(false);
   const open = Boolean(anchorEl);
   const dispatch = useDispatch();
-
+  const User = useSelector(selectUser);
   // __________________Click handlers____________________\\
   const handleClick = function handleShowMenu(event) {
     setAnchorEl(event.currentTarget);
@@ -47,9 +47,6 @@ const MoreMenu = function MoreMenuComponent(props) {
   const handleCopy = function CopyPostLinkOption() {
     navigator.clipboard.writeText(`http://localhost:3000/post/${postId}`); //    !!! TO BE EDITED !!!    //
   };
-
-  // ______________________________________________________\\
-
   return (
     <div sx={{ width: 320, maxWidth: '100%' }}>
       <Button
@@ -74,22 +71,22 @@ const MoreMenu = function MoreMenuComponent(props) {
       >
         <MenuItem>{postTime}</MenuItem>
         <Divider />
-        {LoggedIn.blog_id === blogId && !pinned && (
+        {User.id === blogId && !pinned && (
           <MenuItem onClick={() => handlePin()}>pin</MenuItem>
         )}
-        {LoggedIn.blog_id === blogId && pinned && (
+        {User.id === blogId && pinned && (
           <MenuItem onClick={() => handlePin()}>Unpin</MenuItem>
         )}
         <MenuItem onClick={() => handleCopy()} id={postId}>
           Copy Link
         </MenuItem>
 
-        {LoggedIn.blog_id !== blogId && (
+        {User.id !== blogId && (
           <MenuItem onClick={() => handleUnfollow()} style={{ color: 'red' }}>
             Unfollow
           </MenuItem>
         )}
-        {LoggedIn.blog_id !== blogId && (
+        {User.id !== blogId && (
           <MenuItem onClick={() => handleBlock()} style={{ color: 'red' }}>
             Block
           </MenuItem>
