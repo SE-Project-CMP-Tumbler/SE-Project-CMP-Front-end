@@ -1,0 +1,24 @@
+.Title{
+    height: 60px;
+    width: 100%;
+    border: none;
+    font-size: 30px;
+    font-weight: 500;
+    outline: none;
+}
+.content{
+    height: 40px;
+    width: 100%;
+    border: none;
+    font-size: 15px;
+    color: black;
+    outline: none;
+}
+.tags{
+    height: 40px;
+    border: none;
+    width: 100%;
+    color: rgb(114, 113, 113);
+    font-size: 15px;
+    outline: none;
+}

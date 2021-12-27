@@ -1,0 +1,22 @@
+button {
+background-color: transparent;
+border: none;
+cursor: pointer;
+}
+.send-button{
+    margin-left: 60%;
+}
+.textarea1{
+   
+    height: 30px;
+    overflow-y: auto;
+    outline: none;
+    border: none;
+    width: 255px;
+    font-family: monospace;
+    font-size:15px;
+    padding: 10px;
+    resize: none;
+    margin: 0;
+
+}

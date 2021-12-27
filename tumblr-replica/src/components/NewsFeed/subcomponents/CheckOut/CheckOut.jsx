@@ -1,59 +1,40 @@
-import React from 'react';
-import Card from '@mui/material/Card';
-import CardHeader from '@mui/material/CardHeader';
-import Avatar from '@mui/material/Avatar';
-import IconButton from '@mui/material/IconButton';
+import { React, useEffect } from 'react';
 import './css/CheckOut.css';
-import Typography from '@mui/material/Typography';
-import { Grid } from '@mui/material';
+import { Divider, Grid } from '@mui/material';
+import { useDispatch, useSelector } from 'react-redux';
+import Check from './subcomponents/Check';
+import { selectUser } from '../../../../states/User/UserSlice';
+import { getcheck } from '../../../../states/features/checkout/checkoutSlice';
+import fetchCheckout from '../../../../states/features/checkout/checkoutAPI';
 
 /**
  *
  * @returns component that includes some recommended blogs to follow.
  */
 const CheckOut = function CheckOutTheseBlogs() {
+  const CheckoutBlogs = useSelector(getcheck);
+  const dispatch = useDispatch();
+  const User = useSelector(selectUser);
+  useEffect(() => {
+    console.log(CheckoutBlogs);
+    dispatch(fetchCheckout(User));
+  }, []);
   return (
-    <div style={{ minWidth: 350, maxWidth: 350 }}>
+    <div className="container">
       <Grid container justifyContent="start" alignItems="start">
         <Grid item xs={0} sm={12}>
           <h1 className="header">Check out these blogs</h1>
         </Grid>
-        <Grid item xs={0} sm={12}>
-          <Card
-            sx={{ bgcolor: 'transparent', border: 'none', boxShadow: 'none' }}
-          >
-            <CardHeader
-              avatar={(
-                <Avatar sx={{ bgcolor: 'red' }} aria-label="recipe">
-                  R
-                </Avatar>
-              )}
-              style={{ color: 'white' }}
-              color="white"
-              action={(
-                <IconButton aria-label="settings">
-                  <Typography
-                    style={{ fontSize: 14, float: 'right', color: 'white' }}
-                  >
-                    {' '}
-                    Follow
-                  </Typography>
-                </IconButton>
-              )}
-              title={(
-                <Typography gutterBottom display="block" variant="caption">
-                  {' '}
-                  Blog-username
-                </Typography>
-              )}
-              subheader={
-                <Typography style={{ fontSize: 12 }}> Blog-title</Typography>
-              }
-            />
-          </Card>
-        </Grid>
+        <Divider />
+        <div className="checkcontainer">
+          <ul>
+            {CheckoutBlogs?.blogs?.map((element) => (
+              <Check blog={element} />
+            ))}
+          </ul>
+        </div>
         <Grid item style={{ textAlign: 'left' }} xs={0} sm={12}>
-          <a className="I_SFh" href="/explore" style={{ color: 'white' }}>
+          <a className="I_SFh" href="/explore">
             Explore all of Tumblr
           </a>
         </Grid>

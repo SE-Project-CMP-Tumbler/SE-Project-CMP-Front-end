@@ -43,12 +43,17 @@
     "better-docs": "^2.3.2",
     "d3-scale": "^4.0.2",
     "draft-js": "^0.11.7",
+    "draftjs-to-html": "^0.9.1",
     "history": "^5.1.0",
+    "image-to-base64": "^2.2.0",
     "interweave": "^12.9.0",
     "jsdoc": "^3.6.7",
+    "material-ui-popup-state": "^2.0.0",
     "msw": "^0.35.0",
     "postcss": "^7.0.39",
     "prop-types": "^15.7.2",
+    "pusher": "^5.0.0",
+    "pusher-js": "^7.0.3",
     "react": "^17.0.2",
     "react-axios": "^2.0.5",
     "react-device-detect": "^2.1.2",
@@ -59,6 +64,7 @@
     "react-google-recaptcha": "^2.1.0",
     "react-grid-carousel": "^1.0.1",
     "react-icons": "^4.3.1",
+    "react-infinite-scroll-component": "^6.1.0",
     "react-loading": "^2.0.3",
     "react-multi-carousel": "^2.6.5",
     "react-redux": "^7.2.6",
@@ -112,6 +118,7 @@
     "eslint-plugin-jsx-a11y": "^6.4.1",
     "eslint-plugin-react": "^7.26.1",
     "eslint-plugin-react-hooks": "^4.2.0",
+    "immutable": "^4.0.0",
     "jsdoc": "^3.6.7"
   }
 }

@@ -4,3 +4,25 @@
 h1{
     color: black;
 }
+.FOqaP{
+    height: 90px;
+    width: 70px;
+    cursor: pointer;
+    text-align: center;
+}
+.FOqaP:hover {
+  /*  Making button bigger on hover  */
+    transform: scale(1.1) perspective(0.5px)
+  }
+
+.right{
+  display: flex;
+    flex-direction: column;
+    margin-left: 30px;
+    width: 320px;
+}
+
+.side{
+  margin-bottom: 38px;
+  width: 100%;
+}
