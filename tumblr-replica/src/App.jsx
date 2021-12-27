@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import MediaQuery from 'react-responsive';
@@ -20,7 +20,6 @@ import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
 import { initialCheck } from './states/User/UserSlice';
 import { getBlogs, fetchBlogs } from './states/blogslice/blogsslice';
-import { getBlog } from './states/blogslice/blogslice';
 import TextPosts from './components/TextPosts/TextPosts';
 import VideoPosts from './components/VideoPosts/VideoPosts';
 import ImagePosts from './components/ImagePosts/ImagePosts';
@@ -42,67 +41,76 @@ import AllMassages from './components/Messages/Allmessages';
 import BlogMessages from './components/Messages/BlogMessages';
 import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
 import NewTumblr from './components/NewTumblr/NewTumblr';
+import { selectHideNav } from './states/hidenav/hidenavSlice';
+// import { changeTheme } from './components/NavigationBar/interactions';
 
 function App() {
   const dispatch = useDispatch();
   dispatch(initialCheck());
-  React.useEffect(() => {
+  useEffect(() => {
+    // changeTheme("'Pacifico', cursive !important", 'pink', 'rgb(6, 24, 51)');
     dispatch(fetchBlogs());
   }, []);
   const blogs = useSelector(getBlogs).response;
-  const blog = useSelector(getBlog).response;
-  console.log(blog);
-  console.log(blogs.blogs, 'hi Essam');
+  const hideNav = useSelector(selectHideNav);
+  const wrapperRef = useRef(null);
   return (
     <Router>
       <div className="App">
-        <MediaQuery minWidth={1070}>
-          <NavigationBar />
-        </MediaQuery>
-        <MediaQuery maxWidth={1070}>
-          <NavigationBarResp />
-        </MediaQuery>
+        { !hideNav.hideAll
+        && (
+        <>
+          <MediaQuery minWidth={1070}>
+            <NavigationBar />
+          </MediaQuery>
+          <MediaQuery maxWidth={1070}>
+            <NavigationBarResp pageRef={wrapperRef} />
+          </MediaQuery>
+        </>
+        )}
 
       </div>
-      <Routes>
-        <Route path="/" element={<LogOutHome />} />
-        <Route exact path="/chat" element={<HomePage />} />
-        <Route exact path="/dashboard" element={<Newsfeed />} />
-        <Route exact path="/login" element={<LogInPage />} />
-        <Route path="/onboarding" element={<RegisterWithGooglePage />} />
-        <Route path="/linkAccount" element={<LinkAccountWithGooglePage />} />
-        <Route path="/register" element={<SignUpPage />} />
-        <Route path="/forgot_password" element={<ForgotPasswordPage />} />
-        <Route path="/reset_password/:id/:token" element={<ResetPasswordPage />} />
-        <Route path="/account/delete" element={<DeleteAccountPage />} />
-        <Route path="/verify/:id/:hash" element={<VerifyEmailPage />} />
-        <Route path="/explore/recommended-for-you" element={<Explore />} />
-        <Route path="/explore/trending" element={<Trending />} />
-        <Route path="/explore/staff-picks" element={<StaffPicks />} />
-        <Route path="/explore/text" element={<TextPosts />} />
-        <Route path="/explore/photos" element={<ImagePosts />} />
-        <Route path="/explore/quotes" element={<QuotePosts />} />
-        <Route path="/explore/chats" element={<ChatPosts />} />
-        <Route path="/explore/audio" element={<AudioPosts />} />
-        <Route path="/explore/gifs" element={<GifPosts />} />
-        <Route path="/explore/video" element={<VideoPosts />} />
-        <Route path="/explore/asks" element={<AskPosts />} />
-        <Route path="/tagged/:tag" element={<Tagged />} />
-        <Route path="/blog/:blogname" element={<BlogPage />} />
-        <Route path="/blog/:blogname/activity" element={<Activity />} />
-        <Route path="/blog/:blogname/drafts" element={<Drafts />} />
-        <Route path="/rightbar/:blogid" element={<RightBar />} />
-        <Route path="/profile/:blogid" element={<Posts />} />
-        <Route path="/profile/:blogid/likes" element={<Likes />} />
-        <Route path="/profile/:blogid/ask" element={<Ask />} />
-        <Route path="/profile/:blogid/submit" element={<Submit />} />
-        <Route path="/inbox" element={<AllMassages />} />
-        {/* eslint-disable */
-          blogs && blogs.blogs && blogs.blogs?.map((blog) => ((blog.allow_ask || blog.allow_submittions) && <Route key={blog.id} path={'/blog/' + blog.username + '/messages'} element={<BlogMessages BlogId={blog.id} />} />))
-        /* eslint-enable */}
-        <Route path="/artifacts" element={<ArtifactsPage />} />
-        <Route path="/new/blog" element={<NewTumblr />} />
-      </Routes>
+      <div className="page-wrapper" ref={wrapperRef}>
+        <Routes>
+          <Route path="/" element={<LogOutHome />} />
+          <Route exact path="/chat" element={<HomePage />} />
+          <Route exact path="/dashboard" element={<Newsfeed />} />
+          <Route exact path="/login" element={<LogInPage />} />
+          <Route path="/onboarding" element={<RegisterWithGooglePage />} />
+          <Route path="/linkAccount" element={<LinkAccountWithGooglePage />} />
+          <Route path="/register" element={<SignUpPage />} />
+          <Route path="/forgot_password" element={<ForgotPasswordPage />} />
+          <Route path="/reset_password/:id/:token" element={<ResetPasswordPage />} />
+          <Route path="/account/delete" element={<DeleteAccountPage />} />
+          <Route path="/verify/:id/:hash" element={<VerifyEmailPage />} />
+          <Route path="/explore/recommended-for-you" element={<Explore />} />
+          <Route path="/explore/trending" element={<Trending />} />
+          <Route path="/explore/staff-picks" element={<StaffPicks />} />
+          <Route path="/explore/text" element={<TextPosts />} />
+          <Route path="/explore/photos" element={<ImagePosts />} />
+          <Route path="/explore/quotes" element={<QuotePosts />} />
+          <Route path="/explore/chats" element={<ChatPosts />} />
+          <Route path="/explore/audio" element={<AudioPosts />} />
+          <Route path="/explore/gifs" element={<GifPosts />} />
+          <Route path="/explore/video" element={<VideoPosts />} />
+          <Route path="/explore/asks" element={<AskPosts />} />
+          <Route path="/tagged/:tag" element={<Tagged />} />
+          <Route path="/blog/:blogname" element={<BlogPage />} />
+          <Route path="/blog/:blogname/activity" element={<Activity />} />
+          <Route path="/blog/:blogname/drafts" element={<Drafts />} />
+          <Route path="/rightbar/:blogid" element={<RightBar />} />
+          <Route path="/profile/:blogid" element={<Posts />} />
+          <Route path="/profile/:blogid/likes" element={<Likes />} />
+          <Route path="/profile/:blogid/ask" element={<Ask />} />
+          <Route path="/profile/:blogid/submit" element={<Submit />} />
+          <Route path="/inbox" element={<AllMassages />} />
+          {/* eslint-disable */
+            blogs && blogs.blogs && blogs.blogs?.map((blog) => ((blog.allow_ask || blog.allow_submittions) && <Route key={blog.id} path={'/blog/' + blog.username + '/messages'} element={<BlogMessages BlogId={blog.id} />} />))
+          /* eslint-enable */}
+          <Route path="/artifacts" element={<ArtifactsPage />} />
+          <Route path="/new/blog" element={<NewTumblr />} />
+        </Routes>
+      </div>
     </Router>
   );
 }

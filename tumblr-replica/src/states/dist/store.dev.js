@@ -69,6 +69,14 @@ var _usertumblrSlice = _interopRequireDefault(require("./usertumblr/usertumblrSl
 
 var _newtumblrSlice = _interopRequireDefault(require("./newtumblr/newtumblrSlice"));
 
+var _postviewSlice = _interopRequireDefault(require("./features/postview/postviewSlice"));
+
+var _blogacttivitySlice = _interopRequireDefault(require("./features/blogactivity/blogacttivitySlice"));
+
+var _bloginfoSlice = _interopRequireDefault(require("./features/bloginfo/bloginfoSlice"));
+
+var _graphSlice = _interopRequireDefault(require("./features/graph/graphSlice"));
+
 var _unfollowSlice = _interopRequireDefault(require("./followslice/unfollowSlice"));
 
 var _getfollowslice = _interopRequireDefault(require("./followslice/getfollowslice"));
@@ -78,6 +86,8 @@ var _getblockslice = _interopRequireDefault(require("./blockSlice/getblockslice"
 var _unblockslice = _interopRequireDefault(require("./blockSlice/unblockslice"));
 
 var _askpostslice = _interopRequireDefault(require("./askpostslice/askpostslice"));
+
+var _hidenavSlice = _interopRequireDefault(require("./hidenav/hidenavSlice"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -98,8 +108,11 @@ var store = (0, _toolkit.configureStore)({
     audioposts: _audiopostsSlice["default"],
     quoteposts: _quotepostsSlice["default"],
     blogposts: _blogpostsSlice["default"],
+    blogactivity: _blogacttivitySlice["default"],
+    postview: _postviewSlice["default"],
     draftposts: _draftpostsSlice["default"],
     tagposts: _tagpostsSlice["default"],
+    bloginfo: _bloginfoSlice["default"],
     user: _UserSlice["default"],
     displayNotesList: _displayNotesListSlice["default"],
     NoteWindow: _NotesWindowSlice["default"],
@@ -118,7 +131,9 @@ var store = (0, _toolkit.configureStore)({
     Notes: _NotesSlice["default"],
     userBlogs: _usertumblrSlice["default"],
     newTumblr: _newtumblrSlice["default"],
-    ask: _askpostslice["default"]
+    graph: _graphSlice["default"],
+    ask: _askpostslice["default"],
+    hideNav: _hidenavSlice["default"]
   }
 });
 var _default = store;

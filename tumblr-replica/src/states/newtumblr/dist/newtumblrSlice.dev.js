@@ -23,7 +23,7 @@ var newTumblr = (0, _toolkit.createSlice)({
   name: 'newTumblr',
   initialState: {
     title: '',
-    url: '.tumblr.com',
+    url: '',
     blog_username: '',
     inProgress: true,
     error: null
@@ -37,16 +37,12 @@ var newTumblr = (0, _toolkit.createSlice)({
       var s = state;
       var url = action.payload; // url = url.replace(/ /g, '');
 
-      s.url = url; // const username = url.substring(0, url.length - 10);
-      // s.blog_username = username;
-      // console.log(username);
-
-      console.log(url);
+      s.url = url; // console.log(url);
     },
     initializeState: function initializeState(state) {
       var s = state;
       s.title = '';
-      s.url = '.tumblr.com';
+      s.url = '';
       s.blog_username = '';
       s.inProgress = true;
       s.error = null;
@@ -55,14 +51,17 @@ var newTumblr = (0, _toolkit.createSlice)({
   extraReducers: (_extraReducers = {}, _defineProperty(_extraReducers, _newtumblrAPI.createBlog.pending, function (state) {
     var s = state;
     s.isLoading = true;
+    console.log('trying');
   }), _defineProperty(_extraReducers, _newtumblrAPI.createBlog.fulfilled, function (state, _ref) {
     var payload = _ref.payload;
     var s = state;
     s.blogs = payload.blogs;
     s.isLoading = false;
+    console.log('success');
   }), _defineProperty(_extraReducers, _newtumblrAPI.createBlog.rejected, function (state, action) {
     var s = state;
-    s.error = action.error.message; // need to later work on an error page/pop up and set loading to false.
+    s.error = action.error.message;
+    console.log('failed'); // need to later work on an error page/pop up and set loading to false.
   }), _extraReducers)
 });
 
