@@ -89,7 +89,7 @@ export const follow = createAsyncThunk('Follower/toggleFollowState', async ({ bl
 export const block = createAsyncThunk('Follower/block', async (blogId) => {
   try {
     if (SERVICETYPE === MOCK) {
-      const response = await api.post(`/block/${blogId}`);
+      const response = await api.post(`/blockn/${blogId}`);
       return response.data;
     }
     const response = await apiR.post(`/block/${blogId}`);
@@ -103,7 +103,7 @@ export const block = createAsyncThunk('Follower/block', async (blogId) => {
 export const unBlock = createAsyncThunk('Follower/unBlock', async (blogId) => {
   try {
     if (SERVICETYPE === MOCK) {
-      const response = await api.delete(`/block/${blogId}`);
+      const response = await api.delete(`/blockn/${blogId}`);
       return response.data;
     }
     const response = await apiR.delete(`/block/${blogId}`);
