@@ -45,7 +45,7 @@ import deleteBlogMessagesReducer from './deleteblogmessagesslice/deleteblogmessa
 import deleteAllMessagesReducer from './deleteallmessagesslice/deleteallmessagesslice';
 import BlogMessagesReducer from './retriveblogmessagesslice/retriveblogmessagesslice';
 import AllMessagesReducer from './retriveallmessagesslice/retriveallmessagesslice';
-
+import hideNavReducer from './hidenav/hidenavSlice';
 const store = configureStore({
   reducer: {
     followtags: followtagsReducer,
@@ -94,6 +94,7 @@ const store = configureStore({
     deleteallmsg: deleteAllMessagesReducer,
     blogmessages: BlogMessagesReducer,
     allmessages: AllMessagesReducer,
+    hideNav: hideNavReducer,
   },
 });
 

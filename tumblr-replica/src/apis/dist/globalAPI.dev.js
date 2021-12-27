@@ -8,7 +8,7 @@ var MOCK = 0;
 exports.MOCK = MOCK;
 var REAL = 1;
 exports.REAL = REAL;
-var SERVICETYPE = REAL; // Change this to change the source
+var SERVICETYPE = MOCK; // Change this to change the source
 
 exports.SERVICETYPE = SERVICETYPE;
 var api = 'http://localhost:8000';

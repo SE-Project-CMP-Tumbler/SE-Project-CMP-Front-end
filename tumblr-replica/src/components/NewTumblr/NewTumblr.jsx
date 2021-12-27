@@ -2,14 +2,14 @@ import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './css/dist/NewTumblr.css';
 import { Link } from 'react-router-dom';
-import ReCAPTCHA from 'react-google-recaptcha';
+// import ReCAPTCHA from 'react-google-recaptcha';
 import {
   selectInputData, setTitle, setURL, initializeState,
 } from '../../states/newtumblr/newtumblrSlice';
 
-function onChange(value) {
-  console.log('Captcha value:', value);
-}
+// function onChange(value) {
+//   console.log('Captcha value:', value);
+// }
 
 /**
  * This is the NewTumblr component (to create a new tumblr under the same user)
@@ -20,7 +20,6 @@ function NewTumblr() {
   const dispatch = useDispatch();
   const inputs = useSelector(selectInputData);
   useEffect(() => dispatch(initializeState()), []);
-
   return (
     <div className="new-tumblr">
       <div className="top-content">
@@ -50,7 +49,7 @@ function NewTumblr() {
             </div>
             <div className="input-container">
               <div className="input-name">
-                <p> URL </p>
+                <p> Username </p>
               </div>
               <div className="input-field">
                 <input type="text" id="url" className="url" size="50" value={inputs.url} onChange={(e) => dispatch(setURL(e.target.value))} />
@@ -59,13 +58,13 @@ function NewTumblr() {
                 <p>(you can change this at any time)</p>
               </div>
             </div>
-            <ReCAPTCHA
+            {/* <ReCAPTCHA
               sitekey="6LfVPrAdAAAAABYQoK5hJ6Exrg61GA9FGk2n0z0h"
               onChange={onChange}
               className="recaptcha"
-            />
+            /> */}
             <div className="button-group">
-              <button type="submit" className="submit">Create Blog</button>
+              <button type="submit" className="submit" onClick={console.log(inputs)}>Create Blog</button>
               <button type="button" className="cancel"><Link to="/dashboard">Cancel</Link></button>
             </div>
           </div>

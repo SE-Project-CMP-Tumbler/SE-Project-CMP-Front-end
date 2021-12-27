@@ -1,4 +1,4 @@
-import React from 'react';
+import { React, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import MediaQuery from 'react-responsive';
@@ -42,27 +42,37 @@ import BlogMessages from './components/Messages/BlogMessages';
 // import ProfileHeader from './components/ProfileTemp/ProfileTempHeader';
 import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
 import NewTumblr from './components/NewTumblr/NewTumblr';
+import { selectHideNav } from './states/hidenav/hidenavSlice';
+// import { changeTheme } from './components/NavigationBar/interactions';
 
 function App() {
   const dispatch = useDispatch();
   dispatch(initialCheck());
-  React.useEffect(() => {
+  useEffect(() => {
+    // changeTheme("'Pacifico', cursive !important", 'pink', 'rgb(6, 24, 51)');
     dispatch(fetchBlogs());
   }, []);
   const blogs = useSelector(getBlogs).response;
-  console.log(blogs.blogs, 'hi Essam');
+  const hideNav = useSelector(selectHideNav);
+  const wrapperRef = useRef(null);
   return (
     <Router>
       <div className="App">
-        <MediaQuery minWidth={1070}>
-          <NavigationBar />
-        </MediaQuery>
-        <MediaQuery maxWidth={1070}>
-          <NavigationBarResp />
-        </MediaQuery>
+        { !hideNav.hideAll
+        && (
+        <>
+          <MediaQuery minWidth={1070}>
+            <NavigationBar />
+          </MediaQuery>
+          <MediaQuery maxWidth={1070}>
+            <NavigationBarResp pageRef={wrapperRef} />
+          </MediaQuery>
+        </>
+        )}
 
       </div>
       <Routes>
+      <div className="page-wrapper" ref={wrapperRef}>
         <Route path="/" element={<LogOutHome />} />
         <Route exact path="/chat" element={<HomePage />} />
         <Route exact path="/dashboard" element={<Newsfeed />} />
@@ -102,6 +112,8 @@ function App() {
         <Route path="/artifacts" element={<ArtifactsPage />} />
         <Route path="/new/blog" element={<NewTumblr />} />
       </Routes>
+      </div>
+
     </Router>
   );
 }
