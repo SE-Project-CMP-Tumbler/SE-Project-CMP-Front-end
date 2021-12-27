@@ -66,14 +66,13 @@ function PostCard(props) {
 export default PostCard;
 
 PostCard.propTypes = {
-  small: PropTypes.bool.isRequired,
+  small: PropTypes.bool,
   postId: PropTypes.number.isRequired,
   blogId: PropTypes.number.isRequired,
   postBody: PropTypes.string.isRequired,
   blogUsername: PropTypes.string.isRequired,
   postTime: PropTypes.string.isRequired,
   blogAvatar: PropTypes.string.isRequired,
-  small: PropTypes.bool,
 };
 PostCard.defaultProps = {
   small: false,

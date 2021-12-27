@@ -71,47 +71,47 @@ function App() {
         )}
 
       </div>
-      <Routes>
       <div className="page-wrapper" ref={wrapperRef}>
-        <Route path="/" element={<LogOutHome />} />
-        <Route exact path="/chat" element={<HomePage />} />
-        <Route exact path="/dashboard" element={<Newsfeed />} />
-        <Route exact path="/login" element={<LogInPage />} />
-        <Route path="/onboarding" element={<RegisterWithGooglePage />} />
-        <Route path="/linkAccount" element={<LinkAccountWithGooglePage />} />
-        <Route path="/register" element={<SignUpPage />} />
-        <Route path="/forgot_password" element={<ForgotPasswordPage />} />
-        <Route path="/reset_password/:id/:token" element={<ResetPasswordPage />} />
-        <Route path="/account/delete" element={<DeleteAccountPage />} />
-        <Route path="/verify/:id/:hash" element={<VerifyEmailPage />} />
-        <Route path="/explore/recommended-for-you" element={<Explore />} />
-        <Route path="/explore/trending" element={<Trending />} />
-        <Route path="/explore/staff-picks" element={<StaffPicks />} />
-        <Route path="/explore/text" element={<TextPosts />} />
-        <Route path="/explore/photos" element={<ImagePosts />} />
-        <Route path="/explore/quotes" element={<QuotePosts />} />
-        <Route path="/explore/chats" element={<ChatPosts />} />
-        <Route path="/explore/audio" element={<AudioPosts />} />
-        <Route path="/explore/gifs" element={<GifPosts />} />
-        <Route path="/explore/video" element={<VideoPosts />} />
-        <Route path="/explore/asks" element={<AskPosts />} />
-        <Route path="/tagged/:tag" element={<Tagged />} />
-        <Route path="/blog/:blogname" element={<BlogPage />} />
-        <Route path="/blog/:blogname/activity" element={<Activity />} />
-        <Route path="/blog/:blogname/drafts" element={<Drafts />} />
-        <Route path="/blog/view/:blogid" element={<RightBar />} />
-        {/* <Route path="/profiletemp" element={<ProfileHeader BlogId={2} />} /> */}
-        <Route path="/profile/:blogid" element={<Posts />} />
-        <Route path="/profile/:blogid/likes" element={<Likes />} />
-        <Route path="/profile/:blogid/ask" element={<Ask />} />
-        <Route path="/profile/:blogid/submit" element={<Submit />} />
-        <Route path="/inbox" element={<AllMassages />} />
-        {/* eslint-disable */
+        <Routes>
+          <Route path="/" element={<LogOutHome />} />
+          <Route exact path="/chat" element={<HomePage />} />
+          <Route exact path="/dashboard" element={<Newsfeed />} />
+          <Route exact path="/login" element={<LogInPage />} />
+          <Route path="/onboarding" element={<RegisterWithGooglePage />} />
+          <Route path="/linkAccount" element={<LinkAccountWithGooglePage />} />
+          <Route path="/register" element={<SignUpPage />} />
+          <Route path="/forgot_password" element={<ForgotPasswordPage />} />
+          <Route path="/reset_password/:id/:token" element={<ResetPasswordPage />} />
+          <Route path="/account/delete" element={<DeleteAccountPage />} />
+          <Route path="/verify/:id/:hash" element={<VerifyEmailPage />} />
+          <Route path="/explore/recommended-for-you" element={<Explore />} />
+          <Route path="/explore/trending" element={<Trending />} />
+          <Route path="/explore/staff-picks" element={<StaffPicks />} />
+          <Route path="/explore/text" element={<TextPosts />} />
+          <Route path="/explore/photos" element={<ImagePosts />} />
+          <Route path="/explore/quotes" element={<QuotePosts />} />
+          <Route path="/explore/chats" element={<ChatPosts />} />
+          <Route path="/explore/audio" element={<AudioPosts />} />
+          <Route path="/explore/gifs" element={<GifPosts />} />
+          <Route path="/explore/video" element={<VideoPosts />} />
+          <Route path="/explore/asks" element={<AskPosts />} />
+          <Route path="/tagged/:tag" element={<Tagged />} />
+          <Route path="/blog/:blogname" element={<BlogPage />} />
+          <Route path="/blog/:blogname/activity" element={<Activity />} />
+          <Route path="/blog/:blogname/drafts" element={<Drafts />} />
+          <Route path="/blog/view/:blogid" element={<RightBar />} />
+          {/* <Route path="/profiletemp" element={<ProfileHeader BlogId={2} />} /> */}
+          <Route path="/profile/:blogid" element={<Posts />} />
+          <Route path="/profile/:blogid/likes" element={<Likes />} />
+          <Route path="/profile/:blogid/ask" element={<Ask />} />
+          <Route path="/profile/:blogid/submit" element={<Submit />} />
+          <Route path="/inbox" element={<AllMassages />} />
+          {/* eslint-disable */
           blogs && blogs.blogs && blogs.blogs?.map((blog) => ((blog.allow_ask || blog.allow_submittions) && <Route key={blog.id} path={'/blog/' + blog.username + '/messages'} element={<BlogMessages BlogId={blog.id} />} />))
         /* eslint-enable */}
-        <Route path="/artifacts" element={<ArtifactsPage />} />
-        <Route path="/new/blog" element={<NewTumblr />} />
-      </Routes>
+          <Route path="/artifacts" element={<ArtifactsPage />} />
+          <Route path="/new/blog" element={<NewTumblr />} />
+        </Routes>
       </div>
 
     </Router>
