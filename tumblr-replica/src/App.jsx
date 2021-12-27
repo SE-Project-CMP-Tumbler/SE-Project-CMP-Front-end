@@ -42,6 +42,12 @@ import BlogMessages from './components/Messages/BlogMessages';
 // import ProfileHeader from './components/ProfileTemp/ProfileTempHeader';
 import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
 import NewTumblr from './components/NewTumblr/NewTumblr';
+import Following from './components/Following/Following';
+import Followers from './components/Followers/Followers';
+import ChatListResp from './components/ChatListResp/ChatListResp';
+// import ChatComponentResp from '../ChatComponentResp/ChatComponentResp';
+// import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
+// import { selectUser } from './states/user/UserSlice';
 import { selectHideNav } from './states/hidenav/hidenavSlice';
 // import { changeTheme } from './components/NavigationBar/interactions';
 
@@ -75,6 +81,10 @@ function App() {
         <Routes>
           <Route path="/" element={<LogOutHome />} />
           <Route exact path="/chat" element={<HomePage />} />
+          <Route exact path="/messaging" element={<ChatListResp />} />
+          {/* <Route exact path={`/messaging/new/${user.blogName}`}element={<ChatListResp />} /> */}
+          <Route path="/following" element={<Following />} />
+          <Route path="/followerspage" element={<Followers />} />
           <Route exact path="/dashboard" element={<Newsfeed />} />
           <Route exact path="/login" element={<LogInPage />} />
           <Route path="/onboarding" element={<RegisterWithGooglePage />} />
