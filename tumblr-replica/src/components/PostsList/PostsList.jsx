@@ -47,36 +47,36 @@ function PostsList({ Posts }) {
                     style={{ paddingTop: '20px' }}
                   >
                     {
-                      isDesktopOrLaptop
-                      && (
-                        <Tooltip
-                          placement="right"
-                          title={(
-                            <PostCard
-                              postId={post.post_id}
-                              postDate={post.post_date}
-                              blogId={post.blog_id}
-                              blogUsername={post.blog_username}
-                              postBody={post.post_body}
-                              xs={10}
-                            />
-                          )}
-                        >
-                          <Grid item>
-                            <Avatar
-                              sx={{ bgcolor: 'orange' }}
-                              variant="square"
-                              xs={2}
-                              style={{
-                                maxWidth: 64,
-                                minWidth: 64,
-                                maxHeight: 64,
-                                minHeight: 64,
-                              }}
-                            />
-                          </Grid>
-                        </Tooltip>
-                      )
+                       isDesktopOrLaptop
+                    && (
+                    <Tooltip
+                      placement="right"
+                      title={(
+                        <PostCard
+                          postId={post.post_id}
+                          postDate={post.post_date}
+                          blogId={post.blog_id}
+                          blogUsername={post.blog_username}
+                          postBody={post.post_body}
+                          xs={10}
+                        />
+                    )}
+                    >
+                      <Grid item>
+                        <Avatar
+                          sx={{ bgcolor: 'orange' }}
+                          variant="square"
+                          xs={2}
+                          style={{
+                            maxWidth: 64,
+                            minWidth: 64,
+                            maxHeight: 64,
+                            minHeight: 64,
+                          }}
+                        />
+                      </Grid>
+                    </Tooltip>
+                    )
                     }
                     <Grid item>
                       <PostCard
@@ -97,9 +97,9 @@ function PostsList({ Posts }) {
         </Grid>
       </Grid>
       { (Posts.meta.status === '200' && small && isDesktopOrLaptop) && (
-        <div className="row_B">
-          <div className="column_B">
-            {Posts.response.posts.slice(0, postslen.length / 4).map((post) => (
+        <Grid container spacing={2}>
+          <Grid item xs={6}>
+            {Posts.response.posts.slice(0, postslen.length / 2).map((post) => (
               <Box sx={{ mt: 3 }}>
                 <PostCard
                   postId={post.post_id}
@@ -112,9 +112,9 @@ function PostsList({ Posts }) {
                 />
               </Box>
             ))}
-          </div>
-          <div className="column_B">
-            {Posts.response.posts.slice(postslen.length / 4, postslen.length / 2).map((post) => (
+          </Grid>
+          <Grid item xs={6}>
+            {Posts.response.posts.slice(postslen.length / 2, postslen.length).map((post) => (
               <Box sx={{ mt: 3 }}>
                 <PostCard
                   postId={post.post_id}
@@ -127,39 +127,8 @@ function PostsList({ Posts }) {
                 />
               </Box>
             ))}
-          </div>
-          <div className="column_B">
-            {Posts.response.posts.slice(postslen.length / 2, postslen.length * 0.75)
-              .map((post) => (
-                <Box sx={{ mt: 3 }}>
-                  <PostCard
-                    postId={post.post_id}
-                    postDate={post.post_date}
-                    blogId={post.blog_id}
-                    blogUsername={post.blog_username}
-                    postBody={post.post_body}
-                    small={small}
-                    xs={10}
-                  />
-                </Box>
-              ))}
-          </div>
-          <div className="column_B">
-            {Posts.response.posts.slice(postslen.length * 0.75, postslen.length).map((post) => (
-              <Box sx={{ mt: 3 }}>
-                <PostCard
-                  postId={post.post_id}
-                  postDate={post.post_date}
-                  blogId={post.blog_id}
-                  blogUsername={post.blog_username}
-                  postBody={post.post_body}
-                  small={small}
-                  xs={10}
-                />
-              </Box>
-            ))}
-          </div>
-        </div>
+          </Grid>
+        </Grid>
       )}
     </div>
   );
