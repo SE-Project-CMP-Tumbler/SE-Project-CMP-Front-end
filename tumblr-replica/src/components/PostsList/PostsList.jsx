@@ -10,6 +10,7 @@ import { useSelector } from 'react-redux';
 import Tooltip from '@mui/material/Tooltip';
 import PostCard from '../NewsFeed/subcomponents/PostCard/PostCard';
 import { getpostview } from '../../states/features/postview/postviewSlice';
+import './PostList.css';
 
 function PostsList({ Posts }) {
   const isDesktopOrLaptop = useMediaQuery({
@@ -96,9 +97,9 @@ function PostsList({ Posts }) {
         </Grid>
       </Grid>
       { (Posts.meta.status === '200' && small && isDesktopOrLaptop) && (
-        <Grid container spacing={2}>
-          <Grid item xs={6}>
-            {Posts.response.posts.slice(0, postslen.length / 2).map((post) => (
+        <div className="row_B">
+          <div className="column_B">
+            {Posts.response.posts.slice(0, postslen.length / 4).map((post) => (
               <Box sx={{ mt: 3 }}>
                 <PostCard
                   postId={post.post_id}
@@ -111,9 +112,9 @@ function PostsList({ Posts }) {
                 />
               </Box>
             ))}
-          </Grid>
-          <Grid item xs={6}>
-            {Posts.response.posts.slice(postslen.length / 2, postslen.length).map((post) => (
+          </div>
+          <div className="column_B">
+            {Posts.response.posts.slice(postslen.length / 4, postslen.length / 2).map((post) => (
               <Box sx={{ mt: 3 }}>
                 <PostCard
                   postId={post.post_id}
@@ -126,8 +127,39 @@ function PostsList({ Posts }) {
                 />
               </Box>
             ))}
-          </Grid>
-        </Grid>
+          </div>
+          <div className="column_B">
+            {Posts.response.posts.slice(postslen.length / 2, postslen.length * 0.75)
+              .map((post) => (
+                <Box sx={{ mt: 3 }}>
+                  <PostCard
+                    postId={post.post_id}
+                    postDate={post.post_date}
+                    blogId={post.blog_id}
+                    blogUsername={post.blog_username}
+                    postBody={post.post_body}
+                    small={small}
+                    xs={10}
+                  />
+                </Box>
+              ))}
+          </div>
+          <div className="column_B">
+            {Posts.response.posts.slice(postslen.length * 0.75, postslen.length).map((post) => (
+              <Box sx={{ mt: 3 }}>
+                <PostCard
+                  postId={post.post_id}
+                  postDate={post.post_date}
+                  blogId={post.blog_id}
+                  blogUsername={post.blog_username}
+                  postBody={post.post_body}
+                  small={small}
+                  xs={10}
+                />
+              </Box>
+            ))}
+          </div>
+        </div>
       )}
     </div>
   );
