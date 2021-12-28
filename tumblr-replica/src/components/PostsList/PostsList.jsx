@@ -13,6 +13,7 @@ import Chip from '@mui/material/Chip';
 import PostCard from '../NewsFeed/subcomponents/PostCard/PostCard';
 import { getpostview } from '../../states/features/postview/postviewSlice';
 import './PostList.css';
+import ProfileHeader from '../ProfileTemp/ProfileTempHeader';
 
 function PostsList({ Posts, FetchnextPage }) {
   const isDesktopOrLaptop = useMediaQuery({
@@ -76,14 +77,7 @@ function PostsList({ Posts, FetchnextPage }) {
                         <Tooltip
                           placement="right"
                           title={(
-                            <PostCard
-                              postId={post.post_id}
-                              postDate={post.post_date}
-                              blogId={post.blog_id}
-                              blogUsername={post.blog_username}
-                              postBody={post.post_body}
-                              xs={10}
-                            />
+                            <ProfileHeader BlogId={post.blog_id} />
                         )}
                         >
                           <Grid item>

@@ -2,8 +2,19 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import '../css/CheckOut.css';
 import { useSelector, useDispatch } from 'react-redux';
+import { makeStyles } from '@material-ui/core';
 import { getcheck, setChecks } from '../../../../../states/features/checkout/checkoutSlice';
 
+const useStyles = makeStyles(() => ({
+  root: {
+    '& .appear-item': {
+      display: 'none',
+    },
+    '&:hover .appear-item': {
+      display: 'block',
+    },
+  },
+}));
 /**
  *
  * @returns component that includes some recommended blogs to follow.
@@ -18,8 +29,9 @@ const Check = function CheckOut(props) {
   const handleRemove = function Remove() {
     dispatch(setChecks(CheckoutBlogs.blogs.filter((ch) => ch.id !== blog.id)));
   };
+  const classes = useStyles();
   return (
-    <li className="check">
+    <li className={classes.root}>
       <div className="onecontainer">
         <div className="conainer2">
           <div className="blog">
@@ -48,7 +60,7 @@ const Check = function CheckOut(props) {
               </button>
             </div>
           </div>
-          <button aria-label="settings" type="button" className="checkbutton" onClick={() => handleRemove()}>
+          <button aria-label="settings" type="button" className="appear-item" onClick={() => handleRemove()}>
             <svg width="10" height="10" viewBox="0 0 14 14" className="xsvg">
               <path d="M14 2.8L11.2 0 7 4.2 2.8 0 0 2.8 4.2 7 0 11.2 2.8 14 7 9.8l4.2 4.2 2.8-2.8L9.8 7 14 2.8z" />
             </svg>

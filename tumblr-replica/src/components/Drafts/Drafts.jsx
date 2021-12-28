@@ -6,6 +6,7 @@ import SideTabs from '../SideTabs/SideTabs';
 import PostsList from '../PostsList/PostsList';
 import { getBlogId, fetchBlogs, setcurrentblog } from '../../states/features/userblogs/userblogsSlice';
 import { getDraftposts, fetchAsyncdraftposts, fetchAsyncnextposts } from '../../states/features/draftposts/draftpostsSlice';
+import Menue from '../Menue/Menue';
 
 /**
  * Component for show the Drafts for the blog and {@link sideTabs}
@@ -40,15 +41,8 @@ function Drafts() {
   return (
     <div>
       <Grid container spacing={2}>
-        <Grid item xs={10} lg={6} sx={{ marginLeft: '10%' }}>
-          <Box
-            sx={{
-              marginTop: 5,
-              height: 90,
-              backgroundColor: 'white',
-              borderRadius: 1,
-            }}
-          />
+        <Grid item xs={10} lg={6} sx={{ marginLeft: '10%', marginTop: 7 }}>
+          <Menue />
           { Posts.response.posts && Posts.response.posts.length === 0
             ? (
               <Box sx={{
