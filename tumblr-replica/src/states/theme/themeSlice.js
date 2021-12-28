@@ -5,7 +5,7 @@ const currentTheme = createSlice({
   name: 'currentTheme',
   initialState: {
     // There are seven possible themes including the default (which is the 6th)
-    theme: localStorage.getItem('theme') ? (localStorage.getItem('theme')) : 6,
+    theme: localStorage.getItem('theme') ? parseInt(localStorage.getItem('theme'), 10) : 6,
   },
   reducers: {
     setTheme: (state, action) => {

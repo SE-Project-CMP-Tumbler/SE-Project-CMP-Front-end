@@ -76,6 +76,10 @@ function ProfileDropDown({ buttonRef }) {
 function UserItems({ feedValues }) {
   const themeState = useSelector(selectTheme);
   const dispatch = useDispatch();
+  useEffect(() => {
+    changeTheme(fonts[themeState.theme],
+      colors[themeState.theme], backgrounds[themeState.theme]);
+  }, [themeState.theme]);
   return (
     <>
       <Link to="/likes">
@@ -112,26 +116,24 @@ function UserItems({ feedValues }) {
           </div>
         </div>
       </a>
-      <Link to="/">
-        <div
-          className="user-item"
-          onClick={() => {
-            dispatch(setTheme((themeState.theme + 1) % 7));
-            changeTheme(fonts[themeState.theme], colors[themeState.theme],
-              backgrounds[themeState.theme]);
-            console.log(themeState.theme);
-          }}
-        >
-          <div>
-            <i className="fas fa-palette text-gray-700 fa-lg" />
-            <span>Theme</span>
-          </div>
-          <span>
-            {themeState.theme + 1}
-            /7
-          </span>
+      <button
+        className="user-item"
+        onClick={() => {
+          dispatch(setTheme((themeState.theme + 1) % 7));
+          changeTheme(fonts[themeState.theme], colors[themeState.theme],
+            backgrounds[themeState.theme]);
+        }}
+        type="button"
+      >
+        <div>
+          <i className="fas fa-palette text-gray-700 fa-lg" />
+          <span>Theme</span>
         </div>
-      </Link>
+        <span>
+          {themeState.theme + 1}
+          /7
+        </span>
+      </button>
     </>
   );
 }

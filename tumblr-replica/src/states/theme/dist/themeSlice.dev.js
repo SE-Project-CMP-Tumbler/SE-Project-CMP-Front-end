@@ -12,7 +12,7 @@ var currentTheme = (0, _toolkit.createSlice)({
   name: 'currentTheme',
   initialState: {
     // There are seven possible themes including the default (which is the 6th)
-    theme: localStorage.getItem('theme') ? localStorage.getItem('theme') : 6
+    theme: localStorage.getItem('theme') ? parseInt(localStorage.getItem('theme'), 10) : 6
   },
   reducers: {
     setTheme: function setTheme(state, action) {

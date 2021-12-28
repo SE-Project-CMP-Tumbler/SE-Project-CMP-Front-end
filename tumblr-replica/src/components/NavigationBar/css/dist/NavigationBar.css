@@ -322,6 +322,7 @@
   align-items: center;
   justify-content: space-between;
   font-size: 0.9rem;
+  width: 100%;
 }
 .user-drop .user-drop-content .user-item span {
   margin-left: 0.5rem;
