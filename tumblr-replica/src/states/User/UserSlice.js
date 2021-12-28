@@ -814,6 +814,7 @@ const userSlice = createSlice({
         state.user.primaryBlogAvatar = payload.response.blog_avatar;
         state.user.accessToken = payload.response.access_token;
         state.user.primaryBlogId = payload.response.blog_id;
+        state.user.verified = payload.response.is_verified;
         state.user.loggedin = true;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
@@ -893,6 +894,7 @@ const userSlice = createSlice({
           primaryBlogId: '',
           primaryBlogAvatar: '',
           googleAccessToken: '',
+          verified: false,
         };
         window.location.replace('/');
         // eslint-disable-next-line no-console
@@ -934,7 +936,7 @@ const userSlice = createSlice({
           state.user.verified = true;
           localStorage.clear();
           localStorage.setItem('user', JSON.stringify(state.user));
-        }
+        } else { state.user.verified = true; }
       } else if (payload.meta.status === '500') {
         // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
@@ -957,8 +959,6 @@ const userSlice = createSlice({
           verified: false,
         };
         // window.location.replace('/');
-        // eslint-disable-next-line no-console
-        console.log(payload.meta.msg);
       }
     },
     [verifyEmailThunkR.rejected]: () => {
@@ -1212,6 +1212,5 @@ export const selectResetEmailReceived = (state) => state.user.resetEmailReceived
 export const selectStatus = (state) => state.user.status;
 
 export const selectStatusMessage = (state) => state.user.statusMessage;
-// export const selectVerified = (state) => state.user.verified;
 
 export default userSlice.reducer;
