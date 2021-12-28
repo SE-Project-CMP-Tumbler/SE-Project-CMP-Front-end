@@ -67,7 +67,7 @@ const trendingpostsSlice = createSlice({
          ...state.trendingposts,
          response:
          {
-           posts: [...state.trendingposts.response.posts, payload.response.posts],
+           posts: [...state.trendingposts.response.posts, ...payload.response.posts],
            pagination: payload.response.pagination,
          },
        },

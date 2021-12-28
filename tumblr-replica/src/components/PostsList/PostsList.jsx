@@ -43,7 +43,6 @@ function PostsList({ Posts, FetchnextPage }) {
             )}
           </div>
       )}
-        style={{ width: '100vh' }}
       >
         <Grid container direction="row">
           <Grid

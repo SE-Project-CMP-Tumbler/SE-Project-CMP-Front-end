@@ -21,7 +21,7 @@ function PostCard(props) {
   const {
     postId, postTime, blogId, blogUsername, postBody, blogAvatar, small,
   } = props;
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 992px)' });
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 500px)' });
   return (
     <>
       <Card
