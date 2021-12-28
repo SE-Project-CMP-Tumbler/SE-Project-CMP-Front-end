@@ -23,6 +23,27 @@ const fetchAsyncimageposts = createAsyncThunk(
   },
 );
 
+const fetchAsyncnextposts = createAsyncThunk(
+  'posts/image/next',
+  async (next) => {
+    if (SERVICETYPE === MOCK) {
+      try {
+        const response = await api.get('imageposts');
+        return response.data;
+      } catch (error) {
+        throw Error(error);
+      }
+    } else {
+      try {
+        const response = await apiR.get(`posts/image?page=${next}`);
+        return response.data;
+      } catch (e) {
+        throw Error(e);
+      }
+    }
+  },
+);
+
 const initialState = {
   imageposts: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
@@ -39,6 +60,18 @@ const imagepostsSlice = createSlice({
      (state, { payload }) => ({ ...state, imageposts: payload }),
     [fetchAsyncimageposts.rejected]:
     (state) => ({ ...state, imageposts: { ...state.imageposts, error: true } }),
+    [fetchAsyncnextposts.fulfilled]:
+    (state, { payload }) => ({
+      ...state,
+      imageposts: {
+        ...state.imageposts,
+        response:
+        {
+          posts: [...state.imageposts.response.posts, ...payload.response.posts],
+          pagination: payload.response.pagination,
+        },
+      },
+    }),
   },
 });
 
@@ -47,5 +80,6 @@ const imagepostsReducer = imagepostsSlice.reducer;
 export {
   getImageposts,
   fetchAsyncimageposts,
+  fetchAsyncnextposts,
 };
 export default imagepostsReducer;

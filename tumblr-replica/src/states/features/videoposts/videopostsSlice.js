@@ -23,6 +23,27 @@ const fetchAsyncvideoposts = createAsyncThunk(
   },
 );
 
+const fetchAsyncnextposts = createAsyncThunk(
+  'posts/video/next',
+  async (next) => {
+    if (SERVICETYPE === MOCK) {
+      try {
+        const response = await api.get('trendingposts');
+        return response.data;
+      } catch (error) {
+        throw Error(error);
+      }
+    } else {
+      try {
+        const response = await apiR.get(`posts/trending?page=${next}`);
+        return response.data;
+      } catch (e) {
+        throw Error(e);
+      }
+    }
+  },
+);
+
 const initialState = {
   videoposts: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
@@ -39,6 +60,18 @@ const videopostsSlice = createSlice({
      (state, { payload }) => ({ ...state, videoposts: payload }),
     [fetchAsyncvideoposts.rejected]:
     (state) => ({ ...state, videoposts: { ...state.videoposts, error: true } }),
+    [fetchAsyncnextposts.fulfilled]:
+     (state, { payload }) => ({
+       ...state,
+       videoposts: {
+         ...state.videoposts,
+         response:
+         {
+           posts: [...state.videoposts.response.posts, payload.response.posts],
+           pagination: payload.response.pagination,
+         },
+       },
+     }),
   },
 });
 
@@ -47,5 +80,6 @@ const videopostsReducer = videopostsSlice.reducer;
 export {
   getVideoposts,
   fetchAsyncvideoposts,
+  fetchAsyncnextposts,
 };
 export default videopostsReducer;

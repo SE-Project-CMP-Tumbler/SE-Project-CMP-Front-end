@@ -200,6 +200,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -257,6 +267,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 10,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -291,6 +311,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_body": "<div><h1>What's Artificial intellegence? </h1> <p>#AI #humanity #freedom</p></div>",
@@ -325,6 +355,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -347,6 +387,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -369,6 +419,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -391,6 +451,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -413,6 +483,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -499,6 +579,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -543,6 +633,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 1,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -565,6 +665,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -587,6 +697,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -609,6 +729,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,

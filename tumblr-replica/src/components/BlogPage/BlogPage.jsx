@@ -4,7 +4,7 @@ import Box from '@mui/material/Box';
 import { useDispatch, useSelector } from 'react-redux';
 import SideTabs from '../SideTabs/SideTabs';
 import PostsList from '../PostsList/PostsList';
-import { getBlogposts, fetchAsyncblogposts } from '../../states/features/blogposts/blogpostsSlice';
+import { getBlogposts, fetchAsyncblogposts, fetchAsyncnextposts } from '../../states/features/blogposts/blogpostsSlice';
 import { getBlogId, fetchBlogs, setcurrentblog } from '../../states/features/userblogs/userblogsSlice';
 import { tolarge } from '../../states/features/postview/postviewSlice';
 // import CreatePost from './CreatPost';
@@ -38,6 +38,11 @@ function BlogPage() {
     dispatch(fetchAsyncblogposts(BlogId));
   }, [BlogId]);
 
+  const FetchnextPage = () => {
+    const next = Posts.response.pagination.current_page + 1;
+    dispatch(fetchAsyncnextposts({ next, BlogId }));
+  };
+
   return (
     <div>
       <Grid container spacing={2}>
@@ -54,7 +59,7 @@ function BlogPage() {
               </Box>
             ) : (
               <>
-                <PostsList Posts={Posts} />
+                <PostsList Posts={Posts} FetchnextPage={FetchnextPage} />
               </>
             )}
         </Grid>
