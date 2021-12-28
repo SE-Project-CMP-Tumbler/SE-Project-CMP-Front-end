@@ -76,7 +76,7 @@
   color: white;
 }
 .nav-styles .nav-resp .search-bar .search-bar-input::placeholder {
-  color: #e7e7e7;
+  color: rgba(0, 0, 0, 0.1);
   font-family: poppins;
 }
 .nav-styles .icons-container {
@@ -92,18 +92,21 @@
   padding: 1rem 1.1rem;
   border-radius: 0.25rem;
   margin-right: 0.1rem;
-  transform: scale(110%);
+  transform: scale(100%);
   cursor: pointer;
 }
 .nav-styles .icons-container .icon-style .blue-pen {
   color: #00b8ff;
   transform: scale(120%);
+  filter: brightness(100%) !important;
 }
 .nav-styles .icons-container .icon-style i {
-  color: rgba(255, 255, 255, 0.698);
+  color: white;
+  filter: brightness(70%);
 }
 .nav-styles .icons-container .dash-icon i {
   color: white;
+  filter: brightness(100%);
 }
 .nav-styles .icons-container button {
   border: none;
@@ -112,13 +115,12 @@
 
 .drop {
   overflow: hidden;
-  font-family: "Poppins", sans-serif;
   font-weight: 300;
 }
 .drop .drop-content {
   position: absolute;
-  background-color: #ffffff;
   z-index: 999;
+  background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   border-radius: 5px;
   color: black;
@@ -183,7 +185,7 @@
   padding-right: 6.5rem;
 }
 .chat-drop .chat-drop-content .chat-drop-header .profile .tumblr-list .blog-details:hover {
-  background-color: #e7e7e7;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .chat-drop .chat-drop-content .chat-drop-header .profile .tumblr-list .blog-details .blog-icon-box {
   width: 2.3rem;
@@ -215,7 +217,7 @@
   cursor: pointer;
 }
 .chat-drop .chat-items .chat-item:hover {
-  background-color: #e7e7e7;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .chat-drop .chat-items .chat-item .chat-box {
   font-size: 0.8rem;
@@ -260,7 +262,7 @@
   padding-right: 6.5rem;
 }
 .chat-drop .tumblr-list .blog-details:hover {
-  background-color: #e7e7e7;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .chat-drop .tumblr-list .blog-details .blog-icon-box {
   width: 2.3rem;
@@ -325,7 +327,7 @@
   margin-left: 0.5rem;
 }
 .user-drop .user-drop-content .user-item:hover {
-  background-color: #e7e7e7;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .user-drop .user-drop-content .user-tumblr {
   border-bottom: 1px solid rgba(0, 0, 0, 0.13);
@@ -336,7 +338,7 @@
   cursor: pointer;
 }
 .user-drop .user-drop-content .user-tumblr .blog-item:hover {
-  background-color: #e7e7e7;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .user-drop .user-drop-content .user-tumblr .blog-item .blog-details {
   display: flex;
@@ -382,7 +384,7 @@
   margin: 0rem 0rem;
 }
 .user-drop .user-drop-content .user-tumblr .blog-options .blog-option:hover {
-  background-color: #e7e7e7;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .user-drop .user-drop-content .misc-drop-header {
   display: flex;
@@ -458,7 +460,7 @@
   padding-right: 6.5rem;
 }
 .notifications-drop .notifications-drop-content .notifications-drop-header .profile .tumblr-list .blog-details:hover {
-  background-color: #e7e7e7;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .notifications-drop .notifications-drop-content .notifications-drop-header .profile .tumblr-list .blog-details .blog-icon-box {
   width: 2.3rem;
@@ -521,7 +523,7 @@
   background-color: white;
 }
 .notifications-drop .notifications-drop-content .notifications .notification-item:hover {
-  background-color: #e7e7e7;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 .notifications-drop .notifications-drop-content .notifications .notification-item .notification-box {
   font-size: 0.8rem;

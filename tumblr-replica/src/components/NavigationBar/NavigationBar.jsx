@@ -124,13 +124,13 @@ function LoggedInGroup() {
           toggleIconColor(dashboardRef, allIconRefs);
         }}
       >
-        <abbr title="Dashboard"><i className="fas fa-home  fa-lg" ref={dashboardRef} /></abbr>
+        <abbr title="Dashboard"><i className="fas fa-home  fa-lg" style={{ filter: 'brightness(100%)' }} ref={dashboardRef} /></abbr>
       </Link>
       <Link to="/explore/recommended-for-you" className="icon-style" onClick={() => { toggleIconColor(exploreRef, allIconRefs); }}>
-        <abbr title="Explore"><i className="far fa-compass  fa-lg" style={{ color: 'rgba(255, 255, 255, 0.698)' }} ref={exploreRef} /></abbr>
+        <abbr title="Explore"><i className="far fa-compass  fa-lg" style={{ filter: 'brightness(70%)' }} ref={exploreRef} /></abbr>
       </Link>
       <Link to="/inbox" className="icon-style" onClick={() => { toggleIconColor(inboxRef, allIconRefs); }}>
-        <abbr title="Inbox"><i className="fas fa-envelope  fa-lg" style={{ color: 'rgba(255, 255, 255, 0.698)' }} ref={inboxRef} /></abbr>
+        <abbr title="Inbox"><i className="fas fa-envelope  fa-lg" style={{ filter: 'brightness(70%)' }} ref={inboxRef} /></abbr>
       </Link>
       <div className="drop chat-drop" ref={chatRef}>
         <button
@@ -140,19 +140,19 @@ function LoggedInGroup() {
             toggleDropDown(chatRef, allRefs);
           }}
         >
-          <abbr title="Chat"><i className="far fa-comment-alt  fa-lg" style={{ color: 'rgba(255, 255, 255, 0.698)' }} /></abbr>
+          <abbr title="Chat"><i className="far fa-comment-alt  fa-lg" style={{ filter: 'brightness(70%)' }} /></abbr>
         </button>
         <ChatDropDown style={{ display: 'none' }} buttonRef={chatRef} />
       </div>
       <div className="drop notifications-drop" ref={notificationsRef}>
         <button type="button" className="icon-style" onClick={() => { toggleDropDown(notificationsRef, allRefs); }}>
-          <abbr title="Notifications"><i className="fas fa-bolt  fa-lg" style={{ color: 'rgba(255, 255, 255, 0.698)' }} /></abbr>
+          <abbr title="Notifications"><i className="fas fa-bolt  fa-lg" style={{ filter: 'brightness(70%)' }} /></abbr>
         </button>
         <NotificationsDropDown style={{ display: 'none' }} buttonRef={notificationsRef} />
       </div>
       <div className="drop user-drop" ref={profileRef}>
         <button type="button" to="/" className="icon-style" onClick={() => { toggleDropDown(profileRef, allRefs); }}>
-          <abbr title="My Tumblrs"><i className="fas fa-user  fa-lg" style={{ color: 'rgba(255, 255, 255, 0.698)' }} /></abbr>
+          <abbr title="My Tumblrs"><i className="fas fa-user  fa-lg" style={{ filter: 'brightness(70%)' }} /></abbr>
         </button>
         <ProfileDropDown style={{ display: 'none' }} buttonRef={profileRef} />
       </div>

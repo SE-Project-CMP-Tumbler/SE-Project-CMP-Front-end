@@ -1,3 +1,5 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
+/* eslint-disable jsx-a11y/click-events-have-key-events */
 import React, { useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
@@ -5,7 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUser, logOutThunk, logOutThunkR } from '../../../states/User/UserSlice';
 import { MOCK, REAL, SERVICETYPE } from '../../../apis/globalAPI';
 import { selectBlogs, fetchBlogs } from '../../../states/usertumblr/usertumblrSlice';
-import { useOutsideAlerter, toggleOptions } from '../interactions';
+import {
+  useOutsideAlerter, toggleOptions, changeTheme, fonts, colors, backgrounds,
+} from '../interactions';
+import { selectTheme, setTheme } from '../../../states/theme/themeSlice';
+
 /**
  * This is the component for the user profile's dropdown (last one on the right)
  * @component
@@ -36,7 +42,6 @@ function ProfileDropDown({ buttonRef }) {
           }}
         >
           Log out
-
         </Link>
       </div>
       <UserItems feedValues={feedValues} />
@@ -69,6 +74,8 @@ function ProfileDropDown({ buttonRef }) {
  * @returns {ReactJSXElement} JSX Element.
  */
 function UserItems({ feedValues }) {
+  const themeState = useSelector(selectTheme);
+  const dispatch = useDispatch();
   return (
     <>
       <Link to="/likes">
@@ -106,12 +113,23 @@ function UserItems({ feedValues }) {
         </div>
       </a>
       <Link to="/">
-        <div className="user-item">
+        <div
+          className="user-item"
+          onClick={() => {
+            dispatch(setTheme((themeState.theme + 1) % 7));
+            changeTheme(fonts[themeState.theme], colors[themeState.theme],
+              backgrounds[themeState.theme]);
+            console.log(themeState.theme);
+          }}
+        >
           <div>
             <i className="fas fa-palette text-gray-700 fa-lg" />
             <span>Theme</span>
           </div>
-          <span>1/12</span>
+          <span>
+            {themeState.theme + 1}
+            /7
+          </span>
         </div>
       </Link>
     </>

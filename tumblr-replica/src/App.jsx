@@ -49,18 +49,24 @@ import ChatListResp from './components/ChatListResp/ChatListResp';
 // import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
 // import { selectUser } from './states/user/UserSlice';
 import { selectHideNav } from './states/hidenav/hidenavSlice';
-// import { changeTheme } from './components/NavigationBar/interactions';
+import {
+  changeTheme, fonts, colors, backgrounds,
+} from './components/NavigationBar/interactions';
+import { selectTheme } from './states/theme/themeSlice';
 
 function App() {
   const dispatch = useDispatch();
   dispatch(initialCheck());
-  useEffect(() => {
-    // changeTheme("'Pacifico', cursive !important", 'pink', 'rgb(6, 24, 51)');
-    dispatch(fetchBlogs());
-  }, []);
+  useEffect(() => { dispatch(fetchBlogs()); }, []);
   const blogs = useSelector(getBlogs).response;
   const hideNav = useSelector(selectHideNav);
+  const themeState = useSelector(selectTheme);
   const wrapperRef = useRef(null);
+  useEffect(() => {
+    changeTheme(fonts[themeState.theme],
+      colors[themeState.theme], backgrounds[themeState.theme]);
+  }, [themeState.theme]);
+
   return (
     <Router>
       <div className="App">

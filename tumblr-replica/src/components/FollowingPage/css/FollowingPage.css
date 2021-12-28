@@ -17,7 +17,6 @@ border: 1px solid black;
 
 .following-main{
     padding: 0 10px;
-    background-color: rgb(6, 24, 51);
     width: 70%;
 }
 @media screen and (max-width: 1070px) {
