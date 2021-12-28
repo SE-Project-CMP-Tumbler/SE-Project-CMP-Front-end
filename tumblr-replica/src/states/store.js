@@ -10,7 +10,7 @@ import displayNotesListReducer from './features/dashboard/displayNotesListSlice'
 import NoteWindowReducer from './features/dashboard/NotesWindowSlice';
 import LikeReducer from './features/dashboard/LikeSlice';
 import PostNoteReducer from './features/dashboard/PostNotesSlice';
-import Chatreduser from './reducers/ChatReducer';
+import Chatreduser from '../slices/chatmodule/chatmoduleSlice';
 import textpostsReducer from './features/textposts/textpostsSlice';
 import videopostsReducer from './features/videoposts/videopostsSlice';
 import imagepostsReducer from './features/imageposts/imagepostsSlice';
@@ -32,6 +32,10 @@ import checkoutReducer from './features/checkout/checkoutSlice';
 import radarReducer from './features/radar/radarSlice';
 import usertumblrsReducer from './usertumblr/usertumblrSlice';
 import newtumblrReducer from './newtumblr/newtumblrSlice';
+// eslint-disable-next-line import/no-unresolved
+import Followreduser from '../slices/followingpage/followingpageSlice';
+// eslint-disable-next-line import/no-unresolved
+import Followerreducer from '../slices/followerspage/followerspageSlice';
 import postviewreducer from './features/postview/postviewSlice';
 import blogactivityreducer from './features/blogactivity/blogacttivitySlice';
 import bloginforeducer from './features/bloginfo/bloginfoSlice';
@@ -44,6 +48,7 @@ import AskReducer from './askpostslice/askpostslice';
 import userblogsReducer from './features/userblogs/userblogsSlice';
 import PostslikedReducer from './likedposts/likedpostsSlice';
 import hideNavReducer from './hidenav/hidenavSlice';
+import themeReducer from './theme/themeSlice';
 
 const store = configureStore({
   reducer: {
@@ -87,11 +92,14 @@ const store = configureStore({
     radar: radarReducer,
     userBlogs: usertumblrsReducer,
     newTumblr: newtumblrReducer,
+    Following: Followreduser,
+    Follower: Followerreducer,
     graph: graphReducer,
     ask: AskReducer,
     userblogs: userblogsReducer,
     postsliked: PostslikedReducer,
     hideNav: hideNavReducer,
+    currentTheme: themeReducer,
   },
 });
 

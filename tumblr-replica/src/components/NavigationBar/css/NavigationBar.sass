@@ -1,4 +1,4 @@
-$hover-color: rgb(231, 231, 231)
+$hover-color: rgba(0, 0, 0, 0.1)
 $text-grey-color: rgba(0, 0, 0, 0.815)
 $light-grey-color: rgba(0, 0, 0, 0.616)
 $sky-blue: rgb(0, 184, 255)
@@ -96,34 +96,32 @@ $new-notification-color: #F4F8FB
          padding: 1rem 1.1rem 
          border-radius: 0.25rem
          margin-right: 0.1rem
-         transform: scale(110%)
+         transform: scale(100%)
          cursor: pointer
          .blue-pen
             color: $sky-blue
             transform: scale(120%)
+            filter: brightness(100%) !important
          i
-            color: rgba(255, 255, 255, 0.698)
+            color: rgba(255, 255, 255, 1)
+            filter: brightness(70%)
       .dash-icon
          i
             color: white
+            filter: brightness(100%)
       button
          border: none
          background: none
       
 
 
-
-
-
-
 .drop 
    overflow: hidden
-   font-family: 'Poppins', sans-serif
    font-weight: 300
    .drop-content 
       position: absolute
-      background-color: #ffffff
       z-index: 999
+      background-color: white
       box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
 
       border-radius: 5px
@@ -308,6 +306,7 @@ $new-notification-color: #F4F8FB
          align-items: center
          justify-content: space-between
          font-size: 0.9rem
+         width: 100%
 
          span 
             margin-left: 0.5rem
@@ -375,6 +374,7 @@ $new-notification-color: #F4F8FB
                font-size: 0.9rem
                padding: 0.2rem 0.3rem
                margin: 0rem 0rem
+               // color: white
 
                &:hover 
                   background-color: $hover-color

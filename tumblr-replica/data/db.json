@@ -1952,15 +1952,6 @@
       ]
     }
   },
-  "followed_by":{
-  "meta": {
-    "status": "200",
-    "msg": "ok"
-  },
-  "response": {
-    "followed": true
-  }
-},
   "block":{
   "meta": {
     "status": "200",
@@ -2072,40 +2063,748 @@
       ]
     }
   },
-  "getblogs22":{
-      "meta": {
-        "status": "200",
-        "msg": "ok"
+"followings": {
+  "meta": {
+    "status": "200",
+    "msg": "ok"
+  },
+  "response": {
+    "pagination": {
+      "total": 1,
+      "count": 1,
+      "per_page": 10,
+      "current_page": 1,
+      "total_pages": 1,
+      "first_page_url": true,
+      "last_page_url": 1,
+      "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
+      "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
+    },
+    "followings": [
+      {
+        "blog_id": 3,
+        "blog_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+        "blog_avatar_shape": "circle",
+        "blog_username": "ahmed-ahmed213"
       },
-      "response": {
-        "pagination": {
-          "total": 1,
-          "count": 1,
-          "per_page": 10,
-          "current_page": 1,
-          "total_pages": 1,
-          "first_page_url": true,
-          "last_page_url": 1,
-          "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
-          "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
-        },
-        "blogs": [
-          {
-            "share_likes": true,
-            "share_followings": true,
-            "id": 14,
-            "is_primary": false,
-            "username": "raghad",
-            "avatar": "",
-            "avatar_shape": "square",
-            "header_image": "",
-            "title": "My 1st Blog",
-            "allow_ask": true,
-            "followed": true,
-            "allow_submittions": true,
-            "description": "This blog is a sketch of thoughts"
-          }
-        ]
+      {
+        "blog_id": 4,
+        "blog_avatar": "https://img.wattpad.com/cover/259072761-288-k591831.jpg",
+        "blog_avatar_shape": "circle",
+        "blog_username": "allaa-ahmed213"
+      },
+      {
+        "blog_id": 5,
+        "blog_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
+        "blog_avatar_shape": "circle",
+        "blog_username": "maryem-ahmed213"
+      },
+      {
+        "blog_id": 6,
+        "blog_avatar": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+        "blog_avatar_shape": "circle",
+        "blog_username": "radwa-ahmed213"
+      },
+      {
+        "blog_id": 7,
+        "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+        "blog_avatar_shape": "rectangle",
+        "blog_username": "ahmed ali"
       }
+    ]
   }
- }
+},
+"followers": {
+  "meta": {
+    "status": "200",
+    "msg": "OK"
+  },
+  "response": {
+    "pagination": {
+      "total": 1,
+      "count": 1,
+      "per_page": 10,
+      "current_page": 1,
+      "total_pages": 1,
+      "first_page_url": true,
+      "last_page_url": 1,
+      "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
+      "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
+    },
+    "followers": [
+      {
+        "blog_id": 3,
+        "blog_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+        "blog_avatar_shape": "circle",
+        "blog_username": "ahmed-ahmed213"
+      },
+      {
+        "blog_id": 4,
+        "blog_avatar": "https://img.wattpad.com/cover/259072761-288-k591831.jpg",
+        "blog_avatar_shape": "circle",
+        "blog_username": "allaa-ahmed213"
+      },
+      {
+        "blog_id": 5,
+        "blog_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
+        "blog_avatar_shape": "circle",
+        "blog_username": "maryem-ahmed213"
+      },
+      {
+        "blog_id": 6,
+        "blog_avatar": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+        "blog_avatar_shape": "circle",
+        "blog_username": "radwa-ahmed213"
+      },
+      {
+        "blog_id": 7,
+        "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+        "blog_avatar_shape": "rectangle",
+        "blog_username": "ahmed ali"
+      }
+    ]
+  }
+},
+"search_follow_blog": [
+  {
+    "id": "ahmed ali",
+    "meta": {
+      "status": "200",
+      "msg": "ahmed ali follows you"
+    }
+  },
+  {
+    "id": "hossam ali",
+    "meta": {
+      "status": "200",
+      "msg": "hossam ali follows you"
+    }
+  }
+],
+"followed_by": [
+  {
+    "id": "username",
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "followed": true
+    }
+  },
+  {
+    "id": "2",
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "followed": true
+    }
+  },
+  {
+    "id": "3",
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "followed": true
+    }
+  }
+],
+"blockn": [
+  {
+    "id": "1",
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    }
+  },
+  {
+    "id": "3",
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    }
+  },
+  {
+    "id": "4",
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    }
+  },
+  {
+    "id": "5",
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    }
+  }
+],
+"all_chats": {
+  "meta": {
+    "status": "200",
+    "msg": "ok"
+  },
+  "response": {
+    "chat_messages": [
+      {
+        "text": "hello world!",
+        "photo": "",
+        "gif": "",
+        "read": false,
+        "blog_id": 2,
+        "blog_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+        "blog_avatar_shape": "circle",
+        "blog_username": "nadeen-ahmed213",
+        "blog_title": "",
+        "friend_id": 3,
+        "friend_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+        "friend_avatar_shape": "circle",
+        "friend_username": "ahmed-ahmed213",
+        "friend_title": "Ahmed"
+      },
+      {
+        "text": "hello world!",
+        "photo": "",
+        "gif": "",
+        "read": false,
+        "blog_id": 2,
+        "blog_avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8cDW5DcPwWg2SuwnCEeniXdddi3kgtF-fg&usqp=CAU",
+        "blog_avatar_shape": "circle",
+        "blog_username": "nadeen-ahmed213",
+        "blog_title": "",
+        "friend_id": 4,
+        "friend_avatar": "https://img.wattpad.com/cover/259072761-288-k591831.jpg",
+        "friend_avatar_shape": "circle",
+        "friend_username": "allaa-ahmed213",
+        "friend_title": "Allaa"
+      },
+      {
+        "text": "hello world!",
+        "photo": "",
+        "gif": "",
+        "read": false,
+        "blog_id": 2,
+        "blog_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
+        "blog_avatar_shape": "circle",
+        "blog_username": "nadeen-ahmed213",
+        "blog_title": "",
+        "friend_id": 5,
+        "friend_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
+        "friend_avatar_shape": "circle",
+        "friend_username": "maryem-ahmed213",
+        "friend_title": "Maryem"
+      },
+      {
+        "text": "hello world!",
+        "photo": "",
+        "gif": "",
+        "read": false,
+        "blog_id": 6,
+        "blog_avatar": "https://1.bp.blogspot.com/-FZXji_IODBI/YKppykyjGhI/AAAAAAACDJU/JvRCsOgRZVIyrcC1BXN5GI1Mz795XRoxACLcBGAsYHQ/s640/%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-%25D9%2581%25D9%258A%25D8%25B3-%25D8%25A8%25D9%2588%25D9%2583032.jpg",
+        "blog_avatar_shape": "circle",
+        "blog_username": "radwa-ahmed213",
+        "blog_title": "",
+        "friend_id": 6,
+        "friend_avatar": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+        "friend_avatar_shape": "circle",
+        "friend_username": "radwa-ahmed213",
+        "friend_title": "Radwa"
+      },
+      {
+        "text": "hello world!",
+        "photo": "",
+        "gif": "",
+        "read": false,
+        "blog_id": 7,
+        "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+        "blog_avatar_shape": "rectangle",
+        "blog_username": "ahmed ali",
+        "blog_title": "",
+        "friend_id": 7,
+        "friend_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+        "friend_avatar_shape": "rectangle",
+        "friend_username": "ahmed ali",
+        "friend_title": "Ali"
+      }
+    ]
+  }
+},
+"messages": [
+  {
+    "id": "1452",
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "chat_messages": [
+        {
+          "text": "hello world!",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 6,
+          "blog_avatar": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+          "blog_avatar_shape": "circle",
+          "blog_username": "radwa-ahmed213",
+          "blog_title": ""
+        },
+        {
+          "text": "hello world!",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 2,
+          "blog_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
+          "blog_avatar_shape": "circle",
+          "blog_username": "nadeen-ahmed213",
+          "blog_title": ""
+        },
+        {
+          "text": "hello world!",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 2,
+          "blog_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
+          "blog_avatar_shape": "circle",
+          "blog_username": "nadeen-ahmed213",
+          "blog_title": ""
+        },
+        {
+          "text": "hi",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 12,
+          "blog_username": "nadeen-ayman",
+          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+          "blog_avatar_shape": "circle",
+          "blog_title": ""
+        },
+        {
+          "text": "hi2\n",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 12,
+          "blog_username": "nadeen-ayman",
+          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+          "blog_avatar_shape": "circle",
+          "blog_title": ""
+        },
+        {
+          "text": "ggggg\n",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 12,
+          "blog_username": "nadeen-ayman",
+          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+          "blog_avatar_shape": "circle",
+          "blog_title": ""
+        },
+        {
+          "text": "hello",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 12,
+          "blog_username": "nadeen-ayman",
+          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+          "blog_avatar_shape": "circle",
+          "blog_title": ""
+        },
+        {
+          "text": "i",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 12,
+          "blog_username": "nadeen-ayman",
+          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+          "blog_avatar_shape": "circle",
+          "blog_title": ""
+        },
+        {
+          "text": "fh",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 12,
+          "blog_username": "nadeen-ayman",
+          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+          "blog_avatar_shape": "circle",
+          "blog_title": ""
+        },
+        {
+          "text": "ggg",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 12,
+          "blog_username": "nadeen-ayman",
+          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+          "blog_avatar_shape": "circle",
+          "blog_title": ""
+        },
+        {
+          "text": "u",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 12,
+          "blog_username": "nadeen-ayman",
+          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+          "blog_avatar_shape": "circle",
+          "blog_title": ""
+        },
+        {
+          "text": "hhhhh",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 12,
+          "blog_username": "nadeen-ayman",
+          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+          "blog_avatar_shape": "circle",
+          "blog_title": ""
+        },
+        {
+          "text": "hdjfbfd",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 12,
+          "blog_username": "nadeen-ayman",
+          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+          "blog_avatar_shape": "circle",
+          "blog_title": ""
+        },
+        {
+          "text": "hhhhhhhhh",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 12,
+          "blog_username": "nadeen-ayman",
+          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+          "blog_avatar_shape": "circle",
+          "blog_title": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": "1453",
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "chat_messages": [
+        {
+          "text": "hello world!",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 3,
+          "blog_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+          "blog_avatar_shape": "circle",
+          "blog_username": "ahmed-ahmed213",
+          "blog_title": ""
+        },
+        {
+          "text": "hello world!",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 2,
+          "blog_avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8cDW5DcPwWg2SuwnCEeniXdddi3kgtF-fg&usqp=CAU",
+          "blog_avatar_shape": "circle",
+          "blog_username": "nadeen-ahmed213",
+          "blog_title": ""
+        },
+        {
+          "text": "hello world!",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 3,
+          "blog_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+          "blog_avatar_shape": "circle",
+          "blog_username": "ahmed-ahmed213",
+          "blog_title": ""
+        },
+        {
+          "text": "hello ali",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 12,
+          "blog_username": "nadeen-ayman",
+          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+          "blog_avatar_shape": "circle",
+          "blog_title": ""
+        },
+        {
+          "text": "kkkkk",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 12,
+          "blog_username": "nadeen-ayman",
+          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+          "blog_avatar_shape": "circle",
+          "blog_title": ""
+        },
+        {
+          "text": "\nllll",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 12,
+          "blog_username": "nadeen-ayman",
+          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+          "blog_avatar_shape": "circle",
+          "blog_title": ""
+        }
+      ]
+    }
+  },
+  {
+    "id": "1454",
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "chat_messages": [
+        {
+          "text": "hello allaa",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 12,
+          "blog_username": "nadeen-ayman",
+          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+          "blog_avatar_shape": "circle",
+          "blog_title": ""
+        },
+        {
+          "text": "\nhiiii",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 12,
+          "blog_username": "nadeen-ayman",
+          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+          "blog_avatar_shape": "circle",
+          "blog_title": ""
+        }
+      ]
+    }
+  }
+],
+"recently_followed": {
+  "meta": {
+    "status": "200",
+    "msg": "ok"
+  },
+  "response": [
+    {
+      "blog_avatar": "/storage/imgname2.extension",
+      "blog_avatar_shape": "circle",
+      "blog_username": "radwa-ahmed213",
+      "blog_title": "radwa-ahmed213",
+      "blog_id": 1
+    },
+    {
+      "blog_avatar": "/storage/imgname2.extension",
+      "blog_avatar_shape": "circle",
+      "blog_username": "maryem-ahmed213",
+      "blog_title": "radwa-ahmed213",
+      "blog_id": 1032
+    }
+  ]
+},
+"mockmessages": [
+  {
+    "id": 1032,
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "chat_messages": [
+      {
+        "from": "radwa-ahmed213",
+        "type": "text",
+        "text": "hello world!",
+        "id": "1"
+      },
+      {
+        "from": "nadeen",
+        "type": "photo",
+        "photo": "/storage/photo_example.jpg",
+        "id": "2"
+      },
+      {
+        "from": "radwa-ahmed213",
+        "type": "text",
+        "text": "hello nadeen!",
+        "gif": "/storage/gif_example.gif",
+        "id": "3"
+      }
+    ]
+  },
+  {
+    "id": 10,
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "chat_messages": [
+      {
+        "from": "maryem-ahmed213",
+        "type": "text",
+        "text": "hello world!",
+        "id": "1"
+      },
+      {
+        "from": "nadeen",
+        "type": "photo",
+        "photo": "/storage/photo_example.jpg",
+        "id": "2"
+      },
+      {
+        "from": "maryem-ahmed213",
+        "type": "text",
+        "text": "hello oooooooooooo0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000!",
+        "gif": "/storage/gif_example.gif",
+        "id": "3"
+      }
+    ]
+  },
+  {
+    "id": 112,
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "chat_messages": [
+      {
+        "from": "ali-ahmed213",
+        "type": "text",
+        "text": "hello world!",
+        "id": "1"
+      },
+      {
+        "from": "nadeen",
+        "type": "photo",
+        "photo": "/storage/photo_example.jpg",
+        "id": "2"
+      },
+      {
+        "from": "ali-ahmed213",
+        "type": "text",
+        "text": "hellooooooooooooo0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000!",
+        "gif": "/storage/gif_example.gif",
+        "id": "3"
+      }
+    ]
+  }
+],
+"chat_id": [
+  {
+    "id": 6,
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "chat_room_id": "1452"
+    }
+  },
+  {
+    "id": 3,
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "chat_room_id": "1453"
+    }
+  },
+  {
+    "id": 4,
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "chat_room_id": "1454"
+    }
+  },
+  {
+    "id": 5,
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "chat_room_id": "1455"
+    }
+  },
+  {
+    "id": 7,
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "chat_room_id": "1456"
+    }
+      
+  }
+],
+"getblogs22":{
+  "meta": {
+    "status": "200",
+    "msg": "ok"
+  },
+  "response": {
+    "pagination": {
+      "total": 1,
+      "count": 1,
+      "per_page": 10,
+      "current_page": 1,
+      "total_pages": 1,
+      "first_page_url": true,
+      "last_page_url": 1,
+      "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
+      "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
+    },
+    "blogs": [
+      {
+        "share_likes": true,
+        "share_followings": true,
+        "id": 14,
+        "is_primary": false,
+        "username": "raghad",
+        "avatar": "",
+        "avatar_shape": "square",
+        "header_image": "",
+        "title": "My 1st Blog",
+        "allow_ask": true,
+        "followed": true,
+        "allow_submittions": true,
+        "description": "This blog is a sketch of thoughts"
+      }
+    ]
+  }
+}
+}

@@ -29,7 +29,7 @@ var _LikeSlice = _interopRequireDefault(require("./features/dashboard/LikeSlice"
 
 var _PostNotesSlice = _interopRequireDefault(require("./features/dashboard/PostNotesSlice"));
 
-var _ChatReducer = _interopRequireDefault(require("./reducers/ChatReducer"));
+var _chatmoduleSlice = _interopRequireDefault(require("../slices/chatmodule/chatmoduleSlice"));
 
 var _textpostsSlice = _interopRequireDefault(require("./features/textposts/textpostsSlice"));
 
@@ -65,9 +65,17 @@ var _dashboardSlice = _interopRequireDefault(require("./features/dashboard/dashb
 
 var _NotesSlice = _interopRequireDefault(require("./features/dashboard/NotesSlice"));
 
+var _checkoutSlice = _interopRequireDefault(require("./features/checkout/checkoutSlice"));
+
+var _radarSlice = _interopRequireDefault(require("./features/radar/radarSlice"));
+
 var _usertumblrSlice = _interopRequireDefault(require("./usertumblr/usertumblrSlice"));
 
 var _newtumblrSlice = _interopRequireDefault(require("./newtumblr/newtumblrSlice"));
+
+var _followingpageSlice = _interopRequireDefault(require("../slices/followingpage/followingpageSlice"));
+
+var _followerspageSlice = _interopRequireDefault(require("../slices/followerspage/followerspageSlice"));
 
 var _postviewSlice = _interopRequireDefault(require("./features/postview/postviewSlice"));
 
@@ -87,10 +95,16 @@ var _unblockslice = _interopRequireDefault(require("./blockSlice/unblockslice"))
 
 var _askpostslice = _interopRequireDefault(require("./askpostslice/askpostslice"));
 
+var _likedpostsSlice = _interopRequireDefault(require("./likedposts/likedpostsSlice"));
+
 var _hidenavSlice = _interopRequireDefault(require("./hidenav/hidenavSlice"));
+
+var _themeSlice = _interopRequireDefault(require("./theme/themeSlice"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
+// eslint-disable-next-line import/no-unresolved
+// eslint-disable-next-line import/no-unresolved
 var store = (0, _toolkit.configureStore)({
   reducer: {
     followtags: _followtagsSlice["default"],
@@ -118,7 +132,7 @@ var store = (0, _toolkit.configureStore)({
     NoteWindow: _NotesWindowSlice["default"],
     Like: _LikeSlice["default"],
     PostNotes: _PostNotesSlice["default"],
-    Chat: _ChatReducer["default"],
+    Chat: _chatmoduleSlice["default"],
     blog: _blogslice["default"],
     blogs: _blogsslice["default"],
     follow: _followslice["default"],
@@ -129,11 +143,17 @@ var store = (0, _toolkit.configureStore)({
     unblock: _unblockslice["default"],
     DashPosts: _dashboardSlice["default"],
     Notes: _NotesSlice["default"],
+    checkout: _checkoutSlice["default"],
+    radar: _radarSlice["default"],
     userBlogs: _usertumblrSlice["default"],
     newTumblr: _newtumblrSlice["default"],
+    Following: _followingpageSlice["default"],
+    Follower: _followerspageSlice["default"],
     graph: _graphSlice["default"],
     ask: _askpostslice["default"],
-    hideNav: _hidenavSlice["default"]
+    postsliked: _likedpostsSlice["default"],
+    hideNav: _hidenavSlice["default"],
+    currentTheme: _themeSlice["default"]
   }
 });
 var _default = store;

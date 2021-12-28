@@ -1,0 +1,19 @@
+.input-part{
+    display: flex;
+}
+textarea{
+    height: 30px;
+    overflow-y: auto;
+    outline: none;
+    border: none;
+    font-family: monospace;
+    font-size: 15px;
+    padding: 10px;
+    resize: none;
+    margin: 0;
+    width: 90%;
+}
+.send-buttonr{
+    width: 10%;
+    background-color: white;
+}
