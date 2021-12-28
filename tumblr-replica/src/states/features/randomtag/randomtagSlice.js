@@ -38,7 +38,7 @@ const fetchAsyncrandomtags = createAsyncThunk(
 );
 
 const initialState = {
-  randomtag: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  randomtag: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const randomtagSlice = createSlice({
@@ -71,9 +71,8 @@ const randomtagSlice = createSlice({
       // console.log('Pending');
     },
     [fetchAsyncrandomtags.fulfilled]: (state, { payload }) => ({ ...state, randomtag: payload }),
-    [fetchAsyncrandomtags.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsyncrandomtags.rejected]:
+    (state) => ({ ...state, randomtag: { ...state.randomtag, error: true } }),
   },
 });
 

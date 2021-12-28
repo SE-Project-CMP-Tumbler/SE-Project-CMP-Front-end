@@ -18,8 +18,38 @@ const fetchAsyncblogposts = createAsyncThunk(
         console.log(state);
         const USERTOKEN = state.user.user.accessToken;
         console.log(USERTOKEN);
+        console.log(BlogId);
         const AuthStr = `Bearer ${USERTOKEN}`;
         const response = await apiR.get(`post/submission/${BlogId}`, { headers: { Authorization: AuthStr } });
+        console.log(response.data);
+        return response.data;
+      } catch (e) {
+        throw Error(e);
+      }
+    }
+  },
+);
+
+const fetchAsyncnextposts = createAsyncThunk(
+  'posts/{blog_id}/next',
+  async (dispatch, { getState }) => {
+    const { next, BlogId } = dispatch;
+    if (SERVICETYPE === MOCK) {
+      try {
+        const response = await api.get('blogposts');
+        return response.data;
+      } catch (error) {
+        throw Error(error);
+      }
+    } else {
+      try {
+        const state = getState();
+        console.log(state);
+        const USERTOKEN = state.user.user.accessToken;
+        console.log(USERTOKEN);
+        console.log(BlogId);
+        const AuthStr = `Bearer ${USERTOKEN}`;
+        const response = await apiR.get(`post/submission/${BlogId}?page=${next}`, { headers: { Authorization: AuthStr } });
         console.log(response.data);
         return response.data;
       } catch (e) {
@@ -46,6 +76,18 @@ const blogpostsSlice = createSlice({
     [fetchAsyncblogposts.rejected]: () => {
       // console.log('Rejected!');
     },
+    [fetchAsyncnextposts.fulfilled]:
+     (state, { payload }) => ({
+       ...state,
+       blogposts: {
+         ...state.blogposts,
+         response:
+         {
+           posts: [...state.blogposts.response.posts, ...payload.response.posts],
+           pagination: payload.response.pagination,
+         },
+       },
+     }),
   },
 });
 
@@ -54,5 +96,6 @@ const blogpostsReducer = blogpostsSlice.reducer;
 export {
   getBlogposts,
   fetchAsyncblogposts,
+  fetchAsyncnextposts,
 };
 export default blogpostsReducer;

@@ -36,7 +36,7 @@ const fetchAsyncfollowtags = createAsyncThunk(
 );
 
 const initialState = {
-  followtags: { response: { tags: [] }, meta: { status: '000', msg: 'Loading' } },
+  followtags: { response: { tags: [] }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const followtagsSlice = createSlice({
@@ -70,9 +70,8 @@ const followtagsSlice = createSlice({
     },
     [fetchAsyncfollowtags.fulfilled]: (state, { payload }) => ({ ...state, followtags: payload }),
     // console.log('Fetched Successfully');
-    [fetchAsyncfollowtags.rejected]: () => {
-    // console.log('Rejected!');
-    },
+    [fetchAsyncfollowtags.rejected]:
+    (state) => ({ ...state, followtags: { ...state.followtags, error: true } }),
   },
 });
 

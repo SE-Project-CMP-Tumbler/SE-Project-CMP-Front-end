@@ -11,7 +11,7 @@ const fetchAsyncgifposts = createAsyncThunk(
 );
 
 const initialState = {
-  gifposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  gifposts: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const gifpostsSlice = createSlice({
@@ -24,9 +24,8 @@ const gifpostsSlice = createSlice({
     },
     [fetchAsyncgifposts.fulfilled]:
      (state, { payload }) => ({ ...state, gifposts: payload }),
-    [fetchAsyncgifposts.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsyncgifposts.rejected]:
+    (state) => ({ ...state, gifposts: { ...state.gifposts, error: true } }),
   },
 });
 
