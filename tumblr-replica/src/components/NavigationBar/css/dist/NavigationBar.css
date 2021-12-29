@@ -15,7 +15,6 @@
 .nav-styles * {
   padding: 0;
   margin: 0;
-  box-sizing: border-box;
 }
 .nav-styles a {
   text-decoration: none;
@@ -133,9 +132,10 @@
 }
 
 .chat-drop .chat-drop-content {
-  display: none;
-  width: 17.5rem;
-  transform: translateX(-40%);
+  transform: translateX(-44%);
+  z-index: 9999;
+  overflow: hidden;
+  position: absolute;
 }
 .chat-drop .chat-drop-content .chat-drop-header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.13);

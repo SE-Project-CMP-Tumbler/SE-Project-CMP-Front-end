@@ -34,68 +34,70 @@ function ChatTo() {
       ? dispatch(recentlyFollowed(User)) : dispatch(getAllChats());
   }, []);
   return (
-    <List
-      sx={{
-        bgcolor: 'background.paper',
-        border: '1px solid #a9a9a9',
-        padding: '0',
-        borderRadius: '7px',
-        width: '280px',
-      }}
-      component="nav"
-      aria-labelledby="nested-list-subheader"
-      subheader={<ListSubheader component="div" id="nested-list-subheader" />}
-    >
-      <ListItem>
-        <Box style={{
-          display: 'flex', height: '30px', textAlign: 'space-between', width: '100%',
+    <div className="chat-drop-content">
+      <List
+        sx={{
+          bgcolor: 'background.paper',
+          border: '1px solid #a9a9a9',
+          padding: '0',
+          borderRadius: '7px',
+          width: '280px',
         }}
-        >
-          <Box style={{ textAlign: 'center', width: '50%' }}>
-            <button
-              type="button"
-              style={{
-                backgroundColor: 'transparent',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: '.8rem',
-                fontWeight: '600',
-                marginReight: '0',
-                textAlign: 'right',
-              }}
-            >
-              {User.blogName}
-            </button>
+        component="nav"
+        aria-labelledby="nested-list-subheader"
+        subheader={<ListSubheader component="div" id="nested-list-subheader" />}
+      >
+        <ListItem>
+          <Box style={{
+            display: 'flex', height: '30px', textAlign: 'space-between', width: '100%',
+          }}
+          >
+            <Box style={{ textAlign: 'center', width: '50%' }}>
+              <button
+                type="button"
+                style={{
+                  backgroundColor: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '.8rem',
+                  fontWeight: '600',
+                  marginReight: '0',
+                  textAlign: 'right',
+                }}
+              >
+                {User.blogName}
+              </button>
+            </Box>
+            <span style={{ margin: '0 30px' }} />
+            <Box style={{ width: '50%' }}>
+              <button
+                type="button"
+                onClick={() => {
+                  dispatch(newMessagePress());
+                }}
+                style={{
+                  color: '#778899',
+                  backgroundColor: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '.78125rem',
+                  fontWeight: '700',
+                  marginLeft: '10px',
+                  textAlign: 'right',
+                }}
+              >
+                Nevermind
+              </button>
+            </Box>
           </Box>
-          <span style={{ margin: '0 30px' }} />
-          <Box style={{ width: '50%' }}>
-            <button
-              type="button"
-              onClick={() => {
-                dispatch(newMessagePress());
-              }}
-              style={{
-                color: '#778899',
-                backgroundColor: 'transparent',
-                border: 'none',
-                cursor: 'pointer',
-                fontSize: '.78125rem',
-                fontWeight: '700',
-                marginLeft: '10px',
-                textAlign: 'right',
-              }}
-            >
-              Nevermind
-            </button>
-          </Box>
-        </Box>
+          <Divider />
+        </ListItem>
         <Divider />
-      </ListItem>
-      <Divider />
-      {newMessagePress1 && <SearchBar />}
-      <ChatList chats={newMessagePress1 ? recentlyFollowed1 : chats} />
-      {console.log(recentlyFollowed1)}
-    </List>
+        {newMessagePress1 && <SearchBar />}
+        <ChatList chats={newMessagePress1 ? recentlyFollowed1 : chats} />
+        {console.log(recentlyFollowed1)}
+      </List>
+    </div>
   );
 }
 export default ChatTo;

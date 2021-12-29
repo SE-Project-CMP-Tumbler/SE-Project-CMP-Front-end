@@ -4,12 +4,15 @@ import { useSelector } from 'react-redux';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import './css/dist/NavigationBar.css';
 import Box from '@mui/material/Box';
-import ChatDropDown from './subcomponents/ChatDropDown';
+// import ChatDropDown from './subcomponents/ChatDropDown';
 import ProfileDropDown from './subcomponents/ProfileDropDown';
 import NotificationsDropDown from './subcomponents/NotificationsDropDown';
 import LogInButton from '../LogOutHomePage/subcomponents/LogInButton/LogInButton';
 import SignUpButton from '../LogOutHomePage/subcomponents/SignUpButton/SignUpButton';
 import { selectUser } from '../../states/User/UserSlice';
+// eslint-disable-next-line no-unused-vars
+import ChatTo from '../ChatTo/ChatTo';
+import ChatBoxes from '../ChatBoxes/ChatBoxes';
 import {
   toggleDropDown, toggleIconColor, items,
 } from './interactions';
@@ -115,6 +118,7 @@ function LoggedInGroup() {
   const exploreRef = useRef(null);
   const inboxRef = useRef(null);
   const allIconRefs = [dashboardRef, exploreRef, inboxRef];
+  const [chatClick, setChatClick] = useState(false);
   return (
     <div className="icons-container">
       <Link
@@ -137,12 +141,13 @@ function LoggedInGroup() {
           type="button"
           className="icon-style"
           onClick={() => {
-            toggleDropDown(chatRef, allRefs);
+            setChatClick(!chatClick);
           }}
         >
           <abbr title="Chat"><i className="far fa-comment-alt  fa-lg" style={{ filter: 'brightness(70%)' }} /></abbr>
         </button>
-        <ChatDropDown style={{ display: 'none' }} buttonRef={chatRef} />
+        {chatClick && <ChatTo />}
+        <ChatBoxes />
       </div>
       <div className="drop notifications-drop" ref={notificationsRef}>
         <button type="button" className="icon-style" onClick={() => { toggleDropDown(notificationsRef, allRefs); }}>

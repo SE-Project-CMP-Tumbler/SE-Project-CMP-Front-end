@@ -17,7 +17,7 @@ import Explore from './components/Explore/Explore';
 import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
-import HomePage from './components/HomePage/HomePage';
+import ChatBundle from './components/ChatBundle/ChatBundle';
 import { initialCheck } from './states/User/UserSlice';
 import { getBlogs, fetchBlogs } from './states/blogslice/blogsslice';
 import TextPosts from './components/TextPosts/TextPosts';
@@ -87,7 +87,7 @@ function App() {
       <div className="page-wrapper" ref={wrapperRef}>
         <Routes>
           <Route path="/" element={<LogOutHome />} />
-          <Route exact path="/chat" element={<HomePage />} />
+          <Route exact path="/chat" element={<ChatBundle />} />
           <Route exact path="/messaging" element={<ChatListResp />} />
           {/* <Route exact path={`/messaging/new/${user.blogName}`}element={<ChatListResp />} /> */}
           <Route path="/following" element={<Following />} />

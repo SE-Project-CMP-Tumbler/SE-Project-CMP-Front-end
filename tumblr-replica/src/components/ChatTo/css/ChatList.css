@@ -2,3 +2,7 @@
     width: 100%;
     justify-content: flex-start !important ;
 }
+
+.chat-par-name {
+    line-height: 21px;
+}
