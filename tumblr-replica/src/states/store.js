@@ -45,8 +45,11 @@ import FollowedReducer from './followslice/getfollowslice';
 import BlockedReducer from './blockSlice/getblockslice';
 import unBlockReducer from './blockSlice/unblockslice';
 import AskReducer from './askpostslice/askpostslice';
+import userblogsReducer from './features/userblogs/userblogsSlice';
 import PostslikedReducer from './likedposts/likedpostsSlice';
 import hideNavReducer from './hidenav/hidenavSlice';
+import themeReducer from './theme/themeSlice';
+import notificationsReducer from './notifications/notificationSlice';
 
 const store = configureStore({
   reducer: {
@@ -94,8 +97,11 @@ const store = configureStore({
     Follower: Followerreducer,
     graph: graphReducer,
     ask: AskReducer,
+    userblogs: userblogsReducer,
     postsliked: PostslikedReducer,
     hideNav: hideNavReducer,
+    currentTheme: themeReducer,
+    notifications: notificationsReducer,
   },
 });
 

@@ -1,12 +1,16 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useRef, useState, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link } from 'react-router-dom';
 import './css/dist/NavigationBarResp.css';
-import { toggleOptions, toggleDropDownM } from '../NavigationBar/interactions';
 import { selectBlogs, fetchBlogs } from '../../states/usertumblr/usertumblrSlice';
 import { BottomBar } from '../NavigationBar/subcomponents/ProfileDropDown';
+import {
+  changeTheme, fonts, colors, backgrounds, toggleOptions, toggleDropDownM,
+} from '../NavigationBar/interactions';
+import { selectTheme, setTheme } from '../../states/theme/themeSlice';
 /**
  *  This is the navigation bar component for small view ports
  *  @returns {ReactJSXElement} JSX Element.
@@ -20,6 +24,11 @@ function NavigationBarResp({ pageRef }) {
   const dispatch = useDispatch();
   const blogState = useSelector(selectBlogs);
   useEffect(() => dispatch(fetchBlogs()), []);
+  const themeState = useSelector(selectTheme);
+  useEffect(() => {
+    changeTheme(fonts[themeState.theme],
+      colors[themeState.theme], backgrounds[themeState.theme]);
+  }, [themeState.theme]);
   return (
     <nav className="basic-nav">
       <div className="mobile-nav">
@@ -118,15 +127,24 @@ function NavigationBarResp({ pageRef }) {
             </div>
           </div>
         </a>
-        <Link to="/" onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
+        <div
+          onClick={() => {
+            dispatch(setTheme((themeState.theme + 1) % 7));
+            changeTheme(fonts[themeState.theme], colors[themeState.theme],
+              backgrounds[themeState.theme]);
+          }}
+        >
           <div className="user-item">
             <div className="icon-and-text">
               <i className="fas fa-palette text-gray-700 fa-lg font-icon" />
               <span>Theme</span>
             </div>
-            <span>1/12</span>
+            <span>
+              {themeState.theme + 1}
+              /7
+            </span>
           </div>
-        </Link>
+        </div>
         {(blogState.isLoading)
           ? (<UserTumblrMobile tumblrName="Loading..." tumblrTitle="Loading..." tumblrIcon="./profile.png" feedValues={feedValues} divRef={divRef} toggled={toggled} setToggled={setToggled} pageRef={pageRef} />)
           : (

@@ -201,6 +201,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -225,6 +235,30 @@
           "blog_avatar_shape": "",
           "blog_title": "so happy :)",
           "post_time": "02-02-2012"
+        },
+        {
+          "post_id": 6,
+          "post_body": "<div><h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+          "post_status": "published",
+          "blog_id": 5,
+          "blog_username": "raghad",
+          "post_type": "general",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "so happy",
+          "post_time": "02-02-2012"
+        },
+        {
+          "post_id": 7,
+          "post_body": "<div><h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+          "post_status": "published",
+          "blog_id": 5,
+          "blog_username": "Alaa",
+          "post_type": "general",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "so happy :)",
+          "post_time": "02-02-2012"
         }
       ]
     }
@@ -235,6 +269,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 10,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -269,6 +313,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_body": "<div><h1>What's Artificial intellegence? </h1> <p>#AI #humanity #freedom</p></div>",
@@ -303,6 +357,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -325,6 +389,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -347,6 +421,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -369,6 +453,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -391,6 +485,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -477,6 +581,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -521,6 +635,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 1,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -543,6 +667,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -565,6 +699,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -587,6 +731,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -1612,6 +1766,10 @@
     {
       "post_id": 8,
       "id": 2
+    },
+    {
+      "post_id": 6,
+      "id": 3
     }
   ],
   "createdpost": [
@@ -1841,45 +1999,17 @@
       "data": [
         {
           "0": {
-            "timestamp": "2021-11-03 01:13:39",
-            "notes": 5,
-            "top_post": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>"
+            "timestamp": "2021-12-03 01:10:39",
+            "notes": 5
           },
           "1": {
-            "timestamp": "2021-11-04 01:13:39",
-            "notes": 7,
-            "top_post": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>"
+            "timestamp": "2021-12-04 01:10:39",
+            "notes": 7
           },
           "2": {
-            "timestamp": "2021-11-05 01:13:39",
-            "notes": 2,
-            "top_post": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>"
+            "timestamp": "2021-12-05 00:10:39",
+            "notes": 2
           }
-        }
-      ],
-      "top_post": {
-        "post_body": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
-        "total_notes_count": 14,
-        "notes_count": 2
-      },
-      "biggest_fan": [
-        {
-          "name": "mycppblog",
-          "blog_id": 123456789,
-          "blog_username": 123456789,
-          "blog_avatar": "storage/blogs/avatar2125",
-          "blog_avatar_shape": "square",
-          "followed": true,
-          "theme_id": 123456789,
-          "title": [
-            {
-              "text": "CPP Programming",
-              "show": true,
-              "color": "#000000",
-              "font": "Gibson",
-              "font_weight": "bold"
-            }
-          ]
         }
       ]
     }
@@ -1908,31 +2038,6 @@
             "new_followers": 2
           }
         }
-      ],
-      "top_post": {
-        "post_body": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
-        "total_notes_count": 14,
-        "notes_count": 2
-      },
-      "biggest_fan": [
-        {
-          "name": "mycppblog",
-          "blog_id": 123456789,
-          "blog_username": 123456789,
-          "blog_avatar": "storage/blogs/avatar2125",
-          "blog_avatar_shape": "square",
-          "followed": true,
-          "theme_id": 123456789,
-          "title": [
-            {
-              "text": "CPP Programming",
-              "show": true,
-              "color": "#000000",
-              "font": "Gibson",
-              "font_weight": "bold"
-            }
-          ]
-        }
       ]
     }
   },
@@ -1959,31 +2064,6 @@
             "timestamp": "2021-11-05 01:13:39",
             "total_followers": 304
           }
-        }
-      ],
-      "top_post": {
-        "post_body": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
-        "total_notes_count": 14,
-        "notes_count": 2
-      },
-      "biggest_fan": [
-        {
-          "name": "mycppblog",
-          "blog_id": 123456789,
-          "blog_username": 123456789,
-          "blog_avatar": "storage/blogs/avatar2125",
-          "blog_avatar_shape": "square",
-          "followed": true,
-          "theme_id": 123456789,
-          "title": [
-            {
-              "text": "CPP Programming",
-              "show": true,
-              "color": "#000000",
-              "font": "Gibson",
-              "font_weight": "bold"
-            }
-          ]
         }
       ]
     }
@@ -2787,49 +2867,267 @@
       }
     }
   ],
-  "chat_search":
-    {
-      "meta": {
-        "status": "200",
-        "msg": "ok"
-      },
-      "response": {
-        "blogs": [
-          {
-            "blog_id": 55,
-            "blog_username": "nadeen",
-            "blog_avatar": "",
-            "blog_avatar_shape": "",
-            "blog_title": "Nad"
-          },
-          {
-            "blog_id": 56,
-            "blog_username": "ahmed",
-            "blog_avatar": "",
-            "blog_avatar_shape": "",
-            "blog_title": "ahmed"
-          },
-          {
-            "blog_id": 57,
-            "blog_username": "maryem",
-            "blog_avatar": "",
-            "blog_avatar_shape": "",
-            "blog_title": "memo"
-          },
-          {
-            "blog_id": 58,
-            "blog_username": "mona",
-            "blog_avatar": "",
-            "blog_avatar_shape": "",
-            "blog_title": "mona"
-          }
-        ]
-      }
-    }
-  ,
-  "uploadphoto": {
+  "getblogs22": {
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
     "response": {
-      "url": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg"
+      "pagination": {
+        "total": 1,
+        "count": 1,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 1,
+        "first_page_url": true,
+        "last_page_url": 1,
+        "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
+        "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
+      },
+      "blogs": [
+        {
+          "share_likes": true,
+          "share_followings": true,
+          "id": 14,
+          "is_primary": false,
+          "username": "raghad",
+          "avatar": "",
+          "avatar_shape": "square",
+          "header_image": "",
+          "title": "My 1st Blog",
+          "allow_ask": true,
+          "followed": true,
+          "allow_submittions": true,
+          "description": "This blog is a sketch of thoughts"
+        }
+      ]
     }
-  }
+  },
+  "notifications": [
+    {
+      "type": "reply",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-12-20",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "This is a post summary!",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Malzahar",
+      "from_blog_avatar": "/profile.png",
+      "follow": false
+    },
+    {
+      "type": "like",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-12-20",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "It's just so beautiful!",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Ivern",
+      "from_blog_avatar": "/profile.png",
+      "follow": false
+    },
+    {
+      "type": "reblog",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-12-04",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "Would you like a drink?",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Jax",
+      "from_blog_avatar": "/profile.png",
+      "follow": false
+    },
+    {
+      "type": "follow",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-12-04",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "this is a post summary!",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "PentakillKarthus",
+      "from_blog_avatar": "/profile2.png",
+      "follow": false
+    },
+    {
+      "type": "mention",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-12-04",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "Love recursive components!",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Yasuo",
+      "from_blog_avatar": "/profile3.png",
+      "follow": false
+    },
+    {
+      "type": "reply",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-11-04",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "A smooth sea never made a skilled...",
+      "target_reply_summary": "Unless it's a silked sailor xD.",
+      "from_blog_id": 84,
+      "from_blog_username": "Zed",
+      "from_blog_avatar": "/profile.png",
+      "follow": false
+    },
+    {
+      "type": "reblog",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-11-04",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "What's d/dx(x^x^x^x^x^x)?",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Yoshi",
+      "from_blog_avatar": "/profile2.png",
+      "follow": false
+    },
+    {
+      "type": "like",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-11-04",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "image",
+      "target_post_summary": "Waterfalllllllls & gravity.",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Salama",
+      "from_blog_avatar": "/profile.png",
+      "follow": false
+    },
+    {
+      "type": "follow",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-10-19",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "this is a post summary!",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "PaoloNespoli",
+      "from_blog_avatar": "/profile.png",
+      "follow": false
+    },
+    {
+      "type": "reply",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-10-19",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "Arrree we there yet?",
+      "target_reply_summary": "You've been there forever.",
+      "from_blog_id": 84,
+      "from_blog_username": "Brand",
+      "from_blog_avatar": "/profile.png",
+      "follow": false
+    },
+    {
+      "type": "reblog",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-10-19",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "Every night  I dream that we went to...",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Pyke",
+      "from_blog_avatar": "/profile3.png",
+      "follow": false
+    },
+    {
+      "type": "mention",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-10-19",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "Do not underestimate my powers!",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Willow",
+      "from_blog_avatar": "/profile.png",
+      "follow": false
+    },
+    {
+      "type": "reply",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-10-19",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "I never like inserting semicolons in pyth...",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Jacob",
+      "from_blog_avatar": "/profile2.png",
+      "follow": false
+    },
+    {
+      "type": "like",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-10-19",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "Hhhhhhhhhhhhhhhhh funny!",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Burst",
+      "from_blog_avatar": "/profile.png",
+      "follow": false
+    },
+    {
+      "type": "follow",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "1999-11-04",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "this is a post summary!",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Veigar",
+      "from_blog_avatar": "/profile3.png",
+      "follow": false
+    }
+  ]
 }

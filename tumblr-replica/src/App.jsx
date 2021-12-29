@@ -48,19 +48,26 @@ import ChatListResp from './components/ChatListResp/ChatListResp';
 // import ChatComponentResp from '../ChatComponentResp/ChatComponentResp';
 // import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
 // import { selectUser } from './states/user/UserSlice';
+import NotFound from './components/NotFound/NoteFound';
 import { selectHideNav } from './states/hidenav/hidenavSlice';
-// import { changeTheme } from './components/NavigationBar/interactions';
+import {
+  changeTheme, fonts, colors, backgrounds,
+} from './components/NavigationBar/interactions';
+import { selectTheme } from './states/theme/themeSlice';
 
 function App() {
   const dispatch = useDispatch();
   dispatch(initialCheck());
-  useEffect(() => {
-    // changeTheme("'Pacifico', cursive !important", 'pink', 'rgb(6, 24, 51)');
-    dispatch(fetchBlogs());
-  }, []);
+  useEffect(() => { dispatch(fetchBlogs()); }, []);
   const blogs = useSelector(getBlogs).response;
   const hideNav = useSelector(selectHideNav);
+  const themeState = useSelector(selectTheme);
   const wrapperRef = useRef(null);
+  useEffect(() => {
+    changeTheme(fonts[themeState.theme],
+      colors[themeState.theme], backgrounds[themeState.theme]);
+  }, [themeState.theme]);
+
   return (
     <Router>
       <div className="App">
@@ -107,7 +114,6 @@ function App() {
           <Route path="/explore/asks" element={<AskPosts />} />
           <Route path="/tagged/:tag" element={<Tagged />} />
           <Route path="/blog/:blogname" element={<BlogPage />} />
-          <Route path="/blog/:blogname/activity" element={<Activity />} />
           <Route path="/blog/:blogname/drafts" element={<Drafts />} />
           <Route path="/blog/view/:blogid" element={<RightBar />} />
           {/* <Route path="/profiletemp" element={<ProfileHeader BlogId={2} />} /> */}
@@ -121,9 +127,15 @@ function App() {
         /* eslint-enable */}
           <Route path="/artifacts" element={<ArtifactsPage />} />
           <Route path="/new/blog" element={<NewTumblr />} />
+          <Route path="/blog/:blogname/activity/new/:period/:rate" element={<Activity option="1" />} />
+          <Route path="/blog/:blogname/activity/total/:period/:rate" element={<Activity option="1" />} />
+          <Route path="/blog/:blogname/activity/notes/:period/:rate" element={<Activity option="1" />} />
+          <Route path="/blog/:blogname/activity/:period/:rate" element={<Activity option="2" />} />
+          <Route path="/blog/:blogname/activity/:period" element={<Activity option="3" />} />
+          <Route path="/blog/:blogname/activity" element={<Activity option="4" />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
-
     </Router>
   );
 }

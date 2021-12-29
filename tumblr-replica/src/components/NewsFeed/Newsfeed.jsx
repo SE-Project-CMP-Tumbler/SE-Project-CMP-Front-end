@@ -259,6 +259,7 @@ const Newsfeed = function NewsfeedPosts() {
                           minWidth: 64,
                           maxHeight: 64,
                           minHeight: 64,
+                          borderRadius: 3,
                         }}
                       />
                     </Grid>

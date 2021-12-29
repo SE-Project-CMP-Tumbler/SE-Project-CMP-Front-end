@@ -1,8 +1,10 @@
-import React, { useRef } from 'react';
+/* eslint-disable max-len */
+import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import PropTypes from 'prop-types';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { selectBlogs } from '../../../states/usertumblr/usertumblrSlice';
+import { selectNotifications, fetchNotifications } from '../../../states/notifications/notificationSlice';
 import { chooseBlueItem, tumblrSelection, useOutsideAlerter } from '../interactions';
 
 /**
@@ -20,51 +22,54 @@ function NotificationsDropDown({ buttonRef }) {
   const allRefs = [allRef, mentionsRef, reblogsRef, repliesRef];
   const notificationsDropRef = useRef(null);
   const blogState = useSelector(selectBlogs);
+  const notifState = useSelector(selectNotifications);
+  const dispatch = useDispatch();
+  useEffect(() => dispatch(fetchNotifications()), []);
+  const [index, setIndex] = useState(0);
+
   useOutsideAlerter(notificationsDropRef, buttonRef);
   return (
     <div className="drop-content notifications-drop-content" ref={notificationsDropRef} style={{ display: 'none' }}>
       <div className="drop-header notifications-drop-header">
         <div className="profile">
           <div className="icon-box">
-            <img src="/profile2.png" alt="profile icon" />
+            <img src={(!blogState.isLoading) ? blogState.blogs[0].avatar : './profile2.png'} alt="profile icon" />
           </div>
           <button type="button" aria-label="switch tumblr" className="chevron" onClick={() => { tumblrSelection(chevronRef); }}>
-            <p>Malzahar</p>
+            <p>{(blogState.isLoading) ? 'Loading' : blogState.blogs[0].username}</p>
             <i className="fas fa-chevron-down" />
           </button>
           <div className="tumblr-list" ref={chevronRef}>
             {(blogState.isLoading)
-              ? (<TumblrItem tumblrName="Jaximus" tumblrTitle="Grandmaster" tumblrIcon="/profile2.png" />
+              ? (<TumblrItem tumblrName="Loading" tumblrTitle="Loading" tumblrIcon="/profile2.png" />
               )
               : (
                 (blogState.blogs).map((blog) => (
-
                   <TumblrItem tumblrName={blog.username} tumblrTitle={blog.title} tumblrIcon={blog.avatar ? blog.avatar : './profile2.png'} />
-
                 ))
 
               ) }
           </div>
         </div>
-        <button type="button" className="activity">________</button>
+        <button type="button" className="activity" style={{ fontWeight: '100' }}>
+          <Link to="/activity"> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</Link>
+        </button>
       </div>
       <div className="notifications-category">
-        <button className="category-item all" type="button" ref={allRef} onClick={() => { chooseBlueItem(allRef, allRefs); }}>All</button>
-        <button className="category-item" type="button" ref={mentionsRef} onClick={() => { chooseBlueItem(mentionsRef, allRefs); }}>Mentions</button>
-        <button className="category-item" type="button" ref={reblogsRef} onClick={() => { chooseBlueItem(reblogsRef, allRefs); }}>Reblogs</button>
-        <button className="category-item" type="button" ref={repliesRef} onClick={() => { chooseBlueItem(repliesRef, allRefs); }}>Replies</button>
+        <button className="category-item all" type="button" ref={allRef} onClick={() => { chooseBlueItem(allRef, allRefs); setIndex(0); }}>All</button>
+        <button className="category-item" type="button" ref={mentionsRef} onClick={() => { chooseBlueItem(mentionsRef, allRefs); setIndex(1); }}>Mentions</button>
+        <button className="category-item" type="button" ref={reblogsRef} onClick={() => { chooseBlueItem(reblogsRef, allRefs); setIndex(2); }}>Reblogs</button>
+        <button className="category-item" type="button" ref={repliesRef} onClick={() => { chooseBlueItem(repliesRef, allRefs); setIndex(3); }}>Replies</button>
       </div>
       <div className="notifications">
-        <NotificiationTime timeOfAction={new Date()} />
-        <NotificationsItem action=" reblogged your post " byTumblr="Yoshi" byTumblrIcon="/profile3.png" content="Love recursive components" actionIcon="/redo.png" context="It's time for dravennn!" />
-        <NotificationsItem action=" mentioned you on a post " byTumblr="Yoshi" byTumblrIcon="/profile2.png" content="@karim" actionIcon="/at.png" context="It's time for dravennn!" />
-        <NotificationsItem action=" liked your post " byTumblr="Ivern" byTumblrIcon="/profile3.png" content="Tumblr is awesome." actionIcon="/heart.png" context="It's time for dravennn!" />
-        <NotificiationTime timeOfAction={new Date()} />
-        <NotificationsItem action=" replied to your post " byTumblr="Swain" byTumblrIcon="/profile2.png" content="Morning Jazz just feels so good.." actionIcon="/comment.png" context="It's time for dravennn!" />
-        <NotificationsItem action=" liked your post " byTumblr="Ivern" byTumblrIcon="/profile.png" content="Tumblr is awesome." actionIcon="/heart.png" context="It's time for dravennn!" />
-        <NotificationsItem action=" liked your post " byTumblr="Ivern" byTumblrIcon="/profile3.png" content="Tumblr is awesome." actionIcon="/heart.png" context="It's time for dravennn!" />
-        <NotificationsItem action=" liked your post " byTumblr="Ivern" byTumblrIcon="/profile3.png" content="Tumblr is awesome." actionIcon="/heart.png" context="It's time for dravennn!" />
 
+        {(notifState.isLoading || blogState.isLoading)
+          ? (
+            <NotificationsItem action=" is loading your notifications " byTumblr="Server" byTumblrIcon="/profile3.png" content="wkjnwkj" actionIcon="/redo.png" context="whwywhwys" />
+          )
+          : (
+            <NotificationsLoader notifState={notifState} blogState={blogState} index={index} />
+          ) }
       </div>
       <Link to="/activity">
         <div className="see-everything">
@@ -75,18 +80,74 @@ function NotificationsDropDown({ buttonRef }) {
   );
 }
 
+export function NotificationsLoader({ notifState, blogState, index }) {
+  const actionGetter = (type) => {
+    if (type === 'reply') return ' replied to your post ';
+    if (type === 'like') return ' liked your post ';
+    if (type === 'reblog') return ' reblogged your post ';
+    if (type === 'follow') return ' started following you. ';
+    if (type === 'mention') return ' mentioned you on a post ';
+    return 'unknown action';
+  };
+  const iconGetter = (type) => {
+    if (type === 'reply') return '/comment.png';
+    if (type === 'like') return '/heart.png';
+    if (type === 'reblog') return '/redo.png';
+    if (type === 'follow') return '/plus.png';
+    if (type === 'mention') return '/at.png';
+    return 'unknown action';
+  };
+  let neededNotifs = '';
+  switch (index) {
+    case 0:
+      neededNotifs = '';
+      break;
+    case 1:
+      neededNotifs = 'mention';
+      break;
+    case 2:
+      neededNotifs = 'reblog';
+      break;
+    case 3:
+      neededNotifs = 'reply';
+      break;
+    default:
+      neededNotifs = '';
+  }
+  const filteredNotifs = notifState.notifications.filter((n) => n.type.includes(neededNotifs));
+  return (
+  // eslint-disable-next-line no-unused-vars
+    (filteredNotifs.map((notif, i, notifs) => (
+      <>
+        <>
+          {
+          (i === 0) && <NotificiationTime timeOfAction={new Date(notif.timestamp)} />
+        }
+        </>
+        <>
+          {i > 0 && (notifs[i].timestamp !== notifs[i - 1].timestamp) && <NotificiationTime timeOfAction={new Date(notif.timestamp)} /> }
+          <NotificationsItem action={actionGetter(notif.type)} byTumblr={notif.from_blog_username} byTumblrIcon={notif.from_blog_avatar} content={notif.target_post_summary} actionIcon={iconGetter(notif.type)} context={(notif.type === 'mention') ? ('@' + blogState.blogs[0].username) : notif.target_reply_summary} isFollow={notif.type === 'follow'} isReply={notif.type === 'reply' || notif.type === 'mention'} />
+        </>
+      </>
+    ))
+    ));
+}
+
 /**
  *  This is a simple component that logs time for notifications and is used in the drop down
  * @component
  * @returns {ReactJSXElement} JSX Element.
  */
-function NotificiationTime({ timeOfAction }) {
+export function NotificiationTime({ timeOfAction }) {
   const months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];
   const days = ['Sunday', 'Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'];
   const date = `${days[timeOfAction.getDay()]}, ${months[timeOfAction.getMonth()]} ${timeOfAction.getDate()}`;
   return (
     <div className="drop-header time-drop-header">
-      <p className="time-lasted">11 days ago</p>
+      <p className="time-lasted">
+        {Math.ceil(Math.abs(new Date() - timeOfAction) / (1000 * 60 * 60 * 24)) }
+        &nbsp;days ago
+      </p>
       <p className="actual time">{date}</p>
     </div>
   );
@@ -106,8 +167,8 @@ NotificiationTime.propTypes = {
  * @param {String} byTumblrIcon - the icon of the tumblr causing an action
  * @returns {ReactJSXElement} JSX Element.
  */
-function NotificationsItem({
-  action, content, actionIcon, byTumblr, byTumblrIcon, context,
+export function NotificationsItem({
+  action, content, actionIcon, byTumblr, byTumblrIcon, context, isFollow, isReply,
 }) {
   return (
     <Link to="/">
@@ -120,20 +181,47 @@ function NotificationsItem({
           <p className="tumblr-name">{byTumblr}</p>
           <span>{action}</span>
           <span className="notification-content">
-            &ldquo;
-            {content}
-            &rdquo;
-            <br />
+            { !isFollow
+            && (
+            <>
+              &ldquo;
+              {content}
+              &rdquo;
+              <br />
+            </>
+            )}
             <p className="notification-context">
-              <div className="pipe"> </div>
-              &nbsp;&nbsp;&nbsp;
-              {context}
+              { isReply && (
+              <>
+                <div className="pipe"> </div>
+                &nbsp;&nbsp;&nbsp;
+                {context}
+              </>
+              )}
             </p>
           </span>
         </div>
-        <div className="notification-content-icon">
-          <img src="/profile.png" alt="profile icon" />
-        </div>
+        {
+        (!isFollow)
+          ? (
+            <div className="notification-content-icon">
+              <img src="/profile.png" alt="profile icon" />
+            </div>
+          )
+          : (
+            <button
+              type="button"
+              id="follow_b"
+              onClick={() => {
+                const state = document.getElementById('follow_b').childNodes[0].textContent;
+                document.getElementById('follow_b').childNodes[0].textContent = (state === 'follow') ? 'unfollow' : 'follow';
+              }}
+            >
+              <span style={{ fontSize: '0.85rem', color: '#00b8ff', fontWeight: '400' }}>follow</span>
+            </button>
+          )
+
+        }
       </div>
     </Link>
   );

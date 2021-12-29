@@ -23,8 +23,29 @@ const fetchAsyncchatposts = createAsyncThunk(
   },
 );
 
+const fetchAsyncnextposts = createAsyncThunk(
+  'posts/chat/next',
+  async (next) => {
+    if (SERVICETYPE === MOCK) {
+      try {
+        const response = await api.get('chatposts');
+        return response.data;
+      } catch (error) {
+        throw Error(error);
+      }
+    } else {
+      try {
+        const response = await apiR.get(`posts/chat?page=${next}`);
+        return response.data;
+      } catch (e) {
+        throw Error(e);
+      }
+    }
+  },
+);
+
 const initialState = {
-  chatposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  chatposts: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const chatpostsSlice = createSlice({
@@ -37,9 +58,20 @@ const chatpostsSlice = createSlice({
     },
     [fetchAsyncchatposts.fulfilled]:
      (state, { payload }) => ({ ...state, chatposts: payload }),
-    [fetchAsyncchatposts.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsyncchatposts.rejected]:
+    (state) => ({ ...state, chatposts: { ...state.chatposts, error: true } }),
+    [fetchAsyncnextposts.fulfilled]:
+    (state, { payload }) => ({
+      ...state,
+      chatposts: {
+        ...state.chatposts,
+        response:
+        {
+          posts: [...state.chatposts.response.posts, ...payload.response.posts],
+          pagination: payload.response.pagination,
+        },
+      },
+    }),
   },
 });
 
@@ -48,5 +80,6 @@ const chatpostsReducer = chatpostsSlice.reducer;
 export {
   getChatposts,
   fetchAsyncchatposts,
+  fetchAsyncnextposts,
 };
 export default chatpostsReducer;
