@@ -20,6 +20,7 @@ import ReactEditor from '../CreatPost/ReactEditor';
 import Radar from '../Radar/Radar';
 import CheckOut from './subcomponents/CheckOut/CheckOut';
 import UploadPhoto from '../CreatPost/subcomponents/uploadPhoto';
+import ResendVerificationPrompt from './subcomponents/ResendVerificationPrompt/ResendVerificationPrompt';
 /**
  *
  * @returns The Newfeed of dashboard which contains posts of following blogs and check out
@@ -203,6 +204,7 @@ const Newsfeed = function NewsfeedPosts() {
                     </Stack>
                   </div>
                 </div>
+                <ResendVerificationPrompt />
               </Grid>
             )}
           </Grid>

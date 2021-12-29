@@ -13,6 +13,7 @@ import ForgotPasswordPage from './components/ForgotPasswordPage/ForgotPasswordPa
 import ResetPasswordPage from './components/ResetPasswordPage/ResetPasswordPage';
 import DeleteAccountPage from './components/DeleteAccountPage/DeleteAccountPage';
 import VerifyEmailPage from './components/VerifyEmailPage/VerifyEmailPage';
+import AccountSettingsPage from './components/AccountSettingsPage/AccountSettingsPage';
 import Explore from './components/Explore/Explore';
 import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
@@ -46,7 +47,6 @@ import Following from './components/Following/Following';
 import Followers from './components/Followers/Followers';
 import ChatListResp from './components/ChatListResp/ChatListResp';
 // import ChatComponentResp from '../ChatComponentResp/ChatComponentResp';
-// import SignUpInputAgePage from './components/SignUpInputAgePage/SignUpInputAgePage';
 // import { selectUser } from './states/user/UserSlice';
 import NotFound from './components/NotFound/NoteFound';
 import { selectHideNav } from './states/hidenav/hidenavSlice';
@@ -99,6 +99,7 @@ function App() {
           <Route path="/register" element={<SignUpPage />} />
           <Route path="/forgot_password" element={<ForgotPasswordPage />} />
           <Route path="/reset_password/:id/:token" element={<ResetPasswordPage />} />
+          <Route path="/settings/account" element={<AccountSettingsPage />} />
           <Route path="/account/delete" element={<DeleteAccountPage />} />
           <Route path="/verify/:id/:hash" element={<VerifyEmailPage />} />
           <Route path="/explore/recommended-for-you" element={<Explore />} />
