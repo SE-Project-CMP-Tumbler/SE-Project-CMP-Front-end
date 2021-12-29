@@ -3,6 +3,7 @@ import Box from '@material-ui/core/Box';
 import ListItem from '@material-ui/core/ListItem';
 import PropTypes from 'prop-types';
 import Grid from '@mui/material/Grid';
+import Alert from '@mui/material/Alert';
 import './SideTabs.css';
 import ReactLoading from 'react-loading';
 import { Link } from 'react-router-dom';
@@ -98,7 +99,15 @@ function SideTabs({ select }) {
               </ListItem>
             </Link>
           </>
-        ) : (Bloginfo.meta.msg === 'Loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)}
+        ) : (((Bloginfo.error || Activity.error) && (
+          <Alert style={{ marginTop: '15%' }} severity="error">
+            Component could not be loaded.
+            This could be due to trouble fetching data from the backend server.
+            Try switching to the mock server to see if the error persists.
+          </Alert>
+        ))
+          || (Bloginfo.meta.msg === 'Loading' && <Box style={{ marginRight: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)
+        )}
     </Box>
   );
 }

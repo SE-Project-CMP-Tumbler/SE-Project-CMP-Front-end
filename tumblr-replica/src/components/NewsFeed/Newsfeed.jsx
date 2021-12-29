@@ -6,6 +6,7 @@ import Modal from '@mui/material/Modal';
 import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
+import Tooltip from '@mui/material/Tooltip';
 import { useMediaQuery } from 'react-responsive';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -20,6 +21,8 @@ import ReactEditor from '../CreatPost/ReactEditor';
 import Radar from '../Radar/Radar';
 import CheckOut from './subcomponents/CheckOut/CheckOut';
 import UploadPhoto from '../CreatPost/subcomponents/uploadPhoto';
+import ProfileHeader from '../ProfileTemp/ProfileTempHeader';
+
 /**
  *
  * @returns The Newfeed of dashboard which contains posts of following blogs and check out
@@ -249,19 +252,26 @@ const Newsfeed = function NewsfeedPosts() {
                   sx={{ mb: 2, mt: 0 }}
                 >
                   {isDesktopOrLaptop && (
-                    <Grid item>
-                      <Avatar
-                        src={post.blog_avatar}
-                        variant="square"
-                        xs={2}
-                        style={{
-                          maxWidth: 64,
-                          minWidth: 64,
-                          maxHeight: 64,
-                          minHeight: 64,
-                        }}
-                      />
-                    </Grid>
+                    <Tooltip
+                      placement="right"
+                      title={(
+                        <ProfileHeader BlogId={post.blog_id} />
+                        )}
+                    >
+                      <Grid item>
+                        <Avatar
+                          src={post.blog_avatar}
+                          variant="square"
+                          xs={2}
+                          style={{
+                            maxWidth: 64,
+                            minWidth: 64,
+                            maxHeight: 64,
+                            minHeight: 64,
+                          }}
+                        />
+                      </Grid>
+                    </Tooltip>
                   )}
                   <Grid item>
                     <PostCard

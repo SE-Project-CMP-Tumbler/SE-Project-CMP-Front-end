@@ -12,7 +12,6 @@ import Tooltip from '@mui/material/Tooltip';
 import Chip from '@mui/material/Chip';
 import PostCard from '../NewsFeed/subcomponents/PostCard/PostCard';
 import { getpostview } from '../../states/features/postview/postviewSlice';
-import './PostList.css';
 import ProfileHeader from '../ProfileTemp/ProfileTempHeader';
 
 function PostsList({ Posts, FetchnextPage }) {
@@ -109,7 +108,13 @@ function PostsList({ Posts, FetchnextPage }) {
                     </Grid>
                   </>
                 ))
-              ) : ((Posts.error && <Alert style={{ marginTop: '15%' }} severity="error">This is an error in loading that component</Alert>)
+              ) : ((Posts.error && (
+              <Alert style={{ marginTop: '15%' }} severity="error">
+                Component could not be loaded.
+                This could be due to trouble fetching data from the backend server.
+                Try switching to the mock server to see if the error persists.
+              </Alert>
+              ))
               || (Posts.meta.msg === 'Loading' && <Box style={{ marginRight: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)
               )}
           </Grid>
