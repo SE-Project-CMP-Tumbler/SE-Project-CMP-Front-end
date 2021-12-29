@@ -1,0 +1,23 @@
+.chatscrollnotp {
+    width: 100%;
+     overflow: auto;
+      overflow-y: scroll;
+      max-height:75%; 
+      height: 75%;
+      padding: 10px 0 0 0; 
+      background-color: #c0e1d2;
+}
+.chatscrollp{
+   
+    width: 100%;
+    overflow: auto;
+     overflow-y: scroll;
+     max-height:75%; 
+     height: 50%;
+     padding: 10px 0 0 0; 
+     background-color: #c0e1d2;
+}
+.message-part-p
+style={{
+    width: 'fitContent', maxWidth: '150px', padding: '15px', backgroundColor: 'white', borderRadius: '7px', paddingLeft: '5px', margin: '3px 0',
+  }}
