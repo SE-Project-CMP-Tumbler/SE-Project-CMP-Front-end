@@ -157,7 +157,7 @@ const NoteBox = function NoteBox(props) {
                         'aria-labelledby': 'basic-button',
                       }}
                     >
-                      {User.id === 2 && (
+                      {User.primaryBlogId === 2 && (
                       <MenuItem
                         onClick={() => handleDelete(reply.reply_id)}
                         style={{ color: 'red' }}
@@ -165,7 +165,7 @@ const NoteBox = function NoteBox(props) {
                         Delete reply
                       </MenuItem>
                       )}
-                      {User.id !== 2 && (
+                      {User.primaryBlogId !== 2 && (
                       <MenuItem
                         onClick={() => handleBlock(reply.blog_id)}
                         style={{ color: 'red' }}
