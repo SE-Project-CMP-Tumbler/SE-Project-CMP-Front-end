@@ -167,7 +167,8 @@ export default function Graph({
                   sx={optionval === 'new' ? buttonstyle2 : buttonstyle}
                 >
                   <ListItemText
-                    primary={Notes.response.new_followers_count}
+                    primary={Notes.response.new_followers_count
+                      ? Notes.response.new_followers_count : 5}
                     secondary="New followers"
                     primaryTypographyProps={primarystyle}
                     secondaryTypographyProps={secondrystyle}
