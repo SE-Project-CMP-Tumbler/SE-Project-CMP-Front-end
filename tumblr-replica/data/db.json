@@ -1,21 +1,21 @@
 {
-  "bloginfo":{
+  "bloginfo": {
     "meta": {
-        "status": "200",
-        "msg": "ok"
-      },
-      "response": {
-        "id": 2026,
-        "is_primary": false,
-        "username": "newinvestigations",
-        "avatar": "",
-        "avatar_shape": "square",
-        "header_image": "",
-        "title": "My 1st Blog",
-        "allow_ask": true,
-        "allow_submittions": true,
-        "description": "This blog is a sketch of thoughts"
-      }
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "id": 2026,
+      "is_primary": false,
+      "username": "newinvestigations",
+      "avatar": "",
+      "avatar_shape": "square",
+      "header_image": "",
+      "title": "My 1st Blog",
+      "allow_ask": true,
+      "allow_submittions": true,
+      "description": "This blog is a sketch of thoughts"
+    }
   },
   "follow_tag": {
     "meta": {
@@ -63,7 +63,8 @@
         {
           "tag_description": "Khakie",
           "tag_image": "https://picsum.photos/seed/picsum/200/300"
-        }, {
+        },
+        {
           "tag_description": "Khakiise",
           "tag_image": "https://picsum.photos/200/300"
         },
@@ -446,7 +447,7 @@
           "blog_avatar_shape_asking": "",
           "blog_title_asking": "",
           "post_type": "general",
-          "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+          "post_body": "<div> <h1>What's Artificial intellegence? by @Maryem-Hussein</h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
           "traced_back_posts": [
             {
               "post_id": 5,
@@ -456,7 +457,7 @@
               "blog_avatar_shape": "circle",
               "post_time": "02-02-2011",
               "post_type": "general",
-              "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+              "post_body": "<div> <h1>What's Artificial intellegence? by @maryem </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
               "question_body": "",
               "question_id": "",
               "question_flag": false,
@@ -487,14 +488,14 @@
           "post_status": "draft",
           "post_time": "02-02-2012",
           "post_type": "general",
-          "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+          "post_body": "<div> <h1>What's Artificial intellegence? by @Maryem-Hussein</h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
           "traced_back_posts": [
             {
               "post_id": 5,
               "blog_id": 5,
               "post_time": "02-02-2011",
               "post_type": "general",
-              "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+              "post_body": "<div> <h1>What's Artificial intellegence? by @Nadeen-Ayman </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
               "question_body": "How are you?",
               "question_id": 3,
               "question_flag": false,
@@ -508,13 +509,13 @@
       ]
     }
   },
-  "deletfollowtag":{
+  "deletfollowtag": {
     "meta": {
       "status": "400",
       "msg": "OK"
     }
   },
-  "gifposts":{
+  "gifposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
@@ -1660,6 +1661,15 @@
       "post_type": "general",
       "post_body": "<p>let's try</p>\n",
       "id": 7
+    },
+    {
+      "post_status": "puplished",
+      "post_time": "2021-11-3",
+      "post_type": {
+        "postType": "text"
+      },
+      "post_body": "<p>post to mock</p>\n",
+      "id": 8
     }
   ],
   "upload_file": [
@@ -1720,9 +1730,9 @@
       }
     }
   ],
-  "blogs":[
+  "blogs": [
     {
-      "id":"chc_out_blogs",
+      "id": "chc_out_blogs",
       "meta": {
         "status": "200",
         "msg": "ok"
@@ -1748,12 +1758,38 @@
             "header_image": "",
             "title": "My 1st Blog",
             "description": "This blog is a sketch of thoughts"
+          },
+          {
+            "id": 2026,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "description": "This blog is a sketch of thoughts"
+          },
+          {
+            "id": 2026,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "description": "This blog is a sketch of thoughts"
+          },
+          {
+            "id": 2026,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "description": "This blog is a sketch of thoughts"
           }
         ]
       }
     }
-  ]
-,
+  ],
   "blog": {
     "meta": {
       "status": "200",
@@ -1799,46 +1835,46 @@
       ]
     }
   },
-  "followed_by":{
-  "meta": {
-    "status": "200",
-    "msg": "ok"
+  "followed_by": {
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "followed": true
+    }
   },
-  "response": {
-    "followed": true
-  }
-},
-  "block":{
-  "meta": {
-    "status": "200",
-    "msg": "ok"
+  "block": {
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "is_blocking": false
+    }
   },
-  "response": {
-    "is_blocking": false
-  }
-},
-  "blogm":{
-  "meta": {
-    "status": "200",
-    "msg": "ok"
+  "blogm": {
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "share_likes": true,
+      "share_followings": true,
+      "id": 2026,
+      "is_primary": false,
+      "username": "ahmad-ghareeb",
+      "avatar": "https://scontent.fcai19-7.fna.fbcdn.net/v/t1.6435-9/131377863_2819233718394652_8340224791482069975_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeH77U1q39s0YwlxOoOOZpkOYAIITRUXLK1gAghNFRcsrc0lcejGuFpG42urYOWA-vxMg8xj0ct5h4d5y17wAS7Q&_nc_ohc=d4ULMS8cbbwAX-PRlwx&_nc_ht=scontent.fcai19-7.fna&oh=00_AT-DEH7Q4u72h5t8vL3pSN0UwY5pAVLIlWKKiG2Hfl6NpA&oe=61EB56A3",
+      "avatar_shape": "circle",
+      "header_image": "https://scontent.fcai19-8.fna.fbcdn.net/v/t1.6435-9/110317044_2680778068906885_6342427761542127472_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeEswvLZKjPSatwn_ayQKxQETaZe8tBIdmtNpl7y0Eh2a5d5SnznW7t0v4QioaBBFLOVbH5EDay_dHM67irUU19-&_nc_ohc=-RlN2LB1pE8AX9Zw6mj&_nc_ht=scontent.fcai19-8.fna&oh=00_AT9nEsi7oN4zphqAE9uuWZa2g4hula92bUHk6CUQGQgONw&oe=61EE2321",
+      "title": "i'm ghareeb",
+      "allow_ask": true,
+      "followed": true,
+      "allow_submittions": true,
+      "description": "i love food"
+    }
   },
-  "response": {
-    "share_likes": true,
-    "share_followings": true,
-    "id": 2026,
-    "is_primary": false,
-    "username": "ahmad-ghareeb",
-    "avatar": "https://scontent.fcai19-7.fna.fbcdn.net/v/t1.6435-9/131377863_2819233718394652_8340224791482069975_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeH77U1q39s0YwlxOoOOZpkOYAIITRUXLK1gAghNFRcsrc0lcejGuFpG42urYOWA-vxMg8xj0ct5h4d5y17wAS7Q&_nc_ohc=d4ULMS8cbbwAX-PRlwx&_nc_ht=scontent.fcai19-7.fna&oh=00_AT-DEH7Q4u72h5t8vL3pSN0UwY5pAVLIlWKKiG2Hfl6NpA&oe=61EB56A3",
-    "avatar_shape": "circle",
-    "header_image": "https://scontent.fcai19-8.fna.fbcdn.net/v/t1.6435-9/110317044_2680778068906885_6342427761542127472_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeEswvLZKjPSatwn_ayQKxQETaZe8tBIdmtNpl7y0Eh2a5d5SnznW7t0v4QioaBBFLOVbH5EDay_dHM67irUU19-&_nc_ohc=-RlN2LB1pE8AX9Zw6mj&_nc_ht=scontent.fcai19-8.fna&oh=00_AT9nEsi7oN4zphqAE9uuWZa2g4hula92bUHk6CUQGQgONw&oe=61EE2321",
-    "title": "i'm ghareeb",
-    "allow_ask": true,
-    "followed": true,
-    "allow_submittions": true,
-    "description": "i love food"
-  }
-},
-  "notes":{
+  "notes": {
     "meta": {
       "status": "200",
       "msg": "ok"
@@ -1893,7 +1929,7 @@
       ]
     }
   },
-  "newfollowers":{
+  "newfollowers": {
     "meta": {
       "status": "200",
       "msg": "ok"
@@ -1945,7 +1981,7 @@
       ]
     }
   },
-  "totalfollowers":{
+  "totalfollowers": {
     "meta": {
       "status": "200",
       "msg": "ok"
@@ -1994,7 +2030,75 @@
             }
           ]
         }
+      ],
+      "blog-info": [
+        {
+          "id": "maryem",
+          "meta": {
+            "status": "200",
+            "msg": "ok"
+          },
+          "response": {
+            "share_likes": true,
+            "share_followings": true,
+            "id": 2026,
+            "is_primary": false,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "allow_ask": true,
+            "allow_submittions": true,
+            "description": "This blog is a sketch of thoughts",
+            "followed": true
+          }
+        },
+        {
+          "id": "Nadeen-Ayman",
+          "meta": {
+            "status": "200",
+            "msg": "ok"
+          },
+          "response": {
+            "share_likes": true,
+            "share_followings": true,
+            "id": 2025,
+            "is_primary": false,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "allow_ask": true,
+            "allow_submittions": true,
+            "description": "This blog is a sketch of thoughts",
+            "followed": true
+          }
+        },
+        {
+          "id": "Maryem-Hussein",
+          "meta": {
+            "status": "200",
+            "msg": "ok"
+          },
+          "response": {
+            "share_likes": true,
+            "share_followings": true,
+            "id": 2026,
+            "is_primary": false,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "allow_ask": true,
+            "allow_submittions": true,
+            "description": "This blog is a sketch of thoughts",
+            "followed": true
+          }
+        }
       ]
     }
   }
- }
+}

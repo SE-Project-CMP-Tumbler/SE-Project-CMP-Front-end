@@ -2,15 +2,15 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import Axios from 'axios';
 import { api, apiR, SERVICETYPE } from '../../../apis/globalAPI';
 
-const fetchCheckout = createAsyncThunk(
-  'DashPosts/fetchCheckout',
-  async (User) => {
+const GetBlogId = createAsyncThunk(
+  'DashPosts/getblogid',
+  async ({ User, blogUsername }) => {
     const USER_TOKEN = User.accessToken;
     const AuthStr = `Bearer ${USER_TOKEN}`;
     if (SERVICETYPE === 0) {
       const response = await Axios({
         method: 'GET',
-        url: `${api}/blogs/chc_out_blogs`,
+        url: `${api}/blog/info/${blogUsername}`,
         headers: {
           Authorization: AuthStr,
           Accept: 'application/json',
@@ -24,16 +24,16 @@ const fetchCheckout = createAsyncThunk(
       return [];
     }
     try {
+      console.log(User, 'get blog id from username');
       const response = await Axios({
         method: 'GET',
-        url: `${apiR}/blogs/check_out_blogs`,
+        url: `${apiR}/blog/info/${blogUsername}`,
         headers: {
           Authorization: AuthStr,
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
       });
-      console.log(response);
       if (response.data.meta.status === '200') {
         return response.data.response;
       }
@@ -44,5 +44,4 @@ const fetchCheckout = createAsyncThunk(
     }
   },
 );
-
-export default fetchCheckout;
+export default GetBlogId;

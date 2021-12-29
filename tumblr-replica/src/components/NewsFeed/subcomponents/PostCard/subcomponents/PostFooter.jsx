@@ -17,7 +17,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../../../../states/User/UserSlice';
 import { UnlikePost, LikePost } from '../../../../../states/features/dashboard/likeAPI';
 import Notes from './Notes/Notes';
-import { deletePost } from '../../../../../states/features/dashboard/NotesSlice';
+import DeletePost from '../../../../../states/features/dashboard/deletepostAPI';
 import ReactEditor from '../../../../CreatPost/ReactEditor';
 
 const style = {
@@ -36,7 +36,9 @@ const style = {
  * @returns buttons and notes part of the post
  */
 const PostFooter = function PostFooterButtons(props) {
-  const { postId, blogId, content } = props;
+  const {
+    postId, blogId, content, postType,
+  } = props;
   // States
   const [Liked, setLiked] = useState(false);
   const [showModel, setShowModel] = useState(false);
@@ -52,8 +54,8 @@ const PostFooter = function PostFooterButtons(props) {
   const handleClose = () => {
     setOpen(false);
   };
-  const handleDelete = function DeletePost() {
-    dispatch(deletePost(postId));
+  const handleDelete = function Delete() {
+    dispatch(DeletePost({ User, postID: postId }));
     setShowModel(false);
   };
 
@@ -119,7 +121,7 @@ const PostFooter = function PostFooterButtons(props) {
           )}
         </IconButton>
 
-        {User.id === blogId && (
+        {User.primaryBlogId === blogId && (
           <IconButton
             aria-label="Delete"
             className="action"
@@ -129,7 +131,7 @@ const PostFooter = function PostFooterButtons(props) {
           </IconButton>
         )}
 
-        {User.id === blogId && (
+        {User.primaryBlogId === blogId && (
           <IconButton aria-label="Edit post" className="action" onClick={() => handleEdit()}>
             <EditOutlinedIcon style={{ fontSize: 25 }} />
           </IconButton>
@@ -158,7 +160,7 @@ const PostFooter = function PostFooterButtons(props) {
           aria-labelledby="modal-modal-title"
           aria-describedby="modal-modal-description"
         >
-          <ReactEditor body={edit === 1 ? content : ''} edit={edit} postID={postId} />
+          <ReactEditor body={edit === 1 ? content : ''} edit={edit} postID={postId} postType={postType} />
         </Modal>
       </div>
     </>
@@ -170,4 +172,5 @@ PostFooter.propTypes = {
   postId: PropTypes.number.isRequired,
   blogId: PropTypes.number.isRequired,
   content: PropTypes.string.isRequired,
+  postType: PropTypes.string.isRequired,
 };
