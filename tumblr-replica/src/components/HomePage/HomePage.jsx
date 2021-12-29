@@ -1,11 +1,11 @@
 import React from 'react';
-import { useSelector } from 'react-redux';
+// import { useSelector } from 'react-redux';
 import MediaQuery from 'react-responsive';
 import ChatBoxes from '../ChatBoxes/ChatBoxes';
 import ChatTo from '../ChatTo/ChatTo';
-import OldChatList from '../OldChatList/OldChatList';
+// import OldChatList from '../OldChatList/OldChatList';
 // import ChatListResp from '../ChatListResp/ChatListResp';
-import ChatComponentResp from '../ChatComponentResp/ChatComponentResp';
+// import ChatComponentResp from '../ChatComponentResp/ChatComponentResp';
 // import ChatNewMessageResp from '../ChatNewMessageResp/ChatNewMessageResp';
 /**
  * This function is for the HomePage component this is a mock page to display the chat component
@@ -13,14 +13,14 @@ import ChatComponentResp from '../ChatComponentResp/ChatComponentResp';
  * @returns {*} HomePage componenet
  */
 function HomePage() {
-  const newMessagePress = useSelector((state) => state.Chat.newmessagepress);
+  // const newMessagePress = useSelector((state) => state.Chat.newmessagepress);
   return (
     <>
       <MediaQuery maxWidth={800}>
-        <ChatComponentResp />
+        <></>
       </MediaQuery>
       <MediaQuery minWidth={800}>
-        {newMessagePress ? <ChatTo /> : <OldChatList />}
+        <ChatTo />
         <ChatBoxes />
       </MediaQuery>
     </>
