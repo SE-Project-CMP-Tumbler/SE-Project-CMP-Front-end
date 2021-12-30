@@ -98,7 +98,6 @@ function App() {
           <Route exact path="/messaging/conversation/:username/:friendname" element={<ChatComponentResp />} />
           <Route path="/blog/:username/followers" element={<Followers />} />
           <Route path="/following" element={<Following />} />
-          <Route exact path="/chat" element={<HomePage />} />
           <Route exact path="/new" element={<CreatePostButtons />} />
           <Route exact path="/dashboard" element={<Newsfeed />} />
           <Route exact path="/login" element={<LogInPage />} />
