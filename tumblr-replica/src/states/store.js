@@ -49,6 +49,7 @@ import userblogsReducer from './features/userblogs/userblogsSlice';
 import PostslikedReducer from './likedposts/likedpostsSlice';
 import hideNavReducer from './hidenav/hidenavSlice';
 import themeReducer from './theme/themeSlice';
+import notificationsReducer from './notifications/notificationSlice';
 
 const store = configureStore({
   reducer: {
@@ -100,6 +101,7 @@ const store = configureStore({
     postsliked: PostslikedReducer,
     hideNav: hideNavReducer,
     currentTheme: themeReducer,
+    notifications: notificationsReducer,
   },
 });
 

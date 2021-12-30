@@ -389,6 +389,80 @@ export const resetPasswordThunkR = createAsyncThunk(
   }).then((res) => res.json()),
 );
 
+export const changePasswordThunk = createAsyncThunk(
+  'changePassword',
+  async (query) => fetch(`${api}/change_password`, {
+    method: 'PUT',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${query.accessToken}`,
+    },
+    body: JSON.stringify(query.body),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const changePasswordThunkR = createAsyncThunk(
+  'changePasswordR',
+  async (query) => fetch(`${apiR}/change_password`, {
+    method: 'PUT',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${query.accessToken}`,
+    },
+    body: JSON.stringify(query.body),
+  }).then((res) => res.json()),
+);
+
+export const changeEmailThunk = createAsyncThunk(
+  'changeEmail',
+  async (query) => fetch(`${api}/change_email`, {
+    method: 'PUT',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${query.accessToken}`,
+    },
+    body: JSON.stringify(query.body),
+  }).then((res) => {
+    if (res.status === 200) {
+      return res.json().then((data) => data);
+    }
+    return {
+      id: '',
+      blog_username: '',
+      email: '',
+      blog_avatar: '',
+      access_token: '',
+    };
+  }),
+);
+
+export const changeEmailThunkR = createAsyncThunk(
+  'changeEmailR',
+  async (query) => fetch(`${apiR}/change_email`, {
+    method: 'PUT',
+    headers: {
+      ...headers,
+      'Content-Type': 'application/json',
+      Authorization: `Bearer ${query.accessToken}`,
+    },
+    body: JSON.stringify(query.body),
+  }).then((res) => res.json()),
+);
+
 export const deleteAccountThunk = createAsyncThunk(
   'deleteAccount',
   async (query) => fetch(`${api}/delete_user`, {
@@ -448,6 +522,8 @@ const userSlice = createSlice({
     regStep: 1,
     showReVerify: true,
     resetEmailReceived: false,
+    emailChanged: false,
+    passwordChanged: false,
   },
   reducers: {
     /**
@@ -594,6 +670,24 @@ const userSlice = createSlice({
     */
     setStatusMessage: (state) => {
       state.statusMessage = '';
+    },
+    /**
+    * This function sets whether the email change request was executed correctly or not
+    * @method
+    * @param {object} state The object that stores the current state of the email change.
+    * @param {object} action The object containing whether the email was changed or not.
+    */
+    setEmailChanged: (state, action) => {
+      state.user.emailChanged = action.payload;
+    },
+    /**
+    * This function sets whether the password change request was executed correctly or not
+    * @method
+    * @param {object} state The object that stores the current state of the email password.
+    * @param {object} action The object containing whether the password was changed or not.
+    */
+    setPasswordChanged: (state, action) => {
+      state.user.passwordChanged = action.payload;
     },
   },
   extraReducers: {
@@ -814,6 +908,7 @@ const userSlice = createSlice({
         state.user.primaryBlogAvatar = payload.response.blog_avatar;
         state.user.accessToken = payload.response.access_token;
         state.user.primaryBlogId = payload.response.blog_id;
+        state.user.verified = payload.response.is_verified;
         state.user.loggedin = true;
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
@@ -893,6 +988,7 @@ const userSlice = createSlice({
           primaryBlogId: '',
           primaryBlogAvatar: '',
           googleAccessToken: '',
+          verified: false,
         };
         window.location.replace('/');
         // eslint-disable-next-line no-console
@@ -934,7 +1030,7 @@ const userSlice = createSlice({
           state.user.verified = true;
           localStorage.clear();
           localStorage.setItem('user', JSON.stringify(state.user));
-        }
+        } else { state.user.verified = true; }
       } else if (payload.meta.status === '500') {
         // eslint-disable-next-line no-console
         console.log(payload.meta.msg);
@@ -957,8 +1053,6 @@ const userSlice = createSlice({
           verified: false,
         };
         // window.location.replace('/');
-        // eslint-disable-next-line no-console
-        console.log(payload.meta.msg);
       }
     },
     [verifyEmailThunkR.rejected]: () => {
@@ -1115,6 +1209,125 @@ const userSlice = createSlice({
     },
     [resetPasswordThunkR.rejected]: () => {
     },
+    [changePasswordThunk.pending]: () => {
+    },
+    [changePasswordThunk.fulfilled]: (state, { payload }) => {
+      state.passwordChanged = false;
+      if (payload?.id === undefined) { // CASE 500 or 422 TO BE handled later
+        state.status = 'NOT FOUND';
+        window.location.replace('/');
+      } else { // CASE 200
+        state.status = payload.meta.status;
+      }
+    },
+    [changePasswordThunk.rejected]: () => {
+    },
+    [changePasswordThunkR.pending]: () => {
+    },
+    [changePasswordThunkR.fulfilled]: (state, { payload }) => {
+      state.passwordChanged = false;
+      if (payload.meta.status === '200') {
+        console.log('Change Password Successful!');
+        state.status = payload.meta.status;
+        const loggedInUser = localStorage.getItem('user');
+        if (loggedInUser) {
+          const foundUser = JSON.parse(loggedInUser);
+          state.user = foundUser;
+          localStorage.clear();
+          // store the user in localStorage
+          localStorage.setItem('user', JSON.stringify(state.user));
+        }
+      } else if (payload.meta.status === '403' || payload.meta.status === '422') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        const loggedInUser = localStorage.getItem('user');
+        if (loggedInUser) {
+          const foundUser = JSON.parse(loggedInUser);
+          state.user = foundUser;
+        } else {
+          localStorage.clear();
+          state.user = {
+            loggedin: false,
+            id: '',
+            accessToken: '',
+            email: '',
+            password: '',
+            blogName: '',
+            age: '',
+            primaryBlogId: '',
+            primaryBlogAvatar: '',
+            googleAccessToken: '',
+            verified: false,
+          };
+          window.location.replace('/');
+        }
+      } else { // Case 500
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      }
+    },
+    [changePasswordThunkR.rejected]: () => {
+    },
+    [changeEmailThunk.pending]: () => {
+    },
+    [changeEmailThunk.fulfilled]: (state, { payload }) => {
+      state.emailChanged = false;
+      if (payload?.id === undefined) { // CASE 500 or 422 TO BE handled later
+        state.status = 'NOT FOUND';
+        window.location.replace('/');
+      } else { // CASE 200
+        state.status = payload.meta.status;
+      }
+    },
+    [changeEmailThunk.rejected]: () => {
+    },
+    [changeEmailThunkR.pending]: () => {
+    },
+    [changeEmailThunkR.fulfilled]: (state, { payload }) => {
+      state.emailChanged = false;
+      if (payload.meta.status === '200') {
+        console.log('Change Email Successful!');
+        state.status = payload.meta.status;
+        const loggedInUser = localStorage.getItem('user');
+        if (loggedInUser) {
+          const foundUser = JSON.parse(loggedInUser);
+          state.user = foundUser;
+        }
+        state.user.email = payload.response.email;
+        localStorage.clear();
+        // store the user in localStorage
+        localStorage.setItem('user', JSON.stringify(state.user));
+      } else if (payload.meta.status === '403' || payload.meta.status === '42') {
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+        const loggedInUser = localStorage.getItem('user');
+        if (loggedInUser) {
+          const foundUser = JSON.parse(loggedInUser);
+          state.user = foundUser;
+        } else {
+          localStorage.clear();
+          state.user = {
+            loggedin: false,
+            id: '',
+            accessToken: '',
+            email: '',
+            password: '',
+            blogName: '',
+            age: '',
+            primaryBlogId: '',
+            primaryBlogAvatar: '',
+            googleAccessToken: '',
+            verified: false,
+          };
+          window.location.replace('/');
+        }
+      } else { // Case 500
+        // eslint-disable-next-line no-console
+        console.log(payload.meta.msg);
+      }
+    },
+    [changeEmailThunkR.rejected]: () => {
+    },
     [deleteAccountThunk.pending]: () => {
     },
     [deleteAccountThunk.fulfilled]: (state, { payload }) => {
@@ -1196,7 +1409,7 @@ const userSlice = createSlice({
 export const {
   initialCheck, setEmail, setPassword, setBlogName, setAge, logOut, signUp, continueWithGoogle,
   setRegStep, setGoogleAccessToken, setVerified, setStatusMessage, hideReVerify,
-  setResetEmailReceived,
+  setResetEmailReceived, setEmailChanged, setPasswordChanged,
 } = userSlice.actions;
 
 export const selectUser = (state) => state.user.user;
@@ -1209,9 +1422,12 @@ export const selectShowReVerify = (state) => state.user.showReVerify;
 
 export const selectResetEmailReceived = (state) => state.user.resetEmailReceived;
 
+export const selectEmailChanged = (state) => state.user.emailChanged;
+
+export const selectPasswordChanged = (state) => state.user.passwordChanged;
+
 export const selectStatus = (state) => state.user.status;
 
 export const selectStatusMessage = (state) => state.user.statusMessage;
-// export const selectVerified = (state) => state.user.verified;
 
 export default userSlice.reducer;
