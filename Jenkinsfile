@@ -67,6 +67,7 @@ pipeline {
 #az storage file download --account-name tumblerstorageaccount -s tumbler-secrets -p frontend.dev.env --dest .env;
 docker-compose -f docker-compose.dev.yml up -d --build;
 #docker system prune -f;'''
+        build job: "/Testing/main", wait: false
       }
       post {
         always {
