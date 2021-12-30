@@ -36,7 +36,7 @@ const fetchAsyncgraphnotes = createAsyncThunk(
         const USERTOKEN = state.user.user.accessToken;
         console.log(USERTOKEN);
         const AuthStr = `Bearer ${USERTOKEN}`;
-        const response = await apiR.get(`graph/notes/${dispatch.period}/${dispatch.rate}`, { headers: { Authorization: AuthStr } });
+        const response = await apiR.get(`graph/notes/${dispatch.BlogId}`, { headers: { Authorization: AuthStr } });
         const Notes = response.data;
         const graphdata = [];
         for (let i = 0; i < Notes.response.data.length; i += 1) {
@@ -122,7 +122,7 @@ const fetchAsyncgraphtotalfollowers = createAsyncThunk(
         const USERTOKEN = state.user.user.accessToken;
         console.log(USERTOKEN);
         const AuthStr = `Bearer ${USERTOKEN}`;
-        const response = await apiR.get(`graph/total_followers/${dispatch.period}/${dispatch.rate}`, { headers: { Authorization: AuthStr } });
+        const response = await apiR.get(`graph/total_followers/${dispatch.BlogId}`, { headers: { Authorization: AuthStr } });
         const Notes = response.data;
         const graphdata = [];
         for (let i = 0; i < Notes.response.data.length; i += 1) {

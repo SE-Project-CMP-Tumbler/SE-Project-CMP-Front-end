@@ -12,6 +12,8 @@ import {
   getNewfollowers,
   getTotalfollowers,
 } from '../../states/features/graph/graphSlice';
+import NotificationsList from './NotificationsList';
+import { getBlogId, fetchBlogs, setcurrentblog } from '../../states/features/userblogs/userblogsSlice';
 // import Graph2 from '../Graph/Graph2';
 
 /**
@@ -80,15 +82,21 @@ function Activity({ option }) {
   }
   console.log(period, rate);
   const dispatch = useDispatch();
+  const BlogId = useSelector(getBlogId);
   React.useEffect(() => {
+    dispatch(setcurrentblog(URL1[4]));
+    dispatch(fetchBlogs());
+  }, []);
+  React.useEffect(() => {
+    console.log(BlogId, 'Activityyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyyy');
     if (optionval === 'notes') {
-      dispatch(fetchAsyncgraphnotes(period, rate));
+      dispatch(fetchAsyncgraphnotes({ period, rate, BlogId }));
     } else if (optionval === 'new') {
-      dispatch(fetchAsyncgraphnewfollowers(period, rate));
+      dispatch(fetchAsyncgraphnewfollowers({ period, rate, BlogId }));
     } else {
-      dispatch(fetchAsyncgraphtotalfollowers(period, rate));
+      dispatch(fetchAsyncgraphtotalfollowers({ period, rate, BlogId }));
     }
-  }, [conrate, conperiod, optionval]);
+  }, [conrate, conperiod, optionval, BlogId]);
   let Notes = {};
   if (optionval === 'notes') {
     Notes = useSelector(getNotes);
@@ -102,7 +110,13 @@ function Activity({ option }) {
     <div>
       <Grid container spacing={2}>
         <Grid item xs={10} lg={6} sx={{ marginLeft: '10%' }}>
-          <Graph Notes={Notes} periodval={periodval} rateval={rateval} optionval={optionval} />
+          <Graph
+            Notes={Notes}
+            periodval={periodval}
+            rateval={rateval}
+            optionval={optionval}
+          />
+          <NotificationsList />
         </Grid>
         <Grid item lg={4} sx={{ marginLeft: '2%', display: { xs: 'none', lg: 'block' } }}>
           <SideTabs select={3} />

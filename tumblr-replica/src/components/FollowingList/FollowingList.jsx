@@ -83,6 +83,7 @@ export default function FollowingList() {
     dispatch(fetchAsyncfollowtags());
   }, []);
   const followtags = useSelector(getAllfollowtags);
+  const tags = followtags.response.tags.filter((tag) => tag.follow === true);
   const maxlen = followtags.response.tags.length;
   const handleStart = () => {
     setStart(((start + 4) % maxlen));
@@ -128,7 +129,7 @@ export default function FollowingList() {
                 </div>
               </ListItem>
               <Divider />
-              {followtags.response.tags.slice(start, start + 4)
+              {tags.slice(start, start + 4)
                 .map((tag) => (
                   <FollowingTag
                     key={tag}
