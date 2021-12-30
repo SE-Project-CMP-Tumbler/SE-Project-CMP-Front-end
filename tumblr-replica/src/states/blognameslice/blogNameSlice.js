@@ -2,9 +2,9 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { api, apiR } from '../../apis/globalAxpi';
 import { SERVICETYPE, MOCK } from '../../apis/globalAPI';
 
-const fetchBlog = createAsyncThunk(
-  'blog/getblog',
-  async (BlogId, { getState }) => {
+const fetchBlogId = createAsyncThunk(
+  'blog/getblogId',
+  async (UserName, { getState }) => {
     if (SERVICETYPE === MOCK) {
       const response = await api.get('blogm');
       return response.data;
@@ -12,37 +12,38 @@ const fetchBlog = createAsyncThunk(
     const state = getState();
     const USER_TOKEN = state.user.user.accessToken;
     const AuthStr = `Bearer ${USER_TOKEN}`;
-    const response = await apiR.get(`blog/${BlogId}`, { headers: { Authorization: AuthStr } });
+    const response = await apiR.get(`blog/info/${UserName}`, { headers: { Authorization: AuthStr } });
     return response.data;
   },
 );
 
 const initialState = {
-  blog: {
+  blogId: {
     response: {},
     meta: { status: '000', msg: 'Loading' },
+    error: false,
   },
 };
 
-const BlogSlice = createSlice({
-  name: 'blog',
+const BlogIdSlice = createSlice({
+  name: 'blogId',
   initialState,
   reducers: {},
   extraReducers: {
-    [fetchBlog.pending]: () => {
+    [fetchBlogId.pending]: () => {
       // console.log('Pending');
     },
-    [fetchBlog.fulfilled]: (state, { payload }) => ({ ...state, blog: payload }),
-    [fetchBlog.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchBlogId.fulfilled]: (state, { payload }) => ({ ...state, blogId: payload }),
+    [fetchBlogId.rejected]:
+      (state) => ({ ...state, blogId: { ...state.blogId, error: true } }),
   },
+
 });
 
-const getBlog = (state) => state.blog.blog;
-const BlogReducer = BlogSlice.reducer;
+const getBlogId = (state) => state.blogId.blogId;
+const BlogIdReducer = BlogIdSlice.reducer;
 export {
-  getBlog,
-  fetchBlog,
+  getBlogId,
+  fetchBlogId,
 };
-export default BlogReducer;
+export default BlogIdReducer;

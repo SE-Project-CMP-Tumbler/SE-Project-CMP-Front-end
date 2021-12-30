@@ -8,9 +8,10 @@ import {
 import { useMediaQuery } from 'react-responsive';
 import './css/DrawerNavBar.css';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import Menu from './DrawerMenu';
 import {
-  getBlog, fetchBlog,
+  getBlog,
 } from '../../states/blogslice/blogslice';
 import { FollowAsynch } from '../../states/followslice/followslice';
 import { UnFollowAsynch } from '../../states/followslice/unfollowSlice';
@@ -40,7 +41,6 @@ function NavBar({ CloseClicked, OpenChatClicked, BlogId }) {
 
   React.useEffect(() => {
     dispatch(FollowedByAsynch(BlogId));
-    dispatch(fetchBlog(BlogId));// will use blogId
   }, []);
 
   // eslint-disable-next-line prefer-const
@@ -69,7 +69,7 @@ function NavBar({ CloseClicked, OpenChatClicked, BlogId }) {
           <FontAwesomeIcon data-testid="CloseBtn" onClick={CloseClicked} icon={faTimes} color="white" className="x icons-drawer" />
         </IconButton>
 
-        <a href={`https://web.dev.tumbler.social/profile/${BlogId}`} className="user-account">{`${Blog.username}.tumblr.com`}</a>
+        <Link to={`/profile/${Blog.username}`} className="user-account">{`${Blog.username}.tumbler.com`}</Link>
       </div>
       <div className="make-right">
 
@@ -84,16 +84,16 @@ function NavBar({ CloseClicked, OpenChatClicked, BlogId }) {
         }
 
         <IconButton>
-          {User.primaryBlogId.toString() !== BlogId && <FontAwesomeIcon onClick={OpenChatClicked} icon={faCommentMedical} color="white" className="messages icons-drawer" />}
-          {User.primaryBlogId.toString() === BlogId && (
-            <a href={`https://web.dev.tumbler.social/settings/blog/${BlogId}`} target="blank">
+          {User.primaryBlogId !== BlogId && <FontAwesomeIcon onClick={OpenChatClicked} icon={faCommentMedical} color="white" className="messages icons-drawer" />}
+          {User.primaryBlogId === BlogId && (
+            <Link to={`/settings/blog/${Blog.username}`} target="blank">
               <FontAwesomeIcon className="icons" icon={faCog} color="white" />
-            </a>
+            </Link>
           )}
         </IconButton>
         <Menu BlogId={BlogId} />
-        {!FollowInit.followed && (!IsTabletOrMobile && User.primaryBlogId.toString() !== BlogId) && <button data-testid="FollowBtn" type="button" className="btn-drawer" onClick={HandelFollow}>Follow</button>}
-        {FollowInit.followed && (!IsTabletOrMobile && User.primaryBlogId.toString() !== BlogId) && <button data-testid="FollowBtn" type="button" className="btn-drawer" onClick={HandelUnFollow}>Unfollow</button>}
+        {!FollowInit.followed && (!IsTabletOrMobile && User.primaryBlogId !== BlogId) && <button data-testid="FollowBtn" type="button" className="btn-drawer" onClick={HandelFollow}>Follow</button>}
+        {FollowInit.followed && (!IsTabletOrMobile && User.primaryBlogId !== BlogId) && <button data-testid="FollowBtn" type="button" className="btn-drawer" onClick={HandelUnFollow}>Unfollow</button>}
       </div>
     </div>
   );

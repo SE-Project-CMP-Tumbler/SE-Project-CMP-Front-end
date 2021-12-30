@@ -8,6 +8,7 @@ import { faEllipsisH, faUserAlt } from '@fortawesome/free-solid-svg-icons';
 import { useState } from 'react';
 import { useMediaQuery } from 'react-responsive';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from 'react-router-dom';
 import {
   getBlog,
 } from '../../states/blogslice/blogslice';
@@ -41,7 +42,7 @@ export default function LongMenu({ BlogId }) {
   React.useEffect(() => {
     dispatch(FollowedByAsynch(BlogId)); // not needed
     dispatch(BlockedByAsynch(BlogId)); // the only one should be fetshed
-  }, []);
+  }, [BlogId]);
   const User = useSelector(selectUser);
   // const id = BlogId.toString();
   // eslint-disable-next-line prefer-const
@@ -119,14 +120,14 @@ export default function LongMenu({ BlogId }) {
         }}
 
       >
-        {User.loggedin && IsTabletOrMobile && FollowInit.followed && User.primaryBlogId.toString() !== BlogId && <MenuItem className="menu-item" onClick={HandelUnfollow}>Unfollow</MenuItem>}
-        {User.loggedin && IsTabletOrMobile && !FollowInit.followed && User.primaryBlogId.toString() !== BlogId && <MenuItem className="menu-item" onClick={HandelFollow}>Follow</MenuItem>}
+        {User.loggedin && IsTabletOrMobile && FollowInit.followed && User.primaryBlogId !== BlogId && <MenuItem className="menu-item" onClick={HandelUnfollow}>Unfollow</MenuItem>}
+        {User.loggedin && IsTabletOrMobile && !FollowInit.followed && User.primaryBlogId !== BlogId && <MenuItem className="menu-item" onClick={HandelFollow}>Follow</MenuItem>}
         {!User.loggedin && IsTabletOrMobile && <MenuItem className="menu-item" onClick={HandelClose}>Follow</MenuItem>}
-        {User.loggedin && blog.share_followings && <MenuItem className="menu-item" onClick={HandelFollowing}><a target="blank" href={`https://web.dev.tumbler.social/followed/by/${BlogId}`}>Following</a></MenuItem>}
-        {User.loggedin && blog.allow_ask && <MenuItem className="menu-item" onClick={HandelAsk}><a href={`https://web.dev.tumbler.social/profile/${BlogId}/ask`} target="blank">Ask</a></MenuItem>}
-        {User.loggedin && blog.allow_submittions && <MenuItem className="menu-item" onClick={HandelSubmit}><a href={`https://web.dev.tumbler.social/profile/${BlogId}/submit`} target="blank">Submit</a></MenuItem>}
-        {User.loggedin && BlockInit.is_blocking && User.primaryBlogId.toString() !== BlogId && <MenuItem className="menu-item" onClick={HandelUnblock}>Unblock</MenuItem>}
-        {User.loggedin && !BlockInit.is_blocking && User.primaryBlogId.toString() !== BlogId && <MenuItem className="red-menuitem" onClick={HandelBlock}>Block</MenuItem>}
+        {User.loggedin && blog.share_followings && <MenuItem className="menu-item" onClick={HandelFollowing}><Link target="_blank" to="/following">Following</Link></MenuItem>}
+        {User.loggedin && blog.allow_ask && <MenuItem className="menu-item" onClick={HandelAsk}><Link to={`/profile/${blog.username}/ask`} target="_blank">Ask</Link></MenuItem>}
+        {User.loggedin && blog.allow_submittions && <MenuItem className="menu-item" onClick={HandelSubmit}><Link to={`/profile/${blog.username}/submit`} target="_blank">Submit</Link></MenuItem>}
+        {User.loggedin && BlockInit.is_blocking && User.primaryBlogId !== BlogId && <MenuItem className="menu-item" onClick={HandelUnblock}>Unblock</MenuItem>}
+        {User.loggedin && !BlockInit.is_blocking && User.primaryBlogId !== BlogId && <MenuItem className="red-menuitem" onClick={HandelBlock}>Block</MenuItem>}
         <MenuItem className="menu-item" onClick={HandelClose}>Close</MenuItem>
       </Menu>
     </div>

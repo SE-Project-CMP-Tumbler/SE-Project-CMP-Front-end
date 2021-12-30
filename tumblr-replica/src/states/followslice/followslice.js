@@ -20,7 +20,6 @@ const FollowAsynch = createAsyncThunk(
       });
       return response.data;
     } catch (err) {
-      console.log(err);
       throw Error(err);
     }
   },

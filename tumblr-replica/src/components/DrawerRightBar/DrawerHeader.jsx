@@ -1,7 +1,9 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
+import ReactLoading from 'react-loading';
 import Grid from '@mui/material/Grid';
+import { Link } from 'react-router-dom';
 import NavBar from './DrawerNavBar';
 import { getBlog, fetchBlog } from '../../states/blogslice/blogslice';
 import PostCard from '../NewsFeed/subcomponents/PostCard/PostCard';
@@ -30,17 +32,18 @@ function Header({ CloseClicked, OpenChatClicked, BlogId }) {
     dispatch(fetchAsyncMyPosts(BlogId));
   }, []);
   const Blog = useSelector(getBlog).response;
+  const BlogStatue = useSelector(getBlog).meta;
   const Posts = useSelector(getMyPosts).response.posts;
-  return (
+  return BlogStatue.msg === 'ok' ? (
     <div className="Body">
       <NavBar CloseClicked={CloseClicked} OpenChatClicked={OpenChatClicked} BlogId={BlogId} />
       <div className="photos">
-        <a target="blank" href={`https://web.dev.tumbler.social/profile/${BlogId}`}>
+        <Link target="_blank" to={`/profile/${Blog.username}`}>
           <img className="cover-drawer" src={Blog.header_image} alt="cover" />
-        </a>
-        <a target="blank" href={`https://web.dev.tumbler.social/profile/${BlogId}`}>
+        </Link>
+        <Link target="_blank" to={`/profile/${Blog.username}`}>
           <img className={Blog.avatar_shape === 'square' ? 'square-profile-drawer' : 'circle-profile-drawer'} src={Blog.avatar} alt="profile pic" />
-        </a>
+        </Link>
       </div>
       <div className="text-drawer">
         <h1 className="title-drawer">
@@ -83,6 +86,10 @@ function Header({ CloseClicked, OpenChatClicked, BlogId }) {
           ))}
       </div>
     </div>
+  ) : (
+    <>
+      <ReactLoading type="bars" color="#fff" width={157} className="loading-block" />
+    </>
   );
 }
 Header.propTypes = {

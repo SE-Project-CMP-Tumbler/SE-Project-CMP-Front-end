@@ -207,9 +207,9 @@ const Newsfeed = function NewsfeedPosts() {
             )}
           </Grid>
           {isPending && (
-          <div>
-            loading..
-          </div>
+            <div>
+              loading..
+            </div>
           )}
           <InfiniteScroll
             dataLength={Posts.length}
@@ -232,54 +232,54 @@ const Newsfeed = function NewsfeedPosts() {
             style={{ width: '100vh' }}
           >
             {Posts.length
-            && Posts.map((post) => (
-              <>
-                <Grid
-                  item
-                  xs
-                  container
-                  direction="row"
-                  key={post.post_id}
-                  spacing={2}
-                  style={{
-                    justifyContent: 'center',
-                    alignItems: 'flex-start',
-                    display: 'flex',
-                  }}
-                  sx={{ mb: 2, mt: 0 }}
-                >
-                  {isDesktopOrLaptop && (
+              && Posts.map((post) => (
+                <>
+                  <Grid
+                    item
+                    xs
+                    container
+                    direction="row"
+                    key={post.post_id}
+                    spacing={2}
+                    style={{
+                      justifyContent: 'center',
+                      alignItems: 'flex-start',
+                      display: 'flex',
+                    }}
+                    sx={{ mb: 2, mt: 0 }}
+                  >
+                    {isDesktopOrLaptop && (
+                      <Grid item>
+                        <Avatar
+                          src={post.blog_avatar}
+                          variant="square"
+                          xs={2}
+                          style={{
+                            maxWidth: 64,
+                            minWidth: 64,
+                            maxHeight: 64,
+                            minHeight: 64,
+                          }}
+                        />
+                      </Grid>
+                    )}
                     <Grid item>
-                      <Avatar
-                        src={post.blog_avatar}
-                        variant="square"
-                        xs={2}
-                        style={{
-                          maxWidth: 64,
-                          minWidth: 64,
-                          maxHeight: 64,
-                          minHeight: 64,
-                        }}
+                      <PostCard
+                        small={false}
+                        postId={post.post_id}
+                        postTime={post.post_time}
+                        blogId={post.blog_id}
+                        blogUsername={post.blog_username}
+                        postBody={post.post_body}
+                        blogAvatar={post.blog_avatar}
+                        postType={post.post_type}
+                        xs={10}
+                        sx={{ mt: 0 }}
                       />
                     </Grid>
-                  )}
-                  <Grid item>
-                    <PostCard
-                      small={false}
-                      postId={post.post_id}
-                      postTime={post.post_time}
-                      blogId={post.blog_id}
-                      blogUsername={post.blog_username}
-                      postBody={post.post_body}
-                      blogAvatar={post.blog_avatar}
-                      postType={post.post_type}
-                      xs={10}
-                      sx={{ mt: 0 }}
-                    />
                   </Grid>
-                </Grid>
-              </>
-            ))}
+                </>
+              ))}
           </InfiniteScroll>
         </Grid>
         {isDesktopOrLaptop && (
@@ -304,7 +304,7 @@ const Newsfeed = function NewsfeedPosts() {
         >
           <>
             {postType === 0 && <ReactEditor body="" edit={0} />}
-            { postType === 1 && <UploadPhoto />}
+            {postType === 1 && <UploadPhoto />}
           </>
         </Modal>
       </Grid>

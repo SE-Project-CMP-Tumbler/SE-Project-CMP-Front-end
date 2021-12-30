@@ -1834,13 +1834,13 @@
 },
 "allmessages":{
     "response": {
-        "posts": [
+        "messages": [
             {
                 "post_id": 45,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-12-23 20:01:15",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "<div><p>Hajanah</p></div>",
                 "blog_id": 40,
                 "blog_username": "Hala",
@@ -1865,14 +1865,14 @@
                 "question_id": 17,
                 "question_flag": false,
                 "ask_time": "2021-12-27T17:01:01.000000Z",
-                "post_type":"ask"
+                "post_status":"ask"
             },
             {
                 "post_id": 40,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-12-23 15:30:33",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "cccc",
                 "blog_id": 41,
                 "blog_username": "dldldldl",
@@ -1897,14 +1897,14 @@
                 "question_id": 17,
                 "question_flag": true,
                 "ask_time": "2021-12-27T17:01:01.000000Z",
-                "post_type":"ask"
+                "post_status":"ask"
             },
             {
                 "post_id": 49,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-12-24 07:26:39",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "🏃‍♀️🏃‍♀️",
                 "blog_id": 40,
                 "blog_username": "Hala",
@@ -1921,10 +1921,10 @@
             },
             {
                 "post_id": 9,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-12-22 00:00:00",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "<p>Hello</p>",
                 "blog_id": 12,
                 "blog_username": "Ziyad",
@@ -1949,14 +1949,14 @@
                 "question_id": 17,
                 "question_flag": false,
                 "ask_time": "2021-12-27T17:01:01.000000Z",
-                "post_type":"ask"
+                "post_status":"ask"
             },
             {
                 "post_id": 69,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-12-27 10:13:31",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "Ay post",
                 "blog_id": 40,
                 "blog_username": "Hala",
@@ -1973,10 +1973,10 @@
             },
             {
                 "post_id": 7,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-11-03 00:00:00",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "<div> <p>post</p>\n </div>",
                 "blog_id": 6,
                 "blog_username": "maryem-salah",
@@ -1993,10 +1993,10 @@
             },
             {
                 "post_id": 12,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-12-23 06:55:02",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "Will the post be created ??",
                 "blog_id": 37,
                 "blog_username": "Halla",
@@ -2013,10 +2013,10 @@
             },
             {
                 "post_id": 16,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-12-23 07:50:25",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "First Post?&nbsp;",
                 "blog_id": 38,
                 "blog_username": "Halaa",
@@ -2033,10 +2033,10 @@
             },
             {
                 "post_id": 15,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-11-04 00:00:00",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "<div> <p><span style=\"font-size: 24px;\">New post !</span></p>\n<p><span style=\"color: rgb(247,218,100);\">hello tumblrs</span><span style=\"color: rgb(40,50,78);\"> ⭐</span></p>\n </div>",
                 "blog_id": 6,
                 "blog_username": "maryem-salah",
@@ -2053,10 +2053,10 @@
             },
             {
                 "post_id": 54,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-12-24 07:51:06",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "اهلاااا",
                 "blog_id": 40,
                 "blog_username": "Hala",
@@ -2091,13 +2091,13 @@
 },
 "blogmessages":{
     "response": {
-                "posts": [
+                "messages": [
             {
                 "post_id": 45,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-12-23 20:01:15",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "<div><p>Hajanah</p></div>",
                 "blog_id": 40,
                 "blog_username": "Hala",
@@ -2122,14 +2122,14 @@
                 "question_id": 17,
                 "question_flag": false,
                 "ask_time": "2021-12-27T17:01:01.000000Z",
-                "post_type":"ask"
+                "post_status":"ask"
             },
             {
                 "post_id": 40,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-12-23 15:30:33",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "cccc",
                 "blog_id": 41,
                 "blog_username": "dldldldl",
@@ -2154,14 +2154,14 @@
                 "question_id": 17,
                 "question_flag": true,
                 "ask_time": "2021-12-27T17:01:01.000000Z",
-                "post_type":"ask"
+                "post_status":"ask"
             },
             {
                 "post_id": 49,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-12-24 07:26:39",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "🏃‍♀️🏃‍♀️",
                 "blog_id": 40,
                 "blog_username": "Hala",
@@ -2178,10 +2178,10 @@
             },
             {
                 "post_id": 9,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-12-22 00:00:00",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "<p>Hello</p>",
                 "blog_id": 12,
                 "blog_username": "Ziyad",
@@ -2206,14 +2206,14 @@
                 "question_id": 17,
                 "question_flag": false,
                 "ask_time": "2021-12-27T17:01:01.000000Z",
-                "post_type":"ask"
+                "post_status":"ask"
             },
             {
                 "post_id": 69,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-12-27 10:13:31",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "Ay post",
                 "blog_id": 40,
                 "blog_username": "Hala",
@@ -2230,10 +2230,10 @@
             },
             {
                 "post_id": 7,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-11-03 00:00:00",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "<div> <p>post</p>\n </div>",
                 "blog_id": 6,
                 "blog_username": "maryem-salah",
@@ -2250,10 +2250,10 @@
             },
             {
                 "post_id": 12,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-12-23 06:55:02",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "Will the post be created ??",
                 "blog_id": 37,
                 "blog_username": "Halla",
@@ -2270,10 +2270,10 @@
             },
             {
                 "post_id": 16,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-12-23 07:50:25",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "First Post?&nbsp;",
                 "blog_id": 38,
                 "blog_username": "Halaa",
@@ -2290,10 +2290,10 @@
             },
             {
                 "post_id": 15,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-11-04 00:00:00",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "<div> <p><span style=\"font-size: 24px;\">New post !</span></p>\n<p><span style=\"color: rgb(247,218,100);\">hello tumblrs</span><span style=\"color: rgb(40,50,78);\"> ⭐</span></p>\n </div>",
                 "blog_id": 6,
                 "blog_username": "maryem-salah",
@@ -2310,10 +2310,10 @@
             },
             {
                 "post_id": 54,
-                "post_status": "published",
+                "post_status": "submission",
                 "pinned": false,
                 "post_time": "2021-12-24 07:51:06",
-                "post_type": "submit",
+                "post_type": "general",
                 "post_body": "اهلاااا",
                 "blog_id": 40,
                 "blog_username": "Hala",

@@ -6,11 +6,13 @@ import {
 } from '@fortawesome/free-solid-svg-icons';
 import PropTypes from 'prop-types';
 import { IconButton } from '@mui/material';
+import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { FollowAsynch } from '../../states/followslice/followslice';
 import { UnFollowAsynch } from '../../states/followslice/unfollowSlice';
 import { getFollowed, FollowedByAsynch } from '../../states/followslice/getfollowslice';
 import { getBlocked, BlockedByAsynch } from '../../states/blockSlice/getblockslice';
+import { getBlog } from '../../states/blogslice/blogslice';
 import { BlockAsynch } from '../../states/blockSlice/blockslice';
 import { selectUser } from '../../states/User/UserSlice';
 import './css/ProfileNavBar.css';
@@ -26,6 +28,7 @@ function ProfileNavBar({ BlogId }) {
     dispatch(BlockedByAsynch(BlogId));
   }, []);
   const User = useSelector(selectUser);
+  const Blog = useSelector(getBlog).response;
   // eslint-disable-next-line prefer-const
   let BlockInit = useSelector(getBlocked).response; // will be used insted of blog.follow
   // eslint-disable-next-line prefer-const
@@ -47,15 +50,15 @@ function ProfileNavBar({ BlogId }) {
   return (
     <div className="nav">
       <IconButton>
-        <a href="https://web.dev.tumbler.social/dashboard" target="_blank" rel="noreferrer">
+        <Link to="/dashboard" target="_blank">
           <FontAwesomeIcon data-testid="HomeIcon" className="icons" icon={faHome} color="white" />
-        </a>
+        </Link>
       </IconButton>
       <IconButton>
 
-        <a href={`https://web.dev.tumbler.social/blog/view/${BlogId}`} target="_blank" rel="noreferrer">
+        <Link to={'/blog/view/' + Blog.username} target="_blank">
           <FontAwesomeIcon className="icons" icon={faEye} color="white" />
-        </a>
+        </Link>
       </IconButton>
       {User.primaryBlogId.toString() !== BlogId && (
         <IconButton>
@@ -71,12 +74,11 @@ function ProfileNavBar({ BlogId }) {
       <IconButton>
         {User.primaryBlogId.toString() !== BlogId && <FontAwesomeIcon data-testid="HumanIcon" onClick={() => SetOpen(!Open)} className="icons" icon={faUserAlt} color="white" />}
         {User.primaryBlogId.toString() === BlogId && (
-          <a href={`https://web.dev.tumbler.social/settings/blog/${BlogId}`} target="blank">
+          <Link to={'/settings/blog/' + Blog.username} target="_blank">
             <FontAwesomeIcon className="icons" icon={faCog} color="white" />
-          </a>
+          </Link>
         )}
       </IconButton>
-
     </div>
   );
 }

@@ -52,6 +52,12 @@ import deleteAllMessagesReducer from './deleteallmessagesslice/deleteallmessages
 import BlogMessagesReducer from './retriveblogmessagesslice/retriveblogmessagesslice';
 import AllMessagesReducer from './retriveallmessagesslice/retriveallmessagesslice';
 import hideNavReducer from './hidenav/hidenavSlice';
+import deleteAskReducer from './deleteaskslice/deleteAskSlice';
+import deleteSubmitReducer from './deletesubmissionslice/deleteSubmissionSlice';
+import PostSubmitReducer from './submissionslice/approveSubmissionSlice';
+import AnswerReducer from './answerslice/answerSlice';
+import BlogIdReducer from './blognameslice/blogNameSlice';
+
 const store = configureStore({
   reducer: {
     followtags: followtagsReducer,
@@ -103,8 +109,13 @@ const store = configureStore({
     deleteblogmsg: deleteBlogMessagesReducer,
     deleteallmsg: deleteAllMessagesReducer,
     blogmessages: BlogMessagesReducer,
+    deleteask: deleteAskReducer,
+    deletesubmit: deleteSubmitReducer,
     allmessages: AllMessagesReducer,
     hideNav: hideNavReducer,
+    postSubmit: PostSubmitReducer,
+    postanswer: AnswerReducer,
+    blogId: BlogIdReducer,
   },
 });
 

@@ -1,4 +1,4 @@
-import { React, useEffect, useRef } from 'react';
+import { React, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import MediaQuery from 'react-responsive';
@@ -19,7 +19,7 @@ import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
 import HomePage from './components/HomePage/HomePage';
 import { initialCheck } from './states/User/UserSlice';
-import { getBlogs, fetchBlogs } from './states/blogslice/blogsslice';
+// import { getBlogs, fetchBlogs } from './states/blogslice/blogsslice';
 import TextPosts from './components/TextPosts/TextPosts';
 import VideoPosts from './components/VideoPosts/VideoPosts';
 import ImagePosts from './components/ImagePosts/ImagePosts';
@@ -54,27 +54,27 @@ import { selectHideNav } from './states/hidenav/hidenavSlice';
 function App() {
   const dispatch = useDispatch();
   dispatch(initialCheck());
-  useEffect(() => {
-    // changeTheme("'Pacifico', cursive !important", 'pink', 'rgb(6, 24, 51)');
-    dispatch(fetchBlogs());
-  }, []);
-  const blogs = useSelector(getBlogs).response;
+  // useEffect(() => {
+  //   // changeTheme("'Pacifico', cursive !important", 'pink', 'rgb(6, 24, 51)');
+  //   dispatch(fetchBlogs());
+  // }, []);
+  // const blogs = useSelector(getBlogs).response;
   const hideNav = useSelector(selectHideNav);
   const wrapperRef = useRef(null);
   return (
     <Router>
       <div className="App">
-        { !hideNav.hideAll
-        && (
-        <>
-          <MediaQuery minWidth={1070}>
-            <NavigationBar />
-          </MediaQuery>
-          <MediaQuery maxWidth={1070}>
-            <NavigationBarResp pageRef={wrapperRef} />
-          </MediaQuery>
-        </>
-        )}
+        {!hideNav.hideAll
+          && (
+            <>
+              <MediaQuery minWidth={1070}>
+                <NavigationBar />
+              </MediaQuery>
+              <MediaQuery maxWidth={1070}>
+                <NavigationBarResp pageRef={wrapperRef} />
+              </MediaQuery>
+            </>
+          )}
 
       </div>
       <div className="page-wrapper" ref={wrapperRef}>
@@ -109,16 +109,14 @@ function App() {
           <Route path="/blog/:blogname" element={<BlogPage />} />
           <Route path="/blog/:blogname/activity" element={<Activity />} />
           <Route path="/blog/:blogname/drafts" element={<Drafts />} />
-          <Route path="/blog/view/:blogid" element={<RightBar />} />
+          <Route path="/blog/view/:username" element={<RightBar />} />
           {/* <Route path="/profiletemp" element={<ProfileHeader BlogId={2} />} /> */}
-          <Route path="/profile/:blogid" element={<Posts />} />
-          <Route path="/profile/:blogid/likes" element={<Likes />} />
-          <Route path="/profile/:blogid/ask" element={<Ask />} />
-          <Route path="/profile/:blogid/submit" element={<Submit />} />
+          <Route path="/profile/:username" element={<Posts />} />
+          <Route path="/profile/:username/likes" element={<Likes />} />
+          <Route path="/profile/:username/ask" element={<Ask />} />
+          <Route path="/profile/:username/submit" element={<Submit />} />
           <Route path="/inbox" element={<AllMassages />} />
-          {/* eslint-disable */
-          blogs && blogs.blogs && blogs.blogs?.map((blog) => ((blog.allow_ask || blog.allow_submittions) && <Route key={blog.id} path={'/blog/' + blog.username + '/messages'} element={<BlogMessages BlogId={blog.id} />} />))
-        /* eslint-enable */}
+          <Route path="/blog/:username/messages" element={<BlogMessages />} />
           <Route path="/artifacts" element={<ArtifactsPage />} />
           <Route path="/new/blog" element={<NewTumblr />} />
         </Routes>

@@ -1,27 +1,34 @@
 import * as React from 'react';
 import './css/ProfileHeader.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import Grid from '@mui/material/Grid';
+// import Grid from '@mui/material/Grid';
+import ReactLoading from 'react-loading';
 import ProfileHeader from './ProfileHeader';
 import { getBlog, fetchBlog } from '../../states/blogslice/blogslice';
-import PostsList from '../PostsList/PostsList';
+// import PostsList from '../PostLikes/PostsLikes';
+import LikesPosts from '../LikesPosts/LikesPosts';
 import { getPostsliked, fetchAsyncPostsLiked } from '../../states/likedposts/likedpostsSlice';
-import { tosmall } from '../../states/features/postview/postviewSlice';
+// import { tosmall } from '../../states/features/postview/postviewSlice';
+import { getBlogId, fetchBlogId } from '../../states/blognameslice/blogNameSlice';
 
 function Likes() {
-  const { blogid } = useParams();
+  const { username } = useParams();
   const dispatch = useDispatch();
-
+  const blogid = useSelector(getBlogId).response.id;
   React.useEffect(() => {
+    dispatch(fetchBlogId(username));
     dispatch(fetchBlog(blogid)); // will use blogId
     dispatch(fetchAsyncPostsLiked(blogid));
-    dispatch(tosmall());
-  }, []);
+    // dispatch(tosmall());
+  }, [blogid]);
   const Blog = useSelector(getBlog).response;
   const Posts = useSelector(getPostsliked);
-
-  return Blog.share_likes ? (
+  const Error = useSelector(getBlogId).error;
+  const statue = useSelector(getBlogId).meta;
+  const BlogStatue = useSelector(getBlog).meta;
+  // eslint-disable-next-line no-nested-ternary
+  return statue.msg === 'ok' && BlogStatue.msg === 'ok' ? (Blog.share_likes ? (
     <div>
       <ProfileHeader BlogId={blogid} />
       <div className="navv">
@@ -30,7 +37,7 @@ function Likes() {
             <li className="navv-item">
               <Link
                 className="navv-link"
-                to={`/profile/${blogid}`}
+                to={`/profile/${Blog.username}`}
               >
                 POSTS
               </Link>
@@ -39,7 +46,7 @@ function Likes() {
               <li className="navv-item">
                 <Link
                   className="navv-link-selected"
-                  to={`/profile/${blogid}/likes`}
+                  to={`/profile/${Blog.username}/likes`}
                 >
                   LIKES
                 </Link>
@@ -49,7 +56,7 @@ function Likes() {
               <li className="navv-item">
                 <Link
                   className="navv-link"
-                  to={`/profile/${blogid}/ask`}
+                  to={`/profile/${Blog.username}/ask`}
                 >
                   ASK ME ANYTHING
                 </Link>
@@ -59,7 +66,7 @@ function Likes() {
               <li className="navv-item">
                 <Link
                   className="navv-link"
-                  to={`/profile/${blogid}/submit`}
+                  to={`/profile/${Blog.username}/submit`}
                 >
                   SUBMIT A POST
                 </Link>
@@ -69,9 +76,7 @@ function Likes() {
         </div>
       </div>
       <div className="liked-posts">
-        <Grid container spacing={1} item xs={3} lg={3} sx={{ marginLeft: '20%' }}>
-          <PostsList Posts={Posts} />
-        </Grid>
+        <LikesPosts Posts={Posts} />
       </div>
     </div>
   ) : (
@@ -80,6 +85,12 @@ function Likes() {
       {!Blog.share_likes && <div div className="not-found"> This blog not allow his likes to been seen </div>}
     </>
 
+  )) : (
+    (Error && (<Navigate to="/notfound" />)) || (
+      <>
+        <ReactLoading type="bars" color="#fff" width={157} className="loading-block" />
+      </>
+    )
   );
 }
 export default Likes;

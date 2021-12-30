@@ -11,6 +11,9 @@
   padding: 0;
   vertical-align: baseline;
 }
+.kak{
+  color: white !important;
+}
 .action {
   font-size: 1rem;
   font-weight: 700;
@@ -19,7 +22,12 @@
   margin-left: 1px;
   position: relative;
 }
-
+.answer-text{
+  padding: 15px;
+  width: 400px;
+  color: white;
+  background: transparent;
+}
 .notebutton {
   cursor: pointer;
   display: inline-block;

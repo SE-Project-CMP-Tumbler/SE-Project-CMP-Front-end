@@ -4,33 +4,43 @@ import './css/Inbox.css';
 import { useMediaQuery } from 'react-responsive';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
-import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+// import PropTypes from 'prop-types';
+import ReactLoading from 'react-loading';
+import { Link, useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
 import LeftContent from './BlogLeftContainer';
 import { getBlogs, fetchBlogs } from '../../states/blogslice/blogsslice';
-import { fetchAsyncBlogMessages } from '../../states/retriveblogmessagesslice/retriveblogmessagesslice';
+import { fetchAsyncBlogMessages, getBlogMessages } from '../../states/retriveblogmessagesslice/retriveblogmessagesslice';
 import { DeleteBlogMsgAsynch } from '../../states/deleteblogmessagesslice/deleteblogmessagesslice';
+import { getBlogId, fetchBlogId } from '../../states/blognameslice/blogNameSlice';
 
-const BlogMessages = ({ BlogId }) => {
+const BlogMessages = () => {
+  const { username } = useParams();
   const dispatch = useDispatch();// use BlogId
+  const BlogId = useSelector(getBlogId).response.id;
   React.useEffect(() => {
+    dispatch(fetchBlogId(username));
     dispatch(fetchBlogs());
     dispatch(fetchAsyncBlogMessages(BlogId));
-  }, []);
+  }, [BlogId, username]);
   const blogs = useSelector(getBlogs).response;
   const IsTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
   function handelDelete() {
     dispatch(DeleteBlogMsgAsynch(BlogId));
     dispatch(fetchAsyncBlogMessages(BlogId));
   }
+  const PostStatue = useSelector(getBlogMessages).meta;
   // here i should call some apis
   return (
 
     <div className="Base">
       <div className="container-m">
-        <div className="leftContent"><LeftContent /></div>
+        {PostStatue.status === '200' ? <div className="leftContent"><LeftContent BlogId={BlogId} /></div> : (
+          <>
+            <ReactLoading type="bars" color="#fff" width={157} className="loading-block" />
+          </>
+        )}
 
         <div className="rightContent">
           {!IsTabletOrMobile
@@ -66,9 +76,6 @@ const BlogMessages = ({ BlogId }) => {
       </div>
     </div>
   );
-};
-BlogMessages.propTypes = {
-  BlogId: PropTypes.func.isRequired,
 };
 
 export default BlogMessages;
