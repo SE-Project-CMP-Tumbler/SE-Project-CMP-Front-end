@@ -14,9 +14,9 @@ import EmailInputTextField from '../SignUpPage/subcomponents/EmailInputTextField
 import PasswordInputTextField from '../SignUpPage/subcomponents/PasswordInputTextField/PasswordInputTextField';
 import SettingsSideMenu from './subcomponents/SettingsSideMenu/SettingsSideMenu';
 import {
-  selectUser, initialCheck, selectStatus, selectStatusMessage, changeEmailThunk, changeEmailThunkR,
-  selectEmailChanged, setEmailChanged, selectPasswordChanged, setPasswordChanged,
-  changePasswordThunk, changePasswordThunkR,
+  selectUser, initialCheck, selectStatus, /* selectStatusMessage, */
+  changeEmailThunk, changeEmailThunkR, selectEmailChanged, setEmailChanged,
+  selectPasswordChanged, setPasswordChanged, changePasswordThunk, changePasswordThunkR, setStatus,
 } from '../../states/User/UserSlice';
 import { MOCK, REAL, SERVICETYPE } from '../../apis/globalAPI';
 
@@ -28,19 +28,20 @@ const AccountSettingsPage = () => {
   const emailChanged = useSelector(selectEmailChanged);
   const passwordChanged = useSelector(selectPasswordChanged);
   const status = useSelector(selectStatus);
-  const message = useSelector(selectStatusMessage);
+  // const message = useSelector(selectStatusMessage);
   const [editEmail, setEditEmail] = useState(false);
   const [editPassword, setEditPassword] = useState(false);
   const [currentPassword, setCurrentPassword] = useState('');
   const [confirmNewPassword, setConfirmNewPassword] = useState('');
-  console.log(status, message);
   if (status === '200' && emailChanged === false) {
     setEditEmail(false);
     dispatch(setEmailChanged(true));
+    dispatch(setStatus());
   }
   if (status === '200' && passwordChanged === false) {
     setEditPassword(false);
     dispatch(setPasswordChanged(true));
+    dispatch(setStatus());
     setCurrentPassword('');
     setConfirmNewPassword('');
   }

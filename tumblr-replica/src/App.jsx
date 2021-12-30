@@ -15,6 +15,7 @@ import ResetPasswordPage from './components/ResetPasswordPage/ResetPasswordPage'
 import DeleteAccountPage from './components/DeleteAccountPage/DeleteAccountPage';
 import VerifyEmailPage from './components/VerifyEmailPage/VerifyEmailPage';
 import AccountSettingsPage from './components/AccountSettingsPage/AccountSettingsPage';
+import BlogSettingsPage from './components/BlogSettingsPage/BlogSettingsPage';
 import Explore from './components/Explore/Explore';
 import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
@@ -102,7 +103,8 @@ function App() {
           <Route path="/register" element={<SignUpPage />} />
           <Route path="/forgot_password" element={<ForgotPasswordPage />} />
           <Route path="/reset_password/:id/:token" element={<ResetPasswordPage />} />
-          <Route path="/settings/account" element={<AccountSettingsPage />} />
+          <Route path="/settings/account/*" element={<AccountSettingsPage />} />
+          <Route path="/settings/blog/:blogname" element={<BlogSettingsPage />} />
           <Route path="/account/delete" element={<DeleteAccountPage />} />
           <Route path="/verify/:id/:hash" element={<VerifyEmailPage />} />
           <Route path="/explore/recommended-for-you" element={<Explore />} />

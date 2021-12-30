@@ -53,6 +53,7 @@ import deleteAllMessagesReducer from './deleteallmessagesslice/deleteallmessages
 import BlogMessagesReducer from './retriveblogmessagesslice/retriveblogmessagesslice';
 import AllMessagesReducer from './retriveallmessagesslice/retriveallmessagesslice';
 import hideNavReducer from './hidenav/hidenavSlice';
+import blogSettingsReducer from './blogsettingsslice/blogsettingsSlice';
 import deleteAskReducer from './deleteaskslice/deleteAskSlice';
 import deleteSubmitReducer from './deletesubmissionslice/deleteSubmissionSlice';
 import PostSubmitReducer from './submissionslice/approveSubmissionSlice';
@@ -128,6 +129,7 @@ const store = configureStore({
     searchStuff: searchStuffReducder,
     searchAutocomplete: searchAutocompleteReducer,
     postsubmit: SumbitReducer,
+    blogSettings: blogSettingsReducer,
   },
 });
 

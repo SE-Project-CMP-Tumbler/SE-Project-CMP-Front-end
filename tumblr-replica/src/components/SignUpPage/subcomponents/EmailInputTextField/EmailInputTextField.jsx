@@ -47,9 +47,7 @@ const EmailInputTextField = ({ marginOff, readonly, editEmail }) => {
           value={email}
           onChange={(e) => {
             setEmailh(e.target.value);
-            if (editEmail === false) {
-              dispatch(setEmail(e.target.value));
-            }
+            dispatch(setEmail(e.target.value));
           }}
           variant="outlined"
           fullWidth
