@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.backgrounds = exports.colors = exports.fonts = exports.changeTheme = exports.toggleDropDownM = exports.items = exports.newMessageHandler = exports.tumblrSelection = exports.chooseBlueItem = exports.toggleOptions = exports.useOutsideAlerter = exports.toggleIconColor = exports.toggleChatIcon = exports.toggleDrop = exports.toggleDropDown = void 0;
+exports.backgrounds = exports.colors = exports.fonts = exports.changeTheme = exports.toggleDropDownM = exports.items = exports.newMessageHandler = exports.tumblrSelection = exports.chooseBlueItem = exports.toggleOptions = exports.useOutsideAlerter = exports.toggleIconColor = exports.toggleChatIcon = exports.toggleDropDown = void 0;
 
 var _react = require("react");
 
@@ -34,19 +34,6 @@ var toggleDropDown = function toggleDropDown(toggleRef, allRefs) {
     }
   });
 };
-
-exports.toggleDropDown = toggleDropDown;
-
-var toggleDrop = function toggleDrop(toggleRef) {
-  // one dropdown open at a time:
-  var el = toggleRef;
-  var dropdown = el.current;
-  dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
-  var icon = el.current.childNodes[0].childNodes[0].childNodes[0];
-  var white = 'brightness(100%)';
-  var grey = 'brightness(70%)';
-  icon.style.filter = icon.style.filter === grey ? white : grey;
-};
 /**
  * Toggles one of the three main drop down menus of the navigation bar.
  * @method
@@ -55,7 +42,7 @@ var toggleDrop = function toggleDrop(toggleRef) {
  */
 
 
-exports.toggleDrop = toggleDrop;
+exports.toggleDropDown = toggleDropDown;
 
 var toggleChatIcon = function toggleChatIcon(toggleRef) {
   // one dropdown open at a time:
