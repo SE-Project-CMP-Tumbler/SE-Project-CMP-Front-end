@@ -112,6 +112,7 @@ function App() {
           <Route path="/blog/:blogname" element={<BlogPage />} />
           <Route path="/blog/:blogname/activity" element={<Activity />} />
           <Route path="/blog/:blogname/drafts" element={<Drafts />} />
+          {/* <Route path="/blog/:blogname/delete" element={<DeleteBlogPage />} /> */}
           <Route path="/blog/view/:blogid" element={<RightBar />} />
           {/* <Route path="/profiletemp" element={<ProfileHeader BlogId={2} />} /> */}
           <Route path="/profile/:blogid" element={<Posts />} />

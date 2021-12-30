@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { Link, useParams } from 'react-router-dom';
 import ReactLoading from 'react-loading';
@@ -12,7 +12,7 @@ import Switch from '@mui/material/Switch';
 import Select from '@mui/material/Select';
 import MenuItem from '@mui/material/MenuItem';
 import FormControlLabel from '@mui/material/FormControlLabel';
-// import TextField from '@mui/material/TextField';
+import TextField from '@mui/material/TextField';
 // import CreateOutlinedIcon from '@mui/icons-material/CreateOutlined';
 import { createTheme, ThemeProvider, styled } from '@mui/material/styles';
 import SettingsSideMenu from '../AccountSettingsPage/subcomponents/SettingsSideMenu/SettingsSideMenu';
@@ -20,6 +20,8 @@ import { selectUser } from '../../states/User/UserSlice';
 import {
   getBlogSettings, putBlogSettings, selectBlogInfo, selectBlogSettings, selectStatus,
   setShareLikes, setShareFollowings, setAllowMessages, setRepliesSettings, setAllowAsk,
+  setAllowAnonymousQuestions, setAllowSubmittions, setAskPageTitle, setSubmissionPageTitle,
+  putSubmissionGuidelines,
 } from '../../states/blogsettingsslice/blogsettingsSlice';
 
 const AccountSettingsPage = () => {
@@ -30,9 +32,7 @@ const AccountSettingsPage = () => {
   const status = useSelector(selectStatus);
   const blog = useSelector(selectBlogInfo);
   const blogSettings = useSelector(selectBlogSettings);
-  console.log(user.accessToken);
-  console.log(user.id);
-  // const [likes, setLikes] = useState(blogSettings.share_likes);
+  const [timer, setTimer] = useState(null);
   useEffect(() => {
     dispatch(getBlogSettings(params.blogname));
   }, []);
@@ -471,6 +471,128 @@ const AccountSettingsPage = () => {
                       </Link>
                       {' to ask you questions.'}
                     </Typography>
+                    { blogSettings.ask_settings.allow_ask && (
+                      <Box>
+                        <Typography
+                          component="h2"
+                          fontSize="12px"
+                          fontFamily='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif'
+                          color="#999999"
+                          sx={{
+                            flex: '0 1 145px',
+                            minWidth: '145px',
+                            padding: '0 10px',
+                            mt: '20px',
+                          }}
+                        >
+                          Ask page title
+                        </Typography>
+                        <Box sx={{ marginBottom: '20px' }}>
+                          <TextField
+                            id="ask-page-title"
+                            type="text"
+                            placeholder=""
+                            value={blogSettings.ask_settings.ask_page_title}
+                            onChange={(e) => {
+                              dispatch(setAskPageTitle(e.target.value));
+                              clearTimeout(timer);
+                              const newTimer = setTimeout(() => {
+                                dispatch(putBlogSettings(blog.id));
+                              }, 1000);
+                              setTimer(newTimer);
+                            }}
+                            variant="outlined"
+                            fullWidth
+                            autoFocus
+                            disableRipple
+                            disableElevation
+                            style={{
+                              backgroundColor: '#FFFFFF', // '#E8F0FE',
+                              borderRadius: 3,
+                              fontSize: '13px',
+                              border: 'none',
+                            }}
+                            inputProps={{
+                              style: {
+                                padding: '11px 13px',
+                                // TO DO: Later remove the hover and focus effects
+                              },
+                            }}
+                          />
+                        </Box>
+                        <FormControlLabel
+                          control={(
+                            <AntSwitch
+                              theme={theme}
+                              checked={blogSettings.ask_settings.allow_anonymous_questions}
+                              onChange={(e) => {
+                                dispatch(setAllowAnonymousQuestions(e.target.checked));
+                                dispatch(putBlogSettings(blog.id));
+                              }}
+                            />
+                        )}
+                          label="Allow anonymous questions"
+                          style={{
+                            fontWeight: 'normal',
+                            color: '#444444',
+                            margin: '0 0 5px',
+                            fontSize: '14px',
+                          }}
+                          sx={{
+                            flex: '0 1 145px',
+                            minWidth: '145px',
+                            mt: '20px',
+                          }}
+                        />
+                      </Box>
+                    ) }
+
+                  </Box>
+                </Box>
+                <Box
+                  sx={{
+                    // borderBottom: '1px solid rgba(0,0,0,.07)',
+                    display: 'flex',
+                    flexDirection: 'row',
+                    padding: '20px 0',
+                  }}
+                >
+                  <Typography
+                    component="h2"
+                    fontSize="14px"
+                    fontFamily='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif'
+                    color="#444444"
+                    fontWeight="700"
+                    sx={{
+                      flex: '0 1 145px',
+                      minWidth: '145px',
+                      padding: '0 10px',
+                    }}
+                  >
+                    Submissions
+                  </Typography>
+                  <Box sx={{ margin: '0 10px', color: '#000000' }}>
+                    <Box sx={{ alignItems: 'flex-start', justifyContent: 'space-between', flexDirection: 'row' }}>
+                      <FormControlLabel
+                        control={(
+                          <AntSwitch
+                            theme={theme}
+                            checked={blogSettings.submissions_settings.allow_submittions}
+                            onChange={(e) => {
+                              dispatch(setAllowSubmittions(e.target.checked));
+                              dispatch(putBlogSettings(blog.id));
+                            }}
+                          />
+                        )}
+                        label="Let people submit posts"
+                        style={{
+                          fontWeight: 'normal',
+                          color: '#444444',
+                          margin: '0 0 5px',
+                          fontSize: '14px',
+                        }}
+                      />
+                    </Box>
                     <Typography
                       component="h2"
                       fontSize="12px"
@@ -480,11 +602,133 @@ const AccountSettingsPage = () => {
                         flex: '0 1 145px',
                         minWidth: '145px',
                         padding: '0 10px',
-                        mt: '20px',
                       }}
                     >
-                      Ask page title
+                      {'Send your audience to '}
+                      <Link
+                        to={'/profile/' + blog.id + '/submit'}
+                        sx={{
+                          textDecoration: 'underline',
+                          fontSize: '12px',
+                          color: '#999999',
+                          fontFamily: '"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif',
+                        }}
+                      >
+                        <Typography
+                          fontSize="12px"
+                          fontFamily='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif'
+                          color="#999999"
+                          sx={{
+                            textDecoration: 'underline',
+                            display: 'inline',
+                          }}
+                        >
+                          /submit
+                        </Typography>
+                      </Link>
+                      {' to submit posts into your submission queue for approval.'}
                     </Typography>
+                    { blogSettings.submissions_settings.allow_submittions && (
+                      <Box>
+                        <Typography
+                          component="h2"
+                          fontSize="12px"
+                          fontFamily='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif'
+                          color="#999999"
+                          sx={{
+                            flex: '0 1 145px',
+                            minWidth: '145px',
+                            padding: '0 10px',
+                            mt: '20px',
+                          }}
+                        >
+                          Submissions page title
+                        </Typography>
+                        <Box sx={{ marginBottom: '20px' }}>
+                          <TextField
+                            id="submission-page-title"
+                            type="text"
+                            placeholder=""
+                            value={blogSettings.submissions_settings.submissions_page_title}
+                            onChange={(e) => {
+                              dispatch(setSubmissionPageTitle(e.target.value));
+                              clearTimeout(timer);
+                              const newTimer = setTimeout(() => {
+                                dispatch(putBlogSettings(blog.id));
+                              }, 1000);
+                              setTimer(newTimer);
+                            }}
+                            variant="outlined"
+                            fullWidth
+                            autoFocus
+                            disableRipple
+                            disableElevation
+                            style={{
+                              backgroundColor: '#FFFFFF', // '#E8F0FE',
+                              borderRadius: 3,
+                              fontSize: '13px',
+                              border: 'none',
+                            }}
+                            inputProps={{
+                              style: {
+                                padding: '11px 13px',
+                                // TO DO: Later remove the hover and focus effects
+                              },
+                            }}
+                          />
+                        </Box>
+                        <Typography
+                          component="h2"
+                          fontSize="12px"
+                          fontFamily='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif'
+                          color="#999999"
+                          sx={{
+                            flex: '0 1 145px',
+                            minWidth: '145px',
+                            padding: '0 10px',
+                            mt: '20px',
+                          }}
+                        >
+                          Submissions guidelines
+                        </Typography>
+                        <Box sx={{ marginBottom: '20px' }}>
+                          <TextField
+                            id="submissions-guidelines"
+                            type="text"
+                            placeholder=""
+                            multiline
+                            maxRows={4}
+                            value={blogSettings.submissions_settings.submissions_guidelines}
+                            onChange={(e) => {
+                              dispatch(putSubmissionGuidelines(e.target.value));
+                              clearTimeout(timer);
+                              const newTimer = setTimeout(() => {
+                                dispatch(putBlogSettings(blog.id));
+                              }, 1500);
+                              setTimer(newTimer);
+                            }}
+                            variant="outlined"
+                            fullWidth
+                            autoFocus
+                            disableRipple
+                            disableElevation
+                            style={{
+                              backgroundColor: '#FFFFFF', // '#E8F0FE',
+                              borderRadius: 3,
+                              fontSize: '13px',
+                              border: 'none',
+
+                            }}
+                            inputProps={{
+                              style: {
+                                padding: '11px 13px',
+                                // TO DO: Later remove the hover and focus effects
+                              },
+                            }}
+                          />
+                        </Box>
+                      </Box>
+                    ) }
                   </Box>
                 </Box>
                 <Box
@@ -546,6 +790,81 @@ const AccountSettingsPage = () => {
                       to start conversations with you.
                     </Typography>
                   </Box>
+                </Box>
+                <Box>
+                  { blog.is_primary ? (
+                    <Box
+                      sx={{
+                        margin: '20px 10px 0 0',
+                      }}
+                    >
+                      <Link
+                        to="/account/delete"
+                      >
+                        <Button
+                          disableRipple
+                          disableElevation
+                          variant="contained"
+                          font="'Favorit', 'Helvetica Neue', 'HelveticaNeue', Helvetica, Arial, sans-serif;"
+                          style={{
+                            backgroundColor: '#FF4930', // '#FFFFFF',
+                            fontWeight: '700',
+                            textTransform: 'none',
+                            // border: '1px solid rgba(0,0,0,.4)',
+                            border: '1px solid #FF4930',
+                            borderRadius: '2px',
+                          }}
+                        >
+                          <Typography
+                            component="h2"
+                            fontSize="13px"
+                            fontFamily='Favorit, "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif'
+                    // color="#00000066"
+                            color="#FFFFFF"
+                          >
+                            Delete account
+                          </Typography>
+                        </Button>
+                      </Link>
+                    </Box>
+                  ) : (
+                    <Box
+                      sx={{
+                        margin: '20px 10px 0 0',
+                      }}
+                    >
+                      <Link
+                        to={'/blog/' + blog.username + '/delete'}
+                      >
+                        <Button
+                          disableRipple
+                          disableElevation
+                          variant="contained"
+                          font="'Favorit', 'Helvetica Neue', 'HelveticaNeue', Helvetica, Arial, sans-serif;"
+                          style={{
+                            backgroundColor: '#FF4930', // '#FFFFFF',
+                            fontWeight: '700',
+                            textTransform: 'none',
+                            // border: '1px solid rgba(0,0,0,.4)',
+                            border: '1px solid #FF4930',
+                            borderRadius: '2px',
+                          }}
+                        >
+                          <Typography
+                            component="h2"
+                            fontSize="13px"
+                            fontFamily='Favorit, "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif'
+                    // color="#00000066"
+                            color="#FFFFFF"
+                          >
+                            Delete
+                            {' '}
+                            {blog.username}
+                          </Typography>
+                        </Button>
+                      </Link>
+                    </Box>
+                  ) }
                 </Box>
               </Box>
             </Box>

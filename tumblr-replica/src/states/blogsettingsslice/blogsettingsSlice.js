@@ -86,6 +86,56 @@ const blogSettings = createSlice({
       const s = state;
       s.settings.ask_settings.allow_ask = action.payload;
     },
+    /**
+     * This function sets whether Allow Anonymous Questions is on or not
+     * @method
+     * @param {object} state The object that stores the current Allow Anonymous Questions
+     * @param {object} action The object containing the new Allow Anonymous Questions
+     */
+    setAllowAnonymousQuestions: (state, action) => {
+      const s = state;
+      s.settings.ask_settings.allow_anonymous_questions = action.payload;
+    },
+    /**
+     * This function sets the Ask Page Title
+     * @method
+     * @param {object} state The object that stores the current Ask Page Title
+     * @param {object} action The object containing the new Ask Page Title
+     */
+    setAskPageTitle: (state, action) => {
+      const s = state;
+      s.settings.ask_settings.ask_page_title = action.payload;
+    },
+    /**
+     * This function sets whether Allow Submittions is on or not
+     * @method
+     * @param {object} state The object that stores the current Allow Submittions
+     * @param {object} action The object containing the new Allow Submittions
+     */
+    setAllowSubmittions: (state, action) => {
+      const s = state;
+      s.settings.submissions_settings.allow_submittions = action.payload;
+    },
+    /**
+     * This function sets the value of the Submission Page Title
+     * @method
+     * @param {object} state The object that stores the current Submission Page Title
+     * @param {object} action The object containing the new Submission Page Title
+     */
+    setSubmissionPageTitle: (state, action) => {
+      const s = state;
+      s.settings.submissions_settings.submissions_page_title = action.payload;
+    },
+    /**
+     * This function sets the value of the Submission Guidelines
+     * @method
+     * @param {object} state The object that stores the current Submission Guidelines
+     * @param {object} action The object containing the new Submission Guidelines
+     */
+    putSubmissionGuidelines: (state, action) => {
+      const s = state;
+      s.settings.submissions_settings.submissions_guidelines = action.payload;
+    },
   },
 
   extraReducers: {
@@ -95,7 +145,6 @@ const blogSettings = createSlice({
     },
     [getBlogId.fulfilled]: (state, { payload }) => {
       const s = state;
-      console.log(payload);
       s.blogInfo = payload;
       s.settings.id = payload.id;
       s.settings.blogUsername = payload.username;
@@ -110,17 +159,15 @@ const blogSettings = createSlice({
     },
     [getBlogSettings.fulfilled]: (state, { payload }) => {
       const s = state;
-      // console.log(payload);
       if (payload.settings.meta.status === '200') {
-        // console.log(payload);
         s.settings = payload.settings.response;
         s.blogInfo = payload.blogInfo;
         s.settingsStatus = '200';
       }
       s.isLoading = false;
-      console.log('Blog Settings:', s.settings);
-      console.log('BlogInfo', s.blogInfo);
-      console.log('BlogStatus', s.settingsStatus);
+    //   console.log('Blog Settings:', s.settings);
+    //   console.log('BlogInfo', s.blogInfo);
+    //   console.log('BlogStatus', s.settingsStatus);
     },
     [getBlogSettings.rejected]: () => {
 
@@ -131,9 +178,7 @@ const blogSettings = createSlice({
     },
     [putBlogSettings.fulfilled]: (state, { payload }) => {
       const s = state;
-      console.log(payload);
       if (payload.meta.status === '200') {
-        console.log('Settings Changed Successfully');
         s.settings = payload.response;
         // s.settingsStatus = '200';
       }
@@ -152,6 +197,7 @@ export const selectStatus = (state) => state.blogSettings.settingsStatus;
 export { getBlogId, getBlogSettings, putBlogSettings };
 export const {
   resetStatus, setShareLikes, setShareFollowings, setAllowMessages, setRepliesSettings,
-  setAllowAsk,
+  setAllowAsk, setAllowAnonymousQuestions, setAllowSubmittions, setAskPageTitle,
+  setSubmissionPageTitle, putSubmissionGuidelines,
 } = blogSettings.actions;
 export default blogSettings.reducer;

@@ -69,12 +69,27 @@ export const putBlogSettings = createAsyncThunk(
         const state = getState();
         const USERTOKEN = state.user.user.accessToken;
         const AuthStr = `Bearer ${USERTOKEN}`;
-        console.log(state.blogSettings.settings.submissions_settings.allow_submittions);
-        console.log(state.blogSettings.settings.submissions_settings.allow_submittions);
+        const as = state.blogSettings.settings.submissions_settings.allow_submittions;
+        const apt = state.blogSettings.settings.ask_settings.ask_page_title;
+        const spt = state.blogSettings.settings.submissions_settings.submissions_page_title;
+        const sg = state.blogSettings.settings.submissions_settings.submissions_guidelines;
+        const body = {
+          replies_settings: state.blogSettings.settings.replies_settings,
+          allow_ask: state.blogSettings.settings.ask_settings.allow_ask,
 
-        // const apt = state.blogSettings.settings.ask_settings.ask_page_title;
-        // const spt = state.blogSettings.settings.submissions_settings.submissions_page_title === undefined ? '' : state.blogSettings.settings.submissions_settings.submissions_page_title;
-        // const sg = state.blogSettings.settings.submissions_settings.submissions_guidelines === undefined ? '' : state.blogSettings.settings.submissions_settings.submissions_guidelines;
+          ask_page_title: apt,
+
+          allow_anonymous_questions: state.blogSettings.settings.ask_settings.allow_anonymous_questions,
+
+          allow_submittions: as,
+
+          submissions_page_title: spt,
+          submissions_guidelines: sg,
+          allow_messages: state.blogSettings.settings.allow_messages,
+          share_likes: state.blogSettings.settings.share_likes,
+          share_followings: state.blogSettings.settings.share_followings,
+        };
+
         const response = await Axios({
           method: 'PUT',
           url: `${apiReal}/blog_settings/${blogId}`,
@@ -83,36 +98,10 @@ export const putBlogSettings = createAsyncThunk(
             Accept: 'application/json',
             'Content-Type': 'application/json',
           },
-          data: {
-            replies_settings: state.blogSettings.settings.replies_settings,
-            allow_ask: state.blogSettings.settings.ask_settings.allow_ask,
-            // ask_page_title: apt,
-
-            // allow_anonymous_questions: state.blogSettings.settings.ask_settings.allow_anonymous_questions,
-            // allow_submittions: state.blogSettings.settings.submissions_settings.allow_submittions,
-
-            // submissions_page_title: spt,
-            // submissions_guidelines: sg,
-            allow_messages: state.blogSettings.settings.allow_messages,
-            share_likes: state.blogSettings.settings.share_likes,
-            share_followings: state.blogSettings.settings.share_followings,
-          },
+          data: body,
         });
-        console.log('Share Likes Changed Successfully');
-        console.log(response.data);
-        // await apiR.put(`blog_settings/${blogId}`, {
-        //   headers: {
-        //     Authorization: AuthStr,
-        //     Accept: 'application/json',
-        //     'Content-Type': 'application/json',
-        //   },
-        //   data: {
-        //     share_likes: state.blogSettings.settings.share_likes,
-        //   },
-        // });
         return response.data;
       } catch (e) {
-        console.log('Error!');
         throw Error(e);
       }
     }
