@@ -62,6 +62,7 @@ import themeReducer from './theme/themeSlice';
 import notificationsReducer from './notifications/notificationSlice';
 import searchStuffReducder from './search/searchSlice';
 import searchAutocompleteReducer from './search/autocompleteSlice';
+import SumbitReducer from './submit/submitAPI';
 
 const store = configureStore({
   reducer: {
@@ -126,6 +127,7 @@ const store = configureStore({
     notifications: notificationsReducer,
     searchStuff: searchStuffReducder,
     searchAutocomplete: searchAutocompleteReducer,
+    postsubmit: SumbitReducer,
   },
 });
 

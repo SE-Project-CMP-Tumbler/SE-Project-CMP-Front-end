@@ -46,7 +46,7 @@ import NewTumblr from './components/NewTumblr/NewTumblr';
 import Following from './components/Following/Following';
 import Followers from './components/Followers/Followers';
 import ChatListResp from './components/ChatListResp/ChatListResp';
-// import ChatComponentResp from '../ChatComponentResp/ChatComponentResp';
+import ChatComponentResp from './components/ChatComponentResp/ChatComponentResp';
 // import { selectUser } from './states/user/UserSlice';
 import NotFound from './components/NotFound/NoteFound';
 import { selectHideNav } from './states/hidenav/hidenavSlice';
@@ -55,6 +55,7 @@ import {
 } from './components/NavigationBar/interactions';
 import { selectTheme } from './states/theme/themeSlice';
 import SearchPage from './components/SearchPage/SearchPage';
+import Header from './components/Profile/subcomponents/Header';
 
 function App() {
   const dispatch = useDispatch();
@@ -89,9 +90,9 @@ function App() {
           <Route exact path="/search/:word" element={<SearchPage />} />
           <Route exact path="/chat" element={<ChatBundle />} />
           <Route exact path="/messaging" element={<ChatListResp />} />
-          {/* <Route exact path={`/messaging/new/${user.blogName}`}element={<ChatListResp />} /> */}
+          <Route exact path="/messaging/conversation/:username/:friendname" element={<ChatComponentResp />} />
+          <Route path="/blog/:username/followers" element={<Followers />} />
           <Route path="/following" element={<Following />} />
-          <Route path="/followerspage" element={<Followers />} />
           <Route exact path="/dashboard" element={<Newsfeed />} />
           <Route exact path="/login" element={<LogInPage />} />
           <Route path="/onboarding" element={<RegisterWithGooglePage />} />
@@ -106,6 +107,7 @@ function App() {
           <Route path="/explore/trending" element={<Trending />} />
           <Route path="/explore/staff-picks" element={<StaffPicks />} />
           <Route path="/explore/text" element={<TextPosts />} />
+          <Route path="/Header" element={<Header />} />
           <Route path="/explore/photos" element={<ImagePosts />} />
           <Route path="/explore/quotes" element={<QuotePosts />} />
           <Route path="/explore/chats" element={<ChatPosts />} />
