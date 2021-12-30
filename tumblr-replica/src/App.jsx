@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { React, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -49,7 +50,7 @@ import ChatListResp from './components/ChatListResp/ChatListResp';
 import ChatComponentResp from './components/ChatComponentResp/ChatComponentResp';
 // import { selectUser } from './states/user/UserSlice';
 import NotFound from './components/NotFound/NoteFound';
-import { selectHideNav } from './states/hidenav/hidenavSlice';
+import { selectHideNav, setHideAll } from './states/hidenav/hidenavSlice';
 import {
   changeTheme, fonts, colors, backgrounds,
 } from './components/NavigationBar/interactions';
@@ -66,12 +67,13 @@ function App() {
   useEffect(() => {
     changeTheme(fonts[themeState.theme],
       colors[themeState.theme], backgrounds[themeState.theme]);
+    setHideAll(false);
   }, [themeState.theme]);
 
   return (
     <Router>
       <div className="App">
-        {!hideNav.hideAll
+        {true
           && (
             <>
               <MediaQuery minWidth={1070}>
