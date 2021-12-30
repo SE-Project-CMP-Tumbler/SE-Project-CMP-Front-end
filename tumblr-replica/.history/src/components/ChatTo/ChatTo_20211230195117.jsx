@@ -25,7 +25,6 @@ import './css/ChatList.css';
 function ChatTo() {
   const chats = useSelector((state) => state.Chat.chats);
   const User = useSelector(selectUser);
-  // const ListOpen = useSelector(true);
   const recentlyFollowed1 = useSelector((state) => state.Chat.recentlyfollowed);
   const newMessagePress1 = useSelector((state) => state.Chat.newmessagepress);
   const dispatch = useDispatch();
@@ -71,7 +70,7 @@ function ChatTo() {
                 {User.blogName}
               </button>
             </Box>
-            {newMessagePress1 && <span style={{ margin: '0 30px' }} />}
+            newMessagePress1&&<span style={{ margin: '0 30px' }} />
             <Box style={{ width: '50%' }}>
               <button
                 type="button"

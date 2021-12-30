@@ -7,7 +7,7 @@
     line-height: 21px;
 }
 .Nevermind{
-    color: #778899;
+    color: #778899';
     background-color: transparent;
     border: none;
     cursor: pointer;
@@ -25,5 +25,4 @@
   font-size: .78125rem;
   font-weight: 600;
   text-align:right;
-  margin-left: 20px;
 }

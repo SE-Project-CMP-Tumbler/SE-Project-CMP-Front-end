@@ -7,23 +7,23 @@
     line-height: 21px;
 }
 .Nevermind{
-    color: #778899;
+    color: '#778899';
     background-color: transparent;
     border: none;
     cursor: pointer;
     font-size: .78125rem;
-    font-weight: 600;
+    font-weight: 700;
     margin-left: 10px;
     text-align:right;
 
 }
 .NewMessage{
-  color: #00bfff!important;
+  color: '#00bfff' ;
   background-color: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: .78125rem;
-  font-weight: 600;
-  text-align:right;
-  margin-left: 20px;
+    border: none;
+    cursor: pointer;
+    font-size: .78125rem;
+    font-weight: 700;
+    margin-left: 10px;
+    text-align:right;
 }

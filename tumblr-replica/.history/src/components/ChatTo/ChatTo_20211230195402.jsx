@@ -25,7 +25,7 @@ import './css/ChatList.css';
 function ChatTo() {
   const chats = useSelector((state) => state.Chat.chats);
   const User = useSelector(selectUser);
-  // const ListOpen = useSelector(true);
+  const ListOpen = useSelector(true);
   const recentlyFollowed1 = useSelector((state) => state.Chat.recentlyfollowed);
   const newMessagePress1 = useSelector((state) => state.Chat.newmessagepress);
   const dispatch = useDispatch();

@@ -25,7 +25,6 @@ import './css/ChatList.css';
 function ChatTo() {
   const chats = useSelector((state) => state.Chat.chats);
   const User = useSelector(selectUser);
-  // const ListOpen = useSelector(true);
   const recentlyFollowed1 = useSelector((state) => state.Chat.recentlyfollowed);
   const newMessagePress1 = useSelector((state) => state.Chat.newmessagepress);
   const dispatch = useDispatch();
@@ -71,16 +70,25 @@ function ChatTo() {
                 {User.blogName}
               </button>
             </Box>
-            {newMessagePress1 && <span style={{ margin: '0 30px' }} />}
+            <span style={{ margin: '0 30px' }} />
             <Box style={{ width: '50%' }}>
               <button
                 type="button"
                 onClick={() => {
                   dispatch(newMessagePress());
                 }}
-                className={newMessagePress1 ? 'Nevermind' : 'NewMessage'}
+                style={{
+                  color: {'#00bfff', '#778899'},
+                  backgroundColor: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '.78125rem',
+                  fontWeight: '700',
+                  marginLeft: '10px',
+                  textAlign: 'right',
+                }}
               >
-                {newMessagePress1 ? 'Nevermind' : 'New Message'}
+                {color: '#00bfff', 'Nevermind' : 'New Message'}
               </button>
             </Box>
           </Box>
