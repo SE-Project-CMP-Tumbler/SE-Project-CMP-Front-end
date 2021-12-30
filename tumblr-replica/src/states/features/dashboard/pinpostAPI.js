@@ -4,7 +4,7 @@ import { api, apiR, SERVICETYPE } from '../../../apis/globalAPI';
 
 const PinPost = createAsyncThunk(
   'DashPosts/CreatePost',
-  async ({ blogID, postID, User }) => {
+  async ({ postID, User }) => {
     const USER_TOKEN = User.accessToken;
     const AuthStr = `Bearer ${USER_TOKEN}`;
     if (SERVICETYPE === 0) {
@@ -17,11 +17,10 @@ const PinPost = createAsyncThunk(
           'Content-Type': 'application/json',
         },
         data: {
-          blog_id: blogID,
+          blog_id: User.primaryBlogId,
           post_id: postID,
         },
       });
-      console.log(response.data);
       return response.data;
     }
     try {
@@ -34,15 +33,12 @@ const PinPost = createAsyncThunk(
           'Content-Type': 'application/json',
         },
         data: {
-          blog_id: blogID,
+          blog_id: User.primaryBlogId,
           post_id: postID,
         },
       });
-      console.log('bla');
-      console.log(response.data);
       return response.data;
-    } catch (err) {
-      console.log(err);
+    } catch {
       return [];
     }
   },

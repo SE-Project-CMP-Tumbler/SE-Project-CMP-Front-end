@@ -18,11 +18,8 @@ const uploadVideo = createAsyncThunk(
           },
           data: img,
         });
-        console.log('bla');
-        console.log(response.data);
         return response.data;
-      } catch (err) {
-        console.log(err);
+      } catch {
         return [];
       }
     }

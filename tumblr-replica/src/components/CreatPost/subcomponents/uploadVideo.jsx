@@ -14,7 +14,7 @@ import LanguageIcon from '@mui/icons-material/Language';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../../states/User/UserSlice';
 import uploadVideo from '../../../states/features/dashboard/uploadVideoAPI';
-import CreatePost from '../../../states/features/dashboard/cratepostAPI';
+import CreatePost from '../../../states/features/createpost/cratepostAPI';
 import './css/upload.css';
 
 const UploadVideo = function upload() {
@@ -39,7 +39,6 @@ const UploadVideo = function upload() {
     overflowY: 'scroll',
   };
   const handleUpload = (e) => {
-    console.log(e);
     const data = new FormData();
     data.append('video', e.target.files[0]);
     dispatch(uploadVideo({ img: data, User }))
@@ -52,7 +51,6 @@ const UploadVideo = function upload() {
   };
 
   const handleURL = (e) => {
-    console.log(e.currentTarget.value);
     setURL(e.currentTarget.value);
   };
   return (

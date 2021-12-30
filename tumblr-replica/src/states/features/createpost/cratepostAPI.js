@@ -5,7 +5,6 @@ import { api, apiR, SERVICETYPE } from '../../../apis/globalAPI';
 const CreatePost = createAsyncThunk(
   'DashPosts/CreatePost',
   async ({ postBody, User, postType }) => {
-    console.log(postType);
     const d = new Date();
     const time = `${d.getFullYear()}-${d.getMonth()}-${d.getDay()}`;
     const USER_TOKEN = User.accessToken;
@@ -26,7 +25,6 @@ const CreatePost = createAsyncThunk(
           post_body: postBody,
         },
       });
-      console.log(response.data);
       return response.data;
     }
     try {
@@ -45,11 +43,8 @@ const CreatePost = createAsyncThunk(
           post_body: `<div> ${postBody} </div>`,
         },
       });
-      console.log('bla');
-      console.log(response.data);
       return response.data;
-    } catch (err) {
-      console.log(err);
+    } catch {
       return [];
     }
   },

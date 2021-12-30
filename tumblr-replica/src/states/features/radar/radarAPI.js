@@ -17,14 +17,12 @@ const fetchRadar = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       });
-      console.log(response.data);
       if (response.data.meta.status === '200') {
         return response.data.response;
       }
       return [];
     }
     try {
-      console.log('hi');
       const response = await Axios({
         method: 'GET',
         url: `${apiR}/posts/radar`,
@@ -34,13 +32,11 @@ const fetchRadar = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       });
-      console.log(response);
       if (response.data.meta.status === '200') {
         return response.data.response;
       }
       return [];
     } catch (err) {
-      console.log(err.message);
       return [];
     }
   },

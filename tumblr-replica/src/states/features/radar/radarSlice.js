@@ -12,7 +12,6 @@ const radar = createSlice({
     [fetchRadar.pending]: () => {
     },
     [fetchRadar.fulfilled]: (state, { payload }) => {
-      console.log(payload);
       const s = state;
       s.post = payload.post;
     },

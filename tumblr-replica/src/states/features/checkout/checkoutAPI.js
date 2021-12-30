@@ -17,7 +17,6 @@ const fetchCheckout = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       });
-      console.log(response.data);
       if (response.data.meta.status === '200') {
         return response.data.response;
       }
@@ -33,13 +32,11 @@ const fetchCheckout = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       });
-      console.log(response);
       if (response.data.meta.status === '200') {
         return response.data.response;
       }
       return [];
-    } catch (err) {
-      console.log(err.message);
+    } catch {
       return [];
     }
   },
