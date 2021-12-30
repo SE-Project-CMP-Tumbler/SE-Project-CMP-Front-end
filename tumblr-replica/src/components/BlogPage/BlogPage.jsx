@@ -60,9 +60,7 @@ function BlogPage() {
                 <div>No Posts available</div>
               </Box>
             ) : (
-              <>
-                <PostsList Posts={Posts} FetchnextPage={FetchnextPage} />
-              </>
+              Posts.meta.status === '200' && <PostsList Posts={Posts} FetchnextPage={FetchnextPage} />
             )}
         </Grid>
         <Grid item lg={4} sx={{ marginLeft: '2%', display: { xs: 'none', lg: 'block' } }}>

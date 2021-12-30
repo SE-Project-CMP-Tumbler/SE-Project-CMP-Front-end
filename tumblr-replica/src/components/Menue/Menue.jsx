@@ -62,7 +62,7 @@ function Menue() {
         </Grid>
       )}
       {isDesktopOrLaptop && (
-        <Grid item sx={{ width: 'fit-content' }}>
+        <Grid item xs={10}>
           <div classsName="wttfd" style={{ width: 'fit-content' }}>
             <div style={{ backgroundColor: 'white' }}>
               <Stack direction="row">

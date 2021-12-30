@@ -152,7 +152,7 @@ export default function FollowingList() {
             Try switching to the mock server to see if the error persists.
           </Alert>
         ))
-                || (followtags.meta.msg === 'Loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)
+                || (followtags.meta.msg === 'Loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={70} /></Box>)
         )
             }
     </Box>

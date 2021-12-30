@@ -10,7 +10,7 @@ const fetchAsyncrandomtags = createAsyncThunk(
         const response = await api.get('randomtags');
         for (let i = 0; i < response.data.response.tags.length; i += 1) {
           response.data.response.tags[i].follow = false;
-          response.data.response.tags[i].randomcolor = `#${Math.floor(Math.random() * 16777215).toString(16)}`;
+          response.data.response.tags[i].randomcolor = `#${Math.floor(Math.random() * 16777000).toString(16)}`;
         }
         return response.data;
       } catch (error) {
