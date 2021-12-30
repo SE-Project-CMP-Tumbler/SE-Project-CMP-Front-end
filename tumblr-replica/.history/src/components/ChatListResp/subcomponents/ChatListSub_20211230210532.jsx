@@ -24,7 +24,7 @@ function ChatListSub({ chats }) {
   return (
     chats.map((chat) => (
       <div key={chat.friend_id}>
-        <Link to={`/messaging/conversation/${User.blogName}/${chat.friend_username}`}>
+        <Link to={`/messaging/conversation/${User.blogName}/${chat.friend_username}`} >
           <ListItemButton
             className="list-item"
             sx={{ bgcolor: 'background.paper' }}

@@ -54,6 +54,7 @@ const followingReduser = createSlice({
       }
     },
     [followBlogsearch.rejected]: () => {
+      console.log('error');
     },
   },
 });

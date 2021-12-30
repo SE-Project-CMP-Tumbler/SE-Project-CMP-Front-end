@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
 import Popover from '@mui/material/Popover';
 import '../css/FollowersPage.css';
 import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom';
+import Link from 'react-router-dom';
 import MoreVertical from './MoreVertical';
-import { selectUser } from '../../../states/User/UserSlice';
 
 function Follower({
   id,
@@ -19,7 +17,6 @@ function Follower({
 }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
-  const User = useSelector(selectUser);
   const handlePopoverOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -37,7 +34,7 @@ function Follower({
       )}
       disablePadding
     >
-      <Link to={`/blog/${User.blogName}`}>
+      <Link to={`/messaging/conversation/${User.blogName}/`}>
         <ListItemButton>
           {blogavatarshape === 'circle' ? (
             <img

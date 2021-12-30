@@ -6,9 +6,9 @@ import ListItemText from '@mui/material/ListItemText';
 import Popover from '@mui/material/Popover';
 import '../css/FollowersPage.css';
 import Typography from '@mui/material/Typography';
-import { Link } from 'react-router-dom';
+import Link from 'react-router-dom';
 import MoreVertical from './MoreVertical';
-import { selectUser } from '../../../states/User/UserSlice';
+import {selectUser } from '../../../states/User/UserSlice';
 
 function Follower({
   id,
@@ -37,7 +37,7 @@ function Follower({
       )}
       disablePadding
     >
-      <Link to={`/blog/${User.blogName}`}>
+      <Link to={`/blog/${User.blogName}/`}>
         <ListItemButton>
           {blogavatarshape === 'circle' ? (
             <img

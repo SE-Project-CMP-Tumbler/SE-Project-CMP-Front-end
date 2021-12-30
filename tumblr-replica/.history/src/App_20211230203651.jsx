@@ -93,6 +93,7 @@ function App() {
           <Route exact path="/messaging/conversation/:username/:friendname" element={<ChatComponentResp />} />
           <Route path="/blog/:username/followers" element={<Followers />} />
           <Route path="/following" element={<Following />} />
+          <Route path="/followerspage" element={<Followers />} />
           <Route exact path="/dashboard" element={<Newsfeed />} />
           <Route exact path="/login" element={<LogInPage />} />
           <Route path="/onboarding" element={<RegisterWithGooglePage />} />

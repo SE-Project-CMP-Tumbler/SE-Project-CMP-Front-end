@@ -37,7 +37,7 @@ function Follower({
       )}
       disablePadding
     >
-      <Link to={`/blog/${User.blogName}`}>
+      <Link to={`/blog/${User.blogName}/`}>
         <ListItemButton>
           {blogavatarshape === 'circle' ? (
             <img

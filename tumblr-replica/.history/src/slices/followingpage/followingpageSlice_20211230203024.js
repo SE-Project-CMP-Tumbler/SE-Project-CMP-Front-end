@@ -53,7 +53,12 @@ const followingReduser = createSlice({
         console.log('Error happen while try to follow someone ');
       }
     },
-    [followBlogsearch.rejected]: () => {
+    [followBlogsearch.rejected]: ({ payload }) => {
+      const newstate = state;
+      if (payload?.res?.meta.status === '422') {
+        newstate.afterFollowMessage = 'You already follow this blog';
+      }
+      console.log('error');
     },
   },
 });

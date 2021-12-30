@@ -1,37 +1,42 @@
-import React, { useEffect } from 'react';
-import { useSelector } from 'react-redux';
+import * as React from 'react';
 import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemText from '@mui/material/ListItemText';
+import Link1 from '@mui/material/Link';
 import Popover from '@mui/material/Popover';
-import '../css/FollowersPage.css';
-import Typography from '@mui/material/Typography';
+import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
-import MoreVertical from './MoreVertical';
+import '../css/FollowingPage.css';
+import Typography from '@mui/material/Typography';
+import { useState } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+import { unfollow } from '../../../slices/followingpage/followingpageAPI';
+import { follow } from '../../../slices/followerspage/followerspageAPI';
+import MoreVertical from '../../FollowersPage/subcomponents/MoreVertical';
 import { selectUser } from '../../../states/User/UserSlice';
 
-function Follower({
+function FollowingBlog({
   id,
   blogavatarshape,
   blogavatar,
   blogusername,
   followingfrom,
+  lastupdate,
 }) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
   const User = useSelector(selectUser);
+  const [followState, setFollowState] = useState('Unfollow');
+  const dispatch = useDispatch();
   const handlePopoverOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handlePopoverClose = () => {
     setAnchorEl(null);
   };
-  useEffect(() => {
-  }, []);
   return (
     <ListItem
       key={id}
-      style={{ zIndex: '0' }}
       secondaryAction={(
         <MoreVertical blogusername={blogusername} id={id} />
       )}
@@ -62,7 +67,7 @@ function Follower({
               alt="R"
             />
           )}
-          <div style={{ width: '90%' }}>
+          <div style={{ width: '50%' }}>
             <div style={{ display: 'flex' }}>
               <div>
                 <ListItemText primary={blogusername} />
@@ -83,43 +88,40 @@ function Follower({
               20.1.9 21 2 21h14.2c1.1 0 1.8-.9 1.8-2.1V8h-2v11zm2-17V0h-2v2h-2v2h2v2h2V4h2V2h-2z"
                 />
               </svg>
-              <div>
-                <Popover
-                  id="mouse-over-popover"
-                  sx={{
-                    pointerEvents: 'none',
-                    boxShadow: 'none',
-                  }}
-                  open={open}
-                  anchorEl={anchorEl}
-                  anchorOrigin={{
-                    vertical: 'bottom',
-                    horizontal: 'left',
-                  }}
-                  transformOrigin={{
-                    vertical: 'top',
-                    horizontal: 'left',
-                  }}
-                  onClose={handlePopoverClose}
-                  disableRestoreFocus
-                >
-                  <Typography sx={{ p: 1, fontSize: '12px' }}>
-                    Following each other from
-                    {' '}
-                    {followingfrom}
-                  </Typography>
-                </Popover>
-              </div>
+              <Popover
+                id="mouse-over-popover"
+                sx={{
+                  pointerEvents: 'none',
+                  boxShadow: 'none',
+                }}
+                open={open}
+                anchorEl={anchorEl}
+                anchorOrigin={{
+                  vertical: 'bottom',
+                  horizontal: 'left',
+                }}
+                transformOrigin={{
+                  vertical: 'top',
+                  horizontal: 'left',
+                }}
+                onClose={handlePopoverClose}
+                disableRestoreFocus
+              >
+                <Typography sx={{ p: 1, fontSize: '12px' }}>
+                  Following each other from
+                  {' '}
+                  {followingfrom}
+                </Typography>
+              </Popover>
             </div>
             <ListItemText
               style={{ color: '#778899' }}
-              primary={blogusername}
+              primary={lastupdate}
             />
           </div>
-          {/* {!followState
-        && (
-          <Link
-            href="/"
+          {/* eslint-disable-next-line jsx-a11y/anchor-is-valid */}
+          <Link1
+            href="#"
             underline="hover"
             style={{
               margin: '0 0 0 30%',
@@ -129,15 +131,31 @@ function Follower({
               fontFamily: 'Poppins',
             }}
             onClick={() => {
-              dispatch(follow());
+              // eslint-disable-next-line no-unused-expressions
+              followState === 'Unfollow'
+                ? dispatch(unfollow({ blogId: id, User }))
+                : dispatch(follow({ blogId: id, User }));
+              // eslint-disable-next-line no-unused-expressions
+              followState === 'Unfollow'
+                ? setFollowState('Follow')
+                : setFollowState('Unfollow');
             }}
           >
-            follow
-          </Link>
-        )} */}
+            {followState}
+            {console.log(followState)}
+          </Link1>
         </ListItemButton>
       </Link>
     </ListItem>
   );
 }
-export default Follower;
+export default FollowingBlog;
+
+FollowingBlog.propTypes = {
+  id: PropTypes.number.isRequired,
+  blogavatarshape: PropTypes.string.isRequired,
+  blogavatar: PropTypes.string.isRequired,
+  blogusername: PropTypes.string.isRequired,
+  followingfrom: PropTypes.string.isRequired,
+  lastupdate: PropTypes.string.isRequired,
+};
