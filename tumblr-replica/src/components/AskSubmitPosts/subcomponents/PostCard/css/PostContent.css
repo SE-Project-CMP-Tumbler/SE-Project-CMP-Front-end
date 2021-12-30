@@ -1,0 +1,30 @@
+.postBody img {
+  width: 93%;
+  height: 93%;
+}
+
+.postBody{
+  margin-left: 0;
+  margin-right: 0;
+  padding-left: 0;
+  padding-right: 0;
+  align-items: flex-start !important;
+  justify-content: flex-start !important;
+  text-align: left;
+  width: 100%;
+  height: fit-content;
+}
+
+.postBody p {
+  color: #080808;
+}
+.postBody video {
+  width: 93%;
+  height: 93%;
+}
+a {
+  color: #080808;
+}
+.text{
+text-align: left !important;
+}

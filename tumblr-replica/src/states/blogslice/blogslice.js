@@ -40,7 +40,6 @@ const BlogSlice = createSlice({
 });
 
 const getBlog = (state) => state.blog.blog;
-console.log(getBlog);
 const BlogReducer = BlogSlice.reducer;
 export {
   getBlog,

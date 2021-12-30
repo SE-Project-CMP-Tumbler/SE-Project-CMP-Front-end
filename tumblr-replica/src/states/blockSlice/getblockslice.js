@@ -6,7 +6,7 @@ const BlockedByAsynch = createAsyncThunk(
   'blocked_by/:blog_id',
   async (BlogId, { getState }) => {
     if (SERVICETYPE === MOCK) {
-      const response = await api.get('block');
+      const response = await api.get('blockedby');
       return response.data;
     }
     const state = getState();

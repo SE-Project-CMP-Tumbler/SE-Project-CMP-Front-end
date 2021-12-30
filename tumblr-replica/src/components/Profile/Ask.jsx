@@ -1,60 +1,61 @@
 import * as React from 'react';
 import './css/ProfileHeader.css';
-import { Link, useParams } from 'react-router-dom';
+import { Link, useParams, Navigate } from 'react-router-dom';
 import { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import ReactLoading from 'react-loading';
 import ProfileHeader from './ProfileHeader';
 import {
   getBlog, fetchBlog,
 } from '../../states/blogslice/blogslice';
-import { getAsk, AskAsynch } from '../../states/askpostslice/askpostslice';
+import { AskAsynch } from '../../states/askpostslice/askpostslice';
+import { getBlogId, fetchBlogId } from '../../states/blognameslice/blogNameSlice';
 
 function Ask() {
-  const { blogid } = useParams();
+  const { username } = useParams();
   const dispatch = useDispatch();
   const [AskText, setAskText] = useState('');
   const [unknown, setUnknown] = useState(false);
+  const Error = useSelector(getBlogId).error;
+  const blogid = useSelector(getBlogId).response.id;
   React.useEffect(() => {
+    dispatch(fetchBlogId(username));
     dispatch(fetchBlog(blogid));// will use blogId
-  }, []);
+  }, [blogid]);
   const Blog = useSelector(getBlog).response;
-  const AskStatue = useSelector(getAsk).meta;
+  const statue = useSelector(getBlogId).meta;
+  const BlogStatue = useSelector(getBlog).meta;
   function handelChange(event) {
     setAskText(event.target.value);
   }
   function submit() {
     const str = '<div><p>' + AskText + '</p></div>';
-    dispatch(AskAsynch(blogid, str, unknown));
-    if (AskStatue.statues === '200') {
-      console.log('sucsses'); // will be changed after the api completed
-      setAskText('');
-      setUnknown(false);
-    } else {
-      console.log('fail');
-    }
+    dispatch(AskAsynch({ blogid, str, unknown }));
+    setAskText('');
   }
-  return Blog.allow_ask ? (
+  // eslint-disable-next-line no-nested-ternary
+  return statue.msg === 'ok' && BlogStatue.msg === 'ok' ? (Blog.allow_ask ? (
     <div>
       <ProfileHeader BlogId={blogid} />
       <div className="navv">
         <div className="navv-menu">
           <ul className="inline-navv">
             <li className="navv-item">
-              <Link className="navv-link" to={`/profile/${blogid}`}>POSTS</Link>
+              <Link className="navv-link" to={`/profile/${Blog.username}`}>POSTS</Link>
             </li>
             {Blog.share_likes && (
               <li className="navv-item">
-                <Link className="navv-link" to={`/profile/${blogid}/likes`}>LIKES</Link>
+                <Link className="navv-link" to={`/profile/${Blog.username}/likes`}>LIKES</Link>
               </li>
             )}
             {Blog.allow_ask && (
               <li className="navv-item">
-                <Link className="navv-link-selected" to={`/profile/${blogid}/ask`}>ASK ME ANYTHING</Link>
+                <Link className="navv-link-selected" to={`/profile/${Blog.username}/ask`}>ASK ME ANYTHING</Link>
               </li>
             )}
             {Blog.allow_submittions && (
               <li className="navv-item">
-                <Link className="navv-link" to={`/profile/${blogid}/submit`}>SUBMIT A POST</Link>
+                <Link className="navv-link" to={`/profile/${Blog.username}/submit`}>SUBMIT A POST</Link>
               </li>
             )}
           </ul>
@@ -63,13 +64,13 @@ function Ask() {
           <div className="ask-main">
             <div className="ask-post">
               <div className="ask-content">
-                <h2 className="ask-header"><Link className="askk-header" to="/ask"> Ask me anyhting </Link></h2>
+                <h2 className="ask-header"><Link className="askk-header" to={`/profile/${Blog.username}/ask`}> Ask me anyhting </Link></h2>
                 <div className="ask-body">
                   <div className="ask-frame">
                     <div className="ask-form">
                       <form action="">
                         <div className="ask-textarea">
-                          <textarea onChange={handelChange} name="ask" maxLength="500" className="ask-text" />
+                          <textarea value={AskText} onChange={handelChange} name="ask" maxLength="500" className="ask-text" />
                         </div>
                         <div className="ask-footer">
                           <div className="ask-check">
@@ -97,6 +98,12 @@ function Ask() {
       <ProfileHeader BlogId={blogid} />
       {!Blog?.allow_ask && <div className="not-found"> This blog not allow ask </div>}
     </div>
+  )) : (
+    (Error && (<Navigate to="/notfound" />)) || (
+      <>
+        <ReactLoading type="bars" color="#fff" width={157} className="loading-block" />
+      </>
+    )
   );
 }
 
