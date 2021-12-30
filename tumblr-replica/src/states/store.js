@@ -63,6 +63,7 @@ import themeReducer from './theme/themeSlice';
 import notificationsReducer from './notifications/notificationSlice';
 import searchStuffReducder from './search/searchSlice';
 import searchAutocompleteReducer from './search/autocompleteSlice';
+import blogThemeReducer from './blogthemeslice/blogthemeSlice';
 
 const store = configureStore({
   reducer: {
@@ -128,6 +129,7 @@ const store = configureStore({
     searchStuff: searchStuffReducder,
     searchAutocomplete: searchAutocompleteReducer,
     blogSettings: blogSettingsReducer,
+    blogTheme: blogThemeReducer,
   },
 });
 
