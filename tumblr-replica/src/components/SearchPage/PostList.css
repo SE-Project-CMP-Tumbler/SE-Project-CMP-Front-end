@@ -5,6 +5,9 @@
 .useless-div {
   margin: 2rem 4rem;
 }
+.top-row h1 {
+  color: white !important;
+}
 .follow-button {
 color: black;
 background-color: #52B5F9;

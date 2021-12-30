@@ -33,7 +33,6 @@ var searchStuff = (0, _toolkit.createSlice)({
   extraReducers: (_extraReducers = {}, _defineProperty(_extraReducers, _searchAPI.fetchStuff.pending, function (state) {
     var s = state;
     s.isLoading = true;
-    console.log('Attempting Request');
   }), _defineProperty(_extraReducers, _searchAPI.fetchStuff.fulfilled, function (state, _ref) {
     var payload = _ref.payload;
     var s = state;
@@ -42,9 +41,7 @@ var searchStuff = (0, _toolkit.createSlice)({
     s.posts = payload.response.posts.posts;
     s.tags = payload.response.tags.tags;
     s.isLoading = false;
-    console.log('Done!', s.posts);
   }), _defineProperty(_extraReducers, _searchAPI.fetchStuff.rejected, function (state, action) {
-    console.log('Booom!');
     var s = state;
     s.error = action.error.message; // need to later work on an error page/pop up and set loading to false.
   }), _extraReducers)

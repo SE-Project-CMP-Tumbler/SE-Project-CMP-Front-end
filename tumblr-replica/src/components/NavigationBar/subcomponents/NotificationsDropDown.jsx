@@ -65,7 +65,7 @@ function NotificationsDropDown({ buttonRef }) {
 
         {(notifState.isLoading || blogState.isLoading)
           ? (
-            <NotificationsItem action=" is loading your notifications " byTumblr="Server" byTumblrIcon="/profile3.png" content="wkjnwkj" actionIcon="/redo.png" context="whwywhwys" />
+            <NotificationsItem action=" has encountered an error loading your notificiations " byTumblr="Server" byTumblrIcon="/profile3.png" content="See if you can reproduce the error using the mock server." actionIcon="/redo.png" context="whwywhwys" />
           )
           : (
             <NotificationsLoader notifState={notifState} blogState={blogState} index={index} />

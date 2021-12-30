@@ -2773,6 +2773,14 @@
             "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
             "blog_avatar_shape": "circle",
             "blog_title": ""
+          },
+          {
+            "text": "why",
+            "blog_id": 602,
+            "blog_username": "Malzah",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
           }
         ]
       }
@@ -3233,5 +3241,126 @@
       "from_blog_avatar": "/profile3.png",
       "follow": false
     }
-  ]
+  ],
+  "search_auto_complete": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 2,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
+      "words": [
+        {
+          "word": "Malzahar"
+        },
+        {
+          "word": "Yasuo"
+        },
+        {
+          "word": "Jax"
+        },
+        {
+          "word": "Karthus"
+        },
+        {
+          "word": "Abecdo"
+        },
+        {
+          "word": "Frgeik"
+        },
+        {
+          "word": "Mnoprq"
+        },
+        {
+          "word": "Tuvwxys"
+        }
+      ]
+    }
+  },
+  "search": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": {
+        "pagination": {
+          "total": 17,
+          "count": 7,
+          "per_page": 10,
+          "current_page": 2,
+          "total_pages": 2,
+          "first_page_url": false,
+          "next_page_url": null,
+          "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+        },
+        "posts": [
+          {
+            "post_id": 5,
+            "post_status": "published",
+            "post_type": "general",
+            "post_body": "<div><h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+            "blog_id": 5,
+            "blog_username": "",
+            "blog_avatar": "",
+            "blog_avatar_shape": "",
+            "blog_title": "",
+            "post_time": "2012-02-30"
+          }
+        ]
+      },
+      "tags": {
+        "pagination": {
+          "total": 120,
+          "count": 10,
+          "per_page": 10,
+          "current_page": 2,
+          "total_pages": 12,
+          "first_page_url": false,
+          "last_page_url": 12,
+          "next_page_url": "http://127.0.0.1:8000/api/tag/trending?page=3",
+          "prev_page_url": "http://127.0.0.1:8000/api/tag/trending?page=1"
+        },
+        "tags": [
+          {
+            "tag_description": "books",
+            "tag_image": ""
+          }
+        ]
+      },
+      "blogs": {
+        "pagination": {
+          "total": 1,
+          "count": 1,
+          "per_page": 10,
+          "current_page": 1,
+          "total_pages": 1,
+          "first_page_url": true,
+          "last_page_url": 1,
+          "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
+          "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
+        },
+        "blogs": [
+          {
+            "id": 2026,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "description": "This blog is a sketch of thoughts"
+          }
+        ]
+      }
+    }
+  }
 }

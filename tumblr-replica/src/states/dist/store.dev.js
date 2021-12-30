@@ -107,6 +107,8 @@ var _notificationSlice = _interopRequireDefault(require("./notifications/notific
 
 var _searchSlice = _interopRequireDefault(require("./search/searchSlice"));
 
+var _autocompleteSlice = _interopRequireDefault(require("./search/autocompleteSlice"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 // eslint-disable-next-line import/no-unresolved
@@ -162,7 +164,8 @@ var store = (0, _toolkit.configureStore)({
     hideNav: _hidenavSlice["default"],
     currentTheme: _themeSlice["default"],
     notifications: _notificationSlice["default"],
-    searchStuff: _searchSlice["default"]
+    searchStuff: _searchSlice["default"],
+    searchAutocomplete: _autocompleteSlice["default"]
   }
 });
 var _default = store;

@@ -7,7 +7,8 @@ export const fetchStuff = createAsyncThunk(
   async (word) => {
     if (SERVICETYPE === MOCK) {
       try {
-        const response = await api.get('blog');
+        const response = await api.get('search');
+        console.log(response.data);
         return response.data;
       } catch (e) {
         throw Error(e);
@@ -15,8 +16,30 @@ export const fetchStuff = createAsyncThunk(
     } else {
       try {
         const response = await apiR.get('search/' + word);
-        console.log(response.data, 'Works From Search');
         return response.data;
+      } catch (e) {
+        throw Error(e);
+      }
+    }
+  },
+);
+
+export const fetchAutocomplete = createAsyncThunk(
+  'searchAutocomplete/fetchAutocomplete',
+  async (input) => {
+    if (SERVICETYPE === MOCK) {
+      try {
+        const response = await api.get('search_auto_complete');
+        return response.data.response;
+      } catch (e) {
+        throw Error(e);
+      }
+    } else {
+      try {
+        const word = { input };
+        // console.log('search_auto_complete/' + word.input.string);
+        const response = await apiR.get('search_auto_complete/' + word.input.string);
+        return response.data.response;
       } catch (e) {
         throw Error(e);
       }

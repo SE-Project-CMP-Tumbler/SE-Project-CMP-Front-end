@@ -20,7 +20,6 @@ const searchStuff = createSlice({
     [fetchStuff.pending]: (state) => {
       const s = state;
       s.isLoading = true;
-      console.log('Attempting Request');
     },
     [fetchStuff.fulfilled]: (state, { payload }) => {
       const s = state;
@@ -29,10 +28,8 @@ const searchStuff = createSlice({
       s.posts = payload.response.posts.posts;
       s.tags = payload.response.tags.tags;
       s.isLoading = false;
-      console.log('Done!', s.posts);
     },
     [fetchStuff.rejected]: (state, action) => {
-      console.log('Booom!');
       const s = state;
       s.error = action.error.message;
       // need to later work on an error page/pop up and set loading to false.

@@ -1,7 +1,8 @@
+/* eslint-disable max-len */
 /* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useRef, useState, useEffect } from 'react';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useSelector, useDispatch } from 'react-redux';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import './css/dist/NavigationBar.css';
 import Box from '@mui/material/Box';
@@ -15,9 +16,9 @@ import { selectUser } from '../../states/User/UserSlice';
 import ChatTo from '../ChatTo/ChatTo';
 import ChatBoxes from '../ChatBoxes/ChatBoxes';
 import {
-  toggleDropDown, toggleIconColor, items,
+  toggleDropDown, toggleIconColor,
 } from './interactions';
-
+import { fetchAutocomplete, selectAutocomplete } from '../../states/search/autocompleteSlice';
 /**
  * This is the navigation bar component for large view ports.
  * @component
@@ -70,6 +71,11 @@ function NavigationBar() {
     setSearchStyle(newStyle);
     setIconShow(false);
   };
+  const autocompleteState = useSelector(selectAutocomplete);
+  const dispatch = useDispatch();
+  const handleOnSearch = (string) => {
+    dispatch(fetchAutocomplete({ string }));
+  };
 
   const searchRef = useRef(null);
   checkOutside(searchRef);
@@ -95,12 +101,13 @@ function NavigationBar() {
         >
           <ReactSearchAutocomplete
             placeholder="    Search Tumblr"
-            items={items}
+            items={autocompleteState.words}
             onFocus={handleOnFocus}
             showClear={false}
             showIcon={iconShow}
             styling={searchStyle}
             key={searchStyle}
+            onSearch={handleOnSearch}
           />
         </div>
       </div>

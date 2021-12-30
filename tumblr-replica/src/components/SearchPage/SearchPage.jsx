@@ -3,6 +3,7 @@ import * as React from 'react';
 import { useParams, Link } from 'react-router-dom';
 import Box from '@mui/material/Box';
 import ReactLoading from 'react-loading';
+import { useMediaQuery } from 'react-responsive';
 import { useDispatch, useSelector } from 'react-redux';
 import Alert from '@mui/material/Alert';
 import PostCard from '../NewsFeed/subcomponents/PostCard/PostCard';
@@ -21,11 +22,14 @@ function SearchPage() {
   // const Posts = searchState.searchResponse;
   // const postslen = Posts.response.posts.posts;
   const [follow, setFollow] = React.useState(0);
+  const isDesktopOrLaptop = useMediaQuery({
+    query: '(min-width: 1224px)',
+  });
   return (
     <>
       <div className="top-row">
         <div className="useless-div">&nbsp;</div>
-        <h1 style={{ fontWeight: '300', color: 'white', textAlign: 'center' }}>
+        <h1 style={{ fontWeight: '300', textAlign: 'center' }}>
           { word }
         </h1>
         <button type="button" className="follow-button" onClick={() => setFollow(!follow)}>{(!follow) ? 'follow' : 'unfollow'}</button>
@@ -39,10 +43,13 @@ function SearchPage() {
         : (
           <div>
             <div className="related">
+              {isDesktopOrLaptop
+              && (
               <>
                 <div>RELATED: </div>
                 {randomRelated.map((item) => (<div><Link className="related-items" to={'/search/' + item}>{ item }</Link></div>))}
               </>
+              )}
             </div>
             { searchState.searchResponse.meta.status === '200' ? (
               <div className="row_B">

@@ -51,6 +51,7 @@ import hideNavReducer from './hidenav/hidenavSlice';
 import themeReducer from './theme/themeSlice';
 import notificationsReducer from './notifications/notificationSlice';
 import searchStuffReducder from './search/searchSlice';
+import searchAutocompleteReducer from './search/autocompleteSlice';
 
 const store = configureStore({
   reducer: {
@@ -104,6 +105,7 @@ const store = configureStore({
     currentTheme: themeReducer,
     notifications: notificationsReducer,
     searchStuff: searchStuffReducder,
+    searchAutocomplete: searchAutocompleteReducer,
   },
 });
 

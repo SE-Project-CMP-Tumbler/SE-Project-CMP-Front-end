@@ -30,7 +30,6 @@ var blogNotifications = (0, _toolkit.createSlice)({
   extraReducers: (_extraReducers = {}, _defineProperty(_extraReducers, _notificationAPI.fetchNotifications.pending, function (state) {
     var s = state;
     s.isLoading = true;
-    console.log('loaaaading');
   }), _defineProperty(_extraReducers, _notificationAPI.fetchNotifications.fulfilled, function (state, _ref) {
     var payload = _ref.payload;
     var s = state;
@@ -38,8 +37,7 @@ var blogNotifications = (0, _toolkit.createSlice)({
     s.isLoading = false;
   }), _defineProperty(_extraReducers, _notificationAPI.fetchNotifications.rejected, function (state, action) {
     var s = state;
-    s.error = action.error.message;
-    console.log('boom', s.error); // need to later work on an error page/pop up and set loading to false.
+    s.error = action.error.message; // need to later work on an error page/pop up and set loading to false.
   }), _extraReducers)
 });
 
