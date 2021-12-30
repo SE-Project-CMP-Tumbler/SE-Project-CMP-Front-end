@@ -54,6 +54,7 @@ import {
   changeTheme, fonts, colors, backgrounds,
 } from './components/NavigationBar/interactions';
 import { selectTheme } from './states/theme/themeSlice';
+import SearchPage from './components/SearchPage/SearchPage';
 
 function App() {
   const dispatch = useDispatch();
@@ -87,6 +88,7 @@ function App() {
       <div className="page-wrapper" ref={wrapperRef}>
         <Routes>
           <Route path="/" element={<LogOutHome />} />
+          <Route exact path="/search/:word" element={<SearchPage />} />
           <Route exact path="/chat" element={<ChatBundle />} />
           <Route exact path="/messaging" element={<ChatListResp />} />
           {/* <Route exact path={`/messaging/new/${user.blogName}`}element={<ChatListResp />} /> */}

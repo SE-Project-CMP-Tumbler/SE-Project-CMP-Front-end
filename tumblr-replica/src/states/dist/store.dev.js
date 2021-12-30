@@ -105,6 +105,8 @@ var _themeSlice = _interopRequireDefault(require("./theme/themeSlice"));
 
 var _notificationSlice = _interopRequireDefault(require("./notifications/notificationSlice"));
 
+var _searchSlice = _interopRequireDefault(require("./search/searchSlice"));
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 // eslint-disable-next-line import/no-unresolved
@@ -159,7 +161,8 @@ var store = (0, _toolkit.configureStore)({
     postsliked: _likedpostsSlice["default"],
     hideNav: _hidenavSlice["default"],
     currentTheme: _themeSlice["default"],
-    notifications: _notificationSlice["default"]
+    notifications: _notificationSlice["default"],
+    searchStuff: _searchSlice["default"]
   }
 });
 var _default = store;

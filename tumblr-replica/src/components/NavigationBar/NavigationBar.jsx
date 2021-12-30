@@ -1,5 +1,6 @@
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useRef, useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import './css/dist/NavigationBar.css';
@@ -41,7 +42,9 @@ function NavigationBar() {
   function checkOutside(ref) {
     useEffect(() => {
       function handleClickOutside(event) {
-        if (ref.current && !ref.current.contains(event.target)) {
+        const inputContent = ref.current.childNodes[0]
+          .childNodes[0].childNodes[0].childNodes[0].value;
+        if (ref.current && !ref.current.contains(event.target) && inputContent === '') {
           setSearchStyle(initialStyle);
           setIconShow(true);
         }
@@ -54,7 +57,7 @@ function NavigationBar() {
       };
     }, [ref]);
   }
-
+  const history = useNavigate();
   const handleOnFocus = () => {
     const newStyle = {
       height: '34px',
@@ -67,6 +70,7 @@ function NavigationBar() {
     setSearchStyle(newStyle);
     setIconShow(false);
   };
+
   const searchRef = useRef(null);
   checkOutside(searchRef);
   const user = useSelector(selectUser);
@@ -78,7 +82,17 @@ function NavigationBar() {
             <button type="button" aria-label="dashboard"><i className="fab fa-tumblr fa-2x " /></button>
           </Link>
         </div>
-        <div className="search-bar" style={{ width: 490 }} ref={searchRef}>
+        <div
+          className="search-bar"
+          style={{ width: 490 }}
+          ref={searchRef}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              history('/search/' + searchRef.current.childNodes[0].childNodes[0].childNodes[0].childNodes[0].value);
+              searchRef.current.childNodes[0].childNodes[0].childNodes[0].childNodes[0].blur();
+            }
+          }}
+        >
           <ReactSearchAutocomplete
             placeholder="    Search Tumblr"
             items={items}

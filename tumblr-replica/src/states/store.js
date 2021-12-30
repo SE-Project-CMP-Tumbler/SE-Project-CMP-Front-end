@@ -50,6 +50,7 @@ import PostslikedReducer from './likedposts/likedpostsSlice';
 import hideNavReducer from './hidenav/hidenavSlice';
 import themeReducer from './theme/themeSlice';
 import notificationsReducer from './notifications/notificationSlice';
+import searchStuffReducder from './search/searchSlice';
 
 const store = configureStore({
   reducer: {
@@ -102,6 +103,7 @@ const store = configureStore({
     hideNav: hideNavReducer,
     currentTheme: themeReducer,
     notifications: notificationsReducer,
+    searchStuff: searchStuffReducder,
   },
 });
 

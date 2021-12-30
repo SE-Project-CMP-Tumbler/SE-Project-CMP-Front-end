@@ -163,55 +163,38 @@ var newMessageHandler = function newMessageHandler(chatsRef, followingRef, butto
 
 exports.newMessageHandler = newMessageHandler;
 var items = [{
-  id: 0,
   name: 'Eiffel Tower'
 }, {
-  id: 1,
   name: 'Tumblr'
 }, {
-  id: 2,
   name: 'Pyramids'
 }, {
-  id: 3,
   name: 'Cairo'
 }, {
-  id: 4,
   name: 'Waterall'
 }, {
-  id: 5,
   name: 'Flowers'
 }, {
-  id: 4,
   name: 'Meh'
 }, {
-  id: 4,
   name: 'Jordon'
 }, {
-  id: 4,
   name: 'Tram Car'
 }, {
-  id: 4,
   name: 'Surfing'
 }, {
-  id: 4,
   name: 'Karthus'
 }, {
-  id: 4,
   name: 'Zed'
 }, {
-  id: 4,
   name: 'Yasuo'
 }, {
-  id: 4,
   name: 'MrWonderful'
 }, {
-  id: 4,
   name: 'Jax'
 }, {
-  id: 4,
   name: 'Malzahar'
 }, {
-  id: 4,
   name: 'Zeo'
 }];
 /**
