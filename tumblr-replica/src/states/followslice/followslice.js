@@ -7,7 +7,6 @@ const FollowAsynch = createAsyncThunk(
     const state = getState();
     const USER_TOKEN = state.user.user.accessToken;
     const AuthStr = `Bearer ${USER_TOKEN}`;
-
     try {
       const response = await axios({
         method: 'POST',
@@ -20,7 +19,6 @@ const FollowAsynch = createAsyncThunk(
       });
       return response.data;
     } catch (err) {
-      console.log(err);
       throw Error(err);
     }
   },

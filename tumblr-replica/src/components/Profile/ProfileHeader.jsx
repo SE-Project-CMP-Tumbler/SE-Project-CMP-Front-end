@@ -2,18 +2,19 @@ import * as React from 'react';
 import './css/ProfileHeader.css';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import ReactLoading from 'react-loading';
 import ProfileNavBar from './ProfileNavBar';
 import { getBlog, fetchBlog } from '../../states/blogslice/blogslice';
 
 function ProfileHeader({ BlogId }) {
-  console.log(BlogId, 'from profile header');
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchBlog(BlogId));// will take BlogId
   }, []);
   const Blog = useSelector(getBlog).response;
+  const BlogStatue = useSelector(getBlog).meta;
 
-  return (
+  return BlogStatue.msg === 'ok' ? (
     <div className="body">
       <ProfileNavBar BlogId={BlogId} />
       <div className="photos">
@@ -31,7 +32,10 @@ function ProfileHeader({ BlogId }) {
         </p>
       </div>
     </div>
-
+  ) : (
+    <>
+      <ReactLoading type="bars" color="#fff" width={157} className="loading-block" />
+    </>
   );
 }
 ProfileHeader.propTypes = {

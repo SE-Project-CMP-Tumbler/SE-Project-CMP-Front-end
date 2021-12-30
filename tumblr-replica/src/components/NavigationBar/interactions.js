@@ -27,6 +27,21 @@ export const toggleDropDown = function toggleDropDown(toggleRef, allRefs) {
 };
 
 /**
+ * Toggles one of the three main drop down menus of the navigation bar.
+ * @method
+ * @param {MutableRefObject} toggleRef - The ref for HTML node that should have its display toggled.
+ * @param {Array} allRefs - Array of refs for HTML nodes that should have their display set to none.
+ */
+ export const toggleChatIcon = function toggleChatIcon(toggleRef) {
+  // one dropdown open at a time:
+  const el = toggleRef;
+  const icon = el.current.childNodes[0].childNodes[0].childNodes[0];
+  const white = 'brightness(100%)';
+  const grey = 'brightness(70%)';
+  icon.style.filter = (icon.style.filter === grey) ? white : grey;
+};
+
+/**
  * Toggles the colors of navigation bar icons between grey and white
  * @method
  * @param {MutableRefObject} toggleRef - The ref for HTML node that should be toggled to white.
@@ -131,71 +146,54 @@ export const newMessageHandler = function newMessageHandler(chatsRef, followingR
 
 export const items = [
   {
-    id: 0,
     name: 'Eiffel Tower',
   },
   {
-    id: 1,
     name: 'Tumblr',
   },
   {
-    id: 2,
     name: 'Pyramids',
   },
   {
-    id: 3,
     name: 'Cairo',
   },
   {
-    id: 4,
     name: 'Waterall',
   },
   {
-    id: 5,
     name: 'Flowers',
   },
   {
-    id: 4,
     name: 'Meh',
   },
   {
-    id: 4,
     name: 'Jordon',
   },
   {
-    id: 4,
     name: 'Tram Car',
   },
   {
-    id: 4,
     name: 'Surfing',
   },
   {
-    id: 4,
     name: 'Karthus',
   },
   {
-    id: 4,
     name: 'Zed',
   },
   {
-    id: 4,
     name: 'Yasuo',
   },
   {
-    id: 4,
     name: 'MrWonderful',
   },
   {
-    id: 4,
     name: 'Jax',
   },
   {
-    id: 4,
     name: 'Malzahar',
   },
   {
-    id: 4,
     name: 'Zeo',
   },
 ];

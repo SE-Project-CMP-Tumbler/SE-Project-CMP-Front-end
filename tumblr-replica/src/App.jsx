@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { React, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,13 +15,14 @@ import ResetPasswordPage from './components/ResetPasswordPage/ResetPasswordPage'
 import DeleteAccountPage from './components/DeleteAccountPage/DeleteAccountPage';
 import VerifyEmailPage from './components/VerifyEmailPage/VerifyEmailPage';
 import AccountSettingsPage from './components/AccountSettingsPage/AccountSettingsPage';
+import BlogSettingsPage from './components/BlogSettingsPage/BlogSettingsPage';
 import Explore from './components/Explore/Explore';
 import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
 import ChatBundle from './components/ChatBundle/ChatBundle';
 import { initialCheck } from './states/User/UserSlice';
-import { getBlogs, fetchBlogs } from './states/blogslice/blogsslice';
+// import { getBlogs, fetchBlogs } from './states/blogslice/blogsslice';
 import TextPosts from './components/TextPosts/TextPosts';
 import VideoPosts from './components/VideoPosts/VideoPosts';
 import ImagePosts from './components/ImagePosts/ImagePosts';
@@ -46,52 +48,57 @@ import NewTumblr from './components/NewTumblr/NewTumblr';
 import Following from './components/Following/Following';
 import Followers from './components/Followers/Followers';
 import ChatListResp from './components/ChatListResp/ChatListResp';
-// import ChatComponentResp from '../ChatComponentResp/ChatComponentResp';
+import ChatComponentResp from './components/ChatComponentResp/ChatComponentResp';
 // import { selectUser } from './states/user/UserSlice';
 import NotFound from './components/NotFound/NoteFound';
-import { selectHideNav } from './states/hidenav/hidenavSlice';
+import { selectHideNav, setHideAll } from './states/hidenav/hidenavSlice';
 import {
   changeTheme, fonts, colors, backgrounds,
 } from './components/NavigationBar/interactions';
 import { selectTheme } from './states/theme/themeSlice';
+import SearchPage from './components/SearchPage/SearchPage';
+import Header from './components/Profile/subcomponents/Header';
+import CreatePostButtons from './components/CreatPost/CreatePostButtons';
+// import { changeTheme } from './components/NavigationBar/interactions';
 
 function App() {
   const dispatch = useDispatch();
   dispatch(initialCheck());
-  useEffect(() => { dispatch(fetchBlogs()); }, []);
-  const blogs = useSelector(getBlogs).response;
   const hideNav = useSelector(selectHideNav);
   const themeState = useSelector(selectTheme);
   const wrapperRef = useRef(null);
   useEffect(() => {
     changeTheme(fonts[themeState.theme],
       colors[themeState.theme], backgrounds[themeState.theme]);
+    setHideAll(false);
   }, [themeState.theme]);
 
   return (
     <Router>
       <div className="App">
-        { !hideNav.hideAll
-        && (
-        <>
-          <MediaQuery minWidth={1070}>
-            <NavigationBar />
-          </MediaQuery>
-          <MediaQuery maxWidth={1070}>
-            <NavigationBarResp pageRef={wrapperRef} />
-          </MediaQuery>
-        </>
-        )}
+        {true
+          && (
+            <>
+              <MediaQuery minWidth={1070}>
+                <NavigationBar />
+              </MediaQuery>
+              <MediaQuery maxWidth={1070}>
+                <NavigationBarResp pageRef={wrapperRef} />
+              </MediaQuery>
+            </>
+          )}
 
       </div>
       <div className="page-wrapper" ref={wrapperRef}>
         <Routes>
           <Route path="/" element={<LogOutHome />} />
+          <Route exact path="/search/:word" element={<SearchPage />} />
           <Route exact path="/chat" element={<ChatBundle />} />
           <Route exact path="/messaging" element={<ChatListResp />} />
-          {/* <Route exact path={`/messaging/new/${user.blogName}`}element={<ChatListResp />} /> */}
+          <Route exact path="/messaging/conversation/:username/:friendname" element={<ChatComponentResp />} />
+          <Route path="/blog/:username/followers" element={<Followers />} />
           <Route path="/following" element={<Following />} />
-          <Route path="/followerspage" element={<Followers />} />
+          <Route exact path="/new" element={<CreatePostButtons />} />
           <Route exact path="/dashboard" element={<Newsfeed />} />
           <Route exact path="/login" element={<LogInPage />} />
           <Route path="/onboarding" element={<RegisterWithGooglePage />} />
@@ -99,13 +106,15 @@ function App() {
           <Route path="/register" element={<SignUpPage />} />
           <Route path="/forgot_password" element={<ForgotPasswordPage />} />
           <Route path="/reset_password/:id/:token" element={<ResetPasswordPage />} />
-          <Route path="/settings/account" element={<AccountSettingsPage />} />
+          <Route path="/settings/account/*" element={<AccountSettingsPage />} />
+          <Route path="/settings/blog/:blogname" element={<BlogSettingsPage />} />
           <Route path="/account/delete" element={<DeleteAccountPage />} />
           <Route path="/verify/:id/:hash" element={<VerifyEmailPage />} />
           <Route path="/explore/recommended-for-you" element={<Explore />} />
           <Route path="/explore/trending" element={<Trending />} />
           <Route path="/explore/staff-picks" element={<StaffPicks />} />
           <Route path="/explore/text" element={<TextPosts />} />
+          <Route path="/Header" element={<Header />} />
           <Route path="/explore/photos" element={<ImagePosts />} />
           <Route path="/explore/quotes" element={<QuotePosts />} />
           <Route path="/explore/chats" element={<ChatPosts />} />
@@ -116,16 +125,14 @@ function App() {
           <Route path="/tagged/:tag" element={<Tagged />} />
           <Route path="/blog/:blogname" element={<BlogPage />} />
           <Route path="/blog/:blogname/drafts" element={<Drafts />} />
-          <Route path="/blog/view/:blogid" element={<RightBar />} />
+          <Route path="/blog/view/:username" element={<RightBar />} />
           {/* <Route path="/profiletemp" element={<ProfileHeader BlogId={2} />} /> */}
-          <Route path="/profile/:blogid" element={<Posts />} />
-          <Route path="/profile/:blogid/likes" element={<Likes />} />
-          <Route path="/profile/:blogid/ask" element={<Ask />} />
-          <Route path="/profile/:blogid/submit" element={<Submit />} />
+          <Route path="/profile/:username" element={<Posts />} />
+          <Route path="/profile/:username/likes" element={<Likes />} />
+          <Route path="/profile/:username/ask" element={<Ask />} />
+          <Route path="/profile/:username/submit" element={<Submit />} />
           <Route path="/inbox" element={<AllMassages />} />
-          {/* eslint-disable */
-          blogs && blogs.blogs && blogs.blogs?.map((blog) => ((blog.allow_ask || blog.allow_submittions) && <Route key={blog.id} path={'/blog/' + blog.username + '/messages'} element={<BlogMessages BlogId={blog.id} />} />))
-        /* eslint-enable */}
+          <Route path="/blog/:username/messages" element={<BlogMessages />} />
           <Route path="/artifacts" element={<ArtifactsPage />} />
           <Route path="/new/blog" element={<NewTumblr />} />
           <Route path="/blog/:blogname/activity/new/:period/:rate" element={<Activity option="1" />} />

@@ -1,24 +1,65 @@
 .Title{
-    height: 60px;
-    width: 100%;
-    border: none;
-    font-size: 30px;
-    font-weight: 500;
-    outline: none;
+    height: 60px !important;
+    width: 100%!important;
+    border: none!important;
+    font-size: 30px!important;
+    font-weight: 500!important;
+    outline: none!important;
 }
 .content{
-    height: 40px;
-    width: 100%;
-    border: none;
-    font-size: 15px;
-    color: black;
-    outline: none;
+    height: 40px!important;
+    width: 100%!important;
+    border: none!important;
+    font-size: 15px!important;
+    color: black!important;
+    outline: none!important;
 }
 .tags{
-    height: 40px;
+    height: 40px!important;
+    border: none!important;
+    width: 100%!important;
+    color: rgb(114, 113, 113)!important;
+    font-size: 15px!important;
+    outline: none!important;
+}
+.editordiv{
+    position: 'absolute' !important;
+    top: '40%' !important;
+    left: '40%'!important;
+    transform: 'translate(-50%, -50%)'!important;
+    width: 'fit-content'!important;
+    height: 'auto'!important;
+    border: '2px solid #000'!important;
+    box-shadow: 24!important;
+    padding: 2!important;
+}
+.rdw-storybook-custom-option {
+    border: 1px solid #f1f1f1;
+    padding: 3px 10px;
+    height: 22px;
+  }
+
+  .Title::placeholder{
+      color: rgb(104, 104, 104) !important;
+  }
+
+  .tags::placeholder{
+    color: #686868 !important;
+}
+
+.FOqaPn{
+    background-color: transparent;
+    border-radius: 50%;
+    height: 100px!important;
+    width: 100px!important;
+    cursor: pointer;
+    text-align: center!important;
+    color: #000000;
     border: none;
-    width: 100%;
-    color: rgb(114, 113, 113);
-    font-size: 15px;
     outline: none;
 }
+.FPn:hover {
+    /*  Making button bigger on hover  */
+      transform: scale(1.2) perspective(0.5px)!important
+}
+  

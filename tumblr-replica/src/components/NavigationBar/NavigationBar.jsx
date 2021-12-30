@@ -1,10 +1,12 @@
+/* eslint-disable max-len */
+/* eslint-disable jsx-a11y/no-static-element-interactions */
 import React, { useRef, useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
 import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import './css/dist/NavigationBar.css';
 import Box from '@mui/material/Box';
-// import ChatDropDown from './subcomponents/ChatDropDown';
+// mport ChatDropDown from './subcomponents/ChatDropDown';
 import ProfileDropDown from './subcomponents/ProfileDropDown';
 import NotificationsDropDown from './subcomponents/NotificationsDropDown';
 import LogInButton from '../LogOutHomePage/subcomponents/LogInButton/LogInButton';
@@ -14,9 +16,9 @@ import { selectUser } from '../../states/User/UserSlice';
 import ChatTo from '../ChatTo/ChatTo';
 import ChatBoxes from '../ChatBoxes/ChatBoxes';
 import {
-  toggleDropDown, toggleIconColor, items,
+  toggleDropDown, toggleIconColor, toggleChatIcon,
 } from './interactions';
-
+import { fetchAutocomplete, selectAutocomplete } from '../../states/search/autocompleteSlice';
 /**
  * This is the navigation bar component for large view ports.
  * @component
@@ -41,7 +43,9 @@ function NavigationBar() {
   function checkOutside(ref) {
     useEffect(() => {
       function handleClickOutside(event) {
-        if (ref.current && !ref.current.contains(event.target)) {
+        const inputContent = ref.current.childNodes[0]
+          .childNodes[0].childNodes[0].childNodes[0].value;
+        if (ref.current && !ref.current.contains(event.target) && inputContent === '') {
           setSearchStyle(initialStyle);
           setIconShow(true);
         }
@@ -54,7 +58,7 @@ function NavigationBar() {
       };
     }, [ref]);
   }
-
+  const history = useNavigate();
   const handleOnFocus = () => {
     const newStyle = {
       height: '34px',
@@ -67,6 +71,11 @@ function NavigationBar() {
     setSearchStyle(newStyle);
     setIconShow(false);
   };
+  const autocompleteState = useSelector(selectAutocomplete);
+  const dispatch = useDispatch();
+  const handleOnSearch = (string) => {
+    dispatch(fetchAutocomplete({ string }));
+  };
   const searchRef = useRef(null);
   checkOutside(searchRef);
   const user = useSelector(selectUser);
@@ -78,15 +87,26 @@ function NavigationBar() {
             <button type="button" aria-label="dashboard"><i className="fab fa-tumblr fa-2x " /></button>
           </Link>
         </div>
-        <div className="search-bar" style={{ width: 490 }} ref={searchRef}>
+        <div
+          className="search-bar"
+          style={{ width: 490 }}
+          ref={searchRef}
+          onKeyDown={(e) => {
+            if (e.key === 'Enter') {
+              history('/search/' + searchRef.current.childNodes[0].childNodes[0].childNodes[0].childNodes[0].value);
+              searchRef.current.childNodes[0].childNodes[0].childNodes[0].childNodes[0].blur();
+            }
+          }}
+        >
           <ReactSearchAutocomplete
             placeholder="    Search Tumblr"
-            items={items}
+            items={autocompleteState.words}
             onFocus={handleOnFocus}
             showClear={false}
             showIcon={iconShow}
             styling={searchStyle}
             key={searchStyle}
+            onSearch={handleOnSearch}
           />
         </div>
       </div>
@@ -118,7 +138,7 @@ function LoggedInGroup() {
   const exploreRef = useRef(null);
   const inboxRef = useRef(null);
   const allIconRefs = [dashboardRef, exploreRef, inboxRef];
-  const [chatClick, setChatClick] = useState(false);
+  const [chatClicked, setChatClicked] = useState(false);
   return (
     <div className="icons-container">
       <Link
@@ -130,10 +150,22 @@ function LoggedInGroup() {
       >
         <abbr title="Dashboard"><i className="fas fa-home  fa-lg" style={{ filter: 'brightness(100%)' }} ref={dashboardRef} /></abbr>
       </Link>
-      <Link to="/explore/recommended-for-you" className="icon-style" onClick={() => { toggleIconColor(exploreRef, allIconRefs); }}>
+      <Link
+        to="/explore/recommended-for-you"
+        className="icon-style"
+        onClick={() => {
+          toggleIconColor(exploreRef, allIconRefs);
+        }}
+      >
         <abbr title="Explore"><i className="far fa-compass  fa-lg" style={{ filter: 'brightness(70%)' }} ref={exploreRef} /></abbr>
       </Link>
-      <Link to="/inbox" className="icon-style" onClick={() => { toggleIconColor(inboxRef, allIconRefs); }}>
+      <Link
+        to="/inbox"
+        className="icon-style"
+        onClick={() => {
+          toggleIconColor(inboxRef, allIconRefs);
+        }}
+      >
         <abbr title="Inbox"><i className="fas fa-envelope  fa-lg" style={{ filter: 'brightness(70%)' }} ref={inboxRef} /></abbr>
       </Link>
       <div className="drop chat-drop" ref={chatRef}>
@@ -141,22 +173,38 @@ function LoggedInGroup() {
           type="button"
           className="icon-style"
           onClick={() => {
-            setChatClick(!chatClick);
+            setChatClicked(!chatClicked);
+            toggleChatIcon(chatRef);
           }}
         >
           <abbr title="Chat"><i className="far fa-comment-alt  fa-lg" style={{ filter: 'brightness(70%)' }} /></abbr>
         </button>
-        {chatClick && <ChatTo />}
+        {chatClicked && <ChatTo />}
         <ChatBoxes />
       </div>
       <div className="drop notifications-drop" ref={notificationsRef}>
-        <button type="button" className="icon-style" onClick={() => { toggleDropDown(notificationsRef, allRefs); }}>
+        <button
+          type="button"
+          className="icon-style"
+          onClick={() => {
+            toggleDropDown(notificationsRef, allRefs);
+            if (chatClicked) setChatClicked(!chatClicked);
+          }}
+        >
           <abbr title="Notifications"><i className="fas fa-bolt  fa-lg" style={{ filter: 'brightness(70%)' }} /></abbr>
         </button>
         <NotificationsDropDown style={{ display: 'none' }} buttonRef={notificationsRef} />
       </div>
       <div className="drop user-drop" ref={profileRef}>
-        <button type="button" to="/" className="icon-style" onClick={() => { toggleDropDown(profileRef, allRefs); }}>
+        <button
+          type="button"
+          to="/"
+          className="icon-style"
+          onClick={() => {
+            toggleDropDown(profileRef, allRefs);
+            if (chatClicked) setChatClicked(!chatClicked);
+          }}
+        >
           <abbr title="My Tumblrs"><i className="fas fa-user  fa-lg" style={{ filter: 'brightness(70%)' }} /></abbr>
         </button>
         <ProfileDropDown style={{ display: 'none' }} buttonRef={profileRef} />

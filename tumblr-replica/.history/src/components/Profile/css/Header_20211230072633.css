@@ -1,0 +1,10 @@
+.dd-wrapper{
+    width:'80%'
+}
+.dd-list{
+    display: block;
+    width: 100px;
+    background-color: darkgrey;
+    height: 700px;
+    z-index: ;
+}

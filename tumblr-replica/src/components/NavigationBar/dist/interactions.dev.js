@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.backgrounds = exports.colors = exports.fonts = exports.changeTheme = exports.toggleDropDownM = exports.items = exports.newMessageHandler = exports.tumblrSelection = exports.chooseBlueItem = exports.toggleOptions = exports.useOutsideAlerter = exports.toggleIconColor = exports.toggleDropDown = void 0;
+exports.backgrounds = exports.colors = exports.fonts = exports.changeTheme = exports.toggleDropDownM = exports.items = exports.newMessageHandler = exports.tumblrSelection = exports.chooseBlueItem = exports.toggleOptions = exports.useOutsideAlerter = exports.toggleIconColor = exports.toggleChatIcon = exports.toggleDropDown = void 0;
 
 var _react = require("react");
 
@@ -35,6 +35,24 @@ var toggleDropDown = function toggleDropDown(toggleRef, allRefs) {
   });
 };
 /**
+ * Toggles one of the three main drop down menus of the navigation bar.
+ * @method
+ * @param {MutableRefObject} toggleRef - The ref for HTML node that should have its display toggled.
+ * @param {Array} allRefs - Array of refs for HTML nodes that should have their display set to none.
+ */
+
+
+exports.toggleDropDown = toggleDropDown;
+
+var toggleChatIcon = function toggleChatIcon(toggleRef) {
+  // one dropdown open at a time:
+  var el = toggleRef;
+  var icon = el.current.childNodes[0].childNodes[0].childNodes[0];
+  var white = 'brightness(100%)';
+  var grey = 'brightness(70%)';
+  icon.style.filter = icon.style.filter === grey ? white : grey;
+};
+/**
  * Toggles the colors of navigation bar icons between grey and white
  * @method
  * @param {MutableRefObject} toggleRef - The ref for HTML node that should be toggled to white.
@@ -42,7 +60,7 @@ var toggleDropDown = function toggleDropDown(toggleRef, allRefs) {
  */
 
 
-exports.toggleDropDown = toggleDropDown;
+exports.toggleChatIcon = toggleChatIcon;
 
 var toggleIconColor = function toggleIconColor(toggleRef, allIconRefs) {
   var el = toggleRef;
@@ -163,55 +181,38 @@ var newMessageHandler = function newMessageHandler(chatsRef, followingRef, butto
 
 exports.newMessageHandler = newMessageHandler;
 var items = [{
-  id: 0,
   name: 'Eiffel Tower'
 }, {
-  id: 1,
   name: 'Tumblr'
 }, {
-  id: 2,
   name: 'Pyramids'
 }, {
-  id: 3,
   name: 'Cairo'
 }, {
-  id: 4,
   name: 'Waterall'
 }, {
-  id: 5,
   name: 'Flowers'
 }, {
-  id: 4,
   name: 'Meh'
 }, {
-  id: 4,
   name: 'Jordon'
 }, {
-  id: 4,
   name: 'Tram Car'
 }, {
-  id: 4,
   name: 'Surfing'
 }, {
-  id: 4,
   name: 'Karthus'
 }, {
-  id: 4,
   name: 'Zed'
 }, {
-  id: 4,
   name: 'Yasuo'
 }, {
-  id: 4,
   name: 'MrWonderful'
 }, {
-  id: 4,
   name: 'Jax'
 }, {
-  id: 4,
   name: 'Malzahar'
 }, {
-  id: 4,
   name: 'Zeo'
 }];
 /**

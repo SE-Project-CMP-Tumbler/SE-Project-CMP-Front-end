@@ -19,11 +19,8 @@ const uploadImage = createAsyncThunk(
           },
           data: img,
         });
-        console.log('bla');
-        console.log(response.data);
         return response.data;
       }
-
       const response = await api.get('uploadphoto', {
         headers: {
           'Content-Type': 'application/json',

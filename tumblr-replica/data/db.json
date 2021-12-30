@@ -551,7 +551,7 @@
           "blog_avatar_shape_asking": "",
           "blog_title_asking": "",
           "post_type": "general",
-          "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+          "post_body": "<div> <h1>What's Artificial intellegence? by @Maryem-Hussein</h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
           "traced_back_posts": [
             {
               "post_id": 5,
@@ -561,7 +561,7 @@
               "blog_avatar_shape": "circle",
               "post_time": "02-02-2011",
               "post_type": "general",
-              "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+              "post_body": "<div> <h1>What's Artificial intellegence? by @maryem </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
               "question_body": "",
               "question_id": "",
               "question_flag": false,
@@ -602,14 +602,14 @@
           "post_status": "draft",
           "post_time": "02-02-2012",
           "post_type": "general",
-          "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+          "post_body": "<div> <h1>What's Artificial intellegence? by @Maryem-Hussein</h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
           "traced_back_posts": [
             {
               "post_id": 5,
               "blog_id": 5,
               "post_time": "02-02-2011",
               "post_type": "general",
-              "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+              "post_body": "<div> <h1>What's Artificial intellegence? by @Nadeen-Ayman </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
               "question_body": "How are you?",
               "question_id": 3,
               "question_flag": false,
@@ -1819,6 +1819,15 @@
       "post_type": "general",
       "post_body": "<p>let's try</p>\n",
       "id": 7
+    },
+    {
+      "post_status": "puplished",
+      "post_time": "2021-11-3",
+      "post_type": {
+        "postType": "text"
+      },
+      "post_body": "<p>post to mock</p>\n",
+      "id": 8
     }
   ],
   "upload_file": [
@@ -1907,6 +1916,33 @@
             "header_image": "",
             "title": "My 1st Blog",
             "description": "This blog is a sketch of thoughts"
+          },
+          {
+            "id": 2026,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "description": "This blog is a sketch of thoughts"
+          },
+          {
+            "id": 2026,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "description": "This blog is a sketch of thoughts"
+          },
+          {
+            "id": 2026,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "description": "This blog is a sketch of thoughts"
           }
         ]
       }
@@ -1943,6 +1979,30 @@
           "description": "This blog is a sketch of thoughts"
         },
         {
+          "id": 2027,
+          "is_primary": false,
+          "username": "sobhy",
+          "avatar": "",
+          "avatar_shape": "square",
+          "header_image": "",
+          "title": "My 1st Blog",
+          "allow_ask": false,
+          "allow_submittions": true,
+          "description": "This blog is a sketch of thoughts"
+        },
+        {
+          "id": 2028,
+          "is_primary": false,
+          "username": "ghareeb",
+          "avatar": "",
+          "avatar_shape": "square",
+          "header_image": "",
+          "title": "My 1st Blog",
+          "allow_ask": true,
+          "allow_submittions": false,
+          "description": "This blog is a sketch of thoughts"
+        },
+        {
           "id": 2126,
           "is_primary": false,
           "username": "GordonRamsey",
@@ -1950,43 +2010,587 @@
           "avatar_shape": "square",
           "header_image": "",
           "title": "Oh dearr!",
-          "allow_ask": true,
-          "allow_submittions": true,
+          "allow_ask": false,
+          "allow_submittions": false,
           "description": "This blog is a sketch of thoughts"
         }
       ]
     }
   },
-  "block": {
-    "meta": {
-      "status": "200",
-      "msg": "ok"
-    },
-    "response": {
-      "is_blocking": false
-    }
+"followed":{
+  "meta": {
+    "status": "200",
+    "msg": "ok"
   },
-  "blogm": {
-    "meta": {
-      "status": "200",
-      "msg": "ok"
-    },
-    "response": {
-      "share_likes": true,
-      "share_followings": true,
-      "id": 2026,
-      "is_primary": false,
-      "username": "ahmad-ghareeb",
-      "avatar": "https://scontent.fcai19-7.fna.fbcdn.net/v/t1.6435-9/131377863_2819233718394652_8340224791482069975_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeH77U1q39s0YwlxOoOOZpkOYAIITRUXLK1gAghNFRcsrc0lcejGuFpG42urYOWA-vxMg8xj0ct5h4d5y17wAS7Q&_nc_ohc=d4ULMS8cbbwAX-PRlwx&_nc_ht=scontent.fcai19-7.fna&oh=00_AT-DEH7Q4u72h5t8vL3pSN0UwY5pAVLIlWKKiG2Hfl6NpA&oe=61EB56A3",
-      "avatar_shape": "circle",
-      "header_image": "https://scontent.fcai19-8.fna.fbcdn.net/v/t1.6435-9/110317044_2680778068906885_6342427761542127472_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeEswvLZKjPSatwn_ayQKxQETaZe8tBIdmtNpl7y0Eh2a5d5SnznW7t0v4QioaBBFLOVbH5EDay_dHM67irUU19-&_nc_ohc=-RlN2LB1pE8AX9Zw6mj&_nc_ht=scontent.fcai19-8.fna&oh=00_AT9nEsi7oN4zphqAE9uuWZa2g4hula92bUHk6CUQGQgONw&oe=61EE2321",
-      "title": "i'm ghareeb",
-      "allow_ask": true,
-      "followed": true,
-      "allow_submittions": true,
-      "description": "i love food"
-    }
+  "response": {
+    "followed": true
+  }
+},
+  "block":{
+  "meta": {
+    "status": "200",
+    "msg": "ok"
   },
+  "response": {
+    "is_blocking": false
+  }
+},
+"allmessages":{
+    "response": {
+        "messages": [
+            {
+                "post_id": 45,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-12-23 20:01:15",
+                "post_type": "general",
+                "post_body": "<div><p>Hajanah</p></div>",
+                "blog_id": 40,
+                "blog_username": "Hala",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "Hala",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            },
+            {
+                "blog_username": "ahmed",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "ghareeb",
+                "blog_id": 151,
+                "question_body": "sadddddddddddddddddddddddddddddd",
+                "question_id": 17,
+                "question_flag": false,
+                "ask_time": "2021-12-27T17:01:01.000000Z",
+                "post_status":"ask"
+            },
+            {
+                "post_id": 40,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-12-23 15:30:33",
+                "post_type": "general",
+                "post_body": "cccc",
+                "blog_id": 41,
+                "blog_username": "dldldldl",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "dldldldl",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            },
+            {
+                "blog_username": "",
+                "blog_avatar": "",
+                "blog_avatar_shape": "circle",
+                "blog_title": "",
+                "blog_id": 151,
+                "question_body": "sadddddddddddddddddddddddddddddd",
+                "question_id": 17,
+                "question_flag": true,
+                "ask_time": "2021-12-27T17:01:01.000000Z",
+                "post_status":"ask"
+            },
+            {
+                "post_id": 49,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-12-24 07:26:39",
+                "post_type": "general",
+                "post_body": "🏃‍♀️🏃‍♀️",
+                "blog_id": 40,
+                "blog_username": "Hala",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "Hala",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            },
+            {
+                "post_id": 9,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-12-22 00:00:00",
+                "post_type": "general",
+                "post_body": "<p>Hello</p>",
+                "blog_id": 12,
+                "blog_username": "Ziyad",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "Ziyad",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            },
+                        {
+                "blog_username": "ahmed",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "ghareeb",
+                "blog_id": 151,
+                "question_body": "sadddddddddddddddddddddddddddddd",
+                "question_id": 17,
+                "question_flag": false,
+                "ask_time": "2021-12-27T17:01:01.000000Z",
+                "post_status":"ask"
+            },
+            {
+                "post_id": 69,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-12-27 10:13:31",
+                "post_type": "general",
+                "post_body": "Ay post",
+                "blog_id": 40,
+                "blog_username": "Hala",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "Hala",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            },
+            {
+                "post_id": 7,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-11-03 00:00:00",
+                "post_type": "general",
+                "post_body": "<div> <p>post</p>\n </div>",
+                "blog_id": 6,
+                "blog_username": "maryem-salah",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "maryem-salah",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            },
+            {
+                "post_id": 12,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-12-23 06:55:02",
+                "post_type": "general",
+                "post_body": "Will the post be created ??",
+                "blog_id": 37,
+                "blog_username": "Halla",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "Halla",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            },
+            {
+                "post_id": 16,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-12-23 07:50:25",
+                "post_type": "general",
+                "post_body": "First Post?&nbsp;",
+                "blog_id": 38,
+                "blog_username": "Halaa",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "Halaa",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            },
+            {
+                "post_id": 15,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-11-04 00:00:00",
+                "post_type": "general",
+                "post_body": "<div> <p><span style=\"font-size: 24px;\">New post !</span></p>\n<p><span style=\"color: rgb(247,218,100);\">hello tumblrs</span><span style=\"color: rgb(40,50,78);\"> ⭐</span></p>\n </div>",
+                "blog_id": 6,
+                "blog_username": "maryem-salah",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "maryem-salah",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            },
+            {
+                "post_id": 54,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-12-24 07:51:06",
+                "post_type": "general",
+                "post_body": "اهلاااا",
+                "blog_id": 40,
+                "blog_username": "Hala",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "Hala",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            }
+        ],
+        "pagination": {
+            "total": 70,
+            "count": 13,
+            "per_page": 10,
+            "current_page": 1,
+            "total_pages": 7,
+            "first_page_url": true,
+            "last_page_url": 7,
+            "next_page_url": "http://api.dev.tumbler.social/api/posts/random_posts?page=2",
+            "prev_page_url": null
+        }
+    },
+    "meta": {
+        "status": "200",
+        "msg": "OK"
+    }
+},
+"blogmessages":{
+    "response": {
+                "messages": [
+            {
+                "post_id": 45,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-12-23 20:01:15",
+                "post_type": "general",
+                "post_body": "<div><p>Hajanah</p></div>",
+                "blog_id": 40,
+                "blog_username": "Hala",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "Hala",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            },
+            {
+                "blog_username": "ahmed",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "ghareeb",
+                "blog_id": 151,
+                "question_body": "sadddddddddddddddddddddddddddddd",
+                "question_id": 17,
+                "question_flag": false,
+                "ask_time": "2021-12-27T17:01:01.000000Z",
+                "post_status":"ask"
+            },
+            {
+                "post_id": 40,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-12-23 15:30:33",
+                "post_type": "general",
+                "post_body": "cccc",
+                "blog_id": 41,
+                "blog_username": "dldldldl",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "dldldldl",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            },
+            {
+                "blog_username": "",
+                "blog_avatar": "",
+                "blog_avatar_shape": "circle",
+                "blog_title": "",
+                "blog_id": 151,
+                "question_body": "sadddddddddddddddddddddddddddddd",
+                "question_id": 17,
+                "question_flag": true,
+                "ask_time": "2021-12-27T17:01:01.000000Z",
+                "post_status":"ask"
+            },
+            {
+                "post_id": 49,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-12-24 07:26:39",
+                "post_type": "general",
+                "post_body": "🏃‍♀️🏃‍♀️",
+                "blog_id": 40,
+                "blog_username": "Hala",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "Hala",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            },
+            {
+                "post_id": 9,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-12-22 00:00:00",
+                "post_type": "general",
+                "post_body": "<p>Hello</p>",
+                "blog_id": 12,
+                "blog_username": "Ziyad",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "Ziyad",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            },
+                        {
+                "blog_username": "ahmed",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "ghareeb",
+                "blog_id": 151,
+                "question_body": "sadddddddddddddddddddddddddddddd",
+                "question_id": 17,
+                "question_flag": false,
+                "ask_time": "2021-12-27T17:01:01.000000Z",
+                "post_status":"ask"
+            },
+            {
+                "post_id": 69,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-12-27 10:13:31",
+                "post_type": "general",
+                "post_body": "Ay post",
+                "blog_id": 40,
+                "blog_username": "Hala",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "Hala",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            },
+            {
+                "post_id": 7,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-11-03 00:00:00",
+                "post_type": "general",
+                "post_body": "<div> <p>post</p>\n </div>",
+                "blog_id": 6,
+                "blog_username": "maryem-salah",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "maryem-salah",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            },
+            {
+                "post_id": 12,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-12-23 06:55:02",
+                "post_type": "general",
+                "post_body": "Will the post be created ??",
+                "blog_id": 37,
+                "blog_username": "Halla",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "Halla",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            },
+            {
+                "post_id": 16,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-12-23 07:50:25",
+                "post_type": "general",
+                "post_body": "First Post?&nbsp;",
+                "blog_id": 38,
+                "blog_username": "Halaa",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "Halaa",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            },
+            {
+                "post_id": 15,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-11-04 00:00:00",
+                "post_type": "general",
+                "post_body": "<div> <p><span style=\"font-size: 24px;\">New post !</span></p>\n<p><span style=\"color: rgb(247,218,100);\">hello tumblrs</span><span style=\"color: rgb(40,50,78);\"> ⭐</span></p>\n </div>",
+                "blog_id": 6,
+                "blog_username": "maryem-salah",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "maryem-salah",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            },
+            {
+                "post_id": 54,
+                "post_status": "submission",
+                "pinned": false,
+                "post_time": "2021-12-24 07:51:06",
+                "post_type": "general",
+                "post_body": "اهلاااا",
+                "blog_id": 40,
+                "blog_username": "Hala",
+                "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+                "blog_avatar_shape": "circle",
+                "blog_title": "Hala",
+                "blog_username_asking": "",
+                "blog_avatar_asking": "",
+                "blog_avatar_shape_asking": "",
+                "blog_title_asking": "",
+                "approving_blog_id": null,
+                "notes_count": 0,
+                "is_liked": false
+            }
+        ],
+        "pagination": {
+            "total": 70,
+            "count": 13,
+            "per_page": 10,
+            "current_page": 1,
+            "total_pages": 7,
+            "first_page_url": true,
+            "last_page_url": 7,
+            "next_page_url": "http://api.dev.tumbler.social/api/posts/random_posts?page=2",
+            "prev_page_url": null
+        }
+    },
+    "meta": {
+        "status": "200",
+        "msg": "OK"
+    }
+},
+"blogname":{
+  "meta": {
+    "status": "200",
+    "msg": "ok"
+  },
+  "response": {
+    "share_likes": true,
+    "share_followings": true,
+    "id": 2026,
+    "is_primary": false,
+    "username": "newinvestigations",
+    "avatar": "",
+    "avatar_shape": "square",
+    "header_image": "",
+    "title": "My 1st Blog",
+    "allow_ask": true,
+    "allow_submittions": true,
+    "description": "This blog is a sketch of thoughts",
+    "followed": true
+  }
+},
+"blogm": {
+  "meta": {
+    "status": "200",
+    "msg": "ok"
+  },
+  "response": {
+    "share_likes": true,
+    "share_followings": true,
+    "id": 2026,
+    "is_primary": false,
+    "username": "ahmad-ghareeb",
+    "avatar": "https://scontent.fcai19-7.fna.fbcdn.net/v/t1.6435-9/131377863_2819233718394652_8340224791482069975_n.jpg?_nc_cat=104&ccb=1-5&_nc_sid=09cbfe&_nc_eui2=AeH77U1q39s0YwlxOoOOZpkOYAIITRUXLK1gAghNFRcsrc0lcejGuFpG42urYOWA-vxMg8xj0ct5h4d5y17wAS7Q&_nc_ohc=d4ULMS8cbbwAX-PRlwx&_nc_ht=scontent.fcai19-7.fna&oh=00_AT-DEH7Q4u72h5t8vL3pSN0UwY5pAVLIlWKKiG2Hfl6NpA&oe=61EB56A3",
+    "avatar_shape": "circle",
+    "header_image": "https://scontent.fcai19-8.fna.fbcdn.net/v/t1.6435-9/110317044_2680778068906885_6342427761542127472_n.jpg?_nc_cat=107&ccb=1-5&_nc_sid=e3f864&_nc_eui2=AeEswvLZKjPSatwn_ayQKxQETaZe8tBIdmtNpl7y0Eh2a5d5SnznW7t0v4QioaBBFLOVbH5EDay_dHM67irUU19-&_nc_ohc=-RlN2LB1pE8AX9Zw6mj&_nc_ht=scontent.fcai19-8.fna&oh=00_AT9nEsi7oN4zphqAE9uuWZa2g4hula92bUHk6CUQGQgONw&oe=61EE2321",
+    "title": "i'm ghareeb",
+    "allow_ask": true,
+    "followed": true,
+    "allow_submittions": true,
+    "description": "i love food"
+  }
+},
   "notes": {
     "meta": {
       "status": "200",
@@ -2109,6 +2713,74 @@
           "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
           "blog_avatar_shape": "rectangle",
           "blog_username": "ahmed ali"
+        }
+      ],
+      "blog-info": [
+        {
+          "id": "maryem",
+          "meta": {
+            "status": "200",
+            "msg": "ok"
+          },
+          "response": {
+            "share_likes": true,
+            "share_followings": true,
+            "id": 2026,
+            "is_primary": false,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "allow_ask": true,
+            "allow_submittions": true,
+            "description": "This blog is a sketch of thoughts",
+            "followed": true
+          }
+        },
+        {
+          "id": "Nadeen-Ayman",
+          "meta": {
+            "status": "200",
+            "msg": "ok"
+          },
+          "response": {
+            "share_likes": true,
+            "share_followings": true,
+            "id": 2025,
+            "is_primary": false,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "allow_ask": true,
+            "allow_submittions": true,
+            "description": "This blog is a sketch of thoughts",
+            "followed": true
+          }
+        },
+        {
+          "id": "Maryem-Hussein",
+          "meta": {
+            "status": "200",
+            "msg": "ok"
+          },
+          "response": {
+            "share_likes": true,
+            "share_followings": true,
+            "id": 2026,
+            "is_primary": false,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "allow_ask": true,
+            "allow_submittions": true,
+            "description": "This blog is a sketch of thoughts",
+            "followed": true
+          }
         }
       ]
     }
@@ -2663,6 +3335,14 @@
             "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
             "blog_avatar_shape": "circle",
             "blog_title": ""
+          },
+          {
+            "text": "why",
+            "blog_id": 602,
+            "blog_username": "Malzah",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
           }
         ]
       }
@@ -3123,5 +3803,126 @@
       "from_blog_avatar": "/profile3.png",
       "follow": false
     }
-  ]
+  ],
+  "search_auto_complete": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 2,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
+      "words": [
+        {
+          "word": "Malzahar"
+        },
+        {
+          "word": "Yasuo"
+        },
+        {
+          "word": "Jax"
+        },
+        {
+          "word": "Karthus"
+        },
+        {
+          "word": "Abecdo"
+        },
+        {
+          "word": "Frgeik"
+        },
+        {
+          "word": "Mnoprq"
+        },
+        {
+          "word": "Tuvwxys"
+        }
+      ]
+    }
+  },
+  "search": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "posts": {
+        "pagination": {
+          "total": 17,
+          "count": 7,
+          "per_page": 10,
+          "current_page": 2,
+          "total_pages": 2,
+          "first_page_url": false,
+          "next_page_url": null,
+          "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+        },
+        "posts": [
+          {
+            "post_id": 5,
+            "post_status": "published",
+            "post_type": "general",
+            "post_body": "<div><h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+            "blog_id": 5,
+            "blog_username": "",
+            "blog_avatar": "",
+            "blog_avatar_shape": "",
+            "blog_title": "",
+            "post_time": "2012-02-30"
+          }
+        ]
+      },
+      "tags": {
+        "pagination": {
+          "total": 120,
+          "count": 10,
+          "per_page": 10,
+          "current_page": 2,
+          "total_pages": 12,
+          "first_page_url": false,
+          "last_page_url": 12,
+          "next_page_url": "http://127.0.0.1:8000/api/tag/trending?page=3",
+          "prev_page_url": "http://127.0.0.1:8000/api/tag/trending?page=1"
+        },
+        "tags": [
+          {
+            "tag_description": "books",
+            "tag_image": ""
+          }
+        ]
+      },
+      "blogs": {
+        "pagination": {
+          "total": 1,
+          "count": 1,
+          "per_page": 10,
+          "current_page": 1,
+          "total_pages": 1,
+          "first_page_url": true,
+          "last_page_url": 1,
+          "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
+          "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
+        },
+        "blogs": [
+          {
+            "id": 2026,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "description": "This blog is a sketch of thoughts"
+          }
+        ]
+      }
+    }
+  }
 }

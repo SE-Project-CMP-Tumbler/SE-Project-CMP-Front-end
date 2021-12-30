@@ -19,11 +19,14 @@
   color: #080808;
 }
 .postBody video {
-  width: 93%;
-  height: 93%;
+  width: 100%;
+  height: 200px;
+  min-height: 200px;
 }
-a {
-  color: #080808;
+.postBody a {
+  color: #080808 !important; 
+  cursor: pointer !important;
+  text-decoration: underline !important;
 }
 .text{
 text-align: left !important;

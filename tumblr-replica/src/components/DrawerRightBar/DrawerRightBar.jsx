@@ -1,14 +1,17 @@
 import React, { useState } from 'react';
 import { Drawer } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+import { useDispatch, useSelector } from 'react-redux';
 import { useMediaQuery } from 'react-responsive';
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from './DrawerHeader';
 import './css/DrawerRightBar.css';
+import { getBlogId, fetchBlogId } from '../../states/blognameslice/blogNameSlice';
 
 const useStyles = makeStyles({
   drawerpaper: {
     width: 730,
+    background: '#061833!important',
   },
 
 });
@@ -26,13 +29,18 @@ const useStyles = makeStyles({
  */
 
 function RightBar() {
-  const { blogid } = useParams();
-  console.log(blogid, 'drawer id');
+  const { username } = useParams();
+  const dispatch = useDispatch();
+  React.useEffect(() => {
+    dispatch(fetchBlogId(username));// will take BlogId
+  }, []);
   const navigate = useNavigate();
   const [Open, setOpening] = useState(true);
   const [OpenChat, setOpenChat] = useState(false);
   const IsTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
-
+  const blogid = useSelector(getBlogId).response.id;
+  const statue = useSelector(getBlogId).meta;
+  const Error = useSelector(getBlogId).error;
   /**
 * toggelDrawer open drawer state to uodate the drawer state
 * @param   {hook} setOpening  hook for updating drawer state
@@ -69,22 +77,26 @@ function RightBar() {
           open={Open}
           ModalProps={{ onBackdropClick: handelCloseDrawer }}
         >
-          <div>
-            <Header
-              CloseClicked={() => setOpening(false)}
-              OpenChatClicked={() => {
-                setOpenChat(true);
-                console.log('Openn chat');
-              }}
-              BlogId={blogid}
-            />
-          </div>
-          {/* this part for  integrating chat module */}
-          {!IsTabletOrMobile && OpenChat && (
-            <div className="chat">
-              <p>the chat will integrated here</p>
-            </div>
-          )}
+          {statue.status === '200' ? (
+            <>
+              <div>
+                <Header
+                  CloseClicked={() => setOpening(false)}
+                  OpenChatClicked={() => {
+                    setOpenChat(true);
+                  }}
+                  BlogId={blogid}
+                />
+              </div>
+              {/* this part for  integrating chat module */}
+              {!IsTabletOrMobile && OpenChat && (
+                <div className="chat">
+                  <p>the chat will integrated here</p>
+                </div>
+              )}
+            </>
+          ) : (
+            Error && <div>This Tumblr is cool, but empty.</div>)}
         </Drawer>
 
       </div>

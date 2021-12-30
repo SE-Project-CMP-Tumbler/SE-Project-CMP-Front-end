@@ -13,7 +13,6 @@ export const PostNotes = createSlice({
       s.replies = action.payload.replies;
       s.reblogs = action.payload.reblogs;
       s.likes = action.payload.likes;
-      console.log(s.likes, s.reblogs, s.replies);
     },
   },
 });

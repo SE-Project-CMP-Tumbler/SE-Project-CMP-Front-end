@@ -83,7 +83,8 @@
 .btn-drawer{
     margin-left: 14px;
     align-items: center;
-    border-radius:4px;
+    background-color:white !important ;
+    border-radius:4px !important;
     display: flex;
     font-size: .875rem;
     font-weight: 700;
