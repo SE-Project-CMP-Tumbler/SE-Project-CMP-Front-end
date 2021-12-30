@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import { useDispatch, useSelector } from 'react-redux';
-import NavTabs from '../NavTabs/NavTabs';
+import NavTabs from '../NavTabs/Navtabs';
 import FollowingList from '../FollowingList/FollowingList';
 import CarouselCards from '../CarouselCards/CarouselCards';
 import PostsList from '../PostsList/PostsList';

@@ -2,15 +2,15 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import Axios from 'axios';
 import { api, apiR, SERVICETYPE } from '../../../apis/globalAPI';
 
-const fetchCheckout = createAsyncThunk(
-  'DashPosts/fetchCheckout',
-  async (User) => {
+const DeletePost = createAsyncThunk(
+  'DashPosts/DeletePost',
+  async ({ User, postID }) => {
     const USER_TOKEN = User.accessToken;
     const AuthStr = `Bearer ${USER_TOKEN}`;
     if (SERVICETYPE === 0) {
       const response = await Axios({
-        method: 'GET',
-        url: `${api}/blogs/chc_out_blogs`,
+        method: 'DELETE',
+        url: `${api}/createdpost/${postID}`,
         headers: {
           Authorization: AuthStr,
           Accept: 'application/json',
@@ -18,31 +18,26 @@ const fetchCheckout = createAsyncThunk(
         },
       });
       console.log(response.data);
-      if (response.data.meta.status === '200') {
-        return response.data.response;
-      }
-      return [];
+      return response.data;
     }
     try {
       const response = await Axios({
-        method: 'GET',
-        url: `${apiR}/blogs/check_out_blogs`,
+        method: 'DELETE',
+        url: `${apiR}/post/${postID}`,
         headers: {
           Authorization: AuthStr,
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
       });
-      console.log(response);
-      if (response.data.meta.status === '200') {
-        return response.data.response;
-      }
-      return [];
+      console.log('bla');
+      console.log(response.data);
+      return response.data;
     } catch (err) {
-      console.log(err.message);
+      console.log(err);
       return [];
     }
   },
 );
 
-export default fetchCheckout;
+export default DeletePost;

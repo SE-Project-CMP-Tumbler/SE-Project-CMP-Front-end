@@ -4,7 +4,8 @@ import { api, apiR, SERVICETYPE } from '../../../apis/globalAPI';
 
 const CreatePost = createAsyncThunk(
   'DashPosts/CreatePost',
-  async ({ postBody, User }) => {
+  async ({ postBody, User, postType }) => {
+    console.log(postType);
     const d = new Date();
     const time = `${d.getFullYear()}-${d.getMonth()}-${d.getDay()}`;
     const USER_TOKEN = User.accessToken;
@@ -21,7 +22,7 @@ const CreatePost = createAsyncThunk(
         data: {
           post_status: 'puplished',
           post_time: time,
-          post_type: 'general',
+          post_type: { postType },
           post_body: postBody,
         },
       });
@@ -31,7 +32,7 @@ const CreatePost = createAsyncThunk(
     try {
       const response = await Axios({
         method: 'POST',
-        url: `${apiR}/post/${User.id}`,
+        url: `${apiR}/post/${User.primaryBlogId}`,
         headers: {
           Authorization: AuthStr,
           Accept: 'application/json',
@@ -40,7 +41,7 @@ const CreatePost = createAsyncThunk(
         data: {
           post_status: 'published',
           post_time: time,
-          post_type: 'general',
+          post_type: postType,
           post_body: `<div> ${postBody} </div>`,
         },
       });

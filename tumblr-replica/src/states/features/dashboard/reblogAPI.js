@@ -28,7 +28,7 @@ const Reblog = createAsyncThunk(
     try {
       const response = await Axios({
         method: 'POST',
-        url: `${apiR}/reblog/${User.id}/${postID}`,
+        url: `${apiR}/reblog/${User.primaryBlogId}/${postID}`,
         headers: {
           Authorization: AuthStr,
           Accept: 'application/json',

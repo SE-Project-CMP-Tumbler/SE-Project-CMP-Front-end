@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-loop-func */
 /* eslint-disable import/no-extraneous-dependencies */
 import React from 'react';
 import { Markup } from 'interweave';
@@ -5,6 +7,9 @@ import '../css/PostContent.css';
 import PropTypes from 'prop-types';
 import Link from '@mui/material/Link';
 import { useMediaQuery } from 'react-responsive';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectUser } from '../../../../../states/User/UserSlice';
+import GetBlogId from '../../../../../states/features/dashboard/blogidAPI';
 /**
  * This function displays the content of a post and extracts mentions & hashtags
  * of the post to be do the needed logic with them & link them to the corresponding components
@@ -15,7 +20,8 @@ const PostContent = function PostContentDisplay(props) {
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 992px)' });
   let hashtags = [];
   const mentions = [];
-
+  const User = useSelector(selectUser);
+  const dispatch = useDispatch();
   const { content, small } = props;
 
   let current = content;
@@ -49,14 +55,20 @@ const PostContent = function PostContentDisplay(props) {
 
   for (let k = mentions.length - 1; k >= 0; k -= 1) {
     mentioned = postBody.substring(mentions[k].strt, mentions[k].end);
-    postBody = postBody.replace(
-      mentioned,
-      `<a href="#" style="text-decoration: 'underline';color: '#AAAAAA';""> ${mentioned}</a>`,
-    );
+    dispatch(GetBlogId({ User, blogUsername: mentioned })).then((res) => {
+      postBody = postBody.replace(
+        mentioned,
+        `<a href=${
+          res.id
+        } style="text-decoration: 'underline';color: '#AAAAAA';""> ${mentioned.slice(
+          1,
+        )}</a>`,
+      );
+    });
   }
-
+  console.log(postBody);
   return (
-    <div className="postBody" style={{ maxWidth: isTabletOrMobile || small ? 300 : 480, minWidth: isTabletOrMobile || small ? 300 : 480 }}>
+    <div className="postBody">
       <Markup content={postBody} />
       {hashtags.map((hash) => (
         <>

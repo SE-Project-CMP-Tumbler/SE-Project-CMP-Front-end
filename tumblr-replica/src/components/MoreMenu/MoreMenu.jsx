@@ -9,6 +9,7 @@ import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import PropTypes from 'prop-types';
 import { blockBlog } from '../../states/features/dashboard/NotesSlice';
 import { selectUser } from '../../states/User/UserSlice';
+import PinPost from '../../states/features/dashboard/pinpostAPI';
 /**
  * This function returns a component for the button ... that includes some options to be applied on
  * a post like : Report / Block /Pin etc.
@@ -35,6 +36,7 @@ const MoreMenu = function MoreMenuComponent(props) {
 
   const handlePin = function CheckPostPinning() {
     setPinned(true);
+    dispatch(PinPost({ User, blogId, postId }));
   };
 
   const handleUnfollow = function Unfollow() {

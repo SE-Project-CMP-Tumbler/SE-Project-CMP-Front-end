@@ -551,7 +551,7 @@
           "blog_avatar_shape_asking": "",
           "blog_title_asking": "",
           "post_type": "general",
-          "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+          "post_body": "<div> <h1>What's Artificial intellegence? by @Maryem-Hussein</h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
           "traced_back_posts": [
             {
               "post_id": 5,
@@ -561,7 +561,7 @@
               "blog_avatar_shape": "circle",
               "post_time": "02-02-2011",
               "post_type": "general",
-              "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+              "post_body": "<div> <h1>What's Artificial intellegence? by @maryem </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
               "question_body": "",
               "question_id": "",
               "question_flag": false,
@@ -602,14 +602,14 @@
           "post_status": "draft",
           "post_time": "02-02-2012",
           "post_type": "general",
-          "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+          "post_body": "<div> <h1>What's Artificial intellegence? by @Maryem-Hussein</h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
           "traced_back_posts": [
             {
               "post_id": 5,
               "blog_id": 5,
               "post_time": "02-02-2011",
               "post_type": "general",
-              "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+              "post_body": "<div> <h1>What's Artificial intellegence? by @Nadeen-Ayman </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
               "question_body": "How are you?",
               "question_id": 3,
               "question_flag": false,
@@ -1819,6 +1819,15 @@
       "post_type": "general",
       "post_body": "<p>let's try</p>\n",
       "id": 7
+    },
+    {
+      "post_status": "puplished",
+      "post_time": "2021-11-3",
+      "post_type": {
+        "postType": "text"
+      },
+      "post_body": "<p>post to mock</p>\n",
+      "id": 8
     }
   ],
   "upload_file": [
@@ -1899,6 +1908,33 @@
           "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
         },
         "blogs": [
+          {
+            "id": 2026,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "description": "This blog is a sketch of thoughts"
+          },
+          {
+            "id": 2026,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "description": "This blog is a sketch of thoughts"
+          },
+          {
+            "id": 2026,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "description": "This blog is a sketch of thoughts"
+          },
           {
             "id": 2026,
             "username": "newinvestigations",
@@ -2115,6 +2151,74 @@
           "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
           "blog_avatar_shape": "rectangle",
           "blog_username": "ahmed ali"
+        }
+      ],
+      "blog-info": [
+        {
+          "id": "maryem",
+          "meta": {
+            "status": "200",
+            "msg": "ok"
+          },
+          "response": {
+            "share_likes": true,
+            "share_followings": true,
+            "id": 2026,
+            "is_primary": false,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "allow_ask": true,
+            "allow_submittions": true,
+            "description": "This blog is a sketch of thoughts",
+            "followed": true
+          }
+        },
+        {
+          "id": "Nadeen-Ayman",
+          "meta": {
+            "status": "200",
+            "msg": "ok"
+          },
+          "response": {
+            "share_likes": true,
+            "share_followings": true,
+            "id": 2025,
+            "is_primary": false,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "allow_ask": true,
+            "allow_submittions": true,
+            "description": "This blog is a sketch of thoughts",
+            "followed": true
+          }
+        },
+        {
+          "id": "Maryem-Hussein",
+          "meta": {
+            "status": "200",
+            "msg": "ok"
+          },
+          "response": {
+            "share_likes": true,
+            "share_followings": true,
+            "id": 2026,
+            "is_primary": false,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "allow_ask": true,
+            "allow_submittions": true,
+            "description": "This blog is a sketch of thoughts",
+            "followed": true
+          }
         }
       ]
     }

@@ -19,9 +19,9 @@ import MoreMenu from '../../../MoreMenu/MoreMenu';
  */
 function PostCard(props) {
   const {
-    postId, postTime, blogId, blogUsername, postBody, blogAvatar, small,
+    postId, postTime, blogId, blogUsername, postBody, blogAvatar, small, postType,
   } = props;
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 992px)' });
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 700px)' });
   return (
     <>
       <Card
@@ -56,7 +56,7 @@ function PostCard(props) {
           <PostContent content={postBody} small={small} />
         </CardContent>
         <CardActions disableSpacing className="footer">
-          <PostFooter postId={postId} blogId={blogId} content={postBody} />
+          <PostFooter postId={postId} blogId={blogId} content={postBody} postType={postType} />
         </CardActions>
       </Card>
     </>
@@ -66,14 +66,12 @@ function PostCard(props) {
 export default PostCard;
 
 PostCard.propTypes = {
-  small: PropTypes.bool,
+  small: PropTypes.bool.isRequired,
   postId: PropTypes.number.isRequired,
   blogId: PropTypes.number.isRequired,
   postBody: PropTypes.string.isRequired,
   blogUsername: PropTypes.string.isRequired,
   postTime: PropTypes.string.isRequired,
   blogAvatar: PropTypes.string.isRequired,
-};
-PostCard.defaultProps = {
-  small: false,
+  postType: PropTypes.string.isRequired,
 };
