@@ -1,56 +1,56 @@
 pipeline {
   agent any
   stages {
-    stage('Debug Info') {
-      steps {
-        sh 'whoami;hostname;uptime'
-      }
-    }
+//     stage('Debug Info') {
+//       steps {
+//         sh 'whoami;hostname;uptime'
+//       }
+//     }
 
-    stage('Build Docker Image') {
-      steps {
-        sh '''cd tumblr-replica;
-docker build . \\
--f Dockerfile \\
--t tumbler-react'''
-      }
-    }
+//     stage('Build Docker Image') {
+//       steps {
+//         sh '''cd tumblr-replica;
+// docker build . \\
+// -f Dockerfile \\
+// -t tumbler-react'''
+//       }
+//     }
 
-    stage('Run Container') {
-      steps {
-        sh '''docker run \\
---name tumbler-react \\
---entrypoint /bin/sh \\
--dt --rm tumbler-react'''
-      }
-    }
+//     stage('Run Container') {
+//       steps {
+//         sh '''docker run \\
+// --name tumbler-react \\
+// --entrypoint /bin/sh \\
+// -dt --rm tumbler-react'''
+//       }
+//     }
 
-    stage('Lint') {
-      steps {
-        sh 'docker exec tumbler-react sh -c \'sh lint.sh\''
-      }
-    }
+//     stage('Lint') {
+//       steps {
+//         sh 'docker exec tumbler-react sh -c \'sh lint.sh\''
+//       }
+//     }
 
-    stage('Test') {
-      steps {
-        sh 'docker exec tumbler-react sh -c \'sh test.sh\''
-      }
-    }
+//     stage('Test') {
+//       steps {
+//         sh 'docker exec tumbler-react sh -c \'sh test.sh\''
+//       }
+//     }
 
-    stage('Stop Container & Remove Image') {
-      steps {
-        sh 'docker container stop tumbler-react'
-        sh 'docker image remove tumbler-react'
-        sh 'docker system prune -f'
-      }
-    }
+//     stage('Stop Container & Remove Image') {
+//       steps {
+//         sh 'docker container stop tumbler-react'
+//         sh 'docker image remove tumbler-react'
+//         sh 'docker system prune -f'
+//       }
+//     }
 
-    stage('List Docker Images & Containers') {
-      steps {
-        sh 'docker image ls -a'
-        sh 'docker container ls -a'
-      }
-    }
+//     stage('List Docker Images & Containers') {
+//       steps {
+//         sh 'docker image ls -a'
+//         sh 'docker container ls -a'
+//       }
+//     }
 
     stage('Deploy To dev-server') {
       agent {
