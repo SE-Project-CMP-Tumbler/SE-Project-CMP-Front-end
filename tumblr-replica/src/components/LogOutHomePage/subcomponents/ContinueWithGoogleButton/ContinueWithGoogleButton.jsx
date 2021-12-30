@@ -71,7 +71,7 @@ const ContinueWithGoogleButton = () => {
             <SvgIcon>
               <Logo />
             </SvgIcon>
-            Continue with Google
+            <span style={{ color: 'black' }}>Continue with Google</span>
           </Button>
         </Box>
       )}
