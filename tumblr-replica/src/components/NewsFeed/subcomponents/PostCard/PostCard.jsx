@@ -40,7 +40,6 @@ function PostCard(props) {
           avatar={
             (isTabletOrMobile || small)
             && (
-
               <Tooltip
                 placement="right"
                 title={(

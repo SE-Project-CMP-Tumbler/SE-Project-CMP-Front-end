@@ -15,7 +15,7 @@ import { getBlocked, BlockedByAsynch } from '../../states/blockSlice/getblocksli
 import { getBlog } from '../../states/blogslice/blogslice';
 import { BlockAsynch } from '../../states/blockSlice/blockslice';
 import { selectUser } from '../../states/User/UserSlice';
-// import { setHideAll } from '../../states/hidenav/hidenavSlice';
+import { setHideAll } from '../../states/hidenav/hidenavSlice';
 import './css/ProfileNavBar.css';
 
 // const MyBlog = false;
@@ -24,12 +24,12 @@ function ProfileNavBar({ BlogId }) {
   const [Open, SetOpen] = useState(false);
 
   const dispatch = useDispatch();
-  // React.useEffect(() => {
-  //   dispatch(setHideAll(true));
-  //   return () => {
-  //     dispatch(setHideAll(false));
-  //   };
-  // }, []);
+  React.useEffect(() => {
+    dispatch(setHideAll(true));
+    return () => {
+      dispatch(setHideAll(false));
+    };
+  }, []);
   React.useEffect(() => {
     dispatch(FollowedByAsynch(BlogId));
     dispatch(BlockedByAsynch(BlogId));
@@ -57,13 +57,13 @@ function ProfileNavBar({ BlogId }) {
   return (
     <div className="nav">
       <IconButton>
-        <Link to="/dashboard" target="_blank">
+        <Link to="/dashboard">
           <FontAwesomeIcon data-testid="HomeIcon" className="icons" icon={faHome} color="white" />
         </Link>
       </IconButton>
       <IconButton>
 
-        <Link to={'/blog/view/' + Blog.username} target="_blank">
+        <Link to={'/blog/view/' + Blog.username}>
           <FontAwesomeIcon className="icons" icon={faEye} color="white" />
         </Link>
       </IconButton>
@@ -74,13 +74,13 @@ function ProfileNavBar({ BlogId }) {
           }
         </IconButton>
       )}
-      {User.primaryBlogId.toString() !== BlogId && Open && !FollowInit.followed && <button data-testid="FollowBtn" type="button" className="btn" onClick={HandelFollow}>Follow</button>}
-      {User.primaryBlogId.toString() !== BlogId && Open && FollowInit.followed && <button type="button" className="btn" onClick={HandelUnFollow}>Unfollow</button>}
-      {User.primaryBlogId.toString() !== BlogId && Open && BlockInit.is_blocking && <button type="button" className="btn">Blocked</button>}
-      {User.primaryBlogId.toString() !== BlogId && Open && !BlockInit.is_blocking && <button data-testid="BlockBtn" type="button" className="btn" onClick={HandelBlock}>Block</button>}
+      {User.primaryBlogId !== BlogId && Open && !FollowInit.followed && <button data-testid="FollowBtn" type="button" className="btn" onClick={HandelFollow}>Follow</button>}
+      {User.primaryBlogId !== BlogId && Open && FollowInit.followed && <button type="button" className="btn" onClick={HandelUnFollow}>Unfollow</button>}
+      {User.primaryBlogId !== BlogId && Open && BlockInit.is_blocking && <button type="button" className="btn">Blocked</button>}
+      {User.primaryBlogId !== BlogId && Open && !BlockInit.is_blocking && <button data-testid="BlockBtn" type="button" className="btn" onClick={HandelBlock}>Block</button>}
       <IconButton>
-        {User.primaryBlogId.toString() !== BlogId && <FontAwesomeIcon data-testid="HumanIcon" onClick={() => SetOpen(!Open)} className="icons" icon={faUserAlt} color="white" />}
-        {User.primaryBlogId.toString() === BlogId && (
+        {User.primaryBlogId !== BlogId && <FontAwesomeIcon data-testid="HumanIcon" onClick={() => SetOpen(!Open)} className="icons" icon={faUserAlt} color="white" />}
+        {User.primaryBlogId === BlogId && (
           <Link to={'/settings/blog/' + Blog.username} target="_blank">
             <FontAwesomeIcon className="icons" icon={faCog} color="white" />
           </Link>
