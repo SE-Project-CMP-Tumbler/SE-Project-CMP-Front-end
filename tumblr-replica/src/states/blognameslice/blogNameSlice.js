@@ -6,7 +6,7 @@ const fetchBlogId = createAsyncThunk(
   'blog/getblogId',
   async (UserName, { getState }) => {
     if (SERVICETYPE === MOCK) {
-      const response = await api.get('blogm');
+      const response = await api.get('blogname');
       return response.data;
     }
     const state = getState();
