@@ -8,7 +8,8 @@
   .column_B {
     flex: 25%;
     max-width: 22%;
-    padding: 0 4px;
+    margin-left: 2.5%;
+    
   }
   
   .column_B Box {
@@ -17,24 +18,27 @@
     width: 100%;
   }
 
-  @media screen and (max-width: 2000px) {
+  @media screen and (max-width: 1050px) {
     .column_B {
       flex: 30%;
-      max-width: 31%;
+      max-width: 30%;
+      margin-left: 2%;
     }
   }
   
   /* Responsive layout - makes a two column-layout instead of four columns */
-  @media screen and (max-width: 1500px) {
+  @media screen and (max-width: 950px) {
     .column_B {
       flex: 50%;
-      max-width: 46%;
+      max-width: 44%;
+      margin-left: 3%;
+      margin-right: 3%;
     }
   }
 
   
   /* Responsive layout - makes the two columns stack on top of each other instead of next to each other */
-  @media screen and (max-width: 600px) {
+  @media screen and (max-width: 650px) {
     .column_B {
       flex: 100%;
       max-width: 100%;

@@ -1,10 +1,11 @@
+/* eslint-disable eqeqeq */
 import React from 'react';
 import Carousel from 'react-multi-carousel';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactLoading from 'react-loading';
 import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
-import { fetchAsyncrandomtags, getRandomtags } from '../../states/features/randomtag/randomtagSlice';
+import { fetchAsyncrandomtags, getRandomtags, fetchAsyncnextcards } from '../../states/features/randomtag/randomtagSlice';
 import FollowCard from '../FollowCard/FollowCard';
 
 const responsive = {
@@ -51,22 +52,47 @@ export default function CarouselCards() {
     dispatch(fetchAsyncrandomtags());
   }, []);
   const randomTags = useSelector(getRandomtags);
+  const FetchnextTag = () => {
+    dispatch(fetchAsyncnextcards(randomTags.response.pagination.current_page + 1));
+  };
+  const handelClicked = () => {
+    const total = randomTags.meta.status === '200' ? randomTags.response.pagination.total : 0;
+    const cardslen = randomTags.meta.status === '200' ? randomTags.response.tags.length : 0;
+    const active = document.getElementsByClassName('react-multi-carousel-item react-multi-carousel-item--active');
+    const last = active[active.length - 1] ? active[active.length - 1].getAttribute('data-index') : 0;
+    // console.log(last);
+    // console.log(cardslen - 2);
+    // console.log(total);
+    // console.log(cardslen - 2 == last && cardslen < total);
+    if (cardslen - 2 == last && cardslen < total) {
+      // console.log('here we go');
+      FetchnextTag();
+    }
+  };
   return (
-    <Carousel responsive={responsive}>
-      {randomTags.meta.status === '200' ? (
-        randomTags.response.tags
-          .map((tag) => (
-            <FollowCard
-              image1={tag.tag_image}
-              image2={tag.tag_image}
-              tag={tag.tag_description}
-              follow={tag.follow}
-              key={tag.tag_description}
-              randomcolor={tag.randomcolor}
-            />
-          )))
-        : ((randomTags.error && <Alert style={{ marginTop: '15%' }} severity="error">This is an error in loading that component</Alert>)
+    <div role="button" tabIndex={0} onClick={handelClicked} onKeyDown={handelClicked}>
+      <Carousel responsive={responsive}>
+        {randomTags.meta.status === '200' ? (
+          randomTags.response.tags
+            .map((tag) => (
+              <FollowCard
+                image1={tag.tag_image}
+                image2={tag.tag_image}
+                tag={tag.tag_description}
+                follow={tag.follow}
+                key={tag.tag_description}
+                randomcolor={tag.randomcolor}
+              />
+            )))
+          : ((randomTags.error && (
+          <Alert style={{ marginTop: '15%' }} severity="error">
+            Component could not be loaded.
+            This could be due to trouble fetching data from the backend server.
+            Try switching to the mock server to see if the error persists.
+          </Alert>
+          ))
           || (<Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>))}
-    </Carousel>
+      </Carousel>
+    </div>
   );
 }

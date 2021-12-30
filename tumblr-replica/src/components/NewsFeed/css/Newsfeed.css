@@ -1,7 +1,7 @@
 .NewsFeed h1{
-  color: black;
 }
-h1{
+h1 {
+  color: black;
 }
 .FOqaP{
   background-color: white;
@@ -19,7 +19,8 @@ h1{
 .right{
   display: flex;
     flex-direction: column;
-    width: 320px;
+    margin-left: 30px;
+    width: 325px;
 }
 
 .side{

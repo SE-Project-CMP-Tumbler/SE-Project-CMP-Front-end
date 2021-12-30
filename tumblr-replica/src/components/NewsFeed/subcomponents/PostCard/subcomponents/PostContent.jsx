@@ -17,7 +17,7 @@ import GetBlogId from '../../../../../states/features/dashboard/blogidAPI';
  * @returns component contains text / imgs / videos of a post
  */
 const PostContent = function PostContentDisplay(props) {
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 992px)' });
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 500px)' });
   let hashtags = [];
   const mentions = [];
   const User = useSelector(selectUser);

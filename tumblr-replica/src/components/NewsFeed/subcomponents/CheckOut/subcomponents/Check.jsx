@@ -7,7 +7,6 @@ import {
   getcheck,
   setChecks,
 } from '../../../../../states/features/checkout/checkoutSlice';
-
 /**
  *
  * @returns component that includes some recommended blogs to follow.

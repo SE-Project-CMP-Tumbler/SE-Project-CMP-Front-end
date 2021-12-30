@@ -1,35 +1,40 @@
 import * as React from 'react';
 import './css/ProfileHeader.css';
-import { useMediaQuery } from 'react-responsive';
 import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
+import ReactLoading from 'react-loading';
+import Box from '@mui/material/Box';
 import ProfileNavBar from './PrfileTempNavBar';
 import { getBlog, fetchBlog } from '../../states/blogslice/blogslice';
 
 function ProfileHeader({ BlogId }) {
-  const IsSmall = useMediaQuery({ query: '(max-width: 600px)' });
   const dispatch = useDispatch();
   React.useEffect(() => {
     dispatch(fetchBlog(BlogId));
   }, []);
-  const Blog = useSelector(getBlog).response;
+  const Blog = useSelector(getBlog);
 
   return (
-    <div className="body">
-      <ProfileNavBar BlogId={BlogId} />
-      <div className="photos">
-        <img className="cover" src={Blog.header_image} alt="cover" />
-        {!IsSmall && <img className={Blog.avatar_shape === 'square' ? 'square-profile' : 'circle-profile'} src={Blog.avatar} alt="profile pic" />}
-        {IsSmall && <img className={Blog.avatar_shape === 'square' ? 'square-profile-small' : 'circle-profile-small'} src={Blog.avatar} alt="profile pic" />}
-      </div>
-      <div className="text">
-        <h1 className="title">
-          {Blog.title}
-        </h1>
-        <p className="description">
-          {Blog.description}
-        </p>
-      </div>
+    <div className="body" style={{ height: '300px', width: '300px', overflow: 'hidden' }}>
+      {Blog.meta.status === '200'
+        ? (
+          <div>
+            <ProfileNavBar BlogId={BlogId} />
+            <div className="photos">
+              <img className="cover" style={{ height: '100px' }} src={Blog.response.header_image} alt="cover" />
+              <img className={Blog.response.avatar_shape === 'square' ? 'square-profile-small' : 'circle-profile-small'} src={Blog.response.avatar} alt="profile pic" />
+            </div>
+            <div className="text">
+              <h1 className="colorchange">
+                {Blog.response.title}
+              </h1>
+              <p className="description">
+                {Blog.response.description}
+              </p>
+            </div>
+          </div>
+        )
+        : (Blog.meta.msg === 'Loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)}
     </div>
 
   );

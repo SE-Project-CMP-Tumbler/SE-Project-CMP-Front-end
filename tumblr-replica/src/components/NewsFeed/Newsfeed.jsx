@@ -6,6 +6,7 @@ import Modal from '@mui/material/Modal';
 import Avatar from '@mui/material/Avatar';
 import Chip from '@mui/material/Chip';
 import Stack from '@mui/material/Stack';
+import Tooltip from '@mui/material/Tooltip';
 import { useMediaQuery } from 'react-responsive';
 import { useDispatch, useSelector } from 'react-redux';
 import {
@@ -16,6 +17,7 @@ import {
 } from '../../states/features/dashboard/dashboardSlice';
 import { selectUser } from '../../states/User/UserSlice';
 import PostCard from './subcomponents/PostCard/PostCard';
+import ProfileHeader from '../ProfileTemp/ProfileTempHeader';
 import ReactEditor from '../CreatPost/ReactEditor';
 import Radar from '../Radar/Radar';
 import CheckOut from './subcomponents/CheckOut/CheckOut';
@@ -302,6 +304,12 @@ const Newsfeed = function NewsfeedPosts() {
                         sx={{ mb: 2, mt: 0 }}
                       >
                         {isDesktopOrLaptop && (
+                        <Tooltip
+                          placement="right"
+                          title={(
+                            <ProfileHeader BlogId={post.blog_id} />
+                                                )}
+                        >
                           <Grid item>
                             <Avatar
                               src={post.blog_avatar}
@@ -316,6 +324,7 @@ const Newsfeed = function NewsfeedPosts() {
                               }}
                             />
                           </Grid>
+                        </Tooltip>
                         )}
                         <Grid item>
                           <PostCard

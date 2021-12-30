@@ -1,4 +1,5 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import Axios from 'axios';
 import { api, apiR } from '../../../apis/globalAxpi';
 import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
@@ -43,7 +44,15 @@ const DeleteAsyncfollowtags = createAsyncThunk(
         const state = getState();
         const USERTOKEN = state.user.user.accessToken;
         const AuthStr = `Bearer ${USERTOKEN}`;
-        const response = await apiR.delete(`follow_tag/${TagDescription}`, { headers: { Authorization: AuthStr } });
+        const response = await Axios({
+          method: 'DELETE',
+          url: `${apiR}/follow_tag/${TagDescription}`,
+          headers: {
+            Authorization: AuthStr,
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        });
         console.log(response);
         return response.data;
       } catch (e) {
@@ -69,7 +78,16 @@ const AddAsyncfollowtags = createAsyncThunk(
         const USERTOKEN = state.user.user.accessToken;
         console.log(USERTOKEN);
         console.log(TagDescription);
-        const response = await apiR.post(`follow_tag/${TagDescription}`, { headers: { Authorization: `Bearer ${USERTOKEN}` } });
+        const AuthStr = `Bearer ${USERTOKEN}`;
+        const response = await Axios({
+          method: 'POST',
+          url: `${apiR}/follow_tag/${TagDescription}`,
+          headers: {
+            Authorization: AuthStr,
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        });
         console.log(response);
         return response.data;
       } catch (e) {

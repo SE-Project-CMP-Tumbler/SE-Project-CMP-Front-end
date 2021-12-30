@@ -145,7 +145,13 @@ export default function FollowingList() {
             </List>
           </nav>
         )
-        : ((followtags.error && <Alert style={{ marginTop: '15%' }} severity="error">This is an error in loading that component</Alert>)
+        : ((followtags.error && (
+          <Alert style={{ marginTop: '15%' }} severity="error">
+            Component could not be loaded.
+            This could be due to trouble fetching data from the backend server.
+            Try switching to the mock server to see if the error persists.
+          </Alert>
+        ))
                 || (followtags.meta.msg === 'Loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)
         )
             }

@@ -7,6 +7,7 @@ import PostsList from '../PostsList/PostsList';
 import { getBlogposts, fetchAsyncblogposts, fetchAsyncnextposts } from '../../states/features/blogposts/blogpostsSlice';
 import { getBlogId, fetchBlogs, setcurrentblog } from '../../states/features/userblogs/userblogsSlice';
 import { tolarge } from '../../states/features/postview/postviewSlice';
+import Menue from '../Menue/Menue';
 // import CreatePost from './CreatPost';
 
 /**
@@ -46,7 +47,8 @@ function BlogPage() {
   return (
     <div>
       <Grid container spacing={2}>
-        <Grid item xs={10} lg={6} sx={{ marginLeft: '10%' }}>
+        <Grid item xs={10} lg={6} sx={{ marginLeft: '10%', marginTop: 7 }}>
+          <Menue />
 
           { Posts.response.posts && Posts.response.posts.length === 0
             ? (

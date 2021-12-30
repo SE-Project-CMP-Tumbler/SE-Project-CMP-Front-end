@@ -5,6 +5,7 @@ import NavTabs from '../NavTabs/Navtabs';
 import FollowingList from '../FollowingList/FollowingList';
 import CarouselCards from '../CarouselCards/CarouselCards';
 import PostsList from '../PostsList/PostsList';
+import CheckOut from './CheckOut';
 import { getRandomposts, fetchAsyncrandomposts, fetchAsyncnextposts } from '../../states/features/randomposts/randompostsSlice';
 
 /**
@@ -38,6 +39,7 @@ function Explore() {
         </Grid>
         <Grid item lg={4} sx={{ marginLeft: '2%', display: { xs: 'none', lg: 'block' } }}>
           <FollowingList />
+          <CheckOut />
         </Grid>
       </Grid>
     </div>
