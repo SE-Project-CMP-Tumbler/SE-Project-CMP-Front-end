@@ -295,6 +295,9 @@ const Newsfeed = function NewsfeedPosts() {
                           justifyContent: 'center',
                           alignItems: 'flex-start',
                           display: 'flex',
+                          marginLeft: '0px',
+                          marginTop: '3px',
+                          marginBottom: '3px',
                         }}
                         sx={{ mb: 2, mt: 0 }}
                       >
@@ -309,6 +312,7 @@ const Newsfeed = function NewsfeedPosts() {
                                 minWidth: 64,
                                 maxHeight: 64,
                                 minHeight: 64,
+                                borderRadius: 4,
                               }}
                             />
                           </Grid>
