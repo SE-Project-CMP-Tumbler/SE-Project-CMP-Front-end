@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ListSubheader from '@mui/material/ListSubheader';
@@ -23,21 +24,19 @@ import { useOutsideAlerter } from '../NavigationBar/interactions';
  * @method
  * @returns {*} ChatTo componenet
  */
-function ChatTo({ buttonRef }) {
+function ChatTo() {
   const chats = useSelector((state) => state.Chat.chats);
   const User = useSelector(selectUser);
   const recentlyFollowed1 = useSelector((state) => state.Chat.recentlyfollowed);
   const newMessagePress1 = useSelector((state) => state.Chat.newmessagepress);
   const dispatch = useDispatch();
-  const chatDropRef = useRef(null);
-  useOutsideAlerter(chatDropRef, buttonRef);
   useEffect(() => {
     // eslint-disable-next-line no-unused-expressions
     newMessagePress1
       ? dispatch(recentlyFollowed(User)) : dispatch(getAllChats());
   }, []);
   return (
-    <div className="chat-drop-content" ref={chatDropRef} style={{ display: 'none' }}>
+    <div className="chat-drop-content">
       <List
         sx={{
           bgcolor: 'background.paper',
