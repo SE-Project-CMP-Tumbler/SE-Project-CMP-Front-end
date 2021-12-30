@@ -1,6 +1,6 @@
 .cover{
   width:100%;
-  height: 350px;
+  height: 50%;
   object-fit:cover;
   position: relative;
   z-index: 0;
@@ -8,11 +8,12 @@
 .body{
   background-color: #061833;
   position: relative;
-  line-height: 1.4;
+  line-height: 1;
+  height: 300px;
 }
 .square-profile{
-  width: 160px;
-  height: 160px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   position: absolute;
   display: block;
@@ -21,61 +22,62 @@
   border:8px solid #061833;
 }
 .circle-profile{
-  width: 160px;
-  height: 160px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   position: absolute;
   display: block;
-  left: 44%;
+  left: 50%;
   border-radius: 100%;
   top: 16rem;
   border:8px solid #061833;
 }
 .square-profile-small{
-  width: 160px;
-  height: 160px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   position: absolute;
   display: block;
-  left: 34%;
-  top: 16rem;
+  left: 30%;
+  top: 3rem;
   border:8px solid #061833;
 }
 .circle-profile-small{
-  width: 160px;
-  height: 160px;
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   position: absolute;
   display: block;
-  left: 34%;
+  left: 30%;
   border-radius: 100%;
-  top: 16rem;
+  top: 3rem;
   border:8px solid #061833;
 }
 .text{
   border: none;
   font: inherit;
-  font-size: 100%;
   margin: 0;
   padding: 0;
   vertical-align: baseline;
   text-align: center;
   color: #a59cb6;
 }
+.colorchange{
+  margin-top: 60px;
+  text-align: center;
+  color: #a59cb6;
+}
 .title{
   flex: 0 0 auto;
-  font-size: 56px;
-  line-height: 1.2;
-  margin-bottom: 5px;
-  padding-top:48px ;
-  padding-left: 21px;
+  font-size: 2px;
+  line-height: 1;
+  padding-left: 4px;
   overflow: hidden;
   overflow-wrap: break-word;
   text-align: center;
   text-overflow: ellipsis;
   font-family: 'Gibson', sans-serif, "Helvetica Neue", HelveticaNeue, Arial, sans-serif;
   font-weight: bold;
-  width: 97%;
   color:inherit;
 }
 .description{

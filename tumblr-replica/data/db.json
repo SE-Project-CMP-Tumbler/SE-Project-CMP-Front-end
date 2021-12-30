@@ -1,21 +1,21 @@
 {
-  "bloginfo":{
+  "bloginfo": {
     "meta": {
-        "status": "200",
-        "msg": "ok"
-      },
-      "response": {
-        "id": 2026,
-        "is_primary": false,
-        "username": "newinvestigations",
-        "avatar": "",
-        "avatar_shape": "square",
-        "header_image": "",
-        "title": "My 1st Blog",
-        "allow_ask": true,
-        "allow_submittions": true,
-        "description": "This blog is a sketch of thoughts"
-      }
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "id": 2026,
+      "is_primary": false,
+      "username": "newinvestigations",
+      "avatar": "",
+      "avatar_shape": "square",
+      "header_image": "",
+      "title": "My 1st Blog",
+      "allow_ask": true,
+      "allow_submittions": true,
+      "description": "This blog is a sketch of thoughts"
+    }
   },
   "follow_tag": {
     "meta": {
@@ -63,7 +63,8 @@
         {
           "tag_description": "Khakie",
           "tag_image": "https://picsum.photos/seed/picsum/200/300"
-        }, {
+        },
+        {
           "tag_description": "Khakiise",
           "tag_image": "https://picsum.photos/200/300"
         },
@@ -200,6 +201,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -224,6 +235,30 @@
           "blog_avatar_shape": "",
           "blog_title": "so happy :)",
           "post_time": "02-02-2012"
+        },
+        {
+          "post_id": 6,
+          "post_body": "<div><h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+          "post_status": "published",
+          "blog_id": 5,
+          "blog_username": "raghad",
+          "post_type": "general",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "so happy",
+          "post_time": "02-02-2012"
+        },
+        {
+          "post_id": 7,
+          "post_body": "<div><h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+          "post_status": "published",
+          "blog_id": 5,
+          "blog_username": "Alaa",
+          "post_type": "general",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "so happy :)",
+          "post_time": "02-02-2012"
         }
       ]
     }
@@ -234,6 +269,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 10,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -268,6 +313,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_body": "<div><h1>What's Artificial intellegence? </h1> <p>#AI #humanity #freedom</p></div>",
@@ -302,6 +357,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -324,6 +389,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -346,6 +421,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -368,6 +453,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -390,6 +485,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -446,7 +551,7 @@
           "blog_avatar_shape_asking": "",
           "blog_title_asking": "",
           "post_type": "general",
-          "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+          "post_body": "<div> <h1>What's Artificial intellegence? by @Maryem-Hussein</h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
           "traced_back_posts": [
             {
               "post_id": 5,
@@ -456,7 +561,7 @@
               "blog_avatar_shape": "circle",
               "post_time": "02-02-2011",
               "post_type": "general",
-              "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+              "post_body": "<div> <h1>What's Artificial intellegence? by @maryem </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
               "question_body": "",
               "question_id": "",
               "question_flag": false,
@@ -476,6 +581,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -487,14 +602,14 @@
           "post_status": "draft",
           "post_time": "02-02-2012",
           "post_type": "general",
-          "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+          "post_body": "<div> <h1>What's Artificial intellegence? by @Maryem-Hussein</h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
           "traced_back_posts": [
             {
               "post_id": 5,
               "blog_id": 5,
               "post_time": "02-02-2011",
               "post_type": "general",
-              "post_body": "<div> <h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
+              "post_body": "<div> <h1>What's Artificial intellegence? by @Nadeen-Ayman </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''> <p>It's the weapon that'd end the humanity!!</p> <video width='320' height='240' controls> <source src='movie.mp4' type='video/mp4'> <source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag. </video> <p>#AI #humanity #freedom</p> </div>",
               "question_body": "How are you?",
               "question_id": 3,
               "question_flag": false,
@@ -508,18 +623,28 @@
       ]
     }
   },
-  "deletfollowtag":{
+  "deletfollowtag": {
     "meta": {
       "status": "400",
       "msg": "OK"
     }
   },
-  "gifposts":{
+  "gifposts": {
     "meta": {
       "status": "200",
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 1,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -542,6 +667,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -564,6 +699,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -586,6 +731,16 @@
       "msg": "OK"
     },
     "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
       "posts": [
         {
           "post_id": 5,
@@ -1611,6 +1766,10 @@
     {
       "post_id": 8,
       "id": 2
+    },
+    {
+      "post_id": 6,
+      "id": 3
     }
   ],
   "createdpost": [
@@ -1660,6 +1819,15 @@
       "post_type": "general",
       "post_body": "<p>let's try</p>\n",
       "id": 7
+    },
+    {
+      "post_status": "puplished",
+      "post_time": "2021-11-3",
+      "post_type": {
+        "postType": "text"
+      },
+      "post_body": "<p>post to mock</p>\n",
+      "id": 8
     }
   ],
   "upload_file": [
@@ -1720,9 +1888,9 @@
       }
     }
   ],
-  "blogs":[
+  "blogs": [
     {
-      "id":"chc_out_blogs",
+      "id": "chc_out_blogs",
       "meta": {
         "status": "200",
         "msg": "ok"
@@ -1748,13 +1916,39 @@
             "header_image": "",
             "title": "My 1st Blog",
             "description": "This blog is a sketch of thoughts"
+          },
+          {
+            "id": 2026,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "description": "This blog is a sketch of thoughts"
+          },
+          {
+            "id": 2026,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "description": "This blog is a sketch of thoughts"
+          },
+          {
+            "id": 2026,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "description": "This blog is a sketch of thoughts"
           }
         ]
       }
     }
-  ]
-,
-"blog": {
+  ],
+  "blog": {
     "meta": {
       "status": "200",
       "msg": "ok"
@@ -2436,7 +2630,16 @@
     "followed": true
   }
 },
-  "blogm":{
+"block": {
+  "meta": {
+    "status": "200",
+    "msg": "ok"
+  },
+  "response": {
+    "is_blocking": false
+  }
+},
+"blogm": {
   "meta": {
     "status": "200",
     "msg": "ok"
@@ -2455,9 +2658,8 @@
     "followed": true,
     "allow_submittions": true,
     "description": "i love food"
-  }
-},
-  "notes":{
+  },
+  "notes": {
     "meta": {
       "status": "200",
       "msg": "ok"
@@ -2467,52 +2669,47 @@
       "new_followers_count": 6,
       "total_followers_count": 326,
       "data": [
-        {
-          "0": {
+          {
             "timestamp": "2021-11-03 01:13:39",
-            "notes": 5,
-            "top_post": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>"
+            "notes": 5
           },
-          "1": {
-            "timestamp": "2021-11-04 01:13:39",
-            "notes": 7,
-            "top_post": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>"
+          {
+            "timestamp": "2021-17-03 01:13:39",
+            "notes": 51
           },
-          "2": {
-            "timestamp": "2021-11-05 01:13:39",
-            "notes": 2,
-            "top_post": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>"
+          {
+            "timestamp": "2021-19-03 01:13:39",
+            "notes": 9
           }
-        }
-      ],
-      "top_post": {
-        "post_body": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
-        "total_notes_count": 14,
-        "notes_count": 2
-      },
-      "biggest_fan": [
+      ]
+    }
+  },
+  "newfollowers": {
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "notes_count": 16,
+      "new_followers_count": 6,
+      "total_followers_count": 326,
+      "data": [
+       {
+        "timestamp": "2021-11-03 01:13:39",
+        "new_followers": 5
+        },
+       {
+        "timestamp": "2021-11-04 01:13:39",
+        "new_followers": 7
+        },
         {
-          "name": "mycppblog",
-          "blog_id": 123456789,
-          "blog_username": 123456789,
-          "blog_avatar": "storage/blogs/avatar2125",
-          "blog_avatar_shape": "square",
-          "followed": true,
-          "theme_id": 123456789,
-          "title": [
-            {
-              "text": "CPP Programming",
-              "show": true,
-              "color": "#000000",
-              "font": "Gibson",
-              "font_weight": "bold"
-            }
-          ]
+          "timestamp": "2021-11-05 01:13:39",
+          "new_followers": 2
         }
       ]
     }
   },
-  "newfollowers":{
+  "totalfollowers": {
     "meta": {
       "status": "200",
       "msg": "ok"
@@ -2522,554 +2719,291 @@
       "new_followers_count": 6,
       "total_followers_count": 326,
       "data": [
-        {
-          "0": {
-            "timestamp": "2021-11-03 01:13:39",
-            "new_followers": 5
-          },
-          "1": {
-            "timestamp": "2021-11-04 01:13:39",
-            "new_followers": 7
-          },
-          "2": {
-            "timestamp": "2021-11-05 01:13:39",
-            "new_followers": 2
-          }
-        }
-      ],
-      "top_post": {
-        "post_body": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
-        "total_notes_count": 14,
-        "notes_count": 2
-      },
-      "biggest_fan": [
-        {
-          "name": "mycppblog",
-          "blog_id": 123456789,
-          "blog_username": 123456789,
-          "blog_avatar": "storage/blogs/avatar2125",
-          "blog_avatar_shape": "square",
-          "followed": true,
-          "theme_id": 123456789,
-          "title": [
-            {
-              "text": "CPP Programming",
-              "show": true,
-              "color": "#000000",
-              "font": "Gibson",
-              "font_weight": "bold"
-            }
-          ]
-        }
-      ]
-    }
-  },
-  "totalfollowers":{
-    "meta": {
-      "status": "200",
-      "msg": "ok"
-    },
-    "response": {
-      "notes_count": 16,
-      "new_followers_count": 6,
-      "total_followers_count": 326,
-      "data": [
-        {
-          "0": {
+          {
             "timestamp": "2021-11-03 01:13:39",
             "total_followers": 100
           },
-          "1": {
+          {
             "timestamp": "2021-11-04 01:13:39",
             "total_followers": 156
           },
-          "2": {
+          {
             "timestamp": "2021-11-05 01:13:39",
             "total_followers": 304
           }
-        }
-      ],
-      "top_post": {
-        "post_body": "<div><h1>What's Artificial intellegence? </h1><img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'>Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
-        "total_notes_count": 14,
-        "notes_count": 2
-      },
-      "biggest_fan": [
-        {
-          "name": "mycppblog",
-          "blog_id": 123456789,
-          "blog_username": 123456789,
-          "blog_avatar": "storage/blogs/avatar2125",
-          "blog_avatar_shape": "square",
-          "followed": true,
-          "theme_id": 123456789,
-          "title": [
-            {
-              "text": "CPP Programming",
-              "show": true,
-              "color": "#000000",
-              "font": "Gibson",
-              "font_weight": "bold"
-            }
-          ]
-        }
       ]
     }
   },
-"followings": {
-  "meta": {
-    "status": "200",
-    "msg": "ok"
-  },
-  "response": {
-    "pagination": {
-      "total": 1,
-      "count": 1,
-      "per_page": 10,
-      "current_page": 1,
-      "total_pages": 1,
-      "first_page_url": true,
-      "last_page_url": 1,
-      "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
-      "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
-    },
-    "followings": [
-      {
-        "blog_id": 3,
-        "blog_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
-        "blog_avatar_shape": "circle",
-        "blog_username": "ahmed-ahmed213"
-      },
-      {
-        "blog_id": 4,
-        "blog_avatar": "https://img.wattpad.com/cover/259072761-288-k591831.jpg",
-        "blog_avatar_shape": "circle",
-        "blog_username": "allaa-ahmed213"
-      },
-      {
-        "blog_id": 5,
-        "blog_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
-        "blog_avatar_shape": "circle",
-        "blog_username": "maryem-ahmed213"
-      },
-      {
-        "blog_id": 6,
-        "blog_avatar": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-        "blog_avatar_shape": "circle",
-        "blog_username": "radwa-ahmed213"
-      },
-      {
-        "blog_id": 7,
-        "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-        "blog_avatar_shape": "rectangle",
-        "blog_username": "ahmed ali"
-      }
-    ]
-  }
-},
-"followers": {
-  "meta": {
-    "status": "200",
-    "msg": "OK"
-  },
-  "response": {
-    "pagination": {
-      "total": 1,
-      "count": 1,
-      "per_page": 10,
-      "current_page": 1,
-      "total_pages": 1,
-      "first_page_url": true,
-      "last_page_url": 1,
-      "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
-      "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
-    },
-    "followers": [
-      {
-        "blog_id": 3,
-        "blog_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
-        "blog_avatar_shape": "circle",
-        "blog_username": "ahmed-ahmed213"
-      },
-      {
-        "blog_id": 4,
-        "blog_avatar": "https://img.wattpad.com/cover/259072761-288-k591831.jpg",
-        "blog_avatar_shape": "circle",
-        "blog_username": "allaa-ahmed213"
-      },
-      {
-        "blog_id": 5,
-        "blog_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
-        "blog_avatar_shape": "circle",
-        "blog_username": "maryem-ahmed213"
-      },
-      {
-        "blog_id": 6,
-        "blog_avatar": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-        "blog_avatar_shape": "circle",
-        "blog_username": "radwa-ahmed213"
-      },
-      {
-        "blog_id": 7,
-        "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-        "blog_avatar_shape": "rectangle",
-        "blog_username": "ahmed ali"
-      }
-    ]
-  }
-},
-"search_follow_blog": [
-  {
-    "id": "ahmed ali",
-    "meta": {
-      "status": "200",
-      "msg": "ahmed ali follows you"
-    }
-  },
-  {
-    "id": "hossam ali",
-    "meta": {
-      "status": "200",
-      "msg": "hossam ali follows you"
-    }
-  }
-],
-"followed_by": [
-  {
-    "id": "username",
+  "followings": {
     "meta": {
       "status": "200",
       "msg": "ok"
     },
     "response": {
-      "followed": true
-    }
-  },
-  {
-    "id": "2",
-    "meta": {
-      "status": "200",
-      "msg": "ok"
-    },
-    "response": {
-      "followed": true
-    }
-  },
-  {
-    "id": "3",
-    "meta": {
-      "status": "200",
-      "msg": "ok"
-    },
-    "response": {
-      "followed": true
-    }
-  }
-],
-"blockn": [
-  {
-    "id": "1",
-    "meta": {
-      "status": "200",
-      "msg": "ok"
-    }
-  },
-  {
-    "id": "3",
-    "meta": {
-      "status": "200",
-      "msg": "ok"
-    }
-  },
-  {
-    "id": "4",
-    "meta": {
-      "status": "200",
-      "msg": "ok"
-    }
-  },
-  {
-    "id": "5",
-    "meta": {
-      "status": "200",
-      "msg": "ok"
-    }
-  }
-],
-"all_chats": {
-  "meta": {
-    "status": "200",
-    "msg": "ok"
-  },
-  "response": {
-    "chat_messages": [
-      {
-        "text": "hello world!",
-        "photo": "",
-        "gif": "",
-        "read": false,
-        "blog_id": 2,
-        "blog_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
-        "blog_avatar_shape": "circle",
-        "blog_username": "nadeen-ahmed213",
-        "blog_title": "",
-        "friend_id": 3,
-        "friend_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
-        "friend_avatar_shape": "circle",
-        "friend_username": "ahmed-ahmed213",
-        "friend_title": "Ahmed"
+      "pagination": {
+        "total": 1,
+        "count": 1,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 1,
+        "first_page_url": true,
+        "last_page_url": 1,
+        "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
+        "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
       },
-      {
-        "text": "hello world!",
-        "photo": "",
-        "gif": "",
-        "read": false,
-        "blog_id": 2,
-        "blog_avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8cDW5DcPwWg2SuwnCEeniXdddi3kgtF-fg&usqp=CAU",
-        "blog_avatar_shape": "circle",
-        "blog_username": "nadeen-ahmed213",
-        "blog_title": "",
-        "friend_id": 4,
-        "friend_avatar": "https://img.wattpad.com/cover/259072761-288-k591831.jpg",
-        "friend_avatar_shape": "circle",
-        "friend_username": "allaa-ahmed213",
-        "friend_title": "Allaa"
-      },
-      {
-        "text": "hello world!",
-        "photo": "",
-        "gif": "",
-        "read": false,
-        "blog_id": 2,
-        "blog_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
-        "blog_avatar_shape": "circle",
-        "blog_username": "nadeen-ahmed213",
-        "blog_title": "",
-        "friend_id": 5,
-        "friend_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
-        "friend_avatar_shape": "circle",
-        "friend_username": "maryem-ahmed213",
-        "friend_title": "Maryem"
-      },
-      {
-        "text": "hello world!",
-        "photo": "",
-        "gif": "",
-        "read": false,
-        "blog_id": 6,
-        "blog_avatar": "https://1.bp.blogspot.com/-FZXji_IODBI/YKppykyjGhI/AAAAAAACDJU/JvRCsOgRZVIyrcC1BXN5GI1Mz795XRoxACLcBGAsYHQ/s640/%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-%25D9%2581%25D9%258A%25D8%25B3-%25D8%25A8%25D9%2588%25D9%2583032.jpg",
-        "blog_avatar_shape": "circle",
-        "blog_username": "radwa-ahmed213",
-        "blog_title": "",
-        "friend_id": 6,
-        "friend_avatar": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-        "friend_avatar_shape": "circle",
-        "friend_username": "radwa-ahmed213",
-        "friend_title": "Radwa"
-      },
-      {
-        "text": "hello world!",
-        "photo": "",
-        "gif": "",
-        "read": false,
-        "blog_id": 7,
-        "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-        "blog_avatar_shape": "rectangle",
-        "blog_username": "ahmed ali",
-        "blog_title": "",
-        "friend_id": 7,
-        "friend_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-        "friend_avatar_shape": "rectangle",
-        "friend_username": "ahmed ali",
-        "friend_title": "Ali"
-      }
-    ]
-  }
-},
-"messages": [
-  {
-    "id": "1452",
-    "meta": {
-      "status": "200",
-      "msg": "ok"
-    },
-    "response": {
-      "chat_messages": [
+      "followings": [
         {
-          "text": "hello world!",
-          "photo": "",
-          "gif": "",
-          "read": false,
-          "blog_id": 6,
-          "blog_avatar": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-          "blog_avatar_shape": "circle",
-          "blog_username": "radwa-ahmed213",
-          "blog_title": ""
-        },
-        {
-          "text": "hello world!",
-          "photo": "",
-          "gif": "",
-          "read": false,
-          "blog_id": 2,
-          "blog_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
-          "blog_avatar_shape": "circle",
-          "blog_username": "nadeen-ahmed213",
-          "blog_title": ""
-        },
-        {
-          "text": "hello world!",
-          "photo": "",
-          "gif": "",
-          "read": false,
-          "blog_id": 2,
-          "blog_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
-          "blog_avatar_shape": "circle",
-          "blog_username": "nadeen-ahmed213",
-          "blog_title": ""
-        },
-        {
-          "text": "hi",
-          "photo": "",
-          "gif": "",
-          "read": false,
-          "blog_id": 12,
-          "blog_username": "nadeen-ayman",
-          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
-          "blog_avatar_shape": "circle",
-          "blog_title": ""
-        },
-        {
-          "text": "hi2\n",
-          "photo": "",
-          "gif": "",
-          "read": false,
-          "blog_id": 12,
-          "blog_username": "nadeen-ayman",
-          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
-          "blog_avatar_shape": "circle",
-          "blog_title": ""
-        },
-        {
-          "text": "ggggg\n",
-          "photo": "",
-          "gif": "",
-          "read": false,
-          "blog_id": 12,
-          "blog_username": "nadeen-ayman",
-          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
-          "blog_avatar_shape": "circle",
-          "blog_title": ""
-        },
-        {
-          "text": "hello",
-          "photo": "",
-          "gif": "",
-          "read": false,
-          "blog_id": 12,
-          "blog_username": "nadeen-ayman",
-          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
-          "blog_avatar_shape": "circle",
-          "blog_title": ""
-        },
-        {
-          "text": "i",
-          "photo": "",
-          "gif": "",
-          "read": false,
-          "blog_id": 12,
-          "blog_username": "nadeen-ayman",
-          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
-          "blog_avatar_shape": "circle",
-          "blog_title": ""
-        },
-        {
-          "text": "fh",
-          "photo": "",
-          "gif": "",
-          "read": false,
-          "blog_id": 12,
-          "blog_username": "nadeen-ayman",
-          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
-          "blog_avatar_shape": "circle",
-          "blog_title": ""
-        },
-        {
-          "text": "ggg",
-          "photo": "",
-          "gif": "",
-          "read": false,
-          "blog_id": 12,
-          "blog_username": "nadeen-ayman",
-          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
-          "blog_avatar_shape": "circle",
-          "blog_title": ""
-        },
-        {
-          "text": "u",
-          "photo": "",
-          "gif": "",
-          "read": false,
-          "blog_id": 12,
-          "blog_username": "nadeen-ayman",
-          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
-          "blog_avatar_shape": "circle",
-          "blog_title": ""
-        },
-        {
-          "text": "hhhhh",
-          "photo": "",
-          "gif": "",
-          "read": false,
-          "blog_id": 12,
-          "blog_username": "nadeen-ayman",
-          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
-          "blog_avatar_shape": "circle",
-          "blog_title": ""
-        },
-        {
-          "text": "hdjfbfd",
-          "photo": "",
-          "gif": "",
-          "read": false,
-          "blog_id": 12,
-          "blog_username": "nadeen-ayman",
-          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
-          "blog_avatar_shape": "circle",
-          "blog_title": ""
-        },
-        {
-          "text": "hhhhhhhhh",
-          "photo": "",
-          "gif": "",
-          "read": false,
-          "blog_id": 12,
-          "blog_username": "nadeen-ayman",
-          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
-          "blog_avatar_shape": "circle",
-          "blog_title": ""
-        }
-      ]
-    }
-  },
-  {
-    "id": "1453",
-    "meta": {
-      "status": "200",
-      "msg": "ok"
-    },
-    "response": {
-      "chat_messages": [
-        {
-          "text": "hello world!",
-          "photo": "",
-          "gif": "",
-          "read": false,
           "blog_id": 3,
           "blog_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
           "blog_avatar_shape": "circle",
-          "blog_username": "ahmed-ahmed213",
-          "blog_title": ""
+          "blog_username": "ahmed-ahmed213"
+        },
+        {
+          "blog_id": 4,
+          "blog_avatar": "https://img.wattpad.com/cover/259072761-288-k591831.jpg",
+          "blog_avatar_shape": "circle",
+          "blog_username": "allaa-ahmed213"
+        },
+        {
+          "blog_id": 5,
+          "blog_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
+          "blog_avatar_shape": "circle",
+          "blog_username": "maryem-ahmed213"
+        },
+        {
+          "blog_id": 6,
+          "blog_avatar": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+          "blog_avatar_shape": "circle",
+          "blog_username": "radwa-ahmed213"
+        },
+        {
+          "blog_id": 7,
+          "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+          "blog_avatar_shape": "rectangle",
+          "blog_username": "ahmed ali"
+        }
+      ],
+      "blog-info": [
+        {
+          "id": "maryem",
+          "meta": {
+            "status": "200",
+            "msg": "ok"
+          },
+          "response": {
+            "share_likes": true,
+            "share_followings": true,
+            "id": 2026,
+            "is_primary": false,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "allow_ask": true,
+            "allow_submittions": true,
+            "description": "This blog is a sketch of thoughts",
+            "followed": true
+          }
+        },
+        {
+          "id": "Nadeen-Ayman",
+          "meta": {
+            "status": "200",
+            "msg": "ok"
+          },
+          "response": {
+            "share_likes": true,
+            "share_followings": true,
+            "id": 2025,
+            "is_primary": false,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "allow_ask": true,
+            "allow_submittions": true,
+            "description": "This blog is a sketch of thoughts",
+            "followed": true
+          }
+        },
+        {
+          "id": "Maryem-Hussein",
+          "meta": {
+            "status": "200",
+            "msg": "ok"
+          },
+          "response": {
+            "share_likes": true,
+            "share_followings": true,
+            "id": 2026,
+            "is_primary": false,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "allow_ask": true,
+            "allow_submittions": true,
+            "description": "This blog is a sketch of thoughts",
+            "followed": true
+          }
+        }
+      ]
+    }
+  },
+  "followers": {
+    "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "pagination": {
+        "total": 1,
+        "count": 1,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 1,
+        "first_page_url": true,
+        "last_page_url": 1,
+        "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
+        "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
+      },
+      "followers": [
+        {
+          "blog_id": 3,
+          "blog_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+          "blog_avatar_shape": "circle",
+          "blog_username": "ahmed-ahmed213"
+        },
+        {
+          "blog_id": 4,
+          "blog_avatar": "https://img.wattpad.com/cover/259072761-288-k591831.jpg",
+          "blog_avatar_shape": "circle",
+          "blog_username": "allaa-ahmed213"
+        },
+        {
+          "blog_id": 5,
+          "blog_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
+          "blog_avatar_shape": "circle",
+          "blog_username": "maryem-ahmed213"
+        },
+        {
+          "blog_id": 6,
+          "blog_avatar": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+          "blog_avatar_shape": "circle",
+          "blog_username": "radwa-ahmed213"
+        },
+        {
+          "blog_id": 7,
+          "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+          "blog_avatar_shape": "rectangle",
+          "blog_username": "ahmed ali"
+        }
+      ]
+    }
+  },
+  "search_follow_blog": [
+    {
+      "id": "ahmed ali",
+      "meta": {
+        "status": "200",
+        "msg": "ahmed ali follows you"
+      }
+    },
+    {
+      "id": "hossam ali",
+      "meta": {
+        "status": "200",
+        "msg": "hossam ali follows you"
+      }
+    }
+  ],
+  "followed_by": [
+    {
+      "id": "username",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "followed": true
+      }
+    },
+    {
+      "id": "2",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "followed": true
+      }
+    },
+    {
+      "id": "3",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "followed": true
+      }
+    }
+  ],
+  "blockn": [
+    {
+      "id": "1",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      }
+    },
+    {
+      "id": "3",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      }
+    },
+    {
+      "id": "4",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      }
+    },
+    {
+      "id": "5",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      }
+    }
+  ],
+  "all_chats": {
+    "meta": {
+      "status": "200",
+      "msg": "ok"
+    },
+    "response": {
+      "chat_messages": [
+        {
+          "text": "hello world!",
+          "photo": "",
+          "gif": "",
+          "read": false,
+          "blog_id": 2,
+          "blog_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+          "blog_avatar_shape": "circle",
+          "blog_username": "nadeen-ahmed213",
+          "blog_title": "",
+          "friend_id": 3,
+          "friend_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+          "friend_avatar_shape": "circle",
+          "friend_username": "ahmed-ahmed213",
+          "friend_title": "Ahmed"
         },
         {
           "text": "hello world!",
@@ -3080,247 +3014,983 @@
           "blog_avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8cDW5DcPwWg2SuwnCEeniXdddi3kgtF-fg&usqp=CAU",
           "blog_avatar_shape": "circle",
           "blog_username": "nadeen-ahmed213",
-          "blog_title": ""
+          "blog_title": "",
+          "friend_id": 4,
+          "friend_avatar": "https://img.wattpad.com/cover/259072761-288-k591831.jpg",
+          "friend_avatar_shape": "circle",
+          "friend_username": "allaa-ahmed213",
+          "friend_title": "Allaa"
         },
         {
           "text": "hello world!",
           "photo": "",
           "gif": "",
           "read": false,
-          "blog_id": 3,
-          "blog_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+          "blog_id": 2,
+          "blog_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
           "blog_avatar_shape": "circle",
-          "blog_username": "ahmed-ahmed213",
-          "blog_title": ""
+          "blog_username": "nadeen-ahmed213",
+          "blog_title": "",
+          "friend_id": 5,
+          "friend_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
+          "friend_avatar_shape": "circle",
+          "friend_username": "maryem-ahmed213",
+          "friend_title": "Maryem"
         },
         {
-          "text": "hello ali",
+          "text": "hello world!",
           "photo": "",
           "gif": "",
           "read": false,
-          "blog_id": 12,
-          "blog_username": "nadeen-ayman",
-          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+          "blog_id": 6,
+          "blog_avatar": "https://1.bp.blogspot.com/-FZXji_IODBI/YKppykyjGhI/AAAAAAACDJU/JvRCsOgRZVIyrcC1BXN5GI1Mz795XRoxACLcBGAsYHQ/s640/%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-%25D9%2581%25D9%258A%25D8%25B3-%25D8%25A8%25D9%2588%25D9%2583032.jpg",
           "blog_avatar_shape": "circle",
-          "blog_title": ""
+          "blog_username": "radwa-ahmed213",
+          "blog_title": "",
+          "friend_id": 6,
+          "friend_avatar": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+          "friend_avatar_shape": "circle",
+          "friend_username": "radwa-ahmed213",
+          "friend_title": "Radwa"
         },
         {
-          "text": "kkkkk",
+          "text": "hello world!",
           "photo": "",
           "gif": "",
           "read": false,
-          "blog_id": 12,
-          "blog_username": "nadeen-ayman",
-          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
-          "blog_avatar_shape": "circle",
-          "blog_title": ""
-        },
-        {
-          "text": "\nllll",
-          "photo": "",
-          "gif": "",
-          "read": false,
-          "blog_id": 12,
-          "blog_username": "nadeen-ayman",
-          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
-          "blog_avatar_shape": "circle",
-          "blog_title": ""
+          "blog_id": 7,
+          "blog_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+          "blog_avatar_shape": "rectangle",
+          "blog_username": "ahmed ali",
+          "blog_title": "",
+          "friend_id": 7,
+          "friend_avatar": "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
+          "friend_avatar_shape": "rectangle",
+          "friend_username": "ahmed ali",
+          "friend_title": "Ali"
         }
       ]
     }
   },
-  {
-    "id": "1454",
+  "messages": [
+    {
+      "id": "1452",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "chat_messages": [
+          {
+            "text": "hello world!",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 6,
+            "blog_avatar": "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
+            "blog_avatar_shape": "circle",
+            "blog_username": "radwa-ahmed213",
+            "blog_title": ""
+          },
+          {
+            "text": "hello world!",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 2,
+            "blog_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
+            "blog_avatar_shape": "circle",
+            "blog_username": "nadeen-ahmed213",
+            "blog_title": ""
+          },
+          {
+            "text": "hello world!",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 2,
+            "blog_avatar": "https://blogger.googleusercontent.com/img/a/AVvXsEiwC2ML1gwFe0B73u8_cT-yj-DAfgLYzw0Lps0glNxASUl5bqYKRcYL5_UMVn3KRroJw9ZcUJQEbXA1I1zdBHE5oXpuiQ45S8YwfgSEuIU9pCCf1pb4B8Gy4A0XpVtFmZwk3LSTEryQalFBYC1v43IFotAwwc8eUOCAjTQEOFmOL8wGMwJ0cEicPW6j=s16000",
+            "blog_avatar_shape": "circle",
+            "blog_username": "nadeen-ahmed213",
+            "blog_title": ""
+          },
+          {
+            "text": "hi",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 12,
+            "blog_username": "nadeen-ayman",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "hi2\n",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 12,
+            "blog_username": "nadeen-ayman",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "ggggg\n",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 12,
+            "blog_username": "nadeen-ayman",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "hello",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 12,
+            "blog_username": "nadeen-ayman",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "i",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 12,
+            "blog_username": "nadeen-ayman",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "fh",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 12,
+            "blog_username": "nadeen-ayman",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "ggg",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 12,
+            "blog_username": "nadeen-ayman",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "u",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 12,
+            "blog_username": "nadeen-ayman",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "hhhhh",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 12,
+            "blog_username": "nadeen-ayman",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "hdjfbfd",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 12,
+            "blog_username": "nadeen-ayman",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "hhhhhhhhh",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 12,
+            "blog_username": "nadeen-ayman",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "",
+            "blog_id": 149,
+            "blog_username": "maryem",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "",
+            "photo": "",
+            "read": false,
+            "blog_id": 149,
+            "blog_username": "maryem",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "",
+            "photo": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+            "read": false,
+            "blog_id": 149,
+            "blog_username": "maryem",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "",
+            "blog_id": 149,
+            "blog_username": "maryem",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "",
+            "blog_id": 149,
+            "blog_username": "maryem",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "",
+            "photo": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+            "read": false,
+            "blog_id": 149,
+            "blog_username": "maryem",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "",
+            "blog_id": 149,
+            "blog_username": "maryem",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "",
+            "photo": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+            "read": false,
+            "blog_id": 149,
+            "blog_username": "maryem",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "",
+            "photo": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+            "read": false,
+            "blog_id": 149,
+            "blog_username": "maryem",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "",
+            "photo": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+            "read": false,
+            "blog_id": 148,
+            "blog_username": "nadeen",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "1453",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "chat_messages": [
+          {
+            "text": "hello world!",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 3,
+            "blog_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+            "blog_avatar_shape": "circle",
+            "blog_username": "ahmed-ahmed213",
+            "blog_title": ""
+          },
+          {
+            "text": "hello world!",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 2,
+            "blog_avatar": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSq8cDW5DcPwWg2SuwnCEeniXdddi3kgtF-fg&usqp=CAU",
+            "blog_avatar_shape": "circle",
+            "blog_username": "nadeen-ahmed213",
+            "blog_title": ""
+          },
+          {
+            "text": "hello world!",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 3,
+            "blog_avatar": "https://1.bp.blogspot.com/-ri-t_jE_GM4/Xxgw4ilrPrI/AAAAAAAAm88/iHmDzhRn24grXa15u_FWu8ksEc5L6byVgCLcBGAsYHQ/s1600/%25D8%25B5%25D9%2588%25D8%25B1-%25D8%25A8%25D8%25B1%25D9%2588%25D9%2581%25D8%25A7%25D9%258A%25D9%2584-2.jpg",
+            "blog_avatar_shape": "circle",
+            "blog_username": "ahmed-ahmed213",
+            "blog_title": ""
+          },
+          {
+            "text": "hello ali",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 12,
+            "blog_username": "nadeen-ayman",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "kkkkk",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 12,
+            "blog_username": "nadeen-ayman",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "\nllll",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 12,
+            "blog_username": "nadeen-ayman",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "why",
+            "blog_id": 602,
+            "blog_username": "Malzah",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          }
+        ]
+      }
+    },
+    {
+      "id": "1454",
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "chat_messages": [
+          {
+            "text": "hello allaa",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 12,
+            "blog_username": "nadeen-ayman",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          },
+          {
+            "text": "\nhiiii",
+            "photo": "",
+            "gif": "",
+            "read": false,
+            "blog_id": 12,
+            "blog_username": "nadeen-ayman",
+            "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
+            "blog_avatar_shape": "circle",
+            "blog_title": ""
+          }
+        ]
+      }
+    }
+  ],
+  "recently_followed": {
     "meta": {
       "status": "200",
       "msg": "ok"
     },
-    "response": {
+    "response": [
+      {
+        "blog_avatar": "/storage/imgname2.extension",
+        "blog_avatar_shape": "circle",
+        "blog_username": "radwa-ahmed213",
+        "blog_title": "radwa-ahmed213",
+        "blog_id": 1
+      },
+      {
+        "blog_avatar": "/storage/imgname2.extension",
+        "blog_avatar_shape": "circle",
+        "blog_username": "maryem-ahmed213",
+        "blog_title": "radwa-ahmed213",
+        "blog_id": 1032
+      }
+    ]
+  },
+  "mockmessages": [
+    {
+      "id": 1032,
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
       "chat_messages": [
         {
-          "text": "hello allaa",
-          "photo": "",
-          "gif": "",
-          "read": false,
-          "blog_id": 12,
-          "blog_username": "nadeen-ayman",
-          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
-          "blog_avatar_shape": "circle",
-          "blog_title": ""
+          "from": "radwa-ahmed213",
+          "type": "text",
+          "text": "hello world!",
+          "id": "1"
         },
         {
-          "text": "\nhiiii",
-          "photo": "",
-          "gif": "",
-          "read": false,
-          "blog_id": 12,
-          "blog_username": "nadeen-ayman",
-          "blog_avatar": "https://cdnb.artstation.com/p/assets/images/images/033/268/113/large/edmerc-d-mercadal-eren-v5.jpg?1609001111",
-          "blog_avatar_shape": "circle",
-          "blog_title": ""
+          "from": "nadeen",
+          "type": "photo",
+          "photo": "/storage/photo_example.jpg",
+          "id": "2"
+        },
+        {
+          "from": "radwa-ahmed213",
+          "type": "text",
+          "text": "hello nadeen!",
+          "gif": "/storage/gif_example.gif",
+          "id": "3"
+        }
+      ]
+    },
+    {
+      "id": 10,
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "chat_messages": [
+        {
+          "from": "maryem-ahmed213",
+          "type": "text",
+          "text": "hello world!",
+          "id": "1"
+        },
+        {
+          "from": "nadeen",
+          "type": "photo",
+          "photo": "/storage/photo_example.jpg",
+          "id": "2"
+        },
+        {
+          "from": "maryem-ahmed213",
+          "type": "text",
+          "text": "hello oooooooooooo0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000!",
+          "gif": "/storage/gif_example.gif",
+          "id": "3"
+        }
+      ]
+    },
+    {
+      "id": 112,
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "chat_messages": [
+        {
+          "from": "ali-ahmed213",
+          "type": "text",
+          "text": "hello world!",
+          "id": "1"
+        },
+        {
+          "from": "nadeen",
+          "type": "photo",
+          "photo": "/storage/photo_example.jpg",
+          "id": "2"
+        },
+        {
+          "from": "ali-ahmed213",
+          "type": "text",
+          "text": "hellooooooooooooo0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000!",
+          "gif": "/storage/gif_example.gif",
+          "id": "3"
         }
       ]
     }
-  }
-],
-"recently_followed": {
-  "meta": {
-    "status": "200",
-    "msg": "ok"
-  },
-  "response": [
+  ],
+  "chat_id": [
     {
-      "blog_avatar": "/storage/imgname2.extension",
-      "blog_avatar_shape": "circle",
-      "blog_username": "radwa-ahmed213",
-      "blog_title": "radwa-ahmed213",
-      "blog_id": 1
+      "id": 6,
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "chat_room_id": "1452"
+      }
     },
     {
-      "blog_avatar": "/storage/imgname2.extension",
-      "blog_avatar_shape": "circle",
-      "blog_username": "maryem-ahmed213",
-      "blog_title": "radwa-ahmed213",
-      "blog_id": 1032
+      "id": 3,
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "chat_room_id": "1453"
+      }
+    },
+    {
+      "id": 4,
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "chat_room_id": "1454"
+      }
+    },
+    {
+      "id": 5,
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "chat_room_id": "1455"
+      }
+    },
+    {
+      "id": 7,
+      "meta": {
+        "status": "200",
+        "msg": "ok"
+      },
+      "response": {
+        "chat_room_id": "1456"
+      }
     }
-  ]
-},
-"mockmessages": [
-  {
-    "id": 1032,
+  ],
+  "getblogs22": {
     "meta": {
       "status": "200",
       "msg": "ok"
     },
-    "chat_messages": [
-      {
-        "from": "radwa-ahmed213",
-        "type": "text",
-        "text": "hello world!",
-        "id": "1"
+    "response": {
+      "pagination": {
+        "total": 1,
+        "count": 1,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 1,
+        "first_page_url": true,
+        "last_page_url": 1,
+        "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
+        "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
       },
-      {
-        "from": "nadeen",
-        "type": "photo",
-        "photo": "/storage/photo_example.jpg",
-        "id": "2"
-      },
-      {
-        "from": "radwa-ahmed213",
-        "type": "text",
-        "text": "hello nadeen!",
-        "gif": "/storage/gif_example.gif",
-        "id": "3"
-      }
-    ]
+      "blogs": [
+        {
+          "share_likes": true,
+          "share_followings": true,
+          "id": 14,
+          "is_primary": false,
+          "username": "raghad",
+          "avatar": "",
+          "avatar_shape": "square",
+          "header_image": "",
+          "title": "My 1st Blog",
+          "allow_ask": true,
+          "followed": true,
+          "allow_submittions": true,
+          "description": "This blog is a sketch of thoughts"
+        }
+      ]
+    }
   },
-  {
-    "id": 10,
+  "notifications": [
+    {
+      "type": "reply",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-12-20",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "This is a post summary!",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Malzahar",
+      "from_blog_avatar": "/profile.png",
+      "follow": false
+    },
+    {
+      "type": "like",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-12-20",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "It's just so beautiful!",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Ivern",
+      "from_blog_avatar": "/profile.png",
+      "follow": false
+    },
+    {
+      "type": "reblog",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-12-04",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "Would you like a drink?",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Jax",
+      "from_blog_avatar": "/profile.png",
+      "follow": false
+    },
+    {
+      "type": "follow",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-12-04",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "this is a post summary!",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "PentakillKarthus",
+      "from_blog_avatar": "/profile2.png",
+      "follow": false
+    },
+    {
+      "type": "mention",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-12-04",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "Love recursive components!",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Yasuo",
+      "from_blog_avatar": "/profile3.png",
+      "follow": false
+    },
+    {
+      "type": "reply",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-11-04",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "A smooth sea never made a skilled...",
+      "target_reply_summary": "Unless it's a silked sailor xD.",
+      "from_blog_id": 84,
+      "from_blog_username": "Zed",
+      "from_blog_avatar": "/profile.png",
+      "follow": false
+    },
+    {
+      "type": "reblog",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-11-04",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "What's d/dx(x^x^x^x^x^x)?",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Yoshi",
+      "from_blog_avatar": "/profile2.png",
+      "follow": false
+    },
+    {
+      "type": "like",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-11-04",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "image",
+      "target_post_summary": "Waterfalllllllls & gravity.",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Salama",
+      "from_blog_avatar": "/profile.png",
+      "follow": false
+    },
+    {
+      "type": "follow",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-10-19",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "this is a post summary!",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "PaoloNespoli",
+      "from_blog_avatar": "/profile.png",
+      "follow": false
+    },
+    {
+      "type": "reply",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-10-19",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "Arrree we there yet?",
+      "target_reply_summary": "You've been there forever.",
+      "from_blog_id": 84,
+      "from_blog_username": "Brand",
+      "from_blog_avatar": "/profile.png",
+      "follow": false
+    },
+    {
+      "type": "reblog",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-10-19",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "Every night  I dream that we went to...",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Pyke",
+      "from_blog_avatar": "/profile3.png",
+      "follow": false
+    },
+    {
+      "type": "mention",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-10-19",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "Do not underestimate my powers!",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Willow",
+      "from_blog_avatar": "/profile.png",
+      "follow": false
+    },
+    {
+      "type": "reply",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-10-19",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "I never like inserting semicolons in pyth...",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Jacob",
+      "from_blog_avatar": "/profile2.png",
+      "follow": false
+    },
+    {
+      "type": "like",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "2021-10-19",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "Hhhhhhhhhhhhhhhhh funny!",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Burst",
+      "from_blog_avatar": "/profile.png",
+      "follow": false
+    },
+    {
+      "type": "follow",
+      "notification_id": "ec4ec34a-1434-4aad-ae0a-7c8446bcf8d3",
+      "timestamp": "1999-11-04",
+      "target_blog_id": 39,
+      "follower_id": 39,
+      "target_post_id": 1523,
+      "target_post_type": "text",
+      "target_post_summary": "this is a post summary!",
+      "target_reply_summary": "I like that vibe man!",
+      "from_blog_id": 84,
+      "from_blog_username": "Veigar",
+      "from_blog_avatar": "/profile3.png",
+      "follow": false
+    }
+  ],
+  "search_auto_complete": {
     "meta": {
       "status": "200",
-      "msg": "ok"
+      "msg": "OK"
     },
-    "chat_messages": [
-      {
-        "from": "maryem-ahmed213",
-        "type": "text",
-        "text": "hello world!",
-        "id": "1"
+    "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 2,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
       },
-      {
-        "from": "nadeen",
-        "type": "photo",
-        "photo": "/storage/photo_example.jpg",
-        "id": "2"
-      },
-      {
-        "from": "maryem-ahmed213",
-        "type": "text",
-        "text": "hello oooooooooooo0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000!",
-        "gif": "/storage/gif_example.gif",
-        "id": "3"
-      }
-    ]
+      "words": [
+        {
+          "word": "Malzahar"
+        },
+        {
+          "word": "Yasuo"
+        },
+        {
+          "word": "Jax"
+        },
+        {
+          "word": "Karthus"
+        },
+        {
+          "word": "Abecdo"
+        },
+        {
+          "word": "Frgeik"
+        },
+        {
+          "word": "Mnoprq"
+        },
+        {
+          "word": "Tuvwxys"
+        }
+      ]
+    }
   },
-  {
-    "id": 112,
+  "search": {
     "meta": {
       "status": "200",
-      "msg": "ok"
+      "msg": "OK"
     },
-    "chat_messages": [
-      {
-        "from": "ali-ahmed213",
-        "type": "text",
-        "text": "hello world!",
-        "id": "1"
+    "response": {
+      "posts": {
+        "pagination": {
+          "total": 17,
+          "count": 7,
+          "per_page": 10,
+          "current_page": 2,
+          "total_pages": 2,
+          "first_page_url": false,
+          "next_page_url": null,
+          "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+        },
+        "posts": [
+          {
+            "post_id": 5,
+            "post_status": "published",
+            "post_type": "general",
+            "post_body": "<div><h1>What's Artificial intellegence? </h1> <img src='https://modo3.com/thumbs/fit630x300/84738/1453981470/%D8%A8%D8%AD%D8%AB_%D8%B9%D9%86_Google.jpg' alt=''><p>It's the weapon that'd end the humanity!!</p><video width='320' height='240' controls><source src='movie.mp4' type='video/mp4'><source src='movie.ogg' type='video/ogg'> Your browser does not support the video tag.</video><p>#AI #humanity #freedom</p></div>",
+            "blog_id": 5,
+            "blog_username": "",
+            "blog_avatar": "",
+            "blog_avatar_shape": "",
+            "blog_title": "",
+            "post_time": "2012-02-30"
+          }
+        ]
       },
-      {
-        "from": "nadeen",
-        "type": "photo",
-        "photo": "/storage/photo_example.jpg",
-        "id": "2"
+      "tags": {
+        "pagination": {
+          "total": 120,
+          "count": 10,
+          "per_page": 10,
+          "current_page": 2,
+          "total_pages": 12,
+          "first_page_url": false,
+          "last_page_url": 12,
+          "next_page_url": "http://127.0.0.1:8000/api/tag/trending?page=3",
+          "prev_page_url": "http://127.0.0.1:8000/api/tag/trending?page=1"
+        },
+        "tags": [
+          {
+            "tag_description": "books",
+            "tag_image": ""
+          }
+        ]
       },
-      {
-        "from": "ali-ahmed213",
-        "type": "text",
-        "text": "hellooooooooooooo0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000!",
-        "gif": "/storage/gif_example.gif",
-        "id": "3"
+      "blogs": {
+        "pagination": {
+          "total": 1,
+          "count": 1,
+          "per_page": 10,
+          "current_page": 1,
+          "total_pages": 1,
+          "first_page_url": true,
+          "last_page_url": 1,
+          "next_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=3",
+          "prev_page_url": "http://127.0.0.1:8000/api/blogs/check_out_blogs?page=1"
+        },
+        "blogs": [
+          {
+            "id": 2026,
+            "username": "newinvestigations",
+            "avatar": "",
+            "avatar_shape": "square",
+            "header_image": "",
+            "title": "My 1st Blog",
+            "description": "This blog is a sketch of thoughts"
+          }
+        ]
       }
-    ]
+    }
   }
-],
-"chat_id": [
-  {
-    "id": 6,
-    "meta": {
-      "status": "200",
-      "msg": "ok"
-    },
-    "response": {
-      "chat_room_id": "1452"
-    }
-  },
-  {
-    "id": 3,
-    "meta": {
-      "status": "200",
-      "msg": "ok"
-    },
-    "response": {
-      "chat_room_id": "1453"
-    }
-  },
-  {
-    "id": 4,
-    "meta": {
-      "status": "200",
-      "msg": "ok"
-    },
-    "response": {
-      "chat_room_id": "1454"
-    }
-  },
-  {
-    "id": 5,
-    "meta": {
-      "status": "200",
-      "msg": "ok"
-    },
-    "response": {
-      "chat_room_id": "1455"
-    }
-  },
-  {
-    "id": 7,
-    "meta": {
-      "status": "200",
-      "msg": "ok"
-    },
-    "response": {
-      "chat_room_id": "1456"
-    }
-  }
-]
 }

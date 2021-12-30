@@ -3,12 +3,14 @@ import Box from '@material-ui/core/Box';
 import ListItem from '@material-ui/core/ListItem';
 import PropTypes from 'prop-types';
 import Grid from '@mui/material/Grid';
+import Alert from '@mui/material/Alert';
 import './SideTabs.css';
 import ReactLoading from 'react-loading';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { getBlogactivity, fetchAsyncblogactivity } from '../../states/features/blogactivity/blogacttivitySlice';
 import { getBloginfo, fetchAsyncbloginfo } from '../../states/features/bloginfo/bloginfoSlice';
+import { getBlogId, fetchBlogs, setcurrentblog } from '../../states/features/userblogs/userblogsSlice';
 
 // need to edit and take blogusername, title from store
 /**
@@ -24,17 +26,25 @@ import { getBloginfo, fetchAsyncbloginfo } from '../../states/features/bloginfo/
  * )
  */
 function SideTabs({ select }) {
-  const blogid = 14;
+  // const blogid = 14;
   const item = { height: '60px', fontSize: 20 };
   const item2 = { height: '60px', backgroundColor: 'rgba(255,255,255,.1)', fontSize: 20 };
+  const blogname = window.location.href.split('/')[4];
+  const blogid = useSelector(getBlogId);
+  console.log(blogid, 'BBLOgIDDDDDDDDDDDDDDDDDDDDD');
   const dispatch = useDispatch();
   React.useEffect(() => {
+    dispatch(setcurrentblog(blogname));
+    dispatch(fetchBlogs());
     dispatch(fetchAsyncblogactivity(blogid));
-  }, []);
-  const Activity = useSelector(getBlogactivity);
-  React.useEffect(() => {
     dispatch(fetchAsyncbloginfo(blogid));
   }, []);
+
+  React.useEffect(() => {
+    dispatch(fetchAsyncblogactivity(blogid));
+    dispatch(fetchAsyncbloginfo(blogid));
+  }, [blogid]);
+  const Activity = useSelector(getBlogactivity);
   const Bloginfo = useSelector(getBloginfo);
   return (
     <Box className="font" minWidth={240}>
@@ -89,7 +99,15 @@ function SideTabs({ select }) {
               </ListItem>
             </Link>
           </>
-        ) : (Bloginfo.meta.msg === 'Loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)}
+        ) : (((Bloginfo.error || Activity.error) && (
+          <Alert style={{ marginTop: '15%' }} severity="error">
+            Component could not be loaded.
+            This could be due to trouble fetching data from the backend server.
+            Try switching to the mock server to see if the error persists.
+          </Alert>
+        ))
+          || (Bloginfo.meta.msg === 'Loading' && <Box style={{ marginRight: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)
+        )}
     </Box>
   );
 }

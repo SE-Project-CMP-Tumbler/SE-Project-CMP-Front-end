@@ -24,6 +24,7 @@ const fetchPosts = createAsyncThunk(
       return [];
     }
     try {
+      console.log(User, 'hello from dashb');
       const response = await Axios({
         method: 'GET',
         url: `${apiR}/posts/dashboard`,
@@ -33,7 +34,6 @@ const fetchPosts = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       });
-      console.log(response);
       if (response.data.meta.status === '200') {
         return response.data.response;
       }

@@ -5,10 +5,10 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { setEmail, selectUser } from '../../../../states/User/UserSlice';
 
-const EmailInputTextField = ({ marginOff, readonly }) => {
-  const [email, setEmailh] = useState('');
+const EmailInputTextField = ({ marginOff, readonly, editEmail }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
+  const [email, setEmailh] = useState(editEmail ? user.email : '');
   let marginBottomValue = 1;
   if (marginOff) {
     marginBottomValue = -0.25;
@@ -47,7 +47,9 @@ const EmailInputTextField = ({ marginOff, readonly }) => {
           value={email}
           onChange={(e) => {
             setEmailh(e.target.value);
-            dispatch(setEmail(e.target.value));
+            if (editEmail === false) {
+              dispatch(setEmail(e.target.value));
+            }
           }}
           variant="outlined"
           fullWidth
@@ -76,11 +78,13 @@ const EmailInputTextField = ({ marginOff, readonly }) => {
 EmailInputTextField.propTypes = {
   marginOff: PropTypes.bool,
   readonly: PropTypes.bool,
+  editEmail: PropTypes.bool,
 };
 
 EmailInputTextField.defaultProps = {
   marginOff: false,
   readonly: false,
+  editEmail: false,
 };
 
 export default EmailInputTextField;

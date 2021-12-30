@@ -45,6 +45,7 @@ import FollowedReducer from './followslice/getfollowslice';
 import BlockedReducer from './blockSlice/getblockslice';
 import unBlockReducer from './blockSlice/unblockslice';
 import AskReducer from './askpostslice/askpostslice';
+import userblogsReducer from './features/userblogs/userblogsSlice';
 import PostslikedReducer from './likedposts/likedpostsSlice';
 import MyPostsReducer from './mypostsslice/mypostsSlice';
 import deleteBlogMessagesReducer from './deleteblogmessagesslice/deleteblogmessagesslice';
@@ -57,6 +58,10 @@ import deleteSubmitReducer from './deletesubmissionslice/deleteSubmissionSlice';
 import PostSubmitReducer from './submissionslice/approveSubmissionSlice';
 import AnswerReducer from './answerslice/answerSlice';
 import BlogIdReducer from './blognameslice/blogNameSlice';
+import themeReducer from './theme/themeSlice';
+import notificationsReducer from './notifications/notificationSlice';
+import searchStuffReducder from './search/searchSlice';
+import searchAutocompleteReducer from './search/autocompleteSlice';
 
 const store = configureStore({
   reducer: {
@@ -104,6 +109,7 @@ const store = configureStore({
     Follower: Followerreducer,
     graph: graphReducer,
     ask: AskReducer,
+    userblogs: userblogsReducer,
     postsliked: PostslikedReducer,
     myposts: MyPostsReducer,
     deleteblogmsg: deleteBlogMessagesReducer,
@@ -116,6 +122,10 @@ const store = configureStore({
     postSubmit: PostSubmitReducer,
     postanswer: AnswerReducer,
     blogId: BlogIdReducer,
+    currentTheme: themeReducer,
+    notifications: notificationsReducer,
+    searchStuff: searchStuffReducder,
+    searchAutocomplete: searchAutocompleteReducer,
   },
 });
 

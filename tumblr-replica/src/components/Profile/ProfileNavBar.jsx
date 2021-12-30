@@ -15,6 +15,7 @@ import { getBlocked, BlockedByAsynch } from '../../states/blockSlice/getblocksli
 import { getBlog } from '../../states/blogslice/blogslice';
 import { BlockAsynch } from '../../states/blockSlice/blockslice';
 import { selectUser } from '../../states/User/UserSlice';
+// import { setHideAll } from '../../states/hidenav/hidenavSlice';
 import './css/ProfileNavBar.css';
 
 // const MyBlog = false;
@@ -23,6 +24,12 @@ function ProfileNavBar({ BlogId }) {
   const [Open, SetOpen] = useState(false);
 
   const dispatch = useDispatch();
+  // React.useEffect(() => {
+  //   dispatch(setHideAll(true));
+  //   return () => {
+  //     dispatch(setHideAll(false));
+  //   };
+  // }, []);
   React.useEffect(() => {
     dispatch(FollowedByAsynch(BlogId));
     dispatch(BlockedByAsynch(BlogId));

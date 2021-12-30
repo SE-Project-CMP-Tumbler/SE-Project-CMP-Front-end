@@ -23,6 +23,27 @@ const fetchAsyncaskposts = createAsyncThunk(
   },
 );
 
+const fetchAsyncnextposts = createAsyncThunk(
+  'posts/ask/next',
+  async (next) => {
+    if (SERVICETYPE === MOCK) {
+      try {
+        const response = await api.get('askposts');
+        return response.data;
+      } catch (error) {
+        throw Error(error);
+      }
+    } else {
+      try {
+        const response = await apiR.get(`posts/askpage=${next}`);
+        return response.data;
+      } catch (e) {
+        throw Error(e);
+      }
+    }
+  },
+);
+
 const initialState = {
   askposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
 };
@@ -40,6 +61,18 @@ const askpostsSlice = createSlice({
     [fetchAsyncaskposts.rejected]: () => {
       // console.log('Rejected!');
     },
+    [fetchAsyncnextposts.fulfilled]:
+     (state, { payload }) => ({
+       ...state,
+       askposts: {
+         ...state.askposts,
+         response:
+         {
+           posts: [...state.askposts.response.posts, ...payload.response.posts],
+           pagination: payload.response.pagination,
+         },
+       },
+     }),
   },
 });
 
@@ -48,5 +81,6 @@ const askpostsReducer = askpostsSlice.reducer;
 export {
   getAskposts,
   fetchAsyncaskposts,
+  fetchAsyncnextposts,
 };
 export default askpostsReducer;

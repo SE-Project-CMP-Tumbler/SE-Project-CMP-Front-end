@@ -1,10 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
+import Axios from 'axios';
 import { api, apiR } from '../../../apis/globalAxpi';
 import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
 const fetchAsynctag = createAsyncThunk(
   'tagged/:tagdescription',
-  async (TagDescription) => {
+  async (TagDescription, { getState }) => {
     if (SERVICETYPE === MOCK) {
       try {
         const response = await api.get('tag');
@@ -14,7 +15,12 @@ const fetchAsynctag = createAsyncThunk(
       }
     } else {
       try {
-        const response = await apiR.get(`tag/data/${TagDescription}`);
+        const state = getState();
+        console.log(state);
+        const USERTOKEN = state.user.user.accessToken;
+        console.log(USERTOKEN);
+        const AuthStr = `Bearer ${USERTOKEN}`;
+        const response = await apiR.get(`tag/data/${TagDescription}`, { headers: { Authorization: AuthStr } });
         return response.data;
       } catch (e) {
         throw Error(e);
@@ -38,7 +44,15 @@ const DeleteAsyncfollowtags = createAsyncThunk(
         const state = getState();
         const USERTOKEN = state.user.user.accessToken;
         const AuthStr = `Bearer ${USERTOKEN}`;
-        const response = await apiR.delete(`follow_tag/${TagDescription}`, { headers: { Authorization: AuthStr } });
+        const response = await Axios({
+          method: 'DELETE',
+          url: `${apiR}/follow_tag/${TagDescription}`,
+          headers: {
+            Authorization: AuthStr,
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        });
         console.log(response);
         return response.data;
       } catch (e) {
@@ -64,7 +78,16 @@ const AddAsyncfollowtags = createAsyncThunk(
         const USERTOKEN = state.user.user.accessToken;
         console.log(USERTOKEN);
         console.log(TagDescription);
-        const response = await apiR.post(`follow_tag/${TagDescription}`, { headers: { Authorization: `Bearer ${USERTOKEN}` } });
+        const AuthStr = `Bearer ${USERTOKEN}`;
+        const response = await Axios({
+          method: 'POST',
+          url: `${apiR}/follow_tag/${TagDescription}`,
+          headers: {
+            Authorization: AuthStr,
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+        });
         console.log(response);
         return response.data;
       } catch (e) {
@@ -75,7 +98,7 @@ const AddAsyncfollowtags = createAsyncThunk(
 );
 
 const initialState = {
-  tag: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  tag: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const tagSlice = createSlice({
@@ -100,9 +123,8 @@ const tagSlice = createSlice({
       // console.log('Pending');
     },
     [fetchAsynctag.fulfilled]: (state, { payload }) => ({ ...state, tag: payload }),
-    [fetchAsynctag.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsynctag.rejected]:
+    (state) => ({ ...state, tag: { ...state.tag, error: true } }),
   },
 });
 

@@ -23,8 +23,29 @@ const fetchAsyncquoteposts = createAsyncThunk(
   },
 );
 
+const fetchAsyncnextposts = createAsyncThunk(
+  'posts/quote/next',
+  async (next) => {
+    if (SERVICETYPE === MOCK) {
+      try {
+        const response = await api.get('quoteposts');
+        return response.data;
+      } catch (error) {
+        throw Error(error);
+      }
+    } else {
+      try {
+        const response = await apiR.get(`posts/quote?page=${next}`);
+        return response.data;
+      } catch (e) {
+        throw Error(e);
+      }
+    }
+  },
+);
+
 const initialState = {
-  quoteposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  quoteposts: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const quotepostsSlice = createSlice({
@@ -37,9 +58,20 @@ const quotepostsSlice = createSlice({
     },
     [fetchAsyncquoteposts.fulfilled]:
      (state, { payload }) => ({ ...state, quoteposts: payload }),
-    [fetchAsyncquoteposts.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsyncquoteposts.rejected]:
+    (state) => ({ ...state, quoteposts: { ...state.quoteposts, error: true } }),
+    [fetchAsyncnextposts.fulfilled]:
+     (state, { payload }) => ({
+       ...state,
+       quoteposts: {
+         ...state.quoteposts,
+         response:
+         {
+           posts: [...state.quoteposts.response.posts, ...payload.response.posts],
+           pagination: payload.response.pagination,
+         },
+       },
+     }),
   },
 });
 
@@ -48,5 +80,6 @@ const quotepostsReducer = quotepostsSlice.reducer;
 export {
   getQuoteposts,
   fetchAsyncquoteposts,
+  fetchAsyncnextposts,
 };
 export default quotepostsReducer;

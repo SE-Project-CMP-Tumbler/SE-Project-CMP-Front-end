@@ -30,7 +30,7 @@ const fetchAsyncblogactivity = createAsyncThunk(
 );
 
 const initialState = {
-  blogactivity: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  blogactivity: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const blogactivitySlice = createSlice({
@@ -43,9 +43,8 @@ const blogactivitySlice = createSlice({
     },
     [fetchAsyncblogactivity.fulfilled]:
      (state, { payload }) => ({ ...state, blogactivity: payload }),
-    [fetchAsyncblogactivity.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsyncblogactivity.rejected]:
+    (state) => ({ ...state, blogactivity: { ...state.blogactivity, error: true } }),
   },
 });
 
