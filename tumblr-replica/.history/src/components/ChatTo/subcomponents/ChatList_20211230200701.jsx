@@ -89,7 +89,7 @@ function ChatList({ chats }) {
                   )}
                   {chat.photo && (
                     <p className="lastmessage">
-                      sent a Photo
+                      {`sent a post`}
                     </p>
                   )}
                 </Box>

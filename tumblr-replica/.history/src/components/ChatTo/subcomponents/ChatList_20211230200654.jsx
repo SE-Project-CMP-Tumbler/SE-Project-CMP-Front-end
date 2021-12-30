@@ -84,12 +84,12 @@ function ChatList({ chats }) {
                   </p>
                   {chat.text && (
                     <p className="lastmessage">
-                      {`${chat.text}`}
+                      {`${chat.blog_username}:${chat.text}`}
                     </p>
                   )}
                   {chat.photo && (
                     <p className="lastmessage">
-                      sent a Photo
+                      {`${chat.blog_username}:sent a post`}
                     </p>
                   )}
                 </Box>

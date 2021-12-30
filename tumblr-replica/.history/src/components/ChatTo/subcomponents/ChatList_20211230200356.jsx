@@ -78,20 +78,17 @@ function ChatList({ chats }) {
                 <p className="chat-par-name">
                   {chat.friend_username}
                 </p>
-                <Box style={{ display: 'flex' }}>
-                  <p className="username-lastmessage">
-                    {`${chat.blog_username} : `}
+                <Box>
+                {chat.text && (
+                  <p className="lastmessage">
+                    {`${chat.blog_username}:${chat.text}`}
                   </p>
-                  {chat.text && (
-                    <p className="lastmessage">
-                      {`${chat.text}`}
-                    </p>
-                  )}
-                  {chat.photo && (
-                    <p className="lastmessage">
-                      sent a Photo
-                    </p>
-                  )}
+                )}
+                {chat.photo && (
+                  <p className="lastmessage">
+                    {`${chat.blog_username}:sent a post`}
+                  </p>
+                )}
                 </Box>
               </Box>
             )

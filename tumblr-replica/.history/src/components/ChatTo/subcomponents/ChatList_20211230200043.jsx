@@ -3,6 +3,7 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   ListItemAvatar,
+  Avatar,
 } from '@material-ui/core';
 import { Box } from '@mui/system';
 import { Divider, ListItemButton } from '@mui/material';
@@ -57,9 +58,7 @@ function ChatList({ chats }) {
             <img
               src={newMessagePress1 ? chat.blog_avatar :
                 chat.friend_avatar}
-              style={{
-                margin: '5px', width: '35px', height: '35px', borderRadius: '50%',
-              }}
+              style={{ margin: '5px', width: '30px', height: '30px', borderRadius }}
               alt=""
             />
           </ListItemAvatar>
@@ -78,21 +77,21 @@ function ChatList({ chats }) {
                 <p className="chat-par-name">
                   {chat.friend_username}
                 </p>
-                <Box style={{ display: 'flex' }}>
-                  <p className="username-lastmessage">
-                    {`${chat.blog_username} : `}
+                {chat.text ? (
+                  <p className="lastmessage">
+                    {`${chat.blog_username}:${chat.text}`}
                   </p>
-                  {chat.text && (
-                    <p className="lastmessage">
-                      {`${chat.text}`}
-                    </p>
-                  )}
-                  {chat.photo && (
-                    <p className="lastmessage">
-                      sent a Photo
-                    </p>
-                  )}
-                </Box>
+                ) : null}
+                {chat.photo ? (
+                  <p className="lastmessage">
+                    {`${chat.blog_username}:sent a post`}
+                  </p>
+                ) : null}
+                {chat.gif ? (
+                  <p className="lastmessage">
+                    {`${chat.blog_username}:sent a post`}
+                  </p>
+                ) : null}
               </Box>
             )
           }

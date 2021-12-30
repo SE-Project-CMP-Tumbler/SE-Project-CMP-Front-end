@@ -2,7 +2,7 @@
 .chat-par-name{
     color: rgb(0, 0, 0);
     font-family: 'Poppins';
-    font-size: .75rem;
+    font-size: .857rem;
     font-weight: 520;
     letter-spacing: .01px;
     line-height: 10px;
@@ -14,7 +14,7 @@
 .lastmessage ,.last-chat-par-name{
     color: rgb(112, 109, 109);
     font-family: 'Poppins';
-    font-size: .7rem;
+    font-size: .85rem;
     font-weight: 400;
     line-height: 10px;
     overflow: hidden;
@@ -32,8 +32,8 @@
 .username-lastmessage{
     color: rgb(77, 74, 74);
     font-family: 'Poppins';
-    font-size: .7rem;
-    font-weight: 600;
+    font-size: .85rem;
+    font-weight: 400;
     line-height: 10px;
     overflow: hidden;
     flex-wrap: nowrap;
