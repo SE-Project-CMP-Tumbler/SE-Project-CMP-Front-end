@@ -40,6 +40,7 @@ function PostCard(props) {
           avatar={
             (isTabletOrMobile || small)
             && (
+
               <Tooltip
                 placement="right"
                 title={(
@@ -82,8 +83,5 @@ PostCard.propTypes = {
   blogUsername: PropTypes.string.isRequired,
   postTime: PropTypes.string.isRequired,
   blogAvatar: PropTypes.string.isRequired,
-
-};
-PostCard.defaultProps = {
-  small: false,
+  postType: PropTypes.string.isRequired,
 };
