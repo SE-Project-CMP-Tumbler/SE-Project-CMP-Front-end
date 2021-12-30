@@ -2,8 +2,9 @@
 /* eslint-disable jsx-a11y/click-events-have-key-events */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 import React, { useRef, useState, useEffect } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import { ReactSearchAutocomplete } from 'react-search-autocomplete';
 import { useDispatch, useSelector } from 'react-redux';
-import { Link } from 'react-router-dom';
 import './css/dist/NavigationBarResp.css';
 import { selectBlogs, fetchBlogs } from '../../states/usertumblr/usertumblrSlice';
 import { BottomBar } from '../NavigationBar/subcomponents/ProfileDropDown';
@@ -11,6 +12,7 @@ import {
   changeTheme, fonts, colors, backgrounds, toggleOptions, toggleDropDownM,
 } from '../NavigationBar/interactions';
 import { selectTheme, setTheme } from '../../states/theme/themeSlice';
+import { fetchAutocomplete, selectAutocomplete } from '../../states/search/autocompleteSlice';
 /**
  *  This is the navigation bar component for small view ports
  *  @returns {ReactJSXElement} JSX Element.
@@ -29,21 +31,109 @@ function NavigationBarResp({ pageRef }) {
     changeTheme(fonts[themeState.theme],
       colors[themeState.theme], backgrounds[themeState.theme]);
   }, [themeState.theme]);
+  // User-related
+  const initialStyle = {
+    height: '34px',
+    backgroundColor: 'rgba(255, 255, 255, 0.25)',
+    border: '0px solid rgba(255, 255, 255, 0.3)',
+    placeholderColor: 'rgba(255, 255, 255, 0.7)',
+    fontSize: '0.9rem',
+    borderRadius: '5px',
+    iconColor: 'rgba(255, 255, 255, 0.7)',
+
+  };
+
+  const [searchStyle, setSearchStyle] = useState(initialStyle);
+  const [iconShow, setIconShow] = useState(true);
+
+  function checkOutside(ref) {
+    useEffect(() => {
+      function handleClickOutside(event) {
+        const inputContent = ref.current.childNodes[0]
+          .childNodes[0].childNodes[0].childNodes[0].value;
+        if (ref.current && !ref.current.contains(event.target) && inputContent === '') {
+          setSearchStyle(initialStyle);
+          setIconShow(true);
+        }
+      }
+      // Bind the event listener
+      document.addEventListener('mousedown', handleClickOutside);
+      return () => {
+        // Unbind the event listener on clean up
+        document.removeEventListener('mousedown', handleClickOutside);
+      };
+    }, [ref]);
+  }
+  const history = useNavigate();
+  const handleOnFocus = () => {
+    const newStyle = {
+      height: '34px',
+      backgroundColor: 'rgba(255, 255, 255, 1)',
+      border: '0px solid rgba(255, 255, 255, 0.3)',
+      placeholderColor: 'rgba(255, 255, 255, 0.7)',
+      fontSize: '0.9rem',
+      borderRadius: '5px',
+    };
+    setSearchStyle(newStyle);
+    setIconShow(false);
+  };
+  const autocompleteState = useSelector(selectAutocomplete);
+  const handleOnSearch = (string) => {
+    dispatch(fetchAutocomplete({ string }));
+  };
+  const searchRef = useRef(null);
+  checkOutside(searchRef);
   return (
     <nav className="basic-nav">
       <div className="mobile-nav">
         <button type="button" className="menu" onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
           {(toggled) ? (<i className="fas fa-times fa-2x" />) : (<i className="fas fa-bars fa-2x" />)}
         </button>
-        <button type="button" className="tumblr">
+        <button
+          type="button"
+          className="tumblr"
+          onClick={() => {
+            history('/');
+            toggleDropDownM(divRef, toggled, setToggled, pageRef);
+          }}
+        >
           <i className="fab fa-tumblr fa-2x " />
         </button>
-        <button type="button" className="search">
+        <button
+          type="button"
+          className="search"
+          onClick={() => {
+            searchRef.current.style.display = (searchRef.current.style.display === 'none') ? 'block' : 'none';
+          }}
+        >
           <i className="fas fa-search fa-2x" />
         </button>
       </div>
+      <div
+        className="search-bar"
+        id="search-bar"
+        style={{ width: 490, display: 'none' }}
+        ref={searchRef}
+        onKeyDown={(e) => {
+          if (e.key === 'Enter') {
+            history('/search/' + searchRef.current.childNodes[0].childNodes[0].childNodes[0].childNodes[0].value);
+            searchRef.current.childNodes[0].childNodes[0].childNodes[0].childNodes[0].blur();
+            searchRef.current.style.display = 'none';
+          }
+        }}
+      >
+        <ReactSearchAutocomplete
+          placeholder="    Search Tumblr"
+          items={autocompleteState.words}
+          onFocus={handleOnFocus}
+          showClear={false}
+          showIcon={iconShow}
+          styling={searchStyle}
+          key={searchStyle}
+          onSearch={handleOnSearch}
+        />
+      </div>
       <div className="user-items" ref={divRef} style={{ display: 'none' }}>
-
         <Link to="/" onClick={() => { toggleDropDownM(divRef, toggled, setToggled, pageRef); }}>
           <div className="user-item">
             <div className="icon-and-text">

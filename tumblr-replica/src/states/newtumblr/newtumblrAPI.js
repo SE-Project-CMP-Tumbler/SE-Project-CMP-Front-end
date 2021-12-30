@@ -1,13 +1,14 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
-import { apiR } from '../../apis/globalAxpi';
+// import { apiR } from '../../apis/globalAxpi';
+import axios from 'axios';
 import { SERVICETYPE, MOCK } from '../../apis/globalAPI';
 
 export const createBlog = createAsyncThunk(
   'newTumblr/createBlog',
   // eslint-disable-next-line camelcase
-  async (arg, thunkAPI) => {
-    const { title, url } = arg;
-    console.log('Im wenn', arg);
+  async (dispatch, { getState }) => {
+    // const { title, url } = arg;
+    // console.log('Im wenn', arg);
     if (SERVICETYPE === MOCK) {
       try {
         console.log('Mock not fully supported for POST requests!');
@@ -16,21 +17,28 @@ export const createBlog = createAsyncThunk(
         throw Error(e);
       }
     } else {
-      console.log(title, 'Im innn');
+      console.log(dispatch, 'Im innn');
       // works correctly.
-      console.log(url, 'Were all innn');
+      console.log(dispatch.url, 'Were all innn');
       // works correctly
       try {
-        const state = thunkAPI.getState();
+        const state = getState();
         const USERTOKEN = state.user.user.accessToken;
         console.log(USERTOKEN, 'code here!');
         // works correctly
         const AuthStr = `Bearer ${'USERTOKEN'}`;
-        const response = await apiR.post('blog', {
-          title, blog_username: url, password: '',
-        }, {
+        const response = await axios({
+          method: 'POST',
+          url: 'https://api.dev.tumbler.social/api/blog',
           headers: {
             Authorization: AuthStr,
+            Accept: 'application/json',
+            'Content-Type': 'application/json',
+          },
+          data: {
+            title: dispatch.title,
+            blog_username: dispatch.url,
+            password: 'abc123',
           },
         });
         console.log(response, 'well met');

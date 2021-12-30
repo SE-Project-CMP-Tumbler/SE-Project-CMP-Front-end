@@ -47,8 +47,18 @@ import unBlockReducer from './blockSlice/unblockslice';
 import AskReducer from './askpostslice/askpostslice';
 import userblogsReducer from './features/userblogs/userblogsSlice';
 import PostslikedReducer from './likedposts/likedpostsSlice';
+import MyPostsReducer from './mypostsslice/mypostsSlice';
+import deleteBlogMessagesReducer from './deleteblogmessagesslice/deleteblogmessagesslice';
+import deleteAllMessagesReducer from './deleteallmessagesslice/deleteallmessagesslice';
+import BlogMessagesReducer from './retriveblogmessagesslice/retriveblogmessagesslice';
+import AllMessagesReducer from './retriveallmessagesslice/retriveallmessagesslice';
 import hideNavReducer from './hidenav/hidenavSlice';
 import blogSettingsReducer from './blogsettingsslice/blogsettingsSlice';
+import deleteAskReducer from './deleteaskslice/deleteAskSlice';
+import deleteSubmitReducer from './deletesubmissionslice/deleteSubmissionSlice';
+import PostSubmitReducer from './submissionslice/approveSubmissionSlice';
+import AnswerReducer from './answerslice/answerSlice';
+import BlogIdReducer from './blognameslice/blogNameSlice';
 import themeReducer from './theme/themeSlice';
 import notificationsReducer from './notifications/notificationSlice';
 import searchStuffReducder from './search/searchSlice';
@@ -102,7 +112,17 @@ const store = configureStore({
     ask: AskReducer,
     userblogs: userblogsReducer,
     postsliked: PostslikedReducer,
+    myposts: MyPostsReducer,
+    deleteblogmsg: deleteBlogMessagesReducer,
+    deleteallmsg: deleteAllMessagesReducer,
+    blogmessages: BlogMessagesReducer,
+    deleteask: deleteAskReducer,
+    deletesubmit: deleteSubmitReducer,
+    allmessages: AllMessagesReducer,
     hideNav: hideNavReducer,
+    postSubmit: PostSubmitReducer,
+    postanswer: AnswerReducer,
+    blogId: BlogIdReducer,
     currentTheme: themeReducer,
     notifications: notificationsReducer,
     searchStuff: searchStuffReducder,

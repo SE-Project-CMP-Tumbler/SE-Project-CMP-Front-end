@@ -304,27 +304,27 @@ const Newsfeed = function NewsfeedPosts() {
                         sx={{ mb: 2, mt: 0 }}
                       >
                         {isDesktopOrLaptop && (
-                        <Tooltip
-                          placement="right"
-                          title={(
-                            <ProfileHeader BlogId={post.blog_id} />
-                                                )}
-                        >
-                          <Grid item>
-                            <Avatar
-                              src={post.blog_avatar}
-                              variant="square"
-                              xs={2}
-                              style={{
-                                maxWidth: 64,
-                                minWidth: 64,
-                                maxHeight: 64,
-                                minHeight: 64,
-                                borderRadius: 4,
-                              }}
-                            />
-                          </Grid>
-                        </Tooltip>
+                          <Tooltip
+                            placement="right"
+                            title={(
+                              <ProfileHeader BlogId={post.blog_id} />
+                            )}
+                          >
+                            <Grid item>
+                              <Avatar
+                                src={post.blog_avatar}
+                                variant="square"
+                                xs={2}
+                                style={{
+                                  maxWidth: 64,
+                                  minWidth: 64,
+                                  maxHeight: 64,
+                                  minHeight: 64,
+                                  borderRadius: 4,
+                                }}
+                              />
+                            </Grid>
+                          </Tooltip>
                         )}
                         <Grid item>
                           <PostCard
@@ -334,7 +334,7 @@ const Newsfeed = function NewsfeedPosts() {
                             blogId={post.blog_id}
                             blogUsername={post.blog_username}
                             postBody={post.post_body}
-                            blogAvatar={post.blog_avatar}
+                            blogAvatar={post.blog_savatar}
                             postType={post.post_type}
                             xs={10}
                             sx={{ mt: 0 }}

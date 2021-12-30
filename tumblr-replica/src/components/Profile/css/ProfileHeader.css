@@ -20,6 +20,9 @@
   top: 16rem;
   border:8px solid #061833;
 }
+.loading-block{
+  margin: 100px auto;
+}
 .circle-profile{
   width: 160px;
   height: 160px;
@@ -67,6 +70,7 @@
   display: block;
   vertical-align: baseline;
   color:inherit;
+  text-align: center;
 }
 .navv{
   overflow: hidden;
@@ -78,7 +82,7 @@
 }
 .inline-navv{
   position: relative;
-  margin: 7px 0 0;
+  margin: 16rem 0 0;
   padding: 0;
   text-align: center;
 }
@@ -234,3 +238,6 @@ label{
   font-size: xx-large;
   color: red;
 }
+/* .liked-posts{
+  width: 900px;
+} */

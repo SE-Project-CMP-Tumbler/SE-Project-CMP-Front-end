@@ -21,7 +21,7 @@ import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
 import ChatBundle from './components/ChatBundle/ChatBundle';
 import { initialCheck } from './states/User/UserSlice';
-import { getBlogs, fetchBlogs } from './states/blogslice/blogsslice';
+// import { getBlogs, fetchBlogs } from './states/blogslice/blogsslice';
 import TextPosts from './components/TextPosts/TextPosts';
 import VideoPosts from './components/VideoPosts/VideoPosts';
 import ImagePosts from './components/ImagePosts/ImagePosts';
@@ -60,8 +60,6 @@ import SearchPage from './components/SearchPage/SearchPage';
 function App() {
   const dispatch = useDispatch();
   dispatch(initialCheck());
-  useEffect(() => { dispatch(fetchBlogs()); }, []);
-  const blogs = useSelector(getBlogs).response;
   const hideNav = useSelector(selectHideNav);
   const themeState = useSelector(selectTheme);
   const wrapperRef = useRef(null);
@@ -73,17 +71,17 @@ function App() {
   return (
     <Router>
       <div className="App">
-        { !hideNav.hideAll
-        && (
-        <>
-          <MediaQuery minWidth={1070}>
-            <NavigationBar />
-          </MediaQuery>
-          <MediaQuery maxWidth={1070}>
-            <NavigationBarResp pageRef={wrapperRef} />
-          </MediaQuery>
-        </>
-        )}
+        {!hideNav.hideAll
+          && (
+            <>
+              <MediaQuery minWidth={1070}>
+                <NavigationBar />
+              </MediaQuery>
+              <MediaQuery maxWidth={1070}>
+                <NavigationBarResp pageRef={wrapperRef} />
+              </MediaQuery>
+            </>
+          )}
 
       </div>
       <div className="page-wrapper" ref={wrapperRef}>
@@ -120,17 +118,14 @@ function App() {
           <Route path="/tagged/:tag" element={<Tagged />} />
           <Route path="/blog/:blogname" element={<BlogPage />} />
           <Route path="/blog/:blogname/drafts" element={<Drafts />} />
-          {/* <Route path="/blog/:blogname/delete" element={<DeleteBlogPage />} /> */}
-          <Route path="/blog/view/:blogid" element={<RightBar />} />
+          <Route path="/blog/view/:username" element={<RightBar />} />
           {/* <Route path="/profiletemp" element={<ProfileHeader BlogId={2} />} /> */}
-          <Route path="/profile/:blogid" element={<Posts />} />
-          <Route path="/profile/:blogid/likes" element={<Likes />} />
-          <Route path="/profile/:blogid/ask" element={<Ask />} />
-          <Route path="/profile/:blogid/submit" element={<Submit />} />
+          <Route path="/profile/:username" element={<Posts />} />
+          <Route path="/profile/:username/likes" element={<Likes />} />
+          <Route path="/profile/:username/ask" element={<Ask />} />
+          <Route path="/profile/:username/submit" element={<Submit />} />
           <Route path="/inbox" element={<AllMassages />} />
-          {/* eslint-disable */
-          blogs && blogs.blogs && blogs.blogs?.map((blog) => ((blog.allow_ask || blog.allow_submittions) && <Route key={blog.id} path={'/blog/' + blog.username + '/messages'} element={<BlogMessages BlogId={blog.id} />} />))
-        /* eslint-enable */}
+          <Route path="/blog/:username/messages" element={<BlogMessages />} />
           <Route path="/artifacts" element={<ArtifactsPage />} />
           <Route path="/new/blog" element={<NewTumblr />} />
           <Route path="/blog/:blogname/activity/new/:period/:rate" element={<Activity option="1" />} />

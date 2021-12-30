@@ -33,7 +33,7 @@
     align-items: flex-end;
     display: flex;
     flex-direction: column;
-    max-width: 625px;
+    max-width: 640px;
     width: 100%;
 }
 
@@ -42,4 +42,5 @@
     flex-direction: column;
     margin-left: 30px;
     width: 380px;
+    margin-top: 25px;
 }
