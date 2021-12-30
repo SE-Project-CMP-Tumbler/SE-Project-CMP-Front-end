@@ -93,7 +93,7 @@ docker-compose -f docker-compose.dev.yml up -d --build;
     //   }
     //   steps {
     //     sh 'whoami;hostname;uptime'
-    //     sh '''cd tumblr-replica; docker-compose -f docker-compose.dev.yml up -d --build;'''
+    //     sh '''cd tumblr-replica; docker-compose up -d --build;'''
     //     build job: "/Testing/main", wait: true
     //   }
     //   post {
