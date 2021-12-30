@@ -17,7 +17,7 @@ const HereIsWhatIsTrendingButton = () => (
         size="large"
         font='"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif;'
         style={{
-          color: '#FFFFFF', fontWeight: 'bold', textTransform: 'none',
+          color: '#000000', fontWeight: 'bold', textTransform: 'none',
         }}
       >
         Here&apos;s what&apos;s trending
