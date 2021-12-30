@@ -57,6 +57,7 @@ const ContinueWithGoogleButton = () => {
           sx={{ spacing: 8, mt: 1.5 }}
         >
           <Button
+            id="google-login-button"
             onClick={renderProps.onClick}
             disabled={renderProps.disabled}
             fullWidth
