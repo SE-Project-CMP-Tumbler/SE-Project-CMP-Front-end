@@ -43,6 +43,7 @@ import BlogMessages from './components/Messages/BlogMessages';
 import ArtifactsPage from './components/ArtificatsPage/ArtificatsPage';
 import NewTumblr from './components/NewTumblr/NewTumblr';
 import { selectHideNav } from './states/hidenav/hidenavSlice';
+import CreatePostButtons from './components/CreatPost/CreatePostButtons';
 // import { changeTheme } from './components/NavigationBar/interactions';
 
 function App() {
@@ -75,6 +76,7 @@ function App() {
         <Routes>
           <Route path="/" element={<LogOutHome />} />
           <Route exact path="/chat" element={<HomePage />} />
+          <Route exact path="/new" element={<CreatePostButtons />} />
           <Route exact path="/dashboard" element={<Newsfeed />} />
           <Route exact path="/login" element={<LogInPage />} />
           <Route path="/onboarding" element={<RegisterWithGooglePage />} />

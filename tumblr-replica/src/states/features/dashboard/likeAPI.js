@@ -20,11 +20,9 @@ const LikePost = createAsyncThunk(
           post_id: postID,
         },
       });
-      console.log(response.data, postID);
       return response.data;
     }
     try {
-      console.log(`${apiR}/post/like/${postID}`);
       const response = await Axios({
         method: 'POST',
         url: `${apiR}/post/like/${postID}`,
@@ -34,11 +32,8 @@ const LikePost = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       });
-      console.log('bla');
-      console.log(response.data);
       return response.data;
-    } catch (err) {
-      console.log(err, postID);
+    } catch {
       return [];
     }
   },
@@ -59,7 +54,6 @@ const UnlikePost = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       });
-      console.log(response.data);
       return response.data;
     }
     try {
@@ -72,11 +66,8 @@ const UnlikePost = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       });
-      console.log('bla');
-      console.log(response.data);
       return response.data;
-    } catch (err) {
-      console.log(err);
+    } catch {
       return [];
     }
   },

@@ -1,7 +1,7 @@
 /* eslint-disable no-unused-vars */
 /* eslint-disable no-loop-func */
 /* eslint-disable import/no-extraneous-dependencies */
-import React from 'react';
+import React, { useState } from 'react';
 import { Markup } from 'interweave';
 import '../css/PostContent.css';
 import PropTypes from 'prop-types';
@@ -23,20 +23,19 @@ const PostContent = function PostContentDisplay(props) {
   const User = useSelector(selectUser);
   const dispatch = useDispatch();
   const { content, small } = props;
-
   let current = content;
   let i = content ? current.indexOf('#') : -1;
   if (i !== -1) {
     current = current.substring(i, current.length);
+    let e = 0;
+    while (e < current.length && '[*?+^${}[]().|=%@!&_,<>~`/;: ]'.indexOf(current[e]) === -1) {
+      e += 1;
+    }
+    current = current.substring(0, e);
     hashtags = current.split(' ');
-    hashtags[hashtags.length - 1] = hashtags[hashtags.length - 1].substring(
-      0,
-      hashtags[hashtags.length - 1].indexOf('<'),
-    );
   }
-
   let postBody = i !== -1 ? content.substring(0, i - 3) : content;
-
+  const [postContent, setpostContent] = useState(postBody);
   current = postBody;
   i = current ? postBody.indexOf('@') : -1;
   let j = 0;
@@ -44,6 +43,11 @@ const PostContent = function PostContentDisplay(props) {
   while (i !== -1) {
     cut += i;
     j = current.substr(i).indexOf(' ');
+    let e = 1;
+    while (e < current.substr(i).length && '[*?+^${}[]().|=%#@!&_,<>~`/;: ]'.indexOf(current.substr(i)[e]) === -1) {
+      e += 1;
+    }
+    j = e;
     mentions.push({ strt: cut, end: j + cut });
     current = current.substr(i + j);
     cut += j;
@@ -58,27 +62,34 @@ const PostContent = function PostContentDisplay(props) {
     dispatch(GetBlogId({ User, blogUsername: mentioned })).then((res) => {
       postBody = postBody.replace(
         mentioned,
-        `<a href=${
-          res.id
-        } style="text-decoration: 'underline';color: '#AAAAAA';""> ${mentioned.slice(
-          1,
-        )}</a>`,
+        `<a href=https://web.dev.tumbler.social/${res.payload.response.id} style="text-decoration: 'underline';color: '#AAAAAA';""> ${mentioned}
+        </a>`,
       );
-    });
+      if (k === 0) {
+        setpostContent(postBody);
+      }
+    })
+      .catch((err) => console.log(err));
   }
-  console.log(postBody);
   return (
     <div className="postBody">
-      <Markup content={postBody} />
-      {hashtags.map((hash) => (
-        <>
-          <Link href="/" underline="hover" style={{ color: 'grey' }} key={hash}>
-            {' '}
-            {hash}
-            {' '}
-          </Link>
-        </>
-      ))}
+      <>
+        <Markup content={postContent} />
+        {
+        hashtags.map((hash) => (
+          (hash[0] === '#')
+          && (
+          <>
+            <Link href={`https://web.dev.tumbler.social/posts/${hash}`} underline="hover" style={{ color: 'grey' }} key={hash}>
+              {' '}
+              {hash}
+              {' '}
+            </Link>
+          </>
+          )
+        ))
+      }
+      </>
     </div>
   );
 };

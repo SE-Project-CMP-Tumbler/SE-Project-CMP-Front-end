@@ -23,9 +23,10 @@
   height: 200px;
   min-height: 200px;
 }
-a {
-  color: #080808;
-  cursor: pointer;
+.postBody a {
+  color: #080808 !important; 
+  cursor: pointer !important;
+  text-decoration: underline !important;
 }
 .text{
 text-align: left !important;

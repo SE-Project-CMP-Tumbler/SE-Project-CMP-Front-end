@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import { useMediaQuery } from 'react-responsive';
 import CardHeader from '@mui/material/CardHeader';
@@ -6,10 +6,12 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import PostFooter from './subcomponents/PostFooter';
 import PostContent from './subcomponents/PostContent';
 import './css/PostCard.css';
 import MoreMenu from '../../../MoreMenu/MoreMenu';
+import { FollowAsynch } from '../../../../states/followslice/followslice';
 
 /**
  *
@@ -19,8 +21,15 @@ import MoreMenu from '../../../MoreMenu/MoreMenu';
  */
 function PostCard(props) {
   const {
-    postId, postTime, blogId, blogUsername, postBody, blogAvatar, small, postType,
+    postId, postTime, blogId, blogUsername, postBody, blogAvatar, small, postType, isliked, pinned,
   } = props;
+  const dispatch = useDispatch();
+  const [isFollowed, setIsFollowed] = useState(false);
+  const handleFollow = function follow() {
+    dispatch(FollowAsynch(blogId));
+    setIsFollowed(true);
+  };
+  const isTabletOrMobile2 = useMediaQuery({ query: '(max-width: 992px)' });
   const isTabletOrMobile = useMediaQuery({ query: '(max-width: 700px)' });
   return (
     <>
@@ -32,11 +41,37 @@ function PostCard(props) {
       >
         <CardHeader
           action={
-            <MoreMenu postId={postId} blogId={blogId} postTime={postTime} />
+            <MoreMenu postId={postId} blogId={blogId} postTime={postTime} pinned={pinned} />
           }
-          title={blogUsername}
+          title={(
+            <>
+              <div className="blog">
+                <span className="blogspan">
+                  <a className="blogname" href={`https://web.dev.tumbler.social/blog/view/${blogId}`}>
+                    <div className="blogdata">
+                      <div className="blogtitles">
+                        <div className="b4">{blogUsername}</div>
+                      </div>
+                    </div>
+                  </a>
+                  {!isFollowed
+                        && (
+                        <div className="followdiv">
+                          <button
+                            className="fb"
+                            type="button"
+                            onClick={handleFollow}
+                          >
+                            <span className="f">Follow</span>
+                          </button>
+                        </div>
+                        )}
+                </span>
+              </div>
+            </>
+          )}
           avatar={
-            (isTabletOrMobile || small)
+            (isTabletOrMobile2 || small)
             && (
             <Avatar
               variant="square"
@@ -56,7 +91,13 @@ function PostCard(props) {
           <PostContent content={postBody} small={small} />
         </CardContent>
         <CardActions disableSpacing className="footer">
-          <PostFooter postId={postId} blogId={blogId} content={postBody} postType={postType} />
+          <PostFooter
+            postId={postId}
+            blogId={blogId}
+            content={postBody}
+            postType={postType}
+            isLiked={isliked}
+          />
         </CardActions>
       </Card>
     </>
@@ -74,4 +115,6 @@ PostCard.propTypes = {
   postTime: PropTypes.string.isRequired,
   blogAvatar: PropTypes.string.isRequired,
   postType: PropTypes.string.isRequired,
+  isliked: PropTypes.bool.isRequired,
+  pinned: PropTypes.bool.isRequired,
 };

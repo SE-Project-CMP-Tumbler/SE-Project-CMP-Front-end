@@ -43,6 +43,7 @@ import unBlockReducer from './blockSlice/unblockslice';
 import AskReducer from './askpostslice/askpostslice';
 import PostslikedReducer from './likedposts/likedpostsSlice';
 import hideNavReducer from './hidenav/hidenavSlice';
+import CreatePostReducer from './features/createpost/createpostSlice';
 
 const store = configureStore({
   reducer: {
@@ -90,6 +91,7 @@ const store = configureStore({
     ask: AskReducer,
     postsliked: PostslikedReducer,
     hideNav: hideNavReducer,
+    CreatePostState: CreatePostReducer,
   },
 });
 

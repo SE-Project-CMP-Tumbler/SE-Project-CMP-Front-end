@@ -9,18 +9,18 @@ import { FaComment } from 'react-icons/fa';
 import Badge from '@mui/material/Badge';
 import Avatar from '@mui/material/Avatar';
 import RepeatIcon from '@mui/icons-material/Repeat';
-import Axios from 'axios';
 import Menu from '@mui/material/Menu';
 import MenuItem from '@mui/material/MenuItem';
 import MoreHorizIcon from '@mui/icons-material/MoreHoriz';
 import Card from '@mui/material/Card';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Box from '@mui/material/Box';
 import PropTypes from 'prop-types';
 import { selectUser } from '../../../../../../../states/User/UserSlice';
-
+import { blockBlog } from '../../../../../../../states/features/dashboard/NotesSlice';
+import DeleteReply from '../../../../../../../states/features/dashboard/deletereplyAPI';
 /**
  * This function is focused on creating the notes content on a post which includes profile picture
  * of the blog and badge of type of interactions they've done and the content of their note.
@@ -32,8 +32,9 @@ const NoteBox = function NoteBox(props) {
     postID, replies, reblogs,
   } = props;
   const open = Boolean(anchorEl);
-  const apiBaseUrl = 'http://localhost:8000';
   const User = useSelector(selectUser);
+  const dispatch = useDispatch();
+
   const handleClick = function ShowPopover(event) {
     setAnchorEl(event.currentTarget);
   };
@@ -42,32 +43,12 @@ const NoteBox = function NoteBox(props) {
     setAnchorEl(null);
   };
 
-  const handleDelete = function DeleteReply() {
-    Axios({
-      method: 'DELETE',
-      url: `${apiBaseUrl}/follow_blogs/${postID}`, //    !!! TO BE EDITED !!!    //
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => console.log(res.data))
-      .catch((err) => {
-        console.log("Can't Unfollow due to : ", err);
-      });
+  const handleDelete = function Delete() {
+    dispatch(DeleteReply({ postID, User }));
   };
 
   const handleBlock = function BlockBlogOfNote(id) {
-    Axios({
-      method: 'DELETE',
-      url: `${apiBaseUrl}/block/${id}`, //    !!! TO BE EDITED !!!    //
-      headers: {
-        'Content-Type': 'application/json',
-      },
-    })
-      .then((res) => console.log(res.data))
-      .catch((err) => {
-        console.log("Can't Block due to : ", err);
-      });
+    dispatch(blockBlog({ blocked: id, User }));
   };
   return (
     <>

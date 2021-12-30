@@ -2,44 +2,38 @@ import { createAsyncThunk } from '@reduxjs/toolkit';
 import Axios from 'axios';
 import { api, apiR, SERVICETYPE } from '../../../apis/globalAPI';
 
-const AddReply = createAsyncThunk(
-  'DashPosts/AddReply',
-  async ({ postID, reply, User }) => {
+const DeleteReply = createAsyncThunk(
+  'DashPosts/Deletereply',
+  async ({ User, postID }) => {
     const USER_TOKEN = User.accessToken;
     const AuthStr = `Bearer ${USER_TOKEN}`;
     if (SERVICETYPE === 0) {
       const response = await Axios({
-        method: 'POST',
-        url: `${api}/reply`,
+        method: 'DELETE',
+        url: `${api}/post/reply/${postID}`,
         headers: {
           Authorization: AuthStr,
           Accept: 'application/json',
           'Content-Type': 'application/json',
-        },
-        data: {
-          reply_text: reply,
         },
       });
       return response.data;
     }
     try {
       const response = await Axios({
-        method: 'POST',
+        method: 'DELETE',
         url: `${apiR}/post/reply/${postID}`,
         headers: {
           Authorization: AuthStr,
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
-        data: {
-          reply_text: reply,
-        },
       });
       return response.data;
-    } catch {
+    } catch (err) {
       return [];
     }
   },
 );
 
-export default AddReply;
+export default DeleteReply;

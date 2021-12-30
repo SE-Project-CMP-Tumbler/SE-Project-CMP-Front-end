@@ -17,7 +17,6 @@ const DeletePost = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       });
-      console.log(response.data);
       return response.data;
     }
     try {
@@ -30,11 +29,8 @@ const DeletePost = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       });
-      console.log('bla');
-      console.log(response.data);
       return response.data;
     } catch (err) {
-      console.log(err);
       return [];
     }
   },

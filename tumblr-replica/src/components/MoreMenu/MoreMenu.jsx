@@ -19,9 +19,11 @@ import PinPost from '../../states/features/dashboard/pinpostAPI';
  *  mentioned above.
  */
 const MoreMenu = function MoreMenuComponent(props) {
-  const { postId, blogId, postTime } = props;
+  const {
+    postId, blogId, postTime, pinned,
+  } = props;
   const [anchorEl, setAnchorEl] = useState(null);
-  const [pinned, setPinned] = useState(false);
+  const [pin, setPin] = useState(pinned);
   const open = Boolean(anchorEl);
   const dispatch = useDispatch();
   const User = useSelector(selectUser);
@@ -35,19 +37,19 @@ const MoreMenu = function MoreMenuComponent(props) {
   };
 
   const handlePin = function CheckPostPinning() {
-    setPinned(true);
-    dispatch(PinPost({ User, blogId, postId }));
+    setPin(true);
+    dispatch(PinPost({ User, postId }));
   };
 
   const handleUnfollow = function Unfollow() {
   };
 
   const handleBlock = function BlockBlog() {
-    dispatch(blockBlog(blogId));
+    dispatch(blockBlog({ blocked: blogId, User }));
   };
 
   const handleCopy = function CopyPostLinkOption() {
-    navigator.clipboard.writeText(`http://localhost:3000/post/${postId}`); //    !!! TO BE EDITED !!!    //
+    navigator.clipboard.writeText(`https://web.dev.tumbler.social/post/${postId}`);
   };
   return (
     <div sx={{ width: 320, maxWidth: '100%' }}>
@@ -73,10 +75,10 @@ const MoreMenu = function MoreMenuComponent(props) {
       >
         <MenuItem>{postTime}</MenuItem>
         <Divider />
-        {User.id === blogId && !pinned && (
+        {User.id === blogId && !pin && (
           <MenuItem onClick={() => handlePin()}>pin</MenuItem>
         )}
-        {User.id === blogId && pinned && (
+        {User.id === blogId && pin && (
           <MenuItem onClick={() => handlePin()}>Unpin</MenuItem>
         )}
         <MenuItem onClick={() => handleCopy()} id={postId}>
@@ -105,4 +107,5 @@ MoreMenu.propTypes = {
   postId: PropTypes.string.isRequired,
   blogId: PropTypes.string.isRequired,
   postTime: PropTypes.string.isRequired,
+  pinned: PropTypes.bool.isRequired,
 };
