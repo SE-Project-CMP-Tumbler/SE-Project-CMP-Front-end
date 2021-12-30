@@ -1,10 +1,12 @@
-import React, { useEffect } from 'react';
+/* eslint-disable no-unused-vars */
+/* eslint-disable prefer-destructuring */
+import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './css/dist/NewTumblr.css';
 import { Link } from 'react-router-dom';
 // import ReCAPTCHA from 'react-google-recaptcha';
 import {
-  selectInputData, setTitle, setURL, initializeState,
+  selectInputData, initializeState, createBlog,
 } from '../../states/newtumblr/newtumblrSlice';
 
 // function onChange(value) {
@@ -18,8 +20,8 @@ import {
  */
 function NewTumblr() {
   const dispatch = useDispatch();
-  const inputs = useSelector(selectInputData);
-  useEffect(() => dispatch(initializeState()), []);
+  const [title, setTitle] = useState('');
+  const [url, setUrl] = useState('');
   return (
     <div className="new-tumblr">
       <div className="top-content">
@@ -41,7 +43,7 @@ function NewTumblr() {
                 <p> Title </p>
               </div>
               <div className="input-field">
-                <input type="text" id="title" value={inputs.title} onChange={(e) => dispatch(setTitle(e.target.value))} size="50" />
+                <input type="text" id="title" value={title} onChange={(e) => setTitle(e.target.value)} size="50" />
               </div>
               <div className="hint">
                 <p>(e.g. Acme Corp, Sara & Jacob, My Awesome Blog)</p>
@@ -52,7 +54,7 @@ function NewTumblr() {
                 <p> Username </p>
               </div>
               <div className="input-field">
-                <input type="text" id="url" className="url" size="50" value={inputs.url} onChange={(e) => dispatch(setURL(e.target.value))} />
+                <input type="text" id="url" className="url" size="50" value={url} onChange={(e) => setUrl(e.target.value)} />
               </div>
               <div className="hint">
                 <p>(you can change this at any time)</p>
@@ -64,11 +66,10 @@ function NewTumblr() {
               className="recaptcha"
             /> */}
             <div className="button-group">
-              <button type="submit" className="submit" onClick={console.log(inputs)}>Create Blog</button>
+              <button type="submit" className="submit" onClick={dispatch(createBlog({ title, url }))}>Create Blog</button>
               <button type="button" className="cancel"><Link to="/dashboard">Cancel</Link></button>
             </div>
           </div>
-
         </form>
       </div>
     </div>

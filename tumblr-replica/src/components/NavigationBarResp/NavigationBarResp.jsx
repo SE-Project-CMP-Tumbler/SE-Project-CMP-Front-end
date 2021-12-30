@@ -103,7 +103,6 @@ function NavigationBarResp({ pageRef }) {
           type="button"
           className="search"
           onClick={() => {
-            console.log(searchRef.current.style);
             searchRef.current.style.display = (searchRef.current.style.display === 'none') ? 'block' : 'none';
           }}
         >
