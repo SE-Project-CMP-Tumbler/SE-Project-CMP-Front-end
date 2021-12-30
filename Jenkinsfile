@@ -82,33 +82,33 @@ docker-compose -f docker-compose.dev.yml up -d --build;
         }
       }
     }
-    stage('Deploy To Production') {
-      agent {
-        node {
-          label 'prod-server'
-        }
-      }
-      when {
-        branch 'main'
-      }
-      steps {
-        sh 'whoami;hostname;uptime'
-        sh '''cd tumblr-replica; docker-compose -f docker-compose.dev.yml up -d --build;'''
-        build job: "/Testing/main", wait: true
-      }
-      post {
-        always {
-          discordSend(
-            title: JOB_NAME,
-            link: env.BUILD_URL,
-            description: "${JOB_NAME} DEV Deployment Status: ${currentBuild.currentResult}",
-            result: currentBuild.currentResult,
-            thumbnail: 'https://i.dlpng.com/static/png/6378770_preview.png',
-            webhookURL: 'https://discord.com/api/webhooks/921772869782994994/mi4skhArIoT6heXWebPiWLn6Xc95rZgUqtW7qriBOYvnl0sTdfn16we7yPY-n-DJYRmH'
-          )
-        }
-      }
-    }
+    // stage('Deploy To Production') {
+    //   agent {
+    //     node {
+    //       label 'prod-server'
+    //     }
+    //   }
+    //   when {
+    //     branch 'main'
+    //   }
+    //   steps {
+    //     sh 'whoami;hostname;uptime'
+    //     sh '''cd tumblr-replica; docker-compose -f docker-compose.dev.yml up -d --build;'''
+    //     build job: "/Testing/main", wait: true
+    //   }
+    //   post {
+    //     always {
+    //       discordSend(
+    //         title: JOB_NAME,
+    //         link: env.BUILD_URL,
+    //         description: "${JOB_NAME} PROD Deployment Status: ${currentBuild.currentResult}",
+    //         result: currentBuild.currentResult,
+    //         thumbnail: 'https://i.dlpng.com/static/png/6378770_preview.png',
+    //         webhookURL: 'https://discord.com/api/webhooks/921772869782994994/mi4skhArIoT6heXWebPiWLn6Xc95rZgUqtW7qriBOYvnl0sTdfn16we7yPY-n-DJYRmH'
+    //       )
+    //     }
+    //   }
+    // }
   }
 
   post {
