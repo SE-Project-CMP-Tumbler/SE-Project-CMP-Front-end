@@ -95,11 +95,15 @@ var _unblockslice = _interopRequireDefault(require("./blockSlice/unblockslice"))
 
 var _askpostslice = _interopRequireDefault(require("./askpostslice/askpostslice"));
 
+var _userblogsSlice = _interopRequireDefault(require("./features/userblogs/userblogsSlice"));
+
 var _likedpostsSlice = _interopRequireDefault(require("./likedposts/likedpostsSlice"));
 
 var _hidenavSlice = _interopRequireDefault(require("./hidenav/hidenavSlice"));
 
 var _themeSlice = _interopRequireDefault(require("./theme/themeSlice"));
+
+var _notificationSlice = _interopRequireDefault(require("./notifications/notificationSlice"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -151,9 +155,11 @@ var store = (0, _toolkit.configureStore)({
     Follower: _followerspageSlice["default"],
     graph: _graphSlice["default"],
     ask: _askpostslice["default"],
+    userblogs: _userblogsSlice["default"],
     postsliked: _likedpostsSlice["default"],
     hideNav: _hidenavSlice["default"],
-    currentTheme: _themeSlice["default"]
+    currentTheme: _themeSlice["default"],
+    notifications: _notificationSlice["default"]
   }
 });
 var _default = store;

@@ -23,7 +23,7 @@ $new-notification-color: #F4F8FB
    * 
       padding: 0
       margin: 0
-      box-sizing: border-box
+      // box-sizing: border-box
    a
       text-decoration: none
       color: $text-grey-color
@@ -135,9 +135,10 @@ $new-notification-color: #F4F8FB
    
 .chat-drop 
    .chat-drop-content 
-      display: none
-      width: 17.5rem
-      transform: translateX(-40%)
+      transform: translateX(-44%)
+      z-index: 9999
+      overflow: hidden
+      position: absolute
 
       .chat-drop-header 
          border-bottom: 1px solid rgba(0, 0, 0, 0.13)
@@ -579,7 +580,6 @@ $new-notification-color: #F4F8FB
          text-align: center
          font-size: 0.8rem
          font-weight: 500
-         margin-top: 0.3rem
          margin-bottom: 0.3rem
          border-top: 1px solid rgba(0, 0, 0, 0.13)
 

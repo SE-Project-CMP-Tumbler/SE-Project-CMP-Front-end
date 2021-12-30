@@ -1,0 +1,15 @@
+.chatscrollnotp .chatscroll{
+    width: 100%;
+     overflow: auto;
+      overflow-y: scroll;
+      max-height:75%; 
+      height: 75%;
+      padding: 10px 0 0 0; 
+      background-color: #c0e1d2;
+}
+.chatscrollp{
+   
+     height: 50%;
+     padding: 10px 0 0 0; 
+     background-color: #c0e1d2;
+}
