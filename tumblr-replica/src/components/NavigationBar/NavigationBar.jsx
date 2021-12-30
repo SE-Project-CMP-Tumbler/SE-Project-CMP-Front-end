@@ -76,7 +76,6 @@ function NavigationBar() {
   const handleOnSearch = (string) => {
     dispatch(fetchAutocomplete({ string }));
   };
-
   const searchRef = useRef(null);
   checkOutside(searchRef);
   const user = useSelector(selectUser);
