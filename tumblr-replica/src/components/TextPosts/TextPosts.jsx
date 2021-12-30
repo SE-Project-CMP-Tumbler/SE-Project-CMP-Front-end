@@ -1,7 +1,7 @@
 import React from 'react';
 import Grid from '@mui/material/Grid';
 import { useDispatch, useSelector } from 'react-redux';
-import NavTabs from '../NavTabs/Navtabs';
+import NavTabs from '../NavTabs/NavTabs';
 import FollowingList from '../FollowingList/FollowingList';
 import PostsList from '../PostsList/PostsList';
 import { getTextposts, fetchAsynctextposts, fetchAsyncnextposts } from '../../states/features/textposts/textpostsSlice';
