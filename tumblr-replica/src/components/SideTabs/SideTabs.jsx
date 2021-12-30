@@ -99,7 +99,7 @@ function SideTabs({ select }) {
               </ListItem>
             </Link>
           </>
-        ) : (((Bloginfo.error || Activity.error) && (
+        ) : (((Bloginfo.error && Activity.error && blogid === 0) && (
           <Alert style={{ marginTop: '15%' }} severity="error">
             Component could not be loaded.
             This could be due to trouble fetching data from the backend server.
