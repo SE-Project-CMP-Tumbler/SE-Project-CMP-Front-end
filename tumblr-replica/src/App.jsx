@@ -21,7 +21,7 @@ import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
 import ChatBundle from './components/ChatBundle/ChatBundle';
-import { initialCheck } from './states/User/UserSlice';
+import { initialCheck, selectUser } from './states/User/UserSlice';
 // import { getBlogs, fetchBlogs } from './states/blogslice/blogsslice';
 import TextPosts from './components/TextPosts/TextPosts';
 import VideoPosts from './components/VideoPosts/VideoPosts';
@@ -49,7 +49,6 @@ import Following from './components/Following/Following';
 import Followers from './components/Followers/Followers';
 import ChatListResp from './components/ChatListResp/ChatListResp';
 import ChatComponentResp from './components/ChatComponentResp/ChatComponentResp';
-// import { selectUser } from './states/user/UserSlice';
 import NotFound from './components/NotFound/NoteFound';
 import { selectHideNav, setHideAll } from './states/hidenav/hidenavSlice';
 import {
@@ -67,6 +66,7 @@ function App() {
   const hideNav = useSelector(selectHideNav);
   const themeState = useSelector(selectTheme);
   const wrapperRef = useRef(null);
+  const user = useSelector(selectUser);
   useEffect(() => {
     changeTheme(fonts[themeState.theme],
       colors[themeState.theme], backgrounds[themeState.theme]);
@@ -99,7 +99,7 @@ function App() {
           <Route path="/blog/:username/followers" element={<Followers />} />
           <Route path="/following" element={<Following />} />
           <Route exact path="/new" element={<CreatePostButtons />} />
-          <Route exact path="/dashboard" element={<Newsfeed />} />
+          <Route exact path="/dashboard" element={(user.loggedin) ? <Newsfeed /> : <LogOutHome />} />
           <Route exact path="/login" element={<LogInPage />} />
           <Route path="/onboarding" element={<RegisterWithGooglePage />} />
           <Route path="/linkAccount" element={<LinkAccountWithGooglePage />} />

@@ -8,7 +8,7 @@ import { selectUser, logOutThunk, logOutThunkR } from '../../../states/User/User
 import { MOCK, REAL, SERVICETYPE } from '../../../apis/globalAPI';
 import { selectBlogs, fetchBlogs } from '../../../states/usertumblr/usertumblrSlice';
 import {
-  useOutsideAlerter, toggleOptions, changeTheme, fonts, colors, backgrounds,
+  useOutsideAlerter, toggleOptions, changeTheme, fonts, colors, backgrounds, toggleDrop,
 } from '../interactions';
 import { selectTheme, setTheme } from '../../../states/theme/themeSlice';
 
@@ -44,13 +44,13 @@ function ProfileDropDown({ buttonRef }) {
           Log out
         </Link>
       </div>
-      <UserItems feedValues={feedValues} />
+      <UserItems feedValues={feedValues} profileDropRef={profileDropRef} />
       <div className="drop-header user-drop-header">
         <p>Tumblrs</p>
         <Link to="/new/blog">+ New</Link>
       </div>
       {(blogState.isLoading)
-        ? (<UserTumblr tumblrName="Loading..." tumblrTitle="Loading..." tumblrIcon="./profile.png" feedValues={feedValues} />)
+        ? (<UserTumblr tumblrName="Loading..." tumblrTitle="Loading..." tumblrIcon="./profile.png" feedValues={feedValues} profileDropRef={profileDropRef} />)
         : (
           (blogState.blogs).map((blog) => (
             <UserTumblr
@@ -58,9 +58,9 @@ function ProfileDropDown({ buttonRef }) {
               tumblrTitle={blog.title}
               tumblrIcon={blog.avatar ? blog.avatar : './profile2.png'}
               feedValues={feedValues}
+              profileDropRef={profileDropRef}
             />
           ))
-
         ) }
       <BottomBar />
     </div>
@@ -73,7 +73,7 @@ function ProfileDropDown({ buttonRef }) {
  * @param {Object} feedValues - an object with the count of likes, following, followers,...
  * @returns {ReactJSXElement} JSX Element.
  */
-function UserItems({ feedValues }) {
+function UserItems({ feedValues, profileDropRef }) {
   const themeState = useSelector(selectTheme);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -82,7 +82,7 @@ function UserItems({ feedValues }) {
   }, [themeState.theme]);
   return (
     <>
-      <Link to="/likes">
+      <Link to="/likes" onClick={() => { toggleDrop(profileDropRef); }}>
         <div className="user-item">
           <div>
             <i className="fas fa-heart text-gray-700 fa-lg" />
@@ -91,7 +91,7 @@ function UserItems({ feedValues }) {
           <span>{feedValues.likes}</span>
         </div>
       </Link>
-      <Link to="/following">
+      <Link to="/following" onClick={() => { toggleDrop(profileDropRef); }}>
         <div className="user-item">
           <div>
             <i className="fas fa-user-plus text-gray-700 fa-lg" />
@@ -100,7 +100,7 @@ function UserItems({ feedValues }) {
           <span>{feedValues.following}</span>
         </div>
       </Link>
-      <Link to="/settings/account">
+      <Link to="/settings/account" onClick={() => { toggleDrop(profileDropRef); }}>
         <div className="user-item">
           <div>
             <i className="fas fa-cog text-gray-700 fa-lg" />
@@ -148,13 +148,13 @@ function UserItems({ feedValues }) {
  * @returns {ReactJSXElement} JSX Element.
  */
 export function UserTumblr({
-  tumblrName, tumblrTitle, tumblrIcon, feedValues,
+  tumblrName, tumblrTitle, tumblrIcon, feedValues, profileDropRef,
 }) {
   const optionsRef = useRef(null);
   return (
     <div className="user-tumblr">
       <div className="blog-item">
-        <Link to={`/blog/${tumblrName}`}>
+        <Link to={`/blog/${tumblrName}`} onClick={() => { toggleDrop(profileDropRef); }}>
           <div className="blog-details">
             <div className="blog-icon-box">
               <img src={tumblrIcon} alt="blog icon" />
@@ -170,31 +170,31 @@ export function UserTumblr({
         </button>
       </div>
       <div className="blog-options" ref={optionsRef}>
-        <Link to={`/blog/${tumblrName}`}>
+        <Link to={`/blog/${tumblrName}`} onClick={() => { toggleDrop(profileDropRef); }}>
           <div className="blog-option">
             <p>Posts</p>
             <p>{feedValues.posts}</p>
           </div>
         </Link>
-        <Link to={`/blog/${tumblrName}/followers`}>
+        <Link to={`/blog/${tumblrName}/followers`} onClick={() => { toggleDrop(profileDropRef); }}>
           <div className="blog-option">
             <p>Followers</p>
             <p>{feedValues.followers}</p>
           </div>
         </Link>
-        <Link to={`/blog/${tumblrName}/activity`}>
+        <Link to={`/blog/${tumblrName}/activity`} onClick={() => { toggleDrop(profileDropRef); }}>
           <div className="blog-option">
             <p>Activity</p>
             <p>{feedValues.activity}</p>
           </div>
         </Link>
-        <Link to={`/blog/${tumblrName}/drafts`}>
+        <Link to={`/blog/${tumblrName}/drafts`} onClick={() => { toggleDrop(profileDropRef); }}>
           <div className="blog-option">
             <p>Drafts</p>
             <p>{feedValues.drafts}</p>
           </div>
         </Link>
-        <Link to={`/settings/blog/${tumblrName}`}>
+        <Link to={`/settings/blog/${tumblrName}`} onClick={() => { toggleDrop(profileDropRef); }}>
           <div className="blog-option">
             <p>Edit Appearance</p>
           </div>

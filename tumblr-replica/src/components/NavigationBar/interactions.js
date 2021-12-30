@@ -26,6 +26,17 @@ export const toggleDropDown = function toggleDropDown(toggleRef, allRefs) {
   });
 };
 
+export const toggleDrop = function toggleDrop(toggleRef) {
+  // one dropdown open at a time:
+  const el = toggleRef;
+  const dropdown = el.current;
+  dropdown.style.display = (dropdown.style.display) === 'none' ? 'block' : 'none';
+  const icon = el.current.childNodes[0].childNodes[0].childNodes[0];
+  const white = 'brightness(100%)';
+  const grey = 'brightness(70%)';
+  icon.style.filter = (icon.style.filter === grey) ? white : grey;
+};
+
 /**
  * Toggles one of the three main drop down menus of the navigation bar.
  * @method
