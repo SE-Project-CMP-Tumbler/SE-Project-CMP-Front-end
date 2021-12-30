@@ -1,15 +1,33 @@
 import React from 'react';
-import { render, screen } from '@testing-library/react';
 import '@testing-library/jest-dom';
+import { rest } from 'msw';
 import { BrowserRouter } from 'react-router-dom';
 import Enzyme from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 import PropTypes from 'prop-types';
-import NavTabs from '../Navtabs';
+import { setupServer } from 'msw/node';
+import LnavTabs from '../LnavTabs/LnavTabs';
+import { render, screen } from '../../../states/test-utils/test-test-navtabs';
+
+const handlers = [
+  rest.get('tag/data/:TagDescription', (_req, res, ctx) => res(ctx.json({
+  }), ctx.delay(150))),
+];
+
+const server = setupServer(...handlers);
+
+// Enable API mocking before tests.
+beforeAll(() => server.listen({ onUnhandledRequest: 'bypass' }));
+
+// Reset any runtime request handlers we may add during the tests.
+afterEach(() => server.resetHandlers());
+
+// Disable API mocking after the tests are done.
+afterAll(() => server.close());
 
 const MockNavtabs = ({ selsected }) => (
   <BrowserRouter>
-    <NavTabs tapnum={0} selsected={selsected} />
+    <LnavTabs tapnum={0} selsected={selsected} />
   </BrowserRouter>
 );
 

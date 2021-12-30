@@ -1989,7 +1989,7 @@
   },
   "notes": {
     "meta": {
-      "status": "200",
+      "status": 200,
       "msg": "ok"
     },
     "response": {
