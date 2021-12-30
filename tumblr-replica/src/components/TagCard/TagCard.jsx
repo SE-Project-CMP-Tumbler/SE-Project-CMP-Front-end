@@ -1,5 +1,6 @@
 import * as React from 'react';
 import Card from '@mui/material/Card';
+import Alert from '@mui/material/Alert';
 import CardActions from '@mui/material/CardActions';
 import CardContent from '@mui/material/CardContent';
 import CardMedia from '@mui/material/CardMedia';
@@ -75,7 +76,14 @@ export default function TagCard() {
             </CardActions>
           </div>
         )
-        : (taginfo.meta.msg === 'Loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)}
+        : ((taginfo.error && (
+          <Alert style={{ marginTop: '15%' }} severity="error">
+            Component could not be loaded.
+            This could be due to trouble fetching data from the backend server.
+            Try switching to the mock server to see if the error persists.
+          </Alert>
+        ))
+        || (taginfo.meta.msg === 'Loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>))}
     </Card>
   );
 }

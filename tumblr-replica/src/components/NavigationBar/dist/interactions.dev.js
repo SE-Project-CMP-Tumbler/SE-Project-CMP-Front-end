@@ -3,7 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports.changeTheme = exports.toggleDropDownM = exports.items = exports.newMessageHandler = exports.tumblrSelection = exports.chooseBlueItem = exports.toggleOptions = exports.useOutsideAlerter = exports.toggleIconColor = exports.toggleDropDown = void 0;
+exports.backgrounds = exports.colors = exports.fonts = exports.changeTheme = exports.toggleDropDownM = exports.items = exports.newMessageHandler = exports.tumblrSelection = exports.chooseBlueItem = exports.toggleOptions = exports.useOutsideAlerter = exports.toggleIconColor = exports.toggleChatIcon = exports.toggleDropDown = void 0;
 
 var _react = require("react");
 
@@ -21,18 +21,36 @@ var toggleDropDown = function toggleDropDown(toggleRef, allRefs) {
   var dropdown = el.current.childNodes[1];
   dropdown.style.display = dropdown.style.display === 'none' ? 'block' : 'none';
   var icon = el.current.childNodes[0].childNodes[0].childNodes[0];
-  var white = 'rgb(255, 255, 255)';
-  var grey = 'rgba(255, 255, 255, 0.698)';
-  icon.style.color = icon.style.color === grey ? white : grey;
+  var white = 'brightness(100%)';
+  var grey = 'brightness(70%)';
+  icon.style.filter = icon.style.filter === grey ? white : grey;
   var els = allRefs;
   els.forEach(function (currentRef) {
     var element = currentRef;
 
     if (element !== toggleRef) {
       element.current.childNodes[1].style.display = 'none';
-      element.current.childNodes[0].childNodes[0].childNodes[0].style.color = 'rgba(255, 255, 255, 0.698)';
+      element.current.childNodes[0].childNodes[0].childNodes[0].style.filter = grey;
     }
   });
+};
+/**
+ * Toggles one of the three main drop down menus of the navigation bar.
+ * @method
+ * @param {MutableRefObject} toggleRef - The ref for HTML node that should have its display toggled.
+ * @param {Array} allRefs - Array of refs for HTML nodes that should have their display set to none.
+ */
+
+
+exports.toggleDropDown = toggleDropDown;
+
+var toggleChatIcon = function toggleChatIcon(toggleRef) {
+  // one dropdown open at a time:
+  var el = toggleRef;
+  var icon = el.current.childNodes[0].childNodes[0].childNodes[0];
+  var white = 'brightness(100%)';
+  var grey = 'brightness(70%)';
+  icon.style.filter = icon.style.filter === grey ? white : grey;
 };
 /**
  * Toggles the colors of navigation bar icons between grey and white
@@ -42,17 +60,17 @@ var toggleDropDown = function toggleDropDown(toggleRef, allRefs) {
  */
 
 
-exports.toggleDropDown = toggleDropDown;
+exports.toggleChatIcon = toggleChatIcon;
 
 var toggleIconColor = function toggleIconColor(toggleRef, allIconRefs) {
   var el = toggleRef;
-  el.current.style.color = 'rgb(255, 255, 255)';
+  el.current.style.filter = 'brightness(100%)';
   var els = allIconRefs;
   els.forEach(function (currentRef) {
     var element = currentRef;
 
     if (element !== toggleRef) {
-      element.current.style.color = 'rgba(255, 255, 255, 0.698)';
+      element.current.style.filter = 'brightness(70%)';
     }
   });
 };
@@ -74,7 +92,7 @@ var useOutsideAlerter = function useOutsideAlerter(ref, buttonRef) {
 
       if (ref.current && !ref.current.contains(event.target) && !buttonRef.current.contains(event.target)) {
         dropdown.style.display = 'none';
-        element.current.childNodes[0].childNodes[0].childNodes[0].style.color = '#ffffffb2';
+        element.current.childNodes[0].childNodes[0].childNodes[0].style.filter = 'brightness(70%)';
       }
     } // Bind the event listener
 
@@ -163,55 +181,38 @@ var newMessageHandler = function newMessageHandler(chatsRef, followingRef, butto
 
 exports.newMessageHandler = newMessageHandler;
 var items = [{
-  id: 0,
   name: 'Eiffel Tower'
 }, {
-  id: 1,
   name: 'Tumblr'
 }, {
-  id: 2,
   name: 'Pyramids'
 }, {
-  id: 3,
   name: 'Cairo'
 }, {
-  id: 4,
   name: 'Waterall'
 }, {
-  id: 5,
   name: 'Flowers'
 }, {
-  id: 4,
   name: 'Meh'
 }, {
-  id: 4,
   name: 'Jordon'
 }, {
-  id: 4,
   name: 'Tram Car'
 }, {
-  id: 4,
   name: 'Surfing'
 }, {
-  id: 4,
   name: 'Karthus'
 }, {
-  id: 4,
   name: 'Zed'
 }, {
-  id: 4,
   name: 'Yasuo'
 }, {
-  id: 4,
   name: 'MrWonderful'
 }, {
-  id: 4,
   name: 'Jax'
 }, {
-  id: 4,
   name: 'Malzahar'
 }, {
-  id: 4,
   name: 'Zeo'
 }];
 /**
@@ -250,13 +251,38 @@ var toggleDropDownM = function toggleDropDownM(divRef, toggled, setToggled, page
 exports.toggleDropDownM = toggleDropDownM;
 
 var changeTheme = function changeTheme(font, fontColor, backgroundColor) {
-  var elements = document.querySelectorAll('*');
+  console.log('Change Theme');
+  var elements = document.querySelectorAll('*, .blog-option');
 
   for (var i = 0; i < elements.length; ++i) {
-    elements[i].style.font = font;
-    elements[i].style.color = fontColor;
-    elements[i].style.backgroundColor = backgroundColor;
+    elements[i].style.setProperty("font-family", font, "important");
+    elements[i].style.setProperty("color", fontColor, "important");
+  }
+
+  var body = document.querySelectorAll('html, nav, .icons-container, .icon-style, .following-main, .NewsFeed, .Base, .drop-content, .notification-item, css-iezo6v');
+
+  for (var _i = 0; _i < body.length; _i++) {
+    body[_i].style.setProperty("background-color", backgroundColor, "important");
+  } // fixing font awesome icons:
+
+
+  var icons = document.querySelectorAll('.fas, .far');
+
+  for (var _i2 = 0; _i2 < icons.length; _i2++) {
+    icons[_i2].style.setProperty("font-family", "'Font Awesome 5 Free'", "important");
+  }
+
+  var tumblr = document.querySelectorAll('.fa-tumblr');
+
+  for (var _i3 = 0; _i3 < tumblr.length; _i3++) {
+    tumblr[_i3].style.setProperty("font-family", "'FontAwesome'", "important");
   }
 };
 
 exports.changeTheme = changeTheme;
+var fonts = ["'Chakra Petch', sans-serif", "'Indie Flower', cursive", "'Merienda', cursive ", "'Cinzel Decorative', cursive", "'Oooh Baby', cursive", "'Indie Flower', cursive", "'Poppins', sans-serif"];
+exports.fonts = fonts;
+var colors = ['azure', 'Turquoise', 'Snow', 'FloralWhite', 'Lavender', 'LemonChiffon', ''];
+exports.colors = colors;
+var backgrounds = ['Black', 'RoyalBlue', '#061833', 'FireBrick', 'MidnightBlue', 'SlateGray', ''];
+exports.backgrounds = backgrounds;

@@ -1,5 +1,6 @@
 import React from 'react';
 import Card from '@mui/material/Card';
+import Tooltip from '@mui/material/Tooltip';
 import { useMediaQuery } from 'react-responsive';
 import CardHeader from '@mui/material/CardHeader';
 import CardContent from '@mui/material/CardContent';
@@ -9,6 +10,7 @@ import PropTypes from 'prop-types';
 import PostFooter from './subcomponents/PostFooter';
 import PostContent from './subcomponents/PostContent';
 import './css/PostCard.css';
+import ProfileHeader from '../../../ProfileTemp/ProfileTempHeader';
 import MoreMenu from '../../../MoreMenu/MoreMenu';
 
 /**
@@ -19,9 +21,9 @@ import MoreMenu from '../../../MoreMenu/MoreMenu';
  */
 function PostCard(props) {
   const {
-    postId, postTime, blogId, blogUsername, postBody, blogAvatar, small,
+    postId, postTime, blogId, blogUsername, postBody, blogAvatar, small, postType,
   } = props;
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 992px)' });
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 500px)' });
   return (
     <>
       <Card
@@ -38,17 +40,24 @@ function PostCard(props) {
           avatar={
             (isTabletOrMobile || small)
             && (
-            <Avatar
-              variant="square"
-              xs={2}
-              src={blogAvatar}
-              style={{
-                maxWidth: 40,
-                minWidth: 40,
-                maxHeight: 40,
-                minHeight: 40,
-              }}
-            />
+              <Tooltip
+                placement="right"
+                title={(
+                  <ProfileHeader BlogId={blogId} />
+                )}
+              >
+                <Avatar
+                  variant="square"
+                  xs={2}
+                  src={blogAvatar}
+                  style={{
+                    maxWidth: 40,
+                    minWidth: 40,
+                    maxHeight: 40,
+                    minHeight: 40,
+                  }}
+                />
+              </Tooltip>
             )
           }
         />
@@ -56,7 +65,7 @@ function PostCard(props) {
           <PostContent content={postBody} small={small} />
         </CardContent>
         <CardActions disableSpacing className="footer">
-          <PostFooter postId={postId} blogId={blogId} content={postBody} />
+          <PostFooter postId={postId} blogId={blogId} content={postBody} postType={postType} />
         </CardActions>
       </Card>
     </>
@@ -66,14 +75,12 @@ function PostCard(props) {
 export default PostCard;
 
 PostCard.propTypes = {
-  small: PropTypes.bool,
+  small: PropTypes.bool.isRequired,
   postId: PropTypes.number.isRequired,
   blogId: PropTypes.number.isRequired,
   postBody: PropTypes.string.isRequired,
   blogUsername: PropTypes.string.isRequired,
   postTime: PropTypes.string.isRequired,
   blogAvatar: PropTypes.string.isRequired,
-};
-PostCard.defaultProps = {
-  small: false,
+  postType: PropTypes.string.isRequired,
 };

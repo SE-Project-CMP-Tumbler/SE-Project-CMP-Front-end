@@ -2,6 +2,7 @@ import React from 'react';
 import Box from '@mui/material/Box';
 import Button from '@mui/material/Button';
 import ReactLoading from 'react-loading';
+import Alert from '@mui/material/Alert';
 import { Typography } from '@material-ui/core';
 import { useSelector } from 'react-redux';
 import { getTrendtags } from '../../../states/features/trendtag/trendtagSlice';
@@ -52,14 +53,21 @@ export default function McarouselTrend() {
             { open
             && (
             <>
-              <TrendCard image1={trendTags.response.tags[4].tag_image} tag={trendTags.response.tags[4].tag_description} color="rgb(31 42 104)" number="5" />
-              <TrendCard image1={trendTags.response.tags[5].tag_image} tag={trendTags.response.tags[5].tag_description} color="rgb(0 71 53)" number="6" />
-              <TrendCard image1={trendTags.response.tags[6].tag_image} tag={trendTags.response.tags[6].tag_description} color="rgb(58 73 54)" number="7" />
-              <TrendCard image1={trendTags.response.tags[7].tag_image} tag={trendTags.response.tags[7].tag_description} color="rgb(64 54 40)" number="8" />
+              <TrendCard image1={trendTags.response.tags[0].tag_image} tag={trendTags.response.tags[0].tag_description} color="rgb(31 42 104)" number="5" />
+              <TrendCard image1={trendTags.response.tags[1].tag_image} tag={trendTags.response.tags[1].tag_description} color="rgb(0 71 53)" number="6" />
+              <TrendCard image1={trendTags.response.tags[2].tag_image} tag={trendTags.response.tags[2].tag_description} color="rgb(58 73 54)" number="7" />
+              <TrendCard image1={trendTags.response.tags[3].tag_image} tag={trendTags.response.tags[3].tag_description} color="rgb(64 54 40)" number="8" />
             </>
             )}
           </>
-        ) : <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>}
+        ) : (trendTags.error && (
+          <Alert style={{ marginTop: '15%' }} severity="error">
+            Component could not be loaded.
+            This could be due to trouble fetching data from the backend server.
+            Try switching to the mock server to see if the error persists.
+          </Alert>
+        ))
+        || (<Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)}
     </Box>
   );
 }

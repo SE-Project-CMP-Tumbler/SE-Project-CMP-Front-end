@@ -3,39 +3,32 @@
 Object.defineProperty(exports, "__esModule", {
   value: true
 });
-exports["default"] = exports.initializeState = exports.setHideRightGroup = exports.setHideAll = exports.selectHideNav = void 0;
+exports["default"] = exports.setTheme = exports.selectTheme = void 0;
 
 var _toolkit = require("@reduxjs/toolkit");
 
 /* eslint-disable no-else-return */
-var hideNav = (0, _toolkit.createSlice)({
-  name: 'hideNav',
+var currentTheme = (0, _toolkit.createSlice)({
+  name: 'currentTheme',
   initialState: {
-    backgroundColor: 'rgb(6, 24, 51)',
-    color: '',
-    font: 'Poppins'
+    // There are seven possible themes including the default (which is the 6th)
+    theme: localStorage.getItem('theme') ? parseInt(localStorage.getItem('theme'), 10) : 6
   },
   reducers: {
     setTheme: function setTheme(state, action) {
       var s = state;
-      s.backgroundColor = action.payload.backgroundColor;
-      s.color = action.payload.color;
-      s.font = action.payload.font;
+      s.theme = action.payload;
+      localStorage.setItem('theme', s.theme);
     }
   }
 });
 
-var selectHideNav = function selectHideNav(state) {
-  return state.hideNav;
+var selectTheme = function selectTheme(state) {
+  return state.currentTheme;
 };
 
-exports.selectHideNav = selectHideNav;
-var _hideNav$actions = hideNav.actions,
-    setHideAll = _hideNav$actions.setHideAll,
-    setHideRightGroup = _hideNav$actions.setHideRightGroup,
-    initializeState = _hideNav$actions.initializeState;
-exports.initializeState = initializeState;
-exports.setHideRightGroup = setHideRightGroup;
-exports.setHideAll = setHideAll;
-var _default = hideNav.reducer;
+exports.selectTheme = selectTheme;
+var setTheme = currentTheme.actions.setTheme;
+exports.setTheme = setTheme;
+var _default = currentTheme.reducer;
 exports["default"] = _default;

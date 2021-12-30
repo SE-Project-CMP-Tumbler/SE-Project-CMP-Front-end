@@ -1,24 +1,22 @@
 /* eslint-disable no-else-return */
 import { createSlice } from '@reduxjs/toolkit';
 
-const hideNav = createSlice({
-  name: 'hideNav',
+const currentTheme = createSlice({
+  name: 'currentTheme',
   initialState: {
-    backgroundColor: 'rgb(6, 24, 51)',
-    color: '',
-    font: 'Poppins',
+    // There are seven possible themes including the default (which is the 6th)
+    theme: localStorage.getItem('theme') ? parseInt(localStorage.getItem('theme'), 10) : 6,
   },
   reducers: {
     setTheme: (state, action) => {
       const s = state;
-      s.backgroundColor = action.payload.backgroundColor;
-      s.color = action.payload.color;
-      s.font = action.payload.font;
+      s.theme = action.payload;
+      localStorage.setItem('theme', s.theme);
     },
   },
 
 });
 
-export const selectHideNav = (state) => state.hideNav;
-export const { setHideAll, setHideRightGroup, initializeState } = hideNav.actions;
-export default hideNav.reducer;
+export const selectTheme = (state) => state.currentTheme;
+export const { setTheme } = currentTheme.actions;
+export default currentTheme.reducer;

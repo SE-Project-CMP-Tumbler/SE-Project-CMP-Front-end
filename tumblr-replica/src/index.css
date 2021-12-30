@@ -10,20 +10,11 @@
 }
 
 
-/* 'Chakra Petch', sans-serif !important;
-'Cinzel Decorative', cursive !important;
-'Indie Flower', cursive !important;
-'Merienda', cursive !important;
-'Oooh Baby', cursive !important;
-'Pacifico', cursive !important;
-'Poppins', sans-serif !important; */
 * {
-   font-family: Poppins;
-   color: '';
 }
 
-body i {
-   font-family:'FontAwesome'!important;
+.fas {
+   font-family:'Font Awesome 5 Free'!important;
    }
 
 html 

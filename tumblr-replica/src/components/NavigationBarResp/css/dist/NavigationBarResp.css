@@ -26,7 +26,6 @@ html {
   justify-content: space-between;
   overflow: hidden;
   flex-direction: column;
-  font-family: "Poppins", sans-serif;
   font-weight: 300;
   z-index: 999;
 }
@@ -34,13 +33,14 @@ html {
   color: white;
   display: flex;
   justify-content: space-between;
-  width: 100%;
-  padding-right: 1.4rem;
+  padding-right: 2rem;
   padding-top: 0.8rem;
   padding-bottom: 0.8rem;
   padding-left: 10px;
   font-size: 1.1rem;
-  height: 100%;
+}
+.basic-nav .user-items .user-item button {
+  width: 100%;
 }
 .basic-nav .user-items .user-item:hover {
   background-color: #ffffff0f;
@@ -61,6 +61,7 @@ html {
   display: flex;
   justify-content: space-between;
   cursor: pointer;
+  color: white;
 }
 .basic-nav .user-tumblr .blog-item:hover {
   background-color: #ffffff0f;
@@ -111,6 +112,7 @@ html {
   font-size: 1.1rem;
   padding: 0rem 0.3rem;
   margin: -0.5rem 0rem;
+  color: white;
 }
 .basic-nav .user-tumblr .blog-options .blog-option:hover {
   background-color: #ffffff0f;

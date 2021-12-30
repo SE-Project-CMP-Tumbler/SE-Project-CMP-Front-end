@@ -1,5 +1,6 @@
 import * as React from 'react';
 import PropTypes from 'prop-types';
+import Alert from '@mui/material/Alert';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import Divider from '@mui/material/Divider';
@@ -92,58 +93,68 @@ export default function FollowingList() {
 
   return (
     <Box sx={{ width: '100%', maxWidth: 320, marginTop: 6 }} style={{ backgroundColor: '#122943' }}>
-      <nav aria-label="main mailbox folders">
-        <List>
-          <ListItem disablePadding>
-            <ListItemText
-              primary="Following"
-              sx={{ p: 1 }}
-              primaryTypographyProps={{
-                fontSize: 20,
-                fontWeight: 'bolder',
-                letterSpacing: 0,
-                color: 'rgb(255,255,255)',
-              }}
-            />
-            <div sx={{ width: '600px' }}>
-              <Button variant="text" sx={{ textTransform: 'none', fontWeight: 'bold' }} onClick={handleClickOpen}>
-                Edit
-              </Button>
-              <BootstrapDialog
-                onClose={handleClose}
-                aria-labelledby="customized-dialog-title"
-                open={open}
-              >
-                <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
-                  Tags you follow
-                </BootstrapDialogTitle>
-                <DialogContent dividers>
-                  <EditPopup />
-                </DialogContent>
-              </BootstrapDialog>
-            </div>
-          </ListItem>
-          <Divider />
-          {
-            followtags.meta.status === '200'
-              ? (followtags.response.tags.slice(start, start + 4)
+      {
+      followtags.meta.status === '200'
+        ? (
+          <nav aria-label="main mailbox folders">
+            <List>
+              <ListItem disablePadding>
+                <ListItemText
+                  primary="Following"
+                  sx={{ p: 1 }}
+                  primaryTypographyProps={{
+                    fontSize: 20,
+                    fontWeight: 'bolder',
+                    letterSpacing: 0,
+                    color: 'rgb(255,255,255)',
+                  }}
+                />
+                <div sx={{ width: '600px' }}>
+                  <Button variant="text" sx={{ textTransform: 'none', fontWeight: 'bold' }} onClick={handleClickOpen}>
+                    Edit
+                  </Button>
+                  <BootstrapDialog
+                    onClose={handleClose}
+                    aria-labelledby="customized-dialog-title"
+                    open={open}
+                  >
+                    <BootstrapDialogTitle id="customized-dialog-title" onClose={handleClose}>
+                      Tags you follow
+                    </BootstrapDialogTitle>
+                    <DialogContent dividers>
+                      <EditPopup />
+                    </DialogContent>
+                  </BootstrapDialog>
+                </div>
+              </ListItem>
+              <Divider />
+              {followtags.response.tags.slice(start, start + 4)
                 .map((tag) => (
                   <FollowingTag
                     key={tag}
                     tag={tag.tag_description}
                     imagUrl={tag.tag_image}
                   />
-                )))
-              : (followtags.meta.msg === 'loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)
-          }
-          <Divider />
-          <ListItem disablePadding sx={{ justifyContent: 'center' }}>
-            <Button variant="text" onClick={handleStart} sx={{ textTransform: 'none', fontWeight: 'bold' }}>
-              Show more Tags
-            </Button>
-          </ListItem>
-        </List>
-      </nav>
+                ))}
+              <Divider />
+              <ListItem disablePadding sx={{ justifyContent: 'center' }}>
+                <Button variant="text" onClick={handleStart} sx={{ textTransform: 'none', fontWeight: 'bold' }}>
+                  Show more Tags
+                </Button>
+              </ListItem>
+            </List>
+          </nav>
+        )
+        : ((followtags.error && (
+          <Alert style={{ marginTop: '15%' }} severity="error">
+            Component could not be loaded.
+            This could be due to trouble fetching data from the backend server.
+            Try switching to the mock server to see if the error persists.
+          </Alert>
+        ))
+                || (followtags.meta.msg === 'Loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)
+        )
+            }
     </Box>
   );
 }

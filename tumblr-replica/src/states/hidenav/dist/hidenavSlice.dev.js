@@ -11,17 +11,20 @@ var _toolkit = require("@reduxjs/toolkit");
 var hideNav = (0, _toolkit.createSlice)({
   name: 'hideNav',
   initialState: {
-    hideAll: false,
-    hideRightGroup: false
+    hideAll: localStorage.getItem('hideAll') === null ? false : localStorage.getItem('hideAll'),
+    hideRightGroup: localStorage.getItem('hideRightGroup') === null ? false : localStorage.getItem('hideRightGroup')
   },
   reducers: {
     setHideAll: function setHideAll(state, action) {
       var s = state;
       s.hideAll = action.payload;
+      localStorage.setItem('hideAll', s.hideAll);
+      console.log('trigger', s.hideAll);
     },
     setHideRightGroup: function setHideRightGroup(state, action) {
       var s = state;
       s.hideRightGroup = action.payload;
+      localStorage.setItem('hideRightGroup', s.hideRightGroup);
     },
     initializeState: function initializeState(state) {
       var s = state;

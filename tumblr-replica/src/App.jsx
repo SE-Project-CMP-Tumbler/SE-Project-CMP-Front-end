@@ -19,7 +19,7 @@ import Explore from './components/Explore/Explore';
 import Tagged from './components/Tagged/Tagged';
 import Trending from './components/Trending/Trending';
 import Newsfeed from './components/NewsFeed/Newsfeed';
-import HomePage from './components/HomePage/HomePage';
+import ChatBundle from './components/ChatBundle/ChatBundle';
 import { initialCheck } from './states/User/UserSlice';
 import { getBlogs, fetchBlogs } from './states/blogslice/blogsslice';
 import TextPosts from './components/TextPosts/TextPosts';
@@ -49,19 +49,27 @@ import Followers from './components/Followers/Followers';
 import ChatListResp from './components/ChatListResp/ChatListResp';
 // import ChatComponentResp from '../ChatComponentResp/ChatComponentResp';
 // import { selectUser } from './states/user/UserSlice';
+import NotFound from './components/NotFound/NoteFound';
 import { selectHideNav } from './states/hidenav/hidenavSlice';
-// import { changeTheme } from './components/NavigationBar/interactions';
+import {
+  changeTheme, fonts, colors, backgrounds,
+} from './components/NavigationBar/interactions';
+import { selectTheme } from './states/theme/themeSlice';
+import SearchPage from './components/SearchPage/SearchPage';
 
 function App() {
   const dispatch = useDispatch();
   dispatch(initialCheck());
-  useEffect(() => {
-    // changeTheme("'Pacifico', cursive !important", 'pink', 'rgb(6, 24, 51)');
-    dispatch(fetchBlogs());
-  }, []);
+  useEffect(() => { dispatch(fetchBlogs()); }, []);
   const blogs = useSelector(getBlogs).response;
   const hideNav = useSelector(selectHideNav);
+  const themeState = useSelector(selectTheme);
   const wrapperRef = useRef(null);
+  useEffect(() => {
+    changeTheme(fonts[themeState.theme],
+      colors[themeState.theme], backgrounds[themeState.theme]);
+  }, [themeState.theme]);
+
   return (
     <Router>
       <div className="App">
@@ -81,7 +89,8 @@ function App() {
       <div className="page-wrapper" ref={wrapperRef}>
         <Routes>
           <Route path="/" element={<LogOutHome />} />
-          <Route exact path="/chat" element={<HomePage />} />
+          <Route exact path="/search/:word" element={<SearchPage />} />
+          <Route exact path="/chat" element={<ChatBundle />} />
           <Route exact path="/messaging" element={<ChatListResp />} />
           {/* <Route exact path={`/messaging/new/${user.blogName}`}element={<ChatListResp />} /> */}
           <Route path="/following" element={<Following />} />
@@ -110,7 +119,6 @@ function App() {
           <Route path="/explore/asks" element={<AskPosts />} />
           <Route path="/tagged/:tag" element={<Tagged />} />
           <Route path="/blog/:blogname" element={<BlogPage />} />
-          <Route path="/blog/:blogname/activity" element={<Activity />} />
           <Route path="/blog/:blogname/drafts" element={<Drafts />} />
           {/* <Route path="/blog/:blogname/delete" element={<DeleteBlogPage />} /> */}
           <Route path="/blog/view/:blogid" element={<RightBar />} />
@@ -125,9 +133,15 @@ function App() {
         /* eslint-enable */}
           <Route path="/artifacts" element={<ArtifactsPage />} />
           <Route path="/new/blog" element={<NewTumblr />} />
+          <Route path="/blog/:blogname/activity/new/:period/:rate" element={<Activity option="1" />} />
+          <Route path="/blog/:blogname/activity/total/:period/:rate" element={<Activity option="1" />} />
+          <Route path="/blog/:blogname/activity/notes/:period/:rate" element={<Activity option="1" />} />
+          <Route path="/blog/:blogname/activity/:period/:rate" element={<Activity option="2" />} />
+          <Route path="/blog/:blogname/activity/:period" element={<Activity option="3" />} />
+          <Route path="/blog/:blogname/activity" element={<Activity option="4" />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </div>
-
     </Router>
   );
 }

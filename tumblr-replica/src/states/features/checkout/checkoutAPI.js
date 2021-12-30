@@ -10,7 +10,7 @@ const fetchCheckout = createAsyncThunk(
     if (SERVICETYPE === 0) {
       const response = await Axios({
         method: 'GET',
-        url: `${api}/blogs/check_out_blogs`,
+        url: `${api}/blogs/chc_out_blogs`,
         headers: {
           Authorization: AuthStr,
           Accept: 'application/json',

@@ -23,8 +23,30 @@ const fetchAsyncrandomposts = createAsyncThunk(
   },
 );
 
+const fetchAsyncnextposts = createAsyncThunk(
+  'posts/random_posts/next',
+  async (next) => {
+    if (SERVICETYPE === MOCK) {
+      try {
+        const response = await api.get('randomposts');
+        return response.data;
+      } catch (error) {
+        throw Error(error);
+      }
+    } else {
+      try {
+        const response = await apiR.get(`posts/random_posts?page=${next}`);
+        console.log(response.data);
+        return response.data;
+      } catch (e) {
+        throw Error(e);
+      }
+    }
+  },
+);
+
 const initialState = {
-  randomposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  randomposts: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const randompostsSlice = createSlice({
@@ -36,9 +58,20 @@ const randompostsSlice = createSlice({
       // console.log('Pending');
     },
     [fetchAsyncrandomposts.fulfilled]: (state, { payload }) => ({ ...state, randomposts: payload }),
-    [fetchAsyncrandomposts.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsyncrandomposts.rejected]:
+    (state) => ({ ...state, randomposts: { ...state.randomposts, error: true } }),
+    [fetchAsyncnextposts.fulfilled]:
+    (state, { payload }) => ({
+      ...state,
+      randomposts: {
+        ...state.randomposts,
+        response:
+        {
+          posts: [...state.randomposts.response.posts, ...payload.response.posts],
+          pagination: payload.response.pagination,
+        },
+      },
+    }),
   },
 });
 
@@ -47,5 +80,6 @@ const randompostsReducer = randompostsSlice.reducer;
 export {
   getRandomposts,
   fetchAsyncrandomposts,
+  fetchAsyncnextposts,
 };
 export default randompostsReducer;

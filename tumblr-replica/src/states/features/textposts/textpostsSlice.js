@@ -23,8 +23,29 @@ const fetchAsynctextposts = createAsyncThunk(
   },
 );
 
+const fetchAsyncnextposts = createAsyncThunk(
+  'posts/text/next',
+  async (next) => {
+    if (SERVICETYPE === MOCK) {
+      try {
+        const response = await api.get('textposts');
+        return response.data;
+      } catch (error) {
+        throw Error(error);
+      }
+    } else {
+      try {
+        const response = await apiR.get(`posts/text?page=${next}`);
+        return response.data;
+      } catch (e) {
+        throw Error(e);
+      }
+    }
+  },
+);
+
 const initialState = {
-  textposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  textposts: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const textpostsSlice = createSlice({
@@ -37,9 +58,20 @@ const textpostsSlice = createSlice({
     },
     [fetchAsynctextposts.fulfilled]:
      (state, { payload }) => ({ ...state, textposts: payload }),
-    [fetchAsynctextposts.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsynctextposts.rejected]:
+    (state) => ({ ...state, textposts: { ...state.textposts, error: true } }),
+    [fetchAsyncnextposts.fulfilled]:
+    (state, { payload }) => ({
+      ...state,
+      textposts: {
+        ...state.textposts,
+        response:
+        {
+          posts: [...state.textposts.response.posts, payload.response.posts],
+          pagination: payload.response.pagination,
+        },
+      },
+    }),
   },
 });
 
@@ -48,5 +80,6 @@ const textpostsReducer = textpostsSlice.reducer;
 export {
   getTextposts,
   fetchAsynctextposts,
+  fetchAsyncnextposts,
 };
 export default textpostsReducer;
