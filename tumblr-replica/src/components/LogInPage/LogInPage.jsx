@@ -50,6 +50,7 @@ const LogInPage = () => {
               backgroundRepeat: 'no-repeat',
               backgroundSize: 'cover',
             },
+            a: { display: 'inline' },
           }}
         />
         <Box

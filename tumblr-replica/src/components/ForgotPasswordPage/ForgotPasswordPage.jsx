@@ -41,6 +41,7 @@ const ForgotPasswordPage = () => {
         <GlobalStyles
           styles={{
             body: { backgroundColor: '#001935', height: '100%' },
+            a: { display: 'inline' },
           }}
         />
         <Box

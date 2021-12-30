@@ -21,6 +21,7 @@ import Radar from '../Radar/Radar';
 import CheckOut from './subcomponents/CheckOut/CheckOut';
 import UploadPhoto from '../CreatPost/subcomponents/uploadPhoto';
 import UploadVideo from '../CreatPost/subcomponents/uploadVideo';
+import ResendVerificationPrompt from './subcomponents/ResendVerificationPrompt/ResendVerificationPrompt';
 /**
  *
  * @returns The Newfeed of dashboard which contains posts of following blogs and check out
@@ -344,6 +345,7 @@ const Newsfeed = function NewsfeedPosts() {
                     </div>
                   </aside>
                 </div>
+                <ResendVerificationPrompt />
               </Grid>
             )}
           </Grid>
