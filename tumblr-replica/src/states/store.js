@@ -64,6 +64,8 @@ import notificationsReducer from './notifications/notificationSlice';
 import searchStuffReducder from './search/searchSlice';
 import searchAutocompleteReducer from './search/autocompleteSlice';
 import blogThemeReducer from './blogthemeslice/blogthemeSlice';
+import SumbitReducer from './submit/submitAPI';
+import CreatePostReducer from './features/createpost/createpostSlice';
 
 const store = configureStore({
   reducer: {
@@ -128,8 +130,10 @@ const store = configureStore({
     notifications: notificationsReducer,
     searchStuff: searchStuffReducder,
     searchAutocomplete: searchAutocompleteReducer,
+    postsubmit: SumbitReducer,
     blogSettings: blogSettingsReducer,
     blogTheme: blogThemeReducer,
+    CreatePostState: CreatePostReducer,
   },
 });
 

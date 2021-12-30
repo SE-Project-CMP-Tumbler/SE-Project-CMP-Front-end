@@ -1,3 +1,4 @@
+/* eslint-disable no-unused-vars */
 import { React, useEffect, useRef } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
@@ -47,15 +48,18 @@ import NewTumblr from './components/NewTumblr/NewTumblr';
 import Following from './components/Following/Following';
 import Followers from './components/Followers/Followers';
 import ChatListResp from './components/ChatListResp/ChatListResp';
-// import ChatComponentResp from '../ChatComponentResp/ChatComponentResp';
+import ChatComponentResp from './components/ChatComponentResp/ChatComponentResp';
 // import { selectUser } from './states/user/UserSlice';
 import NotFound from './components/NotFound/NoteFound';
-import { selectHideNav } from './states/hidenav/hidenavSlice';
+import { selectHideNav, setHideAll } from './states/hidenav/hidenavSlice';
 import {
   changeTheme, fonts, colors, backgrounds,
 } from './components/NavigationBar/interactions';
 import { selectTheme } from './states/theme/themeSlice';
 import SearchPage from './components/SearchPage/SearchPage';
+import Header from './components/Profile/subcomponents/Header';
+import CreatePostButtons from './components/CreatPost/CreatePostButtons';
+// import { changeTheme } from './components/NavigationBar/interactions';
 
 function App() {
   const dispatch = useDispatch();
@@ -66,12 +70,13 @@ function App() {
   useEffect(() => {
     changeTheme(fonts[themeState.theme],
       colors[themeState.theme], backgrounds[themeState.theme]);
+    setHideAll(false);
   }, [themeState.theme]);
 
   return (
     <Router>
       <div className="App">
-        {!hideNav.hideAll
+        {true
           && (
             <>
               <MediaQuery minWidth={1070}>
@@ -90,9 +95,10 @@ function App() {
           <Route exact path="/search/:word" element={<SearchPage />} />
           <Route exact path="/chat" element={<ChatBundle />} />
           <Route exact path="/messaging" element={<ChatListResp />} />
-          {/* <Route exact path={`/messaging/new/${user.blogName}`}element={<ChatListResp />} /> */}
+          <Route exact path="/messaging/conversation/:username/:friendname" element={<ChatComponentResp />} />
+          <Route path="/blog/:username/followers" element={<Followers />} />
           <Route path="/following" element={<Following />} />
-          <Route path="/followerspage" element={<Followers />} />
+          <Route exact path="/new" element={<CreatePostButtons />} />
           <Route exact path="/dashboard" element={<Newsfeed />} />
           <Route exact path="/login" element={<LogInPage />} />
           <Route path="/onboarding" element={<RegisterWithGooglePage />} />
@@ -108,6 +114,7 @@ function App() {
           <Route path="/explore/trending" element={<Trending />} />
           <Route path="/explore/staff-picks" element={<StaffPicks />} />
           <Route path="/explore/text" element={<TextPosts />} />
+          <Route path="/Header" element={<Header />} />
           <Route path="/explore/photos" element={<ImagePosts />} />
           <Route path="/explore/quotes" element={<QuotePosts />} />
           <Route path="/explore/chats" element={<ChatPosts />} />

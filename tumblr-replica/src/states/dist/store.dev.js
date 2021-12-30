@@ -99,7 +99,27 @@ var _userblogsSlice = _interopRequireDefault(require("./features/userblogs/userb
 
 var _likedpostsSlice = _interopRequireDefault(require("./likedposts/likedpostsSlice"));
 
+var _mypostsSlice = _interopRequireDefault(require("./mypostsslice/mypostsSlice"));
+
+var _deleteblogmessagesslice = _interopRequireDefault(require("./deleteblogmessagesslice/deleteblogmessagesslice"));
+
+var _deleteallmessagesslice = _interopRequireDefault(require("./deleteallmessagesslice/deleteallmessagesslice"));
+
+var _retriveblogmessagesslice = _interopRequireDefault(require("./retriveblogmessagesslice/retriveblogmessagesslice"));
+
+var _retriveallmessagesslice = _interopRequireDefault(require("./retriveallmessagesslice/retriveallmessagesslice"));
+
 var _hidenavSlice = _interopRequireDefault(require("./hidenav/hidenavSlice"));
+
+var _deleteAskSlice = _interopRequireDefault(require("./deleteaskslice/deleteAskSlice"));
+
+var _deleteSubmissionSlice = _interopRequireDefault(require("./deletesubmissionslice/deleteSubmissionSlice"));
+
+var _approveSubmissionSlice = _interopRequireDefault(require("./submissionslice/approveSubmissionSlice"));
+
+var _answerSlice = _interopRequireDefault(require("./answerslice/answerSlice"));
+
+var _blogNameSlice = _interopRequireDefault(require("./blognameslice/blogNameSlice"));
 
 var _themeSlice = _interopRequireDefault(require("./theme/themeSlice"));
 
@@ -108,6 +128,8 @@ var _notificationSlice = _interopRequireDefault(require("./notifications/notific
 var _searchSlice = _interopRequireDefault(require("./search/searchSlice"));
 
 var _autocompleteSlice = _interopRequireDefault(require("./search/autocompleteSlice"));
+
+var _submitAPI = _interopRequireDefault(require("./submit/submitAPI"));
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
@@ -161,11 +183,22 @@ var store = (0, _toolkit.configureStore)({
     ask: _askpostslice["default"],
     userblogs: _userblogsSlice["default"],
     postsliked: _likedpostsSlice["default"],
+    myposts: _mypostsSlice["default"],
+    deleteblogmsg: _deleteblogmessagesslice["default"],
+    deleteallmsg: _deleteallmessagesslice["default"],
+    blogmessages: _retriveblogmessagesslice["default"],
+    deleteask: _deleteAskSlice["default"],
+    deletesubmit: _deleteSubmissionSlice["default"],
+    allmessages: _retriveallmessagesslice["default"],
     hideNav: _hidenavSlice["default"],
+    postSubmit: _approveSubmissionSlice["default"],
+    postanswer: _answerSlice["default"],
+    blogId: _blogNameSlice["default"],
     currentTheme: _themeSlice["default"],
     notifications: _notificationSlice["default"],
     searchStuff: _searchSlice["default"],
-    searchAutocomplete: _autocompleteSlice["default"]
+    searchAutocomplete: _autocompleteSlice["default"],
+    postsubmit: _submitAPI["default"]
   }
 });
 var _default = store;

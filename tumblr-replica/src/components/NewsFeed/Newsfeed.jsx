@@ -1,20 +1,24 @@
 import { React, useEffect, useState } from 'react';
 import InfiniteScroll from 'react-infinite-scroll-component';
+import ReactLoading from 'react-loading';
 import './css/Newsfeed.css';
 import Grid from '@mui/material/Grid';
 import Modal from '@mui/material/Modal';
 import Avatar from '@mui/material/Avatar';
-import Chip from '@mui/material/Chip';
+import Box from '@mui/material/Box';
 import Stack from '@mui/material/Stack';
 import Tooltip from '@mui/material/Tooltip';
 import { useMediaQuery } from 'react-responsive';
 import { useDispatch, useSelector } from 'react-redux';
+import { IconButton } from '@mui/material';
+import ArrowCircleUpIcon from '@mui/icons-material/ArrowCircleUp';
 import {
   getDashPosts,
   fetchPosts,
   getDashPagination,
   fetchNext,
 } from '../../states/features/dashboard/dashboardSlice';
+import { setOpened } from '../../states/features/createpost/createpostSlice';
 import { selectUser } from '../../states/User/UserSlice';
 import PostCard from './subcomponents/PostCard/PostCard';
 import ProfileHeader from '../ProfileTemp/ProfileTempHeader';
@@ -34,14 +38,7 @@ const Newsfeed = function NewsfeedPosts() {
   // 'All the finest Tumblr users verify their email address.
   // Check your inbox for the message we just sent.';
   const [isPending, setIsPending] = useState(true);
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
-
+  const open = useSelector((state) => state.CreatePostState.opend);
   const dispatch = useDispatch();
   const Posts = useSelector(getDashPosts);
   const Pagination = useSelector(getDashPagination);
@@ -49,7 +46,32 @@ const Newsfeed = function NewsfeedPosts() {
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 992px)',
   });
+  const mybutton = document.getElementById('topbutton');
+
+  function scrollFunction() {
+    if (!isDesktopOrLaptop) return;
+    if (mybutton && (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20)) {
+      mybutton.style.display = 'block';
+    } else if (mybutton) {
+      mybutton.style.display = 'none';
+    }
+  }
+  window.onscroll = function showButton() { scrollFunction(); };
   const [postType, setpostType] = useState(0);
+  const handleOpen = () => {
+    dispatch(setOpened({
+      opend: true,
+      postBody: '',
+      edit: 0,
+      postID: 0,
+      postType,
+    }));
+  };
+  const handleClose = () => {
+    dispatch(setOpened({
+      opend: false,
+    }));
+  };
   const fetch = () => {
     dispatch(fetchNext({ next: Pagination.current_page + 1, User }));
   };
@@ -57,8 +79,10 @@ const Newsfeed = function NewsfeedPosts() {
   const demo = function anyt() {
     setIsPending(false);
   };
+  const handleToTop = function backToTop() {
+    document.documentElement.scrollTop = 0;
+  };
   useEffect(() => {
-    console.log('effect');
     dispatch(fetchPosts(User)).then(demo);
   }, []);
 
@@ -262,25 +286,20 @@ const Newsfeed = function NewsfeedPosts() {
                 )}
               </Grid>
 
-              {isPending && <div>loading..</div>}
+              {isPending && (
+              <Box style={{ marginRight: '30%' }}>
+                <ReactLoading type="bars" color="#fff" width={157} />
+              </Box>
+              )}
               <InfiniteScroll
                 dataLength={Posts ? Posts?.length : 0}
                 next={fetch}
                 hasMore={Pagination ? Pagination.next_page_url : false}
-                loader={<h4>Loading...</h4>}
-                endMessage={(
-                  <div style={{ alignItems: 'center', paddingBottom: '10px' }}>
-                    <Chip
-                      label="Yay ! You have seen it all"
-                      style={{
-                        color: '#fffff',
-                        backgroundColor: '#00b8ff',
-                        width: '350px',
-                        height: '40px',
-                      }}
-                    />
-                  </div>
-                )}
+                loader={(
+                  <Box style={{ marginRight: '30%' }}>
+                    <ReactLoading type="bars" color="#fff" width={157} />
+                  </Box>
+              )}
                 style={{ width: '100vh' }}
               >
                 {Posts?.length
@@ -338,6 +357,8 @@ const Newsfeed = function NewsfeedPosts() {
                             postType={post.post_type}
                             xs={10}
                             sx={{ mt: 0 }}
+                            isliked={post.is_liked}
+                            pinned={post.pinned}
                           />
                         </Grid>
                       </Grid>
@@ -369,15 +390,22 @@ const Newsfeed = function NewsfeedPosts() {
         onClose={handleClose}
         aria-labelledby="modal-modal-title"
         aria-describedby="modal-modal-description"
+        style={{ width: '100%' }}
       >
         <>
           {postType !== 'photo' && postType !== 'video' && (
-            <ReactEditor body="" edit={0} postType={postType} />
+            <ReactEditor />
           )}
           {postType === 'photo' && <UploadPhoto />}
           {postType === 'video' && <UploadVideo />}
         </>
       </Modal>
+      { isDesktopOrLaptop
+        && (
+        <IconButton onClick={() => handleToTop()} id="topbutton" style={{ position: 'fixed', top: '90%', left: '0px' }}>
+          <ArrowCircleUpIcon style={{ fontSize: 40, fill: '#686868' }} />
+        </IconButton>
+        )}
     </>
   );
 };

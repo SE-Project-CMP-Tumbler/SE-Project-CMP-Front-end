@@ -109,7 +109,7 @@ function PostsList({ Posts, FetchnextPage }) {
                   </>
                 ))
               ) : ((Posts.error && (
-              <Alert style={{ marginTop: '15%' }} severity="error">
+              <Alert style={{ marginTop: '15%', marginLeft: '7%' }} severity="error">
                 Component could not be loaded.
                 This could be due to trouble fetching data from the backend server.
                 Try switching to the mock server to see if the error persists.

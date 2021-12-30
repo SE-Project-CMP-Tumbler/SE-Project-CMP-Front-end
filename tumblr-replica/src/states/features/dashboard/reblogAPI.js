@@ -22,7 +22,6 @@ const Reblog = createAsyncThunk(
           post_body: postBody,
         },
       });
-      console.log(response.data);
       return response.data;
     }
     try {
@@ -40,11 +39,8 @@ const Reblog = createAsyncThunk(
           post_body: `<div> ${postBody} </div>`,
         },
       });
-      console.log('bla');
-      console.log(response.data);
       return response.data;
-    } catch (err) {
-      console.log(err);
+    } catch {
       return [];
     }
   },

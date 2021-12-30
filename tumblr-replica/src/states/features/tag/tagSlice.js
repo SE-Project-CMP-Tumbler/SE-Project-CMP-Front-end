@@ -46,7 +46,7 @@ const DeleteAsyncfollowtags = createAsyncThunk(
         const AuthStr = `Bearer ${USERTOKEN}`;
         const response = await Axios({
           method: 'DELETE',
-          url: `${apiR}/follow_tag/${TagDescription}`,
+          url: `https://api.dev.tumbler.social/api/follow_tag/${TagDescription}`,
           headers: {
             Authorization: AuthStr,
             Accept: 'application/json',
@@ -81,7 +81,7 @@ const AddAsyncfollowtags = createAsyncThunk(
         const AuthStr = `Bearer ${USERTOKEN}`;
         const response = await Axios({
           method: 'POST',
-          url: `${apiR}/follow_tag/${TagDescription}`,
+          url: `https://api.dev.tumbler.social/api/follow_tag/${TagDescription}`,
           headers: {
             Authorization: AuthStr,
             Accept: 'application/json',

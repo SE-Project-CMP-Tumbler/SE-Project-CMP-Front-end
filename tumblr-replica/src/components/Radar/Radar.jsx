@@ -14,7 +14,6 @@ const Radar = function RadarPost() {
 
   useEffect(() => {
     dispatch(fetchRadar(User));
-    console.log(post);
   }, []);
   return (
     <>

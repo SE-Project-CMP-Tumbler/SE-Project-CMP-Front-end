@@ -9,3 +9,25 @@
   margin-top: 25px;
   padding-bottom: 12px;
 }
+
+.ft {
+  margin-right: 10px;
+  word-break: keep-all;
+  color: #1ebfff;
+  font-size: 16px;
+  line-height: 1.5;
+  text-decoration: none;
+  display: block;
+  background-color: transparent;
+  border: none;
+}
+.b4 {
+  color: rgb(0, 0, 0);
+  align-items: center;
+  display: flex;
+  font-size: 0.935rem;
+  font-weight: 550;
+  line-height: 1.5;
+  text-align: left;
+  cursor: pointer;
+}

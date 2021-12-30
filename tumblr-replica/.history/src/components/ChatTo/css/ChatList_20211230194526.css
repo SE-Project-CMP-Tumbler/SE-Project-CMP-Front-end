@@ -1,0 +1,22 @@
+.list-item{
+    width: 100%;
+    justify-content: flex-start !important ;
+}
+
+.chat-par-name {
+    line-height: 21px;
+}
+.Nevermind{
+    color: '#778899',
+    backgroundColor: 'transparent',
+                  border: 'none',
+                  cursor: 'pointer',
+                  fontSize: '.78125rem',
+                  fontWeight: '700',
+                  marginLeft: '10px',
+                  textAlign: 'right',
+
+}
+.NewMessage{
+  color: '#00bfff' ;
+}

@@ -17,17 +17,15 @@ const GetBlogId = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       });
-      console.log(response.data);
       if (response.data.meta.status === '200') {
-        return response.data.response;
+        return response.data;
       }
       return [];
     }
     try {
-      console.log(User, 'get blog id from username');
       const response = await Axios({
         method: 'GET',
-        url: `${apiR}/blog/info/${blogUsername}`,
+        url: `${apiR}/blog/info/${blogUsername.slice(1)}`,
         headers: {
           Authorization: AuthStr,
           Accept: 'application/json',
@@ -35,11 +33,10 @@ const GetBlogId = createAsyncThunk(
         },
       });
       if (response.data.meta.status === '200') {
-        return response.data.response;
+        return response.data;
       }
       return [];
-    } catch (err) {
-      console.log(err.message);
+    } catch {
       return [];
     }
   },
