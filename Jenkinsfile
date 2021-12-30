@@ -89,7 +89,7 @@ docker-compose -f docker-compose.dev.yml up -d --build;
         }
       }
       when {
-        branch 'dev'
+        branch 'main'
       }
       steps {
         sh 'whoami;hostname;uptime'
