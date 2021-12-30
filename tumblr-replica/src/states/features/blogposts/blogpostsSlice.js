@@ -60,7 +60,7 @@ const fetchAsyncnextposts = createAsyncThunk(
 );
 
 const initialState = {
-  blogposts: { response: { }, meta: { status: '000', msg: 'Loading' } },
+  blogposts: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const blogpostsSlice = createSlice({
@@ -73,9 +73,8 @@ const blogpostsSlice = createSlice({
     },
     [fetchAsyncblogposts.fulfilled]:
      (state, { payload }) => ({ ...state, blogposts: payload }),
-    [fetchAsyncblogposts.rejected]: () => {
-      // console.log('Rejected!');
-    },
+    [fetchAsyncblogposts.rejected]:
+    (state) => ({ ...state, blogposts: { ...state.blogposts, error: true } }),
     [fetchAsyncnextposts.fulfilled]:
      (state, { payload }) => ({
        ...state,

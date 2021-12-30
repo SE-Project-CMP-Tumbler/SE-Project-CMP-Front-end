@@ -130,22 +130,41 @@ export default function Graph({
           </Link>
         </Select>
       </FormControl>
-      {Notes.meta.status === '200' && !Notes.error ? (
+      {Notes.meta.status === 200 && !Notes.error ? (
         <>
-          <V.VictoryChart
-            width={700}
-            height={400}
-            theme={V.VictoryTheme.material}
-          >
-            <V.VictoryArea
-              data={Notes.response.data}
-              style={{
-                data: {
-                  fill: 'lightblue', fillOpacity: 0.7, stroke: '#c43a31', strokeWidth: 3,
-                },
-              }}
-            />
-          </V.VictoryChart>
+          {Notes.response.data.length > 0
+            ? (
+              <V.VictoryChart
+                width={700}
+                height={400}
+                theme={V.VictoryTheme.material}
+              >
+                <V.VictoryArea
+                  data={Notes.response.data}
+                  style={{
+                    data: {
+                      fill: 'lightblue', fillOpacity: 0.7, stroke: '#c43a31', strokeWidth: 3,
+                    },
+                  }}
+                />
+              </V.VictoryChart>
+            ) : (
+              <Box
+                sx={{
+                  width: '100%',
+                  height: 100,
+                  backgroundColor: '#122943',
+                  marginTop: 5,
+                  marginBottom: 5,
+                  color: 'white',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}
+              >
+                No activity for this time period
+              </Box>
+            ) }
           <Grid container spacing={2}>
             <Grid item xs={6} sm={4}>
               <Link to={`/blog/raghadkhaled/activity/${periodval}/${rateval}`} style={linkst}>
@@ -209,7 +228,7 @@ export default function Graph({
 Graph.propTypes = {
   Notes: PropTypes.shape({
     meta: PropTypes.shape({
-      status: PropTypes.string.isRequired, msg: PropTypes.string.isRequired,
+      status: PropTypes.number.isRequired, msg: PropTypes.string.isRequired,
     }).isRequired,
     response: PropTypes.shape({
       data: PropTypes.arrayOf(PropTypes.shape({
