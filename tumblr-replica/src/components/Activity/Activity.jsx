@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import SideTabs from '../SideTabs/SideTabs';
 import Graph from '../Graph/Graph';
+import './dist/NotificationsList.css';
 import {
   getNotes, fetchAsyncgraphnotes,
   fetchAsyncgraphnewfollowers,
@@ -12,6 +13,7 @@ import {
   getNewfollowers,
   getTotalfollowers,
 } from '../../states/features/graph/graphSlice';
+import NotificationsList from './NotificationsList';
 // import Graph2 from '../Graph/Graph2';
 
 /**
@@ -99,16 +101,19 @@ function Activity({ option }) {
   }
   console.log(Notes);
   return (
-    <div>
-      <Grid container spacing={2}>
-        <Grid item xs={10} lg={6} sx={{ marginLeft: '10%' }}>
-          <Graph Notes={Notes} periodval={periodval} rateval={rateval} optionval={optionval} />
+    <>
+      <div>
+        <Grid container spacing={2}>
+          <Grid item xs={10} lg={6} sx={{ marginLeft: '10%' }}>
+            <Graph Notes={Notes} periodval={periodval} rateval={rateval} optionval={optionval} />
+            <NotificationsList />
+          </Grid>
+          <Grid item lg={4} sx={{ marginLeft: '2%', display: { xs: 'none', lg: 'block' } }}>
+            <SideTabs select={3} />
+          </Grid>
         </Grid>
-        <Grid item lg={4} sx={{ marginLeft: '2%', display: { xs: 'none', lg: 'block' } }}>
-          <SideTabs select={3} />
-        </Grid>
-      </Grid>
-    </div>
+      </div>
+    </>
   );
 }
 Activity.propTypes = {
