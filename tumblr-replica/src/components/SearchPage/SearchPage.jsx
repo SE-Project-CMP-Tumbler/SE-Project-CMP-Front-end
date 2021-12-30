@@ -51,53 +51,11 @@ function SearchPage() {
                   </>
                 )}
             </div>
-            {searchState.searchResponse.meta.status === '200' ? (
-              <div className="row_B">
-                <div className="column_B">
-                  {searchState.searchResponse.response.posts.posts.slice(0, searchState.searchResponse.response.posts.posts.length / 4).map((post) => (
-                    <Box sx={{
-                      mt: 3,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                    >
-                      <PostCard
-                        postId={post.post_id}
-                        postDate={post.post_date}
-                        blogId={post.blog_id}
-                        blogUsername={post.blog_username}
-                        postBody={post.post_body}
-                        small
-                        xs={10}
-                      />
-                    </Box>
-                  ))}
-                </div>
-                <div className="column_B">
-                  {searchState.searchResponse.response.posts.posts.slice(searchState.searchResponse.response.posts.posts.length / 4, searchState.searchResponse.response.posts.posts.length / 2).map((post) => (
-                    <Box sx={{
-                      mt: 3,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                    >
-                      <PostCard
-                        postId={post.post_id}
-                        postDate={post.post_date}
-                        blogId={post.blog_id}
-                        blogUsername={post.blog_username}
-                        postBody={post.post_body}
-                        small
-                        xs={10}
-                      />
-                    </Box>
-                  ))}
-                </div>
-                <div className="column_B">
-                  {searchState.searchResponse.response.posts.posts.slice(searchState.searchResponse.response.posts.posts.length / 2, (searchState.searchResponse.response.posts.posts.length * 3) / 4)
-                    .map((post) => (
+            { searchState.searchResponse.meta.status === '200' ? (
+              <>
+                <div className="row_B">
+                  <div className="column_B">
+                    {searchState.searchResponse.response.posts.posts.slice(0, searchState.searchResponse.response.posts.posts.length / 4).map((post) => (
                       <Box sx={{
                         mt: 3,
                         display: 'flex',
@@ -116,29 +74,73 @@ function SearchPage() {
                         />
                       </Box>
                     ))}
+                  </div>
+                  <div className="column_B">
+                    {searchState.searchResponse.response.posts.posts.slice(searchState.searchResponse.response.posts.posts.length / 4, searchState.searchResponse.response.posts.posts.length / 2).map((post) => (
+                      <Box sx={{
+                        mt: 3,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                      >
+                        <PostCard
+                          postId={post.post_id}
+                          postDate={post.post_date}
+                          blogId={post.blog_id}
+                          blogUsername={post.blog_username}
+                          postBody={post.post_body}
+                          small
+                          xs={10}
+                        />
+                      </Box>
+                    ))}
+                  </div>
+                  <div className="column_B">
+                    {searchState.searchResponse.response.posts.posts.slice(searchState.searchResponse.response.posts.posts.length / 2, (searchState.searchResponse.response.posts.posts.length * 3) / 4)
+                      .map((post) => (
+                        <Box sx={{
+                          mt: 3,
+                          display: 'flex',
+                          alignItems: 'center',
+                          justifyContent: 'center',
+                        }}
+                        >
+                          <PostCard
+                            postId={post.post_id}
+                            postDate={post.post_date}
+                            blogId={post.blog_id}
+                            blogUsername={post.blog_username}
+                            postBody={post.post_body}
+                            small
+                            xs={10}
+                          />
+                        </Box>
+                      ))}
+                  </div>
+                  <div className="column_B">
+                    {searchState.searchResponse.response.posts.posts.slice((searchState.searchResponse.response.posts.posts.length * 3) / 4, searchState.searchResponse.response.posts.posts.length).map((post) => (
+                      <Box sx={{
+                        mt: 3,
+                        display: 'flex',
+                        alignItems: 'center',
+                        justifyContent: 'center',
+                      }}
+                      >
+                        <PostCard
+                          postId={post.post_id}
+                          postDate={post.post_date}
+                          blogId={post.blog_id}
+                          blogUsername={post.blog_username}
+                          postBody={post.post_body}
+                          small
+                          xs={10}
+                        />
+                      </Box>
+                    ))}
+                  </div>
                 </div>
-                <div className="column_B">
-                  {searchState.searchResponse.response.posts.posts.slice((searchState.searchResponse.response.posts.posts.length * 3) / 4, searchState.searchResponse.response.posts.posts.length).map((post) => (
-                    <Box sx={{
-                      mt: 3,
-                      display: 'flex',
-                      alignItems: 'center',
-                      justifyContent: 'center',
-                    }}
-                    >
-                      <PostCard
-                        postId={post.post_id}
-                        postDate={post.post_date}
-                        blogId={post.blog_id}
-                        blogUsername={post.blog_username}
-                        postBody={post.post_body}
-                        small
-                        xs={10}
-                      />
-                    </Box>
-                  ))}
-                </div>
-              </div>
+              </>
             ) : ((searchState.searchResponse.error && (
               <Alert style={{ marginTop: '15%' }} severity="error">
                 Component could not be loaded.
