@@ -142,11 +142,12 @@ function LoggedInGroup() {
           className="icon-style"
           onClick={() => {
             setChatClick(!chatClick);
+            toggleDropDown(chatRef, allRefs);
           }}
         >
           <abbr title="Chat"><i className="far fa-comment-alt  fa-lg" style={{ filter: 'brightness(70%)' }} /></abbr>
         </button>
-        {chatClick && <ChatTo />}
+        <ChatTo style={{ display: 'none' }} buttonRef={chatRef} />
         <ChatBoxes />
       </div>
       <div className="drop notifications-drop" ref={notificationsRef}>

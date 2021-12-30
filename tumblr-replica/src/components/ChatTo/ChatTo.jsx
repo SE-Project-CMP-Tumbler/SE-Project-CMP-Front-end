@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
@@ -16,25 +16,28 @@ import ChatList from './subcomponents/ChatList';
 import { selectUser } from '../../states/User/UserSlice';
 import SearchBar from '../ChatSearchBar/SearchBar';
 import './css/ChatList.css';
+import { useOutsideAlerter } from '../NavigationBar/interactions';
 /**
  * This function is for the ChatTo component this component has a search
  * bar to search for friend to chat with
  * @method
  * @returns {*} ChatTo componenet
  */
-function ChatTo() {
+function ChatTo({ buttonRef }) {
   const chats = useSelector((state) => state.Chat.chats);
   const User = useSelector(selectUser);
   const recentlyFollowed1 = useSelector((state) => state.Chat.recentlyfollowed);
   const newMessagePress1 = useSelector((state) => state.Chat.newmessagepress);
   const dispatch = useDispatch();
+  const chatDropRef = useRef(null);
+  useOutsideAlerter(chatDropRef, buttonRef);
   useEffect(() => {
     // eslint-disable-next-line no-unused-expressions
     newMessagePress1
       ? dispatch(recentlyFollowed(User)) : dispatch(getAllChats());
   }, []);
   return (
-    <div className="chat-drop-content">
+    <div className="chat-drop-content" ref={chatDropRef} style={{ display: 'none' }}>
       <List
         sx={{
           bgcolor: 'background.paper',
