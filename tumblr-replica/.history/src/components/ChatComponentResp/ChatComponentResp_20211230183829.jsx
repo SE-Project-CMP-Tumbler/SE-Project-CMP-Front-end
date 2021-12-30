@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box } from '@mui/system';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,7 +10,6 @@ import ChatInputResp from './subcomponents/ChatInputResp';
 import {
   getChatRoomIdRes, getBlogIdFromBlogUN, getChatFeed, setBlogFriendName,
 } from '../../slices/chatmodule/chatmoduleAPI';
-import { chatUpdate } from '../../slices/chatmodule/chatmoduleSlice';
 import { selectUser } from '../../states/User/UserSlice';
 
 const useStyles = makeStyles({
@@ -123,13 +122,8 @@ function ChatComponentResp() {
         friendName={params.friendname}
         id={userbloginfo.id}
       />
-      <ChatFeed
-        showImg={showImg}
-        img={userbloginfo.avatar}
-        id={userbloginfo.id}
-        friendName={params.friendname}
-      />
-      <ChatInputResp showImg={showImg} setShowImg={setShowImg} chatRoomId={chatRoomId} />
+      <ChatFeed img={userbloginfo.avatar} id={userbloginfo.id} friendName={params.friendname} />
+      <ChatInputResp id={userbloginfo.id} />
     </Box>
   );
 }

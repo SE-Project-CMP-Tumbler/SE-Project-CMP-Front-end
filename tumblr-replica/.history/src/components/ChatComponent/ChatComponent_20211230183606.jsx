@@ -8,6 +8,9 @@ import ChatTopBar from './subcomponents/ChatTopBar';
 import ChatFeed from '../ChatFeed/ChatFeed';
 import ChatInput from './subcomponents/ChatInput';
 import { getChatFeed } from '../../slices/chatmodule/chatmoduleAPI';
+// import { setPusherClient } from 'react-pusher';
+// import ReactPusher from 'react-pusher';
+// import { NEXT_PUBLIC_KEY } from '../../lib/pusher';
 import { chatUpdate } from '../../slices/chatmodule/chatmoduleSlice';
 import { selectUser } from '../../states/User/UserSlice';
 
@@ -50,24 +53,35 @@ function ChatComponent({
     dispatch(getChatFeed({ chatRoomId, User }));
     console.log('from chta comm');
     console.log(elem);
-    const channel = pusher.subscribe(`channel-${chatRoomId}`);
+    const channel = pusher.subscribe(`channel-${chatRoomId}`)
 
     // when a new member successfully subscribes to the channel
     channel.bind('pusher:subscription_succeeded', () => {
+      // total subscribed
+      // setOnlineUsersCount(members.count);
       console.log('subscribtion success');
     });
 
     channel.bind('pusher:subscription_error', () => {
+      // total subscribed
+      // setOnlineUsersCount(members.count);
       console.log('there is an error happen while subscribe ');
     });
 
     // when a new member joins the chat
     channel.bind('pusher:member_added', () => {
       console.log('count', channel.members.count);
+      // setOnlineUsersCount(channel.members.count);
+      // setOnlineUsers((prevState) => [
+      //   ...prevState,
+      //   { username: member.info.username, userLocation: member.info.userLocation },
+      // ]);
     });
 
     // when a member leaves the chat
     channel.bind('pusher:member_removed', (member) => {
+      // setOnlineUsersCount(channel.members.count);
+      // setUsersRemoved((prevState) => [...prevState, member.info.username]);
       console.log(`member has removed from ${member}`);
     });
 

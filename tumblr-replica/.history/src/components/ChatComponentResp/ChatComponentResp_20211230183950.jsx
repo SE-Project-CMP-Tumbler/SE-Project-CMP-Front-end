@@ -10,7 +10,6 @@ import ChatInputResp from './subcomponents/ChatInputResp';
 import {
   getChatRoomIdRes, getBlogIdFromBlogUN, getChatFeed, setBlogFriendName,
 } from '../../slices/chatmodule/chatmoduleAPI';
-import { chatUpdate } from '../../slices/chatmodule/chatmoduleSlice';
 import { selectUser } from '../../states/User/UserSlice';
 
 const useStyles = makeStyles({

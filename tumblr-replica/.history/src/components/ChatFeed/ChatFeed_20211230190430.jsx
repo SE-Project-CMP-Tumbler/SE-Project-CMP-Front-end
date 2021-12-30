@@ -1,5 +1,6 @@
 // import { makeStyles } from '@material-ui/core/styles';
 import React, { useEffect } from 'react';
+import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 // import ListItemText from '@material-ui/core/ListItemText';
 import { Box } from '@mui/system';
@@ -104,3 +105,4 @@ function ChatFeed({ friendName, img, showImg }) {
 }
 
 export default ChatFeed;
+

@@ -8,6 +8,9 @@ import ChatTopBar from './subcomponents/ChatTopBar';
 import ChatFeed from '../ChatFeed/ChatFeed';
 import ChatInput from './subcomponents/ChatInput';
 import { getChatFeed } from '../../slices/chatmodule/chatmoduleAPI';
+// import { setPusherClient } from 'react-pusher';
+// import ReactPusher from 'react-pusher';
+// import { NEXT_PUBLIC_KEY } from '../../lib/pusher';
 import { chatUpdate } from '../../slices/chatmodule/chatmoduleSlice';
 import { selectUser } from '../../states/User/UserSlice';
 

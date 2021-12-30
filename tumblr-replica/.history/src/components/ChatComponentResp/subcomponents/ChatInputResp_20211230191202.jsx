@@ -113,7 +113,7 @@ function ChatInputResp({ chatRoomId, setShowImg, showImg }) {
       <img
         src={img}
         style={{
-          width: '90%', height: '80px', borderRadius: '10px', margin: '5px 5px 5px 100px',
+          width: '100px', height: '80px', borderRadius: '10px', margin: '5px 5px 5px 100px',
         }}
         alt=""
       />

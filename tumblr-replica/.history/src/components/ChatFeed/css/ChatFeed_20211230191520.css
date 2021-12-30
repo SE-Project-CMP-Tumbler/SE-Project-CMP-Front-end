@@ -13,7 +13,7 @@
     height: 50%;
 }
 
-.message-part-notp{
+.message-part-notp, .message-part-p{
     max-width: 150px;
     background-color: white;
     border-radius: 7px;

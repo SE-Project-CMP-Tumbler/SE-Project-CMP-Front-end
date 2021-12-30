@@ -13,7 +13,7 @@
     height: 50%;
 }
 
-.message-part-notp{
+.message-part-notp, .message-part-p{
     max-width: 150px;
     background-color: white;
     border-radius: 7px;
@@ -26,6 +26,5 @@
 .message-part-p{
     width: 80%;
     background-color: transparent;
-    border-radius: 7px;
-    margin:3px 0;
+    align-self:stretch;
 }

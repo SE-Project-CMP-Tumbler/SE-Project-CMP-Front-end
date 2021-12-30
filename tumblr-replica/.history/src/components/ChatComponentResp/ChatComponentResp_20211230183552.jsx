@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import { Box } from '@mui/system';
 import { useDispatch, useSelector } from 'react-redux';
@@ -10,7 +10,6 @@ import ChatInputResp from './subcomponents/ChatInputResp';
 import {
   getChatRoomIdRes, getBlogIdFromBlogUN, getChatFeed, setBlogFriendName,
 } from '../../slices/chatmodule/chatmoduleAPI';
-import { chatUpdate } from '../../slices/chatmodule/chatmoduleSlice';
 import { selectUser } from '../../states/User/UserSlice';
 
 const useStyles = makeStyles({
@@ -37,7 +36,6 @@ function ChatComponentResp() {
   const params = useParams();
   const User = useSelector(selectUser);
   const [showImg, setShowImg] = useState(false);
-  const [chatRoomId, setChatRoomId] = useState('');
   const userbloginfo = useSelector((state) => state.Chat.userbloginfo);
   const dispatch = useDispatch();
   useEffect(() => {
@@ -55,7 +53,6 @@ function ChatComponentResp() {
             }))
               .then((chatRoom) => {
                 console.log(chatRoom);
-                setChatRoomId(chatRoom.payload);
                 dispatch(getChatFeed({ chatRoomId: chatRoom.payload, User })).then((() => {
                   console.log('finaaal');
                   dispatch(setBlogFriendName({ blogUserName: params.friendname, User }));
@@ -63,56 +60,56 @@ function ChatComponentResp() {
               });
           });
       });
-    Pusher.logToConsole = true;
-    // const token = JSON.parse(localStorage.getItem('user'));
-    const pusher = new Pusher('a59193c9ecc2d49635c0', {
-      cluster: 'eu',
-    });
-    const channel = pusher.subscribe(`channel-${chatRoomId}`);
-    // const channel = pusher.subscribe('maryem');
-
-    // when a new member successfully subscribes to the channel
-    channel.bind('pusher:subscription_succeeded', () => {
-      // total subscribed
-      // setOnlineUsersCount(members.count);
-      console.log('subscribtion success');
-    });
-
-    channel.bind('pusher:subscription_error', () => {
-      // total subscribed
-      // setOnlineUsersCount(members.count);
-      console.log('there is an error happen while subscribe ');
-    });
-
-    // when a new member joins the chat
-    channel.bind('pusher:member_added', () => {
-      console.log('count', channel.members.count);
-      // setOnlineUsersCount(channel.members.count);
-      // setOnlineUsers((prevState) => [
-      //   ...prevState,
-      //   { username: member.info.username, userLocation: member.info.userLocation },
-      // ]);
-    });
-
-    // when a member leaves the chat
-    channel.bind('pusher:member_removed', (member) => {
-      // setOnlineUsersCount(channel.members.count);
-      // setUsersRemoved((prevState) => [...prevState, member.info.username]);
-      console.log(`member has removed from ${member}`);
-    });
-
-    // updates chats
-    channel.bind('chat-update', (data) => {
-      console.log('hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii from nadeen channel ');
-      console.log(data);
-      if (data.from_blog_id !== User.primaryBlogId) {
-        dispatch(chatUpdate(data));
-      }
-    });
-
-    // return () => {
-    //   pusher.unsubscribe(`private-channel-${chatRoomId}`);
-    // };
+      Pusher.logToConsole = true;
+      // const token = JSON.parse(localStorage.getItem('user'));
+      const pusher = new Pusher('a59193c9ecc2d49635c0', {
+        cluster: 'eu',
+      });
+      const channel = pusher.subscribe(`channel-${chatRoomId}`);
+      // const channel = pusher.subscribe('maryem');
+  
+      // when a new member successfully subscribes to the channel
+      channel.bind('pusher:subscription_succeeded', () => {
+        // total subscribed
+        // setOnlineUsersCount(members.count);
+        console.log('subscribtion success');
+      });
+  
+      channel.bind('pusher:subscription_error', () => {
+        // total subscribed
+        // setOnlineUsersCount(members.count);
+        console.log('there is an error happen while subscribe ');
+      });
+  
+      // when a new member joins the chat
+      channel.bind('pusher:member_added', () => {
+        console.log('count', channel.members.count);
+        // setOnlineUsersCount(channel.members.count);
+        // setOnlineUsers((prevState) => [
+        //   ...prevState,
+        //   { username: member.info.username, userLocation: member.info.userLocation },
+        // ]);
+      });
+  
+      // when a member leaves the chat
+      channel.bind('pusher:member_removed', (member) => {
+        // setOnlineUsersCount(channel.members.count);
+        // setUsersRemoved((prevState) => [...prevState, member.info.username]);
+        console.log(`member has removed from ${member}`);
+      });
+  
+      // updates chats
+      channel.bind('chat-update', (data) => {
+        console.log('hiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiiii from nadeen channel ');
+        console.log(data);
+        if (data.from_blog_id !== User.primaryBlogId) {
+          dispatch(chatUpdate(data));
+        }
+      });
+  
+      // return () => {
+      //   pusher.unsubscribe(`private-channel-${chatRoomId}`);
+      // };  
   }, []);
 
   return (
@@ -123,13 +120,8 @@ function ChatComponentResp() {
         friendName={params.friendname}
         id={userbloginfo.id}
       />
-      <ChatFeed
-        showImg={showImg}
-        img={userbloginfo.avatar}
-        id={userbloginfo.id}
-        friendName={params.friendname}
-      />
-      <ChatInputResp showImg={showImg} setShowImg={setShowImg} chatRoomId={chatRoomId} />
+      <ChatFeed img={userbloginfo.avatar} id={userbloginfo.id} friendName={params.friendname} />
+      <ChatInputResp id={userbloginfo.id} />
     </Box>
   );
 }

@@ -32,7 +32,7 @@ function MyChatFeed({
             <img
               alt="Not found"
               style={{
-                height: '150px',
+                height: '100px',
                 width: '100%',
                 borderRadius: '10px',
               }}

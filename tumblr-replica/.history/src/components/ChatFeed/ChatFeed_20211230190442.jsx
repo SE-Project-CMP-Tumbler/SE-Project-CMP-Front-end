@@ -104,3 +104,4 @@ function ChatFeed({ friendName, img, showImg }) {
 }
 
 export default ChatFeed;
+

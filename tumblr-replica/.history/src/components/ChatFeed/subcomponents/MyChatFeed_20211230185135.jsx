@@ -1,5 +1,6 @@
 // import { makeStyles } from '@material-ui/core/styles';
 import React from 'react';
+import PropTypes from 'prop-types';
 import Typography from '@material-ui/core/Typography';
 import { Box } from '@mui/system';
 
@@ -32,7 +33,7 @@ function MyChatFeed({
             <img
               alt="Not found"
               style={{
-                height: '150px',
+                height: '100px',
                 width: '100%',
                 borderRadius: '10px',
               }}

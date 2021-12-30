@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 // import ChatGifs from '../../ChatGifs/ChatGifs';
 import '../css/ChatInputResp.css';
@@ -113,7 +114,7 @@ function ChatInputResp({ chatRoomId, setShowImg, showImg }) {
       <img
         src={img}
         style={{
-          width: '90%', height: '80px', borderRadius: '10px', margin: '5px 5px 5px 100px',
+          width: '150px', height: '80px', borderRadius: '10px', margin: '5px 5px 5px 100px',
         }}
         alt=""
       />
@@ -175,3 +176,4 @@ function ChatInputResp({ chatRoomId, setShowImg, showImg }) {
   );
 }
 export default ChatInputResp;
+

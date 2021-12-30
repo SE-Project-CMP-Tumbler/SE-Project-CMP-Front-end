@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Box } from '@material-ui/core';
+import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 // import ChatGifs from '../../ChatGifs/ChatGifs';
 import '../css/ChatInputResp.css';
@@ -7,7 +8,7 @@ import { sendMessage } from '../../../slices/chatmodule/chatmoduleAPI';
 import { selectUser } from '../../../states/User/UserSlice';
 import uploadImage from '../../../states/features/dashboard/uploadimageAPI';
 
-function ChatInputResp({ chatRoomId, setShowImg, showImg }) {
+function ChatInputResp({ id }) {
   const [message, setMessage] = useState('');
   const [img, setImg] = useState('');
   const chatFeed = useSelector((state) => state.Chat.chatfeed);
@@ -113,7 +114,7 @@ function ChatInputResp({ chatRoomId, setShowImg, showImg }) {
       <img
         src={img}
         style={{
-          width: '90%', height: '80px', borderRadius: '10px', margin: '5px 5px 5px 100px',
+          width: '150px', height: '80px', borderRadius: '10px', margin: '5px 5px 5px 100px',
         }}
         alt=""
       />
@@ -134,9 +135,9 @@ function ChatInputResp({ chatRoomId, setShowImg, showImg }) {
         23 4.995v14.01C23 20.107 22.11 21 21.009 21H2.99A1.992 1.992 0 0 1 1 19.005V4.995zm9.829 6.653H7.722v1.26h1.487v1.047s-.328.45-1.477.45c-1.148 0-2.05-.83-2.05-2.265 0-1.436.881-2.266 2.02-2.266.963 0 1.517.482 1.814.81l1.097-.954c-.225-.246-1.035-1.23-2.912-1.23C5.723 8.5 4 9.782 4 12.14s1.723 3.65 3.68 3.65c1.949 0 2.79-.892 3.149-1.21v-2.932zm2.82-3.045h-1.662v7.074h1.661V8.603zm6.064 0h-4.42v7.074h1.651v-2.696h2.605v-1.323h-2.605V9.925h2.769V8.603z"
           />
         </svg>
-        {/* eslint-disable-next-line jsx-a11y/label-has-associated-control */}
+        // eslint-disable-next-line jsx-a11y/label-has-associated-control
         <label style={{ border: 'none', marginLeft: '5px' }}>
-          <input type="file" style={{ display: 'none' }} onChange={fileSelectedHandler} />
+          <input type="file" style={{ display: 'none' }} onChange={fileSelectedHandler} ref={textInput} />
           <svg
             viewBox="0 0 17 15"
             width="26"
@@ -154,7 +155,6 @@ function ChatInputResp({ chatRoomId, setShowImg, showImg }) {
           onChange={(e) => {
             setMessage(e.target.value);
           }}
-          onKeyPress={(e) => handleClickEnter(e)}
           rows="1"
           placeholder="Say something"
           maxLength="4096"
@@ -175,3 +175,6 @@ function ChatInputResp({ chatRoomId, setShowImg, showImg }) {
   );
 }
 export default ChatInputResp;
+ChatInputResp.propTypes = {
+  id: PropTypes.string.isRequired,
+};
