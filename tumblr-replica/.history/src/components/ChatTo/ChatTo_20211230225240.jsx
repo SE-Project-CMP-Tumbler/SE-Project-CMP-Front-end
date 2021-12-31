@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
+import { selectBlogs } from '../../../states/usertumblr/usertumblrSlice';
+
 import {
   Divider,
   Box,
   ListItem,
 } from '@material-ui/core';
-
 import {
   newMessagePress,
 } from '../../slices/chatmodule/chatmoduleSlice';
@@ -26,6 +27,7 @@ import './css/ChatList.css';
 function ChatTo() {
   const chats = useSelector((state) => state.Chat.chats);
   const User = useSelector(selectUser);
+  const blogState = useSelector(selectBlogs);
   // const ListOpen = useSelector(true);
   const recentlyFollowed1 = useSelector((state) => state.Chat.recentlyfollowed);
   const newMessagePress1 = useSelector((state) => state.Chat.newmessagepress);

@@ -7,6 +7,7 @@ import {
   Box,
   ListItem,
 } from '@material-ui/core';
+import { selectBlogs } from '../../../states/usertumblr/usertumblrSlice';
 
 import {
   newMessagePress,
@@ -26,6 +27,7 @@ import './css/ChatList.css';
 function ChatTo() {
   const chats = useSelector((state) => state.Chat.chats);
   const User = useSelector(selectUser);
+  const blogState = useSelector(selectBlogs);
   // const ListOpen = useSelector(true);
   const recentlyFollowed1 = useSelector((state) => state.Chat.recentlyfollowed);
   const newMessagePress1 = useSelector((state) => state.Chat.newmessagepress);

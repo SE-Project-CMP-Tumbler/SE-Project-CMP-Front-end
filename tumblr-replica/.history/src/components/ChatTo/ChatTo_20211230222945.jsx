@@ -7,7 +7,7 @@ import {
   Box,
   ListItem,
 } from '@material-ui/core';
-
+import { TumblrItem } from '../NavigationBar/subcomponents/NotificationsDropDown';
 import {
   newMessagePress,
 } from '../../slices/chatmodule/chatmoduleSlice';
@@ -57,20 +57,17 @@ function ChatTo() {
           }}
           >
             <Box style={{ textAlign: 'center', width: '50%' }}>
-              <button
-                type="button"
-                style={{
-                  backgroundColor: 'transparent',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontSize: '.8rem',
-                  fontWeight: '600',
-                  marginReight: '0',
-                  textAlign: 'right',
-                }}
-              >
-                {User.blogName}
-              </button>
+            <div className="tumblr-list" ref={chevronRef}>
+            {(blogState.isLoading)
+              ? (<TumblrItem tumblrName="Loading" tumblrTitle="Loading" tumblrIcon="/profile2.png" />
+              )
+              : (
+                (blogState.blogs).map((blog) => (
+                  <TumblrItem tumblrName={blog.username} tumblrTitle={blog.title} tumblrIcon={blog.avatar ? blog.avatar : './profile2.png'} />
+                ))
+
+              ) }
+          </div>
             </Box>
             {newMessagePress1 && <span style={{ margin: '0 30px' }} />}
             <Box style={{ width: '50%' }}>

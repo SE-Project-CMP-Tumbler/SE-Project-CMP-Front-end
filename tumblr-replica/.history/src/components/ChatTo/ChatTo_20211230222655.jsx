@@ -2,12 +2,13 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
+export function TumblrItem({ tumblrName, tumblrTitle, tumblrIcon }) {
+  import 
 import {
   Divider,
   Box,
   ListItem,
 } from '@material-ui/core';
-
 import {
   newMessagePress,
 } from '../../slices/chatmodule/chatmoduleSlice';

@@ -7,7 +7,6 @@ import {
   Box,
   ListItem,
 } from '@material-ui/core';
-
 import {
   newMessagePress,
 } from '../../slices/chatmodule/chatmoduleSlice';

@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
@@ -7,7 +7,9 @@ import {
   Box,
   ListItem,
 } from '@material-ui/core';
-
+import { selectBlogs } from '../../states/usertumblr/usertumblrSlice';
+import { tumblrSelection } from '../NavigationBar/interactions';
+import { TumblrItem } from '../NavigationBar/subcomponents/NotificationsDropDown';
 import {
   newMessagePress,
 } from '../../slices/chatmodule/chatmoduleSlice';
@@ -26,6 +28,8 @@ import './css/ChatList.css';
 function ChatTo() {
   const chats = useSelector((state) => state.Chat.chats);
   const User = useSelector(selectUser);
+  const blogState = useSelector(selectBlogs);
+  const chevronRef = useRef(null);
   // const ListOpen = useSelector(true);
   const recentlyFollowed1 = useSelector((state) => state.Chat.recentlyfollowed);
   const newMessagePress1 = useSelector((state) => state.Chat.newmessagepress);
@@ -57,20 +61,18 @@ function ChatTo() {
           }}
           >
             <Box style={{ textAlign: 'center', width: '50%' }}>
-              <button
-                type="button"
-                style={{
-                  backgroundColor: 'transparent',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontSize: '.8rem',
-                  fontWeight: '600',
-                  marginReight: '0',
-                  textAlign: 'right',
-                }}
-              >
-                {User.blogName}
-              </button>
+              <button type="button" aria-label="switch tumblr" className="chevron" onClick={() => { tumblrSelection(chevronRef); }} />
+              <div className="tumblr-list" ref={chevronRef}>
+                {(blogState.isLoading)
+                  ? (<TumblrItem tumblrName="Loading" tumblrTitle="Loading" tumblrIcon="/profile2.png" />
+                  )
+                  : (
+                    (blogState.blogs).map((blog) => (
+                      <TumblrItem tumblrName={blog.username} tumblrTitle={blog.title} tumblrIcon={blog.avatar ? blog.avatar : './profile2.png'} />
+                    ))
+
+                  ) }
+              </div>
             </Box>
             {newMessagePress1 && <span style={{ margin: '0 30px' }} />}
             <Box style={{ width: '50%' }}>
