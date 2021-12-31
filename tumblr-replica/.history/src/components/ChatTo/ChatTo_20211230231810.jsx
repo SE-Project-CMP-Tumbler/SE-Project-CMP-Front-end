@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
@@ -18,7 +17,6 @@ import ChatList from './subcomponents/ChatList';
 import { selectUser } from '../../states/User/UserSlice';
 import SearchBar from '../ChatSearchBar/SearchBar';
 import './css/ChatList.css';
-import { useOutsideAlerter } from '../NavigationBar/interactions';
 /**
  * This function is for the ChatTo component this component has a search
  * bar to search for friend to chat with

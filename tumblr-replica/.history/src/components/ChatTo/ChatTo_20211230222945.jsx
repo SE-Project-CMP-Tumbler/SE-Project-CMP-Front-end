@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
@@ -8,7 +7,7 @@ import {
   Box,
   ListItem,
 } from '@material-ui/core';
-
+import { TumblrItem } from '../NavigationBar/subcomponents/NotificationsDropDown';
 import {
   newMessagePress,
 } from '../../slices/chatmodule/chatmoduleSlice';
@@ -18,7 +17,6 @@ import ChatList from './subcomponents/ChatList';
 import { selectUser } from '../../states/User/UserSlice';
 import SearchBar from '../ChatSearchBar/SearchBar';
 import './css/ChatList.css';
-import { useOutsideAlerter } from '../NavigationBar/interactions';
 /**
  * This function is for the ChatTo component this component has a search
  * bar to search for friend to chat with
@@ -59,20 +57,17 @@ function ChatTo() {
           }}
           >
             <Box style={{ textAlign: 'center', width: '50%' }}>
-              <button
-                type="button"
-                style={{
-                  backgroundColor: 'transparent',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontSize: '.8rem',
-                  fontWeight: '600',
-                  marginReight: '0',
-                  textAlign: 'right',
-                }}
-              >
-                {User.blogName}
-              </button>
+            <div className="tumblr-list" ref={chevronRef}>
+            {(blogState.isLoading)
+              ? (<TumblrItem tumblrName="Loading" tumblrTitle="Loading" tumblrIcon="/profile2.png" />
+              )
+              : (
+                (blogState.blogs).map((blog) => (
+                  <TumblrItem tumblrName={blog.username} tumblrTitle={blog.title} tumblrIcon={blog.avatar ? blog.avatar : './profile2.png'} />
+                ))
+
+              ) }
+          </div>
             </Box>
             {newMessagePress1 && <span style={{ margin: '0 30px' }} />}
             <Box style={{ width: '50%' }}>
