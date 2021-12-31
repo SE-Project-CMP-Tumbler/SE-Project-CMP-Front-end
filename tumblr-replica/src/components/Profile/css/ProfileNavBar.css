@@ -6,7 +6,7 @@
   box-sizing: border-box;
   height: 50px;
   padding: 10px;
-  position: fixed;
+  position: sticky;
   top: 0;
   width: 100%;
   z-index: 1;

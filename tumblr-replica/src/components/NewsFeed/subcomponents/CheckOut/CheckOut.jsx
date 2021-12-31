@@ -33,7 +33,7 @@ const CheckOut = function CheckOutTheseBlogs() {
           </ul>
         </div>
         <Grid item style={{ textAlign: 'left' }} xs={0} sm={12}>
-          <a className="I_SFh" href="/explore">
+          <a className="I_SFh" href="explore/recommended-for-you">
             Explore all of Tumblr
           </a>
         </Grid>
