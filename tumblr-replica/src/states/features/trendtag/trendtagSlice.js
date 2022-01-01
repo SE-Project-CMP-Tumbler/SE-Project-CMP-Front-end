@@ -2,6 +2,11 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { api, apiR } from '../../../apis/globalAxpi';
 import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
+/**
+ * function that fetch the Trendng Tag
+ * @method
+ * @return {Object} response of the request
+*/
 const fetchAsynctrendtags = createAsyncThunk(
   'tag/trending',
   async () => {

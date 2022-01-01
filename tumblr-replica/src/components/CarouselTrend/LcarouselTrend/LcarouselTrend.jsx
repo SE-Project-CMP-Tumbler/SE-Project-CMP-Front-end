@@ -32,10 +32,10 @@ const responsive = {
  *
  * @component
  * @name
- * CarouselTrend
+ * LcarouselTrend
  * @example
  * return (
- *   <CarouselTrend />
+ *   <LcarouselTrend />
  * )
  */
 export default function LcarouselTrend() {

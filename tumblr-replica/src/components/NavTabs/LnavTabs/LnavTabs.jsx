@@ -17,16 +17,16 @@ import { tosmall, tolarge } from '../../../states/features/postview/postviewSlic
 // import ToggleButtonGroup from '@mui/material/ToggleButtonGroup';
 
 /**
- * Component for The navTabs which show in the top os explor section.
+ * Component for The LnavTabs which show in the top os explor section in LabTop.
  *
  * @component
  * @name
- * NavTabs
+ * LnavTabs
  * @example
  * const tapnum = 1
  * const selected = 'More'
  * return (
- *   <NavTabs tapnum={tapnum} selected={selected} />
+ *   <LnavTabs tapnum={tapnum} selected={selected} />
  * )
  */
 export default function LnavTabs({ tapnum, selsected }) {

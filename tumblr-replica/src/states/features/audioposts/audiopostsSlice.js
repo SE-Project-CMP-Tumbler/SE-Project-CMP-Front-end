@@ -1,7 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { api, apiR } from '../../../apis/globalAxpi';
 import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
-
+/**
+ * function that fetch the audio posts from the Api
+ * @method
+ * @return {Object} response of the request
+*/
 const fetchAsyncaudioposts = createAsyncThunk(
   'posts/audio',
   async () => {
@@ -23,6 +27,12 @@ const fetchAsyncaudioposts = createAsyncThunk(
   },
 );
 
+/**
+ * function that fetch the aduio posts from the Api acording to the page
+ * @method
+ * @param {number} next number of page
+ * @return {Object} response of the request
+*/
 const fetchAsyncnextposts = createAsyncThunk(
   'posts/audio/next',
   async (next) => {

@@ -7,15 +7,14 @@ import PostsList from '../PostsList/PostsList';
 import { getChatposts, fetchAsyncchatposts, fetchAsyncnextposts } from '../../states/features/chatposts/chatpostsSlice';
 
 /**
- * Component for render all elements in /explore/recommended-for-you
- * now it has {@link CarouselCards} and {@link FollowingList}.
+ * Component for show the Posts for the blog and use {@link PostsList}
  *
  * @component
  * @name
- * Explore
+ * ChatPosts
  * @example
  * return (
- *   <Explore />
+ *   <ChatPosts />
  * )
  */
 function ChatPosts() {

@@ -14,6 +14,55 @@ import PostCard from '../NewsFeed/subcomponents/PostCard/PostCard';
 import { getpostview } from '../../states/features/postview/postviewSlice';
 import ProfileHeader from '../ProfileTemp/ProfileTempHeader';
 
+/**
+ * That render Posts in number of columes acording to screen width
+ *
+ * @component
+ * @name
+ * PostsList
+ * @param  {object}
+ * Posts :object has meta and Posts List
+ * @param  {function}
+ * FetchnextPage : function that load more posts
+ * @example
+ * const FetchnextPage = () => {
+ *  dispatch(fetchAsyncnextposts(Posts.response.pagination.current_page + 1));
+ * };
+ * const Posts={ "meta": {
+      "status": "200",
+      "msg": "OK"
+    },
+    "response": {
+      "pagination": {
+        "total": 17,
+        "count": 7,
+        "per_page": 10,
+        "current_page": 1,
+        "total_pages": 2,
+        "first_page_url": false,
+        "next_page_url": null,
+        "prev_page_url": "http://127.0.0.1:8000/api/posts/{blog_id}?page=1"
+      },
+      "posts": [
+        {
+          "post_id": 5,
+          "post_body": "<div><p>Nada</p><p>Hello Basel</p><p>Basel</p><p>Hey sara</p></div>",
+          "blog_id": 5,
+          "post_status": "published",
+          "post_type": "chat",
+          "blog_username": "",
+          "blog_avatar": "",
+          "blog_avatar_shape": "",
+          "blog_title": "",
+          "post_time": "02-02-2012"
+        }
+      ]
+    }}
+ * return (
+ *   <PostsList Posts={Posts} FetchnextPage={FetchnextPage}/>
+ * )
+ */
+
 function PostsList({ Posts, FetchnextPage }) {
   const isDesktopOrLaptop = useMediaQuery({
     query: '(min-width: 1224px)',

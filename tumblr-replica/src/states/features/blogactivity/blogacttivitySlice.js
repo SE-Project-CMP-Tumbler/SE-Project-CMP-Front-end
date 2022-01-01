@@ -2,6 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { api, apiR } from '../../../apis/globalAxpi';
 import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
+/**
+ * function that fetch the activity for the blog number of posts follower following...
+ * @method
+ * @param {number} Blogid
+ * @return {Object} response of the request
+*/
 const fetchAsyncblogactivity = createAsyncThunk(
   'blog_activity/:blog_id',
   async (Blogid, { getState }) => {

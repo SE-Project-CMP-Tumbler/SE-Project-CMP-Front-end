@@ -59,6 +59,7 @@ const MoreMenu = function MoreMenuComponent(props) {
         aria-haspopup="true"
         aria-expanded={open ? 'true' : undefined}
         onClick={(event) => handleClick(event)}
+        data-testid={5}
       >
         <IconButton aria-label="More">
           <MoreHorizIcon />

@@ -13,7 +13,14 @@ import fetchCheckout from '../../states/features/checkout/checkoutAPI';
 
 /**
  *
+ * @component
  * @returns component that includes some recommended blogs to follow.
+ * @name
+ * CheckOut
+ * @example
+ * return (
+ *   <CheckOut />
+ * )
  */
 const CheckOut = function CheckOutTheseBlogs() {
   const CheckoutBlogs = useSelector(getcheck);

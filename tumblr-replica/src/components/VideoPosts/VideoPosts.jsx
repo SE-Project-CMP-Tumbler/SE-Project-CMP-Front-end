@@ -7,7 +7,7 @@ import PostsList from '../PostsList/PostsList';
 import { getVideoposts, fetchAsyncvideoposts, fetchAsyncnextposts } from '../../states/features/videoposts/videopostsSlice';
 
 /**
- * Component for render all Video Posts
+ * Component for render all Posts has vedio and use {@link PostsList}
 
  *
  * @component
