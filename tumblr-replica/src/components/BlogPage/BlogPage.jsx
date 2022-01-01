@@ -11,7 +11,7 @@ import Menue from '../Menue/Menue';
 // import CreatePost from './CreatPost';
 
 /**
- * Component for show the Posts for the blog and {@link sideTabs}
+ * Component for show the Posts for the blog and use {@link PostsList} and {@link SideTabs}
  *
  * @component
  * @name

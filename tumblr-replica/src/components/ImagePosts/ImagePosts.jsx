@@ -7,7 +7,7 @@ import PostsList from '../PostsList/PostsList';
 import { getImageposts, fetchAsyncimageposts, fetchAsyncnextposts } from '../../states/features/imageposts/imagepostsSlice';
 
 /**
- * Component for render all Image Posts
+ * Component for render all posts has Images and use {@link PostsList}
  *
  * @component
  * @name

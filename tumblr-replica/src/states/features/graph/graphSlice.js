@@ -2,6 +2,13 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { api, apiR } from '../../../apis/globalAxpi';
 import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
+/**
+ * function that fetch data use in Draw the graph
+ * @method
+ * @param {Object} dispatch
+ * that has {BlogId, period, rate}
+ * @return {Object} response of the request
+*/
 const fetchAsyncgraphnotes = createAsyncThunk(
   'graph/notes',
   async (dispatch, { getState }) => {

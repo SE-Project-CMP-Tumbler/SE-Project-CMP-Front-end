@@ -2,6 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { api, apiR } from '../../../apis/globalAxpi';
 import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
+/**
+ * function that fetch the posts in draft for blog from the Api
+ * @method
+ * @param {number} blogId
+ * @return {Object} response of the request
+*/
 const fetchAsyncdraftposts = createAsyncThunk(
   'post/{blogId}/draft',
   async (blogId, { getState }) => {

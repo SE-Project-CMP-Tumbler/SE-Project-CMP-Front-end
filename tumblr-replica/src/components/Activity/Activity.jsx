@@ -18,14 +18,16 @@ import NotificationsList from './NotificationsList';
 import { getBlogId, fetchBlogs, setcurrentblog } from '../../states/features/userblogs/userblogsSlice';
 
 /**
- * Component for show the activity for the Blog it has graph
+ * Component for show the activity for the Blog it has {@link Graph} and {@link NotificationsList}
  *
  * @component
  * @name
  * Activity
+ * @param {string}
+ * option : to check wich parameters in the url we checked to get the data
  * @example
  * return (
- *   <Activity />
+ *   <Activity option={1}/>
  * )
  */
 function Activity({ option }) {

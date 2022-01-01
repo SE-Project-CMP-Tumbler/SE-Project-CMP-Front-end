@@ -2,6 +2,11 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { api, apiR } from '../../../apis/globalAxpi';
 import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
+/**
+ * function that fetch the chat posts from the Api
+ * @method
+ * @return {Object} response of the request
+*/
 const fetchAsyncchatposts = createAsyncThunk(
   'posts/chat',
   async () => {

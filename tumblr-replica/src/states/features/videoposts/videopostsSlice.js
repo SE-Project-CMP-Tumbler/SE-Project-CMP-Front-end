@@ -2,6 +2,11 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { api, apiR } from '../../../apis/globalAxpi';
 import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
+/**
+ * function that fetch the posts that has vedio from the Api
+ * @method
+ * @return {Object} response of the request
+*/
 const fetchAsyncvideoposts = createAsyncThunk(
   'posts/video',
   async () => {

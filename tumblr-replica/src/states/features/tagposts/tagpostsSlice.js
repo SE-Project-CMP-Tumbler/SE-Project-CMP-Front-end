@@ -2,6 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { api, apiR } from '../../../apis/globalAxpi';
 import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
+/**
+ * function that fetch the posts for the tag
+ * @method
+ * @param {Object} dispatch that has SortType, TagDescription
+ * @return {Object} response of the request
+*/
 const fetchAsynctagposts = createAsyncThunk(
   'tagged/:tagdescription?sort=sort_type',
 

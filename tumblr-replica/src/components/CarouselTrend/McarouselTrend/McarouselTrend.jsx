@@ -13,10 +13,10 @@ import TrendCard from '../../TrendCard/TrendCard';
  *
  * @component
  * @name
- * CarouselTrend
+ * McarouselTrend
  * @example
  * return (
- *   <CarouselTrend />
+ *   <McarouselTrend />
  * )
  */
 export default function McarouselTrend() {

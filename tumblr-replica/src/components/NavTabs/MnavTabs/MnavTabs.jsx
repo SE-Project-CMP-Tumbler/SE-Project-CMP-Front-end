@@ -10,16 +10,16 @@ import Select from '@mui/material/Select';
 import PropTypes from 'prop-types';
 
 /**
- * Component for The navTabs which show in the top os explor section.
+ * Component for The MnavTabs which show in the top os explor section in mobile view.
  *
  * @component
  * @name
- * NavTabs
+ * MnavTabs
  * @example
  * const tapnum = 1
  * const selected = 'More'
  * return (
- *   <NavTabs tapnum={tapnum} selected={selected} />
+ *   <MnavTabs tapnum={tapnum} selected={selected} />
  * )
  */
 export default function MnavTabs({ tapnum, selsected }) {

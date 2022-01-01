@@ -10,12 +10,11 @@ import PropTypes from 'prop-types';
  *
  * @component
  * @name
- * NavTabs
+ * RecentAndTop
  * @example
- * const tapnum = 1
- * const selected = 'More'
+ * const [value, setValue] = React.useState(0);
  * return (
- *   <NavTabs tapnum={tapnum} selected={selected} />
+ *   <RecentAndTop value={value} selected={setValue} />
  * )
  */
 export default function RecentAndTop({ value, setValue }) {

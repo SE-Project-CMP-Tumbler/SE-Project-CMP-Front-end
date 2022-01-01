@@ -7,7 +7,8 @@ import McarouselTrend from './McarouselTrend/McarouselTrend';
 import LcarouselTrend from './LcarouselTrend/LcarouselTrend';
 
 /**
- * Component for render eight of Trending tags each trend tag in {@link TrendCard}
+ * Component for render {@link LcarouselTrend} when show the Trend in Labtop or
+ *  {@link McarouselTrend} when show in Mobile
  *
  * @component
  * @name
