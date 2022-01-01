@@ -5,5 +5,5 @@ export const api = axios.create({
 });
 
 export const apiR = axios.create({
-  baseURL: 'https://api.dev.tumbler.social/api',
+  baseURL: 'https://api.tumbler.social/api',
 });

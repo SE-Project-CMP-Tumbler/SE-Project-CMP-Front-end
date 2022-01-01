@@ -62,7 +62,7 @@ const PostContent = function PostContentDisplay(props) {
     dispatch(GetBlogId({ User, blogUsername: mentioned })).then((res) => {
       postBody = postBody.replace(
         mentioned,
-        `<a href=https://web.dev.tumbler.social/${res.payload.response.id} style="text-decoration: 'underline';color: '#AAAAAA';""> ${mentioned}
+        `<a href=https://tumbler.social/${res.payload.response.id} style="text-decoration: 'underline';color: '#AAAAAA';""> ${mentioned}
         </a>`,
       );
       if (k === 0) {
@@ -80,7 +80,7 @@ const PostContent = function PostContentDisplay(props) {
           (hash[0] === '#')
           && (
           <>
-            <Link href={`https://web.dev.tumbler.social/posts/${hash}`} underline="hover" style={{ color: 'grey' }} key={hash}>
+            <Link href={`https://tumbler.social/posts/${hash}`} underline="hover" style={{ color: 'grey' }} key={hash}>
               {' '}
               {hash}
               {' '}

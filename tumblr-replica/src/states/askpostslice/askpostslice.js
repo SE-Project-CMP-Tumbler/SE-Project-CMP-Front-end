@@ -10,7 +10,7 @@ const AskAsynch = createAsyncThunk(
     try {
       const response = await axios({
         method: 'POST',
-        url: `https://api.dev.tumbler.social/api/ask/${dispatch.blogid}`,
+        url: `https://api.tumbler.social/api/ask/${dispatch.blogid}`,
         headers: {
           Authorization: AuthStr,
           Accept: 'application/json',

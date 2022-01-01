@@ -39,7 +39,7 @@ const Check = function CheckOut(props) {
         <div className="conainer2">
           <div className="blog">
             <span className="blogspan">
-              <a className="blogname" href={`https://web.dev.tumbler.social/blog/view/${blog.username}`}>
+              <a className="blogname" href={`https://tumbler.social/blog/view/${blog.username}`}>
                 <div className="blogdata">
                   <div className="blogimg">
                     <img src={blog.avatar} alt="img" />

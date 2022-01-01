@@ -10,7 +10,7 @@ const FollowAsynch = createAsyncThunk(
     try {
       const response = await axios({
         method: 'POST',
-        url: `https://api.dev.tumbler.social/api/follow_blog/${BlogId}`,
+        url: `https://api.tumbler.social/api/follow_blog/${BlogId}`,
         headers: {
           Authorization: AuthStr,
           Accept: 'application/json',

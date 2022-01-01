@@ -11,7 +11,7 @@ const PostSubmissionAsynch = createAsyncThunk(
     try {
       const response = await axios({
         method: 'POST',
-        url: 'https://api.dev.tumbler.social/api/post/approve/' + PostId,
+        url: 'https://api.tumbler.social/api/post/approve/' + PostId,
         headers: {
           Authorization: AuthStr,
           Accept: 'application/json',

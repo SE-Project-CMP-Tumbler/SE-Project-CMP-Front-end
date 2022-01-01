@@ -29,7 +29,7 @@ export const createBlog = createAsyncThunk(
         const AuthStr = `Bearer ${'USERTOKEN'}`;
         const response = await axios({
           method: 'POST',
-          url: 'https://api.dev.tumbler.social/api/blog',
+          url: 'https://api.tumbler.social/api/blog',
           headers: {
             Authorization: AuthStr,
             Accept: 'application/json',

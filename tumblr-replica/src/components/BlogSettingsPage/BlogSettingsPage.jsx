@@ -264,7 +264,7 @@ const AccountSettingsPage = () => {
                           padding: '0 10px',
                         }}
                       >
-                        web.dev.tumbler.social/liked/by/
+                        tumbler.social/liked/by/
                         {user.blogName}
                       </Typography>
                     </Link>
@@ -340,7 +340,7 @@ const AccountSettingsPage = () => {
                           padding: '0 10px',
                         }}
                       >
-                        web.dev.tumbler.social/followed/by/
+                        tumbler.social/followed/by/
                         {user.blogName}
                       </Typography>
                     </Link>

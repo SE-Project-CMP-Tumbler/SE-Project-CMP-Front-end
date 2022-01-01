@@ -49,7 +49,7 @@ const MoreMenu = function MoreMenuComponent(props) {
   };
 
   const handleCopy = function CopyPostLinkOption() {
-    navigator.clipboard.writeText(`https://web.dev.tumbler.social/post/${postId}`);
+    navigator.clipboard.writeText(`https://tumbler.social/post/${postId}`);
   };
   return (
     <div sx={{ width: 320, maxWidth: '100%' }}>

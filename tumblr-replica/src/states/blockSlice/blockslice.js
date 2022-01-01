@@ -11,7 +11,7 @@ const BlockAsynch = createAsyncThunk(
     try {
       const response = await axios({
         method: 'POST',
-        url: `https://api.dev.tumbler.social/api/block/${id}/${BlogId}`,
+        url: `https://api.tumbler.social/api/block/${id}/${BlogId}`,
         headers: {
           Authorization: AuthStr,
           Accept: 'application/json',

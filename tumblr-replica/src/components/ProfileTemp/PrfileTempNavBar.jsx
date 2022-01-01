@@ -47,13 +47,13 @@ function ProfileNavBar({ BlogId }) {
   return (
     <div className="nav">
       <IconButton>
-        <a href="https://web.dev.tumbler.social/dashboard" target="_blank" rel="noreferrer">
+        <a href="https://tumbler.social/dashboard" target="_blank" rel="noreferrer">
           <FontAwesomeIcon data-testid="HomeIcon" className="icons" icon={faHome} color="white" />
         </a>
       </IconButton>
       <IconButton>
 
-        <a href={`https://web.dev.tumbler.social/blog/view/${BlogId}`} target="_blank" rel="noreferrer">
+        <a href={`https://tumbler.social/blog/view/${BlogId}`} target="_blank" rel="noreferrer">
           <FontAwesomeIcon className="icons" icon={faEye} color="white" />
         </a>
       </IconButton>
@@ -71,7 +71,7 @@ function ProfileNavBar({ BlogId }) {
       <IconButton>
         {User.primaryBlogId.toString() !== BlogId && <FontAwesomeIcon data-testid="HumanIcon" onClick={() => SetOpen(!Open)} className="icons" icon={faUserAlt} color="white" />}
         {User.primaryBlogId.toString() === BlogId && (
-          <a href={`https://web.dev.tumbler.social/settings/blog/${BlogId}`} target="blank">
+          <a href={`https://tumbler.social/settings/blog/${BlogId}`} target="blank">
             <FontAwesomeIcon className="icons" icon={faCog} color="white" />
           </a>
         )}
