@@ -40,6 +40,11 @@ function NavigationBar() {
   const [searchStyle, setSearchStyle] = useState(initialStyle);
   const [iconShow, setIconShow] = useState(true);
 
+  /**
+ * If you click outside, search drop down should be hidden.
+ * @method
+ * * @param {MutableRefObject} ref - the HTML node representing the search bar.
+ */
   function checkOutside(ref) {
     useEffect(() => {
       function handleClickOutside(event) {
@@ -59,6 +64,10 @@ function NavigationBar() {
     }, [ref]);
   }
   const history = useNavigate();
+  /**
+ * @method
+ * Upon focus search bar style should change.
+ */
   const handleOnFocus = () => {
     const newStyle = {
       height: '34px',
@@ -73,6 +82,11 @@ function NavigationBar() {
   };
   const autocompleteState = useSelector(selectAutocomplete);
   const dispatch = useDispatch();
+  /**
+ * @method
+ * Upon search, should fetch data from backend
+ * * @param {String} string - the search field's content.
+ */
   const handleOnSearch = (string) => {
     dispatch(fetchAutocomplete({ string }));
   };
@@ -83,7 +97,7 @@ function NavigationBar() {
     <nav className="nav-styles">
       <div className="nav-resp">
         <div className="tumblr-logo-cont">
-          <Link to="/dashboard">
+          <Link to="/dashboard" data-testid="dashboard-button">
             <button type="button" aria-label="dashboard"><i className="fab fa-tumblr fa-2x " /></button>
           </Link>
         </div>
