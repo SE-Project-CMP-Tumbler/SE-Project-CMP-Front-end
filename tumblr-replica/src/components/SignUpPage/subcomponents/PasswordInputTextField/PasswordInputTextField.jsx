@@ -8,6 +8,28 @@ import { setPassword } from '../../../../states/User/UserSlice';
 // TO DO: Add the password difficulty feature
 // and pass whether it will be there or not through a prop
 
+/**
+ * Component for The PasswordInputTextField component which is used to get the password of the user.
+ * It is used in multiple cases.
+ *
+ * @component
+ * @name
+ * @example
+ * PasswordInputTextField
+ * const marginOff = true;
+ * const showDifficulty = false;
+ * const newPassword = false;
+ * const confirmPassword = true;
+ * return (
+ *   <PasswordInputTextField
+ *        marginOff={marginOff}
+ *        showDifficulty={showDifficulty}
+ *        newPassword={newPassword}
+ *        confirmPassword={confirmPassword}
+ *    />
+ * )
+* */
+
 const PasswordInputTextField = ({
   marginOff, showDifficulty, newPassword, confirmPassword,
 }) => {

@@ -5,6 +5,21 @@ import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
 import { setEmail, selectUser } from '../../../../states/User/UserSlice';
 
+/**
+ * Component for The EmailInputTextField component which is used to get the Email of the user.
+ *
+ * @component
+ * @name
+ * @example
+ * EmailInputTextField
+ * const marginOff = true;
+ * const readonly = false;
+ * const editEmail = true;
+ * return (
+ *   <EmailInputTextField marginOff={marginOff} readonly={readonly} editEmail={editEmail} />
+ * )
+* */
+
 const EmailInputTextField = ({ marginOff, readonly, editEmail }) => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);

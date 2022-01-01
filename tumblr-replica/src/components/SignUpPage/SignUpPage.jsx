@@ -23,6 +23,17 @@ import { MOCK, REAL, SERVICETYPE } from '../../apis/globalAPI';
 
 const theme = createTheme();
 
+/**
+ * Component for The SignUpPage which shows up to the User upon clicking on the teh Sign Up button.
+ *
+ * @component
+ * @name
+ * SignUpPage
+ * @example
+ * return (
+ *   <SignUpPage />
+ * )
+* */
 const SignUpPage = () => {
   const title = 'tumblr';
   const [blogName, setBlogNameh] = useState('');

@@ -16,6 +16,17 @@ import { MOCK, REAL, SERVICETYPE } from '../../apis/globalAPI';
 
 const theme = createTheme();
 
+/**
+ * Component for The VerifyEmailPage which shows up upon clicking the email link.
+ *
+ * @component
+ * @name
+ * VerifyEmailPage
+ * @example
+ * return (
+ *   <VerifyEmailPage />
+ * )
+* */
 const VerifyEmailPage = () => {
   const title = 'Congratulations';
   const message1 = 'Now you\'re a real user.';
