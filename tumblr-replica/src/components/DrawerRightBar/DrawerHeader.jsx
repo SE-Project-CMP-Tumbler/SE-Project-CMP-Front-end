@@ -30,7 +30,7 @@ function Header({ CloseClicked, OpenChatClicked, BlogId }) {
   React.useEffect(() => {
     dispatch(fetchBlog(BlogId));// will take BlogId
     dispatch(fetchAsyncMyPosts(BlogId));
-  }, []);
+  }, [BlogId]);
   const Blog = useSelector(getBlog).response;
   const BlogStatue = useSelector(getBlog).meta;
   const Posts = useSelector(getMyPosts).response.posts;
