@@ -30,21 +30,21 @@ describe('NavTabs', () => {
   describe('TrendCard', () => {
     it('check the Card number', async () => {
       render(
-        <MockTrendCard image1="https://picsum.photos/id/1/200/300" tag="Red" number={1} color="#444950" />,
+        <MockTrendCard image1="https://picsum.photos/id/1/200/300" tag="Red" number="1" color="#444950" />,
       );
       const seElement = screen.getByText(/1/i);
       expect(seElement).toBeInTheDocument();
     });
     it('should have the tag description', async () => {
       render(
-        <MockTrendCard image1="https://picsum.photos/id/1/200/300" tag="Red" number={1} color="#444950" />,
+        <MockTrendCard image1="https://picsum.photos/id/1/200/300" tag="Red" number="1" color="#444950" />,
       );
       const seElement = screen.getByText(/Red/i);
       expect(seElement).toBeInTheDocument();
     });
     it('check that the image is show', () => {
       render(
-        <MockTrendCard image1="https://picsum.photos/id/1/200/300" tag="Red" number={1} color="#444950" />,
+        <MockTrendCard image1="https://picsum.photos/id/1/200/300" tag="Red" number="1" color="#444950" />,
       );
       // console.log(webner.debug());
       const tagimg = screen.getAllByRole('img')[0];
@@ -57,5 +57,5 @@ MockTrendCard.propTypes = {
   image1: PropTypes.string.isRequired,
   tag: PropTypes.string.isRequired,
   color: PropTypes.string.isRequired,
-  number: PropTypes.number.isRequired,
+  number: PropTypes.string.isRequired,
 };

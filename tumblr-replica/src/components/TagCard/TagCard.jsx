@@ -83,7 +83,7 @@ export default function TagCard() {
             Try switching to the mock server to see if the error persists.
           </Alert>
         ))
-        || (taginfo.meta.msg === 'Loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading TestId="loading" type="bars" color="#fff" width={157} /></Box>))}
+        || (taginfo.meta.msg === 'Loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading testid="loading" type="bars" color="#fff" width={157} /></Box>))}
     </Card>
   );
 }

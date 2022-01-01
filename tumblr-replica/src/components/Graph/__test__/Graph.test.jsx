@@ -31,16 +31,16 @@ describe('TrendCard', () => {
         total_followers_count: 326,
         data: [
           {
-            timestamp: '2021-11-03 01:13:39',
-            notes: 5,
+            x: '2021-11-03 01:13:39',
+            y: 5,
           },
           {
-            timestamp: '2021-17-03 01:13:39',
-            notes: 51,
+            x: '2021-17-03 01:13:39',
+            y: 51,
           },
           {
-            timestamp: '2021-19-03 01:13:39',
-            notes: 9,
+            x: '2021-19-03 01:13:39',
+            y: 9,
           },
         ],
       },
@@ -59,20 +59,20 @@ describe('TrendCard', () => {
       },
       response: {
         notes_count: 16,
-        new_followers_count: 7,
+        new_followers_count: 8,
         total_followers_count: 326,
         data: [
           {
-            timestamp: '2021-11-03 01:13:39',
-            notes: 5,
+            x: '2021-11-03 01:13:39',
+            y: 5,
           },
           {
-            timestamp: '2021-17-03 01:13:39',
-            notes: 51,
+            x: '2021-17-03 01:13:39',
+            y: 51,
           },
           {
-            timestamp: '2021-19-03 01:13:39',
-            notes: 9,
+            x: '2021-19-03 01:13:39',
+            y: 9,
           },
         ],
       },
@@ -80,7 +80,7 @@ describe('TrendCard', () => {
     render(
       <MockGraph Notes={Notes} periodval="day" rateval="hourly" optionval="new" />,
     );
-    const seElement = screen.getByText(/7/i);
+    const seElement = screen.getByText(/8/i);
     expect(seElement).toBeInTheDocument();
   });
   it('check that the notes count', () => {
@@ -95,16 +95,16 @@ describe('TrendCard', () => {
         total_followers_count: 326,
         data: [
           {
-            timestamp: '2021-11-03 01:13:39',
-            notes: 5,
+            x: '2021-11-03 01:13:39',
+            y: 5,
           },
           {
-            timestamp: '2021-17-03 01:13:39',
-            notes: 51,
+            x: '2021-17-03 01:13:39',
+            y: 51,
           },
           {
-            timestamp: '2021-19-03 01:13:39',
-            notes: 9,
+            x: '2021-19-03 01:13:39',
+            y: 9,
           },
         ],
       },
@@ -127,16 +127,16 @@ describe('TrendCard', () => {
         total_followers_count: 326,
         data: [
           {
-            timestamp: '2021-11-03 01:13:39',
-            notes: 5,
+            x: '2021-11-03 01:13:39',
+            y: 5,
           },
           {
-            timestamp: '2021-17-03 01:13:39',
-            notes: 51,
+            x: '2021-17-03 01:13:39',
+            y: 51,
           },
           {
-            timestamp: '2021-19-03 01:13:39',
-            notes: 9,
+            x: '2021-19-03 01:13:39',
+            y: 9,
           },
         ],
       },
