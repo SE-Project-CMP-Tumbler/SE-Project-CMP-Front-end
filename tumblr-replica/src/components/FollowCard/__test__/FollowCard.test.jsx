@@ -41,7 +41,7 @@ const MockFollowCard = ({
 
 Enzyme.configure({ adapter: new Adapter() });
 
-describe('NavTabs', () => {
+describe('FollowCard', () => {
   beforeEach(() => {
     jest.mock('../../../apis/axios');
   });
