@@ -22,13 +22,12 @@ const Reblog = createAsyncThunk(
           post_body: postBody,
         },
       });
-      console.log(response.data);
       return response.data;
     }
     try {
       const response = await Axios({
         method: 'POST',
-        url: `${apiR}/reblog/${User.id}/${postID}`,
+        url: `${apiR}/reblog/${User.primaryBlogId}/${postID}`,
         headers: {
           Authorization: AuthStr,
           Accept: 'application/json',
@@ -40,11 +39,8 @@ const Reblog = createAsyncThunk(
           post_body: `<div> ${postBody} </div>`,
         },
       });
-      console.log('bla');
-      console.log(response.data);
       return response.data;
-    } catch (err) {
-      console.log(err);
+    } catch {
       return [];
     }
   },

@@ -16,7 +16,6 @@ const CheckOut = function CheckOutTheseBlogs() {
   const dispatch = useDispatch();
   const User = useSelector(selectUser);
   useEffect(() => {
-    console.log(CheckoutBlogs);
     dispatch(fetchCheckout(User));
   }, []);
   return (

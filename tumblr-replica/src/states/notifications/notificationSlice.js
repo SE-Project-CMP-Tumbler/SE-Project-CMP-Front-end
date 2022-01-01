@@ -17,7 +17,6 @@ const blogNotifications = createSlice({
     [fetchNotifications.pending]: (state) => {
       const s = state;
       s.isLoading = true;
-      console.log('loaaaading');
     },
     [fetchNotifications.fulfilled]: (state, { payload }) => {
       const s = state;
@@ -27,7 +26,6 @@ const blogNotifications = createSlice({
     [fetchNotifications.rejected]: (state, action) => {
       const s = state;
       s.error = action.error.message;
-      console.log('boom', s.error);
       // need to later work on an error page/pop up and set loading to false.
     },
   },

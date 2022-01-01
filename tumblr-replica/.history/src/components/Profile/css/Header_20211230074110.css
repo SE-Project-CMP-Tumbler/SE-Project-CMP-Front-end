@@ -1,0 +1,16 @@
+.dd-wrapper{
+    width:'500px';
+    margin-right:'400px' ;
+}
+.dd-list{
+    display: block;
+    width: 200px;
+    background-color: darkgrey;
+    margin-left: 10px;
+}
+.dd-list-item{
+    display: block;
+    height: 30px;
+    width: 100%;
+
+}

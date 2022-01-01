@@ -1,0 +1,199 @@
+.drop-content {
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 6px;
+  color: black;
+}
+.drop-content .drop-header {
+  display: flex;
+  justify-content: space-between;
+  padding: 0rem 1rem;
+  font-size: 0.8rem;
+}
+
+.notifications-drop-content {
+  transform: translate(0%, 10%);
+  width: 85%;
+  margin: auto;
+}
+.notifications-drop-content .notifications-drop-header {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+  padding-left: 0.5rem;
+  padding-right: 1rem;
+}
+.notifications-drop-content .notifications-drop-header .activity {
+  font-family: sans-serif;
+  font-weight: 900;
+  color: black;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.notifications-drop-content .notifications-drop-header .profile {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  position: relative;
+}
+.notifications-drop-content .notifications-drop-header .profile .chevron {
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+}
+.notifications-drop-content .notifications-drop-header .profile i {
+  padding-left: 2px;
+}
+.notifications-drop-content .notifications-drop-header .profile p {
+  font-weight: 600;
+  font-size: 0.87rem;
+  color: rgba(0, 0, 0, 0.815);
+}
+.notifications-drop-content .notifications-drop-header .profile .icon-box {
+  width: 1.7rem;
+  margin-right: 0.5rem;
+}
+.notifications-drop-content .notifications-drop-header .profile .icon-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+.notifications-drop-content .notifications-drop-header .profile .tumblr-list {
+  display: flex;
+  flex-direction: column;
+  display: none;
+  position: absolute;
+  top: 2rem;
+  right: -2.2rem;
+  z-index: 999;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  border-radius: 3px;
+}
+.notifications-drop-content .notifications-drop-header .profile .tumblr-list .blog-details {
+  display: flex;
+  align-items: center;
+  padding-right: 6.5rem;
+}
+.notifications-drop-content .notifications-drop-header .profile .tumblr-list .blog-details:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.notifications-drop-content .notifications-drop-header .profile .tumblr-list .blog-details .blog-icon-box {
+  width: 2.3rem;
+  margin: 0.5rem;
+}
+.notifications-drop-content .notifications-drop-header .profile .tumblr-list .blog-details .blog-icon-box img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.25rem;
+}
+.notifications-drop-content .notifications-drop-header .profile .tumblr-list .blog-details .blog-name-title {
+  font-size: 0.8rem;
+  align-items: center;
+}
+.notifications-drop-content .notifications-drop-header .profile .tumblr-list .blog-details .blog-name-title .tumblr-name {
+  font-weight: 600;
+}
+.notifications-drop-content .notifications-drop-header .profile .tumblr-list .blog-details .blog-name-title .tumblr-title {
+  font-weight: 300;
+}
+.notifications-drop-content .notifications-category {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+}
+.notifications-drop-content .notifications-category .category-item {
+  flex-basis: 100%;
+  color: rgba(0, 0, 0, 0.815);
+  border-bottom: 0px solid #00b8ff;
+  font-family: "poppins";
+  font-weight: 600;
+  padding-top: 0.7rem;
+  padding-bottom: 0.5rem;
+  cursor: pointer;
+}
+.notifications-drop-content .notifications-category .all {
+  flex-basis: 70%;
+  color: #00b8ff;
+  border-bottom: 2px solid #00b8ff;
+}
+.notifications-drop-content .notifications {
+  max-height: 50rem;
+  overflow: scroll;
+  border-radius: 6px;
+}
+.notifications-drop-content .notifications .time-drop-header {
+  background-color: rgba(0, 0, 0, 0.07);
+}
+.notifications-drop-content .notifications .time-drop-header .time-lasted {
+  font-weight: 400;
+}
+.notifications-drop-content .notifications .notification-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.13);
+  cursor: pointer;
+  background-color: white;
+}
+.notifications-drop-content .notifications .notification-item:hover {
+  background-color: rgba(0, 0, 0, 0.1);
+}
+.notifications-drop-content .notifications .notification-item .notification-box {
+  font-size: 0.8rem;
+  display: inline-block;
+}
+.notifications-drop-content .notifications .notification-item .notification-box .tumblr-name {
+  font-weight: 600;
+  display: inline;
+}
+.notifications-drop-content .notifications .notification-item .notification-box .notification-content {
+  font-weight: 300;
+  color: rgba(0, 0, 0, 0.616);
+}
+.notifications-drop-content .notifications .notification-item .notification-box .notification-content .notification-context {
+  color: black;
+}
+.notifications-drop-content .notifications .notification-item .notification-box .notification-content .notification-context .pipe {
+  background-color: #e2edf5;
+  display: inline-block;
+  width: 0.15rem;
+  height: 1.3rem;
+  align-items: center;
+  vertical-align: middle;
+  padding-top: 0.2rem;
+}
+.notifications-drop-content .notifications .notification-item .notification-content-icon {
+  max-width: 2.2rem;
+  margin: 0.2rem 0.6rem;
+}
+.notifications-drop-content .notifications .notification-item .notification-content-icon img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10%;
+}
+.notifications-drop-content .notifications .notification-item .notification-icon-box {
+  max-width: 1.8rem;
+  margin-right: 1rem;
+  position: relative;
+  display: inline-block;
+}
+.notifications-drop-content .notifications .notification-item .notification-icon-box .profile-icon {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10%;
+}
+.notifications-drop-content .notifications .notification-item .notification-icon-box .floating-icon {
+  filter: saturate(200%);
+  position: absolute;
+  max-width: 50%;
+  height: auto;
+  top: 0.95rem;
+  left: 1.1rem;
+}
+.notifications-drop-content .see-everything {
+  text-align: center;
+  font-size: 0.8rem;
+  font-weight: 500;
+  margin-bottom: 0.3rem;
+  border-top: 1px solid rgba(0, 0, 0, 0.13);
+}

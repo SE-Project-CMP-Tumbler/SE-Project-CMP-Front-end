@@ -1,0 +1,42 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+.chat-par-name{
+    color: rgb(0, 0, 0);
+    font-family: 'Poppins';
+    font-size: .857rem;
+    font-weight: 520;
+    letter-spacing: .01px;
+    line-height: 10px;
+    height: 10%;
+}
+.last-chat-par-name{
+    font-weight: 500 !important;
+}
+.lastmessage ,.last-chat-par-name{
+    color: rgb(112, 109, 109);
+    font-family: 'Poppins';
+    font-size: .85rem;
+    font-weight: 400;
+    line-height: 10px;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    max-height:20px;
+}
+.last-chat-par-name{
+    color: rgb(73, 73, 73);
+}
+.name{
+    width: fit-content;
+    height:100%;
+    max-height:100%;
+}
+.username-lastmessage{
+    color: rgb(77, 74, 74);
+    font-family: 'Poppins';
+    font-size: .85rem;
+    font-weight: 700;
+    line-height: 10px;
+    overflow: hidden;
+    flex-wrap: nowrap;
+    max-height:20px;
+
+}

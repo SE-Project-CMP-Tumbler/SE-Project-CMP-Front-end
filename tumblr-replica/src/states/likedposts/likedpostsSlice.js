@@ -7,7 +7,7 @@ const fetchAsyncPostsLiked = createAsyncThunk(
   async (BlogId, { getState }) => {
     if (SERVICETYPE === MOCK) {
       try {
-        const response = await api.get('postsliked');
+        const response = await api.get('posts');
         return response.data;
       } catch (error) {
         throw Error(error);

@@ -1,4 +1,5 @@
-import React, { useEffect } from 'react';
+/* eslint-disable no-unused-vars */
+import React, { useEffect, useRef } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
@@ -16,6 +17,7 @@ import ChatList from './subcomponents/ChatList';
 import { selectUser } from '../../states/User/UserSlice';
 import SearchBar from '../ChatSearchBar/SearchBar';
 import './css/ChatList.css';
+import { useOutsideAlerter } from '../NavigationBar/interactions';
 /**
  * This function is for the ChatTo component this component has a search
  * bar to search for friend to chat with
@@ -25,13 +27,14 @@ import './css/ChatList.css';
 function ChatTo() {
   const chats = useSelector((state) => state.Chat.chats);
   const User = useSelector(selectUser);
+  // const ListOpen = useSelector(true);
   const recentlyFollowed1 = useSelector((state) => state.Chat.recentlyfollowed);
   const newMessagePress1 = useSelector((state) => state.Chat.newmessagepress);
   const dispatch = useDispatch();
   useEffect(() => {
     // eslint-disable-next-line no-unused-expressions
     newMessagePress1
-      ? dispatch(recentlyFollowed(User)) : dispatch(getAllChats());
+      ? dispatch(recentlyFollowed(User)) : dispatch(getAllChats(User));
   }, []);
   return (
     <div className="chat-drop-content">
@@ -42,6 +45,8 @@ function ChatTo() {
           padding: '0',
           borderRadius: '7px',
           width: '280px',
+          maxHeight: '400px',
+          overflowY: 'scroll',
         }}
         component="nav"
         aria-labelledby="nested-list-subheader"
@@ -68,25 +73,16 @@ function ChatTo() {
                 {User.blogName}
               </button>
             </Box>
-            <span style={{ margin: '0 30px' }} />
+            {newMessagePress1 && <span style={{ margin: '0 30px' }} />}
             <Box style={{ width: '50%' }}>
               <button
                 type="button"
                 onClick={() => {
                   dispatch(newMessagePress());
                 }}
-                style={{
-                  color: '#778899',
-                  backgroundColor: 'transparent',
-                  border: 'none',
-                  cursor: 'pointer',
-                  fontSize: '.78125rem',
-                  fontWeight: '700',
-                  marginLeft: '10px',
-                  textAlign: 'right',
-                }}
+                className={newMessagePress1 ? 'Nevermind' : 'NewMessage'}
               >
-                Nevermind
+                {newMessagePress1 ? 'Nevermind' : 'New Message'}
               </button>
             </Box>
           </Box>

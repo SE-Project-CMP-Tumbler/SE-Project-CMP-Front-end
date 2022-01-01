@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import SideTabs from '../SideTabs/SideTabs';
 import Graph from '../Graph/Graph';
+import './dist/NotificationsList.css';
 import {
   getNotes, fetchAsyncgraphnotes,
   fetchAsyncgraphnewfollowers,
@@ -13,8 +14,9 @@ import {
   getTotalfollowers,
 } from '../../states/features/graph/graphSlice';
 import NotificationsList from './NotificationsList';
+
 import { getBlogId, fetchBlogs, setcurrentblog } from '../../states/features/userblogs/userblogsSlice';
-// import Graph2 from '../Graph/Graph2';
+
 
 /**
  * Component for show the activity for the Blog it has graph
@@ -107,7 +109,7 @@ function Activity({ option }) {
   }
   console.log(Notes);
   return (
-    <div>
+  <div>
       <Grid container spacing={2}>
         <Grid item xs={10} lg={6} sx={{ marginLeft: '10%' }}>
           <Graph

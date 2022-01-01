@@ -132,10 +132,10 @@
 }
 
 .chat-drop .chat-drop-content {
-  transform: translateX(-44%);
-  z-index: 9999;
-  overflow: hidden;
   position: absolute;
+  transform: translateX(-44%);
+  z-index: 99999;
+  overflow: hidden;
 }
 .chat-drop .chat-drop-content .chat-drop-header {
   border-bottom: 1px solid rgba(0, 0, 0, 0.13);

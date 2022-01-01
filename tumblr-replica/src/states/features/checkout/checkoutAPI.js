@@ -10,14 +10,13 @@ const fetchCheckout = createAsyncThunk(
     if (SERVICETYPE === 0) {
       const response = await Axios({
         method: 'GET',
-        url: `${api}/blogs/check_out_blogs`,
+        url: `${api}/blogs/chc_out_blogs`,
         headers: {
           Authorization: AuthStr,
           Accept: 'application/json',
           'Content-Type': 'application/json',
         },
       });
-      console.log(response.data);
       if (response.data.meta.status === '200') {
         return response.data.response;
       }
@@ -33,13 +32,11 @@ const fetchCheckout = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       });
-      console.log(response);
       if (response.data.meta.status === '200') {
         return response.data.response;
       }
       return [];
-    } catch (err) {
-      console.log(err.message);
+    } catch {
       return [];
     }
   },

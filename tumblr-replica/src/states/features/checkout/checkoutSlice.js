@@ -18,7 +18,6 @@ const checkout = createSlice({
     [fetchCheckout.pending]: () => {
     },
     [fetchCheckout.fulfilled]: (state, { payload }) => {
-      console.log(payload);
       const s = state;
       s.blogs = payload.blogs;
       s.next_page_url = payload.next_page_url;

@@ -11,8 +11,9 @@ var _globalAxpi = require("../../apis/globalAxpi");
 
 var _globalAPI = require("../../apis/globalAPI");
 
+/* eslint-disable no-unused-vars */
 var fetchNotifications = (0, _toolkit.createAsyncThunk)('notifications/fetchNotifications', function _callee(dispatch, _ref) {
-  var getState, response, state, USERTOKEN, AuthStr, _response;
+  var getState, response, _response;
 
   return regeneratorRuntime.async(function _callee$(_context) {
     while (1) {
@@ -20,59 +21,48 @@ var fetchNotifications = (0, _toolkit.createAsyncThunk)('notifications/fetchNoti
         case 0:
           getState = _ref.getState;
 
-          if (!(_globalAPI.SERVICETYPE !== _globalAPI.MOCK)) {
-            _context.next = 16;
+          if (!(_globalAPI.SERVICETYPE === _globalAPI.MOCK)) {
+            _context.next = 14;
             break;
           }
 
           _context.prev = 2;
-          console.log('tryinnnnnng');
-          _context.next = 6;
+          _context.next = 5;
           return regeneratorRuntime.awrap(_globalAxpi.api.get('notifications'));
 
-        case 6:
+        case 5:
           response = _context.sent;
-          console.log(response.data, 'the datatatata');
           return _context.abrupt("return", response.data);
 
-        case 11:
-          _context.prev = 11;
+        case 9:
+          _context.prev = 9;
           _context.t0 = _context["catch"](2);
           throw Error(_context.t0);
 
-        case 14:
-          _context.next = 30;
+        case 12:
+          _context.next = 24;
           break;
 
-        case 16:
-          _context.prev = 16;
-          // wont 'work
-          console.log('There we go!');
-          state = getState();
-          USERTOKEN = state.user.user.accessToken;
-          AuthStr = "Bearer ".concat(USERTOKEN);
-          _context.next = 23;
-          return regeneratorRuntime.awrap(_globalAxpi.apiR.get('notifications', {
-            headers: {
-              Authorization: AuthStr
-            }
-          }));
+        case 14:
+          _context.prev = 14;
+          _context.next = 17;
+          return regeneratorRuntime.awrap(_globalAxpi.api.get('notifications'));
 
-        case 23:
+        case 17:
           _response = _context.sent;
-          return _context.abrupt("return", _response.data.response);
+          return _context.abrupt("return", _response.data);
 
-        case 27:
-          _context.prev = 27;
-          _context.t1 = _context["catch"](16);
+        case 21:
+          _context.prev = 21;
+          _context.t1 = _context["catch"](14);
           throw Error(_context.t1);
 
-        case 30:
+        case 24:
         case "end":
           return _context.stop();
       }
     }
-  }, null, null, [[2, 11], [16, 27]]);
+  }, null, null, [[2, 9], [14, 21]]);
 });
 exports.fetchNotifications = fetchNotifications;
 var zero = 0; // nevermind this. otherwilse will have to use a default export.

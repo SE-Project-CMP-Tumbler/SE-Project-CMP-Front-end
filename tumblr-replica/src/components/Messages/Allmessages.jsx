@@ -7,16 +7,23 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import React from 'react';
-import LeftContent from './LeftContainer';
+import LeftContent from './AllLeftContainer';
 import { getBlogs, fetchBlogs } from '../../states/blogslice/blogsslice';
+import { fetchAsyncAllMessages } from '../../states/retriveallmessagesslice/retriveallmessagesslice';
+import { DeleteAllMsgAsynch } from '../../states/deleteallmessagesslice/deleteallmessagesslice';
 
 function AllMassages() {
   const dispatch = useDispatch();// use BlogId
   React.useEffect(() => {
     dispatch(fetchBlogs());
+    dispatch(fetchAsyncAllMessages());
   }, []);
   const blogs = useSelector(getBlogs).response;
   const IsTabletOrMobile = useMediaQuery({ query: '(max-width: 1224px)' });
+  function handelDelete() {
+    dispatch(DeleteAllMsgAsynch());
+    dispatch(fetchAsyncAllMessages());
+  }
   return (
     <div className="Base">
       <div className="container-m">
@@ -52,7 +59,7 @@ function AllMassages() {
           </Link>
         </li> */}
                 <li className="thirdLi li-m">
-                  <button type="button" className="deleteBtn">Delete all massages</button>
+                  <button type="button" onClick={handelDelete} className="deleteBtn">Delete all massages</button>
                 </li>
               </ul>
               <div className="info">

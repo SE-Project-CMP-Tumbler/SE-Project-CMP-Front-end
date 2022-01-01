@@ -43,13 +43,12 @@ const Notes = function NotesPopover(props) {
 
   useEffect(() => {
     fetchNotes(postId, setLikes, setReplies, setReblogs);
-  }, [showNotes, replies, reblogs, likes]);
+  }, [showNotes]);
   const handleClose = function HideNotesList() {
     setShowNotes(null);
   };
 
   const handleReply = function Reply() {
-    console.log(postId);
     dispatch(AddReply({ postID: postId, reply_text: reply, User }));
     setReply('');
   };
@@ -88,7 +87,7 @@ const Notes = function NotesPopover(props) {
               style: { width: isTabletOrMobile ? '100%' : '22%', height: isTabletOrMobile && '100hv' },
             }}
           >
-            <NoteHeader num={likes.length + replies.length + reblogs.length} />
+            <NoteHeader num={likes.length + replies.length + reblogs.length} back={setShowNotes} />
             <button
               type="button"
               style={{ border: 'none', cursor: 'pointer', background: '#ffffff' }}
@@ -130,7 +129,7 @@ const Notes = function NotesPopover(props) {
               reblogs={reblogs}
             />
             )}
-              {showNoteList && <NoteList />}
+              {showNoteList && <NoteList likes={likes} reblogs={reblogs} />}
             </Paper>
             {!showNoteList && (
             <Grid container direction="row">

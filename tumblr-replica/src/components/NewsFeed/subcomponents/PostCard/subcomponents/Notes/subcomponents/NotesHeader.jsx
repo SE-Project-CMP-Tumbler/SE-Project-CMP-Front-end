@@ -10,10 +10,8 @@ import Avatar from '@mui/material/Avatar';
 import Stack from '@mui/material/Stack';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
-import { Hide } from '../../../../../../../states/features/dashboard/displayNotesListSlice';
-import { HideNote } from '../../../../../../../states/features/dashboard/NotesWindowSlice';
 /**
  * This functions creates the top part of notes component which allow switching between the 2
  * notes displaying modes and number of notes on that post with some profile pictures of the latest
@@ -21,14 +19,11 @@ import { HideNote } from '../../../../../../../states/features/dashboard/NotesWi
  * @returns the component of that part
  */
 const NoteHeader = function NotesHeader(props) {
-  const { num } = props;
-  const { showNoteList } = useSelector((state) => state.displayNotesList);
-  const dispatch = useDispatch();
+  const { num, back } = props;
   const { likes, reblogs } = useSelector((state) => state.PostNotes);
 
   const handleBack = function handleBackToWhichList() {
-    if (showNoteList) dispatch(Hide());
-    else dispatch(HideNote());
+    back(null);
   };
   return (
     <>
@@ -141,4 +136,5 @@ const NoteHeader = function NotesHeader(props) {
 export default NoteHeader;
 NoteHeader.propTypes = {
   num: PropTypes.number.isRequired,
+  back: PropTypes.func.isRequired,
 };

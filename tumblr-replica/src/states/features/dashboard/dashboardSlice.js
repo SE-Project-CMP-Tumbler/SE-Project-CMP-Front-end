@@ -17,7 +17,6 @@ const fetchPosts = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       });
-      console.log(response.data);
       if (response.data.meta.status === '200') {
         return response.data.response;
       }
@@ -33,13 +32,11 @@ const fetchPosts = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       });
-      console.log(response);
       if (response.data.meta.status === '200') {
         return response.data.response;
       }
       return [];
-    } catch (err) {
-      console.log(err.message);
+    } catch {
       return [];
     }
   },
@@ -59,7 +56,6 @@ const fetchNext = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       });
-      console.log(response.data);
       if (response.data.meta.status === '200') {
         return response.data.response;
       }
@@ -75,13 +71,11 @@ const fetchNext = createAsyncThunk(
           'Content-Type': 'application/json',
         },
       });
-      console.log(response);
       if (response.data.meta.status === '200') {
         return response.data.response;
       }
       return [];
     } catch (err) {
-      console.log(err.message);
       return [];
     }
   },
@@ -99,7 +93,6 @@ const DashPosts = createSlice({
     [fetchPosts.pending]: () => {
     },
     [fetchPosts.fulfilled]: (state, { payload }) => {
-      console.log(payload);
       const s = state;
       s.Posts = payload.posts;
       s.Pagination = payload.pagination;
@@ -109,9 +102,8 @@ const DashPosts = createSlice({
     [fetchNext.pending]: () => {
     },
     [fetchNext.fulfilled]: (state, { payload }) => {
-      console.log(payload);
       const s = state;
-      s.Posts = [...s.Posts, payload.posts];
+      s.Posts = [...s.Posts, ...payload.posts];
       s.Pagination = payload.pagination;
     },
     [fetchNext.rejected]: () => {

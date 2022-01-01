@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Card from '@mui/material/Card';
 import Tooltip from '@mui/material/Tooltip';
 import { useMediaQuery } from 'react-responsive';
@@ -7,11 +7,13 @@ import CardContent from '@mui/material/CardContent';
 import CardActions from '@mui/material/CardActions';
 import Avatar from '@mui/material/Avatar';
 import PropTypes from 'prop-types';
+import { useDispatch } from 'react-redux';
 import PostFooter from './subcomponents/PostFooter';
 import PostContent from './subcomponents/PostContent';
 import './css/PostCard.css';
 import ProfileHeader from '../../../ProfileTemp/ProfileTempHeader';
 import MoreMenu from '../../../MoreMenu/MoreMenu';
+import { FollowAsynch } from '../../../../states/followslice/followslice';
 
 /**
  *
@@ -21,9 +23,16 @@ import MoreMenu from '../../../MoreMenu/MoreMenu';
  */
 function PostCard(props) {
   const {
-    postId, postTime, blogId, blogUsername, postBody, blogAvatar, small,
+    postId, postTime, blogId, blogUsername, postBody, blogAvatar, small, postType, isliked, pinned,
   } = props;
-  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 500px)' });
+  const dispatch = useDispatch();
+  const [isFollowed, setIsFollowed] = useState(false);
+  const handleFollow = function follow() {
+    dispatch(FollowAsynch(blogId));
+    setIsFollowed(true);
+  };
+  const isTabletOrMobile2 = useMediaQuery({ query: '(max-width: 992px)' });
+  const isTabletOrMobile = useMediaQuery({ query: '(max-width: 700px)' });
   return (
     <>
       <Card
@@ -34,11 +43,37 @@ function PostCard(props) {
       >
         <CardHeader
           action={
-            <MoreMenu postId={postId} blogId={blogId} postTime={postTime} />
+            <MoreMenu postId={postId} blogId={blogId} postTime={postTime} pinned={pinned} />
           }
-          title={blogUsername}
+          title={(
+            <>
+              <div className="blog">
+                <span className="blogspan">
+                  <a className="blogname" href={`https://web.dev.tumbler.social/blog/view/${blogId}`}>
+                    <div className="blogdata">
+                      <div className="blogtitles">
+                        <div className="b4">{blogUsername}</div>
+                      </div>
+                    </div>
+                  </a>
+                  {!isFollowed
+                        && (
+                        <div className="followdiv">
+                          <button
+                            className="fb"
+                            type="button"
+                            onClick={handleFollow}
+                          >
+                            <span className="f">Follow</span>
+                          </button>
+                        </div>
+                        )}
+                </span>
+              </div>
+            </>
+          )}
           avatar={
-            (isTabletOrMobile || small)
+            (isTabletOrMobile2 || small)
             && (
               <Tooltip
                 placement="right"
@@ -65,7 +100,13 @@ function PostCard(props) {
           <PostContent content={postBody} small={small} />
         </CardContent>
         <CardActions disableSpacing className="footer">
-          <PostFooter postId={postId} blogId={blogId} content={postBody} />
+          <PostFooter
+            postId={postId}
+            blogId={blogId}
+            content={postBody}
+            postType={postType}
+            isLiked={isliked}
+          />
         </CardActions>
       </Card>
     </>
@@ -75,14 +116,14 @@ function PostCard(props) {
 export default PostCard;
 
 PostCard.propTypes = {
-  small: PropTypes.bool,
+  small: PropTypes.bool.isRequired,
   postId: PropTypes.number.isRequired,
   blogId: PropTypes.number.isRequired,
   postBody: PropTypes.string.isRequired,
   blogUsername: PropTypes.string.isRequired,
   postTime: PropTypes.string.isRequired,
   blogAvatar: PropTypes.string.isRequired,
-};
-PostCard.defaultProps = {
-  small: false,
+  postType: PropTypes.string.isRequired,
+  isliked: PropTypes.bool.isRequired,
+  pinned: PropTypes.bool.isRequired,
 };

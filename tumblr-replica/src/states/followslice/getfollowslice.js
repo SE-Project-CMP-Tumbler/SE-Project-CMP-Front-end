@@ -6,7 +6,7 @@ const FollowedByAsynch = createAsyncThunk(
   'followed_by/:blog_id',
   async (BlogId, { getState }) => {
     if (SERVICETYPE === MOCK) {
-      const response = await api.get('followed_by');
+      const response = await api.get('followed');
       return response.data;
     }
     const state = getState();
