@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
 import Card from '@mui/material/Card';
 import Tooltip from '@mui/material/Tooltip';
 import { useMediaQuery } from 'react-responsive';
@@ -49,13 +50,13 @@ function PostCard(props) {
             <>
               <div className="blog">
                 <span className="blogspan">
-                  <a className="blogname" href={`https://web.dev.tumbler.social/blog/view/${blogId}`}>
+                  <Link className="blogname" to={`/blog/view/${blogUsername}`}>
                     <div className="blogdata">
                       <div className="blogtitles">
                         <div className="b4">{blogUsername}</div>
                       </div>
                     </div>
-                  </a>
+                  </Link>
                   {!isFollowed
                         && (
                         <div className="followdiv">

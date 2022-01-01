@@ -26,7 +26,12 @@ function NotificationsDropDown({ buttonRef }) {
   const dispatch = useDispatch();
   useEffect(() => dispatch(fetchNotifications()), []);
   const [index, setIndex] = useState(0);
-
+  /**
+ * Hides the notification drop down upon clicking outside
+ * @method
+ * @param {MutableRefObject} notificationsDropRef - The ref for HTML node that should have its display hidden.
+ * @param {MutableRefObject} buttonRef - The ref for HTML node that can violate the function.
+ */
   useOutsideAlerter(notificationsDropRef, buttonRef);
   return (
     <div className="drop-content notifications-drop-content" ref={notificationsDropRef} style={{ display: 'none' }}>
@@ -80,6 +85,13 @@ function NotificationsDropDown({ buttonRef }) {
   );
 }
 
+/**
+ * Mak
+ * @method
+ * @param {notifState} the whole notification state (as in the notification slice)
+ * @param {blogState} the whole user blogs state (as in the user blogs slice)
+ * @param {index} refers to the type of notifications
+ */
 export function NotificationsLoader({ notifState, blogState, index }) {
   const actionGetter = (type) => {
     if (type === 'reply') return ' replied to your post ';

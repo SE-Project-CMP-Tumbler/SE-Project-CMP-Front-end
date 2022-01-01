@@ -10,6 +10,11 @@ import PostCard from '../NewsFeed/subcomponents/PostCard/PostCard';
 import './PostList.css';
 import { selectSearch, fetchStuff } from '../../states/search/searchSlice';
 
+/**
+ * This is the search page component.
+ * @component
+ * @returns {ReactJSXElement} JSX Element.
+ */
 function SearchPage() {
   const dispatch = useDispatch();
   const { word } = useParams();

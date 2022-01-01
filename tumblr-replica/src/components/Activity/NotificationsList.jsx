@@ -8,7 +8,7 @@ import { selectNotifications, fetchNotifications } from '../../states/notificati
 import { chooseBlueItem } from '../NavigationBar/interactions';
 
 /**
- * This is the notifications drop down component as can be seen in the official website
+ * This is the notifications list component as can be seen in the official website in the activity page
  * @component
  * @returns {ReactJSXElement} JSX Element.
  */
@@ -100,7 +100,7 @@ export function NotificationsLoader({ notifState, blogState, index }) {
 }
 
 /**
- *  This is a simple component that logs time for notifications and is used in the drop down
+ *  This is a simple component that logs time for notifications and is used in the notifications list
  * @component
  * @returns {ReactJSXElement} JSX Element.
  */

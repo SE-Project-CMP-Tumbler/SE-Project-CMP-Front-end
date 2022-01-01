@@ -6,7 +6,7 @@ const CreatePost = createAsyncThunk(
   'DashPosts/CreatePost',
   async ({ postBody, User, postType }) => {
     const d = new Date();
-    const time = `${d.getFullYear()}-${d.getMonth()}-${d.getDay()}`;
+    const time = `${d.getFullYear()}-0${d.getMonth() + 1}-0${d.getDate()}`;
     const USER_TOKEN = User.accessToken;
     const AuthStr = `Bearer ${USER_TOKEN}`;
     if (SERVICETYPE === 0) {

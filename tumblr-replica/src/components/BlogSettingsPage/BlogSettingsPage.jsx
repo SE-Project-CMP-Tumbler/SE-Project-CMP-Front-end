@@ -68,7 +68,7 @@ const AccountSettingsPage = () => {
                 width: '625px',
               }}
             >
-              <Link to={'/profile/' + blog.username}>
+              <Link to={'/profile/' + blog.username} target="_blank">
                 <Box
                   component="img"
                   sx={{
@@ -251,7 +251,7 @@ const AccountSettingsPage = () => {
                     >
                       Make your likes public at:
                     </Typography>
-                    <Link to={'/liked/by/' + user.blogName}>
+                    <Link to={'/liked/by/' + user.blogName} target="_blank">
                       <Typography
                         component="h2"
                         fontSize="12px"
@@ -327,7 +327,7 @@ const AccountSettingsPage = () => {
                     >
                       Make your follows public at:
                     </Typography>
-                    <Link to={'/followed/by/' + user.blogName}>
+                    <Link to={'/followed/by/' + user.blogName} target="_blank">
                       <Typography
                         component="h2"
                         fontSize="12px"
@@ -456,6 +456,7 @@ const AccountSettingsPage = () => {
                           color: '#999999',
                           fontFamily: '"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif',
                         }}
+                        target="_blank"
                       >
                         <Typography
                           fontSize="12px"
@@ -503,7 +504,6 @@ const AccountSettingsPage = () => {
                             }}
                             variant="outlined"
                             fullWidth
-                            autoFocus
                             disableRipple
                             disableElevation
                             style={{
@@ -613,6 +613,7 @@ const AccountSettingsPage = () => {
                           color: '#999999',
                           fontFamily: '"Favorit", "Helvetica Neue", "HelveticaNeue", Helvetica, Arial, sans-serif',
                         }}
+                        target="_blank"
                       >
                         <Typography
                           fontSize="12px"
@@ -660,7 +661,6 @@ const AccountSettingsPage = () => {
                             }}
                             variant="outlined"
                             fullWidth
-                            autoFocus
                             disableRipple
                             disableElevation
                             style={{
@@ -709,7 +709,6 @@ const AccountSettingsPage = () => {
                             }}
                             variant="outlined"
                             fullWidth
-                            autoFocus
                             disableRipple
                             disableElevation
                             style={{
