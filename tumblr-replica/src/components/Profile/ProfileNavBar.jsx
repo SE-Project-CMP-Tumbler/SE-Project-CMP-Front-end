@@ -20,6 +20,24 @@ import './css/ProfileNavBar.css';
 
 // const MyBlog = false;
 // _________takecare login must be handeld
+
+/**
+ * Component for showing ProfilenavBar of the  returned blogid
+ * the navbar differ if it shows this blog navbar or foe diffrent blog
+ * can open the drawer of this user
+ * return me to the dashboard
+ * open chat
+ * make follow ,unfollow and block
+ * @component
+ * @name
+ * ProfileNavBar
+ * @example
+ * const Follow=followInit.followed
+ * const Block =blockinit.is_blocking
+ * return (
+ *   <ProfileNavBar BlogId={BlogId}) />
+ * )
+ */
 function ProfileNavBar({ BlogId }) {
   const [Open, SetOpen] = useState(false);
 
@@ -40,15 +58,26 @@ function ProfileNavBar({ BlogId }) {
   let BlockInit = useSelector(getBlocked).response; // will be used insted of blog.follow
   // eslint-disable-next-line prefer-const
   let FollowInit = useSelector(getFollowed).response;
-
+  /**
+*  block this blog when the user click block button
+* @param   {function} HandelBlock  function for unblock
+*/
   function HandelBlock() {
     dispatch(BlockAsynch(BlogId));
     dispatch(BlockedByAsynch(BlogId));
   }
+  /**
+* toggel follow state from when the user click follow button
+* @param   {function} HandelFollow  function for follow blog
+*/
   function HandelFollow() {
     dispatch(FollowAsynch(BlogId));
     dispatch(FollowedByAsynch(BlogId));
   }
+  /**
+* toggel follow state from when the user click follow button
+* @param   {function} HandelUnFollow  function for for follow blog
+*/
   function HandelUnFollow() {
     dispatch(UnFollowAsynch(BlogId));
     dispatch(FollowedByAsynch(BlogId));
@@ -92,7 +121,8 @@ function ProfileNavBar({ BlogId }) {
 ProfileNavBar.propTypes = {
   BlogId: PropTypes.func.isRequired,
   /**
-* if user click the close button it will be call function HandelClose
-*/
+   * @parma {BlogId}
+  * blogid is reqiuerd to follow and block apis
+  */
 };
 export default ProfileNavBar;

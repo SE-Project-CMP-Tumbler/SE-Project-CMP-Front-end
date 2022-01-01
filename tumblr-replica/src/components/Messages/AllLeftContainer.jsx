@@ -9,6 +9,19 @@ import { getAllMessages } from '../../states/retriveallmessagesslice/retriveallm
 import PostCard from '../AskSubmitPosts/subcomponents/PostCard/PostCard';
 
 const t = true;
+/**
+ * Component called Allmessages.jsx
+ * then its read the current state of all messages and show them
+ * it view the blogs of this user that allow ask or submission
+ * @component
+ * @name
+ * AllLeftContainer
+ * @example
+ * <PostCard posts={posts} />
+ * return (
+ *   <AllLeftContainer />
+ * )
+ */
 function AllLeftContainer({ BlogId }) {
   const Posts = useSelector(getAllMessages).response.messages;
   const isDesktopOrLaptop = useMediaQuery({
@@ -69,5 +82,9 @@ function AllLeftContainer({ BlogId }) {
 }
 AllLeftContainer.propTypes = {
   BlogId: PropTypes.func.isRequired,
+  /**
+ * @parma {BlogId}
+* blogid is reqiuerd to follow and block apis
+*/
 };
 export default AllLeftContainer;

@@ -21,15 +21,15 @@ import { selectUser } from '../../states/User/UserSlice';
 // const MyBlog = true;
 
 /**
- * Component for showing navBar of the returned blog id
+ * Component for showing navBar of the  returned blogid
+ * the navbar differ if it shows this blog navbar or foe diffrent blog
  *
  * @component
+ * @name
+ * NavBar
  * @example
- * <Menu />
- * const Search = false
- * const Follow=false
- * const IsTabletOrMobile=false
- * const UserAccount=User.account()
+ * <Menu BlogId={BlogId} />
+ * const Follow=followInit.followed
  * return (
  *   <NavBar CloseCliked={CloseCliked}) />
  * )
@@ -50,12 +50,16 @@ function NavBar({ CloseClicked, OpenChatClicked, BlogId }) {
 
   /**
  * toggel follow state from when the user click follow button
- * @param   {hook} setFollow  hook for updating seting follow
+ * @param   {function} HandelFollow  function for follow blog
  */
   function HandelFollow() {
     dispatch(FollowAsynch(BlogId));
     dispatch(FollowedByAsynch(BlogId));
   }
+  /**
+* toggel follow state from when the user click follow button
+* @param   {function} HandelUnFollow  function for for follow blog
+*/
   function HandelUnFollow() {
     dispatch(UnFollowAsynch(BlogId));
     dispatch(FollowedByAsynch(BlogId));
@@ -103,7 +107,12 @@ NavBar.propTypes = {
   OpenChatClicked: PropTypes.func.isRequired,
   BlogId: PropTypes.func.isRequired,
   /**
+   * @param {CloseClicked}
    * if user click the close button it will be call function HandelClose
    */
+  /**
+ * @param {OpenChatClicked}
+ * if user click the chat button it will be call function openChat
+ */
 };
 export default NavBar;

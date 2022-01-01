@@ -12,6 +12,21 @@ import { getBlogs, fetchBlogs } from '../../states/blogslice/blogsslice';
 import { fetchAsyncAllMessages } from '../../states/retriveallmessagesslice/retriveallmessagesslice';
 import { DeleteAllMsgAsynch } from '../../states/deleteallmessagesslice/deleteallmessagesslice';
 
+/**
+ * Component called from app.jsx to show rightpart of messages page
+ * then it dispatch the ask and submit posts of the all blogs to be viewd in left part
+ * it view all messages
+ * it view the blogs of this user that allow ask or submission
+ * @component
+ * @name
+ * AllMassages
+ * @example
+ * <LeftContent BlogId={BlogId} />
+ * return (
+ *   <AllMassages />
+ * )
+ */
+
 function AllMassages() {
   const dispatch = useDispatch();// use BlogId
   React.useEffect(() => {

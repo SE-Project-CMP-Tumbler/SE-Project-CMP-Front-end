@@ -24,7 +24,7 @@ const fetchAsynctrendtags = createAsyncThunk(
 );
 
 const initialState = {
-  trendtag: { response: { }, meta: { status: '000', msg: 'Loading' }, error: false },
+  trendtag: { response: {}, meta: { status: '000', msg: 'Loading' }, error: false },
 };
 
 const trendtagSlice = createSlice({
@@ -37,7 +37,7 @@ const trendtagSlice = createSlice({
     },
     [fetchAsynctrendtags.fulfilled]: (state, { payload }) => ({ ...state, trendtag: payload }),
     [fetchAsynctrendtags.rejected]:
-    (state) => ({ ...state, trendtag: { ...state.trendtag, error: true } }),
+      (state) => ({ ...state, trendtag: { ...state.trendtag, error: true } }),
   },
 });
 
