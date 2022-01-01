@@ -12,6 +12,20 @@ import { getPostsliked, fetchAsyncPostsLiked } from '../../states/likedposts/lik
 // import { tosmall } from '../../states/features/postview/postviewSlice';
 import { getBlogId, fetchBlogId } from '../../states/blognameslice/blogNameSlice';
 
+/**
+ * Component to show profileHeader of the blog with his liked posts
+ *
+ * @component
+ * @name
+ * Likes
+ * @example
+ * <profileHeader BlogId={BlogId} />
+ * <postCard posts={posts} />
+ * return (
+ *   <Likes />
+ * )
+ */
+
 function Likes() {
   const { username } = useParams();
   const dispatch = useDispatch();

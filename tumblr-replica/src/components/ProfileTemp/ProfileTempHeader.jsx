@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import PropTypes from 'prop-types';
 import ReactLoading from 'react-loading';
 import Box from '@mui/material/Box';
-import ProfileNavBar from './PrfileTempNavBar';
+
 import { getBlog, fetchBlog } from '../../states/blogslice/blogslice';
 
 function ProfileHeader({ BlogId }) {
@@ -19,10 +19,8 @@ function ProfileHeader({ BlogId }) {
       {Blog.meta.status === '200'
         ? (
           <div>
-            <ProfileNavBar BlogId={BlogId} />
             <div className="photos">
               <img className="cover" style={{ height: '100px' }} src={Blog.response.header_image} alt="cover" />
-              <img className={Blog.response.avatar_shape === 'square' ? 'square-profile-small' : 'circle-profile-small'} src={Blog.response.avatar} alt="profile pic" />
             </div>
             <div className="text">
               <h1 className="colorchange">
@@ -40,7 +38,7 @@ function ProfileHeader({ BlogId }) {
   );
 }
 ProfileHeader.propTypes = {
-  BlogId: PropTypes.func.isRequired,
+  BlogId: PropTypes.number.isRequired,
   /**
 * if user click the close button it will be call function HandelClose
 */

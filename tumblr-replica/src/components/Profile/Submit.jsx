@@ -10,6 +10,20 @@ import {
 } from '../../states/blogslice/blogslice';
 import { getBlogId, fetchBlogId } from '../../states/blognameslice/blogNameSlice';
 
+/**
+ * Component to show profileHeader of the blog with card of submitpost
+ *
+ * @component
+ * @name
+ * Submit
+ * @example
+ * <profileHeader BlogId={BlogId} />
+ * <Header />
+ * return (
+ *   <Submit />
+ * )
+ */
+
 function Submit() {
   const { username } = useParams();
   const dispatch = useDispatch();

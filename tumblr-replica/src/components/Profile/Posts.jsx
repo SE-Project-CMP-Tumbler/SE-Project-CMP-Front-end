@@ -4,7 +4,6 @@ import { Link, useParams, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import Grid from '@mui/material/Grid';
 import ReactLoading from 'react-loading';
-
 import PostCard from '../NewsFeed/subcomponents/PostCard/PostCard';
 import { getMyPosts, fetchAsyncMyPosts } from '../../states/mypostsslice/mypostsSlice';
 import ProfileHeader from './ProfileHeader';
@@ -12,6 +11,20 @@ import {
   getBlog, fetchBlog,
 } from '../../states/blogslice/blogslice';
 import { getBlogId, fetchBlogId } from '../../states/blognameslice/blogNameSlice';
+
+/**
+ * Component to show profileHeader of the blog with his own created posts
+ *
+ * @component
+ * @name
+ * Posts
+ * @example
+ * <profileHeader BlogId={BlogId} />
+ * <postCard posts={posts} />
+ * return (
+ *   <Posts />
+ * )
+ */
 
 function Posts() {
   const { username } = useParams();

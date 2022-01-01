@@ -17,13 +17,14 @@ const useStyles = makeStyles({
 });
 
 /**
- * Component Header in Drawer.
+ * Component RightBar is called in App.jsx to open the drawer
  *
  * @component
  * @example
- * <Header CloseCliked={CloseCliked}) />
- * const Open = false
- * return (
+ *<Drawer>
+ * <Header CloseCliked={CloseCliked} OpenChatClicked={() => {setOpenChat(true);}} BlogId={blogid} />
+ *</Drawer>
+ *  return (
  *   <RightBar />
  * )
  */
@@ -41,14 +42,10 @@ function RightBar() {
   const blogid = useSelector(getBlogId).response.id;
   const statue = useSelector(getBlogId).meta;
   const Error = useSelector(getBlogId).error;
-  /**
-* toggelDrawer open drawer state to uodate the drawer state
-* @param   {hook} setOpening  hook for updating drawer state
-*/
 
   /**
- * closing the drawer and make open=false
- * @param   {hook} setOpening  hook for updating drawer state
+ * closing the drawer and navigate(-1)
+ * @param   {function} handelCloseDrawer  function for closing the drawer and return one page back
  */
   function handelCloseDrawer() {
     setOpening(false);

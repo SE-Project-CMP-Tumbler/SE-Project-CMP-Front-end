@@ -15,6 +15,21 @@ import { fetchAsyncBlogMessages, getBlogMessages } from '../../states/retriveblo
 import { DeleteBlogMsgAsynch } from '../../states/deleteblogmessagesslice/deleteblogmessagesslice';
 import { getBlogId, fetchBlogId } from '../../states/blognameslice/blogNameSlice';
 
+/**
+ * Component called from app.jsx to show rightpart of messages page
+ * then it dispatch the ask and submit posts of this blog to be viewd in left part
+ * it view all messages
+ * it view the blogs of this user that allow ask or submission
+ * @component
+ * @name
+ * BlogMessages
+ * @example
+ * <LeftContent BlogId={BlogId} />
+ * return (
+ *   <BlogMessages />
+ * )
+ */
+
 const BlogMessages = () => {
   const { username } = useParams();
   const dispatch = useDispatch();// use BlogId

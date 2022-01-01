@@ -11,15 +11,17 @@ import { getMyPosts, fetchAsyncMyPosts } from '../../states/mypostsslice/myposts
 import './css/DrawerHeader.css';
 
 /**
- * Component for navbar, cover img ,profile img ,blog name and blog discription.
+ * Component to show navbar, cover img ,profile img ,blog name and blog discription.
  *
  * @component
+ * @name
+ * Header
  * @example
  * <NavBar CloseClicked={CloseClicked} />
- * const UserProfile = User.profile()
- * const UserCover = User.cover()
- * const UserName=User.blogName()
- * const UserDiscription=User.discription()
+ * const UserProfile = blog.profile
+ * const UserCover = blog.cover
+ * const UserName=blog.blogName
+ * const UserDiscription=blog.discription
  * return (
  *   <Header CloseClicked={CloseClicked} />
  * )
@@ -30,7 +32,7 @@ function Header({ CloseClicked, OpenChatClicked, BlogId }) {
   React.useEffect(() => {
     dispatch(fetchBlog(BlogId));// will take BlogId
     dispatch(fetchAsyncMyPosts(BlogId));
-  }, []);
+  }, [BlogId]);
   const Blog = useSelector(getBlog).response;
   const BlogStatue = useSelector(getBlog).meta;
   const Posts = useSelector(getMyPosts).response.posts;
@@ -97,7 +99,8 @@ Header.propTypes = {
   OpenChatClicked: PropTypes.func.isRequired,
   BlogId: PropTypes.func.isRequired,
   /**
-* if user click the close button it will be call function HandelClose
-*/
+  * @param {CloseCliked}
+  * if user click the close button it will be call function HandelClose
+  */
 };
 export default Header;

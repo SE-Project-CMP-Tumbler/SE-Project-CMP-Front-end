@@ -9,6 +9,19 @@ import PostCard from '../AskSubmitPosts/subcomponents/PostCard/PostCard';
 import { getBlogMessages } from '../../states/retriveblogmessagesslice/retriveblogmessagesslice';
 
 const f = false;
+/**
+ * Component called Blogmessages.jsx
+ * then its read the current state of blog messages and show them
+ * it view the blog of this user that allow ask or submission
+ * @component
+ * @name
+ * BlogLeftContainer
+ * @example
+ * <PostCard posts={posts} />
+ * return (
+ *   <BlogLeftContainer />
+ * )
+ */
 function BlogLeftContainer({ BlogId }) {
   const Posts = useSelector(getBlogMessages).response.messages;
   const isDesktopOrLaptop = useMediaQuery({
@@ -69,5 +82,9 @@ function BlogLeftContainer({ BlogId }) {
 }
 BlogLeftContainer.propTypes = {
   BlogId: PropTypes.func.isRequired,
+  /**
+ * @parma {BlogId}
+* blogid is reqiuerd to follow and block apis
+*/
 };
 export default BlogLeftContainer;

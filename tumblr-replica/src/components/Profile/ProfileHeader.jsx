@@ -6,6 +6,23 @@ import ReactLoading from 'react-loading';
 import ProfileNavBar from './ProfileNavBar';
 import { getBlog, fetchBlog } from '../../states/blogslice/blogslice';
 
+/**
+ * Component to show navbar, cover img ,profile img ,blog name and blog discription.
+ *
+ * @component
+ * @name
+ * ProfileHeader
+ * @example
+ * <NavBar CloseClicked={CloseClicked} />
+ *  UserProfile = blog.profile
+ *  UserCover = blog.cover
+ *  UserName=blog.blogName
+ *  UserDiscription=blog.discription
+ * return (
+ *   <ProfileHeader BlogId={BlogId} />
+ * )
+ */
+
 function ProfileHeader({ BlogId }) {
   const dispatch = useDispatch();
   React.useEffect(() => {
@@ -41,7 +58,8 @@ function ProfileHeader({ BlogId }) {
 ProfileHeader.propTypes = {
   BlogId: PropTypes.func.isRequired,
   /**
-* if user click the close button it will be call function HandelClose
-*/
+   * @parma {BlogId}
+  * blogid is reqiuerd to follow and block apis
+  */
 };
 export default ProfileHeader;

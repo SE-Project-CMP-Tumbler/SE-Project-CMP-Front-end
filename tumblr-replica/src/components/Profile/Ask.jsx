@@ -11,6 +11,19 @@ import {
 import { AskAsynch } from '../../states/askpostslice/askpostslice';
 import { getBlogId, fetchBlogId } from '../../states/blognameslice/blogNameSlice';
 
+/**
+ * Component to show profileHeader of the blog with his ask card
+ * you can ask the blog annonumsly or with your real data
+ * @component
+ * @name
+ * Ask
+ * @example
+ * <profileHeader BlogId={BlogId} />
+ * return (
+ *   <Ask />
+ * )
+ */
+
 function Ask() {
   const { username } = useParams();
   const dispatch = useDispatch();
