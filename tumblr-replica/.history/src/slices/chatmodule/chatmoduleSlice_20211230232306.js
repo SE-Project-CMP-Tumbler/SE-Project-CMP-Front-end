@@ -318,6 +318,7 @@ export default chatReducer.reducer;
 export const {
   addMessage, loadChat, setFeedMessages,
   setGifs, setChatBoxesID, newMessagePress, removeChatBoxID, removeAvaterID,
-  toggleNewMessage, filterBlogsChat,
+  toggleNewMessage, 
+  ,
   deleteConversation, setChats, removeChatBoxIDOnly, chatUpdate, newMessagePressRes,
 } = chatReducer.actions;

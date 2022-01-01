@@ -1,0 +1,10 @@
+version: "3.3"
+
+services:
+  app:
+    container_name: app-prod
+    image: app-prod
+    build:
+      context: .
+    ports:
+      - 3000:3000

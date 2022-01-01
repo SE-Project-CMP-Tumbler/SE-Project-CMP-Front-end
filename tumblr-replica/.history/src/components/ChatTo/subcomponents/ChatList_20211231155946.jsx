@@ -43,8 +43,7 @@ function ChatList({ chats }) {
             if ((chatBox.length
                       && chatBox[0].elem.friend_id !== chat.friend_id) || chatBox.length === 0) {
               console.log(User.primaryBlogId);
-              console.log(chat.friend_id, chat.friend_name);
-              console.log(chat);
+
               dispatch(getChatRoomId({
                 blogsID: {
                   from_blog_id: User.primaryBlogId,

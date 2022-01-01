@@ -1,5 +1,4 @@
-/* eslint-disable no-unused-vars */
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import ListSubheader from '@mui/material/ListSubheader';
 import List from '@mui/material/List';
@@ -8,6 +7,7 @@ import {
   Box,
   ListItem,
 } from '@material-ui/core';
+import { selectBlogs } from '../../../states/usertumblr/usertumblrSlice';
 
 import {
   newMessagePress,
@@ -18,7 +18,6 @@ import ChatList from './subcomponents/ChatList';
 import { selectUser } from '../../states/User/UserSlice';
 import SearchBar from '../ChatSearchBar/SearchBar';
 import './css/ChatList.css';
-import { useOutsideAlerter } from '../NavigationBar/interactions';
 /**
  * This function is for the ChatTo component this component has a search
  * bar to search for friend to chat with
@@ -28,6 +27,7 @@ import { useOutsideAlerter } from '../NavigationBar/interactions';
 function ChatTo() {
   const chats = useSelector((state) => state.Chat.chats);
   const User = useSelector(selectUser);
+  const blogState = useSelector(selectBlogs);
   // const ListOpen = useSelector(true);
   const recentlyFollowed1 = useSelector((state) => state.Chat.recentlyfollowed);
   const newMessagePress1 = useSelector((state) => state.Chat.newmessagepress);
