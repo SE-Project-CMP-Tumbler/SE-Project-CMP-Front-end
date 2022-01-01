@@ -20,7 +20,7 @@ const fetchAsyncblogposts = createAsyncThunk(
         console.log(USERTOKEN);
         console.log(BlogId);
         const AuthStr = `Bearer ${USERTOKEN}`;
-        const response = await apiR.get(`post/submission/${BlogId}`, { headers: { Authorization: AuthStr } });
+        const response = await apiR.get(`posts/${BlogId}/published`, { headers: { Authorization: AuthStr } });
         console.log(response.data);
         return response.data;
       } catch (e) {
@@ -49,7 +49,7 @@ const fetchAsyncnextposts = createAsyncThunk(
         console.log(USERTOKEN);
         console.log(BlogId);
         const AuthStr = `Bearer ${USERTOKEN}`;
-        const response = await apiR.get(`post/submission/${BlogId}?page=${next}`, { headers: { Authorization: AuthStr } });
+        const response = await apiR.get(`posts/${BlogId}/published?page=${next}`, { headers: { Authorization: AuthStr } });
         console.log(response.data);
         return response.data;
       } catch (e) {
