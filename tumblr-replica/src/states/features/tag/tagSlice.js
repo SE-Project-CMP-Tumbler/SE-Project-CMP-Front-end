@@ -3,6 +3,12 @@ import Axios from 'axios';
 import { api, apiR } from '../../../apis/globalAxpi';
 import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
+/**
+ * function that fetch Information about Tag
+ * @method
+ * @param {string} TagDescription
+ * @return {Object} response of the request
+*/
 const fetchAsynctag = createAsyncThunk(
   'tagged/:tagdescription',
   async (TagDescription, { getState }) => {
@@ -29,6 +35,12 @@ const fetchAsynctag = createAsyncThunk(
   },
 );
 
+/**
+ * function that Post request to unfollow tag
+ * @method
+ * @param {string} TagDescription
+ * @return {Object} response of the request
+*/
 const DeleteAsyncfollowtags = createAsyncThunk(
   'unfollowtag/tagcard',
   async (TagDescription, { getState }) => {
@@ -62,6 +74,12 @@ const DeleteAsyncfollowtags = createAsyncThunk(
   },
 );
 
+/**
+ * function that Post request to follow tag
+ * @method
+ * @param {string} TagDescription
+ * @return {Object} response of the request
+*/
 const AddAsyncfollowtags = createAsyncThunk(
   'followtag/tagcard',
   async (TagDescription, { getState }) => {

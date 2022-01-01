@@ -2,6 +2,12 @@ import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { api, apiR } from '../../../apis/globalAxpi';
 import { SERVICETYPE, MOCK } from '../../../apis/globalAPI';
 
+/**
+ * function that fetch the info for the blog username, title ,avatar....
+ * @method
+ * @param {number} BlogId
+ * @return {Object} response of the request
+*/
 const fetchAsyncbloginfo = createAsyncThunk(
   'blog/:blog_id',
   async (BlogId, { getState }) => {

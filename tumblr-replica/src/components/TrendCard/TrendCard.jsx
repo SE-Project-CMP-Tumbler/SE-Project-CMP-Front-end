@@ -13,9 +13,17 @@ import { Link } from 'react-router-dom';
  * @component
  * @name
  * TrendCard
+ * @param {string}
+ * image1 the url for the image of tag
+ * @param {string}
+ * tag the description for the tag
+ * @param {string}
+ * color for the card
+ * @param {string}
+ * number of the card
  * @example
  * return (
- *   <TrendCard />
+ *   <TrendCard image1="imageurl", tag="Red", color="#2356", number="1"/ >
  * )
  */
 export default function TrendCard({

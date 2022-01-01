@@ -7,15 +7,14 @@ import PostsList from '../PostsList/PostsList';
 import { getGifposts, fetchAsyncgifposts } from '../../states/features/gifposts/gifpostsSlice';
 
 /**
- * Component for render all elements in /explore/recommended-for-you
- * now it has {@link CarouselCards} and {@link FollowingList}.
+ * Component for render all Page has gifs use {@link PostsList}
  *
  * @component
  * @name
- * Explore
+ * GifPosts
  * @example
  * return (
- *   <Explore />
+ *   <GifPosts />
  * )
  */
 function GifPosts() {

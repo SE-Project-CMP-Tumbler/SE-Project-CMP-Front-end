@@ -7,7 +7,7 @@ import PostsList from '../PostsList/PostsList';
 import { getAskposts, fetchAsyncaskposts, fetchAsyncnextposts } from '../../states/features/askposts/askpostsSlice';
 
 /**
- * Component for render all Ask Posts
+ * Component for render all Ask Posts that use {@link PostsList}
  *
  * @component
  * @name

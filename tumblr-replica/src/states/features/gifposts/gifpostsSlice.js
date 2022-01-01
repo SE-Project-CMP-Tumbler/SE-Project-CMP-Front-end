@@ -1,6 +1,11 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import exploreApi from '../../../apis/exploreApi';
 
+/**
+ * function that fetch the gif posts from the Mock
+ * @method
+ * @return {Object} response of the request
+*/
 const fetchAsyncgifposts = createAsyncThunk(
   'posts/gif',
   async () => {

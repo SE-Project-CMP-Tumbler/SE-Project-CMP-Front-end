@@ -9,7 +9,7 @@ import { getDraftposts, fetchAsyncdraftposts, fetchAsyncnextposts } from '../../
 import Menue from '../Menue/Menue';
 
 /**
- * Component for show the Drafts for the blog and {@link sideTabs}
+ * Component for show the Drafts for the blog and {@link SideTabs} and {@link PostsList}
  *
  * @component
  * @name

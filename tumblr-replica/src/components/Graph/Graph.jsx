@@ -12,6 +12,50 @@ import ReactLoading from 'react-loading';
 import ListItemText from '@mui/material/ListItemText';
 import { Link } from 'react-router-dom';
 
+/**
+ * That render Posts in number of columes acording to screen width
+ *
+ * @component
+ * @name
+ * Graph
+ * @param  {object}
+ * Notes : object has the meta and data for the graph
+ * @param  {string}
+ * periodval : period we retrive the activity acording to it
+ * @param  {string}
+ * rateval : rate we retrive the activity acording to it
+ * @param  {string}
+ * optionval : what data retrive notes or new followers or total followers
+ * @example
+ * return (
+ *   <Graph Notes="{
+    "meta": {
+      "status": 200,
+      "msg": "ok"
+    },
+    "response": {
+      "notes_count": 16,
+      "new_followers_count": 6,
+      "total_followers_count": 326,
+      "data": [
+          {
+            "timestamp": "2021-11-03 01:13:39",
+            "notes": 5
+          },
+          {
+            "timestamp": "2021-17-03 01:13:39",
+            "notes": 51
+          },
+          {
+            "timestamp": "2021-19-03 01:13:39",
+            "notes": 9
+          }
+      ]
+    }
+  }" periodval="dat" rateval="hourly" optionval = "new" />
+ * )
+ */
+
 export default function Graph({
   Notes, periodval, rateval, optionval,
 }) {

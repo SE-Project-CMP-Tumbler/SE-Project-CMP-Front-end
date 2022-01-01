@@ -7,7 +7,7 @@ import PostsList from '../PostsList/PostsList';
 import { getAudioposts, fetchAsyncaudioposts, fetchAsyncnextposts } from '../../states/features/audioposts/audiopostsSlice';
 
 /**
- * Component for render all Audio Posts
+ * Component for render all Audio Posts that use {@link PostsList}
  *
  * @component
  * @name
