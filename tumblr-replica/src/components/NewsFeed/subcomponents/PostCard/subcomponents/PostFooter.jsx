@@ -16,9 +16,10 @@ import PropTypes from 'prop-types';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectUser } from '../../../../../states/User/UserSlice';
 import { UnlikePost, LikePost } from '../../../../../states/features/dashboard/likeAPI';
+import { setOpened } from '../../../../../states/features/createpost/createpostSlice';
+import { fetchPosts } from '../../../../../states/features/dashboard/dashboardSlice';
 import Notes from './Notes/Notes';
 import DeletePost from '../../../../../states/features/dashboard/deletepostAPI';
-import ReactEditor from '../../../../CreatPost/ReactEditor';
 
 const style = {
   position: 'absolute',
@@ -37,26 +38,19 @@ const style = {
  */
 const PostFooter = function PostFooterButtons(props) {
   const {
-    postId, blogId, content, postType,
+    postId, blogId, content, postType, isLiked,
   } = props;
   // States
-  const [Liked, setLiked] = useState(false);
+  const [Liked, setLiked] = useState(isLiked);
   const [showModel, setShowModel] = useState(false);
   const [showNotes, setShowNotes] = useState(false);
-  const [edit, setEdit] = useState(0);
   const User = useSelector(selectUser);
   // reducers & states
   const dispatch = useDispatch();
-  const [open, setOpen] = useState(false);
-  const handleOpen = () => {
-    setOpen(true);
-  };
-  const handleClose = () => {
-    setOpen(false);
-  };
   const handleDelete = function Delete() {
     dispatch(DeletePost({ User, postID: postId }));
     setShowModel(false);
+    dispatch(fetchPosts(User));
   };
 
   const handleLike = function likeUnlikePost() {
@@ -69,12 +63,22 @@ const PostFooter = function PostFooterButtons(props) {
   };
 
   const handleEdit = function Edit() {
-    setEdit(1);
-    handleOpen();
+    dispatch(setOpened({
+      opend: true,
+      postBody: content,
+      edit: 1,
+      postID: postId,
+      postType,
+    }));
   };
   const handleReblog = function ReblogwithCaption() {
-    setEdit(2);
-    handleOpen();
+    dispatch(setOpened({
+      opend: true,
+      postBody: '',
+      edit: 2,
+      postID: postId,
+      postType,
+    }));
   };
 
   return (
@@ -154,14 +158,6 @@ const PostFooter = function PostFooterButtons(props) {
             </Box>
           </Modal>
         )}
-        <Modal
-          open={open}
-          onClose={handleClose}
-          aria-labelledby="modal-modal-title"
-          aria-describedby="modal-modal-description"
-        >
-          <ReactEditor body={edit === 1 ? content : ''} edit={edit} postID={postId} postType={postType} />
-        </Modal>
       </div>
     </>
   );
@@ -173,4 +169,5 @@ PostFooter.propTypes = {
   blogId: PropTypes.number.isRequired,
   content: PropTypes.string.isRequired,
   postType: PropTypes.string.isRequired,
+  isLiked: PropTypes.bool.isRequired,
 };

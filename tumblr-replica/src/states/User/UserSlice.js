@@ -672,6 +672,14 @@ const userSlice = createSlice({
       state.statusMessage = '';
     },
     /**
+    * This function resets the status state
+    * @method
+    * @param {object} state The object that stores the current Status number
+    */
+    setStatus: (state) => {
+      state.status = null;
+    },
+    /**
     * This function sets whether the email change request was executed correctly or not
     * @method
     * @param {object} state The object that stores the current state of the email change.
@@ -1227,7 +1235,6 @@ const userSlice = createSlice({
     [changePasswordThunkR.fulfilled]: (state, { payload }) => {
       state.passwordChanged = false;
       if (payload.meta.status === '200') {
-        console.log('Change Password Successful!');
         state.status = payload.meta.status;
         const loggedInUser = localStorage.getItem('user');
         if (loggedInUser) {
@@ -1287,13 +1294,16 @@ const userSlice = createSlice({
       state.emailChanged = false;
       if (payload.meta.status === '200') {
         console.log('Change Email Successful!');
+        console.log(payload);
+        const newEmail = state.user.email;
         state.status = payload.meta.status;
         const loggedInUser = localStorage.getItem('user');
         if (loggedInUser) {
           const foundUser = JSON.parse(loggedInUser);
           state.user = foundUser;
+          state.user.email = newEmail;
         }
-        state.user.email = payload.response.email;
+        // state.user.email = payload.response.email;
         localStorage.clear();
         // store the user in localStorage
         localStorage.setItem('user', JSON.stringify(state.user));
@@ -1357,7 +1367,6 @@ const userSlice = createSlice({
     },
     [deleteAccountThunkR.fulfilled]: (state, { payload }) => {
       if (payload.meta.status === '200') {
-        console.log('Delete Successful!');
         localStorage.clear();
         state.user = {
           loggedin: false,
@@ -1409,7 +1418,7 @@ const userSlice = createSlice({
 export const {
   initialCheck, setEmail, setPassword, setBlogName, setAge, logOut, signUp, continueWithGoogle,
   setRegStep, setGoogleAccessToken, setVerified, setStatusMessage, hideReVerify,
-  setResetEmailReceived, setEmailChanged, setPasswordChanged,
+  setResetEmailReceived, setEmailChanged, setPasswordChanged, setStatus,
 } = userSlice.actions;
 
 export const selectUser = (state) => state.user.user;

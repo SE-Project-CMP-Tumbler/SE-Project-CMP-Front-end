@@ -3,6 +3,7 @@ import './css/ProfileHeader.css';
 import { Link, useParams, Navigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import ReactLoading from 'react-loading';
+import Header from './subcomponents/Header';
 import ProfileHeader from './ProfileHeader';
 import {
   getBlog, fetchBlog,
@@ -47,6 +48,9 @@ function Submit() {
               </li>
             )}
           </ul>
+        </div>
+        <div style={{ width: '100%', justifyContent: 'center', flexDirection: 'row' }}>
+          <Header blogid={blogid} />
         </div>
       </div>
     </div>

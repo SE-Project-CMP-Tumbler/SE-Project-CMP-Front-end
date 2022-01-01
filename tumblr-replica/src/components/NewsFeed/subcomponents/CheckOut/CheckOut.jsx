@@ -16,7 +16,6 @@ const CheckOut = function CheckOutTheseBlogs() {
   const dispatch = useDispatch();
   const User = useSelector(selectUser);
   useEffect(() => {
-    console.log(CheckoutBlogs);
     dispatch(fetchCheckout(User));
   }, []);
   return (
@@ -34,7 +33,7 @@ const CheckOut = function CheckOutTheseBlogs() {
           </ul>
         </div>
         <Grid item style={{ textAlign: 'left' }} xs={0} sm={12}>
-          <a className="I_SFh" href="/explore">
+          <a className="I_SFh" href="explore/recommended-for-you">
             Explore all of Tumblr
           </a>
         </Grid>

@@ -53,6 +53,7 @@ import deleteAllMessagesReducer from './deleteallmessagesslice/deleteallmessages
 import BlogMessagesReducer from './retriveblogmessagesslice/retriveblogmessagesslice';
 import AllMessagesReducer from './retriveallmessagesslice/retriveallmessagesslice';
 import hideNavReducer from './hidenav/hidenavSlice';
+import blogSettingsReducer from './blogsettingsslice/blogsettingsSlice';
 import deleteAskReducer from './deleteaskslice/deleteAskSlice';
 import deleteSubmitReducer from './deletesubmissionslice/deleteSubmissionSlice';
 import PostSubmitReducer from './submissionslice/approveSubmissionSlice';
@@ -62,6 +63,9 @@ import themeReducer from './theme/themeSlice';
 import notificationsReducer from './notifications/notificationSlice';
 import searchStuffReducder from './search/searchSlice';
 import searchAutocompleteReducer from './search/autocompleteSlice';
+import blogThemeReducer from './blogthemeslice/blogthemeSlice';
+import SumbitReducer from './submit/submitAPI';
+import CreatePostReducer from './features/createpost/createpostSlice';
 
 const store = configureStore({
   reducer: {
@@ -126,6 +130,10 @@ const store = configureStore({
     notifications: notificationsReducer,
     searchStuff: searchStuffReducder,
     searchAutocomplete: searchAutocompleteReducer,
+    postsubmit: SumbitReducer,
+    blogSettings: blogSettingsReducer,
+    blogTheme: blogThemeReducer,
+    CreatePostState: CreatePostReducer,
   },
 });
 

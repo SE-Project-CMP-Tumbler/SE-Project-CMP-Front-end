@@ -83,6 +83,7 @@ export default function FollowingList() {
     dispatch(fetchAsyncfollowtags());
   }, []);
   const followtags = useSelector(getAllfollowtags);
+  const tags = followtags.response.tags.filter((tag) => tag.follow === true);
   const maxlen = followtags.response.tags.length;
   const handleStart = () => {
     setStart(((start + 4) % maxlen));
@@ -128,7 +129,7 @@ export default function FollowingList() {
                 </div>
               </ListItem>
               <Divider />
-              {followtags.response.tags.slice(start, start + 4)
+              {tags.slice(start, start + 4)
                 .map((tag) => (
                   <FollowingTag
                     key={tag}
@@ -152,7 +153,7 @@ export default function FollowingList() {
             Try switching to the mock server to see if the error persists.
           </Alert>
         ))
-                || (followtags.meta.msg === 'Loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={157} /></Box>)
+                || (followtags.meta.msg === 'Loading' && <Box style={{ marginLeft: '30%' }}><ReactLoading type="bars" color="#fff" width={70} /></Box>)
         )
             }
     </Box>

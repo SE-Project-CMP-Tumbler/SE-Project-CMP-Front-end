@@ -7,6 +7,8 @@ import {
   getcheck,
   setChecks,
 } from '../../../../../states/features/checkout/checkoutSlice';
+import { FollowAsynch } from '../../../../../states/followslice/followslice';
+
 /**
  *
  * @returns component that includes some recommended blogs to follow.
@@ -15,11 +17,12 @@ const Check = function CheckOut(props) {
   const { blog } = props;
   const CheckoutBlogs = useSelector(getcheck);
   const dispatch = useDispatch();
-  const handleFollow = function follow() {
-    console.log(CheckoutBlogs.blogs.filter((ch) => ch.id !== blog.id));
-  };
   const handleRemove = function Remove() {
     dispatch(setChecks(CheckoutBlogs.blogs.filter((ch) => ch.id !== blog.id)));
+  };
+  const handleFollow = function follow() {
+    dispatch(FollowAsynch(blog.id));
+    handleRemove();
   };
   const [showBtn, setShowBtn] = useState(false);
   return (
@@ -36,7 +39,7 @@ const Check = function CheckOut(props) {
         <div className="conainer2">
           <div className="blog">
             <span className="blogspan">
-              <a className="blogname" href={`/blog/view/${blog.id}`}>
+              <a className="blogname" href={`https://web.dev.tumbler.social/blog/view/${blog.username}`}>
                 <div className="blogdata">
                   <div className="blogimg">
                     <img src={blog.avatar} alt="img" />

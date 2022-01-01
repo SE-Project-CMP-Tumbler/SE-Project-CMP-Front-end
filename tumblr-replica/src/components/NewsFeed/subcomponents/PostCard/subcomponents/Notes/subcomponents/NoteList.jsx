@@ -6,17 +6,18 @@ import Badge from '@mui/material/Badge';
 import Avatar from '@mui/material/Avatar';
 import RepeatIcon from '@mui/icons-material/Repeat';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-import { useSelector } from 'react-redux';
+import PropTypes from 'prop-types';
 /**
  * this function is responsible for displaying list of people who like/rebloged/replied
  * on a post
  * @returns the list of people
  */
-const NoteList = function AllNotesList() {
-  const { likes, reblogs } = useSelector((state) => state.PostNotes);
+const NoteList = function AllNotesList(props) {
+  const { likes, reblogs } = props;
   return (
     <Grid container direction="coloumn">
-      {likes.map((e) => (
+      {likes?.length
+      && likes.map((e) => (
         <Grid direction="row" container spacing={1} sx={{ mt: 0.5 }}>
           <Grid item>
             <Badge
@@ -60,7 +61,7 @@ const NoteList = function AllNotesList() {
           </Grid>
         </Grid>
       ))}
-      {reblogs.map((e) => (
+      {reblogs?.length && reblogs.map((e) => (
         <Grid direction="row" container spacing={1} sx={{ mt: 0.5 }}>
           <Grid item>
             <Badge
@@ -109,3 +110,7 @@ const NoteList = function AllNotesList() {
 };
 
 export default NoteList;
+NoteList.propTypes = {
+  likes: PropTypes.instanceOf(Array).isRequired,
+  reblogs: PropTypes.instanceOf(Array).isRequired,
+};

@@ -171,7 +171,7 @@ export function NotificationsItem({
   action, content, actionIcon, byTumblr, byTumblrIcon, context, isFollow, isReply,
 }) {
   return (
-    <Link to="/">
+    <Link to={'/blog/view/' + byTumblr}>
       <div className="notification-item">
         <div className="notification-icon-box">
           <img src={byTumblrIcon} alt="profile icon" className="profile-icon" />

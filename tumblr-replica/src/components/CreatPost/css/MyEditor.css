@@ -39,17 +39,27 @@
     height: 22px;
   }
 
-  .titletext{
-      border: none;
-      height: 50px;
-      width: 100%;
-      border-style: none;
-      outline: none;
+  .Title::placeholder{
+      color: rgb(104, 104, 104) !important;
   }
 
-  :-ms-input-placeholder { /* IE 10+ */
-    color: pink;
-  }
-  .TitleInput::placeholder{
-      color: black !important;
-  }
+  .tags::placeholder{
+    color: #686868 !important;
+}
+
+.FOqaPn{
+    background-color: transparent;
+    border-radius: 50%;
+    height: 100px!important;
+    width: 100px!important;
+    cursor: pointer;
+    text-align: center!important;
+    color: #000000;
+    border: none;
+    outline: none;
+}
+.FPn:hover {
+    /*  Making button bigger on hover  */
+      transform: scale(1.2) perspective(0.5px)!important
+}
+  
