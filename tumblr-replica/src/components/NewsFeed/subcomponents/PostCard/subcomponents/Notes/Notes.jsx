@@ -42,7 +42,7 @@ const Notes = function NotesPopover(props) {
   };
 
   useEffect(() => {
-    fetchNotes(postId, setLikes, setReplies, setReblogs);
+    fetchNotes(postId, setLikes, setReplies, setReblogs, User);
   }, [showNotes]);
   const handleClose = function HideNotesList() {
     setShowNotes(null);

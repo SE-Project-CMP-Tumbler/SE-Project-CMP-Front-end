@@ -4,7 +4,12 @@ import { React, useState } from 'react';
 import {
   EditorState, convertToRaw, ContentState,
 } from 'draft-js';
+<<<<<<< Updated upstream
 // import { useMediaQuery } from 'react-responsive';
+=======
+import htmlToDraft from 'html-to-draftjs';
+import { useMediaQuery } from 'react-responsive';
+>>>>>>> Stashed changes
 import { useDispatch, useSelector } from 'react-redux';
 import { Editor } from 'react-draft-wysiwyg';
 import draftToHtml from 'draftjs-to-html';
@@ -37,6 +42,7 @@ const ReactEditor = () => {
   };
   // eslint-disable-next-line no-unused-vars
   const dispatch = useDispatch();
+<<<<<<< Updated upstream
   const create = useSelector((state) => state.CreatePostState);
   console.log(create);
   const [tags, setTags] = useState('');
@@ -45,6 +51,13 @@ const ReactEditor = () => {
   const contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
   const [editorState, setEditorState] = useState(
     () => EditorState.createWithContent(contentState),
+=======
+  const contentBlock = htmlToDraft(body);
+  const [editorState, setEditorState] = useState(
+    () => EditorState.createWithContent(
+      ContentState.createFromBlockArray(contentBlock.contentBlocks),
+    ),
+>>>>>>> Stashed changes
   );
   const [content, setContent] = useState(create.postBody);
   function uploadCallBack(file) {
