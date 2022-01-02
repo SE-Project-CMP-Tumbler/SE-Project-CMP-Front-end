@@ -69,7 +69,8 @@
     "eject": "react-scripts eject",
     "test:watch": "npm test -- --watch",
     "json:server": "npx json-server --watch data/db.json --port 8000 --middlewares src/apis/loginMiddleware.js",
-    "docs": "jsdoc -c jsdoc.conf.json"
+    "docs": "jsdoc -c jsdoc.conf.json",
+    "e2e:start": "react-scripts -r @cypress/instrument-cra start"
   },
   "eslintConfig": {
     "extends": [
@@ -91,6 +92,8 @@
   },
   "devDependencies": {
     "@babel/eslint-parser": "^7.16.5",
+    "@cypress/code-coverage": "^3.9.12",
+    "@cypress/instrument-cra": "^1.4.0",
     "@testing-library/jest-dom": "^5.15.0",
     "@testing-library/react": "^12.1.2",
     "@testing-library/user-event": "^12.8.3",

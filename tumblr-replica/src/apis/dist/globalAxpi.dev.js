@@ -16,7 +16,7 @@ var api = _axios["default"].create({
 exports.api = api;
 
 var apiR = _axios["default"].create({
-  baseURL: 'https://api.dev.tumbler.social/api'
+  baseURL: 'https://api.tumbler.social/api'
 });
 
 exports.apiR = apiR;

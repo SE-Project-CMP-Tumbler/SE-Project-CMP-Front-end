@@ -55,7 +55,7 @@ function _callee(dispatch, _ref) {
           _context.next = 21;
           return regeneratorRuntime.awrap((0, _axios["default"])({
             method: 'POST',
-            url: 'https://api.dev.tumbler.social/api/blog',
+            url: 'https://api.tumbler.social/api/blog',
             headers: {
               Authorization: AuthStr,
               Accept: 'application/json',
