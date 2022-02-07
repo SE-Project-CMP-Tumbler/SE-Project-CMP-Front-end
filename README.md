@@ -48,44 +48,44 @@
   <br>
   <h3> Let's begin </h3>
   <br>
-   <h3><u> <b>  Sign Up & Login </b> </u> </h3>
+   <h3> <b>   ✦ Sign Up & Login ✦  </b>  </h3>
   <img src="Demo/Sign Up.gif"  >
   <br>
-  <h3><b> Email Verification</b> </h3>
+  <h3><b>  ✦ Email Verification ✦ </b> </h3>
   <img src="Demo/Verify.gif"  >
   <br>
-  <h3><b> Dashboard & Posts</b> </h3>
+  <h3><b>  ✦ Dashboard & Posts ✦ </b> </h3>
   <img src="Demo/Posts.gif"  >
   <br>
-  <h3><b> Trending Page</b> </h3>
+  <h3><b>  ✦ Trending Page ✦ </b> </h3>
   <img src="Demo/Trending Page.gif" >
   <br>
-  <h3><b> Inbox Page</b> </h3>
+  <h3><b>  ✦ Inbox Page ✦ </b> </h3>
   <img src="Demo/Inbox.gif" >
   <br>
-  <h3><b> Chat </b> </h3>
+  <h3><b>  ✦ Chat ✦ </b> </h3>
   <img src="Demo/Chat.gif" >
   <br>
-  <h3><b> Search </b> </h3>
+  <h3><b>  ✦ Search ✦ </b> </h3>
   <img src="Demo/Search.gif" >
   <br>
-  <h3><b> Navigation Bar</b> </h3>
+  <h3><b>  ✦ Navigation Bar ✦ </b> </h3>
   <img src="Demo/Navigation Bar.gif" >
   <br>
-  <h3><b>Profile</b> </h3>
+  <h3><b> ✦ Profile ✦ </b> </h3>
   <img src="Demo/Profile.gif" >
   <br>
-  <h3><b>Profile-related Pages</b> </h3>
+  <h3><b> ✦ Profile-related Pages ✦ </b> </h3>
   <img src="Demo/Profile-related Pages.gif" >
   <br>
-  <h3><b>Following & Followers</b> </h3>
+  <h3><b> ✦ Following & Followers ✦ </b> </h3>
   <img src="Demo/Follow.gif" >
   <br>
-  <h3><b>Responsiveness & Themes</b> </h3>
+  <h3><b> ✦ Responsiveness & Themes ✦ </b> </h3>
   <img src="Demo/Themes.gif" >
   <br>
 
-  <h3><b>Settings</b> </h3>
+  <h3><b> ✦ Settings ✦ </b> </h3>
   <img src="Demo/Settings.gif" >
   <br>
 
