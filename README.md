@@ -20,7 +20,7 @@
 <br>
 <br>
 
->After cloning, Github might not get folder names correctly. If you get an error, Make sure that it's tumblr-replica/src/components/NavTabs/NavTabs and not tumblr-replica/src/components/NavTabs/Navtabs
+>We're aware of a bug where after cloning, Github might not get the folder names correctly. If you get an error, Make sure that it's tumblr-replica/src/components/NavTabs/NavTabs and not tumblr-replica/src/components/NavTabs/Navtabs
 
 <div align="center">
    <h2> Technologies used </h2>
@@ -29,11 +29,11 @@
   <img src="Demo/eslint.png" title="Under AirBnB's standards" width='20%'>
   <br>
   <img src="Demo/MUI.png" title="Material UI" width='20%'>
-  <img src="Demo/Sass.png" title="Sass" width='20%'>
   <img src="Demo/json.png" title="JSON Server" width='20%'>
+  <img src="Demo/sass.png" title="Sass" width='20%'>
   <br>
   <br>
-  <img src="Demo/RTK.png" title="Redux Toolkit" width='20%'>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+  <img src="Demo/rtk.png" title="Redux Toolkit" width='20%'>  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
   <img src="Demo/docker.png" title="Docker" width='20%'>
 
   </div>
@@ -48,7 +48,7 @@
   <br>
   <h3> Let's begin </h3>
   <br>
-  <h3><b> Sign Up & Login</b> </h3>
+   <h3><u> <b>  Sign Up & Login </b> </u> </h3>
   <img src="Demo/Sign Up.gif"  >
   <br>
   <h3><b> Email Verification</b> </h3>
@@ -89,7 +89,7 @@
   <img src="Demo/Settings.gif" >
   <br>
 
-  <h2> ❤️️ <b>  Thank you. </b> ❤️️ </h2>
+  <h2> 💖 <b>  Thank you. </b> 💖 </h2>
 
 
 
