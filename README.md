@@ -3,11 +3,11 @@
 <br>
 <br>
 <p align='justify'>
-   This website is a replica of the widely known <a href="tumblr.com">Tumblr</a>. Made with passion by a team of six computer engineering juniors at Cairo University and serves as a project for the software engineering fundementals course (CMP3030).  You can visit the website at:
+   This website is a replica of the widely known <a href="tumblr.com">Tumblr</a>. Made with passion by a team of six computer engineering juniors at Cairo University and serves as a school project for the software engineering fundementals course (CMP3030).  You can visit the website at:
   </p>
   <a href="https://tumblr.social">https://tumblr.social</a>
   <br>
-  <p align='justify'> Note that the backend server and frontend are deployed seperately, they're not guaranteed to stay there forever, these are the steps to run the project on your machine:</p>
+  <p align='justify'> Note that the frontend and backend server are deployed seperately. They're not guaranteed to stay there forever, these are the steps to run the project on your machine:</p>
 
 </div>
 ➤ Clone the project
@@ -16,7 +16,7 @@
 <br>
 ➤ npm start
 <br>
-➤ npx json-server --watch data/db.json --port 8000 (to run on the mock server)
+➤ npx json-server --watch data/db.json --port 8000 (to the mock server)
 <br>
 <br>
 
