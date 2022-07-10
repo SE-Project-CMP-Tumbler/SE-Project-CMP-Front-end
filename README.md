@@ -40,7 +40,7 @@
 <br>
 <br>
   <div align="center">
-  <h2> 🛫 <b>  Now it's time quick demo on the main features </b> 🛬 </h2>
+  <h2> 🛫 <b>  Now it's time for quick demo on the main features </b> 🛬 </h2>
   <br>
   <h3>Take a deep breath </h3>
   <br>
@@ -88,6 +88,8 @@
   <h3><b> ✦ Settings ✦ </b> </h3>
   <img src="Demo/Settings.gif" >
   <br>
+
+  <h2> ⭐ <b>  Collaborators </b> ⭐ </h2>
 
 <!-- readme: collaborators -start -->
 <table>
