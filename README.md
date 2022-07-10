@@ -126,7 +126,7 @@
         <a href="https://github.com/maryemsalah22">
             <img src="https://avatars.githubusercontent.com/u/56718680?v=4" width="100;" alt="maryemsalah22"/>
             <br />
-            <sub><b>maryemsalah22</b></sub>
+            <sub><b>Maryemsalah22</b></sub>
         </a>
     </td>
     <td align="center">
@@ -162,7 +162,7 @@
         <a href="https://github.com/tumblerbot">
             <img src="https://avatars.githubusercontent.com/u/94648660?v=4" width="100;" alt="tumblerbot"/>
             <br />
-            <sub><b>tumblerbot</b></sub>
+            <sub><b>Tumblerbot</b></sub>
         </a>
     </td></tr>
 </table>
