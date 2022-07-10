@@ -89,6 +89,10 @@
   <img src="Demo/Settings.gif" >
   <br>
 
+<!-- readme: collaborators -start -->
+<!-- readme: collaborators -end -->
+
+
   <h2> 💖 <b>  Thank you. </b> 💖 </h2>
 
 
