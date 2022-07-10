@@ -90,24 +90,9 @@
   <br>
 
   <h2> ⭐ <b>  Collaborators </b> ⭐ </h2>
-
-<!-- readme: collaborators -start -->
-<table>
+   
+   <table>
 <tr>
-    <td align="center">
-        <a href="https://github.com/GhiathAjam">
-            <img src="https://avatars.githubusercontent.com/u/43111805?v=4" width="100;" alt="GhiathAjam"/>
-            <br />
-            <sub><b>غياث</b></sub>
-        </a>
-    </td>
-    <td align="center">
-        <a href="https://github.com/Kariiem">
-            <img src="https://avatars.githubusercontent.com/u/48629566?v=4" width="100;" alt="Kariiem"/>
-            <br />
-            <sub><b>Kariiem Taha</b></sub>
-        </a>
-    </td>
     <td align="center">
         <a href="https://github.com/EssamWisam">
             <img src="https://avatars.githubusercontent.com/u/49572294?v=4" width="100;" alt="EssamWisam"/>
@@ -122,51 +107,39 @@
             <sub><b>Iten Elhak</b></sub>
         </a>
     </td>
-    <td align="center">
-        <a href="https://github.com/maryemsalah22">
+   <td align="center">
+         <a href="https://github.com/maryemsalah22">
             <img src="https://avatars.githubusercontent.com/u/56718680?v=4" width="100;" alt="maryemsalah22"/>
             <br />
             <sub><b>Maryemsalah22</b></sub>
         </a>
     </td>
-    <td align="center">
-        <a href="https://github.com/meryacine">
-            <img src="https://avatars.githubusercontent.com/u/56920956?v=4" width="100;" alt="meryacine"/>
-            <br />
-            <sub><b>Mariocynicys</b></sub>
-        </a>
-    </td></tr>
-<tr>
-    <td align="center">
-        <a href="https://github.com/Raghad-Khaled">
+   <td align="center">
+         <a href="https://github.com/Raghad-Khaled">
             <img src="https://avatars.githubusercontent.com/u/60848147?v=4" width="100;" alt="Raghad-Khaled"/>
             <br />
             <sub><b>Raghad Khaled</b></sub>
         </a>
     </td>
-    <td align="center">
-        <a href="https://github.com/ahmed-8areeb">
+   <td align="center">
+      <a href="https://github.com/ahmed-8areeb">
             <img src="https://avatars.githubusercontent.com/u/62256670?v=4" width="100;" alt="ahmed-8areeb"/>
             <br />
             <sub><b>Ahmed Ghareeb</b></sub>
         </a>
     </td>
-    <td align="center">
-        <a href="https://github.com/nadeenay">
+   <td align="center">
+       <a href="https://github.com/nadeenay">
             <img src="https://avatars.githubusercontent.com/u/70846138?v=4" width="100;" alt="nadeenay"/>
             <br />
             <sub><b>Nadeen Ayman </b></sub>
         </a>
     </td>
-    <td align="center">
-        <a href="https://github.com/tumblerbot">
-            <img src="https://avatars.githubusercontent.com/u/94648660?v=4" width="100;" alt="tumblerbot"/>
-            <br />
-            <sub><b>Tumblerbot</b></sub>
-        </a>
-    </td></tr>
+ 
+</tr>
 </table>
-<!-- readme: collaborators -end -->
+   
+
 
 
   <h2> 💖 <b>  Thank you. </b> 💖 </h2>
